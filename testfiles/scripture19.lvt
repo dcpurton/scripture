@@ -1,0 +1,20 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}
+  \begin{hanging}
+    \vs{9}And God said, ‘Let the water under the sky be gathered to one place,
+    and let dry ground appear.’ And it was so. \vs{10}God called the dry ground
+    ‘land’, and the gathered waters he called ‘seas’. And God saw that it was
+    good.
+
+    \nohang\vs{11}Then God said, ‘Let the land produce vegetation: seed-bearing
+    plants and trees on the land that bear fruit with seed in it, according to
+    their various kinds.’ And it was so.
+  \end{hanging}
+\end{scripture}
+\end{document}

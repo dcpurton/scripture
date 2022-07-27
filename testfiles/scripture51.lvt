@@ -1,0 +1,22 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{minipage}{5.5cm}
+  \begin{scripture}
+    \begin{poetry}
+      \ch{10}Woe to those who make unjust laws,
+      to those who issue oppressive decrees,
+
+      \vs{2}to deprive the poor of their rights
+      and withhold justice from the oppressed of my people,
+
+      making widows their prey
+      and robbing the fatherless.
+    \end{poetry}
+  \end{scripture}
+\end{minipage}
+\end{document}

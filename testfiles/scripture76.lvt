@@ -1,0 +1,20 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[2 Thessalonians 1:1--2]
+  \ch{1}Paul, Silas and Timothy,
+
+  \extraskip
+
+  To the church of the Thessalonians in God our Father and the Lord Jesus
+  Christ:
+
+  \extraskip
+
+  \vs{2}Grace and peace to you from God the Father and the Lord Jesus Christ.
+\end{scripture}
+\end{document}

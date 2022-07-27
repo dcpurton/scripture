@@ -1,0 +1,27 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\scripturesetup{
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount
+}
+\begin{document}
+\START
+\showoutput
+\begin{quote}
+  \begin{scripture}[John 3:16]
+    \vs{16}For God so loved the world that he gave his one and only Son, that
+    whoever believes in him shall not perish but have eternal life.
+  \end{scripture}
+\end{quote}
+
+Filler text.
+
+\begin{scripture}[John 3:16]
+  \vs{16}For God so loved the world that he gave his one and only Son, that
+  whoever believes in him shall not perish but have eternal life.
+\end{scripture}
+
+Filler text.
+\end{document}

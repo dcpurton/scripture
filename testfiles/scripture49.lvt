@@ -1,0 +1,20 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{minipage}{5.5cm}
+  \begin{scripture}
+    \begin{poetry}
+      \vs{24}Instead of fragrance there will be a stench;
+      instead of a sash, a rope;
+
+      instead of well-dressed hair, baldness;
+      instead of fine clothing, sackcloth;
+      instead of beauty, branding.
+    \end{poetry}
+  \end{scripture}
+\end{minipage}
+\end{document}

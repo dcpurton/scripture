@@ -1,0 +1,16 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Genesis 1:3--5]
+  \begin{hanging}
+    \vs{3}And God said, ‘Let there be light,’ and there was light. \vs{4}God
+    saw that the light was good, and he separated the light from the darkness.
+    \vs{5}God called the light ‘day’, and the darkness he called ‘night’. And
+    there was evening, and there was morn\-ing---the first day.
+  \end{hanging}
+\end{scripture}
+\end{document}

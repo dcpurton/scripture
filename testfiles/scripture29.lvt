@@ -1,0 +1,19 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}
+  \begin{narrow}
+    \vs{25}Furthermore, have I come to attack and destroy this place without
+    word from the \textsc{Lord}? The \textsc{Lord} himself told me to march
+    against this country and destroy it.”’
+  \end{narrow}
+
+  \vs{26}Then Eliakim son of Hilkiah, and Shebna and Joah said to the field
+  commander, ‘Please speak to your servants in Aramaic, since we understand it.
+  Don’t speak to us in Hebrew in the hearing of the people on the wall.’
+\end{scripture}
+\end{document}

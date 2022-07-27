@@ -1,0 +1,2541 @@
+% \iffalse meta-comment
+%
+% Copyright (c) 2022 David Purton <dcpurton@marshwiggle.net>
+%
+% This work may be distributed and/or modified under the conditions of
+% the LaTeX Project Public License, either version 1.3c of this license
+% or (at your option) any later version. The latest version of this
+% license is in
+%    http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+%<*driver>
+\documentclass[a4paper]{l3doc}
+\usepackage[parindent=1em]{scripture}
+\usepackage[skins]{tcolorbox}
+\newtcolorbox{scriptureexample}[1][]{%
+  bicolor, colframe=cyan, colback=cyan!10, colbacklower=white, left=2mm,
+  right=2mm, fontupper=\footnotesize, fontlower=\footnotesize, sidebyside,
+  sidebyside gap=6mm, sidebyside align=top, lefthand ratio=0.6, before
+  skip=\bigskipamount, after skip=\bigskipamount, #1
+}
+\ExplSyntaxOn
+\makeatletter
+\cs_new_protected:Npn \__dcp_codedoc_environment_index:n #1
+  {
+    \@bsphack
+    \begingroup
+      \__codedoc_target:
+      \index
+        {
+          #1\actualchar{\protect\ttfamily#1}~(environment)
+          \encapchar hdclindex{\the\c@HD@hypercount}{usage}
+        }
+      \index
+        {
+          environments:\levelchar#1\actualchar{\protect\ttfamily#1}
+          \encapchar hdclindex{\the\c@HD@hypercount}{usage}
+        }
+    \endgroup
+    \@esphack
+  }
+\cs_new_protected:Npn \__dcp_codedoc_envmacro_index:nN #1#2
+  {
+    \DoNotIndex {#1}
+    \bool_if:NT #2
+      {
+        \__codedoc_if_macro_internal:nF {#1}
+          { \seq_gput_right:Nn \g_doc_macros_seq {#1} }
+        \hbox_set:Nw \l__codedoc_macro_index_box
+          \hbox_unpack_drop:N \l__codedoc_macro_index_box
+          \int_gincr:N \c@CodelineNo
+          \@bsphack
+          \begingroup
+            \__codedoc_target:
+            \index
+              {
+                #1\actualchar{\protect\ttfamily#1}~(environment)
+                \encapchar hdclindex{\the\c@HD@hypercount}{main}
+              }
+            \index
+              {
+                environments:\levelchar#1\actualchar{\protect\ttfamily#1}
+                \encapchar hdclindex{\the\c@HD@hypercount}{main}
+              }
+          \endgroup
+          \@esphack
+          \int_gdecr:N \c@CodelineNo
+        \exp_args:NNNo \hbox_set_end:
+          \tl_set:Nn \saved@indexname { \l__codedoc_index_key_tl }
+      }
+  }
+\DeclareDocumentEnvironment { environment } { O{} +v }
+  {
+    \cs_set_eq:NN \__codedoc_function_index:n \__dcp_codedoc_environment_index:n
+    \__codedoc_function:nnw {#1} {#2}
+  }
+  { \__codedoc_function_end: }
+\DeclareDocumentEnvironment { option } { O{} +v }
+  {
+    \cs_set_eq:NN \__codedoc_function_index:n \SpecialOptionIndex
+    \__codedoc_function:nnw {#1} {#2}
+  }
+  { \__codedoc_function_end: }
+\DeclareDocumentEnvironment { envmacro } { O{} +v }
+  {
+    \cs_set_eq:NN \__codedoc_macro_index:nN \__dcp_codedoc_envmacro_index:nN
+    \__codedoc_macro:nnw {#1} {#2}
+  }
+  { \__codedoc_macro_end: }
+\DeclareDocumentCommand \opt { m }
+  {
+    \SpecialOptionIndex{#1}
+    \texttt{#1}
+  }
+\DeclareRobustCommand \val {\texttt}
+\makeatother
+\ExplSyntaxOff
+\begin{document}
+\DocInput{\jobname.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \changes{v1.0}{2022/07/27}{First public release}
+%
+% \title{The \pkg{scripture} package}
+% \author{David Purton\thanks{Email: \url{dcpurton@marshwiggle.net}}}
+% \date{2022/07/27 v1.0}
+%
+% \maketitle
+%
+% \begin{abstract}
+%   The \pkg{scripture} package provides a set of macros for typesetting
+%   quotations from the Bible. It provides many features commonly seen in
+%   Bibles such as dropped text for chapter numbers, superscripts for verse
+%   numbers, indented lines for poetry sections, narrow sections and hanging
+%   paragraphs. A reference for the quotation can optionally be added.
+% \end{abstract}
+%
+% \tableofcontents
+%
+% \begin{documentation}
+%
+% \section{Introduction}
+%
+% Bibles tend to use a number of standard features when laying out chapters
+% and verses. The main goal for the \pkg{scripture} package is to be able to
+% quickly and easily input text and have it output nicely with minimal manual
+% adjustment.
+%
+% The package supports dropped text for chapter numbers, superscripts for
+% verse numbers, appropriately indented lines for the first and second halves
+% of poetry, flush right sections, centred sections, narrow sections and
+% hanging sections.
+%
+% The package could be used for typesetting an entire Bible, but it is mainly
+% envisioned that it will be used for producing Scripture quotations. The
+% passage reference can be included on the last line if there is space or
+% failing that on the following line.
+%
+% \subsection{Bug reports and feature requests}
+%
+% Bug reports and feature requests can be made at the \pkg{scripture} package
+% GitHub repository. See \url{https://github.com/dcpurton/scripture}.
+%
+% \subsection{Limitations}
+%
+% The \pkg{scripture} package makes extensive use of \LaTeX{} \env{list}
+% environments and the \cs{parshape} command. This means there are some
+% limitations. In particular, you should not:
+% \begin{itemize}
+%   \item Nest the \env{scripture} environment or any of its internal
+%     environments.
+%   \item Modify the \cs{parshape} within a \env{scripture} environment.
+%   \item Include any other \env{list} based environment within a
+%     \env{scripture} environment.
+% \end{itemize}
+%  
+% \section{Documentation}
+%
+% \subsection{Basic usage}
+%
+% Scripture quotations must be set within a \env{scripture} environment. A
+% simple quotation might be produced as follows:
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[Isaiah 56:1--2][version=NIVUK]
+%   \ch{56}This is what the \textsc{Lord} says:
+% 
+%   \begin{poetry}
+%     `Maintain justice
+%     and do what is right,
+% 
+%     for my salvation is close at hand
+%     and my righteousness will soon be revealed.
+% 
+%     \vs{2}Blessed is the one who does this---
+%     the person who holds it fast,
+% 
+%     who keeps the Sabbath without desecrating it,
+%     and keeps their hands from doing any evil.'
+%   \end{poetry}
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+% 
+% \begin{scripture}[Isaiah 56:1--2][version=NIVUK]
+%   \ch{56}This is what the \textsc{Lord} says:
+% 
+%   \begin{poetry}
+%     `Maintain justice
+%     and do what is right,
+% 
+%     for my salvation is close at hand
+%     and my righteousness will soon be revealed.
+% 
+%     \vs{2}Blessed is the one who does this---
+%     the person who holds it fast,
+% 
+%     who keeps the Sabbath without desecrating it,
+%     and keeps their hands from doing any evil.'
+%   \end{poetry}
+% \end{scripture}
+% \end{scriptureexample}
+%
+% \subsection{Macros for typesetting scripture quotations}
+%
+% \subsubsection{Functions}
+%
+% \begin{function}{\ch, \ch*}
+%   \begin{syntax}
+%     |\ch|\marg{chapter number}
+%     |\ch*|\marg{chapter number}
+%   \end{syntax}
+%   Format a chapter number. By default these are formatted using drop text
+%   taking up two lines and the text is separated from the chapter number by a
+%   horizontal space of 0.5\,em.
+%
+%   If the \opt{dropchap} option is \val{true} (default), then this function
+%   attempts to add sufficient space for the dropped chapter when its
+%   paragraph contains only one line. The starred version suppresses this
+%   behaviour.
+% \end{function}
+%
+% \begin{function}{\extraskip}
+%   \begin{syntax}
+%     |\extraskip|
+%   \end{syntax}
+%   Add a small vertical space of \opt{extraskip} between a paragraph. This
+%   function attempts to add additional space to avoid a clash with a drop
+%   chapter if required.
+% \end{function}
+%
+% \begin{function}{\nohang}
+%   \begin{syntax}
+%     |\nohang|
+%   \end{syntax}
+%   In a \env{hanging} environment, this function indents the first line of
+%   the paragraph a length of \opt{hanging/hang} $+$ \opt{parindent}.
+%   Remaining lines continue to be indented by a length of \opt{hanging/hang}.
+% \end{function}
+%
+% \begin{function}{\scripturesetup}
+%   \begin{syntax}
+%     |\scripturesetup|\marg{options}
+%   \end{syntax}
+%   Set default format for quotations. See section \ref{options} for
+%   supported formatting \meta{|options|}.
+% \end{function}
+%
+% \begin{function}{\vs}
+%   \begin{syntax}
+%     |\vs|\marg{verse number}
+%   \end{syntax}
+%   Format a verse number. By default these are formatted using a superscript.
+% \end{function}
+%
+% \subsubsection{Environments}
+% 
+% All scripture quotations must be set within a \env{scripture} environment.
+% The rest of the environments documented below are only defined with the
+% \env{scripture} environment. In most cases there is a default small
+% \meta{\opt{aboveskip}} and \meta{\opt{belowskip}} inserted above and below
+% these internal environments, but these are ignored if the environment is at
+% the start or end of a \env{scripture} environment.
+%
+% \begin{environment}{center}
+%   \begin{syntax}
+%     |\begin{center}|\oarg{options}
+%       \quad\meta{centred text}
+%     |\end{center}|
+%   \end{syntax}
+% \end{environment}
+%
+% \noindent Environment for typesetting centred sections of scripture
+% quotations.
+%
+% See section \ref{centeroptions} for supported formatting \meta{|options|}.
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[Daniel 5:25]
+%   \vs{25}‘This is the inscription that was
+%   written:
+%
+%   \begin{center}
+%     \textsc{mene, mene, tekel, parsin}
+%   \end{center}
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+% 
+% \begin{scripture}[Daniel 5:25]
+%   \vs{25}‘This is the inscription that was
+%   written:
+%
+%   \begin{center}
+%     \textsc{mene, mene, tekel, parsin}
+%   \end{center}
+% \end{scripture}
+% \end{scriptureexample}
+%
+% \begin{environment}{flushright}
+%   \begin{syntax}
+%     |\begin{flushright}|\oarg{options}
+%       \quad\meta{right aligned text}
+%     |\end{flushright}|
+%   \end{syntax}
+% \end{environment}
+%
+% \noindent Environment for typesetting right aligned sections of scripture
+% quotations.
+%
+% See section \ref{flushrightoptions} for supported formatting
+% \meta{|options|}.
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[Jeremiah 2:29]
+%   \begin{poetry}[belowskip=0pt]
+%     \vs{5}‘Why do you bring charges against me?
+%     You have all rebelled against me,’
+%   \end{poetry}
+%
+%   \begin{flushright}[aboveskip=0pt]
+%     declares the \textsc{Lord}.
+%   \end{flushright}
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+% 
+% \begin{scripture}[Jeremiah 2:29]
+%   \begin{poetry}[belowskip=0pt]
+%     \vs{5}‘Why do you bring charges against me?
+%     You have all rebelled against me,’
+%   \end{poetry}
+%
+%   \begin{flushright}[aboveskip=0pt]
+%     declares the \textsc{Lord}.
+%   \end{flushright}
+% \end{scripture}
+% \end{scriptureexample}
+%
+% \begin{environment}{hanging}
+%   \begin{syntax}
+%     |\begin{hanging}|\oarg{options}
+%       \quad\meta{hanging text}
+%     |\end{hanging}|
+%   \end{syntax}
+% \end{environment}
+%
+% \noindent Environment for typesetting hanging sections of scripture
+% quotations.
+%
+% See section \ref{hangingoptions} for supported formatting \meta{|options|}.
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[Genesis 1:3--5]
+%   \begin{hanging}
+%     \vs{3}And God said, ‘Let there be light,’ and
+%     there was light. \vs{4}God saw that the light
+%     was good, and he separated the light from the
+%     darkness. \vs{5}God called the light ‘day’,
+%     and the darkness he called ‘night’. And there
+%     was evening, and there was morn\-ing---the
+%     first day.
+%   \end{hanging}
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+% 
+% \begin{scripture}[Genesis 1:3--5]
+%   \begin{hanging}
+%     \vs{3}And God said, ‘Let there be light,’ and
+%     there was light. \vs{4}God saw that the light
+%     was good, and he separated the light from the
+%     darkness. \vs{5}God called the light ‘day’,
+%     and the darkness he called ‘night’. And there
+%     was evening, and there was morn\-ing---the
+%     first day.
+%   \end{hanging}
+% \end{scripture}
+% \end{scriptureexample}
+%
+% \begin{environment}{midparachap}
+%   \begin{syntax}
+%     |\begin{midparachap}|
+%       \quad\meta{text containing a chapter break}
+%     |\end{midparachap}|
+%   \end{syntax}
+% \end{environment}
+%
+% \noindent Environment for typesetting paragraph with a chapter break within
+% it.
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[1 Corinthians 10:31--11:1]
+%   \begin{midparachap}
+%     \vs{31}So whether you eat or drink or
+%     whatever you do, do it all for the glory of
+%     God. \vs{32}Do not cause anyone to stumble,
+%     whether Jews, Greeks or the church of
+%     God---\vs{33}even as I try to please everyone
+%     in every way. For I am not seeking my own
+%     good but the good of many, so that they may
+%     be saved. \ch{11}Follow my example, as I
+%     follow the example of Christ.
+%   \end{midparachap}
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+% 
+% \begin{scripture}[1 Corinthians 10:31--11:1]
+%   \begin{midparachap}
+%     \vs{31}So whether you eat or drink or
+%     whatever you do, do it all for the glory of
+%     God. \vs{32}Do not cause anyone to stumble,
+%     whether Jews, Greeks or the church of
+%     God---\vs{33}even as I try to please everyone
+%     in every way. For I am not seeking my own
+%     good but the good of many, so that they may
+%     be saved. \ch{11}Follow my example, as I
+%     follow the example of Christ.
+%   \end{midparachap}
+% \end{scripture}
+% \end{scriptureexample}
+%
+% \begin{environment}{narrow}
+%   \begin{syntax}
+%     |\begin{narrow}|\oarg{options}
+%       \quad\meta{quotation}
+%     |\end{narrow}|
+%   \end{syntax}
+% \end{environment}
+%
+% \noindent Environment for typesetting narrow sections of scripture
+% quotations.
+%
+% See section \ref{narrowoptions} for supported formatting \meta{|options|}.
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[2 Kings 18:18--19]
+%   \vs{18}They called for the king; and Eliakim
+%   son of Hilkiah the palace administrator, Shebna
+%   the secretary, and Joah son of Asaph the
+%   recorder went out to them.
+%
+%   \vs{19}The field commander said to them, ‘Tell
+%   Hezekiah:
+%
+%   \begin{narrow}
+%     ‘“This is what the great king, the king of
+%     Assyria, says: on what are you basing this
+%     confidence of yours?
+%   \end{narrow}
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+% 
+% \begin{scripture}[2 Kings 18:18--19]
+%   \vs{18}They called for the king; and Eliakim
+%   son of Hilkiah the palace administrator, Shebna
+%   the secretary, and Joah son of Asaph the
+%   recorder went out to them.
+%
+%   \vs{19}The field commander said to them, ‘Tell
+%   Hezekiah:
+%
+%   \begin{narrow}
+%     ‘“This is what the great king, the king of
+%     Assyria, says: on what are you basing this
+%     confidence of yours?
+%   \end{narrow}
+% \end{scripture}
+% \end{scriptureexample}
+%
+% \begin{environment}{poetry}
+%   \begin{syntax}
+%     |\begin{poetry}|\oarg{options}
+%       \quad\meta{first half of verse}
+%       \quad\meta{second half of verse}
+%       \quad
+%       \quad\meta{first half of verse}
+%       \quad\meta{second half of verse}
+%     |\end{poetry}|
+%   \end{syntax}
+% \end{environment}
+%
+% \noindent Environment for typesetting poetry sections of scripture
+% quotations.
+%
+% Poetry sections of the Bible often have a first have and a parallel second
+% half which is indented a little. These should be set on separate consecutive
+% lines. Leaving a blank line indicates that the next line should return to
+% the first half indent.
+%
+% See section \ref{poetryoptions} for supported formatting \meta{|options|}.
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[Isaiah 1:2]
+%   \begin{poetry}
+%     \vs{2}Hear me, you heavens! Listen, earth!
+%     For the \textsc{Lord} has spoken:
+%
+%     ‘I reared children and brought them up,
+%     but they have rebelled against me.
+%   \end{poetry}
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+% 
+% \begin{scripture}[Isaiah 1:2]
+%   \begin{poetry}
+%     \vs{2}Hear me, you heavens! Listen, earth!
+%     For the \textsc{Lord} has spoken:
+%
+%     ‘I reared children and brought them up,
+%     but they have rebelled against me.
+%   \end{poetry}
+% \end{scripture}
+% \end{scriptureexample}
+%
+% \begin{environment}{scripture}
+%   \begin{syntax}
+%     |\begin{scripture}|\oarg{reference}\oarg{options}
+%       \quad\meta{quotation}
+%     |\end{scripture}|
+%   \end{syntax}
+% \end{environment}
+%
+% \noindent Main environment for typesetting scripture quotations.
+%
+% The optional \meta{|reference|} is printed at the end of the quotation. See
+% section \ref{options} for supported formatting \meta{|options|}.
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[John 3:16][version=NIV]
+%   \vs{16}For God so loved the world that he gave
+%   his one and only Son, that whoever believes in
+%   him shall not perish but have eternal life.
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+% 
+% \begin{scripture}[John 3:16][version=NIV]
+%   \vs{16}For God so loved the world that he gave
+%   his one and only Son, that whoever believes in
+%   him shall not perish but have eternal life.
+% \end{scripture}
+% \end{scriptureexample}
+%
+% \subsection{Options}
+% \label{options}
+%
+% Default formatting \meta{|options|} can be set using
+% \cs{usepackage}|[|\meta{|options|}|]{scripture}| or
+% \cs{scripturesetup}|{|\meta{|options|}|}|. Local formatting \meta{|options|}
+% can be set by passing them to the various environments described above.
+%
+% \begin{option}{aboveskip}
+%   \begin{syntax}
+%     |aboveskip =| \meta{skip} \hfill Default: 0pt
+%   \end{syntax}
+%   \meta{|skip|} inserted above the \env{scripture} environment.
+% \end{option}
+%
+% \begin{option}{belowskip}
+%   \begin{syntax}
+%     |belowskip =| \meta{skip} \hfill Default: 0pt
+%   \end{syntax}
+%   \meta{|skip|} inserted below the \env{scripture} environment.
+% \end{option}
+%
+% \begin{option}{leftmargin}
+%   \begin{syntax}
+%     |leftmargin =| \meta{dimen} \hfill Default: 0pt
+%   \end{syntax}
+%   \meta{|dimen|} used for the left margin of the \env{scripture}
+%   environment.
+% \end{option}
+%
+% \begin{option}{rightmargin}
+%   \begin{syntax}
+%     |rightmargin =| \meta{dimen} \hfill Default: 0pt
+%   \end{syntax}
+%   \meta{|dimen|} used for the right margin of the \env{scripture}
+%   environment.
+% \end{option}
+%
+% \begin{option}{chapter/font}
+%   \begin{syntax}
+%     |chapter/font =| \meta{font} \hfill Default: \cs{bfseries}
+%   \end{syntax}
+%   \meta{|font|} used for the \cs{ch} function.
+% \end{option}
+%
+% \begin{option}{chapter/drop}
+%   \begin{syntax}
+%     |chapter/drop =| \meta{boolean} \hfill Default: true
+%   \end{syntax}
+%   Whether the chapter should be set as a drop letter taking up two
+%   lines or as a normal letter taking up one line. The value of
+%   \meta{|boolean|} is optional and assumed to be \val{true} if not present.
+%   This option is the opposite of \opt{chapter/nodrop}.
+% \end{option}
+%
+% \begin{option}{chapter/nodrop}
+%   \begin{syntax}
+%     |chapter/nodrop =| \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   Whether the chapter should be set as a drop letter taking up two lines or
+%   as a normal letter taking up one line. The value of \meta{|boolean|} is
+%   optional and assumed to be \val{true} if not present. This option is the
+%   opposite of \opt{chapter/drop}.
+% \end{option}
+%
+% \begin{option}{chapter/sep}
+%   \begin{syntax}
+%     |chapter/sep =| \meta{dimen} \hfill Default: 0.5em
+%   \end{syntax}
+%   \meta{|dimen|} used to separate a \cs{ch} from the following text.
+% \end{option}
+%
+% \begin{option}{extraskip}
+%   \begin{syntax}
+%     |extraskip =| \meta{skip} \hfill Default: \cs{medskip}
+%   \end{syntax}
+%   \meta{|skip|} used for the \cs{extraskip} function.
+% \end{option}
+%
+% \begin{option}{font}
+%   \begin{syntax}
+%     |font =| \meta{font} \hfill Default: \emph{Empty}
+%   \end{syntax}
+%   \meta{|font|} used for the \env{scripture} environment.
+% \end{option}
+%
+% \begin{option}{indent}
+%   \begin{syntax}
+%     |indent =| \meta{boolean} \hfill Default: true
+%   \end{syntax}
+%   Whether to indent the first line of a \env{scripture} environment or not
+%   by \cs{parindent}. The value of \meta{|boolean|} is optional and assumed to
+%   be \val{true} if not present. This option is the opposite of
+%   \opt{noindent}.
+% \end{option}
+%
+% \begin{option}{noindent}
+%   \begin{syntax}
+%     |noindent =| \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   Whether to indent the first line of a \env{scripture} environment or not
+%   by \cs{parindent}. The value of \meta{|boolean|} is optional and assumed to
+%   be \val{true} if not present. This option is the opposite of
+%   \opt{indent}.
+% \end{option}
+%
+% \begin{option}{parindent}
+%   \begin{syntax}
+%     |parindent =| \meta{dimen} \hfill Default: \cs{parindent}
+%   \end{syntax}
+%   \meta{|dimen|} to use when indenting the first line of a paragraph in the
+%   \env{scripture} environment.
+% \end{option}
+%
+% \begin{option}{parskip}
+%   \begin{syntax}
+%     |parskip =| \meta{skip} \hfill Default: \cs{parskip}
+%   \end{syntax}
+%   \meta{|skip|} to use between paragraphs in the \env{scripture} environment.
+% \end{option}
+%
+% \begin{option}{reference/delim}
+%   \begin{syntax}
+%     |reference/delim =| \meta{delim} \hfill Default: \cs{hfill}
+%   \end{syntax}
+%   \meta{|delim|} to use between the \env{scripture} quotation and its
+%   \val{reference}.
+% \end{option}
+%
+% \begin{option}{reference/font}
+%   \begin{syntax}
+%     |reference/font =| \meta{font} \hfill Default: bfseries
+%   \end{syntax}
+%   \meta{|font|} used when printing the \val{reference} for a \env{scripture}
+%   quotation.
+% \end{option}
+%
+% \begin{option}{reference/format}
+%   \begin{syntax}
+%     |reference/format =| \meta{macro} \hfill Default: \#1
+%   \end{syntax}
+%   \meta{|macro|} used to format the \val{reference} for a \env{scripture}
+%   quotation. |#1| contains the text of the \val{reference}.
+% \end{option}
+%
+% \begin{option}{reference/sep}
+%   \begin{syntax}
+%     |reference/sep =| \meta{dimen} \hfill Default: 2em
+%   \end{syntax}
+%   The minimum \meta{|dimen|} allowed between the end of a \env{scripture}
+%   quotation and its \val{reference} before the \val{reference} is pushed to
+%   the following line.
+% \end{option}
+%
+% \begin{option}{verse/font}
+%   \begin{syntax}
+%     |verse/font =| \meta{font} \hfill Default: \emph{Empty}
+%   \end{syntax}
+%   \meta{|font|} used for the \cs{vs} function.
+% \end{option}
+%
+% \begin{option}{verse/format}
+%   \begin{syntax}
+%     |verse/format =| \meta{macro} \hfill Default: \cs{textsuperscript}\{\#1\}
+%   \end{syntax}
+%   \meta{|macro|} used to format the \cs{vs} function. |#1| contains the
+%   argument of \cs{vs}.
+% \end{option}
+%
+% \begin{option}{version}
+%   \begin{syntax}
+%     |version =| \meta{version} \hfill Default: \emph{Empty}
+%   \end{syntax}
+%   \meta{|version|} added to the \val{reference} for a \env{scripture}
+%   quotation.
+% \end{option}
+%
+% \begin{option}{version/delim}
+%   \begin{syntax}
+%     |version/delim =| \meta{delim} \hfill Default: \{\ \}
+%   \end{syntax}
+%   \meta{|delim|} to use between the \val{reference} and the \val{version} of a
+%   \env{scripture} quotation.
+% \end{option}
+%
+% \begin{option}{version/format}
+%   \begin{syntax}
+%     |version/format =| \meta{macro} \hfill Default: (\#1)
+%   \end{syntax}
+%   \meta{|macro|} used to format the \val{version} for a \env{scripture}
+%   quotation. |#1| contains the text of the \val{version}.
+% \end{option}
+%
+% \subsubsection{Options for the \env{center} environment}
+% \label{centeroptions}
+%
+% If these options are passed directly to the \env{center} environment rather
+% than to the package, \cs{scripturesetup} or the \env{scripture} environment,
+% then the |center/| prefix should be dropped.
+%
+% \begin{option}{center/aboveskip}
+%   \begin{syntax}
+%     |center/aboveskip =| \meta{skip} \hfill Default: \cs{medskip}
+%   \end{syntax}
+%   \meta{|skip|} inserted above the \env{center} environment.
+% \end{option}
+%
+% \begin{option}{center/belowskip}
+%   \begin{syntax}
+%     |center/belowskip =| \meta{skip} \hfill Default: \cs{medskip}
+%   \end{syntax}
+%   \meta{|skip|} inserted below the \env{center} environment.
+% \end{option}
+%
+% \begin{option}{center/leftmargin}
+%   \begin{syntax}
+%     |center/leftmargin =| \meta{dimen} \hfill Default: 0pt
+%   \end{syntax}
+%   \meta{|dimen|} used for the left margin of the \env{center} environment.
+% \end{option}
+%
+% \begin{option}{center/rightmargin}
+%   \begin{syntax}
+%     |center/rightmargin =| \meta{dimen} \hfill Default: 0pt
+%   \end{syntax}
+%   \meta{|dimen|} used for the right margin of the \env{center} environment.
+% \end{option}
+%
+% \subsubsection{Options for the \env{flushright} environment}
+% \label{flushrightoptions}
+%
+% If these options are passed directly to the \env{flushright} environment rather
+% than to the package, \cs{scripturesetup} or the \env{scripture} environment,
+% then the |flushright/| prefix should be dropped.
+%
+% \begin{option}{flushright/aboveskip}
+%   \begin{syntax}
+%     |flushright/aboveskip =| \meta{skip} \hfill Default: \cs{medskip}
+%   \end{syntax}
+%   \meta{|skip|} inserted above the \env{flushright} environment.
+% \end{option}
+%
+% \begin{option}{flushright/belowskip}
+%   \begin{syntax}
+%     |flushright/belowskip =| \meta{skip} \hfill Default: \cs{medskip}
+%   \end{syntax}
+%   \meta{|skip|} inserted below the \env{flushright} environment.
+% \end{option}
+%
+% \begin{option}{flushright/leftmargin}
+%   \begin{syntax}
+%     |flushright/leftmargin =| \meta{dimen} \hfill Default: 0pt
+%   \end{syntax}
+%   \meta{|dimen|} used for the left margin of the \env{flushright} environment.
+% \end{option}
+%
+% \begin{option}{flushright/rightmargin}
+%   \begin{syntax}
+%     |flushright/rightmargin =| \meta{dimen} \hfill Default: 0pt
+%   \end{syntax}
+%   \meta{|dimen|} used for the right margin of the \env{flushright} environment.
+% \end{option}
+%
+% \subsubsection{Options for the \env{hanging} environment}
+% \label{hangingoptions}
+%
+% If these options are passed directly to the \env{hanging} environment rather
+% than to the package, \cs{scripturesetup} or the \env{scripture} environment,
+% then the |hanging/| prefix should be dropped.
+%
+% \begin{option}{hanging/aboveskip}
+%   \begin{syntax}
+%     |hanging/aboveskip =| \meta{skip} \hfill Default: \cs{medskip}
+%   \end{syntax}
+%   \meta{|skip|} inserted above the \env{hanging} environment.
+% \end{option}
+%
+% \begin{option}{hanging/belowskip}
+%   \begin{syntax}
+%     |hanging/belowskip =| \meta{skip} \hfill Default: \cs{medskip}
+%   \end{syntax}
+%   \meta{|skip|} inserted below the \env{hanging} environment.
+% \end{option}
+%
+% \begin{option}{hanging/hang}
+%   \begin{syntax}
+%     |hanging/hang =| \meta{dimen} \hfill Default: 2em
+%   \end{syntax}
+%   \meta{|dimen|} used for the indent of subsequent lines of the
+%   \env{hanging} environment.
+% \end{option}
+%
+% \begin{option}{hanging/leftmargin}
+%   \begin{syntax}
+%     |hanging/leftmargin =| \meta{dimen} \hfill Default: 1em
+%   \end{syntax}
+%   \meta{|dimen|} used for the left margin of the \env{hanging} environment.
+% \end{option}
+%
+% \begin{option}{hanging/rightmargin}
+%   \begin{syntax}
+%     |hanging/rightmargin =| \meta{dimen} \hfill Default: 1em
+%   \end{syntax}
+%   \meta{|dimen|} used for the right margin of the \env{hanging} environment.
+% \end{option}
+%
+% \subsubsection{Options for the \env{narrow} environment}
+% \label{narrowoptions}
+%
+% If these options are passed directly to the \env{narrow} environment rather
+% than to the package, \cs{scripturesetup} or the \env{scripture} environment,
+% then the |narrow/| prefix should be dropped.
+%
+% \begin{option}{narrow/aboveskip}
+%   \begin{syntax}
+%     |narrow/aboveskip =| \meta{skip} \hfill Default: \cs{medskip}
+%   \end{syntax}
+%   \meta{|skip|} inserted above the \env{narrow} environment.
+% \end{option}
+%
+% \begin{option}{narrow/belowskip}
+%   \begin{syntax}
+%     |narrow/belowskip =| \meta{skip} \hfill Default: \cs{medskip}
+%   \end{syntax}
+%   \meta{|skip|} inserted below the \env{narrow} environment.
+% \end{option}
+%
+% \begin{option}{narrow/leftmargin}
+%   \begin{syntax}
+%     |narrow/leftmargin =| \meta{dimen} \hfill Default: 1em
+%   \end{syntax}
+%   \meta{|dimen|} used for the left margin of the \env{narrow} environment.
+% \end{option}
+%
+% \begin{option}{narrow/rightmargin}
+%   \begin{syntax}
+%     |narrow/rightmargin =| \meta{dimen} \hfill Default: 1em
+%   \end{syntax}
+%   \meta{|dimen|} used for the right margin of the \env{narrow} environment.
+% \end{option}
+%
+% \subsubsection{Options for the \env{poetry} environment}
+% \label{poetryoptions}
+%
+% If these options are passed directly to the \env{poetry} environment rather
+% than to the package, \cs{scripturesetup} or the \env{scripture} environment,
+% then the |poetry/| prefix should be dropped.
+%
+% \begin{option}{poetry/aboveskip}
+%   \begin{syntax}
+%     |poetry/aboveskip =| \meta{skip} \hfill Default: \cs{medskip}
+%   \end{syntax}
+%   \meta{|skip|} inserted above the \env{poetry} environment.
+% \end{option}
+%
+% \begin{option}{poetry/belowskip}
+%   \begin{syntax}
+%     |poetry/belowskip =| \meta{skip} \hfill Default: \cs{medskip}
+%   \end{syntax}
+%   \meta{|skip|} inserted below the \env{poetry} environment.
+% \end{option}
+%
+% \begin{option}{poetry/bigindent}
+%   \begin{syntax}
+%     |poetry/bigindent =| \meta{dimen} \hfill Default: 4em
+%   \end{syntax}
+%   \meta{|dimen|} used for the indent subsequent lines of a line of poetry in
+%   a \env{poetry} environment if it needs to flow on to the following line.
+% \end{option}
+%
+% \begin{option}{poetry/indent}
+%   \begin{syntax}
+%     |poetry/indent =| \meta{dimen} \hfill Default: 1em
+%   \end{syntax}
+%   \meta{|dimen|} used for the second half of a line of poetry in a
+%   \env{poetry} environment.
+% \end{option}
+%
+% \begin{option}{poetry/leftmargin}
+%   \begin{syntax}
+%     |poetry/leftmargin =| \meta{dimen} \hfill Default: 1em
+%   \end{syntax}
+%   \meta{|dimen|} used for the left margin of the \env{poetry} environment.
+% \end{option}
+%
+% \begin{option}{poetry/rightmargin}
+%   \begin{syntax}
+%     |poetry/rightmargin =| \meta{dimen} \hfill Default: 0pt
+%   \end{syntax}
+%   \meta{|dimen|} used for the right margin of the \env{poetry} environment.
+% \end{option}
+%
+% \end{documentation}
+%
+% \begin{implementation}
+% 
+% \section{Implementation}
+%
+%    \begin{macrocode}
+%<*package>
+%<@@=scripture>
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}[2021-11-15]
+\ProvidesExplPackage{scripture}{2022/07/27}{1.0}
+  {Format Scripture Quotations (DCP)}
+\RequirePackage{l3keys2e}
+%    \end{macrocode}
+%
+% \subsection{Messages}
+%
+% \env{scripture} environments along with all internal environments can not be
+% nested.
+%
+%    \begin{macrocode}
+\msg_new:nnnn { scripture } { nested-environment }
+  { Nesting~of~scripture~environments~not~supported. }
+  { You~have~tried~to~nest~a~scripture~environment~or \\
+    one~of~its~internal~environments,~which~is~not~supported. }
+%    \end{macrocode}
+%
+% \subsection{Options}
+%
+% Key-value settings for the \env{scripture} environment and its inner
+% environments.
+%    \begin{macrocode}
+\keys_define:nn { scripture }
+  {
+    , aboveskip                .tl_set:N           = \l_@@_aboveskip_tl
+    , aboveskip                .value_required:n   = true
+    , aboveskip                .initial:n          = \c_zero_skip
+    , belowskip                .tl_set:N           = \l_@@_belowskip_tl
+    , belowskip                .value_required:n   = true
+    , belowskip                .initial:n          = \c_zero_skip
+    , leftmargin               .tl_set:N           = \l_@@_leftmargin_tl
+    , leftmargin               .value_required:n   = true
+    , leftmargin               .initial:n          = \c_zero_dim
+    , rightmargin              .tl_set:N           = \l_@@_rightmargin_tl
+    , rightmargin              .value_required:n   = true
+    , rightmargin              .initial:n          = \c_zero_dim
+    , chapter / font           .tl_set:N           = \l_@@_chap_font_tl
+    , chapter / font           .value_required:n   = true
+    , chapter / font           .initial:n          = \bfseries
+    , chapter / drop           .bool_set:N         = \l_@@_chap_drop_bool
+    , chapter / drop           .default:n          = true
+    , chapter / drop           .initial:n          = true
+    , chapter / nodrop         .bool_set_inverse:N = \l_@@_chap_drop_bool
+    , chapter / nodrop         .default:n          = true
+    , chapter / sep            .tl_set:N           = \l_@@_chap_sep_tl
+    , chapter / sep            .value_required:n   = true
+    , chapter / sep            .initial:n          = 0.5 em
+    , extraskip                .tl_set:N           = \l_@@_extraskip_tl
+    , extraskip                .value_required:n   = true
+    , extraskip                .initial:n          = \medskipamount
+    , font                     .tl_set:N           = \l_@@_font_tl
+    , font                     .value_required:n   = true
+    , font                     .initial:n          =
+    , indent                   .bool_set:N         = \l_@@_indent_bool
+    , indent                   .default:n          = true
+    , indent                   .initial:n          = true
+    , noindent                 .bool_set_inverse:N = \l_@@_indent_bool
+    , noindent                 .default:n          = true
+    , parindent                .tl_set:N           = \l_@@_parindent_tl
+    , parindent                .value_required:n   = true
+    , parindent                .initial:n          = \parindent
+    , parskip                  .tl_set:N           = \l_@@_parskip_tl
+    , parskip                  .value_required:n   = true
+    , parskip                  .initial:n          = \parskip
+    , reference / delim        .tl_set:N           = \l_@@_ref_delim_tl
+    , reference / delim        .value_required:n   = true
+    , reference / delim        .initial:n          = \hfill
+    , reference / font         .tl_set:N           = \l_@@_ref_font_tl
+    , reference / font         .value_required:n   = true
+    , reference / font         .initial:n          = \bfseries
+    , reference / format       .cs_set:Np          = \@@_ref_format:n #1
+    , reference / format       .value_required:n   = true
+    , reference / format       .initial:n          = #1
+    , reference / sep          .tl_set:N           = \l_@@_ref_sep_tl
+    , reference / sep          .value_required:n   = true
+    , reference / sep          .initial:n          = 2 em
+    , verse / font             .tl_set:N           = \l_@@_verse_font_tl
+    , verse / font             .value_required:n   = true
+    , verse / font             .initial:n          = 
+    , verse / format           .cs_set:Np          = \@@_verse_format:n #1
+    , verse / format           .value_required:n   = true
+    , verse / format           .initial:n          = \textsuperscript{#1}
+    , version                  .tl_set:N           = \l_@@_version_tl
+    , version                  .value_required:n   = true
+    , version                  .initial:n          =
+    , version / delim          .tl_set:N           = \l_@@_version_delim_tl
+    , version / delim          .value_required:n   = true
+    , version / delim          .initial:n          = \c_space_tl
+    , version / format         .cs_set:Np          = \@@_version_format:n #1
+    , version / format         .value_required:n   = true
+    , version / format         .initial:n          = (#1)
+%    \end{macrocode}
+% Options for the \env{center} environment.
+%    \begin{macrocode}
+    , center / aboveskip       .tl_set:N           = \l_@@_center_aboveskip_tl
+    , center / aboveskip       .value_required:n   = true
+    , center / aboveskip       .initial:n          = \medskipamount
+    , center / belowskip       .tl_set:N           = \l_@@_center_belowskip_tl
+    , center / belowskip       .value_required:n   = true
+    , center / belowskip       .initial:n          = \medskipamount
+    , center / leftmargin      .tl_set:N           = \l_@@_center_leftmargin_tl
+    , center / leftmargin      .value_required:n   = true
+    , center / leftmargin      .initial:n          = \c_zero_dim
+    , center / rightmargin     .tl_set:N           = \l_@@_center_rightmargin_tl
+    , center / rightmargin     .value_required:n   = true
+    , center / rightmargin     .initial:n          = \c_zero_dim
+%    \end{macrocode}
+% Options for the \env{flushright} environment.
+%    \begin{macrocode}
+    , flushright / aboveskip   .tl_set:N           = \l_@@_flushright_aboveskip_tl
+    , flushright / aboveskip   .value_required:n   = true
+    , flushright / aboveskip   .initial:n          = \medskipamount
+    , flushright / belowskip   .tl_set:N           = \l_@@_flushright_belowskip_tl
+    , flushright / belowskip   .value_required:n   = true
+    , flushright / belowskip   .initial:n          = \medskipamount
+    , flushright / leftmargin  .tl_set:N           = \l_@@_flushright_leftmargin_tl
+    , flushright / leftmargin  .value_required:n   = true
+    , flushright / leftmargin  .initial:n          = \c_zero_dim
+    , flushright / rightmargin .tl_set:N           = \l_@@_flushright_rightmargin_tl
+    , flushright / rightmargin .value_required:n   = true
+    , flushright / rightmargin .initial:n          = \c_zero_dim
+%    \end{macrocode}
+% Options for the \env{hanging} environment.
+%    \begin{macrocode}
+    , hanging / aboveskip      .tl_set:N           = \l_@@_hanging_aboveskip_tl
+    , hanging / aboveskip      .value_required:n   = true
+    , hanging / aboveskip      .initial:n          = \medskipamount
+    , hanging / belowskip      .tl_set:N           = \l_@@_hanging_belowskip_tl
+    , hanging / belowskip      .value_required:n   = true
+    , hanging / belowskip      .initial:n          = \medskipamount
+    , hanging / hang           .tl_set:N           = \l_@@_hanging_hang_tl
+    , hanging / hang           .value_required:n   = true
+    , hanging / hang           .initial:n          = 2 em
+    , hanging / leftmargin     .tl_set:N           = \l_@@_hanging_leftmargin_tl
+    , hanging / leftmargin     .value_required:n   = true
+    , hanging / leftmargin     .initial:n          = 1 em
+    , hanging / rightmargin    .tl_set:N           = \l_@@_hanging_rightmargin_tl
+    , hanging / rightmargin    .value_required:n   = true
+    , hanging / rightmargin    .initial:n          = \c_zero_dim
+%    \end{macrocode}
+% Options for the \env{narrow} environment.
+%    \begin{macrocode}
+    , narrow / aboveskip       .tl_set:N           = \l_@@_narrow_aboveskip_tl
+    , narrow / aboveskip       .value_required:n   = true
+    , narrow / aboveskip       .initial:n          = \medskipamount
+    , narrow / belowskip       .tl_set:N           = \l_@@_narrow_belowskip_tl
+    , narrow / belowskip       .value_required:n   = true
+    , narrow / belowskip       .initial:n          = \medskipamount
+    , narrow / leftmargin      .tl_set:N           = \l_@@_narrow_leftmargin_tl
+    , narrow / leftmargin      .value_required:n   = true
+    , narrow / leftmargin      .initial:n          = 1 em
+    , narrow / rightmargin     .tl_set:N           = \l_@@_narrow_rightmargin_tl
+    , narrow / rightmargin     .value_required:n   = true
+    , narrow / rightmargin     .initial:n          = 1 em
+%    \end{macrocode}
+% Options for the \env{poetry} environment.
+%    \begin{macrocode}
+    , poetry / aboveskip       .tl_set:N           = \l_@@_poetry_aboveskip_tl
+    , poetry / aboveskip       .value_required:n   = true
+    , poetry / aboveskip       .initial:n          = \medskipamount
+    , poetry / belowskip       .tl_set:N           = \l_@@_poetry_belowskip_tl
+    , poetry / belowskip       .value_required:n   = true
+    , poetry / belowskip       .initial:n          = \medskipamount
+    , poetry / bigindent       .tl_set:N           = \l_@@_poetry_big_indent_tl
+    , poetry / bigindent       .value_required:n   = true
+    , poetry / bigindent       .initial:n          = 4 em
+    , poetry / indent          .tl_set:N           = \l_@@_poetry_indent_tl
+    , poetry / indent          .value_required:n   = true
+    , poetry / indent          .initial:n          = 1 em
+    , poetry / leftmargin      .tl_set:N           = \l_@@_poetry_leftmargin_tl
+    , poetry / leftmargin      .value_required:n   = true
+    , poetry / leftmargin      .initial:n          = 1 em
+    , poetry / rightmargin     .tl_set:N           = \l_@@_poetry_rightmargin_tl
+    , poetry / rightmargin     .value_required:n   = true
+    , poetry / rightmargin     .initial:n          = \c_zero_dim
+  }
+%    \end{macrocode}
+% Process package options using \pkg{l3keys2e} package.
+%    \begin{macrocode}
+\ProcessKeysOptions { scripture }
+%    \end{macrocode}
+%
+% \subsection{The main \env{scripture} environment}
+%
+% \begin{macro}{\l_@@_active_bool, \l_@@_active_inner_bool}
+%   Flags to ensure that environments are not nested.
+%    \begin{macrocode}
+\bool_new:N \l_@@_active_bool
+\bool_new:N \l_@@_active_inner_bool
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_extra_skip:}
+%   Insert a little extra vertical space between two paragraphs. This function
+%   tests if the previous paragraph is only one line in length and began
+%   with a \cs{ch} function. If this condition is met, more space is added
+%   if necessary to avoid the following paragraph clashing with the drop
+%   chapter.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_extra_skip:
+  {
+    \int_compare:nNnT
+      \l_@@_chap_par_prevgraf_int = 1
+      {
+        \dim_compare:nNnT
+          { \parskip + \l_@@_extraskip_tl } < \baselineskip
+          {
+            \addvspace { \baselineskip }
+          }
+        \int_zero:N \l_@@_chap_par_prevgraf_int
+      }
+    \addvspace { \l_@@_extraskip_tl }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsubsection{Formatting and printing quotation references}
+%
+% \begin{macro}{\@@_format_full_ref:n}
+%   Format a scripture quotation with its reference.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_format_full_ref:n
+  {
+    \group_begin:
+    \l_@@_ref_font_tl
+    \@@_ref_format:n { #1 }
+%    \end{macrocode}
+% Append a Bible version if it has been specified.
+%    \begin{macrocode}
+    \tl_if_empty:NF \l_@@_version_tl
+      {
+        \l_@@_version_delim_tl
+        \@@_version_format:n { \l_@@_version_tl }
+      }
+    \group_end:
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_reference:n}
+%   Output the reference for the Scripture quotation.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_reference:n
+  {
+    \hbox_set:Nn \l_tmpa_box
+      {
+        \skip_horizontal:N \l_@@_ref_sep_tl
+        \@@_format_full_ref:n { #1 }
+      }
+%    \end{macrocode}
+% Since the \env{poetry} environment uses \cs{@@_obeylines:} there is always
+% an extra \cs{parskip} when a \env{scripture} quotation ends with a
+% \env{poetry}
+% environment.
+%    \begin{macrocode}
+    \bool_if:NT \g_@@_poetry_end_bool
+      { \skip_vertical:n { -\parskip } }
+    \dim_compare:nNnT
+      { \box_wd:N \l_tmpa_box + \g_@@_final_line_dim }
+      >
+      { \linewidth - \@totalleftmargin }
+      { \skip_vertical:N \baselineskip }
+%    \end{macrocode}
+% If a \env{scripture} quotation ends with an inner environment, there will
+% be an extra space of \cs{baselineskip}.
+%    \begin{macrocode}
+    \int_compare:nNnT \prevgraf = \c_zero_int
+      { \skip_vertical:n { -\baselineskip } }
+    \l_@@_ref_delim_tl
+    \box_use:N \l_tmpa_box
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsubsection{Formatting and printing chapter numbers}
+%
+% \begin{macro}{\l_@@_chap_fontsize_dim}
+%   Calculated font size of a drop chapter number.
+%    \begin{macrocode}
+\dim_new:N \l_@@_chap_fontsize_dim
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l_@@_chap_height_dim}
+%   Calculated height of a drop chapter number.
+%    \begin{macrocode}
+\dim_new:N \l_@@_chap_height_dim
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l_@@_chap_width_dim}
+%   Calculated width of drop chapter number.
+%    \begin{macrocode}
+\dim_new:N \l_@@_chap_width_dim
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l_@@_chap_par_prevgraf_int}
+%   Store the number of lines a chapter paragraph takes up.
+%    \begin{macrocode}
+\int_new:N \l_@@_chap_par_prevgraf_int
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l_@@_chap_X_height_dim}
+%   Calculated height of X at current font size. This is used as the height
+%   for a drop chapter.
+%    \begin{macrocode}
+\dim_new:N \l_@@_chap_X_height_dim
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_drop_chap_set_up:n}
+%   Set up chapter drop cap and calculate its various dimensions.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_drop_chap_set_up:n
+  {
+    \hbox_set:Nn \l_tmpa_box { X }
+    \dim_set:Nn \l_@@_chap_X_height_dim
+      { \box_ht:N \l_tmpa_box }
+    \dim_set:Nn \l_@@_chap_height_dim
+      { \baselineskip + \l_@@_chap_X_height_dim }
+    \dim_set:Nn \l_@@_chap_fontsize_dim
+      {
+        \f@size pt *
+        \dim_ratio:nn
+          { \l_@@_chap_height_dim }
+          { \l_@@_chap_X_height_dim }
+      }
+    \hbox_set:Nn \l_tmpa_box
+      {
+        \l_@@_chap_font_tl
+        \fontsize
+          { \l_@@_chap_fontsize_dim }
+          { \l_@@_chap_fontsize_dim }
+          \selectfont
+        #1
+      }
+    \dim_set:Nn \l_@@_chap_width_dim
+      { \box_wd:N \l_tmpa_box }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_drop_chap_output:}
+%   Output a drop chapter.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_drop_chap_output:
+  {
+    \noindent
+    \parshape 3 ~
+      \dim_eval:n
+        { \@totalleftmargin + \l_@@_chap_width_dim + \l_@@_chap_sep_tl } ~
+      \dim_eval:n
+        { \linewidth - \l_@@_chap_width_dim - \l_@@_chap_sep_tl } ~
+      \dim_eval:n
+        { \@totalleftmargin + \l_@@_chap_width_dim + \l_@@_chap_sep_tl } ~
+      \dim_eval:n
+        { \linewidth - \l_@@_chap_width_dim - \l_@@_chap_sep_tl } ~
+      \@totalleftmargin ~
+      \linewidth
+    \box_use:N \l_tmpb_box
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_nodrop_chap:n}
+%   Format a non-drop chapter.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_nodrop_chap:n
+  {
+    \group_begin:
+    \l_@@_chap_font_tl
+    #1
+    \group_end:
+    \skip_horizontal:N \l_@@_chap_sep_tl
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_chap:n}
+%   Position a drop chapter.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_chap:n
+  {
+    \@@_drop_chap_set_up:n { #1 }
+    \hbox_set:Nn \l_tmpb_box
+      {
+        \box_move_down:nn
+          { \baselineskip }
+          { 
+            \hbox_overlap_left:n
+              {
+                \box_use:N \l_tmpa_box
+                \skip_horizontal:N \l_@@_chap_sep_tl
+              }
+          }
+      }
+    \box_set_ht:Nn \l_tmpb_box { \c_zero_dim }
+    \box_set_dp:Nn \l_tmpb_box { \c_zero_dim }
+    \bool_if:NTF \l_@@_mid_para_chap_bool
+      { \@@_mid_para_drop_chap_output: }
+      {
+        \par
+        \@@_drop_chap_output:
+      }
+    \hook_gput_next_code:nn { para / after }
+      { \int_set_eq:NN \l_@@_chap_par_prevgraf_int \prevgraf }
+    \hook_gput_next_code:nn { para / before }
+      {
+        \int_zero:N \l_@@_chap_par_prevgraf_int
+        \int_compare:nNnT
+          \@listdepth > \c_zero_int
+          { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsubsection{Formatting and printing verse numbers}
+%
+% \begin{macro}{\@@_verse_output:n}
+%   Output a formatted verse.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_verse_output:n
+  {
+    \mode_if_vertical:T
+      { \mode_leave_vertical: }
+    \group_begin:
+    \l_@@_verse_font_tl
+    \@@_verse_format:n { #1 }
+    \group_end:
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsubsection{Calculating the length of the final line in a paragraph}
+%
+% \begin{macro}{\g_@@_final_line_dim}
+%   Store the length of the final line in a paragraph.
+%    \begin{macrocode}
+\dim_new:N \g_@@_final_line_dim
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_calc_final_line_length:}
+%   Calculate the length of the final line in a paragraph.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_calc_final_line_length:
+  {
+    \skip_set:Nn \abovedisplayshortskip { -\baselineskip }
+    \skip_set_eq:NN \abovedisplayskip \abovedisplayshortskip
+    \skip_zero:N \belowdisplayshortskip
+    \skip_zero:N \belowdisplayskip
+    $$
+      \dim_compare:nNnT \predisplaysize > \c_zero_dim
+        {
+          \dim_gset:Nn \g_@@_final_line_dim
+            { \predisplaysize - 2 em }
+        }
+      \cs_gset_nopar:Nx \@@_reset_spacing:
+        {
+          \dim_set:Nn \predisplaysize { \dim_use:N \predisplaysize }
+          \int_set:Nn \prevgraf { \int_use:N \prevgraf }
+        }
+    $$
+    \@@_reset_spacing:
+    \dim_compare:nNnT \g_@@_final_line_dim > \linewidth
+      {
+        \dim_gset_eq:NN \g_@@_final_line_dim \linewidth
+      }
+    \dim_compare:nNnT \g_@@_final_line_dim > { \c_zero_dim - 1 sp }
+      {
+        \skip_vertical:n { -\baselineskip - \parskip }
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsubsection{The \env{scripture} environment}
+%
+% \begin{macro}{\g_@@_start_bool}
+%   Flag indicating whether we are currently setting the first paragraph in a
+%   \env{scripture} environment. If this is \val{true}, any \opt{aboveskip}
+%   for an inner environment will be ignored.
+%    \begin{macrocode}
+\bool_new:N \g_@@_start_bool
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_begin:n}
+%   Begin a scripture quotation.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_begin:n
+  {
+    \bool_if:NT \l_@@_active_bool
+      {
+        \msg_error:nn { scripture } { nested-environment }
+      }
+    \bool_set_true:N \l_@@_active_bool
+    \tl_if_novalue:nF { #1 }
+      {
+        \keys_set:nn { scripture } { #1 }
+      }
+%    \end{macrocode}
+% If the \env{scripture} environment begins immediately after an \cs{item},
+% then insert a new paragraph and apply a negative skip. Life is much easier
+% if all paragraphs in a \env{scripture} are the same rather than the first
+% one being in the first paragraph of an \cs{item}.
+%    \begin{macrocode}
+    \legacy_if:nT { @newlist }
+      {
+        \strut
+        \par
+        \vspace* { \dim_eval:n { -\baselineskip - \parskip } }
+      }
+    \mode_if_vertical:T
+      {
+        \addvspace { \l_@@_aboveskip_tl }
+      }
+    \DeclareDocumentCommand { \ch } { sm }
+      {
+        \bool_if:NTF \l_@@_chap_drop_bool
+          {
+            \@@_chap:n { ##2 }
+            \bool_if:nT { ##1 }
+              {
+                \hook_gput_next_code:nn { para / after }
+                  { \int_zero:N \l_@@_chap_par_prevgraf_int }
+              }
+          }
+          { \@@_nodrop_chap:n { ##2 } }
+      }
+    \bool_gset_true:N \g_@@_start_bool
+    \bool_gset_false:N \g_@@_poetry_end_bool
+    \dim_set_eq:NN \parindent \l_@@_parindent_tl
+    \cs_set_eq:NN \extraskip \@@_extra_skip:
+    \cs_set_eq:NN \vs \@@_verse_output:n
+    \hook_gclear_next_code:n { para / before }
+    \hook_gput_next_code:nn { para / end }
+      { \skip_set_eq:NN \parskip \l_@@_parskip_tl }
+    \hook_gput_next_code:nn { para / after }
+      { \bool_gset_false:N \g_@@_start_bool }
+    \l_@@_font_tl
+%    \end{macrocode}
+% For left and right margins, use \cs{parshape} is already in a list,
+% otherwise use \cs{leftskip} and \cs{rightskip}
+%    \begin{macrocode}
+    \bool_lazy_or:nnT
+      { \dim_compare_p:n { \l_@@_leftmargin_tl > 0pt } }
+      { \dim_compare_p:n { \l_@@_rightmargin_tl > 0pt } }
+      {
+        \dim_sub:Nn \linewidth
+          { \l_@@_leftmargin_tl + \l_@@_rightmargin_tl }
+        \int_compare:nNnTF
+          \@listdepth > \c_zero_int
+          {
+            \dim_add:Nn \@totalleftmargin \l_@@_leftmargin_tl
+            \parshape 1 ~ \@totalleftmargin ~ \linewidth
+          }
+          {
+            \dim_add:Nn \leftskip \l_@@_leftmargin_tl
+            \dim_add:Nn \rightskip \l_@@_rightmargin_tl
+          }
+      }
+    \bool_if:NF \l_@@_indent_bool
+      { \noindent }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_end:n}
+%   End a scripture quotation with a reference.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_end:n
+  {
+%    \end{macrocode}
+% Normally \cs{unskip} does not work in vertical mode, but there are some
+% situations where it does work. The following condition is true if the
+% \env{scripture} environment has ended with one of its internal
+% environments. This removes any unwanted \opt{belowskip} if present and
+% leaves the previously calculated line length of the final paragraph intact.
+%    \begin{macrocode}
+    \mode_if_vertical:TF
+      {
+        \unskip
+        \unskip
+      }
+      { \@@_calc_final_line_length: }
+%    \end{macrocode}
+% Restore left margin by resetting the \cs{parshape} if in a list
+% based environment, otherwise the space required for the reference is
+% incorrectly calculated.
+%    \begin{macrocode}
+    \bool_lazy_or:nnT
+      { \dim_compare_p:n { \l_@@_leftmargin_tl > 0pt } }
+      { \dim_compare_p:n { \l_@@_rightmargin_tl > 0pt } }
+      {
+        \dim_add:Nn \linewidth \l_@@_leftmargin_tl
+        \int_compare:nNnT
+          \@listdepth > \c_zero_int
+          {
+            \dim_sub:Nn \@totalleftmargin \l_@@_leftmargin_tl
+            \parshape 1 ~ \@totalleftmargin ~ \linewidth
+          }
+      }
+    \tl_if_novalue:nF { #1 }
+      {
+        \@@_reference:n { #1 }
+      }
+    \par
+%    \end{macrocode}
+% Restore right margin by resetting the \cs{parshape} if in a \LaTeX{} list
+% based environment, since only the left margin was restored above.
+%    \begin{macrocode}
+    \bool_lazy_or:nnT
+      { \dim_compare_p:n { \l_@@_leftmargin_tl > 0pt } }
+      { \dim_compare_p:n { \l_@@_rightmargin_tl > 0pt } }
+      {
+        \int_compare:nNnT
+          \@listdepth > \c_zero_int
+          {
+            \dim_add:Nn \linewidth \l_@@_rightmargin_tl
+            \parshape 1 ~ \@totalleftmargin ~ \linewidth
+          }
+      }
+    \dim_compare:nNnTF
+      \l_@@_belowskip_tl > \parskip
+      {
+        \addvspace
+          {
+            \skip_eval:n { \l_@@_belowskip_tl - \parskip }
+          }
+      }
+      {
+        \addvspace { \l_@@_belowskip_tl }
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Scripture internal environments}
+%
+% \begin{macro}{\l_@@_delta_below_skip}
+%   Correction to \tn{@topsepadd} for internal environments. This enables a
+%   different \opt{aboveskip} and \opt{belowskip} which are normally the
+%   same for \LaTeX{} lists.
+%    \begin{macrocode}
+\skip_new:N \l_@@_delta_below_skip
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsubsection{The \env{center} environment}
+%
+% \begin{macro}{\@@_center_begin:n}
+%   Begin a centred section in a scripture quotation.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_center_begin:n
+  {
+    \bool_if:NT \l_@@_active_inner_bool
+      {
+        \msg_error:nn { scripture } { nested-environment }
+      }
+    \bool_set_true:N \l_@@_active_inner_bool
+    \tl_if_novalue:nF { #1 }
+      {
+        \keys_set:nn
+          { scripture / center }
+          { #1 }
+      }
+    \par
+    \list { }
+      {
+        \skip_set_eq:NN \l_@@_delta_below_skip \l_@@_center_belowskip_tl
+%    \end{macrocode}
+% Ignore \opt{aboveskip} if at the beginning of a \env{scripture} environment.
+%    \begin{macrocode}
+        \bool_if:NTF \g_@@_start_bool
+          { \skip_zero:N \topsep }
+          {
+            \dim_compare:nTF
+              { \parskip >= \l_@@_center_aboveskip_tl > \c_zero_skip }
+              {
+                \skip_zero:N \topsep
+                \skip_zero:N \l_@@_delta_below_skip
+              }
+              {
+                \skip_set_eq:NN \topsep \l_@@_center_aboveskip_tl
+                \skip_sub:Nn \l_@@_delta_below_skip \l_@@_center_aboveskip_tl
+              }
+          }
+        \skip_set_eq:NN \parsep \parskip
+        \skip_zero:N \partopsep
+        \dim_zero:N \leftmargin
+        \dim_zero:N \labelsep
+      }
+    \centering
+    \item
+    \relax
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_center_end:}
+%   End a centred section in a scripture quotation.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_center_end:
+  {
+    \@@_calc_final_line_length:
+    \skip_add:Nn \@topsepadd \l_@@_delta_below_skip
+    \endlist
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsubsection{The \env{flushright} environment}
+%
+% \begin{macro}{\@@_flushright_begin:n}
+%   Begin a flushright section in a scripture quotation.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_flushright_begin:n
+  {
+    \bool_if:NT \l_@@_active_inner_bool
+      {
+        \msg_error:nn { scripture } { nested-environment }
+      }
+    \bool_set_true:N \l_@@_active_inner_bool
+    \tl_if_novalue:nF { #1 }
+      {
+        \keys_set:nn
+          { scripture / flushright }
+          { #1 }
+      }
+    \par
+    \list { }
+      {
+        \skip_set_eq:NN \l_@@_delta_below_skip \l_@@_flushright_belowskip_tl
+%    \end{macrocode}
+% Ignore \opt{aboveskip} if at the beginning of a \env{scripture} environment.
+%    \begin{macrocode}
+        \bool_if:NTF \g_@@_start_bool
+          { \skip_zero:N \topsep }
+          {
+            \dim_compare:nTF
+              { \parskip >= \l_@@_flushright_aboveskip_tl > \c_zero_skip }
+              {
+                \skip_zero:N \topsep
+                \skip_zero:N \l_@@_delta_below_skip
+              }
+              {
+                \skip_set_eq:NN \topsep \l_@@_flushright_aboveskip_tl
+                \skip_sub:Nn \l_@@_delta_below_skip \l_@@_flushright_aboveskip_tl
+              }
+          }
+        \dim_set_eq:NN \leftmargin \l_@@_flushright_leftmargin_tl
+        \dim_set_eq:NN \rightmargin \l_@@_flushright_rightmargin_tl
+        \skip_set_eq:NN \parsep \parskip
+        \skip_zero:N \partopsep
+        \dim_zero:N \leftmargin
+        \dim_zero:N \labelsep
+      }
+    \raggedleft
+    \item
+    \relax
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_flushright_end:}
+%   End a flushright section in a scripture quotation.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_flushright_end:
+  {
+    \@@_calc_final_line_length:
+    \skip_add:Nn \@topsepadd \l_@@_delta_below_skip
+    \endlist
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsubsection{The \env{hanging} environment}
+%
+% \begin{macro}{\l_@@_hanging_parindent_saved_dim}
+%   Save the \cs{parindent} for later use in \env{hanging} environment.
+%    \begin{macrocode}
+\dim_new:N \l_@@_hanging_parindent_saved_dim
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_hanging_chap:n}
+%   Position a drop chapter in a \env{hanging} environment.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_hanging_chap:n
+  {
+    \@@_drop_chap_set_up:n { #1 }
+    \dim_compare:nNnTF
+      \l_@@_chap_width_dim < \leftmargin
+      {
+        \tl_set:Nx \l_@@_chap_sep_tl
+          {
+            \dim_eval:n { \leftmargin - \l_@@_chap_width_dim }
+          }
+      }
+      {
+        \parshape 3 ~
+          \dim_eval:n
+            {
+              \@totalleftmargin - \leftmargin + \l_@@_chap_width_dim +
+              \l_@@_chap_sep_tl
+            } ~
+          \dim_eval:n
+            {
+              \linewidth + \leftmargin - \l_@@_chap_width_dim -
+              \l_@@_chap_sep_tl
+            } ~
+          \dim_eval:n
+            {
+              \@totalleftmargin - \leftmargin + \l_@@_chap_width_dim +
+              \l_@@_chap_sep_tl
+            } ~
+          \dim_eval:n
+            {
+              \linewidth + \leftmargin - \l_@@_chap_width_dim -
+              \l_@@_chap_sep_tl
+            } ~
+          \@totalleftmargin ~ \linewidth
+      }
+    \mode_if_vertical:T
+      {
+        \tl_set:Nx \l_@@_chap_sep_tl
+          {
+            \dim_eval:n
+              {
+                \l_@@_chap_sep_tl + \l_@@_hanging_parindent_saved_dim
+              }
+          }
+        \@@_nohang:
+      }
+    \hbox_set:Nn \l_tmpb_box
+      {
+        \box_move_down:nn
+          { \baselineskip }
+          { 
+            \hbox_overlap_left:n
+              {
+                \box_use:N \l_tmpa_box
+                \skip_horizontal:N \l_@@_chap_sep_tl
+              }
+          }
+      }
+    \box_set_ht:Nn \l_tmpb_box { \c_zero_dim }
+    \box_set_dp:Nn \l_tmpb_box { \c_zero_dim }
+    \box_use:N \l_tmpb_box
+    \hook_gput_next_code:nn { para / begin }
+      { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_hanging_verse:n}
+%   Position a \cs{vs} in a \env{hanging} environment. The verse is set to
+%   overlap to the left if at the beginning of a hanging paragraph.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_hanging_verse:n
+  {
+    \mode_if_vertical:TF
+      {
+        \strut
+        \hbox_overlap_left:n
+          {
+            \@@_verse_output:n { #1 }
+          }
+      }
+      { \@@_verse_output:n { #1 } }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_nohang:}
+%   Don't hang a paragraph in a \env{hanging} environment. Instead the
+%   paragraph is indented by \cs{parindent} from its normal hanging position.
+%    \begin{macrocode}
+\cs_new_protected_nopar:Nn \@@_nohang:
+  {
+    \para_raw_noindent:
+    \hbox_to_wd:nn { \l_@@_hanging_parindent_saved_dim } { }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_hanging_begin:n}
+%   Begin a hanging section in a scripture quotation.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_hanging_begin:n
+  {
+    \bool_if:NT \l_@@_active_inner_bool
+      {
+        \msg_error:nn { scripture } { nested-environment }
+      }
+    \bool_set_true:N \l_@@_active_inner_bool
+    \tl_if_novalue:nF { #1 }
+      {
+        \keys_set:nn
+          { scripture / hanging }
+          { #1 }
+      }
+    \par
+    \list { }
+      {
+        \skip_set_eq:NN \l_@@_delta_below_skip \l_@@_hanging_belowskip_tl
+%    \end{macrocode}
+% Ignore \opt{aboveskip} if at the beginning of a \env{scripture} environment.
+%    \begin{macrocode}
+        \bool_if:NTF \g_@@_start_bool
+          { \dim_zero:N \topsep }
+          {
+            \dim_compare:nTF
+              { \parskip >= \l_@@_hanging_aboveskip_tl > \c_zero_skip }
+              {
+                \skip_zero:N \topsep
+                \skip_zero:N \l_@@_delta_below_skip
+              }
+              {
+                \skip_set_eq:NN \topsep \l_@@_hanging_aboveskip_tl
+                \skip_sub:Nn \l_@@_delta_below_skip \l_@@_hanging_aboveskip_tl
+              }
+            \int_compare:nNnT \l_@@_chap_par_prevgraf_int = 1
+              { \addvspace { \baselineskip } }
+            \int_zero:N \l_@@_chap_par_prevgraf_int
+          }
+        \dim_set:Nn \leftmargin
+          { \l_@@_hanging_leftmargin_tl + \l_@@_hanging_hang_tl }
+        \dim_set_eq:NN \rightmargin \l_@@_hanging_rightmargin_tl
+        \dim_set:Nn \itemindent { -\l_@@_hanging_hang_tl }
+        \dim_set:Nn \listparindent { -\l_@@_hanging_hang_tl }
+        \skip_set_eq:NN \parsep \parskip
+        \skip_zero:N \partopsep
+        \dim_zero:N \labelsep
+        \dim_set_eq:NN \l_@@_hanging_parindent_saved_dim \parindent
+      }
+    \bool_if:NTF \l_@@_chap_drop_bool
+      { \cs_set_eq:NN \ch \@@_hanging_chap:n }
+      { \cs_set_eq:NN \ch \@@_nodrop_chap:n }
+    \cs_set_eq:NN \vs \@@_hanging_verse:n
+    \cs_set_eq:NN \nohang \@@_nohang:
+    \item
+    \relax
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_hanging_end:}
+%   End a hanging section in a scripture quotation.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_hanging_end:
+  {
+    \@@_calc_final_line_length:
+    \skip_add:Nn \@topsepadd \l_@@_delta_below_skip
+    \endlist
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsubsection{The \env{midparachap} environment}
+%
+% \begin{macro}{\@@_vbox_set_top:Nw}
+%   Define missing \cs{vbox_set_top:Nw} function.
+%    \begin{macrocode}
+\cs_new_protected:Npn \@@_vbox_set_top:Nw #1
+  {
+    \tex_setbox:D #1 \tex_vtop:D
+      \c_group_begin_token
+        \color_group_begin:
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l_@@_mid_para_chap_bool}
+%   Flag if setting a paragraph containing a mid-paragraph chapter.
+%    \begin{macrocode}
+\bool_new:N \l_@@_mid_para_chap_bool
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l_@@_mid_para_chap_line_box}
+%   Store last line before a mid-paragraph chapter.
+%    \begin{macrocode}
+\box_new:N \l_@@_mid_para_chap_line_box
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\g_@@_mid_para_chap_prevgraf_int}
+%   Store the number of lines a paragraph containing a mid-paragraph chapter
+%   takes up.
+%    \begin{macrocode}
+\int_new:N \g_@@_mid_para_chap_prevgraf_int
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l_@@_mid_para_chap_snap_box}
+%   Store unpacked last line before a mid-paragraph chapter.
+%    \begin{macrocode}
+\box_new:N \l_@@_mid_para_chap_snap_box
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l_@@_mid_para_chap_spacefactor_int}
+%   Store space factor before a mid-paragraph chapter.
+%    \begin{macrocode}
+\int_new:N \l_@@_mid_para_chap_spacefactor_int
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l_@@_mid_para_chap_box}
+%   Box containing a paragraph with a chapter break.
+%    \begin{macrocode}
+\box_new:N \l_@@_mid_para_chap_box
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_mid_para_drop_chap_output:}
+%   Output a mid-paragraph drop chapter.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_mid_para_drop_chap_output:
+  {
+    \unskip
+    \int_set_eq:NN \l_@@_mid_para_chap_spacefactor_int \spacefactor
+    \strut
+    \par
+    \int_gset_eq:NN \g_@@_mid_para_chap_prevgraf_int \prevgraf
+    \box_set_to_last:N \l_@@_mid_para_chap_line_box
+    \hbox_set:Nn \l_@@_mid_para_chap_snap_box
+      {
+        \hbox_unpack_drop:N \l_@@_mid_para_chap_line_box
+        \unskip
+        \unskip
+        \unpenalty
+      }
+    \nointerlineskip
+    \dim_compare:nNnTF
+      {
+        \box_wd:N \l_@@_mid_para_chap_snap_box +
+        \l_@@_chap_width_dim +
+        \l_@@_chap_sep_tl
+      }
+      <
+      { \linewidth - \leftskip - \rightskip - 3 em }
+      {
+        \@@_drop_chap_output:
+        \hbox_unpack_drop:N \l_@@_mid_para_chap_snap_box
+        \int_set_eq:NN \spacefactor \l_@@_mid_para_chap_spacefactor_int
+        \c_space_tl
+        \@@_verse_output:n { 1 }
+      }
+      {
+        \group_begin:
+        \noindent
+        \skip_horizontal:n { -\leftskip }
+        \hbox_unpack_drop:N \l_@@_mid_para_chap_snap_box
+        \skip_zero:N \parfillskip
+        \par
+        \int_gadd:Nn \g_@@_mid_para_chap_prevgraf_int \prevgraf
+        \group_end:
+        \@@_drop_chap_output:
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_mid_para_chap_begin:}
+%   Begin a paragraph containing a mid-paragraph chapter.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_mid_para_chap_begin:
+  {
+    \par
+    \bool_set_true:N \l_@@_mid_para_chap_bool
+    \skip_zero:N \parskip
+    \@@_vbox_set_top:Nw \l_@@_mid_para_chap_box
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_mid_para_chap_end:}
+%   End a paragraph containing a mid-paragraph chapter.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_mid_para_chap_end:
+  {
+    \@@_calc_final_line_length:
+    \int_gadd:Nn \g_@@_mid_para_chap_prevgraf_int { \prevgraf - 1 }
+    \vbox_set_end:
+%    \end{macrocode}
+% Attempt to allow the mid-paragraph chapter box to break across pages.
+%    \begin{macrocode}
+    \dim_compare:nNnTF
+      { \box_ht_plus_dp:N \l_@@_mid_para_chap_box }
+      >
+      { \pagegoal - \pagetotal - \baselineskip }
+      {
+        \int_set:Nn \vbadness { 10000 }
+        \vbox_set_split_to_ht:NNn
+          \l_tmpa_box \l_@@_mid_para_chap_box
+          { \pagegoal - \pagetotal - \baselineskip }
+        \box_use_drop:N \l_tmpa_box
+        \goodbreak
+        \box_use_drop:N \l_@@_mid_para_chap_box
+      }
+      {
+        \box_use_drop:N \l_@@_mid_para_chap_box
+        \skip_vertical:n { \baselineskip - \lineskip }
+      }
+    \par
+    \noindent
+    \skip_horizontal:N \g_@@_final_line_dim
+    \@@_reset_spacing:
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsubsection{The \env{narrow} environment}
+%
+% \begin{macro}{\@@_narrow_begin:n}
+%   Begin a narrow section in a scripture quotation.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_narrow_begin:n
+  {
+    \bool_if:NT \l_@@_active_inner_bool
+      {
+        \msg_error:nn { scripture } { nested-environment }
+      }
+    \bool_set_true:N \l_@@_active_inner_bool
+    \tl_if_novalue:nF { #1 }
+      {
+        \keys_set:nn
+          { scripture / narrow }
+          { #1 }
+      }
+    \par
+    \list { }
+      {
+        \skip_set_eq:NN \l_@@_delta_below_skip \l_@@_narrow_belowskip_tl
+%    \end{macrocode}
+% Ignore \opt{aboveskip} if at the beginning of a \env{scripture} environment.
+%    \begin{macrocode}
+        \bool_if:NTF \g_@@_start_bool
+          { \skip_zero:N \topsep }
+          {
+            \dim_compare:nTF
+              { \parskip >= \l_@@_narrow_aboveskip_tl > \c_zero_skip }
+              {
+                \skip_zero:N \topsep
+                \skip_zero:N \l_@@_delta_below_skip
+              }
+              {
+                \skip_set_eq:NN \topsep \l_@@_narrow_aboveskip_tl
+                \skip_sub:Nn \l_@@_delta_below_skip \l_@@_narrow_aboveskip_tl
+              }
+          }
+        \dim_set_eq:NN \leftmargin \l_@@_narrow_leftmargin_tl
+        \dim_set_eq:NN \rightmargin \l_@@_narrow_rightmargin_tl
+        \dim_set_eq:NN \listparindent \parindent
+        \dim_set_eq:NN \itemindent \parindent
+        \skip_set_eq:NN \parsep \parskip
+        \skip_zero:N \partopsep
+        \dim_zero:N \labelsep
+      }
+    \item
+    \relax
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_narrow_end:}
+%   End a narrow section in a scripture quotation.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_narrow_end:
+  {
+    \@@_calc_final_line_length:
+    \skip_add:Nn \@topsepadd \l_@@_delta_below_skip
+    \endlist
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsubsection{The \env{poetry} environment}
+%
+% \begin{macro}{\g_@@_poetry_end_bool}
+%   Flag indicating that a \env{poetry} environment just ended.
+%    \begin{macrocode}
+\bool_new:N \g_@@_poetry_end_bool
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l_@@_poetry_prevgraf_int}
+%   Store the number of lines a line of poetry takes up.
+%    \begin{macrocode}
+\int_new:N \l_@@_poetry_prevgraf_int
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_poetry_chap:n}
+%   Position a chapter in a \env{poetry} environment.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_poetry_chap:n
+  {
+    \@@_drop_chap_set_up:n { #1 }
+    \dim_compare:nNnT \l_@@_chap_width_dim < \l_@@_poetry_leftmargin_tl
+      {
+        \tl_set:Nx \l_@@_chap_sep_tl
+          {
+            \dim_eval:n
+              {
+                \l_@@_poetry_leftmargin_tl - \l_@@_chap_width_dim
+              }
+          }
+      }
+    \hbox_set:Nn \l_tmpb_box
+      {
+        \box_move_down:nn
+          { \baselineskip }
+          { 
+            \hbox_overlap_left:n
+              {
+                \box_use:N \l_tmpa_box
+                \skip_horizontal:N \l_@@_chap_sep_tl
+              }
+          }
+      }
+    \box_set_ht:Nn \l_tmpb_box { \c_zero_dim }
+    \box_set_dp:Nn \l_tmpb_box { \c_zero_dim }
+    \parshape 2 ~
+      \dim_eval:n
+        {
+          \@totalleftmargin - \l_@@_poetry_leftmargin_tl +
+          \l_@@_chap_width_dim + \l_@@_chap_sep_tl
+        } ~
+      \dim_eval:n
+        {
+          \linewidth - \@totalleftmargin + \l_@@_poetry_leftmargin_tl -
+          \l_@@_chap_width_dim - \l_@@_chap_sep_tl
+        } ~
+      \dim_eval:n
+        { \@totalleftmargin + \l_@@_poetry_big_indent_tl } ~
+      \dim_eval:n
+        { \linewidth - \l_@@_poetry_big_indent_tl }
+    \dim_compare:nNnT
+      { \l_@@_chap_width_dim + \l_@@_chap_sep_tl }
+      >
+      { \l_@@_poetry_leftmargin_tl + \listparindent }
+      {
+        \hook_gput_next_code:nn { para / begin }
+          {
+            \int_compare:nNnT \l_@@_poetry_prevgraf_int = 1
+              {
+                \parshape 2 ~ 
+                  \dim_eval:n
+                    {
+                      \@totalleftmargin - \l_@@_poetry_leftmargin_tl +
+                      \l_@@_chap_width_dim + \l_@@_chap_sep_tl -
+                      \listparindent
+                    } ~
+                  \dim_eval:n
+                    {
+                      \linewidth - \@totalleftmargin + \l_@@_poetry_leftmargin_tl -
+                      \l_@@_chap_width_dim - \l_@@_chap_sep_tl +
+                      \listparindent
+                    } ~
+                  \dim_eval:n
+                    { \@totalleftmargin + \l_@@_poetry_big_indent_tl } ~
+                  \dim_eval:n
+                    { \linewidth - \l_@@_poetry_big_indent_tl }
+              }
+          }
+      }
+    \box_use:N \l_tmpb_box
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_poetry_nodrop_chap:n}
+%   Format a non-drop chapter for \env{poetry} environment in a
+%   \env{scripture} quotation.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_poetry_nodrop_chap:n
+  {
+    \hbox_overlap_left:n
+      {
+        \group_begin:
+        \l_@@_chap_font_tl
+        #1
+        \group_end:
+        \skip_horizontal:N \l_@@_chap_sep_tl
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\@@_poetry_mode_vertical_verse:n}
+%   Format a verse for poetry scripture quotations in vertical and horizontal
+%   mode.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_poetry_mode_vertical_verse:n
+  {
+    \strut
+    \hbox_overlap_left:n
+      {
+        \@@_verse_output:n { #1 }
+      }
+  }
+\cs_new_protected:Nn \@@_poetry_mode_horizontal_verse:n
+  {
+    \skip_horizontal:n { -\listparindent }
+    \@@_poetry_mode_vertical_verse:n { #1 }
+    \skip_horizontal:N \listparindent
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_poetry_par:}
+%   par macro for poetry sections
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_poetry_par:
+  {
+    \mode_if_vertical:TF
+      {
+        \cs_set_eq:NN \vs \@@_poetry_mode_vertical_verse:n
+        \noindent
+      }
+      {
+        \cs_set_eq:NN \vs \@@_poetry_mode_horizontal_verse:n
+        \@@_tmp_para_end:
+      }
+    \parshape 2 ~ 
+      \@totalleftmargin ~
+      \linewidth ~
+      \dim_eval:n
+        { \@totalleftmargin + \l_@@_poetry_big_indent_tl } ~
+      \dim_eval:n
+        { \linewidth - \l_@@_poetry_big_indent_tl }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_obeylines:}
+%   Special version of obeylines which doesn't insert par at end of
+%   environment.
+%    \begin{macrocode}
+\group_begin:
+  \char_set_catcode_active:N \^^M
+  \cs_gset_protected_nopar:Nn \@@_obeylines: %
+    {%
+      \char_set_catcode_active:N \^^M%
+      \cs_set_eq:NN ^^M \@@_obeylines_end:%
+    }%
+\group_end:
+\cs_new_protected:Nn \@@_obeylines_end:
+  {
+    \peek_meaning:NF \end
+      {
+        \par
+        \int_set:Nn \l_@@_poetry_prevgraf_int { \int_use:N \prevgraf }
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_poetry_begin:}
+%   Begin a poetry section in a scripture quotation.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_poetry_begin:
+  {
+    \bool_if:NT \l_@@_active_inner_bool
+      {
+        \msg_error:nn { scripture } { nested-environment }
+      }
+    \bool_set_true:N \l_@@_active_inner_bool
+    \par
+    \list { }
+      {
+        \skip_set_eq:NN \l_@@_delta_below_skip \l_@@_poetry_belowskip_tl
+        \bool_if:NTF \g_@@_start_bool
+          {
+            \skip_zero:N \topsep
+          }
+          {
+            \dim_compare:nTF
+              { \parskip >= \l_@@_poetry_aboveskip_tl > \c_zero_skip }
+              {
+                \skip_zero:N \topsep
+                \skip_zero:N \l_@@_delta_below_skip
+              }
+              {
+                \skip_set_eq:NN \topsep \l_@@_poetry_aboveskip_tl
+                \skip_sub:Nn \l_@@_delta_below_skip \l_@@_poetry_aboveskip_tl
+              }
+            \int_compare:nNnT \l_@@_chap_par_prevgraf_int = 1
+              { \addvspace { \baselineskip } }
+            \int_zero:N \l_@@_chap_par_prevgraf_int
+          }
+        \dim_set_eq:NN \leftmargin \l_@@_poetry_leftmargin_tl
+        \dim_set_eq:NN \rightmargin \l_@@_poetry_rightmargin_tl
+        \dim_set_eq:NN \itemindent \l_@@_poetry_indent_tl
+        \dim_set_eq:NN \listparindent \l_@@_poetry_indent_tl
+        \skip_zero:N \parsep
+        \skip_zero:N \partopsep
+        \dim_zero:N \labelsep
+      }
+    \raggedright
+    \dim_set_eq:NN \listparindent \l_@@_poetry_indent_tl
+    \dim_set_eq:NN \parindent \l_@@_poetry_indent_tl
+    \bool_if:NTF \l_@@_chap_drop_bool
+      { \cs_set_eq:NN \ch \@@_poetry_chap:n }
+      { \cs_set_eq:NN \ch \@@_poetry_nodrop_chap:n }
+    \cs_set_eq:NN \vs \@@_poetry_mode_vertical_verse:n
+    \item
+    \relax
+    \cs_set_eq:NN \@@_tmp_para_end: \par
+    \cs_set_eq:NN \par \@@_poetry_par:
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_poetry_end:}
+%   End a poetry section in a scripture quotation.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_poetry_end:
+  {
+    \@@_calc_final_line_length:
+    \skip_add:Nn \@topsepadd \l_@@_delta_below_skip
+    \endlist
+    \bool_gset_true:N \g_@@_poetry_end_bool
+    \hook_gput_next_code:nn { para / begin }
+      { \bool_gset_false:N \g_@@_poetry_end_bool }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \subsection{Public \LaTeX{} Interface}
+%
+% \begin{macro}{\scripturesetup}
+%   \begin{arguments}
+%     \item \meta{|options|} to set.
+%   \end{arguments}
+%   Set key-value settings.
+%    \begin{macrocode}
+\NewDocumentCommand { \scripturesetup } { m }
+  {
+    \keys_set:nn { scripture } { #1 }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{envmacro}{scripture}
+%   \begin{arguments}
+%     \item \meta{|reference|} of quotation.
+%     \item \meta{|options|} to set.
+%   \end{arguments}
+%   Format a scripture quotation with optional reference.
+%    \begin{macrocode}
+\NewDocumentEnvironment { scripture } { oo }
+  {
+    \@@_begin:n { #2 }
+%    \end{macrocode}
+% \begin{envmacro}{center}
+%   \begin{arguments}
+%     \item \meta{|options|} to set.
+%   \end{arguments}
+%    \begin{macrocode}
+    \DeclareDocumentEnvironment { center } { o }
+      {
+        \@@_center_begin:n { ##1 }
+        \ignorespaces
+      }
+      { \@@_center_end: }
+%    \end{macrocode}
+% \end{envmacro}
+% \begin{envmacro}{flushright}
+%   \begin{arguments}
+%     \item \meta{|options|} to set.
+%   \end{arguments}
+%    \begin{macrocode}
+    \DeclareDocumentEnvironment { flushright } { o }
+      {
+        \@@_flushright_begin:n { ##1 }
+        \ignorespaces
+      }
+      { \@@_flushright_end: }
+%    \end{macrocode}
+% \end{envmacro}
+% \begin{envmacro}{hanging}
+%   \begin{arguments}
+%     \item \meta{|options|} to set.
+%   \end{arguments}
+%    \begin{macrocode}
+    \DeclareDocumentEnvironment { hanging } { o }
+      {
+        \@@_hanging_begin:n { ##1 }
+        \ignorespaces
+      }
+      { \@@_hanging_end: }
+%    \end{macrocode}
+% \end{envmacro}
+% \vspace{-2\baselineskip}
+% \begin{envmacro}{midparachap}
+%    \begin{macrocode}
+    \DeclareDocumentEnvironment { midparachap } { }
+      {
+        \@@_mid_para_chap_begin:
+        \ignorespaces
+      }
+      { \@@_mid_para_chap_end: }
+%    \end{macrocode}
+% \end{envmacro}
+% \begin{envmacro}{narrow}
+%   \begin{arguments}
+%     \item \meta{|options|} to set.
+%   \end{arguments}
+%    \begin{macrocode}
+    \DeclareDocumentEnvironment { narrow } { o }
+      {
+        \@@_narrow_begin:n { ##1 }
+        \ignorespaces
+      }
+      { \@@_narrow_end: }
+%    \end{macrocode}
+% \end{envmacro}
+% \begin{envmacro}{poetry}
+%   \begin{arguments}
+%     \item \meta{|options|} to set.
+%   \end{arguments}
+% The \env{poetryaux} environment is required because \cs{@@_obeylines:}
+% breaks the reading of optional arguments.
+%    \begin{macrocode}
+    \DeclareDocumentEnvironment { poetryaux } { o }
+      {
+        \tl_if_novalue:nF { ##1 }
+        {
+          \keys_set:nn
+            { scripture / poetry }
+            { ##1 }
+        }
+        \@@_poetry_begin:
+        \ignorespaces
+      }
+      { \@@_poetry_end: }
+    \DeclareDocumentEnvironment { poetry } { }
+      {
+        \@@_obeylines:
+        \poetryaux
+      }
+      { \endpoetryaux }
+%    \end{macrocode}
+% \end{envmacro}
+%    \begin{macrocode}
+    \ignorespaces
+  }
+  {
+    \@@_end:n { #1 }
+  }
+%    \end{macrocode}
+% \end{envmacro}
+%    \begin{macrocode}
+%</package>
+%    \end{macrocode}
+% \end{implementation}
+%
+% \PrintChanges
+%
+% \PrintIndex

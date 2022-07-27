@@ -1,0 +1,22 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Gensis 1:1--5]
+  \begin{hanging}
+    \ch{1}In the beginning God created the heavens and the earth. \vs{2}Now the
+    earth was formless and empty, darkness was over the surface of the deep,
+    and the Spirit of God was hovering over the waters.
+
+    \extraskip
+
+    \vs{3}And God said, ‘Let there be light,’ and there was light. \vs{4}God
+    saw that the light was good, and he separated the light from the darkness.
+    \vs{5}God called the light ‘day’, and the darkness he called ‘night’. And
+    there was evening, and there was morn\-ing---the first day.
+  \end{hanging}
+\end{scripture}
+\end{document}

@@ -1,0 +1,29 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Genesis 1:26--28]
+  \begin{hanging}
+    \nohang\vs{26}Then God said, ‘Let us make mankind in our image, in our
+    likeness, so that they may rule over the fish in the sea and the birds in
+    the sky, over the livestock and all the wild animals, and over all the
+    creatures that move along the ground.’
+  \end{hanging}
+
+  \begin{poetry}
+    \vs{27}So God created mankind in his own image,
+    in the image of God he created them;
+    male and female he created them.
+  \end{poetry}
+
+  \begin{hanging}
+    \nohang\vs{28}God blessed them and said to them, ‘Be fruitful and increase
+    in number; fill the earth and subdue it. Rule over the fish in the sea and
+    the birds in the sky and over every living creature that moves on the
+    ground.’
+  \end{hanging}
+\end{scripture}
+\end{document}

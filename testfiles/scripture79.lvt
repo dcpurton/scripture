@@ -1,0 +1,25 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{quotation}
+  \begin{scripture}
+    \begin{poetry}
+      \ch{40}Comfort, comfort my people,
+      says your God.
+
+      \vs{2}Speak tenderly to Jerusalem,
+      and proclaim to her
+
+      that her hard service has been completed,
+      that her sin has been paid for,
+
+      that she has received from the \textsc{Lord}’s hand
+      double for all her sins.
+    \end{poetry}
+  \end{scripture}
+\end{quotation}
+\end{document}

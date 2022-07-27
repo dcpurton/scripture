@@ -1,0 +1,6 @@
+build
+*.swp
+*.aux
+*.log
+scripture.pdf
+

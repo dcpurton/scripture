@@ -1,0 +1,20 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{minipage}{5.5cm}
+  \begin{scripture}[Isaiah 25:1]
+    \begin{poetry}
+      \ch{25}\textsc{Lord}, you are my God;
+      I will exalt you and praise your name,
+
+      for in perfect faithfulness
+      you have done wonderful things,
+      things planned long ago.
+    \end{poetry}
+  \end{scripture}
+\end{minipage}
+\end{document}

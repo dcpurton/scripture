@@ -1,0 +1,20 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Jeremiah 1:4--6]
+  \vs{4}The word of the \textsc{Lord} came to me, saying,
+
+  \begin{poetry}
+    \vs{5}‘Before I formed you in the womb I knew you,
+    before you were born I set you apart;
+    I appointed you as a prophet to the nations.’
+  \end{poetry}
+
+  \vs{6}‘Alas, Sovereign \textsc{Lord},’ I said, ‘I do not know how to speak; I
+  am too young.’
+\end{scripture}
+\end{document}

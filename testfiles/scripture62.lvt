@@ -1,0 +1,25 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\scripturesetup{
+  verse/font=\scriptsize ,
+  verse/format=#1\,
+}
+\showoutput
+\begin{scripture}[John 3:16--21]
+  \vs{16}For God so loved the world that he gave his one and only Son, that
+  whoever believes in him shall not perish but have eternal life. \vs{17}For
+  God did not send his Son into the world to condemn the world, but to save the
+  world through him. \vs{18}Whoever believes in him is not condemned, but
+  whoever does not believe stands condemned already because they have not
+  believed in the name of God’s one and only Son. \vs{19}This is the verdict:
+  light has come into the world, but people loved darkness instead of light
+  because their deeds were evil. \vs{20}Everyone who does evil hates the light,
+  and will not come into the light for fear that their deeds will be exposed.
+  \vs{21}But whoever lives by the truth comes into the light, so that it may be
+  seen plainly that what they have done has been done in the sight of God.
+\end{scripture}
+\end{document}

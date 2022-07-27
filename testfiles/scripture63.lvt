@@ -1,0 +1,17 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\scripturesetup{
+  chapter/nodrop
+}
+\showoutput
+\begin{scripture}
+  \ch{6}In the year that King Uzziah died, I saw the Lord, high and exalted,
+  seated on a throne; and the train of his robe filled the temple. \vs{2}Above
+  him were seraphim, each with six wings: with two wings they covered their
+  faces, with two they covered their feet, and with two they were flying.
+\end{scripture}
+\end{document}

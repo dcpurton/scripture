@@ -1,0 +1,19 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}
+  \ch{12}In that day you will say:
+
+  \begin{poetry}
+    ‘I will praise you, \textsc{Lord}.
+    Although you were angry with me,
+
+    your anger has turned away
+    and you have comforted me.
+  \end{poetry}
+\end{scripture}
+\end{document}

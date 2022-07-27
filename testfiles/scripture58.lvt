@@ -1,0 +1,27 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Isaiah 1:2]
+  \begin{poetry}
+    \vs{2}Hear me, you heavens! Listen, earth!
+    For the \textsc{Lord} has spoken:
+
+    ‘I reared children and brought them up,
+    but they have rebelled against me.
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Isaiah 1:3]
+  \begin{poetry}
+    \vs{3}The ox knows its master,
+    the donkey its owner’s manger,
+
+    but Israel does not know,
+    my people do not understand.’
+  \end{poetry}
+\end{scripture}
+\end{document}

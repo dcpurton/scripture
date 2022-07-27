@@ -1,0 +1,19 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+! Package scripture Error: Nesting of scripture environments not supported.
+For immediate help type H <return>.
+ ...                                              
+l. ...      \ch
+              {1}In the beginning God created the heavens and the earth. \vs...
+You have tried to nest a scripture environment or
+one of its internal environments, which is not supported.
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <27.56104> not available
+(Font)              size <24.88> substituted on input line ....
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line ....
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line ....
+[1
+] (scripture83.aux)
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 2.68103pt have occurred.

@@ -1,0 +1,22 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}
+  \begin{hanging}[rightmargin=1em]
+    \vs{2}The sons of Japheth: \\
+    Gomer, Magog, Madai, Javan, Tubal, Meshek and Tiras.
+
+    \vs{3}The sons of Gomer: \\
+    Ashkenaz, Riphath and Togarmah.
+
+    \vs{4}The sons of Javan: \\
+    Elishah, Tarshish, the Kittites and the Rodanites. \vs{5}(From these the
+    maritime peoples spread out into their territories by their clans within
+    their nations, each with its own language.)
+  \end{hanging}
+\end{scripture}
+\end{document}

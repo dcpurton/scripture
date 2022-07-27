@@ -1,0 +1,25 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}
+  \begin{center}
+    \textbf{Psalm 52}
+
+    \bigskip
+
+    \scriptsize For the director of music. A \emph{maskil} of David. When Doeg
+    the Edomite had gone to Saul and told him: ‘David has gone to the house of
+    Ahimelek.’
+  \end{center}
+
+  \begin{poetry}
+    \vs{1}Why do you boast of evil, you mighty hero?
+    Why do you boast all day long,
+    you who are a disgrace in the eyes of God?
+  \end{poetry}
+\end{scripture}
+\end{document}

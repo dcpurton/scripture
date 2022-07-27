@@ -1,0 +1,22 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\usepackage{parskip}
+\pagestyle{empty}
+\makeatletter
+\makeatother
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Isaiah 2:2]
+  \vs{2}In the last days
+
+  \begin{poetry}
+    the mountain of the \textsc{Lord}’s temple will be established
+    as the highest of the mountains;
+
+    it will be exalted above the hills,
+    and all nations will stream to it.
+  \end{poetry}
+\end{scripture}
+\end{document}

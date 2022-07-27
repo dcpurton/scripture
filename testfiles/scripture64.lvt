@@ -1,0 +1,20 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\scripturesetup{
+  chapter/nodrop
+}
+\showoutput
+\begin{scripture}
+  \begin{poetry}
+    \ch{5}I will sing for the one I love
+    a song about his vineyard:
+
+    my loved one had a vineyard
+    on a fertile hillside.
+  \end{poetry}
+\end{scripture}
+\end{document}

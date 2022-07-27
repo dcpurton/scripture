@@ -1,0 +1,20 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\makeatletter
+\makeatother
+\begin{document}
+\START
+\showoutput
+\begin{minipage}{5.5cm}
+  \begin{scripture}[Daniel 5:25]
+    \vs{25}‘This is the inscription that was
+    written:
+
+    \begin{center}
+      \textsc{mene, mene, tekel, parsin}
+    \end{center}
+  \end{scripture}
+\end{minipage}
+\end{document}

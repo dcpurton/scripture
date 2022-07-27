@@ -1,0 +1,20 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}
+  \vs{18}They called for the king; and Eliakim son of Hilkiah the palace
+  administrator, Shebna the secretary, and Joah son of Asaph the recorder went
+  out to them.
+
+  \vs{19}The field commander said to them, ‘Tell Hezekiah:
+
+  \begin{narrow}
+    ‘“This is what the great king, the king of Assyria, says: on what are you
+    basing this confidence of yours?
+  \end{narrow}
+\end{scripture}
+\end{document}
