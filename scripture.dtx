@@ -733,6 +733,13 @@
 %   argument of \cs{vs}.
 % \end{option}
 %
+% \begin{option}{verse/sep}
+%   \begin{syntax}
+%     |verse/sep =| \meta{dimen} \hfill Default: 0.05 em
+%   \end{syntax}
+%   \meta{|dimen|} used to separate a \cs{vs} from the following text.
+% \end{option}
+%
 % \begin{option}{version}
 %   \begin{syntax}
 %     |version =| \meta{version} \hfill Default: \emph{Empty}
@@ -1051,6 +1058,9 @@
     , verse / format           .cs_set:Np          = \@@_verse_format:n #1
     , verse / format           .value_required:n   = true
     , verse / format           .initial:n          = \textsuperscript{#1}
+    , verse / sep              .tl_set:N           = \l_@@_verse_sep_tl
+    , verse / sep              .value_required:n   = true
+    , verse / sep              .initial:n          = 0.05 em
     , version                  .tl_set:N           = \l_@@_version_tl
     , version                  .value_required:n   = true
     , version                  .initial:n          =
@@ -1400,6 +1410,7 @@
     \group_begin:
     \l_@@_verse_font_tl
     \@@_verse_format:n { #1 }
+    \kern \l_@@_verse_sep_tl
     \group_end:
   }
 %    \end{macrocode}

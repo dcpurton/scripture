@@ -94,7 +94,7 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\penalty 150
 ...\glue(\baselineskip) 1.91553
-...\hbox(8.14003+1.94444)x345.0, glue set - 0.40987
+...\hbox(8.14003+1.94444)x345.0, glue set - 0.442
 ....\OT1/cmr/m/n/10 s
 ....\OT1/cmr/m/n/10 e
 ....\OT1/cmr/m/n/10 a
@@ -164,6 +164,7 @@ Completed box being shipped out [1]
 ....\hbox(4.51111+0.0)x4.48613, shifted -3.62892
 .....\OT1/cmr/m/n/7 2
 ....\mathoff
+....\kern 0.50003
 ....\OT1/cmr/m/n/10 A
 ....\OT1/cmr/m/n/10 b
 ....\kern0.27779

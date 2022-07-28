@@ -28,12 +28,13 @@ Completed box being shipped out [1]
 .....\glue 0.0
 ....\penalty 0
 ....\rule(8.39996+3.60004)x0.0
-....\hbox(8.14003+0.0)x0.0, glue set - 4.48613fil
+....\hbox(8.14003+0.0)x0.0, glue set - 4.98616fil
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 .....\mathon
 .....\hbox(4.51111+0.0)x4.48613, shifted -3.62892
 ......\OT1/cmr/m/n/7 2
 .....\mathoff
+.....\kern 0.50003
 ....\OT1/cmr/m/n/10 H
 ....\OT1/cmr/m/n/10 e
 ....\OT1/cmr/m/n/10 a

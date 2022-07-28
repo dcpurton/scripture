@@ -17,7 +17,7 @@ Completed box being shipped out [1]
 ..\vbox(598.0+0.0)x345.0, glue set 521.94424fil
 ...\write-{}
 ...\glue(\topskip) 1.85997
-...\hbox(8.14003+1.94444)x324.99997, glue set 0.5236, shifted 10.00002
+...\hbox(8.14003+1.94444)x324.99997, glue set 0.49432, shifted 10.00002
 ....\hbox(0.0+0.0)x15.0
 .....\glue 15.0
 .....\glue -20.00003
@@ -31,6 +31,7 @@ Completed box being shipped out [1]
 .....\OT1/cmr/m/n/7 2
 .....\OT1/cmr/m/n/7 5
 ....\mathoff
+....\kern 0.50003
 ....\OT1/cmr/m/n/10 F
 ....\kern-0.83334
 ....\OT1/cmr/m/n/10 u
@@ -226,13 +227,14 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 3.85997
-...\hbox(8.14003+1.94444)x345.0, glue set 0.02638
+...\hbox(8.14003+1.94444)x345.0, glue set 0.00374
 ....\hbox(0.0+0.0)x15.0
 ....\mathon
 ....\hbox(4.51111+0.0)x8.47226, shifted -3.62892
 .....\OT1/cmr/m/n/7 2
 .....\OT1/cmr/m/n/7 6
 ....\mathoff
+....\kern 0.50003
 ....\OT1/cmr/m/n/10 T
 ....\OT1/cmr/m/n/10 h
 ....\OT1/cmr/m/n/10 e

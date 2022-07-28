@@ -19,7 +19,7 @@ Completed box being shipped out [1]
 ..\vbox(598.0+0.0)x345.0, glue set 551.94104fil
 ...\write-{}
 ...\glue(\topskip) 1.85997
-...\hbox(8.14003+1.94444)x314.99995, glue set 0.24612, shifted 30.00005
+...\hbox(8.14003+1.94444)x314.99995, glue set 0.22305, shifted 30.00005
 ....\kern 20.00003
 ....\hbox(0.0+0.0)x-20.00003
 .....\glue -20.00003
@@ -100,6 +100,7 @@ Completed box being shipped out [1]
 ....\hbox(4.51111+0.0)x4.48613, shifted -3.62892
 .....\OT1/cmr/m/n/7 2
 ....\mathoff
+....\kern 0.50003
 ....\OT1/cmr/m/n/10 N
 ....\OT1/cmr/m/n/10 o
 ....\kern-0.27779

@@ -17,13 +17,14 @@ Completed box being shipped out [1]
 ..\vbox(598.0+0.0)x345.0, glue set 575.93848fil
 ...\write-{}
 ...\glue(\topskip) 1.85997
-...\hbox(8.14003+1.94444)x345.0, glue set - 0.84378
+...\hbox(8.14003+1.94444)x345.0, glue set - 0.87419
 ....\hbox(0.0+0.0)x15.0
 ....\mathon
 ....\hbox(4.51111+0.0)x8.47226, shifted -3.62892
 .....\OT1/cmr/m/n/7 1
 .....\OT1/cmr/m/n/7 6
 ....\mathoff
+....\kern 0.50003
 ....\OT1/cmr/m/n/10 F
 ....\kern-0.83334
 ....\OT1/cmr/m/n/10 o

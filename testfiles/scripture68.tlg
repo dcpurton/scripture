@@ -21,13 +21,14 @@ Completed box being shipped out [1]
 ....\hbox(0.0+0.0)x15.0
 ....\mathon
 ....\vbox(27.57002+22.57)x156.49014
-.....\hbox(8.14003+1.94444)x156.49014, glue set 0.96545
+.....\hbox(8.14003+1.94444)x156.49014, glue set 0.90546
 ......\hbox(0.0+0.0)x0.0
 ......\mathon
 ......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
 .......\OT1/cmr/m/n/7 2
 .......\OT1/cmr/m/n/7 5
 ......\mathoff
+......\kern 0.50003
 ......\OT1/cmr/m/n/10 `
 ......\OT1/cmr/m/n/10 T
 ......\OT1/cmr/m/n/10 h

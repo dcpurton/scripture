@@ -14,17 +14,17 @@ Completed box being shipped out [1]
 ....\hbox(0.0+0.0)x345.0
 ..\glue 25.0
 ..\glue(\lineskip) 0.0
-..\vbox(598.0+0.0)x345.0, glue set 563.93976fil
+..\vbox(598.0+0.0)x345.0, glue set 575.93848fil
 ...\write-{}
 ...\glue(\topskip) 1.85997
-...\hbox(8.14003+1.94444)x345.0, glue set - 0.87419
+...\hbox(8.14003+1.94444)x345.0, glue set 0.85553
 ....\hbox(0.0+0.0)x15.0
 ....\mathon
 ....\hbox(4.51111+0.0)x8.47226, shifted -3.62892
 .....\OT1/cmr/m/n/7 1
 .....\OT1/cmr/m/n/7 6
 ....\mathoff
-....\kern 0.50003
+....\kern 5.0
 ....\OT1/cmr/m/n/10 F
 ....\kern-0.83334
 ....\OT1/cmr/m/n/10 o
@@ -98,7 +98,10 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/n/10 h
 ....\OT1/cmr/m/n/10 a
 ....\OT1/cmr/m/n/10 t
-....\glue 3.33333 plus 1.66666 minus 1.11111
+....\glue(\rightskip) 0.0
+...\penalty 200
+...\glue(\baselineskip) 3.11111
+...\hbox(6.94444+1.94444)x345.0, glue set 75.58287fil
 ....\OT1/cmr/m/n/10 w
 ....\OT1/cmr/m/n/10 h
 ....\OT1/cmr/m/n/10 o
@@ -108,10 +111,7 @@ Completed box being shipped out [1]
 ....\kern-0.27779
 ....\OT1/cmr/m/n/10 e
 ....\OT1/cmr/m/n/10 r
-....\glue(\rightskip) 0.0
-...\penalty 200
-...\glue(\baselineskip) 3.11111
-...\hbox(6.94444+1.94444)x345.0, glue set 114.77737fil
+....\glue 3.33333 plus 1.66666 minus 1.11111
 ....\OT1/cmr/m/n/10 b
 ....\kern0.27779
 ....\OT1/cmr/m/n/10 e
@@ -182,41 +182,12 @@ Completed box being shipped out [1]
 ...\penalty 0
 ...\glue(\belowdisplayskip) 0.0
 ...\glue -12.0 plus -1.0
-...\glue 12.0
-...\glue(\parskip) 0.0 plus 1.0
-...\glue(\parskip) 0.0
-...\glue(\baselineskip) 4.5
-...\hbox(7.5+2.5)x345.0, glue set 208.55608fill
-....\hbox(0.0+0.0)x15.0
-....\glue 0.0 plus 1.0fill
-....\hbox(7.5+2.5)x121.44392
-.....\glue 20.00003
-.....\OT1/cmr/bx/n/10 J
-.....\OT1/cmr/bx/n/10 o
-.....\OT1/cmr/bx/n/10 h
-.....\OT1/cmr/bx/n/10 n
-.....\glue 3.83331 plus 1.91666 minus 1.27777
-.....\OT1/cmr/bx/n/10 3
-.....\OT1/cmr/bx/n/10 :
-.....\OT1/cmr/bx/n/10 1
-.....\OT1/cmr/bx/n/10 6
-.....\glue 3.83331 plus 1.91666 minus 1.27777
-.....\OT1/cmr/bx/n/10 (
-.....\OT1/cmr/bx/n/10 N
-.....\OT1/cmr/bx/n/10 I
-.....\OT1/cmr/bx/n/10 V
-.....\OT1/cmr/bx/n/10 U
-.....\OT1/cmr/bx/n/10 K
-.....\OT1/cmr/bx/n/10 )
-....\penalty 10000
-....\glue(\parfillskip) 0.0 plus 1.0fil
-....\glue(\rightskip) 0.0
+...\glue 12.0 plus 1.0
 ...\glue 0.0
-...\glue -2.5
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 30.0
 ..\hbox(0.0+0.0)x345.0
 ...\hbox(0.0+0.0)x345.0
-(scripture59.aux)
+(issue02.aux)
