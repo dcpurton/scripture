@@ -609,6 +609,14 @@
 %   \meta{|font|} used for the \cs{ch} function.
 % \end{option}
 %
+% \begin{option}{chapter/format}
+%   \begin{syntax}
+%     |chapter/format =| \meta{macro} \hfill Default: \#1
+%   \end{syntax}
+%   \meta{|macro|} used to format the \val{chapter} for a \env{scripture}
+%   quotation. |#1| contains the text of the \val{chapter}.
+% \end{option}
+%
 % \begin{option}{chapter/drop}
 %   \begin{syntax}
 %     |chapter/drop =| \meta{boolean} \hfill Default: true
@@ -1015,6 +1023,9 @@
     , chapter / font           .tl_set:N           = \l_@@_chap_font_tl
     , chapter / font           .value_required:n   = true
     , chapter / font           .initial:n          = \bfseries
+    , chapter / format         .cs_set:Np          = \@@_chap_format:n #1
+    , chapter / format         .value_required:n   = true
+    , chapter / format         .initial:n          = #1
     , chapter / drop           .bool_set:N         = \l_@@_chap_drop_bool
     , chapter / drop           .default:n          = true
     , chapter / drop           .initial:n          = true
@@ -1315,7 +1326,7 @@
           { \l_@@_chap_fontsize_dim }
           { \l_@@_chap_fontsize_dim }
           \selectfont
-        #1
+        \@@_chap_format:n { #1 }
       }
     \dim_set:Nn \l_@@_chap_width_dim
       { \box_wd:N \l_tmpa_box }
