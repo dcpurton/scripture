@@ -602,6 +602,16 @@
 %   environment.
 % \end{option}
 %
+% \begin{option}{chapter/drop}
+%   \begin{syntax}
+%     |chapter/drop =| \meta{boolean} \hfill Default: true
+%   \end{syntax}
+%   Whether the chapter should be set as a drop letter taking up two
+%   lines or as a normal letter taking up one line. The value of
+%   \meta{|boolean|} is optional and assumed to be \val{true} if not present.
+%   This option is the opposite of \opt{chapter/nodrop}.
+% \end{option}
+%
 % \begin{option}{chapter/font}
 %   \begin{syntax}
 %     |chapter/font =| \meta{font} \hfill Default: \cs{bfseries}
@@ -615,16 +625,6 @@
 %   \end{syntax}
 %   \meta{|macro|} used to format the \val{chapter} for a \env{scripture}
 %   quotation. |#1| contains the text of the \val{chapter}.
-% \end{option}
-%
-% \begin{option}{chapter/drop}
-%   \begin{syntax}
-%     |chapter/drop =| \meta{boolean} \hfill Default: true
-%   \end{syntax}
-%   Whether the chapter should be set as a drop letter taking up two
-%   lines or as a normal letter taking up one line. The value of
-%   \meta{|boolean|} is optional and assumed to be \val{true} if not present.
-%   This option is the opposite of \opt{chapter/nodrop}.
 % \end{option}
 %
 % \begin{option}{chapter/nodrop}
@@ -1023,12 +1023,12 @@
     , chapter / font           .tl_set:N           = \l_@@_chap_font_tl
     , chapter / font           .value_required:n   = true
     , chapter / font           .initial:n          = \bfseries
-    , chapter / format         .cs_set:Np          = \@@_chap_format:n #1
-    , chapter / format         .value_required:n   = true
-    , chapter / format         .initial:n          = #1
     , chapter / drop           .bool_set:N         = \l_@@_chap_drop_bool
     , chapter / drop           .default:n          = true
     , chapter / drop           .initial:n          = true
+    , chapter / format         .cs_set:Np          = \@@_chap_format:n #1
+    , chapter / format         .value_required:n   = true
+    , chapter / format         .initial:n          = #1
     , chapter / nodrop         .bool_set_inverse:N = \l_@@_chap_drop_bool
     , chapter / nodrop         .default:n          = true
     , chapter / sep            .tl_set:N           = \l_@@_chap_sep_tl
