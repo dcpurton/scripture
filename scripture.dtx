@@ -1535,7 +1535,10 @@
           }
       }
     \bool_if:NF \l_@@_indent_bool
-      { \noindent }
+      {
+        \hook_gput_next_code:nn { para / begin }
+          { \OmitIndent }
+      }
   }
 %    \end{macrocode}
 % \end{macro}
