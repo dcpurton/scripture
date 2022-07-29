@@ -243,6 +243,16 @@
 %   Remaining lines continue to be indented by a length of \opt{hanging/hang}.
 % \end{function}
 %
+% \begin{function}{\selah}
+%   \begin{syntax}
+%     |\selah|
+%   \end{syntax}
+%   In a \env{poetry} environment, this function inserts \emph{Selah} at the
+%   end of the current line or the end of the following line if there is
+%   insufficient room. See options \opt{selah/font}, \opt{selah/format},
+%   \opt{selah/sep} and \opt{selah/text} for options controlling the output.
+% \end{function}
+%
 % \begin{function}{\scripturesetup}
 %   \begin{syntax}
 %     |\scripturesetup|\marg{options}
@@ -726,6 +736,36 @@
 %   the following line.
 % \end{option}
 %
+% \begin{option}{selah/font}
+%   \begin{syntax}
+%     |selah/font =| \meta{font} \hfill Default: \cs{itshape}
+%   \end{syntax}
+%   \meta{|font|} used when printing \cs{selah} in a \env{poetry} environment.
+% \end{option}
+%
+% \begin{option}{selah/format}
+%   \begin{syntax}
+%     |selah/format =| \meta{macro} \hfill Default: \#1
+%   \end{syntax}
+%   \meta{|macro|} used to format the \cs{selah} in a \env{poetry}
+%   environment. |#1| contains the value of \opt{selah/text}.
+% \end{option}
+%
+% \begin{option}{selah/sep}
+%   \begin{syntax}
+%     |selah/sep =| \meta{dimen} \hfill Default: 1em
+%   \end{syntax}
+%   The minimum \meta{|dimen|} allowed between the end of a poetry line and
+%   \emph{Selah} before the \emph{Selah} is pushed to the following line.
+% \end{option}
+%
+% \begin{option}{selah/text}
+%   \begin{syntax}
+%     |selah/text =| \meta{text} \hfill Default: Selah
+%   \end{syntax}
+%   \meta{|text|} used to for \cs{selah} in a \env{poetry} environment.
+% \end{option}
+%
 % \begin{option}{verse/font}
 %   \begin{syntax}
 %     |verse/font =| \meta{font} \hfill Default: \emph{Empty}
@@ -1063,6 +1103,18 @@
     , reference / sep          .tl_set:N           = \l_@@_ref_sep_tl
     , reference / sep          .value_required:n   = true
     , reference / sep          .initial:n          = 2 em
+    , selah / text             .tl_set:N           = \l_@@_selah_text_tl
+    , selah / text             .value_required:n   = true
+    , selah / text             .initial:n          = Selah
+    , selah / font             .tl_set:N           = \l_@@_selah_font_tl
+    , selah / font             .value_required:n   = true
+    , selah / font             .initial:n          = \itshape
+    , selah / format           .cs_set:Np          = \@@_selah_format:n #1
+    , selah / format           .value_required:n   = true
+    , selah / format           .initial:n          = #1
+    , selah / sep              .tl_set:N           = \l_@@_selah_sep_tl
+    , selah / sep              .value_required:n   = true
+    , selah / sep              .initial:n          = 1 em
     , verse / font             .tl_set:N           = \l_@@_verse_font_tl
     , verse / font             .value_required:n   = true
     , verse / font             .initial:n          = 
@@ -1202,6 +1254,29 @@
         \int_zero:N \l_@@_chap_par_prevgraf_int
       }
     \addvspace { \l_@@_extraskip_tl }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_text_right:n}
+%   Align a word to the right and finish a paragraph, pushing to the next line
+%   if there is not space for the word.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_text_right:nn
+  {
+    {
+      \unskip
+      \hfil
+      \penalty 50
+      \skip_horizontal:n { #1 }
+      \hbox:n {}
+      \nobreak
+      \hfill
+      #2
+      \skip_zero:N \parfillskip
+      \int_zero:N \finalhyphendemerits
+      \para_end:
+    }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -2205,6 +2280,43 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\@@_poetry_text_right:n}
+%   Align a word to the right and finish a paragraph, pushing to the next line
+%   if there is not space for the word.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_poetry_text_right:nn
+  {
+    {
+      \unskip
+      \hfil
+      \penalty 50
+      \skip_horizontal:n { #1 }
+      \hbox:n {}
+      \nobreak
+      \hfill
+      #2
+      \skip_zero:N \parfillskip
+      \int_zero:N \finalhyphendemerits
+    }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_selah_output:}
+%   Output Selah at the end of a line.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_selah_output:
+  {
+    \group_begin:
+    \l_@@_selah_font_tl
+    \@@_poetry_text_right:nn
+      { \l_@@_selah_sep_tl }
+      { \@@_selah_format:n { \l_@@_selah_text_tl } }
+    \group_end:
+  }
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\@@_poetry_chap:n}
 %   Position a chapter in a \env{poetry} environment.
 %    \begin{macrocode}
@@ -2421,6 +2533,7 @@
       { \cs_set_eq:NN \ch \@@_poetry_nodrop_chap:n }
     \cs_set_eq:NN \vs \@@_poetry_mode_vertical_verse:n
     \cs_set_eq:NN \extraskip \@@_poetry_extra_skip:
+    \cs_set_eq:NN \selah \@@_selah_output:
     \item
     \relax
     \cs_set_eq:NN \@@_tmp_para_end: \par

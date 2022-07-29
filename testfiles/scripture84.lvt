@@ -1,0 +1,27 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{minipage}{6cm}
+  \begin{scripture}[Psalm 3:1--4][version=NIV84]
+    \begin{poetry}
+      \vs{1}O \textsc{Lord}, how many are my foes!
+      How many rise up against me!
+
+      \vs{2}Many are saying of me,
+      “God will not deliver him.”\selah
+
+      \extraskip
+
+      \vs{3}But you are a shield around me, O \textsc{Lord};
+      you bestow glory on me and lift up my head.
+
+      \vs{4}To the \textsc{Lord} I cry aloud,
+      and he answers me from his holy hill.\selah
+    \end{poetry}
+  \end{scripture}
+\end{minipage}
+\end{document}
