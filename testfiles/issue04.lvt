@@ -1,0 +1,22 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}
+  \begin{poetry}
+    \vs{1}Answer me when I call to you,
+    my righteous God.
+
+    Give me relief from my distress;
+    have mercy on me and hear my prayer.
+
+    \extraskip
+
+    \vs{2}How long will you people turn my glory into shame?
+    How long will you love delusions and seek false gods?
+  \end{poetry}
+\end{scripture}
+\end{document}

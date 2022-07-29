@@ -2193,6 +2193,18 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\@@_poetry_extra_skip:}
+%   Insert a little extra vertical space between two lines in a \env{poetry}
+%   environment.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_poetry_extra_skip:
+  {
+    \skip_vertical:n { \l_@@_extraskip_tl - \baselineskip - \parskip }
+    \strut
+  }
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\@@_poetry_chap:n}
 %   Position a chapter in a \env{poetry} environment.
 %    \begin{macrocode}
@@ -2408,6 +2420,7 @@
       { \cs_set_eq:NN \ch \@@_poetry_chap:n }
       { \cs_set_eq:NN \ch \@@_poetry_nodrop_chap:n }
     \cs_set_eq:NN \vs \@@_poetry_mode_vertical_verse:n
+    \cs_set_eq:NN \extraskip \@@_poetry_extra_skip:
     \item
     \relax
     \cs_set_eq:NN \@@_tmp_para_end: \par
