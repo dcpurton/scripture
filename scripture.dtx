@@ -1011,6 +1011,24 @@
 %   \meta{|dimen|} used for the right margin of the \env{poetry} environment.
 % \end{option}
 %
+% \begin{option}{poetry/verse/left}
+%   \begin{syntax}
+%     |poetry/verse/left =| \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   Align verse numbers in \env{poetry} environments at the left margin of the
+%   \env{scripture} environment. This option is the opposite of
+%   \opt{poetry/verse/right}.
+% \end{option}
+%
+% \begin{option}{poetry/verse/right}
+%   \begin{syntax}
+%     |poetry/verse/right =| \meta{boolean} \hfill Default: true
+%   \end{syntax}
+%   Align verse numbers in \env{poetry} environments at the left margin of the
+%   poetry environment. The verse numbers overlap to the left. This option is
+%   the opposite of \opt{poetry/verse/left}.
+% \end{option}
+%
 % \end{documentation}
 %
 % \begin{implementation}
@@ -1217,6 +1235,11 @@
     , poetry / rightmargin     .tl_set:N           = \l_@@_poetry_rightmargin_tl
     , poetry / rightmargin     .value_required:n   = true
     , poetry / rightmargin     .initial:n          = \c_zero_dim
+    , poetry / verse / left    .bool_set_inverse:N = \l_@@_poetry_verse_right_bool
+    , poetry / verse / left    .default:n          = true
+    , poetry / verse / right   .bool_set:N         = \l_@@_poetry_verse_right_bool
+    , poetry / verse / right   .default:n          = true
+    , poetry / verse / right   .initial:n          = true
   }
 %    \end{macrocode}
 % Process package options using \pkg{l3keys2e} package.
@@ -2422,9 +2445,22 @@
 \cs_new_protected:Nn \@@_poetry_mode_vertical_verse:n
   {
     \strut
-    \hbox_overlap_left:n
+    \bool_if:NTF \l_@@_poetry_verse_right_bool
       {
-        \@@_verse_output:n { #1 }
+        \hbox_overlap_left:n
+          {
+            \@@_verse_output:n { #1 }
+          }
+      }
+      {
+        \hbox_overlap_left:n
+          {
+            \hbox_overlap_right:n
+              {
+                \@@_verse_output:n { #1 }
+              }
+            \skip_horizontal:N \l_@@_poetry_leftmargin_tl
+          }
       }
   }
 \cs_new_protected:Nn \@@_poetry_mode_horizontal_verse:n

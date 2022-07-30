@@ -1,0 +1,21 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  poetry/leftmargin=2em,
+  poetry/verse/left,
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}
+  \begin{poetry}
+    \vs{17}The arrogance of man will be brought low
+    and human pride humbled;
+
+    the \textsc{Lord} alone will be exalted in that day,
+    \vs{18}and the idols will totally disappear.
+  \end{poetry}
+\end{scripture}
+\end{document}
