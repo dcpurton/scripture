@@ -103,6 +103,7 @@
 % \fi
 %
 % \changes{v1.0}{2022/07/27}{First public release}
+% \changes{v1.1}{2022/07/28}{Bug fixes}
 %
 % \title{The \pkg{scripture} package}
 % \author{David Purton\thanks{Email: \url{dcpurton@marshwiggle.net}}}
@@ -243,7 +244,8 @@
 %   Remaining lines continue to be indented by a length of \opt{hanging/hang}.
 % \end{function}
 %
-% \begin{function}{\selah}
+% \begin{function}[added=2022-07-29]{\selah}
+%   \changes{v1.1}{2022/07/29}{Add \cs{selah} function}
 %   \begin{syntax}
 %     |\selah|
 %   \end{syntax}
@@ -629,7 +631,8 @@
 %   \meta{|font|} used for the \cs{ch} function.
 % \end{option}
 %
-% \begin{option}{chapter/format}
+% \begin{option}[added=2022-07-28]{chapter/format}
+%   \changes{v1.1}{2022/07/28}{Add \opt{chapter/format} option}
 %   \begin{syntax}
 %     |chapter/format =| \meta{macro} \hfill Default: \#1
 %   \end{syntax}
@@ -781,7 +784,8 @@
 %   argument of \cs{vs}.
 % \end{option}
 %
-% \begin{option}{verse/sep}
+% \begin{option}[added=2022-07-28]{verse/sep}
+%   \changes{v1.1}{2022/07/28}{Add \opt{verse/sep} option with small default}
 %   \begin{syntax}
 %     |verse/sep =| \meta{dimen} \hfill Default: 0.05 em
 %   \end{syntax}
@@ -1011,7 +1015,8 @@
 %   \meta{|dimen|} used for the right margin of the \env{poetry} environment.
 % \end{option}
 %
-% \begin{option}{poetry/verse/left}
+% \begin{option}[added=2022-07-31]{poetry/verse/left}
+%   \changes{v1.1}{2022/07/31}{Add \opt{poetry/verse/left} option}
 %   \begin{syntax}
 %     |poetry/verse/left =| \meta{boolean} \hfill Default: false
 %   \end{syntax}
@@ -1020,7 +1025,8 @@
 %   \opt{poetry/verse/right}.
 % \end{option}
 %
-% \begin{option}{poetry/verse/right}
+% \begin{option}[added=2022-07-31]{poetry/verse/right}
+%   \changes{v1.1}{2022/07/31}{Add \opt{poetry/verse/right} option}
 %   \begin{syntax}
 %     |poetry/verse/right =| \meta{boolean} \hfill Default: true
 %   \end{syntax}
@@ -1029,7 +1035,8 @@
 %   the opposite of \opt{poetry/verse/left}.
 % \end{option}
 %
-% \begin{option}{poetry/verse/sep}
+% \begin{option}[added=2022-07-31]{poetry/verse/sep}
+%   \changes{v1.1}{2022/07/31}{Add \opt{poetry/verse/sep} option}
 %   \begin{syntax}
 %     |poetry/verse/sep =| \meta{dimen} \hfill Default: 0.05 em
 %   \end{syntax}
