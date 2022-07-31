@@ -1029,6 +1029,14 @@
 %   the opposite of \opt{poetry/verse/left}.
 % \end{option}
 %
+% \begin{option}{poetry/verse/sep}
+%   \begin{syntax}
+%     |poetry/verse/sep =| \meta{dimen} \hfill Default: 0.05 em
+%   \end{syntax}
+%   \meta{|dimen|} used to separate a \cs{vs} from the following text in a
+%   \env{poetry} environment.
+% \end{option}
+%
 % \end{documentation}
 %
 % \begin{implementation}
@@ -1240,6 +1248,9 @@
     , poetry / verse / right   .bool_set:N         = \l_@@_poetry_verse_right_bool
     , poetry / verse / right   .default:n          = true
     , poetry / verse / right   .initial:n          = true
+    , poetry / verse / sep     .tl_set:N           = \l_@@_poetry_verse_sep_tl
+    , poetry / verse / sep     .value_required:n   = true
+    , poetry / verse / sep     .initial:n          = 0.05 em
   }
 %    \end{macrocode}
 % Process package options using \pkg{l3keys2e} package.
@@ -2564,6 +2575,7 @@
     \raggedright
     \dim_set_eq:NN \listparindent \l_@@_poetry_indent_tl
     \dim_set_eq:NN \parindent \l_@@_poetry_indent_tl
+    \tl_set_eq:NN \l_@@_verse_sep_tl \l_@@_poetry_verse_sep_tl
     \bool_if:NTF \l_@@_chap_drop_bool
       { \cs_set_eq:NN \ch \@@_poetry_chap:n }
       { \cs_set_eq:NN \ch \@@_poetry_nodrop_chap:n }
