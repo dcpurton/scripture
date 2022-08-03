@@ -1640,6 +1640,10 @@
           }
           { \@@_nodrop_chap:n { ##2 } }
       }
+%    \end{macrocode}
+% Empty \cs{everydisplay} to ensure it isn't interring with spacing.
+%    \begin{macrocode}
+    \everydisplay { }
     \bool_gset_true:N \g_@@_start_bool
     \bool_gset_false:N \g_@@_poetry_end_bool
     \dim_set_eq:NN \parindent \l_@@_parindent_tl

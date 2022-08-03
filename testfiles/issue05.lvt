@@ -1,0 +1,49 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{setspace}
+\usepackage{scripture}
+\pagestyle{empty}
+\doublespacing
+\begin{document}
+\START
+\showoutput
+\begin{scripture}
+  \vs{16}For God so loved the world that he gave his one and only Son, that
+  whoever believes in him shall not perish but have eternal life.
+\end{scripture}
+
+\begin{scripture}
+  \vs{21}But whoever lives by the truth comes into the light, so that it may be
+  seen plainly that what they have done has been done in the sight of God.
+\end{scripture}
+
+\begin{scripture}[John 3:16]
+  \vs{16}For God so loved the world that he gave his one and only Son, that
+  whoever believes in him shall not perish but have eternal life.
+\end{scripture}
+
+\begin{scripture}[John 3:21]
+  \vs{21}But whoever lives by the truth comes into the light, so that it may be
+  seen plainly that what they have done has been done in the sight of God.
+\end{scripture}
+
+\begin{scripture}
+  \begin{poetry}
+    \vs{2}Hear me, you heavens! Listen, earth!
+    For the \textsc{Lord} has spoken:
+
+    ‘I reared children and brought them up,
+    but they have rebelled against me.
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Isaiah 1:2]
+  \begin{poetry}
+    \vs{2}Hear me, you heavens! Listen, earth!
+    For the \textsc{Lord} has spoken:
+
+    ‘I reared children and brought them up,
+    but they have rebelled against me.
+  \end{poetry}
+\end{scripture}
+\end{document}
