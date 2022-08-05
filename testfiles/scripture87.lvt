@@ -1,0 +1,24 @@
+\documentclass[a4paper,twocolumn]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\makeatletter
+\makeatother
+\begin{document}
+\null
+\vskip 17.5cm plus 5mm
+\START
+\showoutput
+\begin{scripture}[1 John 1:8--2:2]
+  \vs{8}If we claim to be without sin, we deceive ourselves and the truth is
+  not in us. \vs{9}If we confess our sins, he is faithful and just and will
+  forgive us our sins and purify us from all unrighteousness. \vs{10}If we
+  claim we have not sinned, we make him out to be a liar and his word is not in
+  us.
+
+  \ch{2}My dear children, I write this to you so that you will not sin. But if
+  anybody does sin, we have an advocate with the Father---Jesus Christ, the
+  Righteous One. \vs{2}He is the atoning sacrifice for our sins, and not only
+  for ours but also for the sins of the whole world.
+\end{scripture}
+\end{document}

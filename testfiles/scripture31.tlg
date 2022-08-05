@@ -338,6 +338,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
+...\penalty 10000
 ...\penalty -51
 ...\glue 6.0 plus 3.0 minus 2.0
 ...\glue(\parskip) 0.0 plus 1.0

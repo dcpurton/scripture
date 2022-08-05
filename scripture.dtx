@@ -1275,6 +1275,14 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\l_@@_clubpenalty_saved_int}
+%   Holds saved club penalty so we can change and restore it around chapter
+%   breaks.
+%    \begin{macrocode}
+\int_new:N \l_@@_clubpenalty_saved_int
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\@@_extra_skip:}
 %   Insert a little extra vertical space between two paragraphs. This function
 %   tests if the previous paragraph is only one line in length and began
@@ -1446,6 +1454,20 @@
       }
     \dim_set:Nn \l_@@_chap_width_dim
       { \box_wd:N \l_tmpa_box }
+%    \end{macrocode}
+%   Avoid breaks in the middle of drop chapters.
+%    \begin{macrocode}
+    \int_set_eq:NN \l_@@_clubpenalty_saved_int \clubpenalty
+    \clubpenalty 10000
+    \hook_gput_next_code:nn { para / after }
+      {
+        \int_set_eq:NN \l_@@_chap_par_prevgraf_int \prevgraf
+        \int_compare:nNnT
+          \l_@@_chap_par_prevgraf_int = 1
+          { \penalty 10000 }
+        \hook_gput_next_code:nn { para / before }
+          { \int_set_eq:NN \clubpenalty \l_@@_clubpenalty_saved_int }
+      }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -1512,8 +1534,6 @@
         \par
         \@@_drop_chap_output:
       }
-    \hook_gput_next_code:nn { para / after }
-      { \int_set_eq:NN \l_@@_chap_par_prevgraf_int \prevgraf }
     \hook_gput_next_code:nn { para / before }
       {
         \int_zero:N \l_@@_chap_par_prevgraf_int

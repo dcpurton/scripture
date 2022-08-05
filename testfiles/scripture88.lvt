@@ -1,0 +1,28 @@
+\documentclass[a4paper,twocolumn]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\makeatletter
+\makeatother
+\begin{document}
+\null
+\vskip 18.5cm plus 5mm
+\START
+\showoutput
+\begin{scripture}[Hosea 11:12--12:1]
+  \begin{poetry}
+    \vs{12}Ephraim has surrounded me with lies,
+    Israel with deceit.
+
+    And Judah is unruly against God,
+    even against the faithful Holy One.
+
+    \ch{12}\vs{1}Ephraim feeds on the wind;
+    he pursues the east wind all day
+    and multiplies lies and violence.
+
+    He makes a treaty with Assyria
+    and sends olive oil to Egypt.
+  \end{poetry}
+\end{scripture}
+\end{document}

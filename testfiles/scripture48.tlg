@@ -106,7 +106,7 @@ Completed box being shipped out [1]
 .....\OT1/cmr/m/n/10 o
 .....\OT1/cmr/m/n/10 f
 .....\glue(\rightskip) 0.0
-....\penalty 150
+....\penalty 10000
 ....\glue(\baselineskip) 1.91553
 ....\hbox(8.14003+1.94444)x345.0, glue set 0.28734
 .....\OT1/cmr/m/n/10 G
