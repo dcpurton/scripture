@@ -2,8 +2,6 @@
 \input{regression-test}
 \usepackage{scripture}
 \pagestyle{empty}
-\makeatletter
-\makeatother
 \begin{document}
 \null
 \vskip 17.5cm plus 5mm

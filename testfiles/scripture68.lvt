@@ -2,8 +2,6 @@
 \input{regression-test}
 \usepackage{scripture}
 \pagestyle{empty}
-\makeatletter
-\makeatother
 \begin{document}
 \START
 \showoutput

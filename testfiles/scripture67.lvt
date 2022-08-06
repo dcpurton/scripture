@@ -3,8 +3,6 @@
 \usepackage{scripture}
 \usepackage{parskip}
 \pagestyle{empty}
-\makeatletter
-\makeatother
 \begin{document}
 \START
 \showoutput
