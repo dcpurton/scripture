@@ -70,12 +70,77 @@
           \tl_set:Nn \saved@indexname { \l__codedoc_index_key_tl }
       }
   }
+\cs_new_protected:Npn \__dcp_codedoc_hook_index:n #1
+  {
+    \@bsphack
+    \begingroup
+      \__codedoc_target:
+      \index
+        {
+          #1\actualchar{\protect\ttfamily#1}~(hook)
+          \encapchar hdclindex{\the\c@HD@hypercount}{usage}
+        }
+      \index
+        {
+          hooks:\levelchar#1\actualchar{\protect\ttfamily#1}
+          \encapchar hdclindex{\the\c@HD@hypercount}{usage}
+        }
+    \endgroup
+    \@esphack
+  }
+\cs_new_protected:Npn \__dcp_codedoc_hookmacro_index:nN #1#2
+  {
+    \DoNotIndex {#1}
+    \bool_if:NT #2
+      {
+        \__codedoc_if_macro_internal:nF {#1}
+          { \seq_gput_right:Nn \g_doc_macros_seq {#1} }
+        \hbox_set:Nw \l__codedoc_macro_index_box
+          \hbox_unpack_drop:N \l__codedoc_macro_index_box
+          \int_gincr:N \c@CodelineNo
+          \@bsphack
+          \begingroup
+            \__codedoc_target:
+            \index
+              {
+                #1\actualchar{\protect\ttfamily#1}~(hook)
+                \encapchar hdclindex{\the\c@HD@hypercount}{main}
+              }
+            \index
+              {
+                hooks:\levelchar#1\actualchar{\protect\ttfamily#1}
+                \encapchar hdclindex{\the\c@HD@hypercount}{main}
+              }
+          \endgroup
+          \@esphack
+          \int_gdecr:N \c@CodelineNo
+        \exp_args:NNNo \hbox_set_end:
+          \tl_set:Nn \saved@indexname { \l__codedoc_index_key_tl }
+      }
+  }
 \DeclareDocumentEnvironment { environment } { O{} +v }
   {
     \cs_set_eq:NN \__codedoc_function_index:n \__dcp_codedoc_environment_index:n
     \__codedoc_function:nnw {#1} {#2}
   }
   { \__codedoc_function_end: }
+\DeclareDocumentEnvironment { hooks } { O{} +v }
+  {
+    \bool_if:NTF \l__codedoc_in_implementation_bool
+      {
+        \cs_set_eq:NN \__codedoc_macro_index:nN \__dcp_codedoc_hookmacro_index:nN
+        \__codedoc_macro:nnw { var , #1 } {#2}
+      }
+      {
+        \cs_set_eq:NN \__codedoc_function_index:n \__dcp_codedoc_hook_index:n
+        \__codedoc_function:nnw {#1} {#2}
+      }
+  }
+  {
+    \bool_if:NTF \l__codedoc_in_implementation_bool
+      { \__codedoc_macro_end: }
+      { \__codedoc_function_end: }
+  }
 \DeclareDocumentEnvironment { option } { O{} +v }
   {
     \cs_set_eq:NN \__codedoc_function_index:n \SpecialOptionIndex
@@ -92,6 +157,11 @@
   {
     \SpecialOptionIndex{#1}
     \texttt{#1}
+  }
+\DeclareDocumentCommand \hook { m }
+  {
+    \__dcp_codedoc_hook_index:n {#1}
+    \texttt {#1}
   }
 \DeclareRobustCommand \val {\texttt}
 \makeatother
@@ -242,6 +312,20 @@
 %   In a \env{hanging} environment, this function indents the first line of
 %   the paragraph a length of \opt{hanging/hang} $+$ \opt{parindent}.
 %   Remaining lines continue to be indented by a length of \opt{hanging/hang}.
+% \end{function}
+%
+% \begin{function}[added=2022-08-07]{\scripturecurrentchapter,
+% \scripturecurrentverse}
+%   \changes{v1.1}{2022/08/07}{Add \cs{scripturecurrentchapter} and
+%   \cs{scripturecurrentverse} variables}
+%   \begin{syntax}
+%     |\scripturecurrentchapter|
+%     |\scripturecurrentverse|
+%   \end{syntax}
+%   \cs{scripturecurrentcapter} and \cs{scripturecurrentverse} globally hold
+%   the most recent values parsed to \cs{ch} and \cs{vs}. They can initialised
+%   with \cs{renewcommand*} if required and could be used in hooks, for
+%   example.
 % \end{function}
 %
 % \begin{function}[added=2022-07-29]{\selah}
@@ -575,6 +659,24 @@
 %   him shall not perish but have eternal life.
 % \end{scripture}
 % \end{scriptureexample}
+%
+% \subsection{Provided hooks}
+%
+% \begin{hooks}[added=2022-08-07]{scripture/chap/before, scripture/chap/after,
+%   scripture/verse/before, scripture/verse/after}
+% The following public hooks are available:
+%
+% \begin{description}
+%   \item[\hook{scripture/chap/before}] This hook is executed immediately
+%     before the \opt{chap/font} is set for the chapter.
+%   \item[\hook{scripture/chap/after}] This hook is executed immediately after
+%     the \opt{chap/sep} space is inserted.
+%   \item[\hook{scripture/verse/before}] This hook is executed immediately
+%     before the \opt{verse/font} is set for the verse.
+%   \item[\hook{scripture/chap/after}] This hook is executed immediately after
+%     the \opt{verse/sep} space is inserted.
+% \end{description}
+% \end{hooks}
 %
 % \subsection{Options}
 % \label{options}
@@ -1265,6 +1367,19 @@
 \ProcessKeysOptions { scripture }
 %    \end{macrocode}
 %
+% \subsection{hooks}
+%
+% Hooks for before and after chapters and verses. The current chapter and
+% verse is available in the hooks as \cs{scripturecurrentchapter} and
+% \cs{scripturecurrentverse} respectively. These are global.
+% \begin{hooks}{scripture/chap/before, scripture/chap/after,
+%   scripture/verse/before, scripture/verse/after}
+%    \begin{macrocode}
+\hook_new_pair:nn { scripture / chap / before } { scripture / chap / after }
+\hook_new_pair:nn { scripture / verse / before } { scripture / verse / after }
+%    \end{macrocode}
+% \end{hooks}
+%
 % \subsection{The main \env{scripture} environment}
 %
 % \begin{macro}{\l_@@_active_bool, \l_@@_active_inner_bool}
@@ -1431,6 +1546,8 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_drop_chap_set_up:n
   {
+    \cs_gset_nopar:Npn \scripturecurrentchapter { #1 }
+    \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
     \hbox_set:Nn \l_tmpa_box { X }
     \dim_set:Nn \l_@@_chap_X_height_dim
       { \box_ht:N \l_tmpa_box }
@@ -1489,7 +1606,11 @@
         { \linewidth - \l_@@_chap_width_dim - \l_@@_chap_sep_tl } ~
       \@totalleftmargin ~
       \linewidth
+    \group_begin:
+    \hook_use:n { scripture / chap / before }
     \box_use:N \l_tmpb_box
+    \hook_use:n { scripture / chap / after }
+    \group_end:
   }
 %    \end{macrocode}
 % \end{macro}
@@ -1499,11 +1620,17 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_nodrop_chap:n
   {
+    \cs_gset_nopar:Npn \scripturecurrentchapter { #1 }
+    \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
+    \group_begin:
+    \hook_use:n { scripture / chap / before }
     \group_begin:
     \l_@@_chap_font_tl
     #1
     \group_end:
     \skip_horizontal:N \l_@@_chap_sep_tl
+    \hook_use:n { scripture / chap / after }
+    \group_end:
   }
 %    \end{macrocode}
 % \end{macro}
@@ -1552,12 +1679,15 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_verse_output:n
   {
+    \cs_gset_nopar:Npn \scripturecurrentverse { #1 }
     \mode_if_vertical:T
       { \mode_leave_vertical: }
     \group_begin:
+    \hook_use:n { scripture / verse / before }
     \l_@@_verse_font_tl
     \@@_verse_format:n { #1 }
     \kern \l_@@_verse_sep_tl
+    \hook_use:n { scripture / verse / after }
     \group_end:
   }
 %    \end{macrocode}
@@ -2639,6 +2769,15 @@
 %
 %
 % \subsection{Public \LaTeX{} Interface}
+%
+% \begin{macro}{\scripturecurrentchapter, \scripturecurrentverse}
+%   Globally stores the most recent argument of \cs{ch} and \cs{vs}. These
+%   could be used in hooks, for example.
+%    \begin{macrocode}
+\cs_set_nopar:Npn \scripturecurrentchapter { }
+\cs_set_nopar:Npn \scripturecurrentverse { }
+%    \end{macrocode}
+% \end{macro}
 %
 % \begin{macro}{\scripturesetup}
 %   \begin{arguments}

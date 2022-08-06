@@ -1,0 +1,58 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\AddToHook{scripture/verse/after}{%
+  \markboth
+    {\currentbook{} \scripturecurrentchapter:\scripturecurrentverse}
+    {\currentbook{} \scripturecurrentchapter:\scripturecurrentverse}}
+\renewcommand*{\scripturecurrentchapter}{1}
+\newcommand*{\currentbook}{Mark}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\rightmark}
+\rhead{\leftmark}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}
+  \vs{40}A man with leprosy came to him and begged him on his knees, ‘If you
+  are willing, you can make me clean.’
+
+  \vs{41}Jesus was indignant. He reached out his hand and touched the man. ‘I
+  am willing,’ he said. ‘Be clean!’ \vs{42}Immediately the leprosy left him and
+  he was cleansed.
+
+  \vs{43}Jesus sent him away at once with a strong warning: \vs{44}‘See that
+  you don’t tell this to anyone. But go, show yourself to the priest and offer
+  the sacrifices that Moses commanded for your cleansing, as a testimony to
+  them.’ \vs{45}Instead he went out and began to talk freely, spreading the
+  news. As a result, Jesus could no longer enter a town openly but stayed
+  outside in lonely places. Yet the people still came to him from everywhere.
+
+  \extraskip
+
+  \ch{2}A few days later, when Jesus again entered Capernaum, the people heard
+  that he had come home. \vs{2}They gathered in such large numbers that there
+  was no room left, not even outside the door, and he preached the word to
+  them. \vs{3}Some men came, bringing to him a paralysed man, carried by four
+  of them. \vs{4}Since they could not get him to Jesus because of the crowd,
+  they made an opening in the roof above Jesus by digging through it and then
+  lowered the mat the man was lying on. \vs{5}When Jesus saw their faith, he
+  said to the paralysed man, ‘Son, your sins are forgiven.’
+
+  \vs{6}Now some teachers of the law were sitting there, thinking to
+  themselves, \vs{7}‘Why does this fellow talk like that? He’s blaspheming! Who
+  can forgive sins but God alone?’
+
+  \vs{8}Immediately Jesus knew in his spirit that this was what they were
+  thinking in their hearts, and he said to them, ‘Why are you thinking these
+  things? \vs{9}Which is easier: to say to this paralysed man, “Your sins are
+  forgiven,” or to say, “Get up, take your mat and walk”? \vs{10}But I want you
+  to know that the Son of Man has authority on earth to forgive sins.’ So he
+  said to the man, \vs{11}‘I tell you, get up, take your mat and go home.’
+  \vs{12}He got up, took his mat and walked out in full view of them all. This
+  amazed everyone and they praised God, saying, ‘We have never seen anything
+  like this!’
+\end{scripture}
+\end{document}
