@@ -1177,7 +1177,8 @@
 %     |poetry/verse/sep =| \meta{dimen} \hfill Default: 0.05 em
 %   \end{syntax}
 %   \meta{|dimen|} used to separate a \cs{vs} from the following text in a
-%   \env{poetry} environment.
+%   \env{poetry} environment. This is only used for verses at the start of a
+%   line.
 % \end{option}
 %
 % \end{documentation}
@@ -2694,6 +2695,8 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_poetry_mode_vertical_verse:n
   {
+    \group_begin:
+    \tl_set_eq:NN \l_@@_verse_sep_tl \l_@@_poetry_verse_sep_tl
     \strut
     \bool_if:NTF \l_@@_poetry_verse_right_bool
       {
@@ -2712,12 +2715,16 @@
             \skip_horizontal:N \l_@@_poetry_leftmargin_tl
           }
       }
+    \group_end:
   }
 \cs_new_protected:Nn \@@_poetry_mode_horizontal_verse:n
   {
+    \group_begin:
+    \tl_set_eq:NN \l_@@_verse_sep_tl \l_@@_poetry_verse_sep_tl
     \skip_horizontal:n { -\listparindent }
     \@@_poetry_mode_vertical_verse:n { #1 }
     \skip_horizontal:N \listparindent
+    \group_end:
   }
 %    \end{macrocode}
 % \end{macro}
@@ -2814,7 +2821,6 @@
     \raggedright
     \dim_set_eq:NN \listparindent \l_@@_poetry_indent_tl
     \dim_set_eq:NN \parindent \l_@@_poetry_indent_tl
-    \tl_set_eq:NN \l_@@_verse_sep_tl \l_@@_poetry_verse_sep_tl
     \bool_gset_false:N \g_@@_poetry_midparachap_show_verse_bool
     \bool_if:NTF \l_@@_chap_drop_bool
       { \cs_set_eq:NN \ch \@@_poetry_chap:n }
