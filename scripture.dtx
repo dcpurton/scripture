@@ -487,7 +487,7 @@
 %
 % \begin{environment}{midparachap}
 %   \begin{syntax}
-%     |\begin{midparachap}|
+%     |\begin{midparachap}|\oarg{options}
 %       \quad\meta{text containing a chapter break}
 %     |\end{midparachap}|
 %   \end{syntax}
@@ -495,6 +495,9 @@
 %
 % \noindent Environment for typesetting paragraph with a chapter break within
 % it.
+%
+% See section \ref{midparachapoptions} for supported formatting
+% \meta{|options|}.
 %
 % \begin{scriptureexample}
 % \begin{verbatim}
@@ -1031,6 +1034,37 @@
 %   \meta{|dimen|} used for the right margin of the \env{hanging} environment.
 % \end{option}
 %
+% \subsubsection{Options for the \env{midparachap} environment}
+% \label{midparachapoptions}
+%
+% If these options are passed directly to the \env{midparachap} environment
+% rather than to the package, \cs{scripturesetup} or the \env{scripture}
+% environment, then the |midparachap/| prefix should be dropped.
+%
+% \begin{option}{midparachap/hideverse}
+%   \begin{syntax}
+%     |midparachap/hideverse =| \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   Whether a \cs{vs\{1\}} should automatically be inserted after a \cs{ch}
+%   when the \cs{ch} occurs mid-paragraph. This also affects \cs{ch} in
+%   \env{poetry} environments. \cs{extraskip} begins a new paragraph in a
+%   \env{poetry} environment. The value of \meta{|boolean|} is optional and
+%   assumed to be \val{true} if not present. This option is the opposite of
+%   \opt{midparachap/showverse}.
+% \end{option}
+%
+% \begin{option}{midparachap/showverse}
+%   \begin{syntax}
+%     |midparachap/showverse =| \meta{boolean} \hfill Default: true
+%   \end{syntax}
+%   Whether a \cs{vs\{1\}} should automatically be inserted after a \cs{ch}
+%   when the \cs{ch} occurs mid-paragraph. This also affects \cs{ch} in
+%   \env{poetry} environments. \cs{extraskip} begins a new paragraph in a
+%   \env{poetry} environment. The value of \meta{|boolean|} is optional and
+%   assumed to be \val{true} if not present. This option is the opposite of
+%   \opt{midparachap/hideverse}.
+% \end{option}
+%
 % \subsubsection{Options for the \env{narrow} environment}
 % \label{narrowoptions}
 %
@@ -1316,6 +1350,14 @@
     , hanging / rightmargin    .tl_set:N           = \l_@@_hanging_rightmargin_tl
     , hanging / rightmargin    .value_required:n   = true
     , hanging / rightmargin    .initial:n          = \c_zero_dim
+%    \end{macrocode}
+% Options for the mid-paragraph chapters (including the \env{midparachap} environment).
+%    \begin{macrocode}
+    , midparachap / hideverse  .bool_set_inverse:N = \l_@@_midparachap_show_verse_bool
+    , midparachap / hideverse  .default:n          = true
+    , midparachap / showverse  .bool_set:N         = \l_@@_midparachap_show_verse_bool
+    , midparachap / showverse  .default:n          = true
+    , midparachap / showverse  .initial:n          = true
 %    \end{macrocode}
 % Options for the \env{narrow} environment.
 %    \begin{macrocode}
@@ -2328,16 +2370,26 @@
         \int_gadd:Nn \g_@@_mid_para_chap_prevgraf_int \prevgraf
         \group_end:
         \@@_drop_chap_output:
+        \bool_if:NT \l_@@_midparachap_show_verse_bool
+          {
+            \@@_verse_output:n { 1 }
+          }
       }
   }
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\@@_mid_para_chap_begin:}
+% \begin{macro}{\@@_mid_para_chap_begin:n}
 %   Begin a paragraph containing a mid-paragraph chapter.
 %    \begin{macrocode}
-\cs_new_protected:Nn \@@_mid_para_chap_begin:
+\cs_new_protected:Nn \@@_mid_para_chap_begin:n
   {
+    \tl_if_novalue:nF { #1 }
+      {
+        \keys_set:nn
+          { scripture / midparachap }
+          { #1 }
+      }
     \par
     \bool_set_true:N \l_@@_mid_para_chap_bool
     \skip_zero:N \parskip
@@ -2456,6 +2508,14 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\g_@@_poetry_midparachap_show_verse_bool}
+%   Flag indicating whether the verse number should be printed immediately
+%   after a \cs{ch} or not in a \env{poetry} environment.
+%    \begin{macrocode}
+\bool_new:N \g_@@_poetry_midparachap_show_verse_bool
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\l_@@_poetry_prevgraf_int}
 %   Store the number of lines a line of poetry takes up.
 %    \begin{macrocode}
@@ -2470,7 +2530,17 @@
 \cs_new_protected:Nn \@@_poetry_extra_skip:
   {
     \skip_vertical:n { \l_@@_extraskip_tl - \baselineskip - \parskip }
+    \bool_gset_false:N \g_@@_poetry_midparachap_show_verse_bool
     \strut
+    \hook_gput_next_code:nn { para / after }
+      {
+        \hook_gput_next_code:nn { para / after }
+          {
+            \bool_gset_eq:NN
+              \g_@@_poetry_midparachap_show_verse_bool
+              \l_@@_midparachap_show_verse_bool
+          }
+      }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -2587,7 +2657,10 @@
           }
       }
     \box_use:N \l_tmpb_box
-    \cs_set_eq:NN \vs \@@_verse_output:n
+    \bool_if:NT \g_@@_poetry_midparachap_show_verse_bool
+      {
+        \@@_verse_output:n { 1 }
+      }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -2605,6 +2678,10 @@
         #1
         \group_end:
         \skip_horizontal:N \l_@@_chap_sep_tl
+      }
+    \bool_if:NT \g_@@_poetry_midparachap_show_verse_bool
+      {
+        \@@_verse_output:n { 1 }
       }
   }
 %    \end{macrocode}
@@ -2738,6 +2815,7 @@
     \dim_set_eq:NN \listparindent \l_@@_poetry_indent_tl
     \dim_set_eq:NN \parindent \l_@@_poetry_indent_tl
     \tl_set_eq:NN \l_@@_verse_sep_tl \l_@@_poetry_verse_sep_tl
+    \bool_gset_false:N \g_@@_poetry_midparachap_show_verse_bool
     \bool_if:NTF \l_@@_chap_drop_bool
       { \cs_set_eq:NN \ch \@@_poetry_chap:n }
       { \cs_set_eq:NN \ch \@@_poetry_nodrop_chap:n }
@@ -2748,6 +2826,8 @@
     \relax
     \cs_set_eq:NN \@@_tmp_para_end: \par
     \cs_set_eq:NN \par \@@_poetry_par:
+    \hook_gput_next_code:nn { para / after }
+      { \bool_gset_eq:NN \g_@@_poetry_midparachap_show_verse_bool \l_@@_midparachap_show_verse_bool }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -2845,9 +2925,9 @@
 % \vspace{-2\baselineskip}
 % \begin{envmacro}{midparachap}
 %    \begin{macrocode}
-    \DeclareDocumentEnvironment { midparachap } { }
+    \DeclareDocumentEnvironment { midparachap } { o }
       {
-        \@@_mid_para_chap_begin:
+        \@@_mid_para_chap_begin:n { ##1 }
         \ignorespaces
       }
       { \@@_mid_para_chap_end: }

@@ -1,10 +1,14 @@
 \documentclass[a4paper,twocolumn]{article}
 \input{regression-test}
 \usepackage{scripture}
+\scripturesetup{
+  midparachap/hideverse,
+  poetry/leftmargin=2em,
+  poetry/verse/sep=1em,
+  version=NRSV
+}
 \pagestyle{empty}
 \begin{document}
-\null
-\vskip 18.5cm plus 5mm
 \START
 \showoutput
 \begin{scripture}[Hosea 11:12--12:1]
