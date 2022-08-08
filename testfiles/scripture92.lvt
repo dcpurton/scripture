@@ -1,0 +1,27 @@
+\documentclass[a4paper,twocolumn]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  poetry/leftmargin=2em,
+  poetry/verse/sep=1em,
+  version=NRSV
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Hosea 6:11--7:1]
+  \begin{poetry}
+    \vs{11}For you also, O Judah, a harvest is appointed.
+
+    When I would restore the fortunes of my people,
+    \ch{7}when I would heal Israel,
+    the corruption of Ephraim is revealed,
+    and the wicked deeds of Samaria;
+
+    for they deal falsely,
+    the thief breaks in,
+    and the bandits raid outside.
+  \end{poetry}
+\end{scripture}
+\end{document}

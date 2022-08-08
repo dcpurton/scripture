@@ -2502,6 +2502,14 @@
 %
 % \subsubsection{The \env{poetry} environment}
 %
+% \begin{hooks}{scripture/poetry/para/after}
+%   This hook is an internal hook used to adjust the \cs{parshape} within a
+%   \env{poetry} environment after drop chapter numbers.
+%    \begin{macrocode}
+\hook_new:n { scripture / poetry / para / after }
+%    \end{macrocode}
+% \end{hooks}
+%
 % \begin{macro}{\g_@@_poetry_end_bool}
 %   Flag indicating that a \env{poetry} environment just ended.
 %    \begin{macrocode}
@@ -2514,6 +2522,14 @@
 %   after a \cs{ch} or not in a \env{poetry} environment.
 %    \begin{macrocode}
 \bool_new:N \g_@@_poetry_midparachap_show_verse_bool
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l_@@_poetry_chap_parshape_correction_dim}
+%   Correction to \cs{parshape} in chapter affected lines in a \env{poetry}
+%   environment.
+%    \begin{macrocode}
+\dim_new:N \l_@@_poetry_chap_parshape_correction_dim
 %    \end{macrocode}
 % \end{macro}
 %
@@ -2589,15 +2605,20 @@
 \cs_new_protected:Nn \@@_poetry_chap:n
   {
     \@@_drop_chap_set_up:n { #1 }
-    \dim_compare:nNnT \l_@@_chap_width_dim < \l_@@_poetry_leftmargin_tl
+    \mode_if_vertical:TF
       {
-        \tl_set:Nx \l_@@_chap_sep_tl
-          {
-            \dim_eval:n
-              {
-                \l_@@_poetry_leftmargin_tl - \l_@@_chap_width_dim
-              }
-          }
+        \dim_set_eq:NN \l_tmpa_dim \l_@@_poetry_indent_tl
+        \mode_leave_vertical:
+      }
+      { \dim_zero:N \l_tmpa_dim }
+    \dim_set_eq:NN \l_tmpb_dim \l_@@_chap_sep_tl
+    \dim_compare:nNnT
+      { \l_@@_chap_width_dim + \l_@@_chap_sep_tl }
+      <
+      { \l_@@_poetry_leftmargin_tl + \l_tmpa_dim }
+      {
+        \dim_set:Nn \l_tmpb_dim
+          { \l_@@_poetry_leftmargin_tl + \l_tmpa_dim - \l_@@_chap_width_dim }
       }
     \hbox_set:Nn \l_tmpb_box
       {
@@ -2607,53 +2628,98 @@
             \hbox_overlap_left:n
               {
                 \box_use:N \l_tmpa_box
-                \skip_horizontal:N \l_@@_chap_sep_tl
+                \skip_horizontal:N \l_tmpb_dim
               }
           }
       }
     \box_set_ht:Nn \l_tmpb_box { \c_zero_dim }
     \box_set_dp:Nn \l_tmpb_box { \c_zero_dim }
+    \dim_set:Nn \l_@@_poetry_chap_parshape_correction_dim
+      {
+        \l_@@_chap_width_dim + \l_tmpb_dim -
+        \l_@@_poetry_leftmargin_tl - \l_tmpa_dim
+      }
     \parshape 2 ~
       \dim_eval:n
-        {
-          \@totalleftmargin - \l_@@_poetry_leftmargin_tl +
-          \l_@@_chap_width_dim + \l_@@_chap_sep_tl
-        } ~
+        { \@totalleftmargin + \l_@@_poetry_chap_parshape_correction_dim } ~
       \dim_eval:n
-        {
-          \linewidth - \@totalleftmargin + \l_@@_poetry_leftmargin_tl -
-          \l_@@_chap_width_dim - \l_@@_chap_sep_tl
-        } ~
+        { \linewidth - \l_@@_poetry_chap_parshape_correction_dim } ~
       \dim_eval:n
         { \@totalleftmargin + \l_@@_poetry_big_indent_tl } ~
       \dim_eval:n
         { \linewidth - \l_@@_poetry_big_indent_tl }
+%    \end{macrocode}
+%   Because of interactions with \LaTeX{} \env{list} environments and
+%   \cs{@@_obeylines:}, \cs{@@_poetry_par:} setting the \cs{parshape} for the
+%   second line after a drop chapter number is more difficult than it should
+%   be. There's probably a better way.
+%    \begin{macrocode}
     \dim_compare:nNnT
-      { \l_@@_chap_width_dim + \l_@@_chap_sep_tl }
+      { \l_@@_chap_width_dim + \l_tmpb_dim }
       >
-      { \l_@@_poetry_leftmargin_tl + \listparindent }
+      \l_@@_poetry_leftmargin_tl
       {
-        \hook_gput_next_code:nn { para / begin }
+        \hook_gput_next_code:nn { scripture / poetry / para / after }
           {
             \int_compare:nNnT \l_@@_poetry_prevgraf_int = 1
               {
-                \parshape 2 ~ 
+%    \end{macrocode}
+%   This \cs{parshape} is in effect when the next line is the second half of a
+%   poetry verse.
+%    \begin{macrocode}
+                \dim_compare:nNnTF
+                  { \l_@@_chap_width_dim + \l_@@_chap_sep_tl }
+                  <
+                  { \l_@@_poetry_leftmargin_tl + \l_@@_poetry_indent_tl }
+                  { \dim_zero:N \l_@@_poetry_chap_parshape_correction_dim }
+                  {
+                    \dim_set:Nn \l_@@_poetry_chap_parshape_correction_dim
+                      {
+                        \l_@@_chap_width_dim + \l_@@_chap_sep_tl -
+                        \l_@@_poetry_leftmargin_tl - \l_@@_poetry_indent_tl
+                      }
+                  }
+                \parshape 2 ~
                   \dim_eval:n
-                    {
-                      \@totalleftmargin - \l_@@_poetry_leftmargin_tl +
-                      \l_@@_chap_width_dim + \l_@@_chap_sep_tl -
-                      \listparindent
-                    } ~
+                    { \@totalleftmargin + \l_@@_poetry_chap_parshape_correction_dim } ~
                   \dim_eval:n
-                    {
-                      \linewidth - \@totalleftmargin + \l_@@_poetry_leftmargin_tl -
-                      \l_@@_chap_width_dim - \l_@@_chap_sep_tl +
-                      \listparindent
-                    } ~
+                    { \linewidth - \l_@@_poetry_chap_parshape_correction_dim } ~
                   \dim_eval:n
                     { \@totalleftmargin + \l_@@_poetry_big_indent_tl } ~
                   \dim_eval:n
                     { \linewidth - \l_@@_poetry_big_indent_tl }
+                \hook_gput_next_code:nn { para / after }
+                  {
+                    \hook_gclear_next_code:n { scripture / poetry / para / after }
+                  }
+                \hook_gput_next_code:nn { scripture / poetry / para / after }
+                  {
+%    \end{macrocode}
+%   This \cs{parshape} is in effect when the next line is the first half of a
+%   poetry verse.
+%    \begin{macrocode}
+                    \dim_compare:nNnTF
+                      { \l_@@_chap_width_dim + \l_@@_chap_sep_tl }
+                      <
+                      \l_@@_poetry_leftmargin_tl
+                      { \dim_zero:N \l_@@_poetry_chap_parshape_correction_dim }
+                      {
+                        \dim_set:Nn \l_@@_poetry_chap_parshape_correction_dim
+                          {
+                            \l_@@_chap_width_dim + \l_@@_chap_sep_tl -
+                            \l_@@_poetry_leftmargin_tl
+                          }
+                      }
+                    \parshape 2 ~
+                      \dim_eval:n
+                        { \@totalleftmargin + \l_@@_poetry_chap_parshape_correction_dim } ~
+                      \dim_eval:n
+                        { \linewidth - \l_@@_poetry_chap_parshape_correction_dim } ~
+                      \dim_eval:n
+                        { \@totalleftmargin + \l_@@_poetry_big_indent_tl } ~
+                      \dim_eval:n
+                        { \linewidth - \l_@@_poetry_big_indent_tl }
+                  }
               }
           }
       }
@@ -2742,6 +2808,7 @@
       {
         \cs_set_eq:NN \vs \@@_poetry_mode_horizontal_verse:n
         \@@_tmp_para_end:
+        \int_set_eq:NN \l_@@_poetry_prevgraf_int \prevgraf
       }
     \parshape 2 ~ 
       \@totalleftmargin ~
@@ -2750,6 +2817,7 @@
         { \@totalleftmargin + \l_@@_poetry_big_indent_tl } ~
       \dim_eval:n
         { \linewidth - \l_@@_poetry_big_indent_tl }
+    \hook_use:n { scripture / poetry / para / after }
   }
 %    \end{macrocode}
 % \end{macro}
