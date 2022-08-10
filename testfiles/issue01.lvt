@@ -1,7 +1,10 @@
 \documentclass[a4paper]{article}
 \input{regression-test}
 \usepackage{scripture}
-\scripturesetup{noindent, parindent=1em}
+\scripturesetup{
+  noindent,
+  parindent=1em
+}
 \pagestyle{empty}
 \begin{document}
 \START

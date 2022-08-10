@@ -4,7 +4,10 @@
 \pagestyle{empty}
 \begin{document}
 \START
-\scripturesetup{font=\sffamily, reference/font=\scriptsize\bfseries}
+\scripturesetup{
+  font=\sffamily,
+  reference/font=\scriptsize\bfseries
+}
 \showoutput
 \begin{scripture}[John 3:16][version=NIVUK]
   \vs{16}For God so loved the world that he gave his one and only Son, that

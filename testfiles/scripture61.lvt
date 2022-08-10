@@ -4,7 +4,7 @@
 \pagestyle{empty}
 \begin{document}
 \START
-\scripturesetup{%
+\scripturesetup{
   reference/font=\normalfont,
   reference/format=---#1,
   version=NIVUK,
