@@ -2410,22 +2410,31 @@
 %    \end{macrocode}
 % Attempt to allow the mid-paragraph chapter box to break across pages.
 %    \begin{macrocode}
-    \dim_compare:nNnTF
-      { \box_ht_plus_dp:N \l_@@_mid_para_chap_box }
-      >
-      { \pagegoal - \pagetotal - \baselineskip }
-      {
-        \int_set:Nn \vbadness { 10000 }
-        \vbox_set_split_to_ht:NNn
-          \l_tmpa_box \l_@@_mid_para_chap_box
-          { \pagegoal - \pagetotal - \baselineskip }
-        \box_use_drop:N \l_tmpa_box
-        \goodbreak
-        \box_use_drop:N \l_@@_mid_para_chap_box
-      }
+    \mode_if_inner:TF
       {
         \box_use_drop:N \l_@@_mid_para_chap_box
         \skip_vertical:n { \baselineskip - \lineskip }
+      }
+      {
+        \dim_compare:nNnTF
+          { \box_ht_plus_dp:N \l_@@_mid_para_chap_box }
+          >
+          { \pagegoal - \pagetotal - \baselineskip }
+          {
+            \int_set:Nn \vbadness { 10000 }
+            \vbox_set_split_to_ht:NNn
+              \l_tmpa_box \l_@@_mid_para_chap_box
+              { \pagegoal - \pagetotal - \baselineskip }
+            \vbox_set_top:Nn \l_tmpb_box
+              { \vbox_unpack_drop:N \l_tmpa_box }
+            \box_use_drop:N \l_tmpb_box
+            \goodbreak
+            \box_use_drop:N \l_@@_mid_para_chap_box
+          }
+          {
+            \box_use_drop:N \l_@@_mid_para_chap_box
+            \skip_vertical:n { \baselineskip - \lineskip }
+          }
       }
     \par
     \noindent
