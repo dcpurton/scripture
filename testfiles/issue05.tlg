@@ -533,7 +533,7 @@ Completed box being shipped out [1]
 ...\glue(\abovedisplayskip) -20.00409
 ...\glue(\baselineskip) 18.05965
 ...\hbox(0.0+0.0)x0.0, shifted 172.5, display
-...\penalty 0
+...\penalty 301
 ...\glue(\belowdisplayskip) 0.0
 ...\glue -20.00409 plus -1.0
 ...\glue(\parskip) 0.0 plus 1.0
@@ -735,7 +735,7 @@ Completed box being shipped out [1]
 ...\glue(\abovedisplayskip) -20.00409
 ...\glue(\baselineskip) 18.05965
 ...\hbox(0.0+0.0)x0.0, shifted 172.5, display
-...\penalty 0
+...\penalty 301
 ...\glue(\belowdisplayskip) 0.0
 ...\glue -20.00409 plus -1.0
 ...\glue 20.00409
@@ -961,11 +961,11 @@ Completed box being shipped out [1]
 ...\glue(\abovedisplayshortskip) -20.00409
 ...\glue(\baselineskip) 18.05965
 ...\hbox(0.0+0.0)x0.0, shifted 197.50005, display
-...\penalty 0
+...\penalty 51
 ...\glue(\belowdisplayshortskip) 0.0
 ...\glue -20.00409
 ...\glue 20.00409
-...\penalty -51
+...\penalty 51
 ...\glue -20.00409
 ...\glue 20.00409
 ...\glue 0.0
@@ -1170,11 +1170,11 @@ Completed box being shipped out [1]
 ...\glue(\abovedisplayshortskip) -20.00409
 ...\glue(\baselineskip) 18.05965
 ...\hbox(0.0+0.0)x0.0, shifted 197.50005, display
-...\penalty 0
+...\penalty 51
 ...\glue(\belowdisplayshortskip) 0.0
 ...\glue -20.00409
 ...\glue 20.00409
-...\penalty -51
+...\penalty 51
 ...\glue -20.00409
 ...\glue 0.0 plus -1.0
 ...\glue(\parskip) 0.0 plus 1.0

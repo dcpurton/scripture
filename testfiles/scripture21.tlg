@@ -304,11 +304,11 @@ Completed box being shipped out [1]
 ...\glue(\abovedisplayshortskip) -12.0
 ...\glue(\baselineskip) 10.05556
 ...\hbox(0.0+0.0)x0.0, shifted 187.50003, display
-...\penalty 0
+...\penalty 51
 ...\glue(\belowdisplayshortskip) 0.0
 ...\glue -12.0 plus -1.0
 ...\glue 12.0 plus 1.0
-...\penalty -51
+...\penalty 51
 ...\glue -12.0 plus -1.0
 ...\glue 12.0 plus 1.0
 ...\glue 6.0 plus 2.0 minus 2.0
@@ -471,11 +471,11 @@ Completed box being shipped out [1]
 ...\glue(\abovedisplayshortskip) -12.0
 ...\glue(\baselineskip) 12.0
 ...\hbox(0.0+0.0)x0.0, shifted 197.50005, display
-...\penalty 0
+...\penalty 51
 ...\glue(\belowdisplayshortskip) 0.0
 ...\glue -12.0
 ...\glue 12.0
-...\penalty -51
+...\penalty 51
 ...\glue -12.0
 ...\glue 12.0
 ...\glue 6.0 plus 2.0 minus 2.0
@@ -740,11 +740,11 @@ Completed box being shipped out [1]
 ...\glue(\abovedisplayshortskip) -12.0
 ...\glue(\baselineskip) 10.05556
 ...\hbox(0.0+0.0)x0.0, shifted 187.50003, display
-...\penalty 0
+...\penalty 51
 ...\glue(\belowdisplayshortskip) 0.0
 ...\glue -12.0 plus -1.0
 ...\glue 12.0 plus 1.0
-...\penalty -51
+...\penalty 51
 ...\glue -12.0 plus -1.0
 ...\glue 12.0 plus 1.0
 ...\glue 0.0

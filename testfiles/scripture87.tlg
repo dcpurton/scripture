@@ -699,7 +699,7 @@ Completed box being shipped out [1]
 ......\glue(\abovedisplayshortskip) -12.0
 ......\glue(\baselineskip) 12.0
 ......\hbox(0.0+0.0)x0.0, shifted 110.5, display
-......\penalty 0
+......\penalty 301
 ......\glue(\belowdisplayshortskip) 0.0
 ......\glue -12.0 plus -1.0
 ......\glue(\parskip) 0.0 plus 1.0

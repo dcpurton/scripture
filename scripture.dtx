@@ -227,6 +227,12 @@
 %   \item Include any other \env{list} based environment within a
 %     \env{scripture} environment.
 % \end{itemize}
+%
+% Some attempt is made to encourage appropriate page breaks, especially just
+% before a reference is added to a quotation, but this can still sometimes
+% fail and a reference will end up on the following page. Usually a little
+% more stretchable space on the page before the incorrect break is enough to
+% obtain acceptable output.
 %  
 % \section{Documentation}
 %
@@ -1837,6 +1843,8 @@
 % Empty \cs{everydisplay} to ensure it isn't interring with spacing.
 %    \begin{macrocode}
     \everydisplay { }
+    \int_set:Nn \predisplaypenalty { 10000 }
+    \int_set_eq:NN \postdisplaypenalty \@lowpenalty
     \bool_gset_true:N \g_@@_start_bool
     \bool_gset_false:N \g_@@_poetry_end_bool
     \dim_set_eq:NN \parindent \l_@@_parindent_tl
@@ -1895,7 +1903,12 @@
         \unskip
         \unskip
       }
-      { \@@_calc_final_line_length: }
+      {
+        \tl_if_novalue:nTF { #1 }
+          { \int_zero:N \postdisplaypenalty }
+          { \int_set_eq:NN \postdisplaypenalty \@highpenalty }
+        \@@_calc_final_line_length:
+      }
 %    \end{macrocode}
 % Restore left margin by resetting the \cs{parshape} if in a list
 % based environment, otherwise the space required for the reference is
@@ -2017,6 +2030,7 @@
   {
     \@@_calc_final_line_length:
     \skip_add:Nn \@topsepadd \l_@@_delta_below_skip
+    \int_set_eq:NN \@endparpenalty \@lowpenalty
     \endlist
   }
 %    \end{macrocode}
@@ -2082,6 +2096,7 @@
   {
     \@@_calc_final_line_length:
     \skip_add:Nn \@topsepadd \l_@@_delta_below_skip
+    \int_set_eq:NN \@endparpenalty \@lowpenalty
     \endlist
   }
 %    \end{macrocode}
@@ -2265,6 +2280,7 @@
   {
     \@@_calc_final_line_length:
     \skip_add:Nn \@topsepadd \l_@@_delta_below_skip
+    \int_set_eq:NN \@endparpenalty \@lowpenalty
     \endlist
   }
 %    \end{macrocode}
@@ -2504,6 +2520,7 @@
   {
     \@@_calc_final_line_length:
     \skip_add:Nn \@topsepadd \l_@@_delta_below_skip
+    \int_set_eq:NN \@endparpenalty \@lowpenalty
     \endlist
   }
 %    \end{macrocode}
@@ -2922,6 +2939,7 @@
   {
     \@@_calc_final_line_length:
     \skip_add:Nn \@topsepadd \l_@@_delta_below_skip
+    \int_set_eq:NN \@endparpenalty \@lowpenalty
     \endlist
     \bool_gset_true:N \g_@@_poetry_end_bool
     \hook_gput_next_code:nn { para / begin }

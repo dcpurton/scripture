@@ -1,0 +1,93 @@
+\documentclass[a4paper,twocolumn]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\vspace*{14.5cm plus 1cm}
+\begin{scripture}[1 Corinthians 1:20--25]
+  \vs{20}Where is the wise person? Where is the teacher of the law? Where is
+  the philosopher of this age? Has not God made foolish the wisdom of the
+  world? \vs{21}For since in the wisdom of God the world through its wisdom
+  did not know him, God was pleased through the foolishness of what was
+  preached to save those who believe. \vs{22}Jews demand signs and Greeks look
+  for wisdom, \vs{23}but we preach Christ crucified: a stumbling-block to Jews
+  and foolishness to Gentiles, \vs{24}but to those whom God has called, both
+  Jews and Greeks, Christ the power of God and the wisdom of God. \vs{25}For
+  the foolishness of God is wiser than human wisdom, and the weakness of God is
+  stronger than human strength.
+\end{scripture}
+
+\clearpage
+
+\vspace*{15.3cm plus 1cm}
+
+\begin{scripture}[2 Kings 18:18--19]
+  \vs{18}They called for the king; and Eliakim son of Hilkiah the palace
+  administrator, Shebna the secretary, and Joah son of Asaph the recorder went
+  out to them.
+
+  \vs{19}The field commander said to them, ‘Tell Hezekiah:
+
+  \begin{narrow}
+    ‘“This is what the great king, the king of Assyria, says: on what are you
+    basing this confidence of yours? \vs{20}You say you have the counsel and
+    the might for war---but you speak only empty words. On whom are you
+    depending, that you rebel against me?
+  \end{narrow}
+\end{scripture}
+
+\clearpage
+
+\vspace*{15.5cm plus 1cm}
+
+\begin{scripture}[2 Kings 18:23--26a]
+  \begin{narrow}
+    \vs{23}‘“Come now, make a bargain with my master, the king of Assyria: I
+    will give you two thousand horses---if you can put riders on them!
+    \vs{24}How can you repulse one officer of the least of my master’s
+    officials, even though you are depending on Egypt for chariots and
+    horsemen? \vs{25}Furthermore, have I come to attack and destroy this place
+    without word from the Lord? The Lord himself told me to march against this
+    country and destroy it.”’
+  \end{narrow}
+
+  \vs{26}Then Eliakim son of Hilkiah, and Shebna…
+\end{scripture}
+
+\clearpage
+
+\vspace*{18.8cm plus 1cm}
+
+\begin{scripture}[Isaiah 1:2]
+  \begin{poetry}
+    \vs{2}Hear me, you heavens! Listen, earth!
+    For the \textsc{Lord} has spoken:
+
+    ‘I reared children and brought them up,
+    but they have rebelled against me.
+  \end{poetry}
+\end{scripture}
+
+\clearpage
+
+\vspace*{16.2cm plus 1cm}
+
+\begin{scripture}[Acts 4:25--27a]
+  \vs{25}You spoke by the Holy Spirit through the mouth of your servant, our
+  father David:
+  \begin{poetry}
+    ‘“Why do the nations rage
+    and the peoples plot in vain?
+
+    \vs{26}The kings of the earth rise up
+    and the rulers band together
+
+    against the Lord
+    and against his anointed one.”
+  \end{poetry}
+  \vs{27}Indeed Herod and Pontius Pilate…
+\end{scripture}
+
+\end{document}
