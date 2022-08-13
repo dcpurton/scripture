@@ -1,0 +1,92 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+Text before \texttt{scripture} environment.
+\begin{scripture}
+  \vs{5}The \textsc{Lord} spoke to me again:
+
+  \begin{poetry}
+    \vs{6}‘Because this people has rejected
+    the gently flowing waters of Shiloah
+
+    and rejoices over Rezin
+    and the son of Remaliah,
+  \end{poetry}
+\end{scripture}
+
+\bigskip
+
+Text before \texttt{scripture} environment.
+
+\begin{scripture}
+  \vs{5}The \textsc{Lord} spoke to me again:
+
+  \begin{poetry}
+    \vs{6}‘Because this people has rejected
+    the gently flowing waters of Shiloah
+
+    and rejoices over Rezin
+    and the son of Remaliah,
+  \end{poetry}
+\end{scripture}
+
+\bigskip
+
+Text before \texttt{scripture} environment.
+\begin{scripture}
+  \vs{5}The \textsc{Lord} spoke to me again:
+  \begin{poetry}
+    \vs{6}‘Because this people has rejected
+    the gently flowing waters of Shiloah
+
+    and rejoices over Rezin
+    and the son of Remaliah,
+  \end{poetry}
+\end{scripture}
+
+\bigskip
+
+Text before \texttt{scripture} environment.
+
+\begin{scripture}
+  \vs{5}The \textsc{Lord} spoke to me again:
+  \begin{poetry}
+    \vs{6}‘Because this people has rejected
+    the gently flowing waters of Shiloah
+
+    and rejoices over Rezin
+    and the son of Remaliah,
+  \end{poetry}
+\end{scripture}
+
+\bigskip
+
+Text before \texttt{scripture} environment.
+\begin{scripture}
+  \begin{poetry}
+    \vs{6}‘Because this people has rejected
+    the gently flowing waters of Shiloah
+
+    and rejoices over Rezin
+    and the son of Remaliah,
+  \end{poetry}
+\end{scripture}
+
+\bigskip
+
+Text before \texttt{scripture} environment.
+
+\begin{scripture}
+  \begin{poetry}
+    \vs{6}‘Because this people has rejected
+    the gently flowing waters of Shiloah
+
+    and rejoices over Rezin
+    and the son of Remaliah,
+  \end{poetry}
+\end{scripture}
+\end{document}

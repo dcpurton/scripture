@@ -1853,8 +1853,6 @@
     \hook_gclear_next_code:n { para / before }
     \hook_gput_next_code:nn { para / end }
       { \skip_set_eq:NN \parskip \l_@@_parskip_tl }
-    \hook_gput_next_code:nn { para / after }
-      { \bool_gset_false:N \g_@@_start_bool }
     \l_@@_font_tl
 %    \end{macrocode}
 % For left and right margins, use \cs{parshape} is already in a list,
@@ -1990,7 +1988,6 @@
           { scripture / center }
           { #1 }
       }
-    \par
     \list { }
       {
         \skip_set_eq:NN \l_@@_delta_below_skip \l_@@_center_belowskip_tl
@@ -1998,7 +1995,10 @@
 % Ignore \opt{aboveskip} if at the beginning of a \env{scripture} environment.
 %    \begin{macrocode}
         \bool_if:NTF \g_@@_start_bool
-          { \skip_zero:N \topsep }
+          {
+            \skip_zero:N \topsep
+            \bool_gset_false:N \g_@@_start_bool
+          }
           {
             \dim_compare:nTF
               { \parskip >= \l_@@_center_aboveskip_tl > \c_zero_skip }
@@ -2054,7 +2054,6 @@
           { scripture / flushright }
           { #1 }
       }
-    \par
     \list { }
       {
         \skip_set_eq:NN \l_@@_delta_below_skip \l_@@_flushright_belowskip_tl
@@ -2062,7 +2061,10 @@
 % Ignore \opt{aboveskip} if at the beginning of a \env{scripture} environment.
 %    \begin{macrocode}
         \bool_if:NTF \g_@@_start_bool
-          { \skip_zero:N \topsep }
+          {
+            \skip_zero:N \topsep
+            \bool_gset_false:N \g_@@_start_bool
+          }
           {
             \dim_compare:nTF
               { \parskip >= \l_@@_flushright_aboveskip_tl > \c_zero_skip }
@@ -2228,7 +2230,6 @@
           { scripture / hanging }
           { #1 }
       }
-    \par
     \list { }
       {
         \skip_set_eq:NN \l_@@_delta_below_skip \l_@@_hanging_belowskip_tl
@@ -2236,7 +2237,10 @@
 % Ignore \opt{aboveskip} if at the beginning of a \env{scripture} environment.
 %    \begin{macrocode}
         \bool_if:NTF \g_@@_start_bool
-          { \dim_zero:N \topsep }
+          {
+            \dim_zero:N \topsep
+            \bool_gset_false:N \g_@@_start_bool
+          }
           {
             \dim_compare:nTF
               { \parskip >= \l_@@_hanging_aboveskip_tl > \c_zero_skip }
@@ -2478,7 +2482,6 @@
           { scripture / narrow }
           { #1 }
       }
-    \par
     \list { }
       {
         \skip_set_eq:NN \l_@@_delta_below_skip \l_@@_narrow_belowskip_tl
@@ -2486,7 +2489,10 @@
 % Ignore \opt{aboveskip} if at the beginning of a \env{scripture} environment.
 %    \begin{macrocode}
         \bool_if:NTF \g_@@_start_bool
-          { \skip_zero:N \topsep }
+          {
+            \skip_zero:N \topsep
+            \bool_gset_false:N \g_@@_start_bool
+          }
           {
             \dim_compare:nTF
               { \parskip >= \l_@@_narrow_aboveskip_tl > \c_zero_skip }
@@ -2881,13 +2887,13 @@
         \msg_error:nn { scripture } { nested-environment }
       }
     \bool_set_true:N \l_@@_active_inner_bool
-    \par
     \list { }
       {
         \skip_set_eq:NN \l_@@_delta_below_skip \l_@@_poetry_belowskip_tl
         \bool_if:NTF \g_@@_start_bool
           {
             \skip_zero:N \topsep
+            \bool_gset_false:N \g_@@_start_bool
           }
           {
             \dim_compare:nTF
@@ -3075,7 +3081,11 @@
 %    \end{macrocode}
 % \end{envmacro}
 %    \begin{macrocode}
-    \ignorespaces
+    \peek_remove_spaces:n
+      {
+        \peek_meaning:NF \begin
+          { \bool_gset_false:N \g_@@_start_bool }
+      }
   }
   {
     \@@_end:n { #1 }
