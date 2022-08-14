@@ -2824,6 +2824,8 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_poetry_nodrop_chap:n
   {
+    \cs_gset_nopar:Npn \scripturecurrentchapter { #1 }
+    \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
     \group_begin:
     \bool_if:NTF \l_@@_chap_show_bool
       {
