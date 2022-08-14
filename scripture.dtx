@@ -2215,7 +2215,11 @@
       }
     \box_set_ht:Nn \l_tmpb_box { \c_zero_dim }
     \box_set_dp:Nn \l_tmpb_box { \c_zero_dim }
+    \group_begin:
+    \hook_use:n { scripture / chap / before }
     \box_use:N \l_tmpb_box
+    \hook_use:n { scripture / chap / after }
+    \group_end:
     \hook_gput_next_code:nn { para / begin }
       { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
   }
@@ -2801,7 +2805,11 @@
               }
           }
       }
+    \group_begin:
+    \hook_use:n { scripture / chap / before }
     \box_use:N \l_tmpb_box
+    \hook_use:n { scripture / chap / after }
+    \group_end:
     \bool_if:NT \g_@@_poetry_midparachap_show_verse_bool
       {
         \@@_verse_output:n { 1 }
@@ -2816,15 +2824,18 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_poetry_nodrop_chap:n
   {
+    \group_begin:
     \bool_if:NTF \l_@@_chap_show_bool
       {
         \hbox_overlap_left:n
           {
+            \hook_use:n { scripture / chap / before }
             \group_begin:
             \l_@@_chap_font_tl
             #1
             \group_end:
             \skip_horizontal:N \l_@@_chap_sep_tl
+            \hook_use:n { scripture / chap / after }
           }
         \bool_if:NT \g_@@_poetry_midparachap_show_verse_bool
           {
@@ -2832,8 +2843,11 @@
           }
       }
       {
+        \hook_use:n { scripture / chap / before }
+        \hook_use:n { scripture / chap / after }
         \vs { 1 }
       }
+    \group_end:
   }
 %    \end{macrocode}
 % \end{macro}
