@@ -1,0 +1,87 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  chapter/hide
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Isaiah 6:1--2]
+  \ch{6}In the year that King Uzziah died, I saw the Lord, high and exalted,
+  seated on a throne; and the train of his robe filled the temple. \vs{2}Above
+  him were seraphim, each with six wings: with two wings they covered their
+  faces, with two they covered their feet, and with two they were flying.
+\end{scripture}
+
+\bigskip
+
+\begin{scripture}[Exodus 19:25--20:2]
+  \vs{25}So Moses went down to the people and told them.
+
+  \extraskip
+
+  \ch*{20}And God spoke all these words:
+
+  \begin{hanging}[rightmargin=1em]
+    \noindent\vs{2}‘I am the \textsc{Lord} your God, who brought you out of
+    Egypt, out of the land of slavery.
+  \end{hanging}
+\end{scripture}
+
+\bigskip
+
+\begin{scripture}[Isaiah 12:1]
+  \ch{12}In that day you will say:
+
+  \begin{poetry}
+    ‘I will praise you, \textsc{Lord}.
+    Although you were angry with me,
+
+    your anger has turned away
+    and you have comforted me.
+  \end{poetry}
+\end{scripture}
+
+\bigskip
+
+\begin{scripture}[Isaiah 5:1]
+  \begin{poetry}
+    \ch{5}I will sing for the one I love
+    a song about his vineyard:
+
+    my loved one had a vineyard
+    on a fertile hillside.
+  \end{poetry}
+\end{scripture}
+
+\bigskip
+
+\begin{scripture}[Hosea 6:11--7:1][poetry/leftmargin=2em,poetry/verse/sep=1em,version=NRSV]
+  \begin{poetry}
+    \vs{11}For you also, O Judah, a harvest is appointed.
+
+    \extraskip
+
+    When I would restore the fortunes of my people,
+    \ch{7}when I would heal Israel,
+    the corruption of Ephraim is revealed,
+    and the wicked deeds of Samaria;
+
+    for they deal falsely,
+    the thief breaks in,
+    and the bandits raid outside.
+  \end{poetry}
+\end{scripture}
+
+\bigskip
+
+\begin{scripture}[Genesis 1:1--2]
+  \begin{hanging}
+    \ch{1}In the beginning God created the heavens and the earth. \vs{2}Now the
+    earth was formless and empty, darkness was over the surface of the deep,
+    and the Spirit of God was hovering over the waters.
+  \end{hanging}
+\end{scripture}
+\end{document}

@@ -751,6 +751,18 @@
 %   quotation. |#1| contains the text of the \val{chapter}.
 % \end{option}
 %
+% \begin{option}[added=2022-08-15]{chapter/hide}
+%   \changes{v1.1}{2022/08/15}{Add \opt{chapter/hide} option}
+%   \begin{syntax}
+%     |chapter/hide =| \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   Whether chapters should be shown or hidden. The value of \meta{|boolean|}
+%   is optional and assumed to be \val{true} if not present. This option is
+%   the opposite of \opt{chapter/show}. Note that the \hook{scripture/chap/before}
+%   and \hook{scripture/chap/after} hooks are still executed when chapters are
+%   hidden.
+% \end{option}
+%
 % \begin{option}{chapter/nodrop}
 %   \begin{syntax}
 %     |chapter/nodrop =| \meta{boolean} \hfill Default: false
@@ -766,6 +778,16 @@
 %     |chapter/sep =| \meta{dimen} \hfill Default: 0.5em
 %   \end{syntax}
 %   \meta{|dimen|} used to separate a \cs{ch} from the following text.
+% \end{option}
+%
+% \begin{option}[added=2022-08-15]{chapter/show}
+%   \changes{v1.1}{2022/08/15}{Add \opt{chapter/hide} option}
+%   \begin{syntax}
+%     |chapter/show =| \meta{boolean} \hfill Default: true
+%   \end{syntax}
+%   Whether chapters should be shown or hidden. The value of \meta{|boolean|}
+%   is optional and assumed to be \val{true} if not present. This option is
+%   the opposite of \opt{chapter/hide}.
 % \end{option}
 %
 % \begin{option}{extraskip}
@@ -1245,11 +1267,16 @@
     , chapter / format         .cs_set:Np          = \@@_chap_format:n #1
     , chapter / format         .value_required:n   = true
     , chapter / format         .initial:n          = #1
+    , chapter / hide           .bool_set_inverse:N = \l_@@_chap_show_bool
+    , chapter / hide           .default:n          = true
     , chapter / nodrop         .bool_set_inverse:N = \l_@@_chap_drop_bool
     , chapter / nodrop         .default:n          = true
     , chapter / sep            .tl_set:N           = \l_@@_chap_sep_tl
     , chapter / sep            .value_required:n   = true
     , chapter / sep            .initial:n          = 0.5 em
+    , chapter / show           .bool_set:N         = \l_@@_chap_show_bool
+    , chapter / show           .default:n          = true
+    , chapter / show           .initial:n          = true
     , extraskip                .tl_set:N           = \l_@@_extraskip_tl
     , extraskip                .value_required:n   = true
     , extraskip                .initial:n          = \medskipamount
@@ -1672,13 +1699,21 @@
     \cs_gset_nopar:Npn \scripturecurrentchapter { #1 }
     \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
     \group_begin:
-    \hook_use:n { scripture / chap / before }
-    \group_begin:
-    \l_@@_chap_font_tl
-    #1
-    \group_end:
-    \skip_horizontal:N \l_@@_chap_sep_tl
-    \hook_use:n { scripture / chap / after }
+    \bool_if:NTF \l_@@_chap_show_bool
+      {
+        \hook_use:n { scripture / chap / before }
+        \group_begin:
+        \l_@@_chap_font_tl
+        #1
+        \group_end:
+        \skip_horizontal:N \l_@@_chap_sep_tl
+        \hook_use:n { scripture / chap / after }
+      }
+      {
+        \hook_use:n { scripture / chap / before }
+        \hook_use:n { scripture / chap / after }
+        \vs { 1 }
+      }
     \group_end:
   }
 %    \end{macrocode}
@@ -1828,14 +1863,18 @@
       }
     \DeclareDocumentCommand { \ch } { sm }
       {
-        \bool_if:NTF \l_@@_chap_drop_bool
+        \bool_if:NTF \l_@@_chap_show_bool
           {
-            \@@_chap:n { ##2 }
-            \bool_if:nT { ##1 }
+            \bool_if:NTF \l_@@_chap_drop_bool
               {
-                \hook_gput_next_code:nn { para / after }
-                  { \int_zero:N \l_@@_chap_par_prevgraf_int }
+                \@@_chap:n { ##2 }
+                \bool_if:nT { ##1 }
+                  {
+                    \hook_gput_next_code:nn { para / after }
+                      { \int_zero:N \l_@@_chap_par_prevgraf_int }
+                  }
               }
+              { \@@_nodrop_chap:n { ##2 } }
           }
           { \@@_nodrop_chap:n { ##2 } }
       }
@@ -2266,9 +2305,16 @@
         \dim_zero:N \labelsep
         \dim_set_eq:NN \l_@@_hanging_parindent_saved_dim \parindent
       }
-    \bool_if:NTF \l_@@_chap_drop_bool
-      { \cs_set_eq:NN \ch \@@_hanging_chap:n }
-      { \cs_set_eq:NN \ch \@@_nodrop_chap:n }
+    \DeclareDocumentCommand { \ch } { sm }
+      {
+        \bool_if:NTF \l_@@_chap_show_bool
+          {
+            \bool_if:NTF \l_@@_chap_drop_bool
+              { \@@_hanging_chap:n { ##2 } }
+              { \@@_nodrop_chap:n { ##2 } }
+          }
+          { \@@_nodrop_chap:n { ##2 } }
+      }
     \cs_set_eq:NN \vs \@@_hanging_verse:n
     \cs_set_eq:NN \nohang \@@_nohang:
     \item
@@ -2770,17 +2816,23 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_poetry_nodrop_chap:n
   {
-    \hbox_overlap_left:n
+    \bool_if:NTF \l_@@_chap_show_bool
       {
-        \group_begin:
-        \l_@@_chap_font_tl
-        #1
-        \group_end:
-        \skip_horizontal:N \l_@@_chap_sep_tl
+        \hbox_overlap_left:n
+          {
+            \group_begin:
+            \l_@@_chap_font_tl
+            #1
+            \group_end:
+            \skip_horizontal:N \l_@@_chap_sep_tl
+          }
+        \bool_if:NT \g_@@_poetry_midparachap_show_verse_bool
+          {
+            \@@_verse_output:n { 1 }
+          }
       }
-    \bool_if:NT \g_@@_poetry_midparachap_show_verse_bool
       {
-        \@@_verse_output:n { 1 }
+        \vs { 1 }
       }
   }
 %    \end{macrocode}
@@ -2922,9 +2974,16 @@
     \dim_set_eq:NN \listparindent \l_@@_poetry_indent_tl
     \dim_set_eq:NN \parindent \l_@@_poetry_indent_tl
     \bool_gset_false:N \g_@@_poetry_midparachap_show_verse_bool
-    \bool_if:NTF \l_@@_chap_drop_bool
-      { \cs_set_eq:NN \ch \@@_poetry_chap:n }
-      { \cs_set_eq:NN \ch \@@_poetry_nodrop_chap:n }
+    \DeclareDocumentCommand { \ch } { sm }
+      {
+        \bool_if:NTF \l_@@_chap_show_bool
+          {
+            \bool_if:NTF \l_@@_chap_drop_bool
+              { \@@_poetry_chap:n { ##2 } }
+              { \@@_poetry_nodrop_chap:n { ##2 } }
+          }
+          { \@@_poetry_nodrop_chap:n { ##2 } }
+      }
     \cs_set_eq:NN \vs \@@_poetry_mode_vertical_verse:n
     \cs_set_eq:NN \extraskip \@@_poetry_extra_skip:
     \cs_set_eq:NN \selah \@@_selah_output:
