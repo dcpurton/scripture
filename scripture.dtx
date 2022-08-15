@@ -709,6 +709,25 @@
 %   \meta{|skip|} inserted below the \env{scripture} environment.
 % \end{option}
 %
+% \begin{option}[added=2022-08-15]{compact}
+%   \changes{v1.1}{2022/08/15}{Add \opt{compact} option}
+%   \begin{syntax}
+%     |compact =| \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   This option removes all paragraph breaks along with any \cs{extraskip} in
+%   the quotation so the whole quotation is a single paragraph of running
+%   prose. This option implies \opt{chapter/nodrop} and all options relating
+%   to inner environments are ignored.
+%
+%   The value of \meta{|boolean|} is optional and assumed to be \val{true} if
+%   not present.
+%
+%   \textbf{Warning:} This option redefines \cs{par} to \cs{relax} inside the
+%   \env{scripture} environment. If you have anything other than expected
+%   macros and environments inside your \env{scripture} environment \TeX{}
+%   will likely get stuck in an infinite loop.
+% \end{option}
+%
 % \begin{option}{leftmargin}
 %   \begin{syntax}
 %     |leftmargin =| \meta{dimen} \hfill Default: 0pt
@@ -1274,6 +1293,9 @@
     , belowskip                .tl_set:N           = \l_@@_belowskip_tl
     , belowskip                .value_required:n   = true
     , belowskip                .initial:n          = \c_zero_skip
+    , compact                  .bool_set:N         = \l_@@_compact_bool
+    , compact                  .default:n          = true
+    , compact                  .initial:n          = false
     , leftmargin               .tl_set:N           = \l_@@_leftmargin_tl
     , leftmargin               .value_required:n   = true
     , leftmargin               .initial:n          = \c_zero_dim
@@ -3186,6 +3208,28 @@
 %    \end{macrocode}
 % \end{envmacro}
 %    \begin{macrocode}
+    \bool_if:NT \l_@@_compact_bool
+      {
+        \scripturesetup { chapter / nodrop }
+        \RenewDocumentEnvironment { center } { o } { } { }
+        \RenewDocumentEnvironment { flushright } { o } { } { }
+        \RenewDocumentEnvironment { hanging } { o } { } { }
+        \RenewDocumentEnvironment { midparachap } { o } { } { }
+        \RenewDocumentEnvironment { narrow } { o } { } { }
+        \RenewDocumentEnvironment { poetry } { o } { } { }
+        \cs_set_eq:NN \par \relax
+        \cs_set_eq:NN \extraskip \relax
+        \cs_set_eq:NN \nohang \relax
+        \cs_set:Npn \selah
+          {
+            \group_begin:
+            \l_@@_selah_font_tl
+            \c_space_tl
+            \@@_selah_format:n { \l_@@_selah_text_tl }
+            \c_space_tl
+            \group_end:
+          }
+      }
     \peek_remove_spaces:n
       {
         \peek_meaning:NF \begin
@@ -3193,6 +3237,8 @@
       }
   }
   {
+    \bool_if:NT \l_@@_compact_bool
+      { \cs_set_eq:NN \par \endgraf }
     \@@_end:n { #1 }
   }
 %    \end{macrocode}
