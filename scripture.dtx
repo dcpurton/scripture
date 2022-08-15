@@ -917,12 +917,34 @@
 %   argument of \cs{vs}.
 % \end{option}
 %
+% \begin{option}[added=2022-08-15]{verse/hide}
+%   \changes{v1.1}{2022/08/15}{Add \opt{verse/hide} option}
+%   \begin{syntax}
+%     |verse/hide =| \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   Whether verses should be shown or hidden. The value of \meta{|boolean|} is
+%   optional and assumed to be \val{true} if not present. This option is the
+%   opposite of \opt{verse/show}. Note that the \hook{scripture/verse/before}
+%   and \hook{scripture/verse/after} hooks are still executed when verses are
+%   hidden.
+% \end{option}
+%
 % \begin{option}[added=2022-07-28]{verse/sep}
 %   \changes{v1.1}{2022/07/28}{Add \opt{verse/sep} option with small default}
 %   \begin{syntax}
 %     |verse/sep =| \meta{dimen} \hfill Default: 0.05 em
 %   \end{syntax}
 %   \meta{|dimen|} used to separate a \cs{vs} from the following text.
+% \end{option}
+%
+% \begin{option}[added=2022-08-15]{verse/show}
+%   \changes{v1.1}{2022/08/15}{Add \opt{verse/show} option}
+%   \begin{syntax}
+%     |verse/show =| \meta{boolean} \hfill Default: true
+%   \end{syntax}
+%   Whether verses should be shown or hidden. The value of \meta{|boolean|}
+%   is optional and assumed to be \val{true} if not present. This option is
+%   the opposite of \opt{verse/hide}.
 % \end{option}
 %
 % \begin{option}{version}
@@ -1324,9 +1346,14 @@
     , verse / format           .cs_set:Np          = \@@_verse_format:n #1
     , verse / format           .value_required:n   = true
     , verse / format           .initial:n          = \textsuperscript{#1}
+    , verse / hide             .bool_set_inverse:N = \l_@@_verse_show_bool
+    , verse / hide             .default:n          = true
     , verse / sep              .tl_set:N           = \l_@@_verse_sep_tl
     , verse / sep              .value_required:n   = true
     , verse / sep              .initial:n          = 0.05 em
+    , verse / show             .bool_set:N         = \l_@@_verse_show_bool
+    , verse / show             .default:n          = true
+    , verse / show             .initial:n          = true
     , version                  .tl_set:N           = \l_@@_version_tl
     , version                  .value_required:n   = true
     , version                  .initial:n          =
@@ -1768,9 +1795,12 @@
       { \mode_leave_vertical: }
     \group_begin:
     \hook_use:n { scripture / verse / before }
-    \l_@@_verse_font_tl
-    \@@_verse_format:n { #1 }
-    \kern \l_@@_verse_sep_tl
+    \bool_if:NT \l_@@_verse_show_bool
+      {
+        \l_@@_verse_font_tl
+        \@@_verse_format:n { #1 }
+        \kern \l_@@_verse_sep_tl
+      }
     \hook_use:n { scripture / verse / after }
     \group_end:
   }
