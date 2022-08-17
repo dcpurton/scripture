@@ -1969,7 +1969,15 @@
     \bool_if:NF \l_@@_indent_bool
       {
         \hook_gput_next_code:nn { para / begin }
-          { \OmitIndent }
+          {
+            \bool_lazy_any:nT
+              {
+                { \str_if_eq_p:Vn \@currenvir { midparachap } }
+                { \str_if_eq_p:Vn \@currenvir { narrow } }
+                { \str_if_eq_p:Vn \@currenvir { scripture } }
+              }
+              { \para_omit_indent: }
+          }
       }
   }
 %    \end{macrocode}
