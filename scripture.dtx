@@ -1572,6 +1572,13 @@
 %
 % \subsubsection{Formatting and printing quotation references}
 %
+% \begin{macro}{\l_@@_ref_box}
+%   Box to hold the formatted reference.
+%    \begin{macrocode}
+\box_new:N \l_@@_ref_box
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\@@_format_full_ref:n}
 %   Format a scripture quotation with its reference.
 %    \begin{macrocode}
@@ -1598,7 +1605,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_reference:n
   {
-    \hbox_set:Nn \l_tmpa_box
+    \hbox_set:Nn \l_@@_ref_box
       {
         \skip_horizontal:N \l_@@_ref_sep_tl
         \@@_format_full_ref:n { #1 }
@@ -1612,7 +1619,7 @@
     \bool_if:NT \g_@@_poetry_end_bool
       { \skip_vertical:n { -\parskip } }
     \dim_compare:nNnT
-      { \box_wd:N \l_tmpa_box + \g_@@_final_line_dim }
+      { \box_wd:N \l_@@_ref_box + \g_@@_final_line_dim }
       >
       { \linewidth - \@totalleftmargin }
       { \skip_vertical:N \baselineskip }
@@ -1623,12 +1630,20 @@
     \int_compare:nNnT \prevgraf = \c_zero_int
       { \skip_vertical:n { -\baselineskip } }
     \l_@@_ref_delim_tl
-    \box_use:N \l_tmpa_box
+    \box_use:N \l_@@_ref_box
   }
 %    \end{macrocode}
 % \end{macro}
 %
 % \subsubsection{Formatting and printing chapter numbers}
+%
+% \begin{macro}{\l_@@_chap_box, l_@@_chap_tmp_box}
+%   Boxes use to store and calculate drop chapter.
+%    \begin{macrocode}
+\box_new:N \l_@@_chap_box
+\box_new:N \l_@@_chap_tmp_box
+%    \end{macrocode}
+% \end{macro}
 %
 % \begin{macro}{\l_@@_chap_fontsize_dim}
 %   Calculated font size of a drop chapter number.
@@ -1673,9 +1688,9 @@
   {
     \cs_gset_nopar:Npn \scripturecurrentchapter { #1 }
     \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
-    \hbox_set:Nn \l_tmpa_box { X }
+    \hbox_set:Nn \l_@@_chap_tmp_box { X }
     \dim_set:Nn \l_@@_chap_X_height_dim
-      { \box_ht:N \l_tmpa_box }
+      { \box_ht:N \l_@@_chap_tmp_box }
     \dim_set:Nn \l_@@_chap_height_dim
       { \baselineskip + \l_@@_chap_X_height_dim }
     \dim_set:Nn \l_@@_chap_fontsize_dim
@@ -1685,7 +1700,7 @@
           { \l_@@_chap_height_dim }
           { \l_@@_chap_X_height_dim }
       }
-    \hbox_set:Nn \l_tmpa_box
+    \hbox_set:Nn \l_@@_chap_tmp_box
       {
         \l_@@_chap_font_tl
         \fontsize
@@ -1695,7 +1710,7 @@
         \@@_chap_format:n { #1 }
       }
     \dim_set:Nn \l_@@_chap_width_dim
-      { \box_wd:N \l_tmpa_box }
+      { \box_wd:N \l_@@_chap_tmp_box }
 %    \end{macrocode}
 %   Avoid breaks in the middle of drop chapters.
 %    \begin{macrocode}
@@ -1733,7 +1748,7 @@
       \linewidth
     \group_begin:
     \hook_use:n { scripture / chap / before }
-    \box_use:N \l_tmpb_box
+    \box_use:N \l_@@_chap_box
     \hook_use:n { scripture / chap / after }
     \group_end:
   }
@@ -1774,20 +1789,20 @@
 \cs_new_protected:Nn \@@_chap:n
   {
     \@@_drop_chap_set_up:n { #1 }
-    \hbox_set:Nn \l_tmpb_box
+    \hbox_set:Nn \l_@@_chap_box
       {
         \box_move_down:nn
           { \baselineskip }
           { 
             \hbox_overlap_left:n
               {
-                \box_use:N \l_tmpa_box
+                \box_use:N \l_@@_chap_tmp_box
                 \skip_horizontal:N \l_@@_chap_sep_tl
               }
           }
       }
-    \box_set_ht:Nn \l_tmpb_box { \c_zero_dim }
-    \box_set_dp:Nn \l_tmpb_box { \c_zero_dim }
+    \box_set_ht:Nn \l_@@_chap_box { \c_zero_dim }
+    \box_set_dp:Nn \l_@@_chap_box { \c_zero_dim }
     \bool_if:NTF \l_@@_mid_para_chap_bool
       { \@@_mid_para_drop_chap_output: }
       {
@@ -2261,23 +2276,23 @@
           }
         \@@_nohang:
       }
-    \hbox_set:Nn \l_tmpb_box
+    \hbox_set:Nn \l_@@_chap_box
       {
         \box_move_down:nn
           { \baselineskip }
           { 
             \hbox_overlap_left:n
               {
-                \box_use:N \l_tmpa_box
+                \box_use:N \l_@@_chap_tmp_box
                 \skip_horizontal:N \l_@@_chap_sep_tl
               }
           }
       }
-    \box_set_ht:Nn \l_tmpb_box { \c_zero_dim }
-    \box_set_dp:Nn \l_tmpb_box { \c_zero_dim }
+    \box_set_ht:Nn \l_@@_chap_box { \c_zero_dim }
+    \box_set_dp:Nn \l_@@_chap_box { \c_zero_dim }
     \group_begin:
     \hook_use:n { scripture / chap / before }
-    \box_use:N \l_tmpb_box
+    \box_use:N \l_@@_chap_box
     \hook_use:n { scripture / chap / after }
     \group_end:
     \hook_gput_next_code:nn { para / begin }
@@ -2450,10 +2465,14 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\l_@@_mid_para_chap_box}
-%   Box containing a paragraph with a chapter break.
+% \begin{macro}{\l_@@_mid_para_chap_box,
+%               \l_@@_mid_para_chap_split_box,
+%               \l_@@_mid_para_chap_split_top_box}
+%   Boxes containing a paragraph with a chapter break and its split if needed.
 %    \begin{macrocode}
 \box_new:N \l_@@_mid_para_chap_box
+\box_new:N \l_@@_mid_para_chap_split_box
+\box_new:N \l_@@_mid_para_chap_split_top_box
 %    \end{macrocode}
 % \end{macro}
 %
@@ -2553,11 +2572,11 @@
           {
             \int_set:Nn \vbadness { 10000 }
             \vbox_set_split_to_ht:NNn
-              \l_tmpa_box \l_@@_mid_para_chap_box
+              \l_@@_mid_para_chap_split_box \l_@@_mid_para_chap_box
               { \pagegoal - \pagetotal - \baselineskip }
-            \vbox_set_top:Nn \l_tmpb_box
-              { \vbox_unpack_drop:N \l_tmpa_box }
-            \box_use_drop:N \l_tmpb_box
+            \vbox_set_top:Nn \l_@@_mid_para_chap_split_top_box
+              { \vbox_unpack_drop:N \l_@@_mid_para_chap_split_box }
+            \box_use_drop:N \l_@@_mid_para_chap_split_top_box
             \goodbreak
             \box_use_drop:N \l_@@_mid_para_chap_box
           }
@@ -2667,6 +2686,15 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\l_@@_poetry_chap_indent_dim, \l_@@_poetry_chap_sep_dim}
+%   Store calculated indent and sep when a drop chapter appears in a
+%   \env{poetry} environment.
+%    \begin{macrocode}
+\dim_new:N \l_@@_poetry_chap_indent_dim
+\dim_new:N \l_@@_poetry_chap_sep_dim
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\l_@@_poetry_chap_parshape_correction_dim}
 %   Correction to \cs{parshape} in chapter affected lines in a \env{poetry}
 %   environment.
@@ -2749,37 +2777,40 @@
     \@@_drop_chap_set_up:n { #1 }
     \mode_if_vertical:TF
       {
-        \dim_set_eq:NN \l_tmpa_dim \l_@@_poetry_indent_tl
+        \dim_set_eq:NN \l_@@_poetry_chap_indent_dim \l_@@_poetry_indent_tl
         \mode_leave_vertical:
       }
-      { \dim_zero:N \l_tmpa_dim }
-    \dim_set_eq:NN \l_tmpb_dim \l_@@_chap_sep_tl
+      { \dim_zero:N \l_@@_poetry_chap_indent_dim }
+    \dim_set_eq:NN \l_@@_poetry_chap_sep_dim \l_@@_chap_sep_tl
     \dim_compare:nNnT
       { \l_@@_chap_width_dim + \l_@@_chap_sep_tl }
       <
-      { \l_@@_poetry_leftmargin_tl + \l_tmpa_dim }
+      { \l_@@_poetry_leftmargin_tl + \l_@@_poetry_chap_indent_dim }
       {
-        \dim_set:Nn \l_tmpb_dim
-          { \l_@@_poetry_leftmargin_tl + \l_tmpa_dim - \l_@@_chap_width_dim }
+        \dim_set:Nn \l_@@_poetry_chap_sep_dim
+          {
+            \l_@@_poetry_leftmargin_tl + \l_@@_poetry_chap_indent_dim -
+            \l_@@_chap_width_dim
+          }
       }
-    \hbox_set:Nn \l_tmpb_box
+    \hbox_set:Nn \l_@@_chap_box
       {
         \box_move_down:nn
           { \baselineskip }
           { 
             \hbox_overlap_left:n
               {
-                \box_use:N \l_tmpa_box
-                \skip_horizontal:N \l_tmpb_dim
+                \box_use:N \l_@@_chap_tmp_box
+                \skip_horizontal:N \l_@@_poetry_chap_sep_dim
               }
           }
       }
-    \box_set_ht:Nn \l_tmpb_box { \c_zero_dim }
-    \box_set_dp:Nn \l_tmpb_box { \c_zero_dim }
+    \box_set_ht:Nn \l_@@_chap_box { \c_zero_dim }
+    \box_set_dp:Nn \l_@@_chap_box { \c_zero_dim }
     \dim_set:Nn \l_@@_poetry_chap_parshape_correction_dim
       {
-        \l_@@_chap_width_dim + \l_tmpb_dim -
-        \l_@@_poetry_leftmargin_tl - \l_tmpa_dim
+        \l_@@_chap_width_dim + \l_@@_poetry_chap_sep_dim -
+        \l_@@_poetry_leftmargin_tl - \l_@@_poetry_chap_indent_dim
       }
     \parshape 2 ~
       \dim_eval:n
@@ -2797,7 +2828,7 @@
 %   be. There's probably a better way.
 %    \begin{macrocode}
     \dim_compare:nNnT
-      { \l_@@_chap_width_dim + \l_tmpb_dim }
+      { \l_@@_chap_width_dim + \l_@@_poetry_chap_sep_dim }
       >
       \l_@@_poetry_leftmargin_tl
       {
@@ -2867,7 +2898,7 @@
       }
     \group_begin:
     \hook_use:n { scripture / chap / before }
-    \box_use:N \l_tmpb_box
+    \box_use:N \l_@@_chap_box
     \hook_use:n { scripture / chap / after }
     \group_end:
     \bool_if:NT \g_@@_poetry_midparachap_show_verse_bool
