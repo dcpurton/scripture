@@ -1,0 +1,77 @@
+\documentclass[a4paper,twocolumn]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Acts 12:25--13:5]
+  \begin{midparachap}
+    \vs{25}When Barnabas and Saul had finished their mission, they returned
+    from Jerusalem, taking with them John, also called Mark. \ch{13}Now
+    in the church at Antioch there were prophets and teachers: Barnabas,
+    Simeon called Niger, Lucius of Cyrene, Manaen (who had been brought up
+    with Herod the tetrarch) and Saul. \vs{2}While they were worshipping the
+    Lord and fasting, the Holy Spirit said, ‘Set apart for me Barnabas and
+    Saul for the work to which I have called them.’ \vs{3}So after they had
+    fasted and prayed, they placed their hands on them and sent them
+    off.
+  \end{midparachap}
+
+  \vs{4}The two of them, sent on their way by the Holy Spirit, went down to
+  Seleucia and sailed from there to Cyprus. \vs{5}When they arrived at
+  Salamis, they proclaimed the word of God in the Jewish synagogues. John was
+  with them as their helper.
+\end{scripture}
+
+\bigskip
+
+\begin{scripture}[Acts 12:25--13:3]
+  \begin{midparachap}
+    \vs{25}When Barnabas and Saul had finished their mission, they returned
+    from Jerusalem, taking with them John, also called Mark. \ch{13}Now
+    in the church at Antioch there were prophets and teachers: Barnabas,
+    Simeon called Niger, Lucius of Cyrene, Manaen (who had been brought up
+    with Herod the tetrarch) and Saul. \vs{2}While they were worshipping the
+    Lord and fasting, the Holy Spirit said, ‘Set apart for me Barnabas and
+    Saul for the work to which I have called them.’ \vs{3}So after they had
+    fasted and prayed, they placed their hands on them and sent them off.
+  \end{midparachap}
+\end{scripture}
+
+\vspace{5cm plus 1cm}
+
+\begin{scripture}[Acts 12:25--13:5]
+  \begin{midparachap}
+    \vs{25}When Barnabas and Saul had finished their mission, they returned
+    from Jerusalem, taking with them John, also called Mark. \ch{13}Now
+    in the church at Antioch there were prophets and teachers: Barnabas,
+    Simeon called Niger, Lucius of Cyrene, Manaen (who had been brought up
+    with Herod the tetrarch) and Saul. \vs{2}While they were worshipping the
+    Lord and fasting, the Holy Spirit said, ‘Set apart for me Barnabas and
+    Saul for the work to which I have called them.’ \vs{3}So after they had
+    fasted and prayed, they placed their hands on them and sent them
+    off.
+  \end{midparachap}
+
+  \vs{4}The two of them, sent on their way by the Holy Spirit, went down to
+  Seleucia and sailed from there to Cyprus. \vs{5}When they arrived at
+  Salamis, they proclaimed the word of God in the Jewish synagogues. John was
+  with them as their helper.
+\end{scripture}
+
+\vspace{13cm plus 1cm}
+
+\begin{scripture}[Acts 12:25--13:3]
+  \begin{midparachap}
+    \vs{25}When Barnabas and Saul had finished their mission, they returned
+    from Jerusalem, taking with them John, also called Mark. \ch{13}Now
+    in the church at Antioch there were prophets and teachers: Barnabas,
+    Simeon called Niger, Lucius of Cyrene, Manaen (who had been brought up
+    with Herod the tetrarch) and Saul. \vs{2}While they were worshipping the
+    Lord and fasting, the Holy Spirit said, ‘Set apart for me Barnabas and
+    Saul for the work to which I have called them.’ \vs{3}So after they had
+    fasted and prayed, they placed their hands on them and sent them off.
+  \end{midparachap}
+\end{scripture}
+\end{document}

@@ -240,8 +240,9 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue 0.0
 ...\glue 0.0
+...\glue 0.0
 ...\penalty -51
-...\glue 0.0 plus 1.0
+...\glue 0.0
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0

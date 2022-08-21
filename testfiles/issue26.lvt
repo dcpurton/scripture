@@ -1,0 +1,406 @@
+\documentclass[a4paper,twocolumn]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  parskip=5mm
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+Filler text.
+
+\begin{scripture}[Acts 12:25--13:5]
+  \begin{midparachap}
+    \vs{25}When Barnabas and Saul had finished their mission, they returned
+    from Jerusalem, taking with them John, also called Mark. \ch{13}Now
+    in the church at Antioch there were prophets and teachers: Barnabas,
+    Simeon called Niger, Lucius of Cyrene, Manaen (who had been brought up
+    with Herod the tetrarch) and Saul. \vs{2}While they were worshipping the
+    Lord and fasting, the Holy Spirit said, ‘Set apart for me Barnabas and
+    Saul for the work to which I have called them.’ \vs{3}So after they had
+    fasted and prayed, they placed their hands on them and sent them
+    off.
+  \end{midparachap}
+
+  \vs{4}The two of them, sent on their way by the Holy Spirit, went down to
+  Seleucia and sailed from there to Cyprus. \vs{5}When they arrived at
+  Salamis, they proclaimed the word of God in the Jewish synagogues. John was
+  with them as their helper.
+\end{scripture}
+
+\begin{scripture}[Acts 13:41--42]
+  \begin{poetry}
+    \vs{41}‘“Look, you scoffers,
+    wonder and perish,
+
+    for I am going to do something in your days
+    that you would never believe,
+    even if someone told you.”’
+  \end{poetry}
+
+  \vs{42}As Paul and Barnabas were leaving the synagogue, the people invited
+  them to speak further about these things on the next Sabbath.
+\end{scripture}
+
+\begin{scripture}[Acts 4:26--27]
+  \begin{poetry}
+    \vs{26}The kings of the earth rise up
+    and the rulers band together
+
+    against the Lord
+    and against his anointed one.”
+  \end{poetry}
+  \vs{27}Indeed Herod and Pontius Pilate met together with the Gentiles and
+  the people of Israel in this city to conspire against your holy servant
+  Jesus, whom you anointed.
+\end{scripture}
+
+\begin{scripture}[Acts 4:26]
+  \begin{poetry}
+    \vs{26}The kings of the earth rise up
+    and the rulers band together
+
+    against the Lord
+    and against his anointed one.”
+  \end{poetry}
+\end{scripture}
+
+Filler text.
+
+\newpage
+
+Filler text.
+
+\begin{scripture}[Acts 4:25]
+  \vs{25}You spoke by the Holy Spirit through the mouth of your servant, our
+  father David:
+
+  \begin{poetry}
+    ‘“Why do the nations rage
+    and the peoples plot in vain?
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Acts 4:25]
+  \vs{25}You spoke by the Holy Spirit through the mouth of your servant, our
+  father David:
+  \begin{poetry}
+    ‘“Why do the nations rage
+    and the peoples plot in vain?
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[2 Kings 18:22--23]
+  \begin{narrow}
+    \vs{22}But if you say to me, ‘We are depending on the \textsc{Lord} our
+    God’---isn’t he the one whose high places and altars Hezekiah removed,
+    saying to Judah and Jerusalem, ‘You must worship before this altar in
+    Jerusalem’?
+
+    \vs{23}‘“Come now, make a bargain with my master, the king of Assyria: I
+    will give you two thousand horses---if you can put riders on them!
+  \end{narrow}
+\end{scripture}
+
+\begin{scripture}[2 Kings 18:22--26]
+  \begin{narrow}
+    \vs{22}But if you say to me, ‘We are depending on the \textsc{Lord} our
+    God’---isn’t he the one whose high places and altars Hezekiah removed,
+    saying to Judah and Jerusalem, ‘You must worship before this altar in
+    Jerusalem’?
+
+    \vs{23}‘“Come now, make a bargain with my master, the king of Assyria: I
+    will give you two thousand horses---if you can put riders on them!
+    \vs{24}How can you repulse one officer of the least of my master’s
+    officials, even though you are depending on Egypt for chariots and
+    horsemen? \vs{25}Furthermore, have I come to attack and destroy this place
+    without word from the \textsc{Lord}? The Lord himself told me to march
+    against this country and destroy it.”’
+  \end{narrow}
+
+  \vs{26}Then Eliakim son of Hilkiah, and Shebna and Joah said to the field
+  commander, ‘Please speak to your servants in Aramaic, since we understand
+  it. Don’t speak to us in Hebrew in the hearing of the people on the wall.’
+\end{scripture}
+
+Filler text.
+
+\newpage
+
+Filler text.
+
+\begin{scripture}[2 Kings 18:19]
+  \vs{19}The field commander said to them, ‘Tell Hezekiah:
+  \begin{narrow}
+    ‘“This is what the great king, the king of Assyria, says: on what are you
+    basing this confidence of yours?
+  \end{narrow}
+\end{scripture}
+
+\begin{scripture}[1 Corinthians 10:30--11:1]
+  \vs{30}If I take part in the meal with thankfulness, why am I denounced
+  because of something I thank God for?
+
+  \begin{midparachap}
+    \vs{31}So whether you eat or drink or whatever you do, do it all for the
+    glory of God. \vs{32}Do not cause anyone to stumble, whether Jews, Greeks
+    or the church of God---\vs{33}even as I try to please everyone in every
+    way. For I am not seeking my own good but the good of many, so that they
+    may be saved. \ch{11}Follow my example, as I follow the example of
+    Christ.
+  \end{midparachap}
+\end{scripture}
+
+\begin{scripture}[Exodus 20:16--17]
+  \begin{hanging}
+    \vs{16}‘You shall not give false testimony against your neighbour.
+
+    \vs{17}‘You shall not covet your neighbour’s house. You shall not covet
+    your neighbour’s wife, or his male or female servant, his ox or donkey, or
+    anything that belongs to your neighbour.’
+  \end{hanging}
+\end{scripture}
+
+\begin{scripture}[Exodus 20:16--19]
+  \begin{hanging}
+    \vs{16}‘You shall not give false testimony against your neighbour.
+
+    \vs{17}‘You shall not covet your neighbour’s house. You shall not covet
+    your neighbour’s wife, or his male or female servant, his ox or donkey, or
+    anything that belongs to your neighbour.’
+  \end{hanging}
+
+  \vs{18}When the people saw the thunder and lightning and heard the trumpet
+  and saw the mountain in smoke, they trembled with fear. They stayed at a
+  distance \vs{19}and said to Moses, ‘Speak to us yourself and we will listen.
+  But do not let God speak to us or we will die.’
+\end{scripture}
+
+Filler text.
+
+\newpage
+
+Filler text.
+
+\begin{scripture}[Exodus 20:1--3]
+  \ch*{20}And God spoke all these words:
+
+  \begin{hanging}
+    \nohang\vs{2}‘I am the Lord your God, who brought you out of Egypt, out of
+    the land of slavery.
+
+    \vs{3}‘You shall have no other gods before me.
+  \end{hanging}
+\end{scripture}
+
+\begin{scripture}[Exodus 20:20--21]
+  \vs{20}Moses said to the people, ‘Do not be afraid. God has come to test
+  you, so that the fear of God will be with you to keep you from sinning.’
+
+  \vs{21}The people remained at a distance, while Moses approached the thick
+  darkness where God was.
+\end{scripture}
+
+Filler text.
+
+\clearpage
+\setlength{\parskip}{4mm}
+\scripturesetup{parskip=0pt plus 2pt}
+
+Filler text.
+
+\begin{scripture}[Acts 12:25--13:5]
+  \begin{midparachap}
+    \vs{25}When Barnabas and Saul had finished their mission, they returned
+    from Jerusalem, taking with them John, also called Mark. \ch{13}Now
+    in the church at Antioch there were prophets and teachers: Barnabas,
+    Simeon called Niger, Lucius of Cyrene, Manaen (who had been brought up
+    with Herod the tetrarch) and Saul. \vs{2}While they were worshipping the
+    Lord and fasting, the Holy Spirit said, ‘Set apart for me Barnabas and
+    Saul for the work to which I have called them.’ \vs{3}So after they had
+    fasted and prayed, they placed their hands on them and sent them
+    off.
+  \end{midparachap}
+
+  \vs{4}The two of them, sent on their way by the Holy Spirit, went down to
+  Seleucia and sailed from there to Cyprus. \vs{5}When they arrived at
+  Salamis, they proclaimed the word of God in the Jewish synagogues. John was
+  with them as their helper.
+\end{scripture}
+
+\begin{scripture}[Acts 13:41--42]
+  \begin{poetry}
+    \vs{41}‘“Look, you scoffers,
+    wonder and perish,
+
+    for I am going to do something in your days
+    that you would never believe,
+    even if someone told you.”’
+  \end{poetry}
+
+  \vs{42}As Paul and Barnabas were leaving the synagogue, the people invited
+  them to speak further about these things on the next Sabbath.
+\end{scripture}
+
+\begin{scripture}[Acts 4:26--27]
+  \begin{poetry}
+    \vs{26}The kings of the earth rise up
+    and the rulers band together
+
+    against the Lord
+    and against his anointed one.”
+  \end{poetry}
+  \vs{27}Indeed Herod and Pontius Pilate met together with the Gentiles and
+  the people of Israel in this city to conspire against your holy servant
+  Jesus, whom you anointed.
+\end{scripture}
+
+\begin{scripture}[Acts 4:26]
+  \begin{poetry}
+    \vs{26}The kings of the earth rise up
+    and the rulers band together
+
+    against the Lord
+    and against his anointed one.”
+  \end{poetry}
+\end{scripture}
+
+Filler text.
+
+\newpage
+
+Filler text.
+
+\begin{scripture}[Acts 4:25]
+  \vs{25}You spoke by the Holy Spirit through the mouth of your servant, our
+  father David:
+
+  \begin{poetry}
+    ‘“Why do the nations rage
+    and the peoples plot in vain?
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Acts 4:25]
+  \vs{25}You spoke by the Holy Spirit through the mouth of your servant, our
+  father David:
+  \begin{poetry}
+    ‘“Why do the nations rage
+    and the peoples plot in vain?
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[2 Kings 18:22--23]
+  \begin{narrow}
+    \vs{22}But if you say to me, ‘We are depending on the \textsc{Lord} our
+    God’---isn’t he the one whose high places and altars Hezekiah removed,
+    saying to Judah and Jerusalem, ‘You must worship before this altar in
+    Jerusalem’?
+
+    \vs{23}‘“Come now, make a bargain with my master, the king of Assyria: I
+    will give you two thousand horses---if you can put riders on them!
+  \end{narrow}
+\end{scripture}
+
+\begin{scripture}[2 Kings 18:22--26]
+  \begin{narrow}
+    \vs{22}But if you say to me, ‘We are depending on the \textsc{Lord} our
+    God’---isn’t he the one whose high places and altars Hezekiah removed,
+    saying to Judah and Jerusalem, ‘You must worship before this altar in
+    Jerusalem’?
+
+    \vs{23}‘“Come now, make a bargain with my master, the king of Assyria: I
+    will give you two thousand horses---if you can put riders on them!
+    \vs{24}How can you repulse one officer of the least of my master’s
+    officials, even though you are depending on Egypt for chariots and
+    horsemen? \vs{25}Furthermore, have I come to attack and destroy this place
+    without word from the \textsc{Lord}? The Lord himself told me to march
+    against this country and destroy it.”’
+  \end{narrow}
+
+  \vs{26}Then Eliakim son of Hilkiah, and Shebna and Joah said to the field
+  commander, ‘Please speak to your servants in Aramaic, since we understand
+  it. Don’t speak to us in Hebrew in the hearing of the people on the wall.’
+\end{scripture}
+
+Filler text.
+
+\newpage
+
+Filler text.
+
+\begin{scripture}[2 Kings 18:19]
+  \vs{19}The field commander said to them, ‘Tell Hezekiah:
+  \begin{narrow}
+    ‘“This is what the great king, the king of Assyria, says: on what are you
+    basing this confidence of yours?
+  \end{narrow}
+\end{scripture}
+
+\begin{scripture}[1 Corinthians 10:30--11:1]
+  \vs{30}If I take part in the meal with thankfulness, why am I denounced
+  because of something I thank God for?
+
+  \begin{midparachap}
+    \vs{31}So whether you eat or drink or whatever you do, do it all for the
+    glory of God. \vs{32}Do not cause anyone to stumble, whether Jews, Greeks
+    or the church of God---\vs{33}even as I try to please everyone in every
+    way. For I am not seeking my own good but the good of many, so that they
+    may be saved. \ch{11}Follow my example, as I follow the example of
+    Christ.
+  \end{midparachap}
+\end{scripture}
+
+\begin{scripture}[Exodus 20:16--17]
+  \begin{hanging}
+    \vs{16}‘You shall not give false testimony against your neighbour.
+
+    \vs{17}‘You shall not covet your neighbour’s house. You shall not covet
+    your neighbour’s wife, or his male or female servant, his ox or donkey, or
+    anything that belongs to your neighbour.’
+  \end{hanging}
+\end{scripture}
+
+\begin{scripture}[Exodus 20:16--19]
+  \begin{hanging}
+    \vs{16}‘You shall not give false testimony against your neighbour.
+
+    \vs{17}‘You shall not covet your neighbour’s house. You shall not covet
+    your neighbour’s wife, or his male or female servant, his ox or donkey, or
+    anything that belongs to your neighbour.’
+  \end{hanging}
+
+  \vs{18}When the people saw the thunder and lightning and heard the trumpet
+  and saw the mountain in smoke, they trembled with fear. They stayed at a
+  distance \vs{19}and said to Moses, ‘Speak to us yourself and we will listen.
+  But do not let God speak to us or we will die.’
+\end{scripture}
+
+Filler text.
+
+\newpage
+
+Filler text.
+
+\begin{scripture}[Exodus 20:1--3]
+  \ch*{20}And God spoke all these words:
+
+  \begin{hanging}
+    \nohang\vs{2}‘I am the Lord your God, who brought you out of Egypt, out of
+    the land of slavery.
+
+    \vs{3}‘You shall have no other gods before me.
+  \end{hanging}
+\end{scripture}
+
+\begin{scripture}[Exodus 20:20--21]
+  \vs{20}Moses said to the people, ‘Do not be afraid. God has come to test
+  you, so that the fear of God will be with you to keep you from sinning.’
+
+  \vs{21}The people remained at a distance, while Moses approached the thick
+  darkness where God was.
+\end{scripture}
+
+Filler text.
+\end{document}

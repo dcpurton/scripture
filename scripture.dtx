@@ -1889,6 +1889,14 @@
 %
 % \subsubsection{The \env{scripture} environment}
 %
+% \begin{macro}{\l_@@_parskip_correction_skip}
+%   Correction to ensure consistent \cs{parskip} at start of \env{scripture}
+%   environment with non-zero \opt{parskip} option.
+%    \begin{macrocode}
+\skip_new:N \l_@@_parskip_correction_skip
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\g_@@_start_bool}
 %   Flag indicating whether we are currently setting the first paragraph in a
 %   \env{scripture} environment. If this is \val{true}, any \opt{aboveskip}
@@ -1957,8 +1965,12 @@
     \cs_set_eq:NN \extraskip \@@_extra_skip:
     \cs_set_eq:NN \vs \@@_verse_output:n
     \hook_gclear_next_code:n { para / before }
-    \hook_gput_next_code:nn { para / end }
-      { \skip_set_eq:NN \parskip \l_@@_parskip_tl }
+    \skip_set:Nn \l_@@_parskip_correction_skip { \parskip - \l_@@_parskip_tl }
+    \mode_if_vertical:T
+      {
+        \addvspace { \l_@@_parskip_correction_skip }
+      }
+    \skip_set_eq:NN \parskip \l_@@_parskip_tl
     \l_@@_font_tl
 %    \end{macrocode}
 % For left and right margins, use \cs{parshape} is already in a list,
@@ -2111,6 +2123,8 @@
         \bool_if:NTF \g_@@_start_bool
           {
             \skip_zero:N \topsep
+            \skip_sub:Nn \topsep \parskip
+            \skip_add:Nn \l_@@_delta_below_skip \parskip
             \bool_gset_false:N \g_@@_start_bool
           }
           {
@@ -2177,6 +2191,8 @@
         \bool_if:NTF \g_@@_start_bool
           {
             \skip_zero:N \topsep
+            \skip_sub:Nn \topsep \parskip
+            \skip_add:Nn \l_@@_delta_below_skip \parskip
             \bool_gset_false:N \g_@@_start_bool
           }
           {
@@ -2357,6 +2373,8 @@
         \bool_if:NTF \g_@@_start_bool
           {
             \dim_zero:N \topsep
+            \skip_sub:Nn \topsep \parskip
+            \skip_add:Nn \l_@@_delta_below_skip \parskip
             \bool_gset_false:N \g_@@_start_bool
           }
           {
@@ -2443,11 +2461,11 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\g_@@_mid_para_chap_prevgraf_int}
-%   Store the number of lines a paragraph containing a mid-paragraph chapter
-%   takes up.
+% \begin{macro}{\g_@@_mid_para_chap_prevdepth_dim}
+%   Store the \cs{prevdepth} of the final paragraph in a \env{midparachap}
+%   environment.
 %    \begin{macrocode}
-\int_new:N \g_@@_mid_para_chap_prevgraf_int
+\dim_new:N \g_@@_mid_para_chap_prevdepth_dim
 %    \end{macrocode}
 % \end{macro}
 %
@@ -2485,7 +2503,6 @@
     \int_set_eq:NN \l_@@_mid_para_chap_spacefactor_int \spacefactor
     \strut
     \par
-    \int_gset_eq:NN \g_@@_mid_para_chap_prevgraf_int \prevgraf
     \box_set_to_last:N \l_@@_mid_para_chap_line_box
     \hbox_set:Nn \l_@@_mid_para_chap_snap_box
       {
@@ -2517,7 +2534,6 @@
         \hbox_unpack_drop:N \l_@@_mid_para_chap_snap_box
         \skip_zero:N \parfillskip
         \par
-        \int_gadd:Nn \g_@@_mid_para_chap_prevgraf_int \prevgraf
         \group_end:
         \@@_drop_chap_output:
         \bool_if:NT \l_@@_midparachap_show_verse_bool
@@ -2542,8 +2558,8 @@
       }
     \par
     \bool_set_true:N \l_@@_mid_para_chap_bool
-    \skip_zero:N \parskip
     \@@_vbox_set_top:Nw \l_@@_mid_para_chap_box
+    \skip_zero:N \parskip
   }
 %    \end{macrocode}
 % \end{macro}
@@ -2553,16 +2569,35 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_mid_para_chap_end:
   {
-    \@@_calc_final_line_length:
-    \int_gadd:Nn \g_@@_mid_para_chap_prevgraf_int { \prevgraf - 1 }
+    \par
+    \dim_gset_eq:NN \g_@@_mid_para_chap_prevdepth_dim \prevdepth
+    \box_set_to_last:N \l_@@_mid_para_chap_line_box
+    \hbox_set:Nn \l_@@_mid_para_chap_snap_box
+      {
+        \hbox_unpack:N \l_@@_mid_para_chap_line_box
+        \unskip
+        \unskip
+        \unpenalty
+      }
+    \dim_gset:Nn \g_@@_final_line_dim { \box_wd:N \l_@@_mid_para_chap_snap_box }
+    \box_clear:N \l_@@_mid_para_chap_snap_box
+    \nointerlineskip
+    \int_compare:nNnT
+      \prevgraf < 3
+      {
+        \noindent
+        \skip_horizontal:n { \l_@@_chap_width_dim + \l_@@_chap_sep_tl }
+        \dim_gadd:Nn \g_@@_final_line_dim { \l_@@_chap_width_dim + \l_@@_chap_sep_tl }
+      }
+    \box_use_drop:N \l_@@_mid_para_chap_line_box
     \vbox_set_end:
 %    \end{macrocode}
 % Attempt to allow the mid-paragraph chapter box to break across pages.
 %    \begin{macrocode}
     \mode_if_inner:TF
       {
+        \noindent
         \box_use_drop:N \l_@@_mid_para_chap_box
-        \skip_vertical:n { \baselineskip - \lineskip }
       }
       {
         \dim_compare:nNnTF
@@ -2576,19 +2611,22 @@
               { \pagegoal - \pagetotal - \baselineskip }
             \vbox_set_top:Nn \l_@@_mid_para_chap_split_top_box
               { \vbox_unpack_drop:N \l_@@_mid_para_chap_split_box }
+            \noindent
             \box_use_drop:N \l_@@_mid_para_chap_split_top_box
             \goodbreak
             \box_use_drop:N \l_@@_mid_para_chap_box
           }
           {
+            \noindent
             \box_use_drop:N \l_@@_mid_para_chap_box
-            \skip_vertical:n { \baselineskip - \lineskip }
           }
       }
     \par
+    \dim_set_eq:NN \prevdepth \g_@@_mid_para_chap_prevdepth_dim
+    \int_zero:N \prevgraf
+    \skip_vertical:n { -\parskip - \baselineskip }
     \noindent
     \skip_horizontal:N \g_@@_final_line_dim
-    \@@_reset_spacing:
   }
 %    \end{macrocode}
 % \end{macro}
@@ -2620,6 +2658,8 @@
         \bool_if:NTF \g_@@_start_bool
           {
             \skip_zero:N \topsep
+            \skip_sub:Nn \topsep \parskip
+            \skip_add:Nn \l_@@_delta_below_skip \parskip
             \bool_gset_false:N \g_@@_start_bool
           }
           {
@@ -3052,6 +3092,8 @@
         \bool_if:NTF \g_@@_start_bool
           {
             \skip_zero:N \topsep
+            \skip_sub:Nn \topsep \parskip
+            \skip_add:Nn \l_@@_delta_below_skip \parskip
             \bool_gset_false:N \g_@@_start_bool
           }
           {
