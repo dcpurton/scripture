@@ -1533,14 +1533,14 @@
 \cs_new_protected:Nn \@@_extra_skip:
   {
     \int_compare:nNnT
-      \l_@@_chap_par_prevgraf_int = 1
+      \g_@@_chap_par_prevgraf_int = 1
       {
         \dim_compare:nNnT
           { \parskip + \l_@@_extraskip_tl } < \baselineskip
           {
             \addvspace { \baselineskip }
           }
-        \int_zero:N \l_@@_chap_par_prevgraf_int
+        \int_gzero:N \g_@@_chap_par_prevgraf_int
       }
     \addvspace { \l_@@_extraskip_tl }
   }
@@ -1666,10 +1666,10 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\l_@@_chap_par_prevgraf_int}
+% \begin{macro}{\g_@@_chap_par_prevgraf_int}
 %   Store the number of lines a chapter paragraph takes up.
 %    \begin{macrocode}
-\int_new:N \l_@@_chap_par_prevgraf_int
+\int_new:N \g_@@_chap_par_prevgraf_int
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1718,9 +1718,9 @@
     \clubpenalty 10000
     \hook_gput_next_code:nn { para / after }
       {
-        \int_set_eq:NN \l_@@_chap_par_prevgraf_int \prevgraf
+        \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \prevgraf
         \int_compare:nNnT
-          \l_@@_chap_par_prevgraf_int = 1
+          \g_@@_chap_par_prevgraf_int = 1
           { \penalty 10000 }
         \hook_gput_next_code:nn { para / before }
           { \int_set_eq:NN \clubpenalty \l_@@_clubpenalty_saved_int }
@@ -1811,7 +1811,7 @@
       }
     \hook_gput_next_code:nn { para / before }
       {
-        \int_zero:N \l_@@_chap_par_prevgraf_int
+        \int_gzero:N \g_@@_chap_par_prevgraf_int
         \int_compare:nNnT
           \@listdepth > \c_zero_int
           { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
@@ -1946,7 +1946,7 @@
                 \bool_if:nT { ##1 }
                   {
                     \hook_gput_next_code:nn { para / after }
-                      { \int_zero:N \l_@@_chap_par_prevgraf_int }
+                      { \int_gzero:N \g_@@_chap_par_prevgraf_int }
                   }
               }
               { \@@_nodrop_chap:n { ##2 } }
@@ -2388,9 +2388,9 @@
                 \skip_set_eq:NN \topsep \l_@@_hanging_aboveskip_tl
                 \skip_sub:Nn \l_@@_delta_below_skip \l_@@_hanging_aboveskip_tl
               }
-            \int_compare:nNnT \l_@@_chap_par_prevgraf_int = 1
+            \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
               { \addvspace { \baselineskip } }
-            \int_zero:N \l_@@_chap_par_prevgraf_int
+            \int_gzero:N \g_@@_chap_par_prevgraf_int
           }
         \dim_set:Nn \leftmargin
           { \l_@@_hanging_leftmargin_tl + \l_@@_hanging_hang_tl }
@@ -2466,6 +2466,14 @@
 %   environment.
 %    \begin{macrocode}
 \dim_new:N \g_@@_mid_para_chap_prevdepth_dim
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\g_@@_mid_para_chap_prevgraf_int}
+%   Store the \cs{prevgraf} of the final paragraph in a \env{midparachap}
+%   environment.
+%    \begin{macrocode}
+\int_new:N \g_@@_mid_para_chap_prevgraf_int
 %    \end{macrocode}
 % \end{macro}
 %
@@ -2570,6 +2578,7 @@
 \cs_new_protected:Nn \@@_mid_para_chap_end:
   {
     \par
+    \int_gset_eq:NN \g_@@_mid_para_chap_prevgraf_int \prevgraf
     \dim_gset_eq:NN \g_@@_mid_para_chap_prevdepth_dim \prevdepth
     \box_set_to_last:N \l_@@_mid_para_chap_line_box
     \hbox_set:Nn \l_@@_mid_para_chap_snap_box
@@ -2627,6 +2636,14 @@
     \skip_vertical:n { -\parskip - \baselineskip }
     \noindent
     \skip_horizontal:N \g_@@_final_line_dim
+    \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \g_@@_mid_para_chap_prevgraf_int
+    \hook_gput_next_code:nn { para / before }
+      {
+        \int_gzero:N \g_@@_chap_par_prevgraf_int
+        \int_compare:nNnT
+          \@listdepth > \c_zero_int
+          { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
+      }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -3107,9 +3124,9 @@
                 \skip_set_eq:NN \topsep \l_@@_poetry_aboveskip_tl
                 \skip_sub:Nn \l_@@_delta_below_skip \l_@@_poetry_aboveskip_tl
               }
-            \int_compare:nNnT \l_@@_chap_par_prevgraf_int = 1
+            \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
               { \addvspace { \baselineskip } }
-            \int_zero:N \l_@@_chap_par_prevgraf_int
+            \int_gzero:N \g_@@_chap_par_prevgraf_int
           }
         \dim_set_eq:NN \leftmargin \l_@@_poetry_leftmargin_tl
         \dim_set_eq:NN \rightmargin \l_@@_poetry_rightmargin_tl
