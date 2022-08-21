@@ -1811,6 +1811,9 @@
       }
     \hook_gput_next_code:nn { para / before }
       {
+        \int_compare:nNnT
+          \g_@@_chap_par_prevgraf_int = 1
+          { \extraskip }
         \int_gzero:N \g_@@_chap_par_prevgraf_int
         \int_compare:nNnT
           \@listdepth > \c_zero_int

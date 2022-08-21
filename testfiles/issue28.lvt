@@ -1,0 +1,14 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Deuteronomy 5:1]
+  \ch{5}Moses summoned all Israel and said:
+
+  Hear, Israel, the decrees and the laws I declare in your hearing today.
+  Learn them and be sure to follow them.
+\end{scripture}
+\end{document}
