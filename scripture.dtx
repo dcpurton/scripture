@@ -16,9 +16,17 @@
 \usepackage[skins]{tcolorbox}
 \newtcolorbox{scriptureexample}[1][]{%
   bicolor, colframe=cyan, colback=cyan!10, colbacklower=white, left=2mm,
+  fonttitle=\normalsize\sffamily\bfseries,
+  subtitle style={before skip=3mm, after skip=3mm},
   right=2mm, fontupper=\footnotesize, fontlower=\footnotesize, sidebyside,
   sidebyside gap=6mm, sidebyside align=top, lefthand ratio=0.6, before
   skip=\bigskipamount, after skip=\bigskipamount, #1
+}
+\tcbset{%
+  sidebysidecompare/.style={%
+    enhanced, colback=white, lefthand ratio=0.5, segmentation empty},
+  compare/.style={%
+    standard, colback=white, sidebyside=false}
 }
 \ExplSyntaxOn
 \makeatletter
@@ -302,6 +310,66 @@
 %   behaviour.
 % \end{function}
 %
+% \begin{scriptureexample}[lefthand ratio=0.55]
+% \textbf{\sffamily|\cs{ch}| example}
+%
+% \begin{verbatim}
+% \begin{scripture}[Exodus 20:1--2]
+%   \ch{20}And God spoke all these words:
+%   \begin{hanging}
+%     \noindent\vs{2}‘I am the \textsc{Lord}
+%     your God, who brought you out of Egypt,
+%     out of the land of slavery.
+%   \end{hanging}
+% \end{scripture}
+% \end{verbatim}
+%
+% \medskip
+%
+% \textbf{\sffamily|\cs{ch*}| example}
+%
+% \begin{verbatim}
+% \begin{scripture}[Exodus 20:1--2]
+%   \ch*{20}And God spoke all these words:
+%   \begin{hanging}
+%     \nohang\vs{2}‘I am the \textsc{Lord} your
+%     God, who brought you out of Egypt, out of
+%     the land of slavery.
+%   \end{hanging}
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \textbf{\sffamily|\cs{ch}| example}
+%
+% \medskip
+%
+% \begin{scripture}[Exodus 20:1--2]
+%   \ch{20}And God spoke all these words:
+%   \begin{hanging}
+%     \noindent\vs{2}‘I am the \textsc{Lord}
+%     your God, who brought you out of Egypt,
+%     out of the land of slavery.
+%   \end{hanging}
+% \end{scripture}
+%
+% \bigskip
+%
+% \textbf{\sffamily|\cs{ch*}| example}
+%
+% \medskip
+%
+% \begin{scripture}[Exodus 20:1--2]
+%   \ch*{20}And God spoke all these words:
+%   \begin{hanging}
+%     \nohang\vs{2}‘I am the \textsc{Lord} your
+%     God, who brought you out of Egypt, out of
+%     the land of slavery.
+%   \end{hanging}
+% \end{scripture}
+% \end{scriptureexample}
+%
 % \begin{function}{\extraskip}
 %   \begin{syntax}
 %     |\extraskip|
@@ -311,6 +379,30 @@
 %   chapter if required.
 % \end{function}
 %
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[Colossians 1:2]
+%   \vs{2}To God’s holy people in Colossae, the
+%   faithful brothers and sisters in Christ:
+%
+%   \extraskip
+%
+%   Grace and peace to you from God our Father.
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[Colossians 1:2]
+%   \vs{2}To God’s holy people in Colossae, the
+%   faithful brothers and sisters in Christ:
+%
+%   \extraskip
+%
+%   Grace and peace to you from God our Father.
+% \end{scripture}
+% \end{scriptureexample}
+%
 % \begin{function}{\nohang}
 %   \begin{syntax}
 %     |\nohang|
@@ -319,6 +411,40 @@
 %   the paragraph a length of \opt{hanging/hang} $+$ \opt{parindent}.
 %   Remaining lines continue to be indented by a length of \opt{hanging/hang}.
 % \end{function}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[Genesis 1:10--11]
+%   \begin{hanging}
+%     \noindent\vs{10}God called the dry ground
+%     ‘land’, and the gathered waters he called
+%     ‘seas’. And God saw that it was good.
+%
+%     \nohang\vs{11}Then God said, ‘Let the land
+%     produce vegetation: seed-bearing plants and
+%     trees on the land that bear fruit with seed
+%     in it, according to their various kinds.’
+%     And it was so.
+%   \end{hanging}
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[Genesis 1:10--11]
+%   \begin{hanging}
+%     \noindent\vs{10}God called the dry ground
+%     ‘land’, and the gathered waters he called
+%     ‘seas’. And God saw that it was good.
+%
+%     \nohang\vs{11}Then God said, ‘Let the land
+%     produce vegetation: seed-bearing plants and
+%     trees on the land that bear fruit with seed
+%     in it, according to their various kinds.’
+%     And it was so.
+%   \end{hanging}
+% \end{scripture}
+% \end{scriptureexample}
 %
 % \begin{function}[added=2022-08-07]{\scripturecurrentchapter,
 % \scripturecurrentverse}
@@ -344,6 +470,26 @@
 %   insufficient room. See options \opt{selah/font}, \opt{selah/format},
 %   \opt{selah/sep} and \opt{selah/text} for options controlling the output.
 % \end{function}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[Psalm 3:2][version=NIV84]
+%   \begin{poetry}
+%     \vs{2}Many are saying of me,
+%     “God will not deliver him.”\selah
+%   \end{poetry}
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[Psalm 3:2][version=NIV84]
+%   \begin{poetry}
+%     \vs{2}Many are saying of me,
+%     “God will not deliver him.”\selah
+%   \end{poetry}
+% \end{scripture}
+% \end{scriptureexample}
 %
 % \begin{function}{\scripturesetup}
 %   \begin{syntax}
