@@ -253,7 +253,6 @@
 % \begin{verbatim}
 % \begin{scripture}[Isaiah 56:1--2][version=NIVUK]
 %   \ch{56}This is what the \textsc{Lord} says:
-% 
 %   \begin{poetry}
 %     `Maintain justice
 %     and do what is right,
@@ -274,7 +273,6 @@
 % 
 % \begin{scripture}[Isaiah 56:1--2][version=NIVUK]
 %   \ch{56}This is what the \textsc{Lord} says:
-% 
 %   \begin{poetry}
 %     `Maintain justice
 %     and do what is right,
@@ -533,7 +531,6 @@
 % \begin{scripture}[Daniel 5:25]
 %   \vs{25}‘This is the inscription that was
 %   written:
-%
 %   \begin{center}
 %     \textsc{mene, mene, tekel, parsin}
 %   \end{center}
@@ -545,7 +542,6 @@
 % \begin{scripture}[Daniel 5:25]
 %   \vs{25}‘This is the inscription that was
 %   written:
-%
 %   \begin{center}
 %     \textsc{mene, mene, tekel, parsin}
 %   \end{center}
@@ -708,7 +704,6 @@
 %
 %   \vs{19}The field commander said to them, ‘Tell
 %   Hezekiah:
-%
 %   \begin{narrow}
 %     ‘“This is what the great king, the king of
 %     Assyria, says: on what are you basing this
@@ -727,7 +722,6 @@
 %
 %   \vs{19}The field commander said to them, ‘Tell
 %   Hezekiah:
-%
 %   \begin{narrow}
 %     ‘“This is what the great king, the king of
 %     Assyria, says: on what are you basing this
@@ -2263,6 +2257,8 @@
           { scripture / center }
           { #1 }
       }
+    \mode_if_horizontal:T
+      { \par }
     \list { }
       {
         \skip_set_eq:NN \l_@@_delta_below_skip \l_@@_center_belowskip_tl
@@ -2287,6 +2283,9 @@
                 \skip_set_eq:NN \topsep \l_@@_center_aboveskip_tl
                 \skip_sub:Nn \l_@@_delta_below_skip \l_@@_center_aboveskip_tl
               }
+            \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+              { \addvspace { \baselineskip } }
+            \int_gzero:N \g_@@_chap_par_prevgraf_int
           }
         \skip_set_eq:NN \parsep \parskip
         \skip_zero:N \partopsep
@@ -2331,6 +2330,8 @@
           { scripture / flushright }
           { #1 }
       }
+    \mode_if_horizontal:T
+      { \par }
     \list { }
       {
         \skip_set_eq:NN \l_@@_delta_below_skip \l_@@_flushright_belowskip_tl
@@ -2355,6 +2356,9 @@
                 \skip_set_eq:NN \topsep \l_@@_flushright_aboveskip_tl
                 \skip_sub:Nn \l_@@_delta_below_skip \l_@@_flushright_aboveskip_tl
               }
+            \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+              { \addvspace { \baselineskip } }
+            \int_gzero:N \g_@@_chap_par_prevgraf_int
           }
         \dim_set_eq:NN \leftmargin \l_@@_flushright_leftmargin_tl
         \dim_set_eq:NN \rightmargin \l_@@_flushright_rightmargin_tl
@@ -2513,6 +2517,8 @@
           { scripture / hanging }
           { #1 }
       }
+    \mode_if_horizontal:T
+      { \par }
     \list { }
       {
         \skip_set_eq:NN \l_@@_delta_below_skip \l_@@_hanging_belowskip_tl
@@ -2815,6 +2821,8 @@
           { scripture / narrow }
           { #1 }
       }
+    \mode_if_horizontal:T
+      { \par }
     \list { }
       {
         \skip_set_eq:NN \l_@@_delta_below_skip \l_@@_narrow_belowskip_tl
@@ -2839,6 +2847,9 @@
                 \skip_set_eq:NN \topsep \l_@@_narrow_aboveskip_tl
                 \skip_sub:Nn \l_@@_delta_below_skip \l_@@_narrow_aboveskip_tl
               }
+            \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+              { \addvspace { \baselineskip } }
+            \int_gzero:N \g_@@_chap_par_prevgraf_int
           }
         \dim_set_eq:NN \leftmargin \l_@@_narrow_leftmargin_tl
         \dim_set_eq:NN \rightmargin \l_@@_narrow_rightmargin_tl
@@ -3252,6 +3263,8 @@
         \msg_error:nn { scripture } { nested-environment }
       }
     \bool_set_true:N \l_@@_active_inner_bool
+    \mode_if_horizontal:T
+      { \par }
     \list { }
       {
         \skip_set_eq:NN \l_@@_delta_below_skip \l_@@_poetry_belowskip_tl
