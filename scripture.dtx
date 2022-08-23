@@ -1747,7 +1747,6 @@
   {
     \hbox_set:Nn \l_@@_ref_box
       {
-        \skip_horizontal:N \l_@@_ref_sep_tl
         \@@_format_full_ref:n { #1 }
       }
 %    \end{macrocode}
@@ -1759,7 +1758,7 @@
     \bool_if:NT \g_@@_poetry_end_bool
       { \skip_vertical:n { -\parskip } }
     \dim_compare:nNnT
-      { \box_wd:N \l_@@_ref_box + \g_@@_final_line_dim }
+      { \box_wd:N \l_@@_ref_box + \g_@@_final_line_dim + \l_@@_ref_sep_tl }
       >
       \linewidth
       { \skip_vertical:N \baselineskip }
@@ -2189,7 +2188,7 @@
 % based environment, otherwise the space required for the reference is
 % incorrectly calculated.
 %    \begin{macrocode}
-    \bool_lazy_or:nnT
+    \bool_lazy_or:nnTF
       { \dim_compare_p:n { \l_@@_leftmargin_tl > 0pt } }
       { \dim_compare_p:n { \l_@@_rightmargin_tl > 0pt } }
       {
@@ -2201,6 +2200,7 @@
             \parshape 1 ~ \@totalleftmargin ~ \linewidth
           }
       }
+      { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
     \tl_if_novalue:nF { #1 }
       {
         \@@_reference:n { #1 }

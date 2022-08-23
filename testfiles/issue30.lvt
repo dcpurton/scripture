@@ -1,0 +1,33 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{minipage}{5cm}
+  \begin{scripture}[Isaiah 56:1][version=NIVUK]
+    \ch{56}This is what the \textsc{Lord} says:
+    \begin{poetry}
+      `Maintain justice
+      and do what is right,
+
+      for my salvation is close at hand
+      and my righteousness will soon be revealed.
+    \end{poetry}
+  \end{scripture}
+\end{minipage}
+
+\bigskip
+
+\begin{scripture}[Isaiah 56:1][version=NIVUK]
+  \ch{56}This is what the \textsc{Lord} says:
+  \begin{poetry}
+    `Maintain justice
+    and do what is right,
+
+    for my salvation is close at hand
+    and my righteousness will soon be revealed.
+  \end{poetry}
+\end{scripture}
+\end{document}

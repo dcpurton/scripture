@@ -515,11 +515,10 @@ Completed box being shipped out [1]
 ......\glue(\parskip) 0.0 plus 1.0
 ......\glue(\parskip) 0.0
 ......\glue(\baselineskip) 5.05556
-......\hbox(6.94444+0.0)x221.0, glue set 66.5687fill
+......\hbox(6.94444+0.0)x221.0, glue set 86.56873fill
 .......\hbox(0.0+0.0)x10.00002
 .......\glue 0.0 plus 1.0fill
-.......\hbox(6.94444+0.0)x144.43129
-........\glue 20.00003
+.......\hbox(6.94444+0.0)x124.43126
 ........\OT1/cmr/bx/n/10 1
 ........\glue 3.83331 plus 1.91666 minus 1.27777
 ........\OT1/cmr/bx/n/10 C
