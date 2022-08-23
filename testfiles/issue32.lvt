@@ -1,0 +1,24 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  compact,
+  noindent
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Matthew 6:12--14]
+  \begin{poetry}
+    \vs{12}And forgive us our debts,
+    as we also have forgiven our debtors.
+
+    \vs{13}And lead us not into temptation,
+    but deliver us from the evil one.”
+  \end{poetry}
+
+  \vs{14}For if you forgive other people when they sin against you, your
+  heavenly Father will also forgive you.
+\end{scripture}
+\end{document}

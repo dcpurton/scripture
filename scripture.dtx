@@ -3471,12 +3471,12 @@
     \bool_if:NT \l_@@_compact_bool
       {
         \scripturesetup { chapter / nodrop }
-        \RenewDocumentEnvironment { center } { o } { } { }
-        \RenewDocumentEnvironment { flushright } { o } { } { }
-        \RenewDocumentEnvironment { hanging } { o } { } { }
-        \RenewDocumentEnvironment { midparachap } { o } { } { }
-        \RenewDocumentEnvironment { narrow } { o } { } { }
-        \RenewDocumentEnvironment { poetry } { o } { } { }
+        \RenewDocumentEnvironment { center } { o } { \ignorespaces } { }
+        \RenewDocumentEnvironment { flushright } { o } { \ignorespaces } { }
+        \RenewDocumentEnvironment { hanging } { o } { \ignorespaces } { }
+        \RenewDocumentEnvironment { midparachap } { o } { \ignorespaces } { }
+        \RenewDocumentEnvironment { narrow } { o } { \ignorespaces } { }
+        \RenewDocumentEnvironment { poetry } { o } { \ignorespaces } { }
         \cs_set_eq:NN \par \relax
         \cs_set_eq:NN \extraskip \relax
         \cs_set_eq:NN \nohang \relax
@@ -3489,6 +3489,7 @@
             \c_space_tl
             \group_end:
           }
+        \mode_leave_vertical:
       }
     \peek_remove_spaces:n
       {
