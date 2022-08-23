@@ -2032,6 +2032,13 @@
 %
 % \subsubsection{The \env{scripture} environment}
 %
+% \begin{macro}{\l_@@_currenvir_str}
+%   Store the current \pkg{scripture} environment.
+%    \begin{macrocode}
+\str_new:N \l_@@_currenvir_str
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\l_@@_parskip_correction_skip}
 %   Correction to ensure consistent \cs{parskip} at start of \env{scripture}
 %   environment with non-zero \opt{parskip} option.
@@ -2059,6 +2066,7 @@
         \msg_error:nn { scripture } { nested-environment }
       }
     \bool_set_true:N \l_@@_active_bool
+    \tl_set:Nn \l_@@_currenvir_str { scripture }
     \tl_if_novalue:nF { #1 }
       {
         \keys_set:nn { scripture } { #1 }
@@ -2142,9 +2150,9 @@
           {
             \bool_lazy_any:nT
               {
-                { \str_if_eq_p:Vn \@currenvir { midparachap } }
-                { \str_if_eq_p:Vn \@currenvir { narrow } }
-                { \str_if_eq_p:Vn \@currenvir { scripture } }
+                { \str_if_eq_p:Vn \l_@@_currenvir_str { midparachap } }
+                { \str_if_eq_p:Vn \l_@@_currenvir_str { narrow } }
+                { \str_if_eq_p:Vn \l_@@_currenvir_str { scripture } }
               }
               { \para_omit_indent: }
           }
@@ -2251,6 +2259,7 @@
         \msg_error:nn { scripture } { nested-environment }
       }
     \bool_set_true:N \l_@@_active_inner_bool
+    \tl_set:Nn \l_@@_currenvir_str { center }
     \tl_if_novalue:nF { #1 }
       {
         \keys_set:nn
@@ -2324,6 +2333,7 @@
         \msg_error:nn { scripture } { nested-environment }
       }
     \bool_set_true:N \l_@@_active_inner_bool
+    \tl_set:Nn \l_@@_currenvir_str { flushright }
     \tl_if_novalue:nF { #1 }
       {
         \keys_set:nn
@@ -2511,6 +2521,7 @@
         \msg_error:nn { scripture } { nested-environment }
       }
     \bool_set_true:N \l_@@_active_inner_bool
+    \tl_set:Nn \l_@@_currenvir_str { hanging }
     \tl_if_novalue:nF { #1 }
       {
         \keys_set:nn
@@ -2713,6 +2724,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_mid_para_chap_begin:n
   {
+    \tl_set:Nn \l_@@_currenvir_str { midparachap }
     \tl_if_novalue:nF { #1 }
       {
         \keys_set:nn
@@ -2815,6 +2827,7 @@
         \msg_error:nn { scripture } { nested-environment }
       }
     \bool_set_true:N \l_@@_active_inner_bool
+    \tl_set:Nn \l_@@_currenvir_str { narrow }
     \tl_if_novalue:nF { #1 }
       {
         \keys_set:nn
@@ -3263,6 +3276,7 @@
         \msg_error:nn { scripture } { nested-environment }
       }
     \bool_set_true:N \l_@@_active_inner_bool
+    \tl_set:Nn \l_@@_currenvir_str { poetry }
     \mode_if_horizontal:T
       { \par }
     \list { }
