@@ -444,10 +444,10 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
+% \changes{v1.1}{2022/08/07}{Add \cs{scripturecurrentchapter} and
+% \cs{scripturecurrentverse} variables}
 % \begin{function}[added=2022-08-07]{\scripturecurrentchapter,
 % \scripturecurrentverse}
-%   \changes{v1.1}{2022/08/07}{Add \cs{scripturecurrentchapter} and
-%   \cs{scripturecurrentverse} variables}
 %   \begin{syntax}
 %     |\scripturecurrentchapter|
 %     |\scripturecurrentverse|
@@ -458,8 +458,8 @@
 %   example.
 % \end{function}
 %
+% \changes{v1.1}{2022/07/29}{Add \cs{selah} function}
 % \begin{function}[added=2022-07-29]{\selah}
-%   \changes{v1.1}{2022/07/29}{Add \cs{selah} function}
 %   \begin{syntax}
 %     |\selah|
 %   \end{syntax}
@@ -914,8 +914,8 @@
 %   \meta{|skip|} inserted below the \env{scripture} environment.
 % \end{option}
 %
+% \changes{v1.1}{2022/08/15}{Add \opt{compact} option}
 % \begin{option}[added=2022-08-15]{compact}
-%   \changes{v1.1}{2022/08/15}{Add \opt{compact} option}
 %   \begin{syntax}
 %     |compact =| \meta{boolean} \hfill Default: false
 %   \end{syntax}
@@ -1002,8 +1002,8 @@
 %   \meta{|font|} used for the \cs{ch} function.
 % \end{option}
 %
+% \changes{v1.1}{2022/07/28}{Add \opt{chapter/format} option}
 % \begin{option}[added=2022-07-28]{chapter/format}
-%   \changes{v1.1}{2022/07/28}{Add \opt{chapter/format} option}
 %   \begin{syntax}
 %     |chapter/format =| \meta{macro} \hfill Default: \#1
 %   \end{syntax}
@@ -1011,8 +1011,8 @@
 %   quotation. |#1| contains the text of the \val{chapter}.
 % \end{option}
 %
+% \changes{v1.1}{2022/08/15}{Add \opt{chapter/hide} option}
 % \begin{option}[added=2022-08-15]{chapter/hide}
-%   \changes{v1.1}{2022/08/15}{Add \opt{chapter/hide} option}
 %   \begin{syntax}
 %     |chapter/hide =| \meta{boolean} \hfill Default: false
 %   \end{syntax}
@@ -1086,8 +1086,8 @@
 %   \meta{|dimen|} used to separate a \cs{ch} from the following text.
 % \end{option}
 %
+% \changes{v1.1}{2022/08/15}{Add \opt{chapter/show} option}
 % \begin{option}[added=2022-08-15]{chapter/show}
-%   \changes{v1.1}{2022/08/15}{Add \opt{chapter/show} option}
 %   \begin{syntax}
 %     |chapter/show =| \meta{boolean} \hfill Default: true
 %   \end{syntax}
@@ -1243,8 +1243,8 @@
 %   argument of \cs{vs}.
 % \end{option}
 %
+% \changes{v1.1}{2022/08/15}{Add \opt{verse/hide} option}
 % \begin{option}[added=2022-08-15]{verse/hide}
-%   \changes{v1.1}{2022/08/15}{Add \opt{verse/hide} option}
 %   \begin{syntax}
 %     |verse/hide =| \meta{boolean} \hfill Default: false
 %   \end{syntax}
@@ -1281,16 +1281,16 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
+% \changes{v1.1}{2022/07/28}{Add \opt{verse/sep} option with small default}
 % \begin{option}[added=2022-07-28]{verse/sep}
-%   \changes{v1.1}{2022/07/28}{Add \opt{verse/sep} option with small default}
 %   \begin{syntax}
 %     |verse/sep =| \meta{dimen} \hfill Default: 0.05 em
 %   \end{syntax}
 %   \meta{|dimen|} used to separate a \cs{vs} from the following text.
 % \end{option}
 %
+% \changes{v1.1}{2022/08/15}{Add \opt{verse/show} option}
 % \begin{option}[added=2022-08-15]{verse/show}
-%   \changes{v1.1}{2022/08/15}{Add \opt{verse/show} option}
 %   \begin{syntax}
 %     |verse/show =| \meta{boolean} \hfill Default: true
 %   \end{syntax}
@@ -1455,6 +1455,48 @@
 %   \opt{midparachap/showverse}.
 % \end{option}
 %
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[Hosea 11:12--12:1]%
+%     [midparachap/hideverse]
+%   \begin{poetry}
+%     \vs{12}Ephraim has surrounded me with lies,
+%     Israel with deceit.
+%
+%     And Judah is unruly against God,
+%     even against the faithful Holy One.
+%
+%     \ch{12}Ephraim feeds on the wind;
+%     he pursues the east wind all day
+%     and multiplies lies and violence.
+%
+%     He makes a treaty with Assyria
+%     and sends olive oil to Egypt.
+%   \end{poetry}
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[Hosea 11:12--12:1]%
+%     [midparachap/hideverse]
+%   \begin{poetry}
+%     \vs{12}Ephraim has surrounded me with lies,
+%     Israel with deceit.
+%
+%     And Judah is unruly against God,
+%     even against the faithful Holy One.
+%
+%     \ch{12}Ephraim feeds on the wind;
+%     he pursues the east wind all day
+%     and multiplies lies and violence.
+%
+%     He makes a treaty with Assyria
+%     and sends olive oil to Egypt.
+%   \end{poetry}
+% \end{scripture}
+% \end{scriptureexample}
+%
 % \begin{option}{midparachap/showverse}
 %   \begin{syntax}
 %     |midparachap/showverse =| \meta{boolean} \hfill Default: true
@@ -1553,8 +1595,8 @@
 %   \meta{|dimen|} used for the right margin of the \env{poetry} environment.
 % \end{option}
 %
+% \changes{v1.1}{2022/07/31}{Add \opt{poetry/verse/left} option}
 % \begin{option}[added=2022-07-31]{poetry/verse/left}
-%   \changes{v1.1}{2022/07/31}{Add \opt{poetry/verse/left} option}
 %   \begin{syntax}
 %     |poetry/verse/left =| \meta{boolean} \hfill Default: false
 %   \end{syntax}
@@ -1563,8 +1605,52 @@
 %   \opt{poetry/verse/right}.
 % \end{option}
 %
+% \begin{scriptureexample}[lefthand ratio=0.65]
+% \begin{verbatim}
+% \begin{scripture}[Atcs 15:15--18]%
+%     [poetry/leftmargin=2em, poetry/verse/left]
+%   \vs{15}The words of the prophets are in
+%   agreement with this, as it is written:
+%   \begin{poetry}
+%     \vs{16}`\thinspace``After this I will return
+%     and rebuild David’s fallen tent.
+%
+%     Its ruins I will rebuild,
+%     and I will restore it,
+%
+%     \vs{17}that the rest of mankind may seek the Lord,
+%     even all the Gentiles who bear my name,
+%
+%     says the Lord, who does these things''---
+%     \vs{18}things known from long ago.
+%   \end{poetry}
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[Atcs 15:15--18]%
+%     [poetry/leftmargin=2em, poetry/verse/left]
+%   \vs{15}The words of the prophets are in
+%   agreement with this, as it is written:
+%   \begin{poetry}
+%     \vs{16}`\thinspace``After this I will return
+%     and rebuild David’s fallen tent.
+%
+%     Its ruins I will rebuild,
+%     and I will restore it,
+%
+%     \vs{17}that the rest of mankind may seek the Lord,
+%     even all the Gentiles who bear my name,
+%
+%     says the Lord, who does these things''---
+%     \vs{18}things known from long ago.
+%   \end{poetry}
+% \end{scripture}
+% \end{scriptureexample}
+%
+% \changes{v1.1}{2022/07/31}{Add \opt{poetry/verse/right} option}
 % \begin{option}[added=2022-07-31]{poetry/verse/right}
-%   \changes{v1.1}{2022/07/31}{Add \opt{poetry/verse/right} option}
 %   \begin{syntax}
 %     |poetry/verse/right =| \meta{boolean} \hfill Default: true
 %   \end{syntax}
@@ -1573,8 +1659,8 @@
 %   the opposite of \opt{poetry/verse/left}.
 % \end{option}
 %
+% \changes{v1.1}{2022/07/31}{Add \opt{poetry/verse/sep} option}
 % \begin{option}[added=2022-07-31]{poetry/verse/sep}
-%   \changes{v1.1}{2022/07/31}{Add \opt{poetry/verse/sep} option}
 %   \begin{syntax}
 %     |poetry/verse/sep =| \meta{dimen} \hfill Default: 0.05 em
 %   \end{syntax}
