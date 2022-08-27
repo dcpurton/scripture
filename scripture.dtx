@@ -2188,7 +2188,7 @@
         \hook_use:n { scripture / chap / before }
         \group_begin:
         \l_@@_chap_font_tl
-        #1
+        \@@_chap_format:n { #1 }
         \group_end:
         \skip_horizontal:N \l_@@_chap_sep_tl
         \hook_use:n { scripture / chap / after }
@@ -3436,7 +3436,7 @@
             \hook_use:n { scripture / chap / before }
             \group_begin:
             \l_@@_chap_font_tl
-            #1
+            \@@_chap_format:n { #1 }
             \group_end:
             \skip_horizontal:N \l_@@_chap_sep_tl
             \hook_use:n { scripture / chap / after }
