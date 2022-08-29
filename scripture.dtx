@@ -497,6 +497,39 @@
 %   supported formatting \meta{|options|}.
 % \end{function}
 %
+% \changes{v1.2}{2022/08/30}{Add \cs{textright} function}
+% \begin{function}[added=2022-08-30]{\textright}
+%   \begin{syntax}
+%     |\textright|\marg{text}
+%   \end{syntax}
+%   This function inserts \meta{|text|} at the end of the current line or the
+%   end of the following line if there is insufficient room. The
+%   \opt{textright/sep} option controls the minimum allowed space before the
+%   \meta{|text|} to be right aligned.
+% \end{function}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[Jeremiah 2:29]
+%   \begin{poetry}
+%     \vs{5}`Why do you bring charges against me?
+%     You have all rebelled against me,'
+%     \textright{declares the \textsc{Lord}.}
+%   \end{poetry}
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[Jeremiah 2:29]
+%   \begin{poetry}
+%     \vs{5}`Why do you bring charges against me?
+%     You have all rebelled against me,'
+%     \textright{declares the \textsc{Lord}.}
+%   \end{poetry}
+% \end{scripture}
+% \end{scriptureexample}
+%
 % \begin{function}{\vs}
 %   \begin{syntax}
 %     |\vs|\marg{verse number}
@@ -564,28 +597,30 @@
 %
 % \begin{scriptureexample}
 % \begin{verbatim}
-% \begin{scripture}[Jeremiah 2:29]
-%   \begin{poetry}[belowskip=0pt]
-%     \vs{5}`Why do you bring charges against me?
-%     You have all rebelled against me,'
+% \begin{scripture}[Isaiah 40:5]
+%   \begin{poetry}[belowskip = 0pt]
+%     \vs{5}And the glory of the \textsc{Lord}\ldots
+%     and all people will see it together.
 %   \end{poetry}
 %
-%   \begin{flushright}[aboveskip=0pt]
-%     declares the \textsc{Lord}.
+%   \begin{flushright}[aboveskip = 0pt]
+%     For the mouth of the \textsc{Lord} \\
+%     has spoken.’
 %   \end{flushright}
 % \end{scripture}
 % \end{verbatim}
 %
 % \tcblower
 % 
-% \begin{scripture}[Jeremiah 2:29]
-%   \begin{poetry}[belowskip=0pt]
-%     \vs{5}`Why do you bring charges against me?
-%     You have all rebelled against me,'
+% \begin{scripture}[Isaiah 40:5]
+%   \begin{poetry}[belowskip = 0pt]
+%     \vs{5}And the glory of the \textsc{Lord}\ldots
+%     and all people will see it together.
 %   \end{poetry}
 %
-%   \begin{flushright}[aboveskip=0pt]
-%     declares the \textsc{Lord}.
+%   \begin{flushright}[aboveskip = 0pt]
+%     For the mouth of the \textsc{Lord} \\
+%     has spoken.’
 %   \end{flushright}
 % \end{scripture}
 % \end{scriptureexample}
@@ -1230,6 +1265,16 @@
 %   \meta{|text|} used to for \cs{selah} in a \env{poetry} environment.
 % \end{option}
 %
+% \changes{v1.2}{2022/08/30}{Add \opt{textright/sep} option}
+% \begin{option}[added=2022-08-30]{textright/sep}
+%   \begin{syntax}
+%     |textright/sep =| \meta{dimen} \hfill Default: 1em
+%   \end{syntax}
+%   The minimum \meta{|dimen|} allowed between the end of a line and text
+%   aligned to the right with \cs{textright} before the right aligned text is
+%   pushed to the following line.
+% \end{option}
+%
 % \begin{option}{verse/font}
 %   \begin{syntax}
 %     |verse/font =| \meta{font} \hfill Default: \emph{Empty}
@@ -1783,6 +1828,9 @@
     , selah / sep              .tl_set:N           = \l_@@_selah_sep_tl
     , selah / sep              .value_required:n   = true
     , selah / sep              .initial:n          = 1 em
+    , textright / sep          .tl_set:N           = \l_@@_text_right_sep_tl
+    , textright / sep          .value_required:n   = true
+    , textright / sep          .initial:n          = 1 em
     , verse / font             .tl_set:N           = \l_@@_verse_font_tl
     , verse / font             .value_required:n   = true
     , verse / font             .initial:n          = 
@@ -1968,25 +2016,38 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\@@_text_right:n}
+% \begin{macro}{\@@_text_right:nn}
 %   Align a word to the right and finish a paragraph, pushing to the next line
 %   if there is not space for the word.
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_text_right:nn
   {
-    {
-      \unskip
-      \hfil
-      \penalty 50
-      \skip_horizontal:n { #1 }
-      \hbox:n {}
-      \nobreak
-      \hfill
-      #2
-      \skip_zero:N \parfillskip
-      \int_zero:N \finalhyphendemerits
-      \para_end:
-    }
+    \bool_lazy_or:nnTF
+      { \str_if_eq_p:Vn \l_@@_currenvir_str { flushright } }
+      { \str_if_eq_p:Vn \l_@@_currenvir_str { center } }
+      {
+        \unskip
+        \break
+        \strut
+        \hfill
+        #2
+        \para_end:
+      }
+      {
+        {
+          \unskip
+          \hfil
+          \penalty 50
+          \skip_horizontal:n { #1 }
+          \hbox:n {}
+          \nobreak
+          \hfill
+          #2
+          \skip_zero:N \parfillskip
+          \int_zero:N \finalhyphendemerits
+          \para_end:
+        }
+      }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -2395,6 +2456,10 @@
     \dim_set_eq:NN \parindent \l_@@_parindent_tl
     \cs_set_eq:NN \extraskip \@@_extra_skip:
     \cs_set_eq:NN \vs \@@_verse_output:n
+    \cs_set_protected_nopar:Npn \textright ##1
+      {
+        \@@_text_right:nn { \l_@@_text_right_sep_tl } { ##1 }
+      }
     \hook_gclear_next_code:n { para / before }
     \skip_set:Nn \l_@@_parskip_correction_skip { \parskip - \l_@@_parskip_tl }
     \mode_if_vertical:T
@@ -3243,7 +3308,7 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\@@_poetry_text_right:n}
+% \begin{macro}{\@@_poetry_text_right:nn}
 %   Align a word to the right and finish a paragraph, pushing to the next line
 %   if there is not space for the word.
 %    \begin{macrocode}
@@ -3610,6 +3675,10 @@
     \cs_set_eq:NN \vs \@@_poetry_mode_vertical_verse:n
     \cs_set_eq:NN \extraskip \@@_poetry_extra_skip:
     \cs_set_eq:NN \selah \@@_selah_output:
+    \cs_set_protected_nopar:Npn \textright ##1
+      {
+        \@@_poetry_text_right:nn { \l_@@_text_right_sep_tl } { ##1 }
+      }
     \item
     \relax
     \cs_set_eq:NN \@@_tmp_para_end: \par
@@ -3783,6 +3852,12 @@
             \@@_selah_format:n { \l_@@_selah_text_tl }
             \c_space_tl
             \group_end:
+          }
+        \cs_set_protected_nopar:Npn \textright ##1
+          {
+            \unskip
+            \c_space_tl
+            ##1
           }
         \mode_leave_vertical:
       }
