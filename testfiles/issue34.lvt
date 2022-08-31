@@ -1,0 +1,24 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  redletter
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Matthew 21:16--17]
+  \vs{16}‘Do you hear what these children are saying?’ they asked him.
+
+  \redletteron ‘Yes,’ \redletteroff replied Jesus, \redletteron ‘have you
+  never read,
+  \begin{poetry}
+    ‘“From the lips of children and infants
+    you, Lord, have called forth your praise”?’
+  \end{poetry}\redletteroff
+
+  \vs{17}And he left them and went out of the city to Bethany, where he spent
+  the night.
+\end{scripture}
+\end{document}

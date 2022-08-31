@@ -444,6 +444,69 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
+% \changes{v1.2}{2022/08/31}{Add red letter feature}
+% \begin{function}[added=2022-08-31]{\redletteron, \redletteroff}
+%   \begin{syntax}
+%     |\redletteron|
+%     |\redletteroff|
+%   \end{syntax}
+%   Use \cs{redletteron} and \cs{redletteroff} to mark the beginning and end
+%   of sections of text that should be attributed to Jesus speaking. Some
+%   attempt is made to ensure that the correct colour continues after an inner
+%   environment if \cs{redletteron} or \cs{redletteroff} occurs inside the
+%   inner environment. If you experience problems with unexpected colour, try
+%   to ensure that matching \cs{redletteron} and \cs{redletteroff} marks occur
+%   at the same group level. The colour of the text can be set using the
+%   \opt{redletter/colour} option. These commands only have an effect when the
+%   \opt{redletter} option is \val{true}.
+% \end{function}
+%
+% \begin{scriptureexample}[lefthand ratio=0.67]
+% \begin{verbatim}
+% \begin{scripture}[Matthew 21:16--17][redletter]
+%   \vs{16}`Do you hear what these children are saying?'
+%   they asked him.
+%
+%   \redletteron `Yes,' \redletteroff replied Jesus,
+%   \redletteron ‘have you
+%   never read,
+%   \begin{poetry}
+%     `\thinspace ``From the lips of children and infants
+%     you, Lord, have called forth your praise''?'
+%   \end{poetry}\redletteroff
+%
+%   \vs{17}And he left them and went out of the city to
+%   Bethany, where he spent the night.
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[Matthew 21:16--17][redletter]
+%   \vs{16}`Do you hear what these children are saying?'
+%   they asked him.
+%
+%   \redletteron `Yes,' \redletteroff replied Jesus,
+%   \redletteron ‘have you
+%   never read,
+%   \begin{poetry}
+%     `\thinspace ``From the lips of children and infants
+%     you, Lord, have called forth your praise''?'
+%   \end{poetry}\redletteroff
+%
+%   \vs{17}And he left them and went out of the city to
+%   Bethany, where he spent the night.
+% \end{scripture}
+% \end{scriptureexample}
+%
+% \begin{function}{\scripturesetup}
+%   \begin{syntax}
+%     |\scripturesetup|\marg{options}
+%   \end{syntax}
+%   Set default format for quotations. See section \ref{options} for
+%   supported formatting \meta{|options|}.
+% \end{function}
+%
 % \changes{v1.1}{2022/08/07}{Add \cs{scripturecurrentchapter} and
 % \cs{scripturecurrentverse} variables}
 % \begin{function}[added=2022-08-07]{\scripturecurrentchapter,
@@ -1006,22 +1069,6 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
-% \begin{option}{leftmargin}
-%   \begin{syntax}
-%     |leftmargin =| \meta{dimen} \hfill Default: 0pt
-%   \end{syntax}
-%   \meta{|dimen|} used for the left margin of the \env{scripture}
-%   environment.
-% \end{option}
-%
-% \begin{option}{rightmargin}
-%   \begin{syntax}
-%     |rightmargin =| \meta{dimen} \hfill Default: 0pt
-%   \end{syntax}
-%   \meta{|dimen|} used for the right margin of the \env{scripture}
-%   environment.
-% \end{option}
-%
 % \begin{option}{chapter/drop}
 %   \begin{syntax}
 %     |chapter/drop =| \meta{boolean} \hfill Default: true
@@ -1133,6 +1180,16 @@
 %   the opposite of \opt{chapter/hide}.
 % \end{option}
 %
+% \changes{v1.2}{2022/08/31}{Add \opt{colour} option}
+% \begin{option}[added=2022-08-31]{colour, color}
+%   \begin{syntax}
+%     |colour =| \meta{colour expression} \hfill Default: .
+%   \end{syntax}
+%   The \pkg{l3color} \meta{|colour expression|} to be used for the
+%   \env{scripture} environment. By default the current colour is inherited.
+%   \opt{color} is an alias for \opt{colour}.
+% \end{option}
+%
 % \begin{option}{extraskip}
 %   \begin{syntax}
 %     |extraskip =| \meta{skip} \hfill Default: \cs{medskipamount}
@@ -1155,6 +1212,14 @@
 %   by \opt{parindent}. The value of \meta{|boolean|} is optional and assumed
 %   to be \val{true} if not present. This option is the opposite of
 %   \opt{noindent}.
+% \end{option}
+%
+% \begin{option}{leftmargin}
+%   \begin{syntax}
+%     |leftmargin =| \meta{dimen} \hfill Default: 0pt
+%   \end{syntax}
+%   \meta{|dimen|} used for the left margin of the \env{scripture}
+%   environment.
 % \end{option}
 %
 % \begin{option}{noindent}
@@ -1202,6 +1267,28 @@
 %   \meta{|skip|} to use between paragraphs in the \env{scripture} environment.
 % \end{option}
 %
+% \changes{v1.2}{2022/08/31}{Add \opt{redletter} option}
+% \begin{option}[added=2022-08-31]{redletter}
+%   \begin{syntax}
+%     |redletter =| \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   Whether to enable highlighting of Jesus' words in red. The value of
+%   \meta{|boolean|} is option and assumed to be \val{true} if not present.
+%   The text needs to be marked up with \cs{redletteron} and \cs{redletteroff}
+%   for this option to have any effect.
+% \end{option}
+%
+% \changes{v1.2}{2022/08/31}{Add \opt{redletter/colour} option}
+% \begin{option}[added=2022-08-31]{redletter/colour, redletter/color}
+%   \begin{syntax}
+%     |redletter/colour =| \meta{colour expression} \hfill Default: red!80!black
+%   \end{syntax}
+%   The \pkg{l3color} \meta{|colour expression|} to be used for the words of
+%   Jesus when the \opt{redletter} option is \val{true}. \cs{redletteron} and
+%   \cs{redletteroff} must be used to mark up the text. \opt{redletter/color}
+%   is an alias for \opt{redletter/colour}.
+% \end{option}
+%
 % \begin{option}{reference/delim}
 %   \begin{syntax}
 %     |reference/delim =| \meta{delim} \hfill Default: \cs{hfill}
@@ -1233,6 +1320,14 @@
 %   The minimum \meta{|dimen|} allowed between the end of a \env{scripture}
 %   quotation and its \val{reference} before the \val{reference} is pushed to
 %   the following line.
+% \end{option}
+%
+% \begin{option}{rightmargin}
+%   \begin{syntax}
+%     |rightmargin =| \meta{dimen} \hfill Default: 0pt
+%   \end{syntax}
+%   \meta{|dimen|} used for the right margin of the \env{scripture}
+%   environment.
 % \end{option}
 %
 % \begin{option}{selah/font}
@@ -1759,15 +1854,13 @@
     , belowskip                .tl_set:N           = \l_@@_belowskip_tl
     , belowskip                .value_required:n   = true
     , belowskip                .initial:n          = \c_zero_skip
+    , colour                   .tl_set:N           = \l_@@_colour_tl
+    , colour                   .value_required:n   = true
+    , colour                   .initial:n          = .
+    , color                    .meta:n             = { colour = { #1 } }
     , compact                  .bool_set:N         = \l_@@_compact_bool
     , compact                  .default:n          = true
     , compact                  .initial:n          = false
-    , leftmargin               .tl_set:N           = \l_@@_leftmargin_tl
-    , leftmargin               .value_required:n   = true
-    , leftmargin               .initial:n          = \c_zero_dim
-    , rightmargin              .tl_set:N           = \l_@@_rightmargin_tl
-    , rightmargin              .value_required:n   = true
-    , rightmargin              .initial:n          = \c_zero_dim
     , chapter / font           .tl_set:N           = \l_@@_chap_font_tl
     , chapter / font           .value_required:n   = true
     , chapter / font           .initial:n          = \bfseries
@@ -1796,6 +1889,9 @@
     , indent                   .bool_set:N         = \l_@@_indent_bool
     , indent                   .default:n          = true
     , indent                   .initial:n          = true
+    , leftmargin               .tl_set:N           = \l_@@_leftmargin_tl
+    , leftmargin               .value_required:n   = true
+    , leftmargin               .initial:n          = \c_zero_dim
     , noindent                 .bool_set_inverse:N = \l_@@_indent_bool
     , noindent                 .default:n          = true
     , parindent                .tl_set:N           = \l_@@_parindent_tl
@@ -1804,6 +1900,13 @@
     , parskip                  .tl_set:N           = \l_@@_parskip_tl
     , parskip                  .value_required:n   = true
     , parskip                  .initial:n          = \parskip
+    , redletter                .bool_set:N         = \l_@@_red_letter_bool
+    , redletter                .default:n          = true
+    , redletter                .initial:n          = false
+    , redletter / colour       .tl_set:N           = \l_@@_red_letter_colour_tl
+    , redletter / colour       .value_required:n   = true
+    , redletter / colour       .initial:n          = red!80!black
+    , redletter / color        .meta:n             = { redletter / colour = { #1 } }
     , reference / delim        .tl_set:N           = \l_@@_ref_delim_tl
     , reference / delim        .value_required:n   = true
     , reference / delim        .initial:n          = \hfill
@@ -1816,6 +1919,9 @@
     , reference / sep          .tl_set:N           = \l_@@_ref_sep_tl
     , reference / sep          .value_required:n   = true
     , reference / sep          .initial:n          = 2 em
+    , rightmargin              .tl_set:N           = \l_@@_rightmargin_tl
+    , rightmargin              .value_required:n   = true
+    , rightmargin              .initial:n          = \c_zero_dim
     , selah / text             .tl_set:N           = \l_@@_selah_text_tl
     , selah / text             .value_required:n   = true
     , selah / text             .initial:n          = Selah
@@ -2112,6 +2218,57 @@
       { \skip_vertical:n { -\baselineskip } }
     \l_@@_ref_delim_tl
     \box_use:N \l_@@_ref_box
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsubsection{Red lettering}
+%
+% \begin{macro}{\g_@@_red_letter_active_bool}
+%   Flag indicating if currently in a red letter block of text.
+%    \begin{macrocode}
+\bool_new:N \g_@@_red_letter_active_bool
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\@@_red_letter_on:}
+%   Mark the beginning of a section of text attributed to Jesus Christ.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_red_letter_on:
+  {
+    \bool_if:NT \l_@@_red_letter_bool
+      {
+        \bool_gset_true:N \g_@@_red_letter_active_bool
+        \exp_args:NV \color_select:n \l_@@_red_letter_colour_tl
+        \str_if_eq:VnF \l_@@_currenvir_str { scripture }
+          {
+            \hook_gput_next_code:nn { env / \l_@@_currenvir_str / after }
+              {
+                \exp_args:NV \color_select:n \l_@@_red_letter_colour_tl
+              }
+          }
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_red_letter_off:}
+%   Mark the beginning of a section of text attributed to Jesus Christ.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_red_letter_off:
+  {
+    \bool_if:NT \l_@@_red_letter_bool
+      {
+        \color_select:n { scripture default colour }
+        \bool_gset_false:N \g_@@_red_letter_active_bool
+        \str_if_eq:VnF \l_@@_currenvir_str { scripture }
+          {
+            \hook_gput_next_code:nn { env / \l_@@_currenvir_str / after }
+              {
+                \color_select:n { scripture default colour }
+              }
+          }
+      }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -2455,6 +2612,8 @@
     \bool_gset_false:N \g_@@_poetry_end_bool
     \dim_set_eq:NN \parindent \l_@@_parindent_tl
     \cs_set_eq:NN \extraskip \@@_extra_skip:
+    \cs_set_eq:NN \redletteron \@@_red_letter_on:
+    \cs_set_eq:NN \redletteroff \@@_red_letter_off:
     \cs_set_eq:NN \vs \@@_verse_output:n
     \cs_set_protected_nopar:Npn \textright ##1
       {
@@ -2468,6 +2627,11 @@
       }
     \skip_set_eq:NN \parskip \l_@@_parskip_tl
     \l_@@_font_tl
+    \exp_args:NnV \color_set:nn { scripture default colour } \l_@@_colour_tl
+    \str_if_eq:VnF \l_@@_colour_tl { . }
+      {
+        \color_select:n { scripture default colour }
+      }
 %    \end{macrocode}
 % For left and right margins, use \cs{parshape} is already in a list,
 % otherwise use \cs{leftskip} and \cs{rightskip}
@@ -2518,6 +2682,7 @@
 % environments. This removes any unwanted \opt{belowskip} if present and
 % leaves the previously calculated line length of the final paragraph intact.
 %    \begin{macrocode}
+    \@@_red_letter_off:
     \mode_if_vertical:TF
       {
         \unskip
