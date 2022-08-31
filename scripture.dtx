@@ -1002,14 +1002,14 @@
 %
 % \begin{option}{aboveskip}
 %   \begin{syntax}
-%     |aboveskip =| \meta{skip} \hfill Default: 0pt
+%     aboveskip = \meta{skip} \hfill Default: 0pt
 %   \end{syntax}
 %   \meta{|skip|} inserted above the \env{scripture} environment.
 % \end{option}
 %
 % \begin{option}{belowskip}
 %   \begin{syntax}
-%     |belowskip =| \meta{skip} \hfill Default: 0pt
+%     belowskip = \meta{skip} \hfill Default: 0pt
 %   \end{syntax}
 %   \meta{|skip|} inserted below the \env{scripture} environment.
 % \end{option}
@@ -1017,7 +1017,7 @@
 % \changes{v1.1}{2022/08/15}{Add \opt{compact} option}
 % \begin{option}[added=2022-08-15]{compact}
 %   \begin{syntax}
-%     |compact =| \meta{boolean} \hfill Default: false
+%     compact = \meta{boolean} \hfill Default: false
 %   \end{syntax}
 %   This option removes all paragraph breaks along with any \cs{extraskip} in
 %   the quotation so the whole quotation is a single paragraph of running
@@ -1071,7 +1071,7 @@
 %
 % \begin{option}{chapter/drop}
 %   \begin{syntax}
-%     |chapter/drop =| \meta{boolean} \hfill Default: true
+%     chapter/drop = \meta{boolean} \hfill Default: true
 %   \end{syntax}
 %   Whether the chapter should be set as a drop letter taking up two
 %   lines or as a normal letter taking up one line. The value of
@@ -1081,7 +1081,7 @@
 %
 % \begin{option}{chapter/font}
 %   \begin{syntax}
-%     |chapter/font =| \meta{font} \hfill Default: \cs{bfseries}
+%     chapter/font = \meta{font} \hfill Default: \cs{bfseries}
 %   \end{syntax}
 %   \meta{|font|} used for the \cs{ch} function.
 % \end{option}
@@ -1089,7 +1089,7 @@
 % \changes{v1.1}{2022/07/28}{Add \opt{chapter/format} option}
 % \begin{option}[added=2022-07-28]{chapter/format}
 %   \begin{syntax}
-%     |chapter/format =| \meta{macro} \hfill Default: \#1
+%     chapter/format = \meta{macro} \hfill Default: \#1
 %   \end{syntax}
 %   \meta{|macro|} used to format the \val{chapter} for a \env{scripture}
 %   quotation. |#1| contains the text of the \val{chapter}.
@@ -1098,7 +1098,7 @@
 % \changes{v1.1}{2022/08/15}{Add \opt{chapter/hide} option}
 % \begin{option}[added=2022-08-15]{chapter/hide}
 %   \begin{syntax}
-%     |chapter/hide =| \meta{boolean} \hfill Default: false
+%     chapter/hide = \meta{boolean} \hfill Default: false
 %   \end{syntax}
 %   Whether chapters should be shown or hidden. The value of \meta{|boolean|}
 %   is optional and assumed to be \val{true} if not present. This option is
@@ -1133,7 +1133,7 @@
 %
 % \begin{option}{chapter/nodrop}
 %   \begin{syntax}
-%     |chapter/nodrop =| \meta{boolean} \hfill Default: false
+%     chapter/nodrop = \meta{boolean} \hfill Default: false
 %   \end{syntax}
 %   Whether the chapter should be set as a drop letter taking up two lines or
 %   as a normal letter taking up one line. The value of \meta{|boolean|} is
@@ -1165,7 +1165,7 @@
 %
 % \begin{option}{chapter/sep}
 %   \begin{syntax}
-%     |chapter/sep =| \meta{dimen} \hfill Default: 0.5em
+%     chapter/sep = \meta{dimen} \hfill Default: 0.5em
 %   \end{syntax}
 %   \meta{|dimen|} used to separate a \cs{ch} from the following text.
 % \end{option}
@@ -1173,7 +1173,7 @@
 % \changes{v1.1}{2022/08/15}{Add \opt{chapter/show} option}
 % \begin{option}[added=2022-08-15]{chapter/show}
 %   \begin{syntax}
-%     |chapter/show =| \meta{boolean} \hfill Default: true
+%     chapter/show = \meta{boolean} \hfill Default: true
 %   \end{syntax}
 %   Whether chapters should be shown or hidden. The value of \meta{|boolean|}
 %   is optional and assumed to be \val{true} if not present. This option is
@@ -1183,7 +1183,7 @@
 % \changes{v1.2}{2022/08/31}{Add \opt{colour} option}
 % \begin{option}[added=2022-08-31]{colour, color}
 %   \begin{syntax}
-%     |colour =| \meta{colour expression} \hfill Default: .
+%     colour = \meta{colour expression} \hfill Default: .
 %   \end{syntax}
 %   The \pkg{l3color} \meta{|colour expression|} to be used for the
 %   \env{scripture} environment. By default the current colour is inherited.
@@ -1192,21 +1192,21 @@
 %
 % \begin{option}{extraskip}
 %   \begin{syntax}
-%     |extraskip =| \meta{skip} \hfill Default: \cs{medskipamount}
+%     extraskip = \meta{skip} \hfill Default: \cs{medskipamount}
 %   \end{syntax}
 %   \meta{|skip|} used for the \cs{extraskip} function.
 % \end{option}
 %
 % \begin{option}{font}
 %   \begin{syntax}
-%     |font =| \meta{font} \hfill Default: \emph{Empty}
+%     font = \meta{font} \hfill Default: \emph{Empty}
 %   \end{syntax}
 %   \meta{|font|} used for the \env{scripture} environment.
 % \end{option}
 %
 % \begin{option}{indent}
 %   \begin{syntax}
-%     |indent =| \meta{boolean} \hfill Default: true
+%     indent = \meta{boolean} \hfill Default: true
 %   \end{syntax}
 %   Whether to indent the first line of a \env{scripture} environment or not
 %   by \opt{parindent}. The value of \meta{|boolean|} is optional and assumed
@@ -1216,7 +1216,7 @@
 %
 % \begin{option}{leftmargin}
 %   \begin{syntax}
-%     |leftmargin =| \meta{dimen} \hfill Default: 0pt
+%     leftmargin = \meta{dimen} \hfill Default: 0pt
 %   \end{syntax}
 %   \meta{|dimen|} used for the left margin of the \env{scripture}
 %   environment.
@@ -1224,7 +1224,7 @@
 %
 % \begin{option}{noindent}
 %   \begin{syntax}
-%     |noindent =| \meta{boolean} \hfill Default: false
+%     noindent = \meta{boolean} \hfill Default: false
 %   \end{syntax}
 %   Whether to indent the first line of a \env{scripture} environment or not
 %   by \opt{parindent}. The value of \meta{|boolean|} is optional and assumed
@@ -1254,7 +1254,7 @@
 %
 % \begin{option}{parindent}
 %   \begin{syntax}
-%     |parindent =| \meta{dimen} \hfill Default: \cs{parindent}
+%     parindent = \meta{dimen} \hfill Default: \cs{parindent}
 %   \end{syntax}
 %   \meta{|dimen|} to use when indenting the first line of a paragraph in the
 %   \env{scripture} environment.
@@ -1262,7 +1262,7 @@
 %
 % \begin{option}{parskip}
 %   \begin{syntax}
-%     |parskip =| \meta{skip} \hfill Default: \cs{parskip}
+%     parskip = \meta{skip} \hfill Default: \cs{parskip}
 %   \end{syntax}
 %   \meta{|skip|} to use between paragraphs in the \env{scripture} environment.
 % \end{option}
@@ -1270,7 +1270,7 @@
 % \changes{v1.2}{2022/08/31}{Add \opt{redletter} option}
 % \begin{option}[added=2022-08-31]{redletter}
 %   \begin{syntax}
-%     |redletter =| \meta{boolean} \hfill Default: false
+%     redletter = \meta{boolean} \hfill Default: false
 %   \end{syntax}
 %   Whether to enable highlighting of Jesus' words in red. The value of
 %   \meta{|boolean|} is option and assumed to be \val{true} if not present.
@@ -1281,7 +1281,7 @@
 % \changes{v1.2}{2022/08/31}{Add \opt{redletter/colour} option}
 % \begin{option}[added=2022-08-31]{redletter/colour, redletter/color}
 %   \begin{syntax}
-%     |redletter/colour =| \meta{colour expression} \hfill Default: red!80!black
+%     redletter/colour = \meta{colour expression} \hfill Default: red!80!black
 %   \end{syntax}
 %   The \pkg{l3color} \meta{|colour expression|} to be used for the words of
 %   Jesus when the \opt{redletter} option is \val{true}. \cs{redletteron} and
@@ -1291,7 +1291,7 @@
 %
 % \begin{option}{reference/delim}
 %   \begin{syntax}
-%     |reference/delim =| \meta{delim} \hfill Default: \cs{hfill}
+%     reference/delim = \meta{delim} \hfill Default: \cs{hfill}
 %   \end{syntax}
 %   \meta{|delim|} to use between the \env{scripture} quotation and its
 %   \val{reference}.
@@ -1299,7 +1299,7 @@
 %
 % \begin{option}{reference/font}
 %   \begin{syntax}
-%     |reference/font =| \meta{font} \hfill Default: \cs{bfseries}
+%     reference/font = \meta{font} \hfill Default: \cs{bfseries}
 %   \end{syntax}
 %   \meta{|font|} used when printing the \val{reference} for a \env{scripture}
 %   quotation.
@@ -1307,7 +1307,7 @@
 %
 % \begin{option}{reference/format}
 %   \begin{syntax}
-%     |reference/format =| \meta{macro} \hfill Default: \#1
+%     reference/format = \meta{macro} \hfill Default: \#1
 %   \end{syntax}
 %   \meta{|macro|} used to format the \val{reference} for a \env{scripture}
 %   quotation. |#1| contains the text of the \val{reference}.
@@ -1315,7 +1315,7 @@
 %
 % \begin{option}{reference/sep}
 %   \begin{syntax}
-%     |reference/sep =| \meta{dimen} \hfill Default: 2em
+%     reference/sep = \meta{dimen} \hfill Default: 2em
 %   \end{syntax}
 %   The minimum \meta{|dimen|} allowed between the end of a \env{scripture}
 %   quotation and its \val{reference} before the \val{reference} is pushed to
@@ -1324,7 +1324,7 @@
 %
 % \begin{option}{rightmargin}
 %   \begin{syntax}
-%     |rightmargin =| \meta{dimen} \hfill Default: 0pt
+%     rightmargin = \meta{dimen} \hfill Default: 0pt
 %   \end{syntax}
 %   \meta{|dimen|} used for the right margin of the \env{scripture}
 %   environment.
@@ -1332,14 +1332,14 @@
 %
 % \begin{option}{selah/font}
 %   \begin{syntax}
-%     |selah/font =| \meta{font} \hfill Default: \cs{itshape}
+%     selah/font = \meta{font} \hfill Default: \cs{itshape}
 %   \end{syntax}
 %   \meta{|font|} used when printing \cs{selah} in a \env{poetry} environment.
 % \end{option}
 %
 % \begin{option}{selah/format}
 %   \begin{syntax}
-%     |selah/format =| \meta{macro} \hfill Default: \#1
+%     selah/format = \meta{macro} \hfill Default: \#1
 %   \end{syntax}
 %   \meta{|macro|} used to format the \cs{selah} in a \env{poetry}
 %   environment. |#1| contains the value of \opt{selah/text}.
@@ -1347,7 +1347,7 @@
 %
 % \begin{option}{selah/sep}
 %   \begin{syntax}
-%     |selah/sep =| \meta{dimen} \hfill Default: 1em
+%     selah/sep = \meta{dimen} \hfill Default: 1em
 %   \end{syntax}
 %   The minimum \meta{|dimen|} allowed between the end of a poetry line and
 %   \emph{Selah} before the \emph{Selah} is pushed to the following line.
@@ -1355,7 +1355,7 @@
 %
 % \begin{option}{selah/text}
 %   \begin{syntax}
-%     |selah/text =| \meta{text} \hfill Default: Selah
+%     selah/text = \meta{text} \hfill Default: Selah
 %   \end{syntax}
 %   \meta{|text|} used to for \cs{selah} in a \env{poetry} environment.
 % \end{option}
@@ -1363,7 +1363,7 @@
 % \changes{v1.2}{2022/08/30}{Add \opt{textright/sep} option}
 % \begin{option}[added=2022-08-30]{textright/sep}
 %   \begin{syntax}
-%     |textright/sep =| \meta{dimen} \hfill Default: 1em
+%     textright/sep = \meta{dimen} \hfill Default: 1em
 %   \end{syntax}
 %   The minimum \meta{|dimen|} allowed between the end of a line and text
 %   aligned to the right with \cs{textright} before the right aligned text is
@@ -1372,14 +1372,14 @@
 %
 % \begin{option}{verse/font}
 %   \begin{syntax}
-%     |verse/font =| \meta{font} \hfill Default: \emph{Empty}
+%     verse/font = \meta{font} \hfill Default: \emph{Empty}
 %   \end{syntax}
 %   \meta{|font|} used for the \cs{vs} function.
 % \end{option}
 %
 % \begin{option}{verse/format}
 %   \begin{syntax}
-%     |verse/format =| \meta{macro} \hfill Default: \cs{textsuperscript}\{\#1\}
+%     verse/format = \meta{macro} \hfill Default: \cs{textsuperscript}\{\#1\}
 %   \end{syntax}
 %   \meta{|macro|} used to format the \cs{vs} function. |#1| contains the
 %   argument of \cs{vs}.
@@ -1388,7 +1388,7 @@
 % \changes{v1.1}{2022/08/15}{Add \opt{verse/hide} option}
 % \begin{option}[added=2022-08-15]{verse/hide}
 %   \begin{syntax}
-%     |verse/hide =| \meta{boolean} \hfill Default: false
+%     verse/hide = \meta{boolean} \hfill Default: false
 %   \end{syntax}
 %   Whether verses should be shown or hidden. The value of \meta{|boolean|} is
 %   optional and assumed to be \val{true} if not present. This option is the
@@ -1426,7 +1426,7 @@
 % \changes{v1.1}{2022/07/28}{Add \opt{verse/sep} option with small default}
 % \begin{option}[added=2022-07-28]{verse/sep}
 %   \begin{syntax}
-%     |verse/sep =| \meta{dimen} \hfill Default: 0.05 em
+%     verse/sep = \meta{dimen} \hfill Default: 0.05 em
 %   \end{syntax}
 %   \meta{|dimen|} used to separate a \cs{vs} from the following text.
 % \end{option}
@@ -1434,7 +1434,7 @@
 % \changes{v1.1}{2022/08/15}{Add \opt{verse/show} option}
 % \begin{option}[added=2022-08-15]{verse/show}
 %   \begin{syntax}
-%     |verse/show =| \meta{boolean} \hfill Default: true
+%     verse/show = \meta{boolean} \hfill Default: true
 %   \end{syntax}
 %   Whether verses should be shown or hidden. The value of \meta{|boolean|}
 %   is optional and assumed to be \val{true} if not present. This option is
@@ -1443,7 +1443,7 @@
 %
 % \begin{option}{version}
 %   \begin{syntax}
-%     |version =| \meta{version} \hfill Default: \emph{Empty}
+%     version = \meta{version} \hfill Default: \emph{Empty}
 %   \end{syntax}
 %   \meta{|version|} added to the \val{reference} for a \env{scripture}
 %   quotation.
@@ -1451,7 +1451,7 @@
 %
 % \begin{option}{version/delim}
 %   \begin{syntax}
-%     |version/delim =| \meta{delim} \hfill Default: \{\ \}
+%     version/delim = \meta{delim} \hfill Default: \{\ \}
 %   \end{syntax}
 %   \meta{|delim|} to use between the \val{reference} and the \val{version} of a
 %   \env{scripture} quotation.
@@ -1459,7 +1459,7 @@
 %
 % \begin{option}{version/format}
 %   \begin{syntax}
-%     |version/format =| \meta{macro} \hfill Default: (\#1)
+%     version/format = \meta{macro} \hfill Default: (\#1)
 %   \end{syntax}
 %   \meta{|macro|} used to format the \val{version} for a \env{scripture}
 %   quotation. |#1| contains the text of the \val{version}.
@@ -1474,28 +1474,28 @@
 %
 % \begin{option}{center/aboveskip}
 %   \begin{syntax}
-%     |center/aboveskip =| \meta{skip} \hfill Default: \cs{medskipamount}
+%     center/aboveskip = \meta{skip} \hfill Default: \cs{medskipamount}
 %   \end{syntax}
 %   \meta{|skip|} inserted above the \env{center} environment.
 % \end{option}
 %
 % \begin{option}{center/belowskip}
 %   \begin{syntax}
-%     |center/belowskip =| \meta{skip} \hfill Default: \cs{medskipamount}
+%     center/belowskip = \meta{skip} \hfill Default: \cs{medskipamount}
 %   \end{syntax}
 %   \meta{|skip|} inserted below the \env{center} environment.
 % \end{option}
 %
 % \begin{option}{center/leftmargin}
 %   \begin{syntax}
-%     |center/leftmargin =| \meta{dimen} \hfill Default: 0pt
+%     center/leftmargin = \meta{dimen} \hfill Default: 0pt
 %   \end{syntax}
 %   \meta{|dimen|} used for the left margin of the \env{center} environment.
 % \end{option}
 %
 % \begin{option}{center/rightmargin}
 %   \begin{syntax}
-%     |center/rightmargin =| \meta{dimen} \hfill Default: 0pt
+%     center/rightmargin = \meta{dimen} \hfill Default: 0pt
 %   \end{syntax}
 %   \meta{|dimen|} used for the right margin of the \env{center} environment.
 % \end{option}
@@ -1509,28 +1509,28 @@
 %
 % \begin{option}{flushright/aboveskip}
 %   \begin{syntax}
-%     |flushright/aboveskip =| \meta{skip} \hfill Default: \cs{medskipamount}
+%     flushright/aboveskip = \meta{skip} \hfill Default: \cs{medskipamount}
 %   \end{syntax}
 %   \meta{|skip|} inserted above the \env{flushright} environment.
 % \end{option}
 %
 % \begin{option}{flushright/belowskip}
 %   \begin{syntax}
-%     |flushright/belowskip =| \meta{skip} \hfill Default: \cs{medskipamount}
+%     flushright/belowskip = \meta{skip} \hfill Default: \cs{medskipamount}
 %   \end{syntax}
 %   \meta{|skip|} inserted below the \env{flushright} environment.
 % \end{option}
 %
 % \begin{option}{flushright/leftmargin}
 %   \begin{syntax}
-%     |flushright/leftmargin =| \meta{dimen} \hfill Default: 0pt
+%     flushright/leftmargin = \meta{dimen} \hfill Default: 0pt
 %   \end{syntax}
 %   \meta{|dimen|} used for the left margin of the \env{flushright} environment.
 % \end{option}
 %
 % \begin{option}{flushright/rightmargin}
 %   \begin{syntax}
-%     |flushright/rightmargin =| \meta{dimen} \hfill Default: 0pt
+%     flushright/rightmargin = \meta{dimen} \hfill Default: 0pt
 %   \end{syntax}
 %   \meta{|dimen|} used for the right margin of the \env{flushright} environment.
 % \end{option}
@@ -1544,21 +1544,21 @@
 %
 % \begin{option}{hanging/aboveskip}
 %   \begin{syntax}
-%     |hanging/aboveskip =| \meta{skip} \hfill Default: \cs{medskipamount}
+%     hanging/aboveskip = \meta{skip} \hfill Default: \cs{medskipamount}
 %   \end{syntax}
 %   \meta{|skip|} inserted above the \env{hanging} environment.
 % \end{option}
 %
 % \begin{option}{hanging/belowskip}
 %   \begin{syntax}
-%     |hanging/belowskip =| \meta{skip} \hfill Default: \cs{medskipamount}
+%     hanging/belowskip = \meta{skip} \hfill Default: \cs{medskipamount}
 %   \end{syntax}
 %   \meta{|skip|} inserted below the \env{hanging} environment.
 % \end{option}
 %
 % \begin{option}{hanging/hang}
 %   \begin{syntax}
-%     |hanging/hang =| \meta{dimen} \hfill Default: 2em
+%     hanging/hang = \meta{dimen} \hfill Default: 2em
 %   \end{syntax}
 %   \meta{|dimen|} used for the indent of subsequent lines of the
 %   \env{hanging} environment.
@@ -1566,14 +1566,14 @@
 %
 % \begin{option}{hanging/leftmargin}
 %   \begin{syntax}
-%     |hanging/leftmargin =| \meta{dimen} \hfill Default: 1em
+%     hanging/leftmargin = \meta{dimen} \hfill Default: 1em
 %   \end{syntax}
 %   \meta{|dimen|} used for the left margin of the \env{hanging} environment.
 % \end{option}
 %
 % \begin{option}{hanging/rightmargin}
 %   \begin{syntax}
-%     |hanging/rightmargin =| \meta{dimen} \hfill Default: 1em
+%     hanging/rightmargin = \meta{dimen} \hfill Default: 1em
 %   \end{syntax}
 %   \meta{|dimen|} used for the right margin of the \env{hanging} environment.
 % \end{option}
@@ -1587,7 +1587,7 @@
 %
 % \begin{option}{midparachap/hideverse}
 %   \begin{syntax}
-%     |midparachap/hideverse =| \meta{boolean} \hfill Default: false
+%     midparachap/hideverse = \meta{boolean} \hfill Default: false
 %   \end{syntax}
 %   Whether a \cs{vs}|{1}| should automatically be inserted after a \cs{ch}
 %   when the \cs{ch} occurs mid-paragraph. This also affects \cs{ch} in
@@ -1641,7 +1641,7 @@
 %
 % \begin{option}{midparachap/showverse}
 %   \begin{syntax}
-%     |midparachap/showverse =| \meta{boolean} \hfill Default: true
+%     midparachap/showverse = \meta{boolean} \hfill Default: true
 %   \end{syntax}
 %   Whether a \cs{vs}|{1}| should automatically be inserted after a \cs{ch}
 %   when the \cs{ch} occurs mid-paragraph. This also affects \cs{ch} in
@@ -1660,28 +1660,28 @@
 %
 % \begin{option}{narrow/aboveskip}
 %   \begin{syntax}
-%     |narrow/aboveskip =| \meta{skip} \hfill Default: \cs{medskipamount}
+%     narrow/aboveskip = \meta{skip} \hfill Default: \cs{medskipamount}
 %   \end{syntax}
 %   \meta{|skip|} inserted above the \env{narrow} environment.
 % \end{option}
 %
 % \begin{option}{narrow/belowskip}
 %   \begin{syntax}
-%     |narrow/belowskip =| \meta{skip} \hfill Default: \cs{medskipamount}
+%     narrow/belowskip = \meta{skip} \hfill Default: \cs{medskipamount}
 %   \end{syntax}
 %   \meta{|skip|} inserted below the \env{narrow} environment.
 % \end{option}
 %
 % \begin{option}{narrow/leftmargin}
 %   \begin{syntax}
-%     |narrow/leftmargin =| \meta{dimen} \hfill Default: 1em
+%     narrow/leftmargin = \meta{dimen} \hfill Default: 1em
 %   \end{syntax}
 %   \meta{|dimen|} used for the left margin of the \env{narrow} environment.
 % \end{option}
 %
 % \begin{option}{narrow/rightmargin}
 %   \begin{syntax}
-%     |narrow/rightmargin =| \meta{dimen} \hfill Default: 1em
+%     narrow/rightmargin = \meta{dimen} \hfill Default: 1em
 %   \end{syntax}
 %   \meta{|dimen|} used for the right margin of the \env{narrow} environment.
 % \end{option}
@@ -1695,21 +1695,21 @@
 %
 % \begin{option}{poetry/aboveskip}
 %   \begin{syntax}
-%     |poetry/aboveskip =| \meta{skip} \hfill Default: \cs{medskipamount}
+%     poetry/aboveskip = \meta{skip} \hfill Default: \cs{medskipamount}
 %   \end{syntax}
 %   \meta{|skip|} inserted above the \env{poetry} environment.
 % \end{option}
 %
 % \begin{option}{poetry/belowskip}
 %   \begin{syntax}
-%     |poetry/belowskip =| \meta{skip} \hfill Default: \cs{medskipamount}
+%     poetry/belowskip = \meta{skip} \hfill Default: \cs{medskipamount}
 %   \end{syntax}
 %   \meta{|skip|} inserted below the \env{poetry} environment.
 % \end{option}
 %
 % \begin{option}{poetry/bigindent}
 %   \begin{syntax}
-%     |poetry/bigindent =| \meta{dimen} \hfill Default: 4em
+%     poetry/bigindent = \meta{dimen} \hfill Default: 4em
 %   \end{syntax}
 %   \meta{|dimen|} used for the indent subsequent lines of a line of poetry in
 %   a \env{poetry} environment if it needs to flow on to the following line.
@@ -1717,7 +1717,7 @@
 %
 % \begin{option}{poetry/indent}
 %   \begin{syntax}
-%     |poetry/indent =| \meta{dimen} \hfill Default: 1em
+%     poetry/indent = \meta{dimen} \hfill Default: 1em
 %   \end{syntax}
 %   \meta{|dimen|} used for the second half of a line of poetry in a
 %   \env{poetry} environment.
@@ -1725,14 +1725,14 @@
 %
 % \begin{option}{poetry/leftmargin}
 %   \begin{syntax}
-%     |poetry/leftmargin =| \meta{dimen} \hfill Default: 1em
+%     poetry/leftmargin = \meta{dimen} \hfill Default: 1em
 %   \end{syntax}
 %   \meta{|dimen|} used for the left margin of the \env{poetry} environment.
 % \end{option}
 %
 % \begin{option}{poetry/rightmargin}
 %   \begin{syntax}
-%     |poetry/rightmargin =| \meta{dimen} \hfill Default: 0pt
+%     poetry/rightmargin = \meta{dimen} \hfill Default: 0pt
 %   \end{syntax}
 %   \meta{|dimen|} used for the right margin of the \env{poetry} environment.
 % \end{option}
@@ -1740,7 +1740,7 @@
 % \changes{v1.1}{2022/07/31}{Add \opt{poetry/verse/left} option}
 % \begin{option}[added=2022-07-31]{poetry/verse/left}
 %   \begin{syntax}
-%     |poetry/verse/left =| \meta{boolean} \hfill Default: false
+%     poetry/verse/left = \meta{boolean} \hfill Default: false
 %   \end{syntax}
 %   Align verse numbers in \env{poetry} environments at the left margin of the
 %   \env{scripture} environment. This option is the opposite of
@@ -1794,7 +1794,7 @@
 % \changes{v1.1}{2022/07/31}{Add \opt{poetry/verse/right} option}
 % \begin{option}[added=2022-07-31]{poetry/verse/right}
 %   \begin{syntax}
-%     |poetry/verse/right =| \meta{boolean} \hfill Default: true
+%     poetry/verse/right = \meta{boolean} \hfill Default: true
 %   \end{syntax}
 %   Align verse numbers in \env{poetry} environments at the left margin of the
 %   poetry environment. The verse numbers overlap to the left. This option is
@@ -1804,7 +1804,7 @@
 % \changes{v1.1}{2022/07/31}{Add \opt{poetry/verse/sep} option}
 % \begin{option}[added=2022-07-31]{poetry/verse/sep}
 %   \begin{syntax}
-%     |poetry/verse/sep =| \meta{dimen} \hfill Default: 0.05 em
+%     poetry/verse/sep = \meta{dimen} \hfill Default: 0.05 em
 %   \end{syntax}
 %   \meta{|dimen|} used to separate a \cs{vs} from the following text in a
 %   \env{poetry} environment. This is only used for verses at the start of a
