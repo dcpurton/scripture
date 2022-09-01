@@ -7,7 +7,7 @@
 \showoutput
 Text before \texttt{scripture} environment.
 \begin{scripture}
-  \vs{5}The \textsc{Lord} spoke to me again:
+  \vs{5}The \LORD\ spoke to me again:
 
   \begin{poetry}
     \vs{6}‘Because this people has rejected
@@ -23,7 +23,7 @@ Text before \texttt{scripture} environment.
 Text before \texttt{scripture} environment.
 
 \begin{scripture}
-  \vs{5}The \textsc{Lord} spoke to me again:
+  \vs{5}The \LORD\ spoke to me again:
 
   \begin{poetry}
     \vs{6}‘Because this people has rejected
@@ -38,7 +38,7 @@ Text before \texttt{scripture} environment.
 
 Text before \texttt{scripture} environment.
 \begin{scripture}
-  \vs{5}The \textsc{Lord} spoke to me again:
+  \vs{5}The \LORD\ spoke to me again:
   \begin{poetry}
     \vs{6}‘Because this people has rejected
     the gently flowing waters of Shiloah
@@ -53,7 +53,7 @@ Text before \texttt{scripture} environment.
 Text before \texttt{scripture} environment.
 
 \begin{scripture}
-  \vs{5}The \textsc{Lord} spoke to me again:
+  \vs{5}The \LORD\ spoke to me again:
   \begin{poetry}
     \vs{6}‘Because this people has rejected
     the gently flowing waters of Shiloah

@@ -401,6 +401,44 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
+% \changes{v1.2}{2022/09/01}{Add divine name feature}
+% \begin{function}[added=2022-09-01]{\name, \LORD, \GOD}
+%   \begin{syntax}
+%     |\name|\marg{divine name}
+%     |\LORD|
+%     |\GOD|
+%   \end{syntax}
+%   Modern Bible translations frequently represent God's personal divine name
+%   using a small capitals typeface. This can be done using the \cs{name}
+%   function. The font and format can be set using the \opt{name/font} and
+%   \opt{name/format} options. The \cs{LORD} and \cs{GOD} macros equivalent to
+%   \cs{name}|{Lord}| and \cs{name}|{God}| respectively.
+% \end{function}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[Genesis 15:1--2][version=ESV]
+%  \ch{15}After these things the word of the \LORD\
+%  came to Abram in a vision: “Fear not, Abram, I
+%  am your shield; your reward shall be very
+%  great.” \vs{2}But Abram said, “O Lord \GOD, what
+%  will you give me, for I continue childless, and
+%  the heir of my house is Eliezer of Damascus?”
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[Genesis 15:1--2][version=ESV]
+%  \ch{15}After these things the word of the \LORD\
+%  came to Abram in a vision: “Fear not, Abram, I
+%  am your shield; your reward shall be very
+%  great.” \vs{2}But Abram said, “O Lord \GOD, what
+%  will you give me, for I continue childless, and
+%  the heir of my house is Eliezer of Damascus?”
+% \end{scripture}
+% \end{scriptureexample}
+%
 % \begin{function}{\nohang}
 %   \begin{syntax}
 %     |\nohang|
@@ -1222,6 +1260,23 @@
 %   environment.
 % \end{option}
 %
+% \changes{v1.2}{2022/09/01}{Add \opt{name/font} option}
+% \begin{option}[added=2022-09-01]{name/font}
+%   \begin{syntax}
+%     name/font = \meta{font} \hfill Default: \cs{scshape}
+%   \end{syntax}
+%   \meta{|font|} used for the \cs{name} function.
+% \end{option}
+%
+% \changes{v1.2}{2022/09/01}{Add \opt{name/format} option}
+% \begin{option}[added=2022-09-01]{name/format}
+%   \begin{syntax}
+%     name/format = \meta{macro} \hfill Default: \#1
+%   \end{syntax}
+%   \meta{|macro|} used to format the \val{divine name} using the \cs{name}
+%   function. |#1| contains the text of the argument to \cs{name}.
+% \end{option}
+%
 % \begin{option}{noindent}
 %   \begin{syntax}
 %     noindent = \meta{boolean} \hfill Default: false
@@ -1892,6 +1947,12 @@
     , leftmargin               .tl_set:N           = \l_@@_leftmargin_tl
     , leftmargin               .value_required:n   = true
     , leftmargin               .initial:n          = \c_zero_dim
+    , name / font              .tl_set:N           = \l_@@_name_font_tl
+    , name / font              .value_required:n   = true
+    , name / font              .initial:n          = \scshape
+    , name / format            .cs_set:Np          = \@@_name_format:n #1
+    , name / format            .value_required:n   = true
+    , name / format            .initial:n          = #1
     , noindent                 .bool_set_inverse:N = \l_@@_indent_bool
     , noindent                 .default:n          = true
     , parindent                .tl_set:N           = \l_@@_parindent_tl
@@ -2615,6 +2676,21 @@
     \cs_set_eq:NN \redletteron \@@_red_letter_on:
     \cs_set_eq:NN \redletteroff \@@_red_letter_off:
     \cs_set_eq:NN \vs \@@_verse_output:n
+    \cs_set_protected_nopar:Npn \name ##1
+      {
+        \group_begin:
+        \l_@@_name_font_tl
+        \@@_name_format:n { ##1 }
+        \group_end:
+      }
+    \cs_set_protected_nopar:Npn \LORD
+      {
+        \name { Lord }
+      }
+    \cs_set_protected_nopar:Npn \GOD
+      {
+        \name { God }
+      }
     \cs_set_protected_nopar:Npn \textright ##1
       {
         \@@_text_right:nn { \l_@@_text_right_sep_tl } { ##1 }
