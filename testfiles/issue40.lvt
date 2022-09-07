@@ -1,0 +1,104 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  chapter/colour=blue,
+  reference/colour=blue,
+  verse/colour=blue
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Mark 2:1--2]
+  \ch{2}A few days later, when Jesus again entered Capernaum, the people heard
+  that he had come home. \vs{2}They gathered in such large numbers that there
+  was no room left, not even outside the door, and he preached the word to
+  them.
+\end{scripture}
+
+\bigskip
+
+\begin{scripture}[Isaiah 5:1--2]
+  \begin{poetry}
+    \ch{5}I will sing for the one I love
+    a song about his vineyard:
+
+    my loved one had a vineyard
+    on a fertile hillside.
+
+    \vs{2}He dug it up and cleared it of stones
+    and planted it with the choicest vines.
+
+    He built a watchtower in it
+    and cut out a winepress as well.
+
+    Then he looked for a crop of good grapes,
+    but it yielded only bad fruit.
+  \end{poetry}
+\end{scripture}
+
+\bigskip
+
+\begin{scripture}[Genesis 1:1--2]
+  \begin{hanging}
+    \ch{1}In the beginning God created the heavens and the earth. \vs{2}Now the
+    earth was formless and empty, darkness was over the surface of the deep,
+    and the Spirit of God was hovering over the waters.
+  \end{hanging}
+\end{scripture}
+
+\bigskip
+
+\begin{scripture}[John 5:19--20][redletter]
+  \vs{19}Jesus gave them this answer: \redletteron ‘Very truly I tell you, the
+  Son can do nothing by himself; he can do only what he sees his Father doing,
+  because whatever the Father does the Son also does. \vs{20}For the Father
+  loves the Son and shows him all he does. Yes, and he will show him even
+  greater works than these, so that you will be amazed.
+\end{scripture}
+
+\bigskip
+
+\scripturesetup{
+  chapter/nodrop
+}
+
+\begin{scripture}[Mark 2:1--2]
+  \ch{2}A few days later, when Jesus again entered Capernaum, the people heard
+  that he had come home. \vs{2}They gathered in such large numbers that there
+  was no room left, not even outside the door, and he preached the word to
+  them.
+\end{scripture}
+
+\bigskip
+
+\begin{scripture}[Isaiah 5:1--2]
+  \begin{poetry}
+    \ch{5}I will sing for the one I love
+    a song about his vineyard:
+
+    my loved one had a vineyard
+    on a fertile hillside.
+
+    \vs{2}He dug it up and cleared it of stones
+    and planted it with the choicest vines.
+
+    He built a watchtower in it
+    and cut out a winepress as well.
+
+    Then he looked for a crop of good grapes,
+    but it yielded only bad fruit.
+  \end{poetry}
+\end{scripture}
+
+\bigskip
+
+\begin{scripture}[Genesis 1:1--2]
+  \begin{hanging}
+    \ch{1}In the beginning God created the heavens and the earth. \vs{2}Now the
+    earth was formless and empty, darkness was over the surface of the deep,
+    and the Spirit of God was hovering over the waters.
+  \end{hanging}
+\end{scripture}
+\end{document}

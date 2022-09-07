@@ -1107,6 +1107,16 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
+% \changes{v1.2}{2022/09/07}{Add \opt{chapter/colour} option}
+% \begin{option}[added=2022-09-07]{chapter/colour, chapter/color}
+%   \begin{syntax}
+%     chapter/colour = \meta{colour expression} \hfill Default: .
+%   \end{syntax}
+%   The \pkg{l3color} \meta{|colour expression|} to be used for chapter
+%   numbers. By default the current colour is inherited. \opt{chapter/color}
+%   is an alias for \opt{chapter/colour}.
+% \end{option}
+%
 % \begin{option}{chapter/drop}
 %   \begin{syntax}
 %     chapter/drop = \meta{boolean} \hfill Default: true
@@ -1344,6 +1354,16 @@
 %   is an alias for \opt{redletter/colour}.
 % \end{option}
 %
+% \changes{v1.2}{2022/09/07}{Add \opt{reference/colour} option}
+% \begin{option}[added=2022-09-07]{reference/colour, reference/color}
+%   \begin{syntax}
+%     reference/colour = \meta{colour expression} \hfill Default: .
+%   \end{syntax}
+%   The \pkg{l3color} \meta{|colour expression|} to be used for the reference
+%   and version. By default the current colour is inherited.
+%   \opt{reference/color} is an alias for \opt{reference/colour}.
+% \end{option}
+%
 % \begin{option}{reference/delim}
 %   \begin{syntax}
 %     reference/delim = \meta{delim} \hfill Default: \cs{hfill}
@@ -1423,6 +1443,16 @@
 %   The minimum \meta{|dimen|} allowed between the end of a line and text
 %   aligned to the right with \cs{textright} before the right aligned text is
 %   pushed to the following line.
+% \end{option}
+%
+% \changes{v1.2}{2022/09/07}{Add \opt{verse/colour} option}
+% \begin{option}[added=2022-09-07]{verse/colour, verse/color}
+%   \begin{syntax}
+%     verse/colour = \meta{colour expression} \hfill Default: .
+%   \end{syntax}
+%   The \pkg{l3color} \meta{|colour expression|} to be used for verse numbers.
+%   By default the current colour is inherited. \opt{verse/color} is an alias
+%   for \opt{verse/colour}.
 % \end{option}
 %
 % \begin{option}{verse/font}
@@ -1919,6 +1949,10 @@
     , chapter / font           .tl_set:N           = \l_@@_chap_font_tl
     , chapter / font           .value_required:n   = true
     , chapter / font           .initial:n          = \bfseries
+    , chapter / colour         .tl_set:N           = \l_@@_chapter_colour_tl
+    , chapter / colour         .value_required:n   = true
+    , chapter / colour         .initial:n          = .
+    , chapter / color          .meta:n             = { chapter / colour = { #1 } }
     , chapter / drop           .bool_set:N         = \l_@@_chap_drop_bool
     , chapter / drop           .default:n          = true
     , chapter / drop           .initial:n          = true
@@ -1968,6 +2002,10 @@
     , redletter / colour       .value_required:n   = true
     , redletter / colour       .initial:n          = red!80!black
     , redletter / color        .meta:n             = { redletter / colour = { #1 } }
+    , reference / colour       .tl_set:N           = \l_@@_ref_colour_tl
+    , reference / colour       .value_required:n   = true
+    , reference / colour       .initial:n          = .
+    , reference / color        .meta:n             = { reference / colour = { #1 } }
     , reference / delim        .tl_set:N           = \l_@@_ref_delim_tl
     , reference / delim        .value_required:n   = true
     , reference / delim        .initial:n          = \hfill
@@ -1998,6 +2036,10 @@
     , textright / sep          .tl_set:N           = \l_@@_text_right_sep_tl
     , textright / sep          .value_required:n   = true
     , textright / sep          .initial:n          = 1 em
+    , verse / colour           .tl_set:N           = \l_@@_verse_colour_tl
+    , verse / colour           .value_required:n   = true
+    , verse / colour           .initial:n          = .
+    , verse / color            .meta:n             = { verse / colour = { #1 } }
     , verse / font             .tl_set:N           = \l_@@_verse_font_tl
     , verse / font             .value_required:n   = true
     , verse / font             .initial:n          = 
@@ -2235,6 +2277,8 @@
   {
     \group_begin:
     \l_@@_ref_font_tl
+    \str_if_eq:VnF \l_@@_ref_colour_tl { . }
+      { \exp_args:NV \color_select:n \l_@@_ref_colour_tl }
     \@@_ref_format:n { #1 }
 %    \end{macrocode}
 % Append a Bible version if it has been specified.
@@ -2406,6 +2450,8 @@
           { \l_@@_chap_fontsize_dim }
           { \l_@@_chap_fontsize_dim }
           \selectfont
+        \str_if_eq:VnF \l_@@_chapter_colour_tl { . }
+          { \exp_args:NV \color_select:n \l_@@_chapter_colour_tl }
         \@@_chap_format:n { #1 }
       }
     \dim_set:Nn \l_@@_chap_width_dim
@@ -2466,6 +2512,8 @@
       {
         \hook_use:n { scripture / chap / before }
         \group_begin:
+        \str_if_eq:VnF \l_@@_chapter_colour_tl { . }
+          { \exp_args:NV \color_select:n \l_@@_chapter_colour_tl }
         \l_@@_chap_font_tl
         \@@_chap_format:n { #1 }
         \group_end:
@@ -2536,8 +2584,12 @@
     \hook_use:n { scripture / verse / before }
     \bool_if:NT \l_@@_verse_show_bool
       {
+        \group_begin:
         \l_@@_verse_font_tl
+        \str_if_eq:VnF \l_@@_verse_colour_tl { . }
+          { \exp_args:NV \color_select:n \l_@@_verse_colour_tl }
         \@@_verse_format:n { #1 }
+        \group_end:
         \kern \l_@@_verse_sep_tl
       }
     \hook_use:n { scripture / verse / after }
@@ -3742,6 +3794,8 @@
             \hook_use:n { scripture / chap / before }
             \group_begin:
             \l_@@_chap_font_tl
+            \str_if_eq:VnF \l_@@_chapter_colour_tl { . }
+              { \exp_args:NV \color_select:n \l_@@_chapter_colour_tl }
             \@@_chap_format:n { #1 }
             \group_end:
             \skip_horizontal:N \l_@@_chap_sep_tl
