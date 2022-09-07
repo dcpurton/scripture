@@ -1052,61 +1052,6 @@
 %   \meta{|skip|} inserted below the \env{scripture} environment.
 % \end{option}
 %
-% \changes{v1.1}{2022/08/15}{Add \opt{compact} option}
-% \begin{option}[added=2022-08-15]{compact}
-%   \begin{syntax}
-%     compact = \meta{boolean} \hfill Default: false
-%   \end{syntax}
-%   This option removes all paragraph breaks along with any \cs{extraskip} in
-%   the quotation so the whole quotation is a single paragraph of running
-%   prose. This option implies \opt{chapter/nodrop} and all options relating
-%   to inner environments are ignored.
-%
-%   The value of \meta{|boolean|} is optional and assumed to be \val{true} if
-%   not present.
-%
-%   \textbf{Warning:} This option redefines \cs{par} to \cs{relax} inside the
-%   \env{scripture} environment. If you have anything other than expected
-%   macros and environments inside your \env{scripture} environment \TeX{}
-%   will likely get stuck in an infinite loop.
-% \end{option}
-%
-% \begin{scriptureexample}
-% \begin{verbatim}
-% \begin{scripture}[Jonah 1:17--2:2a][compact]
-%   \begin{midparachap}
-%     \vs{17}Now the \textsc{Lord} provided a huge
-%     fish to swallow Jonah, and Jonah was in the
-%     belly of the fish three days and three
-%     nights. \ch{2}From inside the fish Jonah
-%     prayed to the \textsc{Lord} his God. \vs{2}He
-%     said:
-%   \end{midparachap}
-%   \begin{poetry}
-%     `In my distress I called to the Lord,
-%     and he answered me.
-%   \end{poetry}
-% \end{scripture}
-% \end{verbatim}
-%
-% \tcblower
-%
-% \begin{scripture}[Jonah 1:17--2:2a][compact]
-%   \begin{midparachap}
-%     \vs{17}Now the \textsc{Lord} provided a huge
-%     fish to swallow Jonah, and Jonah was in the
-%     belly of the fish three days and three
-%     nights. \ch{2}From inside the fish Jonah
-%     prayed to the \textsc{Lord} his God. \vs{2}He
-%     said:
-%   \end{midparachap}
-%   \begin{poetry}
-%     `In my distress I called to the Lord,
-%     and he answered me.
-%   \end{poetry}
-% \end{scripture}
-% \end{scriptureexample}
-%
 % \changes{v1.2}{2022/09/07}{Add \opt{chapter/colour} option}
 % \begin{option}[added=2022-09-07]{chapter/colour, chapter/color}
 %   \begin{syntax}
@@ -1237,6 +1182,61 @@
 %   \env{scripture} environment. By default the current colour is inherited.
 %   \opt{color} is an alias for \opt{colour}.
 % \end{option}
+%
+% \changes{v1.1}{2022/08/15}{Add \opt{compact} option}
+% \begin{option}[added=2022-08-15]{compact}
+%   \begin{syntax}
+%     compact = \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   This option removes all paragraph breaks along with any \cs{extraskip} in
+%   the quotation so the whole quotation is a single paragraph of running
+%   prose. This option implies \opt{chapter/nodrop} and all options relating
+%   to inner environments are ignored.
+%
+%   The value of \meta{|boolean|} is optional and assumed to be \val{true} if
+%   not present.
+%
+%   \textbf{Warning:} This option redefines \cs{par} to \cs{relax} inside the
+%   \env{scripture} environment. If you have anything other than expected
+%   macros and environments inside your \env{scripture} environment \TeX{}
+%   will likely get stuck in an infinite loop.
+% \end{option}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[Jonah 1:17--2:2a][compact]
+%   \begin{midparachap}
+%     \vs{17}Now the \textsc{Lord} provided a huge
+%     fish to swallow Jonah, and Jonah was in the
+%     belly of the fish three days and three
+%     nights. \ch{2}From inside the fish Jonah
+%     prayed to the \textsc{Lord} his God. \vs{2}He
+%     said:
+%   \end{midparachap}
+%   \begin{poetry}
+%     `In my distress I called to the Lord,
+%     and he answered me.
+%   \end{poetry}
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[Jonah 1:17--2:2a][compact]
+%   \begin{midparachap}
+%     \vs{17}Now the \textsc{Lord} provided a huge
+%     fish to swallow Jonah, and Jonah was in the
+%     belly of the fish three days and three
+%     nights. \ch{2}From inside the fish Jonah
+%     prayed to the \textsc{Lord} his God. \vs{2}He
+%     said:
+%   \end{midparachap}
+%   \begin{poetry}
+%     `In my distress I called to the Lord,
+%     and he answered me.
+%   \end{poetry}
+% \end{scripture}
+% \end{scriptureexample}
 %
 % \begin{option}{extraskip}
 %   \begin{syntax}
