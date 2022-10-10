@@ -27,8 +27,8 @@
   \ch*{20}And God spoke all these words:
 
   \begin{hanging}[rightmargin=1em]
-    \noindent\vs{2}‘I am the \LORD\ your God, who brought you out of Egypt,
-    out of the land of slavery.
+    \noindent\vs{2}‘I am the \name{Lord} your God, who brought you out of
+    Egypt, out of the land of slavery.
   \end{hanging}
 \end{scripture}
 
@@ -38,7 +38,7 @@
   \ch{12}In that day you will say:
 
   \begin{poetry}
-    ‘I will praise you, \LORD.
+    ‘I will praise you, \name{Lord}.
     Although you were angry with me,
 
     your anger has turned away
@@ -103,7 +103,7 @@
 
 \begin{scripture}[Psalm 3:1--4][version=NIV84]
   \begin{poetry}
-    \vs{1}O \LORD, how many are my foes!
+    \vs{1}O \name{Lord}, how many are my foes!
     How many rise up against me!
 
     \vs{2}Many are saying of me,
@@ -111,10 +111,10 @@
 
     \extraskip
 
-    \vs{3}But you are a shield around me, O \LORD;
+    \vs{3}But you are a shield around me, O \name{Lord};
     you bestow glory on me and lift up my head.
 
-    \vs{4}To the \LORD\ I cry aloud,
+    \vs{4}To the \name{Lord} I cry aloud,
     and he answers me from his holy hill.\selah
   \end{poetry}
 \end{scripture}

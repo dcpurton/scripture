@@ -6,7 +6,7 @@
 \START
 \showoutput
 \begin{scripture}[Jeremiah 1:4--6]
-  \vs{4}The word of the \LORD\ came to me, saying,
+  \vs{4}The word of the \name{Lord} came to me, saying,
 
   \begin{poetry}
     \vs{5}‘Before I formed you in the womb I knew you,
@@ -14,7 +14,7 @@
     I appointed you as a prophet to the nations.’
   \end{poetry}
 
-  \vs{6}‘Alas, Sovereign \LORD,’ I said, ‘I do not know how to speak; I am too
-  young.’
+  \vs{6}‘Alas, Sovereign \name{Lord},’ I said, ‘I do not know how to speak; I
+  am too young.’
 \end{scripture}
 \end{document}

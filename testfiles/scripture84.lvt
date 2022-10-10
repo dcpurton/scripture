@@ -8,7 +8,7 @@
 \begin{minipage}{6cm}
   \begin{scripture}[Psalm 3:1--4][version=NIV84]
     \begin{poetry}
-      \vs{1}O \LORD, how many are my foes!
+      \vs{1}O \name{Lord}, how many are my foes!
       How many rise up against me!
 
       \vs{2}Many are saying of me,
@@ -16,10 +16,10 @@
 
       \extraskip
 
-      \vs{3}But you are a shield around me, O \LORD;
+      \vs{3}But you are a shield around me, O \name{Lord};
       you bestow glory on me and lift up my head.
 
-      \vs{4}To the \LORD\ I cry aloud,
+      \vs{4}To the \name{Lord} I cry aloud,
       and he answers me from his holy hill.\selah
     \end{poetry}
   \end{scripture}

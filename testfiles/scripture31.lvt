@@ -6,9 +6,9 @@
 \START
 \showoutput
 \begin{scripture}
-  \vs{24}The \LORD\ replied, ‘Go down and bring Aaron up with you. But the
-  priests and the people must not force their way through to come up to the
-  \LORD, or he will break out against them.’
+  \vs{24}The \name{Lord} replied, ‘Go down and bring Aaron up with you. But
+  the priests and the people must not force their way through to come up to
+  the \name{Lord}, or he will break out against them.’
 
   \vs{25}So Moses went down to the people and told them.
 
@@ -17,17 +17,18 @@
   \ch*{20}And God spoke all these words:
 
   \begin{hanging}[rightmargin=1em]
-    \noindent\vs{2}‘I am the \LORD\ your God, who brought you out of Egypt,
-    out of the land of slavery.
+    \noindent\vs{2}‘I am the \name{Lord} your God, who brought you out of
+    Egypt, out of the land of slavery.
 
     \vs{3}‘You shall have no other gods before me.
 
     \vs{4}‘You shall not make for yourself an image in the form of anything in
     heaven above or on the earth beneath or in the waters below. \vs{5}You
-    shall not bow down to them or worship them; for I, the \LORD\ your God, am
-    a jealous God, punishing the children for the sin of the parents to the
-    third and fourth generation of those who hate me, \vs{6}but showing love
-    to a thousand generations of those who love me and keep my commandments.
+    shall not bow down to them or worship them; for I, the \name{Lord} your
+    God, am a jealous God, punishing the children for the sin of the parents
+    to the third and fourth generation of those who hate me, \vs{6}but showing
+    love to a thousand generations of those who love me and keep my
+    commandments.
   \end{hanging}
 \end{scripture}
 \end{document}

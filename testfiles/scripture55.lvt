@@ -10,7 +10,7 @@ Text before \texttt{scripture} environment.
 \begin{scripture}
   \begin{poetry}
     \vs{2}Hear me, you heavens! Listen, earth!
-    For the \LORD\ has spoken:
+    For the \name{Lord} has spoken:
 
     ‘I reared children and brought them up,
     but they have rebelled against me.

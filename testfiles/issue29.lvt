@@ -6,7 +6,7 @@
 \START
 \showoutput
 \begin{scripture}[Isaiah 56:1]
-  \ch{56}This is what the \LORD\ says:
+  \ch{56}This is what the \name{Lord} says:
   \begin{poetry}
     `Maintain justice
     and do what is right,
@@ -21,15 +21,15 @@
 \begin{scripture}[Exodus 20:1--2]
   \ch{20}And God spoke all these words:
   \begin{hanging}
-    \noindent\vs{2}‘I am the \LORD\ your God, who brought you out of Egypt,
-    out of the land of slavery.
+    \noindent\vs{2}‘I am the \name{Lord} your God, who brought you out of
+    Egypt, out of the land of slavery.
   \end{hanging}
 \end{scripture}
 
 \bigskip
 
 \begin{scripture}[Numbers 2:1, 3]
-  \ch{2}The \LORD\ said to Moses and Aaron: \ldots
+  \ch{2}The \name{Lord} said to Moses and Aaron: \ldots
   \begin{narrow}
     \vs{3}On the east, towards the sunrise, the divisions of the camp of Judah
     are to camp under their standard. The leader of the people of Judah is
