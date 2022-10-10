@@ -1908,10 +1908,9 @@
 %    \end{macrocode}
 %
 %    \begin{macrocode}
-\NeedsTeXFormat{LaTeX2e}[2021-11-15]
+\NeedsTeXFormat{LaTeX2e}[2022-06-01]
 \ProvidesExplPackage{scripture}{2022/08/27}{1.1}
   {Format Scripture Quotations (DCP)}
-\RequirePackage{l3keys2e}
 %    \end{macrocode}
 %
 % \subsection{Messages}
@@ -2165,9 +2164,9 @@
     , poetry / verse / sep     .initial:n          = 0.05 em
   }
 %    \end{macrocode}
-% Process package options using \pkg{l3keys2e} package.
+% Process package options.
 %    \begin{macrocode}
-\ProcessKeysOptions { scripture }
+\ProcessKeyOptions
 %    \end{macrocode}
 %
 % \subsection{hooks}
