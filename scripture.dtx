@@ -1038,6 +1038,13 @@
 % \cs{scripturesetup}|{|\meta{|options|}|}|. Local formatting \meta{|options|}
 % can be set by passing them to the various environments described above.
 %
+% \textbf{Note:} It's not possible to pass non-expandable macros as key-value
+% options to the optional argument of \cs{usepackage}. So if you want to set
+% |font=|\cs{bfseries} as the default, you must use
+% \cs{scripturesetup}|{font=|\cs{bfseries}|}|. It is not possible to use
+% \cs{usepackage}|[font=|\cs{bfseries}|]{scripture}| (you will get a compile
+% error).
+%
 % \begin{option}{aboveskip}
 %   \begin{syntax}
 %     aboveskip = \meta{skip} \hfill Default: 0pt
