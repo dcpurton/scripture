@@ -2849,10 +2849,10 @@
           }
       }
       { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
-    \tl_if_novalue:nF { #1 }
-      {
-        \@@_reference:n { #1 }
-      }
+    \bool_lazy_or:nnF
+      { \tl_if_novalue_p:n { #1 } }
+      { \tl_if_empty_p:n { #1 } }
+      { \@@_reference:n { #1 } }
     \par
 %    \end{macrocode}
 % Restore right margin by resetting the \cs{parshape} if in a \LaTeX{} list
