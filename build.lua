@@ -4,6 +4,7 @@ module = "scripture"
 checkformat = "latex"
 stdengine    = "pdftex"
 checkengines = {"pdftex"}
+checkconfigs = {"build", "config-unicode"}
 
 -- Detail how to set the version automatically
 function update_tag(file, content, tagname, tagdate)

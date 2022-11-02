@@ -1276,6 +1276,31 @@
 %   \opt{noindent}.
 % \end{option}
 %
+% \changes{v1.2}{2022/11/02}{Add \opt{language} option}
+% \begin{option}[added=2022-11-02]{language}
+%   \begin{syntax}
+%     language = \meta{language name} \hfill Default: \emph{Empty}
+%   \end{syntax}
+%   \pkg{babel} or \pkg{polyglossia} \meta{|language name|} to be used for the
+%   \env{scripture} environment. This calls
+%   \cs{selectlanguage}|{|\meta{|language name|}|}| at the start of the
+%   environment. Make sure you have \pkg{babel} or \pkg{polyglossia} loaded
+%   and correctly set up for your specified language. If unset the current
+%   active language is used.
+% \end{option}
+%
+% \changes{v1.2}{2022/11/02}{Add \opt{language/variant} option}
+% \begin{option}[added=2022-11-02]{language/variant}
+%   \begin{syntax}
+%     language/variant = \meta{language variant name} \hfill Default: \emph{Empty}
+%   \end{syntax}
+%   \pkg{polyglossia} \meta{|language variant name|} to be used along with the
+%   specified \opt{language} for the \env{scripture} environment. This inserts
+%   \cs{selectlanguage}|[|\meta{|language variant name|}|]{|\meta{language
+%   name}|}| at the start of the environment. Make sure you have
+%   \pkg{polyglossia} loaded and correctly set up for your specified language.
+% \end{option}
+%
 % \begin{option}{leftmargin}
 %   \begin{syntax}
 %     leftmargin = \meta{dimen} \hfill Default: 0pt
@@ -1939,6 +1964,25 @@
     one~of~its~internal~environments,~which~is~not~supported. }
 %    \end{macrocode}
 %
+% Make sure \pkg{polyglossia} languages and variants are set up.
+%
+%    \begin{macrocode}
+\msg_new:nnnn { scripture } { language-error }
+  { Language~`#1'~not~set~up. }
+  { Language~`#1'~has~not~been~set~up.~Make~sure~you~set~up~languages~
+    before~using~the~language~option~of~the~scripture~environment. }
+%    \end{macrocode}
+%
+% Warn if a \opt{language} is requested and neither \pkg{babel} nor
+% \pkg{polyglossia} is loaded.
+%
+%    \begin{macrocode}
+\msg_new:nnnn { scripture } { language-warning }
+  { Language~requested~without~support. }
+  { You~have~requested~language=#1,~but~neither~babel~nor~polyglossia~
+    have~been~loaded~and~set~up.~Ignoring~option~language=#1. }
+%    \end{macrocode}
+%
 % \subsection{Options}
 %
 % Key-value settings for the \env{scripture} environment and its inner
@@ -1991,6 +2035,12 @@
     , indent                   .bool_set:N         = \l_@@_indent_bool
     , indent                   .default:n          = true
     , indent                   .initial:n          = true
+    , language                 .tl_set:N           = \l_@@_language_tl
+    , language                 .value_required:n   = true
+    , language                 .initial:n          =
+    , language / variant       .tl_set:N           = \l_@@_language_variant_tl
+    , language / variant       .value_required:n   = true
+    , language / variant       .initial:n          =
     , leftmargin               .tl_set:N           = \l_@@_leftmargin_tl
     , leftmargin               .value_required:n   = true
     , leftmargin               .initial:n          = \c_zero_dim
@@ -2391,6 +2441,53 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \subsubsection{Selecting language}
+%
+% \begin{macro}{\@@_select_language:}
+%   Select specified language if required.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_select_language:
+  {
+    \tl_if_empty:NF \l_@@_language_tl
+      {
+        \@ifpackageloaded { babel }
+          {
+            \selectlanguage { \l_@@_language_tl }
+          }
+          {
+            \@ifpackageloaded { polyglossia }
+              {
+                \iflanguageloaded { \l_@@_language_tl }
+                  {
+                    \tl_if_empty:NTF \l_@@_language_variant_tl
+                      {
+                        \selectlanguage { \l_@@_language_tl }
+                      }
+                      {
+                        \selectlanguage
+                          [ variant = \l_@@_language_variant_tl ]
+                          { \l_@@_language_tl }
+                      }
+                  }
+                  {
+                    \msg_error:nnx
+                      { scripture }
+                      { language-error }
+                      { \l_@@_language_tl }
+                  }
+              }
+              {
+                \msg_warning:nnx
+                  { scripture }
+                  { language-waning }
+                  { \l_@@_language_tl }
+              }
+          }
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
 % \subsubsection{Formatting and printing chapter numbers}
 %
 % \begin{macro}{\l_@@_chap_box, l_@@_chap_tmp_box}
@@ -2695,6 +2792,7 @@
       {
         \keys_set:nn { scripture } { #1 }
       }
+    \@@_select_language:
 %    \end{macrocode}
 % If the \env{scripture} environment begins immediately after an \cs{item},
 % then insert a new paragraph and apply a negative skip. Life is much easier

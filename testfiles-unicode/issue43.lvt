@@ -1,0 +1,15 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{polyglossia}
+\setmainlanguage[variant=australian]{english}
+\setotherlanguage{french}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Jonas 1.8][language=french, version=SG21]
+  \vs{8}Alors ils lui dirent: «Dis-nous qui nous attire ce malheur. Quelle est
+  ton occupation et d'où viens-tu? Quel est ton pays et de quel peuple es-tu?»
+\end{scripture}
+\end{document}
