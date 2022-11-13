@@ -2368,7 +2368,7 @@
       \g_@@_chap_par_prevgraf_int = 1
       {
         \dim_compare:nNnT
-          { \parskip + \l_@@_extraskip_tl } < \baselineskip
+          { \parskip + \glueexpr \l_@@_extraskip_tl } < \baselineskip
           {
             \addvspace { \baselineskip }
           }
@@ -3104,7 +3104,7 @@
           }
       }
     \dim_compare:nNnTF
-      \l_@@_belowskip_tl > \parskip
+      { \glueexpr \l_@@_belowskip_tl } > \parskip
       {
         \addvspace
           {
@@ -3165,7 +3165,7 @@
           }
           {
             \dim_compare:nTF
-              { \parskip >= \l_@@_center_aboveskip_tl > \c_zero_skip }
+              { \parskip >= \glueexpr \l_@@_center_aboveskip_tl > \c_zero_skip }
               {
                 \skip_zero:N \topsep
                 \skip_zero:N \l_@@_delta_below_skip
@@ -3239,7 +3239,7 @@
           }
           {
             \dim_compare:nTF
-              { \parskip >= \l_@@_flushright_aboveskip_tl > \c_zero_skip }
+              { \parskip >= \glueexpr \l_@@_flushright_aboveskip_tl > \c_zero_skip }
               {
                 \skip_zero:N \topsep
                 \skip_zero:N \l_@@_delta_below_skip
@@ -3427,7 +3427,7 @@
           }
           {
             \dim_compare:nTF
-              { \parskip >= \l_@@_hanging_aboveskip_tl > \c_zero_skip }
+              { \parskip >= \glueexpr \l_@@_hanging_aboveskip_tl > \c_zero_skip }
               {
                 \skip_zero:N \topsep
                 \skip_zero:N \l_@@_delta_below_skip
@@ -3733,7 +3733,7 @@
           }
           {
             \dim_compare:nTF
-              { \parskip >= \l_@@_narrow_aboveskip_tl > \c_zero_skip }
+              { \parskip >= \glueexpr \l_@@_narrow_aboveskip_tl > \c_zero_skip }
               {
                 \skip_zero:N \topsep
                 \skip_zero:N \l_@@_delta_below_skip
@@ -4175,7 +4175,7 @@
           }
           {
             \dim_compare:nTF
-              { \parskip >= \l_@@_poetry_aboveskip_tl > \c_zero_skip }
+              { \parskip >= \glueexpr \l_@@_poetry_aboveskip_tl > \c_zero_skip }
               {
                 \skip_zero:N \topsep
                 \skip_zero:N \l_@@_delta_below_skip

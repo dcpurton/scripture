@@ -1,0 +1,30 @@
+\documentclass[a4paper,twocolumn]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  verse/first,
+  poetry/aboveskip=0pt plus 2pt,
+  poetry/belowskip=0pt plus 2pt,
+  poetry/leftmargin=2em,
+  poetry/verse/sep=1em,
+  version=NRSV
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Romans 11:33--36]
+  \vs{33}O the depth of the riches and wisdom and knowledge of God! How
+  unsearchable are his judgments and how inscrutable his ways!
+
+  \begin{poetry}
+    \vs{34}“For who has known the mind of the Lord?
+    Or who has been his counselor?”
+
+    \vs{35}“Or who has given a gift to him,
+    to receive a gift in return?”
+  \end{poetry}
+  \vs{36}For from him and through him and to him are all things. To him be the
+  glory forever. Amen.
+\end{scripture}
+\end{document}
