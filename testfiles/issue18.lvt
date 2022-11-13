@@ -1,0 +1,50 @@
+\documentclass[a4paper,twocolumn]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  verse/first,
+  poetry/aboveskip=\parskip,
+  poetry/belowskip=\parskip,
+  poetry/leftmargin=2em,
+  poetry/verse/sep=1em,
+  version=NRSV
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Romans 9:13--16][noindent]
+  \nofirstverse\vs{13}As it is written,
+  \begin{poetry}
+    “I have loved Jacob,
+    but I have hated Esau.”
+  \end{poetry}
+
+  \vs{14}What then are we to say? Is there injustice on God’s part? By no
+  means! \vs{15}For he says to Moses,
+
+  \begin{poetry}
+    “I will have mercy on whom I have mercy,
+    and I will have compassion on whom I have compassion.”
+  \end{poetry}
+  \vs{16}So it depends not on human will or exertion, but on God who shows
+  mercy.
+\end{scripture}
+
+\bigskip
+
+\begin{scripture}[Romans 11:33--36]
+  \vs{33}O the depth of the riches and wisdom and knowledge of God! How
+  unsearchable are his judgments and how inscrutable his ways!
+
+  \begin{poetry}
+    \vs{34}“For who has known the mind of the Lord?
+    Or who has been his counselor?”
+
+    \vs{35}“Or who has given a gift to him,
+    to receive a gift in return?”
+  \end{poetry}
+  \vs{36}For from him and through him and to him are all things. To him be the
+  glory forever. Amen.
+\end{scripture}
+\end{document}

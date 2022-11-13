@@ -447,6 +447,17 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
+% \changes{v1.3}{2022/11/13}{Add \cs{nofirstverse} function}
+% \begin{function}[added=2022-11-13]{\nofirstverse}
+%   \begin{syntax}
+%     |\nofirstverse|
+%   \end{syntax}
+%   When \opt{verse/first} is |true|, this causes the next \cs{vs} to print
+%   normally, rather than using the format specified by
+%   \opt{verse/firstformat}. You might do this if your quote begins half way
+%   through a paragraph and the first verse should be printed normally.
+% \end{function}
+%
 % \begin{function}{\nohang}
 %   \begin{syntax}
 %     |\nohang|
@@ -1495,6 +1506,75 @@
 %   for \opt{verse/colour}.
 % \end{option}
 %
+% \changes{v1.3}{2022/11/13}{Add \opt{verse/first} option}
+% \begin{option}[added=2022-11-13]{verse/first}
+%   \begin{syntax}
+%     verse/first = \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   In prose sections, print the verse number in a different format if it is
+%   at the start of the paragraph. The format and separation between verse and
+%   text are controlled with the \opt{verse/firstformat} and
+%   \opt{verse/firstsep} options. Use \cs{noversefirst} to suppress this at
+%   the next verse (e.g., if your quote starts mid-way though a paragraph and
+%   a normal verse should be printed). The value of \meta{|boolean|} is optional
+%   and assumed to be true if not present.
+% \end{option}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[Luke 18:25--28][noindent,
+%     verse/first, version=NRSV]
+%   \nofirstverse\vs{25}Indeed, it is easier for a
+%   camel to go through the eye of a needle than for
+%   someone who is rich to enter the kingdom of
+%   God.''
+%
+%   \vs{26}Those who heard it said, ``Then who can
+%   be saved?'' \vs{27}He replied, “What is
+%   impossible for mortals is possible for God.''
+%
+%   \vs{28}Then Peter said, ``Look, we have left our
+%   homes and followed you.''
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[Luke 18:25--28][noindent,
+%     verse/first, version=NRSV]
+%   \nofirstverse\vs{25}Indeed, it is easier for a
+%   camel to go through the eye of a needle than for
+%   someone who is rich to enter the kingdom of
+%   God.''
+%
+%   \vs{26}Those who heard it said, ``Then who can
+%   be saved?'' \vs{27}He replied, “What is
+%   impossible for mortals is possible for God.''
+%
+%   \vs{28}Then Peter said, ``Look, we have left our
+%   homes and followed you.''
+% \end{scripture}
+% \end{scriptureexample}
+%
+% \changes{v1.3}{2022/11/13}{Add \opt{verse/firstformat} option}
+% \begin{option}[added=2022-11-13]{verse/firstformat}
+%   \begin{syntax}
+%     verse/firstformat = \meta{macro} \hfill Default: \#1
+%   \end{syntax}
+%   \meta{|macro|} used to format the first \cs{vs} in a paragraph. |#1|
+%   contains the argument of \cs{vs}. Only used if \opt{verse/first} is
+%   |true|.
+% \end{option}
+%
+% \changes{v1.3}{2022/11/13}{Add \opt{verse/firstsep} option}
+% \begin{option}[added=2022-11-13]{verse/firstsep}
+%   \begin{syntax}
+%     verse/firstsep = \meta{dimen} \hfill Default: 0.5em
+%   \end{syntax}
+%   \meta{|dimen|} used to separate the first \cs{vs} in a paragraph from the
+%   following text. Only used if \opt{verse/first} is |true|.
+% \end{option}
+%
 % \begin{option}{verse/font}
 %   \begin{syntax}
 %     verse/font = \meta{font} \hfill Default: \emph{Empty}
@@ -2104,6 +2184,15 @@
     , verse / colour           .value_required:n   = true
     , verse / colour           .initial:n          = .
     , verse / color            .meta:n             = { verse / colour = { #1 } }
+    , verse / first            .bool_set:N         = \l_@@_verse_first_bool
+    , verse / first            .default:n          = true
+    , verse / first            .initial:n          = false
+    , verse / firstformat      .cs_set:Np          = \@@_verse_first_format:n #1
+    , verse / firstformat      .value_required:n   = true
+    , verse / firstformat      .initial:n          = #1
+    , verse / firstsep         .tl_set:N           = \l_@@_verse_first_sep_tl
+    , verse / firstsep         .value_required:n   = true
+    , verse / firstsep         .initial:n          = 0.5em
     , verse / font             .tl_set:N           = \l_@@_verse_font_tl
     , verse / font             .value_required:n   = true
     , verse / font             .initial:n          = 
@@ -2683,14 +2772,38 @@
 %
 % \subsubsection{Formatting and printing verse numbers}
 %
+% \begin{macro}{\l_@@_verse_par_start_bool}
+%   Flag for whether the current verse is at the start of a paragraph.
+%    \begin{macrocode}
+\bool_new:N \l_@@_verse_par_start_bool
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l_@@_no_verse_first_bool}
+%   Suppress the next verse from formatting differently if it begins a new
+%   paragraph.
+%    \begin{macrocode}
+\bool_new:N \l_@@_no_verse_first_bool
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\@@_verse_output:n}
 %   Output a formatted verse.
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_verse_output:n
   {
     \cs_gset_nopar:Npn \scripturecurrentverse { #1 }
-    \mode_if_vertical:T
+    \legacy_if:nTF { @endpe }
+      { \bool_set_false:N \l_@@_verse_par_start_bool }
+      { \bool_set_true:N \l_@@_verse_par_start_bool }
+    \mode_if_vertical:TF
       { \mode_leave_vertical: }
+      { \bool_set_false:N \l_@@_verse_par_start_bool }
+    \bool_if:NT \l_@@_no_verse_first_bool
+      {
+        \bool_set_false:N \l_@@_verse_par_start_bool
+        \bool_set_false:N \l_@@_no_verse_first_bool
+      }
     \group_begin:
     \hook_use:n { scripture / verse / before }
     \bool_if:NT \l_@@_verse_show_bool
@@ -2699,9 +2812,22 @@
         \l_@@_verse_font_tl
         \str_if_eq:VnF \l_@@_verse_colour_tl { . }
           { \exp_args:NV \color_select:n \l_@@_verse_colour_tl }
-        \@@_verse_format:n { #1 }
-        \group_end:
-        \kern \l_@@_verse_sep_tl
+        \bool_lazy_all:nTF
+          {
+            { \l_@@_verse_first_bool }
+            { \l_@@_verse_par_start_bool }
+            { \bool_not_p:n { \str_if_eq_p:Vn \l_@@_currenvir_str { poetry } } }
+          }
+          {
+            \@@_verse_first_format:n { #1 }
+            \group_end:
+            \kern \l_@@_verse_first_sep_tl
+          }
+          {
+            \@@_verse_format:n { #1 }
+            \group_end:
+            \kern \l_@@_verse_sep_tl
+          }
       }
     \hook_use:n { scripture / verse / after }
     \group_end:
@@ -2846,6 +2972,10 @@
         \l_@@_name_font_tl
         \@@_name_format:n { ##1 }
         \group_end:
+      }
+    \cs_set_protected_nopar:Npn \nofirstverse
+      {
+        \bool_set_true:N \l_@@_no_verse_first_bool
       }
     \cs_set_protected_nopar:Npn \LORD
       {
