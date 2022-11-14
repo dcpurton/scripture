@@ -1,0 +1,128 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  chapter/showverse,
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[John 1:1]
+  \ch{1}In the beginning was the Word, and the Word was with God, and the Word
+  was God.
+\end{scripture}
+
+\begin{scripture}[Isaiah 3:1]
+  \begin{poetry}
+    \ch{3}See now, the Lord,
+    the \name{Lord} Almighty,
+
+    is about to take from Jerusalem and Judah
+    both supply and support:
+
+    all supplies of food and all supplies of water,
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Genesis 1:1]
+  \begin{hanging}
+    \ch{1}In the beginning God created the heavens and the earth.
+  \end{hanging}
+\end{scripture}
+
+\begin{scripture}[1 Corinthians 10:31--11:1]
+  \begin{midparachap}
+    \vs{31}So whether you eat or drink or whatever you do, do it all for the
+    glory of God. \vs{32}Do not cause anyone to stumble, whether Jews, Greeks
+    or the church of God---\vs{33}even as I try to please everyone in every
+    way. For I am not seeking my own good but the good of many, so that they
+    may be saved. \ch{11}Follow my example, as I follow the example of Christ.
+  \end{midparachap}
+\end{scripture}
+
+\noindent
+\begin{minipage}{6.5cm}
+  \begin{scripture}[1 Corinthians 10:31--11:1]
+    \begin{midparachap}
+      \vs{31}So whether you eat or drink or whatever you do, do it all for the
+      glory of God. \vs{32}Do not cause anyone to stumble, whether Jews,
+      Greeks or the church of God---\vs{33}even as I try to please everyone in
+      every way. For I am not seeking my own good but the good of many, so
+      that they may be saved. \ch{11}Follow my example, as I follow the
+      example of Christ.
+    \end{midparachap}
+  \end{scripture}
+\end{minipage}
+
+\begin{scripture}[Hosea 11:12--12:1]
+  \begin{poetry}
+    \vs{12}Ephraim has surrounded me with lies,
+    and the house of Israel with deceit;
+
+    but Judah still walks with God,
+    and is faithful to the Holy One.
+
+    \ch{12}Ephraim herds the wind,
+    and pursues the east wind all day long;
+
+    they multiply falsehood and violence;
+    they make a treaty with Assyria,
+    and oil is carried to Egypt.
+  \end{poetry}
+\end{scripture}
+
+\scripturesetup{chapter/nodrop}
+
+\begin{scripture}[John 1:1]
+  \ch{1}In the beginning was the Word, and the Word was with God, and the Word
+  was God.
+\end{scripture}
+
+\begin{scripture}[Isaiah 3:1]
+  \begin{poetry}
+    \ch{3}See now, the Lord,
+    the \name{Lord} Almighty,
+
+    is about to take from Jerusalem and Judah
+    both supply and support:
+
+    all supplies of food and all supplies of water,
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Genesis 1:1]
+  \begin{hanging}
+    \ch{1}In the beginning God created the heavens and the earth.
+  \end{hanging}
+\end{scripture}
+
+\begin{scripture}[1 Corinthians 10:31--11:1]
+  \begin{midparachap}
+    \vs{31}So whether you eat or drink or whatever you do, do it all for the
+    glory of God. \vs{32}Do not cause anyone to stumble, whether Jews, Greeks
+    or the church of God---\vs{33}even as I try to please everyone in every
+    way. For I am not seeking my own good but the good of many, so that they
+    may be saved. \ch{11}Follow my example, as I follow the example of Christ.
+  \end{midparachap}
+\end{scripture}
+
+\begin{scripture}[Hosea 11:12--12:1]
+  \begin{poetry}
+    \vs{12}Ephraim has surrounded me with lies,
+    and the house of Israel with deceit;
+
+    but Judah still walks with God,
+    and is faithful to the Holy One.
+
+    \ch{12}Ephraim herds the wind,
+    and pursues the east wind all day long;
+
+    they multiply falsehood and violence;
+    they make a treaty with Assyria,
+    and oil is carried to Egypt.
+  \end{poetry}
+\end{scripture}
+\end{document}

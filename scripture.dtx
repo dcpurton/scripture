@@ -1200,6 +1200,34 @@
 %   the opposite of \opt{chapter/hide}.
 % \end{option}
 %
+% \changes{v1.1}{2022/11/14}{Add \opt{chapter/showverse} option}
+% \begin{option}[added=2022-11-14]{chapter/showverse}
+%   \begin{syntax}
+%     chapter/showverse = \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   Whether \cs{vs\{1\}} should be automatically inserted after \cs{ch}. The
+%   value of \meta{|boolean|} is optional and assumed to be \val{true} if not
+%   present. See also \opt{midparachap/showverse} and
+%   \opt{midparachap/hideverse}. Note that \opt{chapter/showverse} take
+%   precedence over \opt{midparachap/hideverse}.
+% \end{option}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[John 1:1][chapter/showverse]
+%   \ch{1}In the beginning was the Word, and the
+%   Word was with God, and the Word was God.
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[John 1:1][chapter/showverse]
+%   \ch{1}In the beginning was the Word, and the
+%   Word was with God, and the Word was God.
+% \end{scripture}
+% \end{scriptureexample}
+%
 % \changes{v1.2}{2022/08/31}{Add \opt{colour} option}
 % \begin{option}[added=2022-08-31]{colour, color}
 %   \begin{syntax}
@@ -1800,7 +1828,7 @@
 %   \env{poetry} environments. \cs{extraskip} begins a new paragraph in a
 %   \env{poetry} environment. The value of \meta{|boolean|} is optional and
 %   assumed to be \val{true} if not present. This option is the opposite of
-%   \opt{midparachap/showverse}.
+%   \opt{midparachap/showverse}. See also \opt{chapter/showverse}.
 % \end{option}
 %
 % \begin{scriptureexample}
@@ -1854,7 +1882,7 @@
 %   \env{poetry} environments. \cs{extraskip} begins a new paragraph in a
 %   \env{poetry} environment. The value of \meta{|boolean|} is optional and
 %   assumed to be \val{true} if not present. This option is the opposite of
-%   \opt{midparachap/hideverse}.
+%   \opt{midparachap/hideverse}. See also \opt{chapter/showverse}.
 % \end{option}
 %
 % \subsubsection{Options for the \env{narrow} environment}
@@ -2108,6 +2136,9 @@
     , chapter / show           .bool_set:N         = \l_@@_chap_show_bool
     , chapter / show           .default:n          = true
     , chapter / show           .initial:n          = true
+    , chapter / showverse      .bool_set:N         = \l_@@_chap_show_verse_bool
+    , chapter / showverse      .default:n          = true
+    , chapter / showverse      .initial:n          = false
     , extraskip                .tl_set:N           = \l_@@_extraskip_tl
     , extraskip                .value_required:n   = true
     , extraskip                .initial:n          = \medskipamount
@@ -2697,6 +2728,10 @@
     \box_use:N \l_@@_chap_box
     \hook_use:n { scripture / chap / after }
     \group_end:
+    \bool_if:NT \l_@@_chap_show_verse_bool
+      {
+        \@@_verse_output:n { 1 }
+      }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -2720,6 +2755,10 @@
         \group_end:
         \skip_horizontal:N \l_@@_chap_sep_tl
         \hook_use:n { scripture / chap / after }
+        \bool_if:NT \l_@@_chap_show_verse_bool
+          {
+            \@@_verse_output:n { 1 }
+          }
       }
       {
         \hook_use:n { scripture / chap / before }
@@ -3356,6 +3395,10 @@
     \box_use:N \l_@@_chap_box
     \hook_use:n { scripture / chap / after }
     \group_end:
+    \bool_if:NT \l_@@_chap_show_verse_bool
+      {
+        \@@_verse_output:n { 1 }
+      }
     \hook_gput_next_code:nn { para / begin }
       { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
   }
@@ -3612,6 +3655,13 @@
         \keys_set:nn
           { scripture / midparachap }
           { #1 }
+      }
+    \bool_lazy_and:nnT
+      { \bool_if_p:n \l_@@_chap_show_verse_bool }
+      { \bool_if_p:n \l_@@_chap_drop_bool }
+      {
+        \bool_set_true:N \l_@@_midparachap_show_verse_bool
+        \bool_set_false:N \l_@@_chap_show_verse_bool
       }
     \par
     \bool_set_true:N \l_@@_mid_para_chap_bool
@@ -4013,7 +4063,9 @@
     \box_use:N \l_@@_chap_box
     \hook_use:n { scripture / chap / after }
     \group_end:
-    \bool_if:NT \g_@@_poetry_midparachap_show_verse_bool
+    \bool_lazy_or:nnT
+      { \bool_if_p:n \l_@@_chap_show_verse_bool }
+      { \bool_if_p:n \g_@@_poetry_midparachap_show_verse_bool }
       {
         \@@_verse_output:n { 1 }
       }
@@ -4044,7 +4096,9 @@
             \skip_horizontal:N \l_@@_chap_sep_tl
             \hook_use:n { scripture / chap / after }
           }
-        \bool_if:NT \g_@@_poetry_midparachap_show_verse_bool
+        \bool_lazy_or:nnT
+          { \bool_if_p:n \l_@@_chap_show_verse_bool }
+          { \bool_if_p:n \g_@@_poetry_midparachap_show_verse_bool }
           {
             \@@_verse_output:n { 1 }
           }
