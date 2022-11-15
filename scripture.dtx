@@ -405,6 +405,37 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
+% \changes{v1.3}{2022/11/15}{Add feature to highlight translator added words}
+% \begin{function}[added=2022-11-15]{\added}
+%   \begin{syntax}
+%     |\added|\marg{words}
+%   \end{syntax}
+%   Some Bible translations mark out words added for clarity not found in the
+%   original language (e.g., in italics). This can be done using the \cs{added}
+%   function. The font and format can be set using the \opt{added/font} and
+%   \opt{added/format} options.
+% \end{function}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[John 1:18][verse/font=\bfseries,
+%     verse/format=#1, verse/sep=0.5em, version=KJV]
+%   \vs{18}No man hath seen God at any time, the
+%   only begotten Son, which is in the bosom of the
+%   Father, he hath declared \added{him}.
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[John 1:18][verse/font=\bfseries,
+%     verse/format=#1, verse/sep=0.5em, version=KJV]
+%   \vs{18}No man hath seen God at any time, the
+%   only begotten Son, which is in the bosom of the
+%   Father, he hath declared \added{him}.
+% \end{scripture}
+% \end{scriptureexample}
+%
 % \changes{v1.2}{2022/09/01}{Add divine name feature}
 % \begin{function}[added=2022-09-01]{\name, \LORD, \GOD}
 %   \begin{syntax}
@@ -1070,6 +1101,24 @@
 %     aboveskip = \meta{skip} \hfill Default: 0pt
 %   \end{syntax}
 %   \meta{|skip|} inserted above the \env{scripture} environment.
+% \end{option}
+%
+% \changes{v1.3}{2022/11/15}{Add \opt{added/font} option}
+% \begin{option}[added=2022-11-15]{added/font}
+%   \begin{syntax}
+%     added/font = \meta{font} \hfill Default: \emph{Empty}
+%   \end{syntax}
+%   \meta{|font|} used for the \cs{added} function.
+% \end{option}
+%
+% \changes{v1.3}{2022/11/15}{Add \opt{added/format} option}
+% \begin{option}[added=2022-11-15]{added/format}
+%   \begin{syntax}
+%     added/format = \meta{macro} \hfill Default: \cs{emph}\{\#1\}
+%   \end{syntax}
+%   \meta{|macro|} used to format the words that should be highlighted as
+%   added by the translators using the \cs{added} function. |#1| contains the
+%   text of the argument to \cs{added}.
 % \end{option}
 %
 % \begin{option}{belowskip}
@@ -2103,6 +2152,12 @@
     , aboveskip                .tl_set:N           = \l_@@_aboveskip_tl
     , aboveskip                .value_required:n   = true
     , aboveskip                .initial:n          = \c_zero_skip
+    , added / font             .tl_set:N           = \l_@@_added_font_tl
+    , added / font             .value_required:n   = true
+    , added / font             .initial:n          =
+    , added / format           .cs_set:Np          = \@@_added_format:n #1
+    , added / format           .value_required:n   = true
+    , added / format           .initial:n          = \emph { #1 }
     , belowskip                .tl_set:N           = \l_@@_belowskip_tl
     , belowskip                .value_required:n   = true
     , belowskip                .initial:n          = \c_zero_skip
@@ -3006,6 +3061,13 @@
     \cs_set_eq:NN \redletteron \@@_red_letter_on:
     \cs_set_eq:NN \redletteroff \@@_red_letter_off:
     \cs_set_eq:NN \vs \@@_verse_output:n
+    \cs_set_protected_nopar:Npn \added ##1
+      {
+        \group_begin:
+        \l_@@_added_font_tl
+        \@@_added_format:n { ##1 }
+        \group_end:
+      }
     \cs_set_protected_nopar:Npn \name ##1
       {
         \group_begin:
