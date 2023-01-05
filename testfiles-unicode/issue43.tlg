@@ -4,13 +4,13 @@ LaTeX Info: Redefining \rmfamily on input line ....
 LaTeX Info: Redefining \sffamily on input line ....
 LaTeX Info: Redefining \ttfamily on input line ....
 Removing  `luaotfload.node_processor' from `pre_linebreak_filter'.
-Inserting `polyglossia-punct.process' at position 1 in `pre_linebreak_filter'.
-Inserting `luaotfload.node_processor' at position 2 in `pre_linebreak_filter'.
+Inserting `polyglossia-punct.process' in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' in `pre_linebreak_filter'.
 Removing  `luaotfload.node_processor' from `hpack_filter'.
 Removing  `luaotfload.harf.finalize_hlist' from `hpack_filter'.
-Inserting `polyglossia-punct.process' at position 1 in `hpack_filter'.
-Inserting `luaotfload.node_processor' at position 2 in `hpack_filter'.
-Inserting `luaotfload.harf.finalize_hlist' at position 3 in `hpack_filter'.
+Inserting `polyglossia-punct.process' in `hpack_filter'.
+Inserting `luaotfload.node_processor' in `hpack_filter'.
+Inserting `luaotfload.harf.finalize_hlist' in `hpack_filter'.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line ....
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -140,12 +140,8 @@ Completed box being shipped out [1]
 ...\write-{}
 ...\write1{\protect \selectlanguage *[variant=australian]{english}}
 ...\write1{\@writefile{toc}{\protect \selectlanguage *[variant=australian]{engli\ETC.}
-...\write1{\@writefile{lof}{\protect \selectlanguage *[variant=australian]{engli\ETC.}
-...\write1{\@writefile{lot}{\protect \selectlanguage *[variant=australian]{engli\ETC.}
 ...\write1{\protect \selectlanguage *{french}}
 ...\write1{\@writefile{toc}{\protect \selectlanguage *{french}}}
-...\write1{\@writefile{lof}{\protect \selectlanguage *{french}}}
-...\write1{\@writefile{lot}{\protect \selectlanguage *{french}}}
 ...\glue(\topskip) 1.72308
 ...\hbox(8.27692+1.94)x345.0, glue set 0.23064, direction TLT
 ....\localpar
@@ -383,8 +379,6 @@ Completed box being shipped out [1]
 ...\glue 0.0
 ...\write1{\protect \selectlanguage *[variant=australian]{english}}
 ...\write1{\@writefile{toc}{\protect \selectlanguage *[variant=australian]{engli\ETC.}
-...\write1{\@writefile{lof}{\protect \selectlanguage *[variant=australian]{engli\ETC.}
-...\write1{\@writefile{lot}{\protect \selectlanguage *[variant=australian]{engli\ETC.}
 ...\glue -2.49
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
