@@ -3154,7 +3154,6 @@
 % environments. This removes any unwanted \opt{belowskip} if present and
 % leaves the previously calculated line length of the final paragraph intact.
 %    \begin{macrocode}
-    \@@_red_letter_off:
     \mode_if_vertical:TF
       {
         \unskip
@@ -3184,6 +3183,7 @@
           }
       }
       { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
+    \@@_red_letter_off:
     \bool_lazy_or:nnF
       { \tl_if_novalue_p:n { #1 } }
       { \tl_if_empty_p:n { #1 } }
