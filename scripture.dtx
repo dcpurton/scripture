@@ -4522,7 +4522,7 @@
 %   Set an inline quotation. This is equivalent to calling the
 %   \env{scripture} environment with the \opt{inline} option set.
 %    \begin{macrocode}
-\NewDocumentCommand { \textscripture } { oom }
+\NewDocumentCommand { \textscripture } { oo+m }
   {
     \tl_if_novalue:nTF { #2 }
       {

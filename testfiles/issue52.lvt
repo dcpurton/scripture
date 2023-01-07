@@ -115,4 +115,18 @@ Lead in text:
   \end{poetry}
 \end{scripture}
 Lead out text.
+
+\bigskip
+
+Lead in text:
+\textscripture[Isaiah 1:2][version=NIVUK]{%
+  \begin{poetry}
+    \vs{2}Hear me, you heavens! Listen, earth!
+    For the \name{Lord} has spoken:
+
+    ‘I reared children and brought them up,
+    but they have rebelled against me.
+  \end{poetry}
+}
+Lead out text.
 \end{document}
