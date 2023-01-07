@@ -682,6 +682,50 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
+% \changes{v1.3}{2023/01/07}{Add \cs{textscripture} function}
+% \begin{function}[added=2023-01-07]{\textscripture}
+%   \begin{syntax}
+%     |\textscripture|\oarg{reference}\oarg{options}\marg{quotation}
+%   \end{syntax}
+%   \cs{textscripture} sets an inline scripture quotation. The quotation is
+%   surrounded be the values of \opt{inline/begin} and \opt{inline/end} which
+%   default to |``\,| and |\,''|, respectively. This function also changes the
+%   defaults of some options as follows:
+%   \begin{itemize}
+%     \item the \meta{|reference|} is set inline with the quotation
+%     \item \opt{reference/sep} is set to a space
+%     \item \opt{reference/format} is set to |(#1)|
+%     \item the quotation is set in a compact format with all paragraph
+%       formatting removed
+%   \end{itemize}
+%
+%   This function is equivalent to using the \env{scripture} environment with
+%   the \opt{inline} option.
+%
+%   \textbf{Warning:} \cs{par} is redefined to \cs{relax} inside the
+%   \cs{textscripture} function. If you have anything other than expected
+%   macros and environments inside your \cs{textscripture} function \TeX{}
+%   will likely get stuck in an infinite loop.
+% \end{function}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% A famous verse in the Bible is:
+% \textscripture[John 3:16][verse/hide]{\vs{16}For
+% God so loved the world that he gave his one and
+% only Son, that whoever believes in him shall not
+% perish but have eternal life.}.
+% \end{verbatim}
+%
+% \tcblower
+%
+% A famous verse in the Bible is:
+% \textscripture[John 3:16][verse/hide]{\vs{16}For
+% God so loved the world that he gave his one and
+% only Son, that whoever believes in him shall not
+% perish but have eternal life.}.
+% \end{scriptureexample}
+%
 % \begin{function}{\vs}
 %   \begin{syntax}
 %     |\vs|\marg{verse number}
@@ -1354,6 +1398,49 @@
 %     font = \meta{font} \hfill Default: \emph{Empty}
 %   \end{syntax}
 %   \meta{|font|} used for the \env{scripture} environment.
+% \end{option}
+%
+% \changes{v1.3}{2023/01/07}{Add \opt{inline} option}
+% \begin{option}[added=2023-01-07]{inline}
+%   \begin{syntax}
+%     inline
+%   \end{syntax}
+%   Set the scripture quotation inline. The quotation is surrounded be the
+%   values of \opt{inline/begin} and \opt{inline/end} which default to |``\,|
+%   and |\,''|, respectively. This option also changes the defaults of some
+%   other options as follows:
+%   \begin{itemize}
+%     \item the \opt{compact} option is set
+%     \item the \meta{|reference|} is set inline with the quotation
+%     \item \opt{reference/sep} is set to a space
+%     \item \opt{reference/format} is set to |(#1)|
+%     \item the quotation is set in a compact format with all paragraph
+%       formatting removed
+%   \end{itemize}
+%
+%   \textbf{Warning:} \cs{par} is redefined to \cs{relax} when the
+%   \opt{inline} option is set. If you have anything other than expected
+%   macros and environments inside your quotation \TeX{} will likely get stuck
+%   in an infinite loop.
+% \end{option}
+%
+% \changes{v1.3}{2023/01/07}{Add \opt{inline/begin} option}
+% \begin{option}[added=2023-01-07]{inline/begin}
+%   \begin{syntax}
+%     inline/begin = \meta{text} \hfill Default: |``\,|
+%   \end{syntax}
+%   Text inserted at the beginning of \cs{textscripture} or a \env{scripture}
+%   environment with the \opt{inline} option set.
+% \end{option}
+%
+% \changes{v1.3}{2023/01/07}{Add \opt{inline/end} option}
+% \begin{option}[added=2023-01-07]{inline/end}
+%   \begin{syntax}
+%     inline/end = \meta{text} \hfill Default: |\,''|
+%   \end{syntax}
+%   Text inserted between the end of \cs{textscripture} or a \env{scripture}
+%   environment with the \opt{inline} option set and the \meta{|reference|}
+%   (if specified).
 % \end{option}
 %
 % \begin{option}{indent}
@@ -2203,6 +2290,21 @@
     , indent                   .bool_set:N         = \l_@@_indent_bool
     , indent                   .default:n          = true
     , indent                   .initial:n          = true
+    , _inline                  .bool_set:N         = \l_@@_inline_bool
+    , _inline                  .initial:n          = false
+    , inline                   .meta:n             = {
+                                                       _inline = true ,
+                                                       compact ,
+                                                       reference / delim = \c_space_tl,
+                                                       reference / format = (##1)
+                                                     }
+    , inline                   .value_forbidden:n  = true
+    , inline / begin           .tl_set:N           = \l_@@_inline_begin_tl
+    , inline / begin           .value_required:n   = true
+    , inline / begin           .initial:n          = ``\,
+    , inline / end             .tl_set:N           = \l_@@_inline_end_tl
+    , inline / end             .value_required:n   = true
+    , inline / end             .initial:n          = \,''
     , language                 .tl_set:N           = \l_@@_language_tl
     , language                 .value_required:n   = true
     , language                 .initial:n          =
@@ -3138,6 +3240,8 @@
               { \para_omit_indent: }
           }
       }
+    \bool_if:NT \l_@@_inline_bool
+      { \l_@@_inline_begin_tl }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -3147,6 +3251,20 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_end:n
   {
+    \bool_if:NTF \l_@@_inline_bool
+      {
+        \bool_lazy_or:nnF
+          { \tl_if_novalue_p:n { #1 } }
+          { \tl_if_empty_p:n { #1 } }
+          {
+            \unskip
+            \@@_red_letter_off:
+            \l_@@_inline_end_tl
+            \l_@@_ref_delim_tl
+            \@@_format_full_ref:n { #1 }
+          }
+      }
+      {
 %    \end{macrocode}
 % Normally \cs{unskip} does not work in vertical mode, but there are some
 % situations where it does work. The following condition is true if the
@@ -3154,66 +3272,67 @@
 % environments. This removes any unwanted \opt{belowskip} if present and
 % leaves the previously calculated line length of the final paragraph intact.
 %    \begin{macrocode}
-    \mode_if_vertical:TF
-      {
-        \unskip
-        \unskip
-      }
-      {
-        \tl_if_novalue:nTF { #1 }
-          { \int_zero:N \postdisplaypenalty }
-          { \int_set_eq:NN \postdisplaypenalty \@highpenalty }
-        \@@_calc_final_line_length:
-      }
+      \mode_if_vertical:TF
+        {
+          \unskip
+          \unskip
+        }
+        {
+          \tl_if_novalue:nTF { #1 }
+            { \int_zero:N \postdisplaypenalty }
+            { \int_set_eq:NN \postdisplaypenalty \@highpenalty }
+          \@@_calc_final_line_length:
+        }
 %    \end{macrocode}
 % Restore left margin by resetting the \cs{parshape} if in a list
 % based environment, otherwise the space required for the reference is
 % incorrectly calculated.
 %    \begin{macrocode}
-    \bool_lazy_or:nnTF
-      { \dim_compare_p:n { \l_@@_leftmargin_tl > 0pt } }
-      { \dim_compare_p:n { \l_@@_rightmargin_tl > 0pt } }
-      {
-        \dim_add:Nn \linewidth \l_@@_leftmargin_tl
-        \int_compare:nNnT
-          \@listdepth > \c_zero_int
-          {
-            \dim_sub:Nn \@totalleftmargin \l_@@_leftmargin_tl
-            \parshape 1 ~ \@totalleftmargin ~ \linewidth
-          }
-      }
-      { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
-    \@@_red_letter_off:
-    \bool_lazy_or:nnF
-      { \tl_if_novalue_p:n { #1 } }
-      { \tl_if_empty_p:n { #1 } }
-      { \@@_reference:n { #1 } }
-    \par
+      \bool_lazy_or:nnTF
+        { \dim_compare_p:n { \l_@@_leftmargin_tl > 0pt } }
+        { \dim_compare_p:n { \l_@@_rightmargin_tl > 0pt } }
+        {
+          \dim_add:Nn \linewidth \l_@@_leftmargin_tl
+          \int_compare:nNnT
+            \@listdepth > \c_zero_int
+            {
+              \dim_sub:Nn \@totalleftmargin \l_@@_leftmargin_tl
+              \parshape 1 ~ \@totalleftmargin ~ \linewidth
+            }
+        }
+        { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
+      \@@_red_letter_off:
+      \bool_lazy_or:nnF
+        { \tl_if_novalue_p:n { #1 } }
+        { \tl_if_empty_p:n { #1 } }
+        { \@@_reference:n { #1 } }
+      \par
 %    \end{macrocode}
 % Restore right margin by resetting the \cs{parshape} if in a \LaTeX{} list
 % based environment, since only the left margin was restored above.
 %    \begin{macrocode}
-    \bool_lazy_or:nnT
-      { \dim_compare_p:n { \l_@@_leftmargin_tl > 0pt } }
-      { \dim_compare_p:n { \l_@@_rightmargin_tl > 0pt } }
-      {
-        \int_compare:nNnT
-          \@listdepth > \c_zero_int
-          {
-            \dim_add:Nn \linewidth \l_@@_rightmargin_tl
-            \parshape 1 ~ \@totalleftmargin ~ \linewidth
-          }
-      }
-    \dim_compare:nNnTF
-      { \glueexpr \l_@@_belowskip_tl } > \parskip
-      {
-        \addvspace
-          {
-            \skip_eval:n { \l_@@_belowskip_tl - \parskip }
-          }
-      }
-      {
-        \addvspace { \l_@@_belowskip_tl }
+      \bool_lazy_or:nnT
+        { \dim_compare_p:n { \l_@@_leftmargin_tl > 0pt } }
+        { \dim_compare_p:n { \l_@@_rightmargin_tl > 0pt } }
+        {
+          \int_compare:nNnT
+            \@listdepth > \c_zero_int
+            {
+              \dim_add:Nn \linewidth \l_@@_rightmargin_tl
+              \parshape 1 ~ \@totalleftmargin ~ \linewidth
+            }
+        }
+      \dim_compare:nNnTF
+        { \glueexpr \l_@@_belowskip_tl } > \parskip
+        {
+          \addvspace
+            {
+              \skip_eval:n { \l_@@_belowskip_tl - \parskip }
+            }
+        }
+        {
+          \addvspace { \l_@@_belowskip_tl }
+        }
       }
   }
 %    \end{macrocode}
@@ -4384,6 +4503,30 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\textscripture}
+%   \begin{arguments}
+%     \item \meta{|reference|} of quotation.
+%     \item \meta{|options|} to set.
+%     \item \meta{|quotation|} text.
+%   \end{arguments}
+%   Set an inline quotation. This is equivalent to calling the
+%   \env{scripture} environment with the \opt{inline} option set.
+%    \begin{macrocode}
+\NewDocumentCommand { \textscripture } { oom }
+  {
+    \tl_if_novalue:nTF { #2 }
+      {
+        \begin { scripture } [ #1 ] [ inline ]
+      }
+      {
+        \begin { scripture } [ #1 ] [ inline, #2 ]
+      }
+    #3
+    \end { scripture }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{envmacro}{scripture}
 %   \begin{arguments}
 %     \item \meta{|reference|} of quotation.
@@ -4486,15 +4629,23 @@
 %    \end{macrocode}
 % \end{envmacro}
 %    \begin{macrocode}
+    \bool_if:NT \l_@@_inline_bool
+      {
+        \tl_set:Nn \l_@@_aboveskip_tl { 0pt }
+        \tl_set:Nn \l_@@_belowskip_tl { 0pt }
+        \tl_set:Nn \l_@@_leftmargin_tl { 0pt }
+        \tl_set:Nn \l_@@_rightmargin_tl { 0pt }
+      }
     \bool_if:NT \l_@@_compact_bool
       {
         \scripturesetup { chapter / nodrop }
-        \RenewDocumentEnvironment { center } { o } { \ignorespaces } { }
-        \RenewDocumentEnvironment { flushright } { o } { \ignorespaces } { }
-        \RenewDocumentEnvironment { hanging } { o } { \ignorespaces } { }
-        \RenewDocumentEnvironment { midparachap } { o } { \ignorespaces } { }
-        \RenewDocumentEnvironment { narrow } { o } { \ignorespaces } { }
-        \RenewDocumentEnvironment { poetry } { o } { \ignorespaces } { }
+        \RenewDocumentEnvironment { center } { o } { \ignorespaces } { \unskip }
+        \RenewDocumentEnvironment { flushright } { o } { \ignorespaces } { \unskip }
+        \RenewDocumentEnvironment { hanging } { o } { \ignorespaces } { \unskip }
+        \RenewDocumentEnvironment { midparachap } { o } { \ignorespaces } { \unskip }
+        \RenewDocumentEnvironment { narrow } { o } { \ignorespaces } { \unskip }
+        \RenewDocumentEnvironment { poetry } { o } { \ignorespaces } { \unskip }
+        \cs_set_eq:NN \\ \unskip
         \cs_set_eq:NN \par \relax
         \cs_set_eq:NN \extraskip \relax
         \cs_set_eq:NN \nohang \relax

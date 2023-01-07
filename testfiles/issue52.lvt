@@ -1,0 +1,118 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage[T1]{fontenc}
+\usepackage{scripture}
+\scripturesetup{
+  redletter,
+  colour=blue,
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+Lead in text: \textscripture[John 3:16]{\vs{16}For God so loved the world
+that he gave his one and only Son, that whoever believes in him shall not
+perish but have eternal life.} Lead out text.
+
+\bigskip
+
+Lead in text: \textscripture[John 3:3]{\vs{3}Jesus replied, \redletteron ‘Very
+truly I tell you, no one can see the kingdom of God unless they are born
+again.’\redletteroff} Lead out text.
+
+\bigskip
+
+Lead in text:
+\begin{scripture}[Isaiah 1:2][inline, inline/begin=«\,, inline/end=\,»]
+  \begin{poetry}
+    \vs{2}Hear me, you heavens! Listen, earth!
+    For the \name{Lord} has spoken:
+
+    ‘I reared children and brought them up,
+    but they have rebelled against me.
+  \end{poetry}
+\end{scripture}
+Lead out text.
+
+\bigskip
+
+Lead in text:
+\begin{scripture}[2 Kings 18:18--19][inline]
+  \vs{18}They called for the king; and Eliakim son of Hilkiah the palace
+  administrator, Shebna the secretary, and Joah son of Asaph the recorder went
+  out to them.
+
+  \vs{19}The field commander said to them, ‘Tell Hezekiah:
+
+  \begin{narrow}
+    ‘“This is what the great king, the king of Assyria, says: on what are you
+    basing this confidence of yours?
+  \end{narrow}
+\end{scripture}
+Lead out text.
+
+\bigskip
+
+Lead in text:
+\begin{scripture}[Genesis 1:1--2][inline, inline/begin={,,\,}, inline/end=\,'']
+  \begin{hanging}
+    \ch{1}In the beginning God created the heavens and the earth. \vs{2}Now the
+    earth was formless and empty, darkness was over the surface of the deep,
+    and the Spirit of God was hovering over the waters.
+  \end{hanging}
+\end{scripture}
+Lead out text.
+
+\bigskip
+
+Lead in text:
+\begin{scripture}[Daniel 5:25][inline]
+  \vs{25}‘This is the inscription that was written:
+  \begin{center}
+    \textsc{mene, mene, tekel, parsin}
+  \end{center}
+\end{scripture}
+Lead out text.
+
+\bigskip
+
+Lead in text.
+\begin{scripture}[Isaiah 40:5][inline]
+  \begin{poetry}[belowskip = 0pt]
+    \vs{5}And the glory of the \name{Lord} will be revealed,
+    and all people will see it together.
+  \end{poetry}
+
+  \begin{flushright}[aboveskip = 0pt]
+    For the mouth of the \name{Lord} \\
+    has spoken.’
+  \end{flushright}
+\end{scripture}
+Lead out text.
+
+\bigskip
+
+Lead in text:
+\begin{scripture}[1 Corinthians 10:31--11:1][inline]
+  \begin{midparachap}
+    \vs{31}So whether you eat or drink or whatever you do, do it all for the
+    glory of God. \vs{32}Do not cause anyone to stumble, whether Jews, Greeks
+    or the church of God---\vs{33}even as I try to please everyone in every
+    way. For I am not seeking my own good but the good of many, so that they
+    may be saved. \ch{11}Follow my example, as I follow the example of Christ.
+  \end{midparachap}
+\end{scripture}
+Lead out text.
+
+\bigskip
+
+Lead in text:
+\begin{scripture}[Jeremiah 2:29][inline]
+  \begin{poetry}
+    \vs{5}`Why do you bring charges against me?
+    You have all rebelled against me,'
+    \textright{declares the \name{Lord}.}
+  \end{poetry}
+\end{scripture}
+Lead out text.
+\end{document}

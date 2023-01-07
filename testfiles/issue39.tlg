@@ -14,7 +14,7 @@ Completed box being shipped out [1]
 ....\hbox(0.0+0.0)x345.0
 ..\glue 25.0
 ..\glue(\lineskip) 0.0
-..\vbox(598.0+0.0)x345.0, glue set 455.9513fil
+..\vbox(598.0+0.0)x345.0, glue set 467.95001fil
 ...\write-{}
 ...\glue(\topskip) 1.60004
 ...\hbox(8.39996+3.60004)x334.99998, glue set 80.88872fil, shifted 10.00002
@@ -504,7 +504,7 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\penalty 200
 ...\glue(\baselineskip) 3.11111
-...\hbox(6.94444+0.0)x345.0, glue set 257.23895fil
+...\hbox(6.94444+0.0)x345.0, glue set 261.6834fil
 ....\OT1/cmr/m/n/10 d
 ....\OT1/cmr/m/n/10 e
 ....\OT1/cmr/m/n/10 c
@@ -523,7 +523,6 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/sc/10 r
 ....\OT1/cmr/m/sc/10 d
 ....\OT1/cmr/m/n/10 .
-....\glue 4.44444 plus 4.99997 minus 0.37036
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -557,8 +556,6 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue 0.0
-...\glue 12.0 plus 4.0 minus 4.0
 ...\glue 0.0
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
