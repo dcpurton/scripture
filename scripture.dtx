@@ -695,6 +695,7 @@
 %     \item the \meta{|reference|} is set inline with the quotation
 %     \item \opt{reference/sep} is set to a space
 %     \item \opt{reference/format} is set to |(#1)|
+%     \item \opt{version/format} is set to |#1|
 %     \item the quotation is set in a compact format with all paragraph
 %       formatting removed
 %   \end{itemize}
@@ -1414,6 +1415,7 @@
 %     \item the \meta{|reference|} is set inline with the quotation
 %     \item \opt{reference/sep} is set to a space
 %     \item \opt{reference/format} is set to |(#1)|
+%     \item \opt{version/format} is set to |#1|
 %     \item the quotation is set in a compact format with all paragraph
 %       formatting removed
 %   \end{itemize}
@@ -1601,7 +1603,8 @@
 %     reference/format = \meta{macro} \hfill Default: \#1
 %   \end{syntax}
 %   \meta{|macro|} used to format the \val{reference} for a \env{scripture}
-%   quotation. |#1| contains the text of the \val{reference}.
+%   quotation. |#1| contains the text of the \val{reference} and \val{version}
+%   (if specified).
 % \end{option}
 %
 % \begin{option}{reference/sep}
@@ -2296,7 +2299,8 @@
                                                        _inline = true ,
                                                        compact ,
                                                        reference / delim = \c_space_tl,
-                                                       reference / format = (##1)
+                                                       reference / format = (##1),
+                                                       version / format = ##1
                                                      }
     , inline                   .value_forbidden:n  = true
     , inline / begin           .tl_set:N           = \l_@@_inline_begin_tl
@@ -2621,14 +2625,17 @@
     \l_@@_ref_font_tl
     \str_if_eq:VnF \l_@@_ref_colour_tl { . }
       { \exp_args:NV \color_select:n \l_@@_ref_colour_tl }
-    \@@_ref_format:n { #1 }
+    \@@_ref_format:n
+      {
+        #1
 %    \end{macrocode}
 % Append a Bible version if it has been specified.
 %    \begin{macrocode}
-    \tl_if_empty:NF \l_@@_version_tl
-      {
-        \l_@@_version_delim_tl
-        \@@_version_format:n { \l_@@_version_tl }
+        \tl_if_empty:NF \l_@@_version_tl
+          {
+            \l_@@_version_delim_tl
+            \@@_version_format:n { \l_@@_version_tl }
+          }
       }
     \group_end:
   }
