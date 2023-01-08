@@ -108,7 +108,7 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\penalty 150
 ...\glue(\baselineskip) 2.55786
-...\hbox(7.49817+2.49939)x345.0, glue set - 0.55214
+...\hbox(7.49817+2.49939)x345.0, glue set - 0.6101
 ....\T1/cmr/m/n/10 S
 ....\T1/cmr/m/n/10 o
 ....\T1/cmr/m/n/10 n
@@ -192,7 +192,7 @@ Completed box being shipped out [1]
 ....\kern 1.6663
 ....\T1/cmr/m/n/10 ^^Q (ligature '')
 ....\kern0.83313
-....\glue 4.44336 plus 4.99878 minus 0.37027
+....\glue 4.99878
 ....\T1/cmr/bx/n/10 (
 ....\T1/cmr/bx/n/10 J
 ....\T1/cmr/bx/n/10 o

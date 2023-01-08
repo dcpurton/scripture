@@ -695,12 +695,11 @@
 %   default to |``\,| and |\,''|, respectively. This function also changes the
 %   defaults of some options as follows:
 %   \begin{itemize}
-%     \item the \meta{|reference|} is set inline with the quotation
-%     \item \opt{reference/sep} is set to a space
+%     \item \opt{compact} is set
+%     \item \opt{reference/align} is set to |inline|
+%     \item \opt{reference/sep} is set to |0.5em|
 %     \item \opt{reference/format} is set to |(#1)|
 %     \item \opt{version/format} is set to |#1|
-%     \item the quotation is set in a compact format with all paragraph
-%       formatting removed
 %   \end{itemize}
 %
 %   This function is equivalent to using the \env{scripture} environment with
@@ -1132,6 +1131,8 @@
 % \subsection{Options}
 % \label{options}
 %
+% \changes{v1.3}{2023/01/08}{Remove \opt{reference/delim} option}
+%
 % Default formatting \meta{|options|} can be set using
 % \cs{usepackage}|[|\meta{|options|}|]{scripture}| or
 % \cs{scripturesetup}|{|\meta{|options|}|}|. Local formatting \meta{|options|}
@@ -1414,13 +1415,11 @@
 %   and |\,''|, respectively. This option also changes the defaults of some
 %   other options as follows:
 %   \begin{itemize}
-%     \item the \opt{compact} option is set
-%     \item the \meta{|reference|} is set inline with the quotation
-%     \item \opt{reference/sep} is set to a space
+%     \item \opt{compact} is set
+%     \item \opt{reference/align} is set to |inline|
+%     \item \opt{reference/sep} is set to |0.5em|
 %     \item \opt{reference/format} is set to |(#1)|
 %     \item \opt{version/format} is set to |#1|
-%     \item the quotation is set in a compact format with all paragraph
-%       formatting removed
 %   \end{itemize}
 %
 %   \textbf{Warning:} \cs{par} is redefined to \cs{relax} when the
@@ -1575,6 +1574,15 @@
 %   is an alias for \opt{redletter/colour}.
 % \end{option}
 %
+% \changes{v1.3}{2023/01/08}{Add \opt{reference/align} option}
+% \begin{option}[added=2023-01-08]{reference/align}
+%   \begin{syntax}
+%     reference/align = inline \textbar\ left \textbar\ right \hfill Default: right
+%   \end{syntax}
+%   Set the alignment of the reference. For |left| and |right| the reference
+%   will not break across lines, but a line break is permitted for |inline|.
+% \end{option}
+%
 % \changes{v1.2}{2022/09/07}{Add \opt{reference/colour} option}
 % \begin{option}[added=2022-09-07]{reference/colour, reference/color}
 %   \begin{syntax}
@@ -1583,14 +1591,6 @@
 %   The \pkg{l3color} \meta{|colour expression|} to be used for the reference
 %   and version. By default the current colour is inherited.
 %   \opt{reference/color} is an alias for \opt{reference/colour}.
-% \end{option}
-%
-% \begin{option}{reference/delim}
-%   \begin{syntax}
-%     reference/delim = \meta{delim} \hfill Default: \cs{hfill}
-%   \end{syntax}
-%   \meta{|delim|} to use between the \env{scripture} quotation and its
-%   \val{reference}.
 % \end{option}
 %
 % \begin{option}{reference/font}
@@ -1608,6 +1608,17 @@
 %   \meta{|macro|} used to format the \val{reference} for a \env{scripture}
 %   quotation. |#1| contains the text of the \val{reference} and \val{version}
 %   (if specified).
+% \end{option}
+%
+% \changes{v1.3}{2023/01/08}{Add \opt{reference/newline} option}
+% \begin{option}[added=2023-01-8]{reference/newline}
+%   \begin{syntax}
+%     reference/newline
+%   \end{syntax}
+%   Always push the \val{reference} to a newline even if there is space for it
+%   to fit on the last line of the quotation. The option sets
+%   \opt{reference/sep} to \cs{linewidth} so there is never room for the
+%   reference on the final line of the quotation.
 % \end{option}
 %
 % \begin{option}{reference/sep}
@@ -2301,8 +2312,9 @@
     , inline                   .meta:n             = {
                                                        _inline = true ,
                                                        compact ,
-                                                       reference / delim = \c_space_tl,
-                                                       reference / format = (##1),
+                                                       reference / format = (##1) ,
+                                                       reference / align = inline ,
+                                                       reference / sep = 0.5 em,
                                                        version / format = ##1
                                                      }
     , inline                   .value_forbidden:n  = true
@@ -2342,19 +2354,26 @@
     , redletter / colour       .value_required:n   = true
     , redletter / colour       .initial:n          = red!80!black
     , redletter / color        .meta:n             = { redletter / colour = { #1 } }
+    , reference / align        .choices:nn         = { inline, left, right }
+                                                     {
+                                                       \tl_if_exist:NF \l_@@_ref_align_tl
+                                                         { \tl_new:N \l_@@_ref_align_tl }
+                                                       \tl_set_eq:NN \l_@@_ref_align_tl \l_keys_choice_tl
+                                                     }
+    , reference / align        .value_required:n   = true
+    , reference / align        .initial:n          = right
     , reference / colour       .tl_set:N           = \l_@@_ref_colour_tl
     , reference / colour       .value_required:n   = true
     , reference / colour       .initial:n          = .
     , reference / color        .meta:n             = { reference / colour = { #1 } }
-    , reference / delim        .tl_set:N           = \l_@@_ref_delim_tl
-    , reference / delim        .value_required:n   = true
-    , reference / delim        .initial:n          = \hfill
     , reference / font         .tl_set:N           = \l_@@_ref_font_tl
     , reference / font         .value_required:n   = true
     , reference / font         .initial:n          = \bfseries
     , reference / format       .cs_set:Np          = \@@_ref_format:n #1
     , reference / format       .value_required:n   = true
     , reference / format       .initial:n          = #1
+    , reference / newline      .meta:n             = { reference / sep = \linewidth }
+    , reference / newline      .value_forbidden:n  = true
     , reference / sep          .tl_set:N           = \l_@@_ref_sep_tl
     , reference / sep          .value_required:n   = true
     , reference / sep          .initial:n          = 2 em
@@ -2673,7 +2692,17 @@
 %    \begin{macrocode}
     \int_compare:nNnT \prevgraf = \c_zero_int
       { \skip_vertical:n { -\baselineskip } }
-    \l_@@_ref_delim_tl
+    \tl_if_eq:NnT \l_@@_ref_align_tl { right }
+      { \hfill }
+    \tl_if_eq:NnT \l_@@_ref_align_tl { left }
+      {
+        \mode_leave_vertical:
+        \dim_compare:nNnT
+          { \box_wd:N \l_@@_ref_box + \g_@@_final_line_dim + \l_@@_ref_sep_tl }
+          <
+          \linewidth
+          { \skip_horizontal:n { \g_@@_final_line_dim + \l_@@_ref_sep_tl } }
+      }
     \box_use:N \l_@@_ref_box
   }
 %    \end{macrocode}
@@ -3261,7 +3290,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_end:n
   {
-    \bool_if:NTF \l_@@_inline_bool
+    \tl_if_eq:NnTF \l_@@_ref_align_tl { inline }
       {
         \bool_lazy_or:nnF
           { \tl_if_novalue_p:n { #1 } }
@@ -3269,8 +3298,9 @@
           {
             \unskip
             \@@_red_letter_off:
-            \l_@@_inline_end_tl
-            \l_@@_ref_delim_tl
+            \bool_if:NT \l_@@_inline_bool
+              { \l_@@_inline_end_tl }
+            \skip_horizontal:N \l_@@_ref_sep_tl
             \@@_format_full_ref:n { #1 }
           }
       }

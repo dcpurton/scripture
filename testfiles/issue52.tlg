@@ -109,7 +109,7 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\penalty 150
 ...\glue(\baselineskip) 2.55786
-...\hbox(7.49817+2.49939)x345.0, glue set - 0.55214
+...\hbox(7.49817+2.49939)x345.0, glue set - 0.6101
 ....\T1/cmr/m/n/10 S
 ....\T1/cmr/m/n/10 o
 ....\T1/cmr/m/n/10 n
@@ -194,7 +194,7 @@ Completed box being shipped out [1]
 ....\kern 1.6663
 ....\T1/cmr/m/n/10 ^^Q (ligature '')
 ....\kern0.83313
-....\glue 4.44336 plus 4.99878 minus 0.37027
+....\glue 4.99878
 ....\T1/cmr/bx/n/10 (
 ....\T1/cmr/bx/n/10 J
 ....\T1/cmr/bx/n/10 o
@@ -322,7 +322,7 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\penalty 300
 ...\glue(\baselineskip) 2.55786
-...\hbox(7.49817+2.49939)x345.0, glue set 21.37065fil
+...\hbox(7.49817+2.49939)x345.0, glue set 20.81523fil
 ....\T1/cmr/m/n/10 k
 ....\T1/cmr/m/n/10 i
 ....\T1/cmr/m/n/10 n
@@ -373,7 +373,7 @@ Completed box being shipped out [1]
 ....\kern 1.6663
 ....\T1/cmr/m/n/10 ^^Q (ligature '')
 ....\kern0.83313
-....\glue 4.44336 plus 4.99878 minus 0.37027
+....\glue 4.99878
 ....\T1/cmr/bx/n/10 (
 ....\T1/cmr/bx/n/10 J
 ....\T1/cmr/bx/n/10 o
@@ -584,14 +584,14 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\penalty 150
 ...\glue(\baselineskip) 2.55786
-...\hbox(7.49817+2.49939)x345.0, glue set 195.81972fil
+...\hbox(7.49817+2.49939)x345.0, glue set 194.15346fil
 ....\T1/cmr/m/n/10 m
 ....\T1/cmr/m/n/10 e
 ....\T1/cmr/m/n/10 .
 ....\pdfcolorstack 0 push {0.0 0.0 1.0 rg 0.0 0.0 1.0 RG}
 ....\kern 1.6663
 ....\T1/cmr/m/n/10 ^^T
-....\glue 3.33252 plus 1.66626 minus 1.11084
+....\glue 4.99878
 ....\T1/cmr/bx/n/10 (
 ....\T1/cmr/bx/n/10 I
 ....\T1/cmr/bx/n/10 s
@@ -966,7 +966,7 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\penalty 150
 ...\glue(\baselineskip) 2.55786
-...\hbox(7.49817+2.49939)x345.0, glue set 86.26314fil
+...\hbox(7.49817+2.49939)x345.0, glue set 85.70772fil
 ....\T1/cmr/m/n/10 c
 ....\T1/cmr/m/n/10 o
 ....\T1/cmr/m/n/10 n
@@ -991,7 +991,7 @@ Completed box being shipped out [1]
 ....\kern 1.6663
 ....\T1/cmr/m/n/10 ^^Q (ligature '')
 ....\kern0.83313
-....\glue 4.44336 plus 4.99878 minus 0.37027
+....\glue 4.99878
 ....\T1/cmr/bx/n/10 (
 ....\T1/cmr/bx/n/10 2
 ....\glue 3.8324 plus 1.9162 minus 1.27747
@@ -1208,7 +1208,7 @@ Completed box being shipped out [1]
 ....\T1/cmr/m/n/10 e
 ....\glue(\rightskip) 0.0
 ...\glue(\baselineskip) 2.55786
-...\hbox(7.49817+2.49939)x345.0, glue set 0.18858
+...\hbox(7.49817+2.49939)x345.0, glue set 0.20897
 ....\T1/cmr/m/n/10 d
 ....\T1/cmr/m/n/10 e
 ....\T1/cmr/m/n/10 e
@@ -1277,7 +1277,7 @@ Completed box being shipped out [1]
 ....\kern 1.6663
 ....\T1/cmr/m/n/10 ^^Q (ligature '')
 ....\kern0.83313
-....\glue 4.44336 plus 4.99878 minus 0.37027
+....\glue 4.99878
 ....\T1/cmr/bx/n/10 (
 ....\T1/cmr/bx/n/10 G
 ....\T1/cmr/bx/n/10 e
@@ -1407,7 +1407,7 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\penalty 300
 ...\glue(\baselineskip) 2.55786
-...\hbox(7.49817+2.49939)x345.0, glue set 138.11159fil
+...\hbox(7.49817+2.49939)x345.0, glue set 136.44533fil
 ....\T1/cmr/m/sc/10 t
 ....\T1/cmr/m/sc/10 e
 ....\T1/cmr/m/sc/10 k
@@ -1427,7 +1427,7 @@ Completed box being shipped out [1]
 ....\kern 1.6663
 ....\T1/cmr/m/n/10 ^^Q (ligature '')
 ....\kern0.83313
-....\glue 3.33252 plus 1.66626 minus 1.11084
+....\glue 4.99878
 ....\T1/cmr/bx/n/10 (
 ....\T1/cmr/bx/n/10 D
 ....\T1/cmr/bx/n/10 a
@@ -1555,7 +1555,7 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\penalty 150
 ...\glue(\baselineskip) 2.55786
-...\hbox(7.49817+2.49939)x345.0, glue set 0.21364
+...\hbox(7.49817+2.49939)x345.0, glue set 0.23537
 ....\T1/cmr/m/n/10 w
 ....\T1/cmr/m/n/10 i
 ....\T1/cmr/m/n/10 l
@@ -1623,7 +1623,7 @@ Completed box being shipped out [1]
 ....\kern 1.6663
 ....\T1/cmr/m/n/10 ^^Q (ligature '')
 ....\kern0.83313
-....\glue 4.44336 plus 4.99878 minus 0.37027
+....\glue 4.99878
 ....\T1/cmr/bx/n/10 (
 ....\T1/cmr/bx/n/10 I
 ....\T1/cmr/bx/n/10 s
@@ -2026,7 +2026,7 @@ Completed box being shipped out [1]
 ....\T1/cmr/m/n/10 .
 ....\glue(\rightskip) 0.0
 ...\glue(\baselineskip) 2.55786
-...\hbox(7.49817+2.49939)x345.0, glue set 0.42601
+...\hbox(7.49817+2.49939)x345.0, glue set 0.51685
 ....\T1/cmr/bx/n/10 1
 ....\T1/cmr/bx/n/10 1
 ....\glue 4.99878
@@ -2091,7 +2091,7 @@ Completed box being shipped out [1]
 ....\kern 1.6663
 ....\T1/cmr/m/n/10 ^^Q (ligature '')
 ....\kern0.83313
-....\glue 4.44336 plus 4.99878 minus 0.37027
+....\glue 4.99878
 ....\T1/cmr/bx/n/10 (
 ....\T1/cmr/bx/n/10 1
 ....\glue 3.8324 plus 1.9162 minus 1.27747
@@ -2242,7 +2242,7 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\penalty 300
 ...\glue(\baselineskip) 2.55786
-...\hbox(7.49817+2.49939)x345.0, glue set 50.13724fil
+...\hbox(7.49817+2.49939)x345.0, glue set 49.58182fil
 ....\T1/cmr/m/n/10 a
 ....\T1/cmr/m/n/10 g
 ....\T1/cmr/m/n/10 a
@@ -2278,7 +2278,7 @@ Completed box being shipped out [1]
 ....\kern 1.6663
 ....\T1/cmr/m/n/10 ^^Q (ligature '')
 ....\kern0.83313
-....\glue 4.44336 plus 4.99878 minus 0.37027
+....\glue 4.99878
 ....\T1/cmr/bx/n/10 (
 ....\T1/cmr/bx/n/10 J
 ....\T1/cmr/bx/n/10 e
@@ -2493,7 +2493,7 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\penalty 150
 ...\glue(\baselineskip) 2.55786
-...\hbox(7.49817+2.49939)x345.0, glue set 152.35811fil
+...\hbox(7.49817+2.49939)x345.0, glue set 151.80269fil
 ....\T1/cmr/m/n/10 m
 ....\T1/cmr/m/n/10 e
 ....\T1/cmr/m/n/10 .
@@ -2501,7 +2501,7 @@ Completed box being shipped out [1]
 ....\kern 1.6663
 ....\T1/cmr/m/n/10 ^^Q (ligature '')
 ....\kern0.83313
-....\glue 4.44336 plus 4.99878 minus 0.37027
+....\glue 4.99878
 ....\T1/cmr/bx/n/10 (
 ....\T1/cmr/bx/n/10 I
 ....\T1/cmr/bx/n/10 s
