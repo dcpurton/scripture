@@ -1021,7 +1021,7 @@ Completed box being shipped out [1]
 ......\penalty -51
 ......\glue -14.22636 plus 1.0
 ......\glue 14.22636 plus -1.0
-......\glue 0.0
+......\glue 0.0 plus 1.0
 ......\glue 0.0
 ......\glue(\parskip) 0.0
 ......\glue(\parskip) 0.0
@@ -1453,7 +1453,7 @@ Completed box being shipped out [1]
 ......\penalty -51
 ......\glue -14.22636 plus 1.0
 ......\glue 14.22636 plus -1.0
-......\glue 0.0
+......\glue 0.0 plus 1.0
 ......\glue 0.0
 ......\glue(\parskip) 0.0
 ......\glue(\parskip) 0.0
@@ -1852,7 +1852,7 @@ Completed box being shipped out [1]
 ......\penalty -51
 ......\glue -14.22636 plus 1.0
 ......\glue 14.22636 plus -1.0
-......\glue 0.0
+......\glue 0.0 plus 1.0
 ......\glue 0.0
 ......\glue(\parskip) 0.0
 ......\glue(\parskip) 0.0
@@ -2539,7 +2539,7 @@ Completed box being shipped out [1]
 ......\penalty -51
 ......\glue -14.22636 plus 1.0
 ......\glue 14.22636 plus -1.0
-......\glue 0.0
+......\glue 0.0 plus 1.0
 ......\glue -14.22636
 ......\glue(\parskip) 14.22636
 ......\glue(\parskip) 0.0
@@ -3027,7 +3027,7 @@ Completed box being shipped out [1]
 ......\glue 1.94444
 ......\glue -14.22636 plus 1.0
 ......\glue 14.22636 plus -1.0
-......\glue 0.0
+......\glue 0.0 plus 1.0
 ......\glue -14.22636
 ......\glue(\parskip) 14.22636
 ......\glue(\parskip) 0.0
@@ -5142,7 +5142,7 @@ Completed box being shipped out [2]
 ......\penalty -51
 ......\glue -14.22636 plus 1.0
 ......\glue 14.22636 plus -1.0
-......\glue 0.0
+......\glue 0.0 plus 1.0
 ......\glue -14.22636
 ......\glue(\parskip) 14.22636
 ......\glue(\parskip) 0.0
@@ -5507,7 +5507,7 @@ Completed box being shipped out [2]
 ......\penalty -51
 ......\glue -14.22636 plus 1.0
 ......\glue 14.22636 plus -1.0
-......\glue 0.0
+......\glue 0.0 plus 1.0
 ......\glue -14.22636
 ......\glue(\parskip) 14.22636
 ......\glue(\parskip) 0.0

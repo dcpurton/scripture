@@ -3420,8 +3420,8 @@
         \bool_if:NTF \g_@@_start_bool
           {
             \skip_zero:N \topsep
-            \skip_sub:Nn \topsep \parskip
-            \skip_add:Nn \l_@@_delta_below_skip \parskip
+            \skip_add:Nn \topsep \l_@@_parskip_correction_skip
+            \skip_sub:Nn \l_@@_delta_below_skip \l_@@_parskip_correction_skip
             \bool_gset_false:N \g_@@_start_bool
           }
           {
@@ -3494,8 +3494,8 @@
         \bool_if:NTF \g_@@_start_bool
           {
             \skip_zero:N \topsep
-            \skip_sub:Nn \topsep \parskip
-            \skip_add:Nn \l_@@_delta_below_skip \parskip
+            \skip_add:Nn \topsep \l_@@_parskip_correction_skip
+            \skip_sub:Nn \l_@@_delta_below_skip \l_@@_parskip_correction_skip
             \bool_gset_false:N \g_@@_start_bool
           }
           {
@@ -3686,8 +3686,8 @@
         \bool_if:NTF \g_@@_start_bool
           {
             \dim_zero:N \topsep
-            \skip_sub:Nn \topsep \parskip
-            \skip_add:Nn \l_@@_delta_below_skip \parskip
+            \skip_add:Nn \topsep \l_@@_parskip_correction_skip
+            \skip_sub:Nn \l_@@_delta_below_skip \l_@@_parskip_correction_skip
             \bool_gset_false:N \g_@@_start_bool
           }
           {
@@ -3999,8 +3999,8 @@
         \bool_if:NTF \g_@@_start_bool
           {
             \skip_zero:N \topsep
-            \skip_sub:Nn \topsep \parskip
-            \skip_add:Nn \l_@@_delta_below_skip \parskip
+            \skip_add:Nn \topsep \l_@@_parskip_correction_skip
+            \skip_sub:Nn \l_@@_delta_below_skip \l_@@_parskip_correction_skip
             \bool_gset_false:N \g_@@_start_bool
           }
           {
@@ -4445,8 +4445,8 @@
         \bool_if:NTF \g_@@_start_bool
           {
             \skip_zero:N \topsep
-            \skip_sub:Nn \topsep \parskip
-            \skip_add:Nn \l_@@_delta_below_skip \parskip
+            \skip_add:Nn \topsep \l_@@_parskip_correction_skip
+            \skip_sub:Nn \l_@@_delta_below_skip \l_@@_parskip_correction_skip
             \bool_gset_false:N \g_@@_start_bool
           }
           {

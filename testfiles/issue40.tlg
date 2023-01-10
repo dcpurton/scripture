@@ -313,7 +313,7 @@ Completed box being shipped out [1]
 ...\glue 0.0
 ...\glue 0.0
 ...\penalty -51
-...\glue 0.0
+...\glue 0.0 plus 1.0
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
@@ -790,7 +790,7 @@ Completed box being shipped out [1]
 ...\glue 0.0
 ...\glue 0.0
 ...\penalty -51
-...\glue 0.0
+...\glue 0.0 plus 1.0
 ...\glue 0.0 plus -1.0
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\baselineskip) 3.85997
@@ -1793,7 +1793,7 @@ Completed box being shipped out [1]
 ...\glue 0.0
 ...\glue 0.0
 ...\penalty -51
-...\glue 0.0
+...\glue 0.0 plus 1.0
 ...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
@@ -2267,7 +2267,7 @@ Completed box being shipped out [1]
 ...\glue 0.0
 ...\glue 0.0
 ...\penalty -51
-...\glue 0.0
+...\glue 0.0 plus 1.0
 ...\glue 0.0 plus -1.0
 ...\pdfcolorstack 0 push {0.0 0.0 1.0 rg 0.0 0.0 1.0 RG}
 ...\glue(\parskip) 0.0 plus 1.0

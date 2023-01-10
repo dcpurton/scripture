@@ -1,0 +1,80 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{parskip}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+Filler text.
+
+\begin{scripture}[John 3:16]
+  \vs{16}For God so loved the world that he gave his one and only Son, that
+  whoever believes in him shall not perish but have eternal life.
+\end{scripture}
+
+Filler text.
+
+\begin{scripture}[Isaiah 1:2]
+  \begin{poetry}
+    \vs{2}Hear me, you heavens! Listen, earth!
+    For the \name{Lord} has spoken:
+
+    ‘I reared children and brought them up,
+    but they have rebelled against me.
+  \end{poetry}
+\end{scripture}
+
+Filler text.
+
+\begin{scripture}[2 Kings 18:22]
+  \begin{narrow}
+    \vs{22}But if you say to me, ‘We are depending on the \name{Lord} our
+    God’---isn’t he the one whose high places and altars Hezekiah removed,
+    saying to Judah and Jerusalem, ‘You must worship before this altar in
+    Jerusalem’?
+  \end{narrow}
+\end{scripture}
+
+Filler text.
+
+\begin{scripture}[Exodus 20:17]
+  \begin{hanging}
+    \vs{17}‘You shall not covet your neighbour’s house. You shall not covet
+    your neighbour’s wife, or his male or female servant, his ox or donkey, or
+    anything that belongs to your neighbour.’
+  \end{hanging}
+\end{scripture}
+
+Filler text.
+
+\begin{scripture}[1 Corinthians 10:31--11:1]
+  \begin{midparachap}
+    \vs{31}So whether you eat or drink or whatever you do, do it all for the
+    glory of God. \vs{32}Do not cause anyone to stumble, whether Jews, Greeks
+    or the church of God---\vs{33}even as I try to please everyone in every
+    way. For I am not seeking my own good but the good of many, so that they
+    may be saved. \ch{11}Follow my example, as I follow the example of
+    Christ.
+  \end{midparachap}
+\end{scripture}
+
+Filler text.
+
+\begin{scripture}
+  \begin{center}
+    \scriptsize For the director of music. A \emph{maskil} of David. When Doeg
+    the Edomite had gone to Saul and told him: ‘David has gone to the house of
+    Ahimelek.’
+  \end{center}
+\end{scripture}
+
+Filler text.
+
+\begin{scripture}
+  \begin{flushright}
+    For the mouth of the \name{Lord} \\
+    has spoken.’
+  \end{flushright}
+\end{scripture}
+\end{document}
