@@ -4553,7 +4553,7 @@
 %   Set an inline quotation. This is equivalent to calling the
 %   \env{scripture} environment with the \opt{inline} option set.
 %    \begin{macrocode}
-\NewDocumentCommand { \textscripture } { oo+m }
+\NewDocumentCommand { \textscripture } { o o +m }
   {
     \tl_if_novalue:nTF { #2 }
       {
@@ -4575,7 +4575,7 @@
 %   \end{arguments}
 %   Format a scripture quotation with optional reference.
 %    \begin{macrocode}
-\NewDocumentEnvironment { scripture } { oo }
+\NewDocumentEnvironment { scripture } { o o }
   {
     \@@_begin:n { #2 }
 %    \end{macrocode}
