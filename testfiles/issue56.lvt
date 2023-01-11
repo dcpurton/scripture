@@ -1,0 +1,191 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{parskip}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Isaiah 1:2][reference/align=left]
+  \begin{poetry}
+    \vs{2}Hear me, you heavens! Listen, earth!
+    For the \name{Lord} has spoken:
+
+    ‘I reared children and brought them up,
+    but they have rebelled against me.
+  \end{poetry}
+\end{scripture}
+
+\begin{minipage}{8cm}
+  \begin{scripture}[Isaiah 1:2][reference/align=left]
+    \begin{poetry}
+      \vs{2}Hear me, you heavens! Listen, earth!
+      For the \name{Lord} has spoken:
+
+      ‘I reared children and brought them up,
+      but they have rebelled against me.
+    \end{poetry}
+  \end{scripture}
+\end{minipage}
+
+\begin{scripture}[Isaiah 1:2][reference/newline, reference/align=left]
+  \begin{poetry}
+    \vs{2}Hear me, you heavens! Listen, earth!
+    For the \name{Lord} has spoken:
+
+    ‘I reared children and brought them up,
+    but they have rebelled against me.
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[2 Kings 18:22][reference/align=left]
+  \begin{narrow}
+    \vs{22}But if you say to me, ‘We are depending on the \name{Lord} our
+    God’---isn’t he the one whose high places and altars Hezekiah removed,
+    saying to Judah and Jerusalem, ‘You must worship before this altar in
+    Jerusalem’?
+  \end{narrow}
+\end{scripture}
+
+\begin{minipage}{10cm}
+  \begin{scripture}[2 Kings 18:22][reference/align=left]
+    \begin{narrow}
+      \vs{22}But if you say to me, ‘We are depending on the \name{Lord} our
+      God’---isn’t he the one whose high places and altars Hezekiah removed,
+      saying to Judah and Jerusalem, ‘You must worship before this altar in
+      Jerusalem’?
+    \end{narrow}
+  \end{scripture}
+\end{minipage}
+
+\begin{minipage}{10cm}
+  \begin{scripture}[2 Kings 18:22][reference/newline, reference/align=left]
+    \begin{narrow}
+      \vs{22}But if you say to me, ‘We are depending on the \name{Lord} our
+      God’---isn’t he the one whose high places and altars Hezekiah removed,
+      saying to Judah and Jerusalem, ‘You must worship before this altar in
+      Jerusalem’?
+    \end{narrow}
+  \end{scripture}
+\end{minipage}
+
+\begin{scripture}[Exodus 20:17][reference/align=left]
+  \begin{hanging}
+    \vs{17}‘You shall not covet your neighbour’s house. You shall not covet
+    your neighbour’s wife, or his male or female servant, his ox or donkey, or
+    anything that belongs to your neighbour.’
+  \end{hanging}
+\end{scripture}
+
+\begin{minipage}{10cm}
+  \begin{scripture}[Exodus 20:17][reference/align=left]
+    \begin{hanging}
+      \vs{17}‘You shall not covet your neighbour’s house. You shall not covet
+      your neighbour’s wife, or his male or female servant, his ox or donkey, or
+      anything that belongs to your neighbour.’
+    \end{hanging}
+  \end{scripture}
+\end{minipage}
+
+\begin{scripture}[Exodus 20:17][reference/newline, reference/align=left]
+  \begin{hanging}
+    \vs{17}‘You shall not covet your neighbour’s house. You shall not covet
+    your neighbour’s wife, or his male or female servant, his ox or donkey, or
+    anything that belongs to your neighbour.’
+  \end{hanging}
+\end{scripture}
+
+\begin{scripture}[Psalm 52:0][reference/align=left]
+  \begin{center}
+    For the director of music. A \emph{maskil} of David. When Doeg the Edomite
+    had gone to Saul and told him: ‘David has gone to the house of Ahimelek.’
+  \end{center}
+\end{scripture}
+
+\begin{scripture}[Psalm 52:0][reference/newline, reference/align=left]
+  \begin{center}
+    For the director of music. A \emph{maskil} of David. When Doeg the Edomite
+    had gone to Saul and told him: ‘David has gone to the house of Ahimelek.’
+  \end{center}
+\end{scripture}
+
+\clearpage
+
+\begin{minipage}{6cm}
+  \begin{scripture}[Isaiah 40:5][reference/align=left]
+    \begin{poetry}[belowskip = 0pt]
+      \vs{5}And the glory of the \name{Lord} will be revealed,
+      and all people will see it together.
+    \end{poetry}
+
+    \begin{flushright}[aboveskip = 0pt]
+      For the mouth of the \name{Lord} \\
+      has spoken.’
+    \end{flushright}
+  \end{scripture}
+\end{minipage}
+
+\begin{minipage}{6cm}
+  \begin{scripture}[Isaiah 40:5][reference/newline, reference/align=left]
+    \begin{poetry}[belowskip = 0pt]
+      \vs{5}And the glory of the \name{Lord} will be revealed,
+      and all people will see it together.
+    \end{poetry}
+
+    \begin{flushright}[aboveskip = 0pt]
+      For the mouth of the \name{Lord} \\
+      has spoken.’
+    \end{flushright}
+  \end{scripture}
+\end{minipage}
+
+\begin{scripture}[1 Corinthians 10:31--11:1][reference/align=left]
+  \begin{midparachap}
+    \vs{31}So whether you eat or drink or whatever you do, do it all for the
+    glory of God. \vs{32}Do not cause anyone to stumble, whether Jews, Greeks
+    or the church of God---\vs{33}even as I try to please everyone in every
+    way. For I am not seeking my own good but the good of many, so that they
+    may be saved. \ch{11}Follow my example, as I follow the example of
+    Christ.
+  \end{midparachap}
+\end{scripture}
+
+\begin{minipage}{10.5cm}
+  \begin{scripture}[1 Corinthians 10:31--11:1][reference/align=left]
+    \begin{midparachap}
+      \vs{31}So whether you eat or drink or whatever you do, do it all for the
+      glory of God. \vs{32}Do not cause anyone to stumble, whether Jews, Greeks
+      or the church of God---\vs{33}even as I try to please everyone in every
+      way. For I am not seeking my own good but the good of many, so that they
+      may be saved. \ch{11}Follow my example, as I follow the example of
+      Christ.
+    \end{midparachap}
+  \end{scripture}
+\end{minipage}
+
+\begin{minipage}{10.5cm}
+  \begin{scripture}[1 Corinthians 10:31--11:1][reference/newline, reference/align=left]
+    \begin{midparachap}
+      \vs{31}So whether you eat or drink or whatever you do, do it all for the
+      glory of God. \vs{32}Do not cause anyone to stumble, whether Jews, Greeks
+      or the church of God---\vs{33}even as I try to please everyone in every
+      way. For I am not seeking my own good but the good of many, so that they
+      may be saved. \ch{11}Follow my example, as I follow the example of
+      Christ.
+    \end{midparachap}
+  \end{scripture}
+\end{minipage}
+
+\begin{minipage}{11cm}
+  \begin{scripture}[1 Corinthians 10:31--11:1][reference/align=left]
+    \begin{midparachap}
+      \vs{31}So whether you eat or drink or whatever you do, do it all for the
+      glory of God. \vs{32}Do not cause anyone to stumble, whether Jews, Greeks
+      or the church of God---\vs{33}even as I try to please everyone in every
+      way. For I am not seeking my own good but the good of many, so that they
+      may be saved. \ch{11}Follow my example, as I follow the example of
+      Christ.
+    \end{midparachap}
+  \end{scripture}
+\end{minipage}
+\end{document}

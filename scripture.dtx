@@ -697,10 +697,10 @@
 %   defaults of some options as follows:
 %   \begin{itemize}
 %     \item \opt{compact} is set
-%     \item \opt{reference/align} is set to |inline|
 %     \item \opt{reference/sep} is set to |0.5em|
 %     \item \opt{reference/format} is set to |(#1)|
 %     \item \opt{version/format} is set to |#1|
+%     \item The \val{reference} is set inline.
 %   \end{itemize}
 %
 %   This function is equivalent to using the \env{scripture} environment with
@@ -1417,10 +1417,10 @@
 %   other options as follows:
 %   \begin{itemize}
 %     \item \opt{compact} is set
-%     \item \opt{reference/align} is set to |inline|
 %     \item \opt{reference/sep} is set to |0.5em|
 %     \item \opt{reference/format} is set to |(#1)|
 %     \item \opt{version/format} is set to |#1|
+%     \item The \val{reference} is set inline.
 %   \end{itemize}
 %
 %   \textbf{Warning:} \cs{par} is redefined to \cs{relax} when the
@@ -1578,10 +1578,10 @@
 % \changes{v1.3}{2023/01/08}{Add \opt{reference/align} option}
 % \begin{option}[added=2023-01-08]{reference/align}
 %   \begin{syntax}
-%     reference/align = inline \textbar\ left \textbar\ right \hfill Default: right
+%     reference/align = left \textbar\ right \hfill Default: right
 %   \end{syntax}
-%   Set the alignment of the reference. For |left| and |right| the reference
-%   will not break across lines, but a line break is permitted for |inline|.
+%   Set the alignment of the reference. Note that in neither case will the
+%   reference break across lines.
 % \end{option}
 %
 % \changes{v1.2}{2022/09/07}{Add \opt{reference/colour} option}
@@ -2314,7 +2314,6 @@
                                                        _inline = true ,
                                                        compact ,
                                                        reference / format = (##1) ,
-                                                       reference / align = inline ,
                                                        reference / sep = 0.5 em,
                                                        version / format = ##1
                                                      }
@@ -2355,7 +2354,7 @@
     , redletter / colour       .value_required:n   = true
     , redletter / colour       .initial:n          = red!80!black
     , redletter / color        .meta:n             = { redletter / colour = { #1 } }
-    , reference / align        .choices:nn         = { inline, left, right }
+    , reference / align        .choices:nn         = { left, right }
                                                      {
                                                        \tl_if_exist:NF \l_@@_ref_align_tl
                                                          { \tl_new:N \l_@@_ref_align_tl }
@@ -2686,16 +2685,22 @@
       { \box_wd:N \l_@@_ref_box + \g_@@_final_line_dim + \l_@@_ref_sep_tl }
       >
       \linewidth
-      { \skip_vertical:N \baselineskip }
+      {
+        \skip_vertical:N \baselineskip
+        \tl_if_eq:NnT \l_@@_ref_align_tl { left }
+          {
+            \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+              { \skip_vertical:N \baselineskip }
+          }
+      }
 %    \end{macrocode}
 % If a \env{scripture} quotation ends with an inner environment, there will
 % be an extra space of \cs{baselineskip}.
 %    \begin{macrocode}
     \int_compare:nNnT \prevgraf = \c_zero_int
       { \skip_vertical:n { -\baselineskip } }
-    \tl_if_eq:NnT \l_@@_ref_align_tl { right }
+    \tl_if_eq:NnTF \l_@@_ref_align_tl { right }
       { \hfill }
-    \tl_if_eq:NnT \l_@@_ref_align_tl { left }
       {
         \mode_leave_vertical:
         \dim_compare:nNnT
@@ -3291,7 +3296,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_end:n
   {
-    \tl_if_eq:NnTF \l_@@_ref_align_tl { inline }
+    \bool_if:NTF \l_@@_inline_bool
       {
         \bool_lazy_or:nnF
           { \tl_if_novalue_p:n { #1 } }
