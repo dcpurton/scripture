@@ -34,7 +34,7 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue -12.0
+...\glue -12.0 plus -1.0
 ...\glue 0.0
 ...\glue 0.0
 ...\glue 0.0

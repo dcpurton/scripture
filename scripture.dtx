@@ -3172,7 +3172,10 @@
       {
         \strut
         \par
-        \vspace* { \dim_eval:n { -\baselineskip - \parskip } }
+        \vspace*
+          {
+            \skip_eval:n { -\baselineskip - \parskip }
+          }
       }
     \mode_if_vertical:T
       {
