@@ -1,0 +1,15 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{quote}
+  \begin{scripture}[Ephesians 1:22–23]
+    \vs{22}And God placed all things under his feet and appointed him to be
+    head over everything for the church, \vs{23}which is his body, the
+    fullness of him who fills everything in every way.
+  \end{scripture}
+\end{quote}
+\end{document}

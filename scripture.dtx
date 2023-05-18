@@ -3108,6 +3108,9 @@
         }
     $$
     \@@_reset_spacing:
+    \dim_gsub:Nn \g_@@_final_line_dim \@totalleftmargin
+    \str_if_eq:VnF \l_@@_currenvir_str { scripture }
+      { \dim_gadd:Nn \g_@@_final_line_dim \leftmargin }
     \dim_compare:nNnT \g_@@_final_line_dim > \linewidth
       {
         \dim_gset_eq:NN \g_@@_final_line_dim \linewidth
@@ -3917,7 +3920,8 @@
         \unskip
         \unpenalty
       }
-    \dim_gset:Nn \g_@@_final_line_dim { \box_wd:N \l_@@_mid_para_chap_snap_box }
+    \dim_gset:Nn \g_@@_final_line_dim
+      { \box_wd:N \l_@@_mid_para_chap_snap_box + \@totalleftmargin }
     \box_clear:N \l_@@_mid_para_chap_snap_box
     \nointerlineskip
     \int_compare:nNnT
