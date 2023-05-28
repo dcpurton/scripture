@@ -1,0 +1,121 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\scripturesetup{
+  leftmargin=3cm,
+  parindent=0em,
+}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[John 3:16]
+  \vs{16}For God so loved the world that he gave his one and only Son, that
+  whoever believes in him shall not perish but have eternal life.
+\end{scripture}
+
+\bigskip
+
+\begin{scripture}[Hebrews 3:7]
+  \vs{7}So, as the Holy Spirit says:
+  \begin{poetry}
+    ‘Today, if you hear his voice,
+  \end{poetry}
+\end{scripture}
+
+\bigskip
+
+\begin{scripture}[Daniel 5:25]
+  \vs{25}‘This is the inscription that was written:
+  \begin{center}
+    \textsc{mene, mene, tekel, parsin}
+  \end{center}
+\end{scripture}
+
+\bigskip
+
+\begin{scripture}[Exodus 20:1--2]
+  \ch{20}And God spoke all these words:
+  \begin{hanging}
+    \noindent\vs{2}‘I am the \name{Lord} your God, who brought you out of
+    Egypt, out of the land of slavery.
+  \end{hanging}
+\end{scripture}
+
+\bigskip
+
+\begin{scripture}[2 Kings 18:19]
+  \vs{19}The field commander said to them, ‘Tell Hezekiah:
+
+  \begin{narrow}
+    ‘“This is what the great king, the king of Assyria, says: on what are you
+    basing this confidence of yours?
+  \end{narrow}
+\end{scripture}
+
+\bigskip
+
+\begin{scripture}[Isaiah 1:20]
+  \begin{flushright}
+    For the mouth of the \name{Lord} \\
+    has spoken.’
+  \end{flushright}
+\end{scripture}
+
+\clearpage
+
+\begin{quote}
+  \begin{scripture}[John 3:16]
+    \vs{16}For God so loved the world that he gave his one and only Son, that
+    whoever believes in him shall not perish but have eternal life.
+  \end{scripture}
+
+  \bigskip
+
+  \begin{scripture}[Hebrews 3:7]
+    \vs{7}So, as the Holy Spirit says:
+    \begin{poetry}
+      ‘Today, if you hear his voice,
+    \end{poetry}
+  \end{scripture}
+
+  \bigskip
+
+  \begin{scripture}[Daniel 5:25]
+    \vs{25}‘This is the inscription that was written:
+    \begin{center}
+      \textsc{mene, mene, tekel, parsin}
+    \end{center}
+  \end{scripture}
+
+  \bigskip
+
+  \begin{scripture}[Exodus 20:1--2]
+    \ch{20}And God spoke all these words:
+    \begin{hanging}
+      \noindent\vs{2}‘I am the \name{Lord} your God, who brought you out of
+      Egypt, out of the land of slavery.
+    \end{hanging}
+  \end{scripture}
+
+  \bigskip
+
+  \begin{scripture}[2 Kings 18:19]
+    \vs{19}The field commander said to them, ‘Tell He\-ze\-kiah:
+
+    \begin{narrow}
+      ‘“This is what the great king, the king of Assyria, says: on what are
+      you basing this confidence of yours?
+    \end{narrow}
+  \end{scripture}
+
+  \bigskip
+
+  \begin{scripture}[Isaiah 1:20]
+    \begin{flushright}
+      For the mouth of the \name{Lord} \\
+      has spoken.’
+    \end{flushright}
+  \end{scripture}
+\end{quote}
+\end{document}

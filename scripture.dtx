@@ -2682,7 +2682,7 @@
     \bool_if:NT \g_@@_poetry_end_bool
       { \skip_vertical:n { -\parskip } }
     \dim_compare:nNnT
-      { \box_wd:N \l_@@_ref_box + \g_@@_final_line_dim + \l_@@_ref_sep_tl }
+      { \box_wd:N \l_@@_ref_box + \l_@@_leftmargin_tl + \g_@@_final_line_dim + \l_@@_ref_sep_tl }
       >
       \linewidth
       {
@@ -3109,7 +3109,13 @@
         }
     $$
     \@@_reset_spacing:
-    \dim_gsub:Nn \g_@@_final_line_dim \@totalleftmargin
+    \str_if_eq:VnTF \l_@@_currenvir_str { scripture }
+      {
+        \int_compare:nNnTF \@listdepth = \c_zero_int
+          { \dim_gsub:Nn \g_@@_final_line_dim \l_@@_leftmargin_tl }
+          { \dim_gsub:Nn \g_@@_final_line_dim \@totalleftmargin }
+      }
+      { \dim_gsub:Nn \g_@@_final_line_dim \@totalleftmargin }
     \str_if_eq:VnF \l_@@_currenvir_str { scripture }
       { \dim_gadd:Nn \g_@@_final_line_dim \leftmargin }
     \dim_compare:nNnT \g_@@_final_line_dim > \linewidth
@@ -3275,6 +3281,7 @@
             \parshape 1 ~ \@totalleftmargin ~ \linewidth
           }
           {
+            \dim_set_eq:NN \@totalleftmargin \l_@@_leftmargin_tl
             \dim_add:Nn \leftskip \l_@@_leftmargin_tl
             \dim_add:Nn \rightskip \l_@@_rightmargin_tl
           }
