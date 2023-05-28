@@ -3801,6 +3801,14 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\l_@@_mid_para_chap_totalleftmargin_dim}
+%   Save the \cs{@totalleftmargin} before starting a \env{midparachap}
+%   environment.
+%    \begin{macrocode}
+\dim_new:N \l_@@_mid_para_chap_totalleftmargin_dim
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\g_@@_mid_para_chap_prevgraf_int}
 %   Store the \cs{prevgraf} of the final paragraph in a \env{midparachap}
 %   environment.
@@ -3907,6 +3915,10 @@
     \par
     \bool_set_true:N \l_@@_mid_para_chap_bool
     \@@_vbox_set_top:Nw \l_@@_mid_para_chap_box
+    \dim_zero:N \leftskip
+    \dim_zero:N \rightskip
+    \dim_set_eq:NN \l_@@_mid_para_chap_totalleftmargin_dim \@totalleftmargin
+    \dim_zero:N \@totalleftmargin
     \dim_set_eq:NN \hsize \linewidth
     \skip_zero:N \parskip
   }
@@ -3930,7 +3942,7 @@
         \unpenalty
       }
     \dim_gset:Nn \g_@@_final_line_dim
-      { \box_wd:N \l_@@_mid_para_chap_snap_box + \@totalleftmargin }
+      { \box_wd:N \l_@@_mid_para_chap_snap_box + \l_@@_mid_para_chap_totalleftmargin_dim }
     \box_clear:N \l_@@_mid_para_chap_snap_box
     \nointerlineskip
     \int_compare:nNnT
