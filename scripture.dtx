@@ -2915,17 +2915,33 @@
 \cs_new_protected:Nn \@@_drop_chap_output:
   {
     \noindent
-    \parshape 3 ~
-      \dim_eval:n
-        { \@totalleftmargin + \l_@@_chap_width_dim + \l_@@_chap_sep_tl } ~
-      \dim_eval:n
-        { \linewidth - \l_@@_chap_width_dim - \l_@@_chap_sep_tl } ~
-      \dim_eval:n
-        { \@totalleftmargin + \l_@@_chap_width_dim + \l_@@_chap_sep_tl } ~
-      \dim_eval:n
-        { \linewidth - \l_@@_chap_width_dim - \l_@@_chap_sep_tl } ~
-      \@totalleftmargin ~
-      \linewidth
+    \int_compare:nNnTF \@listdepth > \c_zero_int
+      {
+        \parshape 3 ~
+          \dim_eval:n
+            { \@totalleftmargin + \l_@@_chap_width_dim + \l_@@_chap_sep_tl } ~
+          \dim_eval:n
+            { \linewidth - \l_@@_chap_width_dim - \l_@@_chap_sep_tl } ~
+          \dim_eval:n
+            { \@totalleftmargin + \l_@@_chap_width_dim + \l_@@_chap_sep_tl } ~
+          \dim_eval:n
+            { \linewidth - \l_@@_chap_width_dim - \l_@@_chap_sep_tl } ~
+          \@totalleftmargin ~
+          \linewidth
+      }
+      {
+        \parshape 3 ~
+          \dim_eval:n
+            { \@totalleftmargin + \l_@@_chap_width_dim + \l_@@_chap_sep_tl - \l_@@_leftmargin_tl } ~
+          \dim_eval:n
+            { \linewidth - \l_@@_chap_width_dim - \l_@@_chap_sep_tl + \l_@@_leftmargin_tl + \l_@@_rightmargin_tl } ~
+          \dim_eval:n
+            { \@totalleftmargin + \l_@@_chap_width_dim + \l_@@_chap_sep_tl - \l_@@_leftmargin_tl } ~
+          \dim_eval:n
+            { \linewidth - \l_@@_chap_width_dim - \l_@@_chap_sep_tl  + \l_@@_leftmargin_tl + \l_@@_rightmargin_tl } ~
+          \dim_eval:n { \@totalleftmargin - \l_@@_leftmargin_tl } ~
+          \dim_eval:n { \linewidth + \l_@@_leftmargin_tl + \l_@@_rightmargin_tl }
+      }
     \group_begin:
     \hook_use:n { scripture / chap / before }
     \box_use:N \l_@@_chap_box
