@@ -1,0 +1,14 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage[font=\bfseries]{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Mark 2:1--2]
+  \ch{2}A few days later, when Jesus again entered Capernaum, the people heard
+  that he had come home. \vs{2}They gathered in such large numbers that there
+  was no room left, not even outside the door, and he preached the word to
+  them.
+\end{scripture}
+\end{document}
