@@ -925,7 +925,8 @@
 % \end{environment}
 %
 % \noindent Environment for typesetting narrow sections of scripture
-% quotations.
+% quotations. If there is no blank line before the start of a \env{narrow}
+% environment the indent will be suppressed.
 %
 % See section \ref{narrowoptions} for supported formatting \meta{|options|}.
 %
@@ -939,6 +940,7 @@
 %
 %   \vs{19}The field commander said to them, `Tell
 %   Hezekiah:
+%
 %   \begin{narrow}
 %     `\thinspace``This is what the great king, the
 %     king of Assyria, says: on what are you basing
@@ -957,6 +959,7 @@
 %
 %   \vs{19}The field commander said to them, `Tell
 %   Hezekiah:
+%
 %   \begin{narrow}
 %     `\thinspace``This is what the great king, the
 %     king of Assyria, says: on what are you basing
@@ -1090,8 +1093,7 @@
 % \lhead{\textbf{\rightmark}}
 % \rhead{\textbf{\leftmark} \textbar\ \thepage}
 % \begin{document}
-% \noindent
-% \begin{scripture}
+% \begin{scripture}[][noindent]
 %   \vs{45}Instead he went out and began to talk
 %   freely, spreading the news. As a result, Jesus
 %   could no longer enter a town openly but stayed
@@ -1113,8 +1115,7 @@
 %
 % \rule[2mm]{\linewidth}{0.4pt}
 %
-% \noindent
-% \begin{scripture}
+% \begin{scripture}[][noindent]
 %   \vs{45}Instead he went out and began to talk
 %   freely, spreading the news. As a result, Jesus
 %   could no longer enter a town openly but stayed
