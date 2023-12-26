@@ -5,6 +5,8 @@
 \scripturesetup{
   leftmargin=3cm,
   parindent=0em,
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount
 }
 \begin{document}
 \START
@@ -14,8 +16,6 @@
   whoever believes in him shall not perish but have eternal life.
 \end{scripture}
 
-\bigskip
-
 \begin{scripture}[Hebrews 3:7]
   \vs{7}So, as the Holy Spirit says:
   \begin{poetry}
@@ -23,16 +23,12 @@
   \end{poetry}
 \end{scripture}
 
-\bigskip
-
 \begin{scripture}[Daniel 5:25]
   \vs{25}‘This is the inscription that was written:
   \begin{center}
     \textsc{mene, mene, tekel, parsin}
   \end{center}
 \end{scripture}
-
-\bigskip
 
 \begin{scripture}[Exodus 20:1--2]
   \ch{20}And God spoke all these words:
@@ -42,8 +38,6 @@
   \end{hanging}
 \end{scripture}
 
-\bigskip
-
 \begin{scripture}[2 Kings 18:19]
   \vs{19}The field commander said to them, ‘Tell Hezekiah:
 
@@ -52,8 +46,6 @@
     basing this confidence of yours?
   \end{narrow}
 \end{scripture}
-
-\bigskip
 
 \begin{scripture}[Isaiah 1:20]
   \begin{flushright}
@@ -70,8 +62,6 @@
     whoever believes in him shall not perish but have eternal life.
   \end{scripture}
 
-  \bigskip
-
   \begin{scripture}[Hebrews 3:7]
     \vs{7}So, as the Holy Spirit says:
     \begin{poetry}
@@ -79,16 +69,12 @@
     \end{poetry}
   \end{scripture}
 
-  \bigskip
-
   \begin{scripture}[Daniel 5:25]
     \vs{25}‘This is the inscription that was written:
     \begin{center}
       \textsc{mene, mene, tekel, parsin}
     \end{center}
   \end{scripture}
-
-  \bigskip
 
   \begin{scripture}[Exodus 20:1--2]
     \ch{20}And God spoke all these words:
@@ -98,8 +84,6 @@
     \end{hanging}
   \end{scripture}
 
-  \bigskip
-
   \begin{scripture}[2 Kings 18:19]
     \vs{19}The field commander said to them, ‘Tell He\-ze\-kiah:
 
@@ -108,8 +92,6 @@
       you basing this confidence of yours?
     \end{narrow}
   \end{scripture}
-
-  \bigskip
 
   \begin{scripture}[Isaiah 1:20]
     \begin{flushright}

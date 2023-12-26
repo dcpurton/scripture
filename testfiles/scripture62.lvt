@@ -5,7 +5,7 @@
 \begin{document}
 \START
 \scripturesetup{
-  verse/font=\scriptsize ,
+  verse/font=\scriptsize,
   verse/format=#1\,
 }
 \showoutput

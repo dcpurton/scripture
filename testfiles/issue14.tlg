@@ -24,13 +24,21 @@ Completed box being shipped out [1]
 ......\penalty 10000
 ......\glue 412.56496 plus 28.45274
 ......\glue 0.0
-......\glue 0.0
-......\glue 0.0
+......\penalty -51
+......\glue 0.0 plus 1.0
+......\glue 0.0 plus -1.0
 ......\glue(\parskip) 0.0 plus 1.0
 ......\glue(\parskip) 0.0
 ......\glue(\baselineskip) 3.85997
 ......\hbox(8.14003+1.94444)x221.0, glue set - 0.91708
 .......\hbox(0.0+0.0)x10.00002
+........\glue 10.00002
+........\glue -15.00003
+........\glue -5.0
+........\hbox(0.0+0.0)x15.00003, glue set 15.00003fil
+.........\glue 0.0 plus 1.0fil
+........\glue 5.0
+.......\penalty 0
 .......\mathon
 .......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
@@ -859,11 +867,13 @@ Completed box being shipped out [1]
 ......\glue(\abovedisplayskip) -12.0
 ......\glue(\baselineskip) 10.05556
 ......\hbox(0.0+0.0)x0.0, shifted 110.5, display
-......\penalty 301
+......\penalty 10000
 ......\glue(\belowdisplayskip) 0.0
-......\glue -12.0 plus -1.0
+......\glue -12.0
+......\glue(\parskip) 0.0
+......\glue(\parskip) 0.0
 ......\glue 12.0
-......\glue(\parskip) 0.0 plus 1.0
+......\glue(\parskip) 0.0
 ......\glue(\parskip) 0.0
 ......\glue(\baselineskip) 5.05556
 ......\hbox(6.94444+0.0)x221.0, glue set 101.26309fill
@@ -895,6 +905,7 @@ Completed box being shipped out [1]
 .......\penalty 10000
 .......\glue(\parfillskip) 0.0 plus 1.0fil
 .......\glue(\rightskip) 0.0
+......\penalty 51
 ......\glue 0.0
 ......\glue 0.0 plus 1.0fil
 ......\glue 0.0
@@ -969,20 +980,28 @@ Completed box being shipped out [2]
 ..\vbox(598.0+0.0)x452.0
 ...\hbox(598.0+0.0)x452.0, glue set 5.0fil
 ....\hbox(598.0+0.0)x221.0
-.....\vbox(598.0+0.0)x221.0, glue set 0.77419
+.....\vbox(598.0+0.0)x221.0, glue set 0.79733
 ......\write-{}
 ......\glue(\topskip) 10.0
 ......\rule(0.0+0.0)x*
 ......\penalty 10000
 ......\glue 435.32724 plus 28.45274
 ......\glue 0.0
-......\glue 0.0
-......\glue 0.0
+......\penalty -51
+......\glue 0.0 plus 1.0
+......\glue 0.0 plus -1.0
 ......\glue(\parskip) 0.0 plus 1.0
 ......\glue(\parskip) 0.0
 ......\glue(\baselineskip) 3.85997
 ......\hbox(8.14003+1.94444)x221.0, glue set 0.5784
 .......\hbox(0.0+0.0)x10.00002
+........\glue 10.00002
+........\glue -15.00003
+........\glue -5.0
+........\hbox(0.0+0.0)x15.00003, glue set 15.00003fil
+.........\glue 0.0 plus 1.0fil
+........\glue 5.0
+.......\penalty 0
 .......\mathon
 .......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
 ........\OT1/cmr/m/n/7 1
@@ -1245,16 +1264,16 @@ Completed box being shipped out [2]
 .......\glue(\parfillskip) 0.0 plus 1.0fil
 .......\glue(\rightskip) 0.0
 ......\penalty -51
-......\glue 6.0 plus 3.0 minus 2.0
+......\glue 6.0 plus 2.0 minus 2.0
 ......\glue(\parskip) 0.0 plus 1.0
 ......\glue(\parskip) 0.0
 ......\glue(\baselineskip) 5.05556
 ......\hbox(6.94444+1.94444)x200.99997, glue set - 0.76993, shifted 10.00002
 .......\hbox(0.0+0.0)x10.00002
 ........\glue 10.00002
-........\glue -15.00003
+........\glue -17.0
 ........\glue 0.0
-........\hbox(0.0+0.0)x15.00003, glue set 15.00003fil
+........\hbox(0.0+0.0)x17.0, glue set 17.0fil
 .........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\penalty 0
@@ -1576,11 +1595,26 @@ Completed box being shipped out [2]
 ......\glue 12.0 plus 1.0
 ......\penalty 51
 ......\glue -12.0 plus -1.0
+......\glue 12.0 plus 1.0
+......\glue 6.0 plus 1.0 minus 2.0
+......\glue(\parskip) 0.0
+......\glue(\parskip) 0.0
+......\penalty 10000
+......\glue(\abovedisplayshortskip) -12.0
+......\glue(\baselineskip) 12.0
+......\hbox(0.0+0.0)x0.0, shifted 110.5, display
+......\penalty 10000
+......\glue(\belowdisplayshortskip) 0.0
+......\glue -12.0
+......\glue -6.0 plus -1.0 minus -2.0
+......\glue(\parskip) 0.0
+......\glue(\parskip) 0.0
 ......\glue 12.0
-......\glue(\parskip) 0.0 plus 1.0
+......\glue(\parskip) 0.0
 ......\glue(\parskip) 0.0
 ......\glue(\baselineskip) 5.05556
-......\hbox(6.94444+1.94444)x221.0, glue set 135.25603fill
+......\hbox(6.94444+1.94444)x221.0, glue set 125.25601fill
+.......\hbox(0.0+0.0)x10.00002
 .......\glue 0.0 plus 1.0fill
 .......\hbox(6.94444+1.94444)x85.74397
 ........\OT1/cmr/bx/n/10 2
@@ -1602,6 +1636,7 @@ Completed box being shipped out [2]
 .......\penalty 10000
 .......\glue(\parfillskip) 0.0 plus 1.0fil
 .......\glue(\rightskip) 0.0
+......\penalty 51
 ......\glue 0.0
 ......\glue -1.94444
 ......\glue 0.0 plus 1.0fil
@@ -1630,9 +1665,9 @@ Completed box being shipped out [3]
 ......\penalty 10000
 ......\glue 441.01772 plus 28.45274
 ......\glue 0.0
-......\glue 0.0
-......\glue 0.0
 ......\penalty -51
+......\glue 0.0 plus 1.0
+......\glue 0.0 plus -1.0
 ......\glue 0.0 plus 1.0
 ......\glue 0.0 plus -1.0
 ......\glue(\parskip) 0.0 plus 1.0
@@ -1640,10 +1675,18 @@ Completed box being shipped out [3]
 ......\glue(\baselineskip) 3.85997
 ......\hbox(8.14003+1.94444)x200.99997, glue set 1.49864, shifted 10.00002
 .......\hbox(0.0+0.0)x10.00002
+........\glue -10.00002
 ........\glue 10.00002
 ........\glue -15.00003
-........\glue 0.0
+........\glue -5.0
 ........\hbox(0.0+0.0)x15.00003, glue set 15.00003fil
+.........\glue 0.0 plus 1.0fil
+........\glue 5.0
+........\glue 10.00002
+........\glue 0.0
+........\glue -17.0
+........\glue 0.0
+........\hbox(0.0+0.0)x17.0, glue set 17.0fil
 .........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\penalty 0
@@ -2262,11 +2305,13 @@ Completed box being shipped out [3]
 ......\glue(\abovedisplayskip) -12.0
 ......\glue(\baselineskip) 10.05556
 ......\hbox(0.0+0.0)x0.0, shifted 110.5, display
-......\penalty 301
+......\penalty 10000
 ......\glue(\belowdisplayskip) 0.0
-......\glue -12.0 plus -1.0
+......\glue -12.0
+......\glue(\parskip) 0.0
+......\glue(\parskip) 0.0
 ......\glue 12.0
-......\glue(\parskip) 0.0 plus 1.0
+......\glue(\parskip) 0.0
 ......\glue(\parskip) 0.0
 ......\glue(\baselineskip) 5.05556
 ......\hbox(6.94444+1.94444)x221.0, glue set 119.66579fill
@@ -2293,6 +2338,7 @@ Completed box being shipped out [3]
 .......\penalty 10000
 .......\glue(\parfillskip) 0.0 plus 1.0fil
 .......\glue(\rightskip) 0.0
+......\penalty 51
 ......\glue 0.0
 ......\glue -1.94444
 ......\glue 0.0 plus 1.0fil
@@ -2314,31 +2360,39 @@ Completed box being shipped out [4]
 ..\vbox(598.0+0.0)x452.0
 ...\hbox(598.0+0.0)x452.0, glue set 5.0fil
 ....\hbox(598.0+0.0)x221.0
-.....\vbox(598.0+0.0)x221.0, glue set 0.58018
+.....\vbox(598.0+0.0)x221.0, glue set 0.81204
 ......\write-{}
 ......\glue(\topskip) 10.0
 ......\rule(0.0+0.0)x*
 ......\penalty 10000
-......\glue 534.9119 plus 28.45274
-......\glue 0.0
-......\glue 0.0
+......\glue 528.08307 plus 28.45274
 ......\glue 0.0
 ......\penalty -51
+......\glue 0.0 plus 1.0
+......\glue 0.0 plus -1.0
 ......\glue 0.0 plus 1.0
 ......\glue 0.0
 ......\glue(\parskip) 0.0
 ......\glue(\parskip) 0.0
 ......\glue(\baselineskip) 3.60004
 ......\hbox(8.39996+3.60004)x210.99998, glue set 24.79153fil, shifted 10.00002
-.......\kern -10.00002
 .......\hbox(0.0+0.0)x10.00002
+........\glue -10.00002
 ........\glue 10.00002
 ........\glue -15.00003
-........\glue 0.0
+........\glue -5.0
 ........\hbox(0.0+0.0)x15.00003, glue set 15.00003fil
+.........\glue 0.0 plus 1.0fil
+........\glue 5.0
+........\glue 10.00002
+........\glue 0.0
+........\glue -17.0
+........\glue 0.0
+........\hbox(0.0+0.0)x17.0, glue set 17.0fil
 .........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\penalty 0
+.......\glue -10.00002
 .......\rule(8.39996+3.60004)x0.0
 .......\hbox(8.14003+0.0)x0.0, glue set - 4.98616fil
 ........\glue 0.0 plus 1.0fil minus 1.0fil
@@ -2532,12 +2586,26 @@ Completed box being shipped out [4]
 ......\glue 12.0
 ......\penalty 51
 ......\glue -12.0
-......\glue 0.0 plus -1.0
 ......\glue 12.0
-......\glue(\parskip) 0.0 plus 1.0
+......\glue 6.0 plus 1.0 minus 2.0
+......\glue(\parskip) 0.0
+......\glue(\parskip) 0.0
+......\penalty 10000
+......\glue(\abovedisplayshortskip) -12.0
+......\glue(\baselineskip) 12.0
+......\hbox(0.0+0.0)x0.0, shifted 110.5, display
+......\penalty 10000
+......\glue(\belowdisplayshortskip) 0.0
+......\glue -12.0
+......\glue -6.0 plus -1.0 minus -2.0
+......\glue(\parskip) 0.0
+......\glue(\parskip) 0.0
+......\glue 12.0
+......\glue(\parskip) 0.0
 ......\glue(\parskip) 0.0
 ......\glue(\baselineskip) 5.05556
-......\hbox(6.94444+0.0)x221.0, glue set 172.81143fill
+......\hbox(6.94444+0.0)x221.0, glue set 162.81142fill
+.......\hbox(0.0+0.0)x10.00002
 .......\glue 0.0 plus 1.0fill
 .......\hbox(6.94444+0.0)x48.18857
 ........\OT1/cmr/bx/n/10 I
@@ -2553,6 +2621,7 @@ Completed box being shipped out [4]
 .......\penalty 10000
 .......\glue(\parfillskip) 0.0 plus 1.0fil
 .......\glue(\rightskip) 0.0
+......\penalty 51
 ......\glue 0.0
 ......\glue 0.0 plus 1.0fil
 ......\glue 0.0
@@ -2573,20 +2642,28 @@ Completed box being shipped out [5]
 ..\vbox(598.0+0.0)x452.0
 ...\hbox(598.0+0.0)x452.0, glue set 5.0fil
 ....\hbox(598.0+0.0)x221.0
-.....\vbox(598.0+0.0)x221.0, glue set 0.77237
+.....\vbox(598.0+0.0)x221.0, glue set 0.79692
 ......\write-{}
 ......\glue(\topskip) 10.0
 ......\rule(0.0+0.0)x*
 ......\penalty 10000
 ......\glue 460.93456 plus 28.45274
 ......\glue 0.0
-......\glue 0.0
-......\glue 0.0
+......\penalty -51
+......\glue 0.0 plus 1.0
+......\glue 0.0 plus -1.0
 ......\glue(\parskip) 0.0 plus 1.0
 ......\glue(\parskip) 0.0
 ......\glue(\baselineskip) 3.85997
 ......\hbox(8.14003+1.94444)x221.0, glue set 1.66426
 .......\hbox(0.0+0.0)x10.00002
+........\glue 10.00002
+........\glue -15.00003
+........\glue -5.0
+........\hbox(0.0+0.0)x15.00003, glue set 15.00003fil
+.........\glue 0.0 plus 1.0fil
+........\glue 5.0
+.......\penalty 0
 .......\mathon
 .......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
@@ -2693,7 +2770,7 @@ Completed box being shipped out [5]
 .......\glue(\parfillskip) 0.0 plus 1.0fil
 .......\glue(\rightskip) 0.0
 ......\penalty -51
-......\glue 6.0 plus 3.0 minus 2.0
+......\glue 6.0 plus 2.0 minus 2.0
 ......\glue(\parskip) 0.0
 ......\glue(\parskip) 0.0
 ......\glue(\baselineskip) 3.11111
@@ -2701,9 +2778,9 @@ Completed box being shipped out [5]
 .......\kern -10.00002
 .......\hbox(0.0+0.0)x10.00002
 ........\glue 10.00002
-........\glue -15.00003
+........\glue -17.0
 ........\glue 0.0
-........\hbox(0.0+0.0)x15.00003, glue set 15.00003fil
+........\hbox(0.0+0.0)x17.0, glue set 17.0fil
 .........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\penalty 0
@@ -2989,11 +3066,13 @@ Completed box being shipped out [5]
 ......\glue(\abovedisplayskip) -12.0
 ......\glue(\baselineskip) 12.0
 ......\hbox(0.0+0.0)x0.0, shifted 110.5, display
-......\penalty 301
+......\penalty 10000
 ......\glue(\belowdisplayskip) 0.0
-......\glue -12.0 plus -1.0
+......\glue -12.0
+......\glue(\parskip) 0.0
+......\glue(\parskip) 0.0
 ......\glue 12.0
-......\glue(\parskip) 0.0 plus 1.0
+......\glue(\parskip) 0.0
 ......\glue(\parskip) 0.0
 ......\glue(\baselineskip) 5.13889
 ......\hbox(6.86111+0.0)x221.0, glue set 141.06845fill
@@ -3016,6 +3095,7 @@ Completed box being shipped out [5]
 .......\penalty 10000
 .......\glue(\parfillskip) 0.0 plus 1.0fil
 .......\glue(\rightskip) 0.0
+......\penalty 51
 ......\glue 0.0
 ......\glue 0.0 plus 1.0fil
 ......\glue 0.0

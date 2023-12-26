@@ -91,6 +91,13 @@ Completed box being shipped out [1]
 .........\vbox(8.14003+109.94444)x176.80067
 ..........\hbox(8.14003+1.94444)x176.80067, glue set 0.35193
 ...........\hbox(0.0+0.0)x0.0
+............\glue 0.0
+............\glue -15.00003
+............\glue -5.0
+............\hbox(0.0+0.0)x15.00003, glue set 15.00003fil
+.............\glue 0.0 plus 1.0fil
+............\glue 5.0
+...........\penalty 0
 ...........\mathon
 ...........\hbox(4.51111+0.0)x8.47226, shifted -3.62892
 ............\OT1/cmr/m/n/7 3
@@ -568,9 +575,11 @@ Completed box being shipped out [1]
 ........\glue(\abovedisplayshortskip) -12.0
 ........\glue(\baselineskip) 12.0
 ........\hbox(0.0+0.0)x0.0, shifted 88.40034, display
-........\penalty 301
+........\penalty 10000
 ........\glue(\belowdisplayshortskip) 0.0
 ........\glue -12.0
+........\glue(\parskip) 0.0
+........\glue(\parskip) 0.0
 ........\glue 12.0
 ........\glue(\parskip) 0.0
 ........\glue(\parskip) 0.0
@@ -607,6 +616,7 @@ Completed box being shipped out [1]
 .........\penalty 10000
 .........\glue(\parfillskip) 0.0 plus 1.0fil
 .........\glue(\rightskip) 0.0
+........\penalty 51
 .......\mathoff
 .......\penalty 10000
 .......\glue(\parfillskip) 0.0 plus 1.0fil

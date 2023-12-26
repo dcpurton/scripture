@@ -22,6 +22,13 @@ Completed box being shipped out [1]
 ......\glue(\topskip) 3.05556
 ......\hbox(6.94444+1.94444)x221.0, glue set 0.81467
 .......\hbox(0.0+0.0)x10.00002
+........\glue 10.00002
+........\glue -15.00003
+........\glue -5.0
+........\hbox(0.0+0.0)x15.00003, glue set 15.00003fil
+.........\glue 0.0 plus 1.0fil
+........\glue 5.0
+.......\penalty 0
 .......\OT1/cmr/m/n/10 3
 .......\OT1/cmr/m/n/10 3
 .......\kern 5.0
@@ -180,7 +187,7 @@ Completed box being shipped out [1]
 .......\glue(\parfillskip) 0.0 plus 1.0fil
 .......\glue(\rightskip) 0.0
 ......\penalty -51
-......\glue 0.0 plus 3.0
+......\glue 0.0 plus 2.0
 ......\glue 0.0
 ......\glue(\parskip) 0.0
 ......\glue(\parskip) 0.0
@@ -189,9 +196,9 @@ Completed box being shipped out [1]
 .......\kern -10.00002
 .......\hbox(0.0+0.0)x10.00002
 ........\glue 10.00002
-........\glue -15.00003
+........\glue -17.0
 ........\glue 0.0
-........\hbox(0.0+0.0)x15.00003, glue set 15.00003fil
+........\hbox(0.0+0.0)x17.0, glue set 17.0fil
 .........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\penalty 0
@@ -387,7 +394,7 @@ Completed box being shipped out [1]
 ......\penalty 51
 ......\glue -12.0
 ......\glue 12.0
-......\glue 0.0 plus 2.0
+......\glue 0.0 plus 1.0
 ......\glue(\parskip) 0.0 plus 1.0
 ......\glue(\parskip) 0.0
 ......\glue(\baselineskip) 3.85997
@@ -502,11 +509,13 @@ Completed box being shipped out [1]
 ......\glue(\abovedisplayskip) -12.0
 ......\glue(\baselineskip) 10.05556
 ......\hbox(0.0+0.0)x0.0, shifted 110.5, display
-......\penalty 301
+......\penalty 10000
 ......\glue(\belowdisplayskip) 0.0
-......\glue -12.0 plus -1.0
+......\glue -12.0
+......\glue(\parskip) 0.0
+......\glue(\parskip) 0.0
 ......\glue 12.0
-......\glue(\parskip) 0.0 plus 1.0
+......\glue(\parskip) 0.0
 ......\glue(\parskip) 0.0
 ......\glue(\baselineskip) 4.5
 ......\hbox(7.5+2.5)x221.0, glue set 77.76323fill
@@ -538,6 +547,7 @@ Completed box being shipped out [1]
 .......\penalty 10000
 .......\glue(\parfillskip) 0.0 plus 1.0fil
 .......\glue(\rightskip) 0.0
+......\penalty 51
 ......\glue 0.0
 ......\glue -2.5
 ......\glue 0.0 plus 1.0fil

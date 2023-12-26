@@ -6,7 +6,7 @@
 \START
 \showoutput
 \begin{scripture}
-  \begin{center}
+  \begin{center}[leftmargin=4em, rightmargin=4em]
     \textbf{Psalm 52}
 
     \bigskip

@@ -1814,7 +1814,7 @@
 % \changes{v1.1}{2022/07/28}{Add \opt{verse/sep} option with small default}
 % \begin{option}[added=2022-07-28]{verse/sep}
 %   \begin{syntax}
-%     verse/sep = \meta{dimen} \hfill Default: 0.05 em
+%     verse/sep = \meta{dimen} \hfill Default: 0.05em
 %   \end{syntax}
 %   \meta{|dimen|} used to separate a \cs{vs} from the following text.
 % \end{option}
@@ -2569,6 +2569,64 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\g_@@_prev_inner_below_skip}
+%   Save the last below skip of an inner environment so it can be removed if
+%   the main scripture environment ends with and inner environment.
+%    \begin{macrocode}
+\skip_new:N \g_@@_prev_inner_below_skip
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l_@@_outer_itemindent_dim}
+%   Holds the \cs{itemindent} of the outer list. Used to calculate the
+%   \cs{itemindent} to retain correct indenting when a list environment is
+%   the first thing in an outer list.
+%    \begin{macrocode}
+\dim_new:N \l_@@_outer_itemindent_dim
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_setup_list_noindent:n}
+%   Set \cs{noindent} to do a negative horizontal skip a list is the first
+%   item in a list then restore it at the end of the paragraph. This allows
+%   \cs{itemindent} to be set to a negative value and still have \cs{noindent}
+%   behave as expected.
+%    \begin{macrocode}
+\cs_new_protected_nopar:Nn \@@_setup_list_noindent:n
+  {
+    \legacy_if:nT {@newlist}
+      {
+        \cs_set_protected_nopar:Npn \noindent
+          {
+            \skip_horizontal:n { -#1 }
+          }
+        \hook_gput_next_code:nn { para / end }
+          {
+            \cs_gset_eq:NN \noindent \tex_noindent:D
+          }
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_skip_diff:NN}
+%   Find the difference between two skips while avoiding negative stretch and
+%   shrink components.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_skip_diff:NN
+  {
+    \skip_eval:n
+      {
+        \dim_eval:n { \dimexpr #1 - \dimexpr #2 }
+        ~ plus ~
+          \dim_max:nn { \gluestretch #1 - \gluestretch #2 } \c_zero_dim
+        ~ minus ~
+          \dim_max:nn { \glueshrink #1 - \glueshrink #2 } \c_zero_dim
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\@@_extra_skip:}
 %   Insert a little extra vertical space between two paragraphs. This function
 %   tests if the previous paragraph is only one line in length and began
@@ -2655,7 +2713,8 @@
 %    \begin{macrocode}
         \tl_if_empty:NF \l_@@_version_tl
           {
-            \l_@@_version_delim_tl
+            \tl_if_empty:nF { #1 }
+              { \l_@@_version_delim_tl }
             \@@_version_format:n { \l_@@_version_tl }
           }
       }
@@ -2673,16 +2732,8 @@
       {
         \@@_format_full_ref:n { #1 }
       }
-%    \end{macrocode}
-% Since the \env{poetry} environment uses \cs{@@_obeylines:} there is always
-% an extra \cs{parskip} when a \env{scripture} quotation ends with a
-% \env{poetry}
-% environment.
-%    \begin{macrocode}
-    \bool_if:NT \g_@@_poetry_end_bool
-      { \skip_vertical:n { -\parskip } }
     \dim_compare:nNnT
-      { \box_wd:N \l_@@_ref_box + \l_@@_leftmargin_tl + \g_@@_final_line_dim + \l_@@_ref_sep_tl }
+      { \box_wd:N \l_@@_ref_box + \g_@@_final_line_dim + \l_@@_ref_sep_tl }
       >
       \linewidth
       {
@@ -2693,17 +2744,9 @@
               { \skip_vertical:N \baselineskip }
           }
       }
-%    \end{macrocode}
-% If a \env{scripture} quotation ends with an inner environment, there will
-% be an extra space of \cs{baselineskip}.
-%    \begin{macrocode}
-    \int_compare:nNnT \prevgraf = \c_zero_int
-      { \skip_vertical:n { -\baselineskip } }
     \tl_if_eq:NnTF \l_@@_ref_align_tl { right }
       { \hfill }
       {
-        \noindent
-        \mode_leave_vertical:
         \dim_compare:nNnT
           { \box_wd:N \l_@@_ref_box + \g_@@_final_line_dim + \l_@@_ref_sep_tl }
           <
@@ -2899,8 +2942,7 @@
     \hook_gput_next_code:nn { para / after }
       {
         \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \prevgraf
-        \int_compare:nNnT
-          \g_@@_chap_par_prevgraf_int = 1
+        \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
           { \penalty 10000 }
         \hook_gput_next_code:nn { para / before }
           { \int_set_eq:NN \clubpenalty \l_@@_clubpenalty_saved_int }
@@ -2915,42 +2957,24 @@
 \cs_new_protected:Nn \@@_drop_chap_output:
   {
     \noindent
-    \int_compare:nNnTF \@listdepth > \c_zero_int
-      {
-        \parshape 3 ~
-          \dim_eval:n
-            { \@totalleftmargin + \l_@@_chap_width_dim + \l_@@_chap_sep_tl } ~
-          \dim_eval:n
-            { \linewidth - \l_@@_chap_width_dim - \l_@@_chap_sep_tl } ~
-          \dim_eval:n
-            { \@totalleftmargin + \l_@@_chap_width_dim + \l_@@_chap_sep_tl } ~
-          \dim_eval:n
-            { \linewidth - \l_@@_chap_width_dim - \l_@@_chap_sep_tl } ~
-          \@totalleftmargin ~
-          \linewidth
-      }
-      {
-        \parshape 3 ~
-          \dim_eval:n
-            { \@totalleftmargin + \l_@@_chap_width_dim + \l_@@_chap_sep_tl - \l_@@_leftmargin_tl } ~
-          \dim_eval:n
-            { \linewidth - \l_@@_chap_width_dim - \l_@@_chap_sep_tl + \l_@@_leftmargin_tl + \l_@@_rightmargin_tl } ~
-          \dim_eval:n
-            { \@totalleftmargin + \l_@@_chap_width_dim + \l_@@_chap_sep_tl - \l_@@_leftmargin_tl } ~
-          \dim_eval:n
-            { \linewidth - \l_@@_chap_width_dim - \l_@@_chap_sep_tl  + \l_@@_leftmargin_tl + \l_@@_rightmargin_tl } ~
-          \dim_eval:n { \@totalleftmargin - \l_@@_leftmargin_tl } ~
-          \dim_eval:n { \linewidth + \l_@@_leftmargin_tl + \l_@@_rightmargin_tl }
-      }
+    \parshape 3 ~
+      \dim_eval:n
+        { \@totalleftmargin + \l_@@_chap_width_dim + \l_@@_chap_sep_tl } ~
+      \dim_eval:n
+        { \linewidth - \l_@@_chap_width_dim - \l_@@_chap_sep_tl } ~
+      \dim_eval:n
+        { \@totalleftmargin + \l_@@_chap_width_dim + \l_@@_chap_sep_tl } ~
+      \dim_eval:n
+        { \linewidth - \l_@@_chap_width_dim - \l_@@_chap_sep_tl } ~
+      \@totalleftmargin ~
+      \linewidth
     \group_begin:
     \hook_use:n { scripture / chap / before }
     \box_use:N \l_@@_chap_box
     \hook_use:n { scripture / chap / after }
     \group_end:
     \bool_if:NT \l_@@_chap_show_verse_bool
-      {
-        \@@_verse_output:n { 1 }
-      }
+      { \@@_verse_output:n { 1 } }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -3017,13 +3041,13 @@
       }
     \hook_gput_next_code:nn { para / before }
       {
-        \int_compare:nNnT
-          \g_@@_chap_par_prevgraf_int = 1
-          { \extraskip }
-        \int_gzero:N \g_@@_chap_par_prevgraf_int
-        \int_compare:nNnT
-          \@listdepth > \c_zero_int
-          { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
+        \legacy_if:nF { @newlist }
+          {
+            \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+              { \extraskip }
+            \int_gzero:N \g_@@_chap_par_prevgraf_int
+          }
+        \parshape 1 ~ \@totalleftmargin ~ \linewidth
       }
   }
 %    \end{macrocode}
@@ -3125,23 +3149,10 @@
         }
     $$
     \@@_reset_spacing:
-    \str_if_eq:VnTF \l_@@_currenvir_str { scripture }
-      {
-        \int_compare:nNnTF \@listdepth = \c_zero_int
-          { \dim_gsub:Nn \g_@@_final_line_dim \l_@@_leftmargin_tl }
-          { \dim_gsub:Nn \g_@@_final_line_dim \@totalleftmargin }
-      }
-      { \dim_gsub:Nn \g_@@_final_line_dim \@totalleftmargin }
-    \str_if_eq:VnF \l_@@_currenvir_str { scripture }
-      { \dim_gadd:Nn \g_@@_final_line_dim \leftmargin }
-    \dim_compare:nNnT \g_@@_final_line_dim > \linewidth
-      {
-        \dim_gset_eq:NN \g_@@_final_line_dim \linewidth
-      }
+    \dim_compare:nNnT \g_@@_final_line_dim > \paperwidth
+      { \dim_gset:Nn \g_@@_final_line_dim { \@totalleftmargin + \linewidth } }
     \dim_compare:nNnT \g_@@_final_line_dim > { \c_zero_dim - 1 sp }
-      {
-        \skip_vertical:n { -\baselineskip - \parskip }
-      }
+      { \skip_vertical:n { -\baselineskip - \parskip } }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -3163,12 +3174,69 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\g_@@_start_bool}
-%   Flag indicating whether we are currently setting the first paragraph in a
-%   \env{scripture} environment. If this is \val{true}, any \opt{aboveskip}
-%   for an inner environment will be ignored.
+% \begin{macro}{\@@_added:n}
+%   Mark text as added.
 %    \begin{macrocode}
-\bool_new:N \g_@@_start_bool
+\cs_new_protected_nopar:Nn \@@_added:n
+  {
+    \group_begin:
+    \l_@@_added_font_tl
+    \@@_added_format:n { #1 }
+    \group_end:
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_name:n}
+%   Output divine name.
+%    \begin{macrocode}
+\cs_new_protected_nopar:Nn \@@_name:n
+  {
+    \group_begin:
+    \l_@@_name_font_tl
+    \@@_name_format:n { #1 }
+    \group_end:
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_no_first_verse:}
+%   Suppress special formatting for first verse if active.
+%    \begin{macrocode}
+\cs_new_protected_nopar:Nn \@@_no_first_verse:
+  {
+    \bool_set_true:N \l_@@_no_verse_first_bool
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_ch:nn}
+%   Print a chapter number in the main scripture environment.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_ch_output:nn
+  {
+    \bool_if:NTF \l_@@_chap_show_bool
+      {
+        \bool_if:NTF \l_@@_chap_drop_bool
+          {
+            \@@_chap:n { #2 }
+            \bool_if:nTF { #1 }
+            {
+              \hook_gput_next_code:nn { para / after }
+                {
+                  \int_gzero:N \g_@@_chap_par_prevgraf_int
+                  \int_gzero:N \g_@@_mid_para_chap_prevgraf_int
+                }
+            }
+            {
+              \hook_gput_next_code:nn { para / after }
+                { \int_gset_eq:NN \g_@@_mid_para_chap_prevgraf_int \prevgraf }
+            }
+          }
+          { \@@_nodrop_chap:n { #2 } }
+      }
+      { \@@_nodrop_chap:n { #2 } }
+  }
 %    \end{macrocode}
 % \end{macro}
 %
@@ -3177,6 +3245,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_begin:n
   {
+    \cs_set_eq:NN \@@_noindent_saved: \noindent
     \bool_if:NT \l_@@_active_bool
       {
         \msg_error:nn { scripture } { nested-environment }
@@ -3189,134 +3258,72 @@
       }
     \@@_select_language:
 %    \end{macrocode}
-% If the \env{scripture} environment begins immediately after an \cs{item},
-% then insert a new paragraph and apply a negative skip. Life is much easier
-% if all paragraphs in a \env{scripture} are the same rather than the first
-% one being in the first paragraph of an \cs{item}.
-%    \begin{macrocode}
-    \legacy_if:nT { @newlist }
-      {
-        \strut
-        \par
-        \vspace*
-          {
-            \skip_eval:n { -\baselineskip - \parskip }
-          }
-      }
-    \mode_if_vertical:T
-      {
-        \addvspace { \l_@@_aboveskip_tl }
-      }
-    \DeclareDocumentCommand { \ch } { sm }
-      {
-        \bool_if:NTF \l_@@_chap_show_bool
-          {
-            \bool_if:NTF \l_@@_chap_drop_bool
-              {
-                \@@_chap:n { ##2 }
-                \bool_if:nT { ##1 }
-                  {
-                    \hook_gput_next_code:nn { para / after }
-                      { \int_gzero:N \g_@@_chap_par_prevgraf_int }
-                  }
-              }
-              { \@@_nodrop_chap:n { ##2 } }
-          }
-          { \@@_nodrop_chap:n { ##2 } }
-      }
-%    \end{macrocode}
 % Empty \cs{everydisplay} to ensure it isn't interring with spacing.
 %    \begin{macrocode}
     \everydisplay { }
     \int_set:Nn \predisplaypenalty { 10000 }
     \int_set_eq:NN \postdisplaypenalty \@lowpenalty
-    \bool_gset_true:N \g_@@_start_bool
+    \int_set:Nn \@beginparpenalty { -\@lowpenalty }
+    \int_set_eq:NN \@endparpenalty \@lowpenalty
     \bool_gset_false:N \g_@@_poetry_end_bool
-    \dim_set_eq:NN \parindent \l_@@_parindent_tl
     \cs_set_eq:NN \extraskip \@@_extra_skip:
     \cs_set_eq:NN \redletteron \@@_red_letter_on:
     \cs_set_eq:NN \redletteroff \@@_red_letter_off:
+    \DeclareDocumentCommand { \ch } { sm }
+      { \@@_ch_output:nn { ##1 } { ##2 } }
     \cs_set_eq:NN \vs \@@_verse_output:n
-    \cs_set_protected_nopar:Npn \added ##1
-      {
-        \group_begin:
-        \l_@@_added_font_tl
-        \@@_added_format:n { ##1 }
-        \group_end:
-      }
-    \cs_set_protected_nopar:Npn \name ##1
-      {
-        \group_begin:
-        \l_@@_name_font_tl
-        \@@_name_format:n { ##1 }
-        \group_end:
-      }
-    \cs_set_protected_nopar:Npn \nofirstverse
-      {
-        \bool_set_true:N \l_@@_no_verse_first_bool
-      }
-    \cs_set_protected_nopar:Npn \LORD
-      {
-        \name { Lord }
-      }
-    \cs_set_protected_nopar:Npn \GOD
-      {
-        \name { God }
-      }
+    \cs_set_eq:NN \added \@@_added:n
+    \cs_set_eq:NN \name \@@_name:n
+    \cs_set_protected_nopar:Npn \LORD { \name { Lord } }
+    \cs_set_protected_nopar:Npn \GOD { \name { God } }
+    \cs_set_eq:NN \nofirstverse \@@_no_first_verse:
     \cs_set_protected_nopar:Npn \textright ##1
-      {
-        \@@_text_right:nn { \l_@@_text_right_sep_tl } { ##1 }
-      }
+      { \@@_text_right:nn { \l_@@_text_right_sep_tl } { ##1 } }
     \hook_gclear_next_code:n { para / before }
-    \skip_set:Nn \l_@@_parskip_correction_skip { \parskip - \l_@@_parskip_tl }
-    \mode_if_vertical:T
-      {
-        \addvspace { \l_@@_parskip_correction_skip }
-      }
-    \skip_set_eq:NN \parskip \l_@@_parskip_tl
     \l_@@_font_tl
     \exp_args:NnV \color_set:nn { scripture default colour } \l_@@_colour_tl
     \str_if_eq:VnF \l_@@_colour_tl { . }
-      {
-        \color_select:n { scripture default colour }
-      }
-%    \end{macrocode}
-% For left and right margins, use \cs{parshape} is already in a list,
-% otherwise use \cs{leftskip} and \cs{rightskip}
-%    \begin{macrocode}
-    \bool_lazy_or:nnT
-      { \dim_compare_p:n { \l_@@_leftmargin_tl > 0pt } }
-      { \dim_compare_p:n { \l_@@_rightmargin_tl > 0pt } }
-      {
-        \dim_sub:Nn \linewidth
-          { \l_@@_leftmargin_tl + \l_@@_rightmargin_tl }
-        \int_compare:nNnTF
-          \@listdepth > \c_zero_int
-          {
-            \dim_add:Nn \@totalleftmargin \l_@@_leftmargin_tl
-            \parshape 1 ~ \@totalleftmargin ~ \linewidth
-          }
-          {
-            \dim_set_eq:NN \@totalleftmargin \l_@@_leftmargin_tl
-            \dim_add:Nn \leftskip \l_@@_leftmargin_tl
-            \dim_add:Nn \rightskip \l_@@_rightmargin_tl
-          }
-      }
-    \bool_if:NF \l_@@_indent_bool
-      {
-        \hook_gput_next_code:nn { para / begin }
-          {
-            \bool_lazy_any:nT
-              {
-                { \str_if_eq_p:Vn \l_@@_currenvir_str { midparachap } }
-                { \str_if_eq_p:Vn \l_@@_currenvir_str { narrow } }
-                { \str_if_eq_p:Vn \l_@@_currenvir_str { scripture } }
-              }
-              { \para_omit_indent: }
-          }
-      }
-    \bool_if:NT \l_@@_inline_bool
+      { \color_select:n { scripture default colour } }
+    \bool_if:NTF \l_@@_inline_bool
       { \l_@@_inline_begin_tl }
+      {
+        \legacy_if:nTF { @newlist }
+          { \dim_set_eq:NN \l_@@_outer_itemindent_dim \itemindent }
+          { \dim_zero:N \l_@@_outer_itemindent_dim }
+        \list { }
+          {
+            \dim_set_eq:NN \leftmargin \l_@@_leftmargin_tl
+            \dim_set_eq:NN \rightmargin \l_@@_rightmargin_tl
+            \dim_set:Nn \itemindent { \l_@@_parindent_tl - \l_@@_outer_itemindent_dim }
+            \dim_set_eq:NN \listparindent \l_@@_parindent_tl
+            \skip_zero:N \partopsep
+            \skip_set_eq:NN \parsep \l_@@_parskip_tl
+            \dim_compare:nNnTF \parskip > \l_@@_aboveskip_tl
+              { \skip_zero:N \topsep }
+              { \skip_set:Nn \topsep { \@@_skip_diff:NN \l_@@_aboveskip_tl \parskip } }
+            \@@_setup_list_noindent:n { \l_@@_parindent_tl }
+            \bool_if:NF \l_@@_indent_bool
+              {
+                \hook_gput_next_code:nn { para / begin }
+                  {
+                    \bool_lazy_any:nT
+                      {
+                        { \str_if_eq_p:Vn \l_@@_currenvir_str { midparachap } }
+                        { \str_if_eq_p:Vn \l_@@_currenvir_str { narrow } }
+                        { \str_if_eq_p:Vn \l_@@_currenvir_str { scripture } }
+                      }
+                      {
+                        \legacy_if:nTF { @noparlist }
+                          { \noindent }
+                          { \para_omit_indent: }
+                      }
+                  }
+              }
+          }
+        \dim_set_eq:NN \parindent \l_@@_parindent_tl
+        \item
+        \relax
+    }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -3328,102 +3335,64 @@
   {
     \bool_if:NTF \l_@@_inline_bool
       {
-        \bool_lazy_or:nnF
+        \unskip
+        \@@_red_letter_off:
+        \l_@@_inline_end_tl
+        \bool_lazy_or:nnTF
           { \tl_if_novalue_p:n { #1 } }
           { \tl_if_empty_p:n { #1 } }
           {
-            \unskip
-            \@@_red_letter_off:
-            \bool_if:NT \l_@@_inline_bool
-              { \l_@@_inline_end_tl }
+            \tl_if_empty:NF \l_@@_version_tl
+              {
+                \skip_horizontal:N \l_@@_ref_sep_tl
+                \@@_format_full_ref:n { }
+              }
+          }
+          {
             \skip_horizontal:N \l_@@_ref_sep_tl
             \@@_format_full_ref:n { #1 }
           }
       }
       {
+        \@@_red_letter_off:
+        \skip_zero:N \parskip
+        \int_set:Nn \postdisplaypenalty { 10000 }
+        \@@_calc_final_line_length:
+        \dim_gsub:Nn \g_@@_final_line_dim \@totalleftmargin
+        \dim_compare:nNnTF \@outerparskip > \l_@@_belowskip_tl
+          { \skip_zero:N \@topsepadd }
+          { \skip_set:Nn \@topsepadd { \@@_skip_diff:NN \l_@@_belowskip_tl \@outerparskip } }
 %    \end{macrocode}
-% Normally \cs{unskip} does not work in vertical mode, but there are some
-% situations where it does work. The following condition is true if the
-% \env{scripture} environment has ended with one of its internal
-% environments. This removes any unwanted \opt{belowskip} if present and
-% leaves the previously calculated line length of the final paragraph intact.
+% If a \env{scripture} quotation ends with an inner environment, remove the
+% below skip of the inner environment.
 %    \begin{macrocode}
-      \mode_if_vertical:TF
-        {
-          \unskip
-          \unskip
-        }
-        {
-          \tl_if_novalue:nTF { #1 }
-            { \int_zero:N \postdisplaypenalty }
-            { \int_set_eq:NN \postdisplaypenalty \@highpenalty }
-          \@@_calc_final_line_length:
-        }
+        \int_compare:nNnT \prevgraf = \c_zero_int
+          { \skip_vertical:n { -\g_@@_prev_inner_below_skip } }
+        \hook_gclear_next_code:n { para / before }
+        \parshape 1 ~ \@totalleftmargin ~ \linewidth
+        \noindent
+        \bool_lazy_or:nnTF
+          { \tl_if_novalue_p:n { #1 } }
+          { \tl_if_empty_p:n { #1 } }
+          { 
+            \tl_if_empty:NTF \l_@@_version_tl
+              { \hbox:n { } }
+              { \@@_reference:n { } }
+          }
+          { \@@_reference:n { #1 } }
 %    \end{macrocode}
-% Restore left margin by resetting the \cs{parshape} if in a list
-% based environment, otherwise the space required for the reference is
-% incorrectly calculated.
+% Set \val{@noparlist} to \val{false} to ensure \cs{topsep} is always added
+% \env{scripture} environment
 %    \begin{macrocode}
-      \bool_lazy_or:nnTF
-        { \dim_compare_p:n { \l_@@_leftmargin_tl > 0pt } }
-        { \dim_compare_p:n { \l_@@_rightmargin_tl > 0pt } }
-        {
-          \dim_add:Nn \linewidth \l_@@_leftmargin_tl
-          \int_compare:nNnT
-            \@listdepth > \c_zero_int
-            {
-              \dim_sub:Nn \@totalleftmargin \l_@@_leftmargin_tl
-              \parshape 1 ~ \@totalleftmargin ~ \linewidth
-            }
-        }
-        { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
-      \@@_red_letter_off:
-      \bool_lazy_or:nnF
-        { \tl_if_novalue_p:n { #1 } }
-        { \tl_if_empty_p:n { #1 } }
-        { \@@_reference:n { #1 } }
-      \par
-%    \end{macrocode}
-% Restore right margin by resetting the \cs{parshape} if in a \LaTeX{} list
-% based environment, since only the left margin was restored above.
-%    \begin{macrocode}
-      \bool_lazy_or:nnT
-        { \dim_compare_p:n { \l_@@_leftmargin_tl > 0pt } }
-        { \dim_compare_p:n { \l_@@_rightmargin_tl > 0pt } }
-        {
-          \int_compare:nNnT
-            \@listdepth > \c_zero_int
-            {
-              \dim_add:Nn \linewidth \l_@@_rightmargin_tl
-              \parshape 1 ~ \@totalleftmargin ~ \linewidth
-            }
-        }
-      \dim_compare:nNnTF
-        { \glueexpr \l_@@_belowskip_tl } > \parskip
-        {
-          \addvspace
-            {
-              \skip_eval:n { \l_@@_belowskip_tl - \parskip }
-            }
-        }
-        {
-          \addvspace { \l_@@_belowskip_tl }
-        }
+        \@noparlistfalse
+        \endlist
       }
+    \cs_set_eq:NN \noindent \@@_noindent_saved:
   }
 %    \end{macrocode}
 % \end{macro}
 %
 % \subsection{Scripture internal environments}
-%
-% \begin{macro}{\l_@@_delta_below_skip}
-%   Correction to \tn{@topsepadd} for internal environments. This enables a
-%   different \opt{aboveskip} and \opt{belowskip} which are normally the
-%   same for \LaTeX{} lists.
-%    \begin{macrocode}
-\skip_new:N \l_@@_delta_below_skip
-%    \end{macrocode}
-% \end{macro}
 %
 % \subsubsection{The \env{center} environment}
 %
@@ -3444,41 +3413,29 @@
           { scripture / center }
           { #1 }
       }
-    \mode_if_horizontal:T
-      { \par }
+    \legacy_if:nTF { @newlist }
+      { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
+      { \dim_zero:N \l_@@_outer_itemindent_dim }
     \list { }
       {
-        \skip_set_eq:NN \l_@@_delta_below_skip \l_@@_center_belowskip_tl
 %    \end{macrocode}
 % Ignore \opt{aboveskip} if at the beginning of a \env{scripture} environment.
 %    \begin{macrocode}
-        \bool_if:NTF \g_@@_start_bool
-          {
-            \skip_zero:N \topsep
-            \skip_add:Nn \topsep \l_@@_parskip_correction_skip
-            \skip_sub:Nn \l_@@_delta_below_skip \l_@@_parskip_correction_skip
-            \bool_gset_false:N \g_@@_start_bool
-          }
-          {
-            \dim_compare:nTF
-              { \parskip >= \glueexpr \l_@@_center_aboveskip_tl > \c_zero_skip }
-              {
-                \skip_zero:N \topsep
-                \skip_zero:N \l_@@_delta_below_skip
-              }
-              {
-                \skip_set_eq:NN \topsep \l_@@_center_aboveskip_tl
-                \skip_sub:Nn \l_@@_delta_below_skip \l_@@_center_aboveskip_tl
-              }
-            \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
-              { \addvspace { \baselineskip } }
-            \int_gzero:N \g_@@_chap_par_prevgraf_int
-          }
+        \dim_zero:N \labelsep
+        \dim_set_eq:NN \leftmargin \l_@@_center_leftmargin_tl
+        \dim_set_eq:NN \rightmargin \l_@@_center_rightmargin_tl
+        \dim_set:Nn \itemindent { -\l_@@_outer_itemindent_dim }
+        \dim_zero:N \listparindent
         \skip_set_eq:NN \parsep \parskip
         \skip_zero:N \partopsep
-        \dim_zero:N \leftmargin
-        \dim_zero:N \labelsep
+        \dim_compare:nNnTF \parskip > \l_@@_center_aboveskip_tl
+          { \skip_zero:N \topsep }
+          { \skip_set:Nn \topsep { \@@_skip_diff:NN \l_@@_center_aboveskip_tl \parskip } }
+        \@@_setup_list_noindent:n { \c_zero_dim }
       }
+    \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+      { \addvspace { \baselineskip } }
+    \int_gzero:N \g_@@_chap_par_prevgraf_int
     \centering
     \item
     \relax
@@ -3491,9 +3448,12 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_center_end:
   {
-    \@@_calc_final_line_length:
-    \skip_add:Nn \@topsepadd \l_@@_delta_below_skip
-    \int_set_eq:NN \@endparpenalty \@lowpenalty
+    \dim_gset:Nn \g_@@_final_line_dim { \@totalleftmargin + \linewidth }
+    \dim_compare:nNnTF \@outerparskip > \l_@@_center_belowskip_tl
+      { \skip_zero:N \@topsepadd }
+      { \skip_set:Nn \@topsepadd { \@@_skip_diff:NN \l_@@_center_belowskip_tl \@outerparskip } }
+    \skip_gset_eq:NN \g_@@_prev_inner_below_skip \@topsepadd
+    \legacy_if_set_false:n { @noparlist }
     \endlist
   }
 %    \end{macrocode}
@@ -3518,43 +3478,29 @@
           { scripture / flushright }
           { #1 }
       }
-    \mode_if_horizontal:T
-      { \par }
+    \legacy_if:nTF { @newlist }
+      { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
+      { \dim_zero:N \l_@@_outer_itemindent_dim }
     \list { }
       {
-        \skip_set_eq:NN \l_@@_delta_below_skip \l_@@_flushright_belowskip_tl
 %    \end{macrocode}
 % Ignore \opt{aboveskip} if at the beginning of a \env{scripture} environment.
 %    \begin{macrocode}
-        \bool_if:NTF \g_@@_start_bool
-          {
-            \skip_zero:N \topsep
-            \skip_add:Nn \topsep \l_@@_parskip_correction_skip
-            \skip_sub:Nn \l_@@_delta_below_skip \l_@@_parskip_correction_skip
-            \bool_gset_false:N \g_@@_start_bool
-          }
-          {
-            \dim_compare:nTF
-              { \parskip >= \glueexpr \l_@@_flushright_aboveskip_tl > \c_zero_skip }
-              {
-                \skip_zero:N \topsep
-                \skip_zero:N \l_@@_delta_below_skip
-              }
-              {
-                \skip_set_eq:NN \topsep \l_@@_flushright_aboveskip_tl
-                \skip_sub:Nn \l_@@_delta_below_skip \l_@@_flushright_aboveskip_tl
-              }
-            \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
-              { \addvspace { \baselineskip } }
-            \int_gzero:N \g_@@_chap_par_prevgraf_int
-          }
+        \dim_zero:N \labelsep
         \dim_set_eq:NN \leftmargin \l_@@_flushright_leftmargin_tl
         \dim_set_eq:NN \rightmargin \l_@@_flushright_rightmargin_tl
+        \dim_set:Nn \itemindent { -\l_@@_outer_itemindent_dim }
+        \dim_zero:N \listparindent
         \skip_set_eq:NN \parsep \parskip
         \skip_zero:N \partopsep
-        \dim_zero:N \leftmargin
-        \dim_zero:N \labelsep
+        \dim_compare:nNnTF \parskip > \l_@@_flushright_aboveskip_tl
+          { \skip_zero:N \topsep }
+          { \skip_set:Nn \topsep { \@@_skip_diff:NN \l_@@_flushright_aboveskip_tl \parskip } }
+        \@@_setup_list_noindent:n { \c_zero_dim }
       }
+    \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+      { \addvspace { \baselineskip } }
+    \int_gzero:N \g_@@_chap_par_prevgraf_int
     \raggedleft
     \item
     \relax
@@ -3567,9 +3513,12 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_flushright_end:
   {
-    \@@_calc_final_line_length:
-    \skip_add:Nn \@topsepadd \l_@@_delta_below_skip
-    \int_set_eq:NN \@endparpenalty \@lowpenalty
+    \dim_gset:Nn \g_@@_final_line_dim { \@totalleftmargin + \linewidth }
+    \dim_compare:nNnTF \@outerparskip > \l_@@_flushright_belowskip_tl
+      { \skip_zero:N \@topsepadd }
+      { \skip_set:Nn \@topsepadd { \@@_skip_diff:NN \l_@@_flushright_belowskip_tl \@outerparskip } }
+    \skip_gset_eq:NN \g_@@_prev_inner_below_skip \@topsepadd
+    \legacy_if_set_false:n { @noparlist }
     \endlist
   }
 %    \end{macrocode}
@@ -3581,6 +3530,22 @@
 %   Save the \cs{parindent} for later use in \env{hanging} environment.
 %    \begin{macrocode}
 \dim_new:N \l_@@_hanging_parindent_saved_dim
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_hanging_ch:n}
+%   Position a chapter in a \env{hanging} environment.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_hanging_ch:n
+  {
+    \bool_if:NTF \l_@@_chap_show_bool
+      {
+        \bool_if:NTF \l_@@_chap_drop_bool
+          { \@@_hanging_chap:n { #1 } }
+          { \@@_nodrop_chap:n { #1 } }
+      }
+      { \@@_nodrop_chap:n { #1 } }
+  }
 %    \end{macrocode}
 % \end{macro}
 %
@@ -3687,7 +3652,7 @@
 %    \begin{macrocode}
 \cs_new_protected_nopar:Nn \@@_nohang:
   {
-    \para_raw_noindent:
+    \noindent
     \hbox_to_wd:nn { \l_@@_hanging_parindent_saved_dim } { }
   }
 %    \end{macrocode}
@@ -3710,58 +3675,33 @@
           { scripture / hanging }
           { #1 }
       }
-    \mode_if_horizontal:T
-      { \par }
+    \DeclareDocumentCommand { \ch } { sm } { \@@_hanging_ch:n { ##2 } }
+    \cs_set_eq:NN \vs \@@_hanging_verse:n
+    \cs_set_eq:NN \nohang \@@_nohang:
+    \dim_set_eq:NN \l_@@_hanging_parindent_saved_dim \parindent
+    \legacy_if:nTF { @newlist }
+      { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
+      { \dim_zero:N \l_@@_outer_itemindent_dim }
     \list { }
       {
-        \skip_set_eq:NN \l_@@_delta_below_skip \l_@@_hanging_belowskip_tl
 %    \end{macrocode}
 % Ignore \opt{aboveskip} if at the beginning of a \env{scripture} environment.
 %    \begin{macrocode}
-        \bool_if:NTF \g_@@_start_bool
-          {
-            \dim_zero:N \topsep
-            \skip_add:Nn \topsep \l_@@_parskip_correction_skip
-            \skip_sub:Nn \l_@@_delta_below_skip \l_@@_parskip_correction_skip
-            \bool_gset_false:N \g_@@_start_bool
-          }
-          {
-            \dim_compare:nTF
-              { \parskip >= \glueexpr \l_@@_hanging_aboveskip_tl > \c_zero_skip }
-              {
-                \skip_zero:N \topsep
-                \skip_zero:N \l_@@_delta_below_skip
-              }
-              {
-                \skip_set_eq:NN \topsep \l_@@_hanging_aboveskip_tl
-                \skip_sub:Nn \l_@@_delta_below_skip \l_@@_hanging_aboveskip_tl
-              }
-            \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
-              { \addvspace { \baselineskip } }
-            \int_gzero:N \g_@@_chap_par_prevgraf_int
-          }
-        \dim_set:Nn \leftmargin
-          { \l_@@_hanging_leftmargin_tl + \l_@@_hanging_hang_tl }
+        \dim_zero:N \labelsep
+        \dim_set:Nn \leftmargin { \l_@@_hanging_leftmargin_tl + \l_@@_hanging_hang_tl }
         \dim_set_eq:NN \rightmargin \l_@@_hanging_rightmargin_tl
-        \dim_set:Nn \itemindent { -\l_@@_hanging_hang_tl }
+        \dim_set:Nn \itemindent { -\l_@@_hanging_hang_tl - \l_@@_outer_itemindent_dim }
         \dim_set:Nn \listparindent { -\l_@@_hanging_hang_tl }
         \skip_set_eq:NN \parsep \parskip
         \skip_zero:N \partopsep
-        \dim_zero:N \labelsep
-        \dim_set_eq:NN \l_@@_hanging_parindent_saved_dim \parindent
+        \dim_compare:nNnTF \parskip > \l_@@_hanging_aboveskip_tl
+          { \skip_zero:N \topsep }
+          { \skip_set:Nn \topsep { \@@_skip_diff:NN \l_@@_hanging_aboveskip_tl \parskip } }
+        \@@_setup_list_noindent:n { -\l_@@_hanging_hang_tl }
       }
-    \DeclareDocumentCommand { \ch } { sm }
-      {
-        \bool_if:NTF \l_@@_chap_show_bool
-          {
-            \bool_if:NTF \l_@@_chap_drop_bool
-              { \@@_hanging_chap:n { ##2 } }
-              { \@@_nodrop_chap:n { ##2 } }
-          }
-          { \@@_nodrop_chap:n { ##2 } }
-      }
-    \cs_set_eq:NN \vs \@@_hanging_verse:n
-    \cs_set_eq:NN \nohang \@@_nohang:
+    \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+      { \addvspace { \baselineskip } }
+    \int_gzero:N \g_@@_chap_par_prevgraf_int
     \item
     \relax
   }
@@ -3774,8 +3714,11 @@
 \cs_new_protected:Nn \@@_hanging_end:
   {
     \@@_calc_final_line_length:
-    \skip_add:Nn \@topsepadd \l_@@_delta_below_skip
-    \int_set_eq:NN \@endparpenalty \@lowpenalty
+    \dim_compare:nNnTF \@outerparskip > \l_@@_hanging_belowskip_tl
+      { \skip_zero:N \@topsepadd }
+      { \skip_set:Nn \@topsepadd { \@@_skip_diff:NN \l_@@_hanging_belowskip_tl \@outerparskip } }
+    \skip_gset_eq:NN \g_@@_prev_inner_below_skip \@topsepadd
+    \legacy_if_set_false:n { @noparlist }
     \endlist
   }
 %    \end{macrocode}
@@ -3947,7 +3890,6 @@
 \cs_new_protected:Nn \@@_mid_para_chap_end:
   {
     \par
-    \int_gset_eq:NN \g_@@_mid_para_chap_prevgraf_int \prevgraf
     \dim_gset_eq:NN \g_@@_mid_para_chap_prevdepth_dim \prevdepth
     \box_set_to_last:N \l_@@_mid_para_chap_line_box
     \hbox_set:Nn \l_@@_mid_para_chap_snap_box
@@ -4010,9 +3952,7 @@
     \hook_gput_next_code:nn { para / before }
       {
         \int_gzero:N \g_@@_chap_par_prevgraf_int
-        \int_compare:nNnT
-          \@listdepth > \c_zero_int
-          { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
+        \parshape 1 ~ \@totalleftmargin ~ \linewidth
       }
   }
 %    \end{macrocode}
@@ -4037,44 +3977,39 @@
           { scripture / narrow }
           { #1 }
       }
-    \mode_if_horizontal:T
-      { \par }
+    \legacy_if:nTF { @newlist }
+      { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
+      { \dim_zero:N \l_@@_outer_itemindent_dim }
     \list { }
       {
-        \skip_set_eq:NN \l_@@_delta_below_skip \l_@@_narrow_belowskip_tl
 %    \end{macrocode}
 % Ignore \opt{aboveskip} if at the beginning of a \env{scripture} environment.
 %    \begin{macrocode}
-        \bool_if:NTF \g_@@_start_bool
-          {
-            \skip_zero:N \topsep
-            \skip_add:Nn \topsep \l_@@_parskip_correction_skip
-            \skip_sub:Nn \l_@@_delta_below_skip \l_@@_parskip_correction_skip
-            \bool_gset_false:N \g_@@_start_bool
-          }
-          {
-            \dim_compare:nTF
-              { \parskip >= \glueexpr \l_@@_narrow_aboveskip_tl > \c_zero_skip }
-              {
-                \skip_zero:N \topsep
-                \skip_zero:N \l_@@_delta_below_skip
-              }
-              {
-                \skip_set_eq:NN \topsep \l_@@_narrow_aboveskip_tl
-                \skip_sub:Nn \l_@@_delta_below_skip \l_@@_narrow_aboveskip_tl
-              }
-            \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
-              { \addvspace { \baselineskip } }
-            \int_gzero:N \g_@@_chap_par_prevgraf_int
-          }
+        %\int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+        %  { \addvspace { \baselineskip } }
+        %\int_gzero:N \g_@@_chap_par_prevgraf_int
+        \dim_zero:N \labelsep
         \dim_set_eq:NN \leftmargin \l_@@_narrow_leftmargin_tl
         \dim_set_eq:NN \rightmargin \l_@@_narrow_rightmargin_tl
         \dim_set_eq:NN \listparindent \parindent
-        \dim_set_eq:NN \itemindent \parindent
+        \mode_if_vertical:TF
+          {
+            \dim_set:Nn \itemindent { \parindent - \l_@@_outer_itemindent_dim }
+            \@@_setup_list_noindent:n { \parindent }
+          }
+          {
+            \dim_set:Nn \itemindent { -\l_@@_outer_itemindent_dim }
+            \@@_setup_list_noindent:n { \c_zero_dim }
+          }
         \skip_set_eq:NN \parsep \parskip
         \skip_zero:N \partopsep
-        \dim_zero:N \labelsep
+        \dim_compare:nNnTF \parskip > \l_@@_narrow_aboveskip_tl
+          { \skip_zero:N \topsep }
+          { \skip_set:Nn \topsep { \@@_skip_diff:NN \l_@@_narrow_aboveskip_tl \parskip } }
       }
+    \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+      { \addvspace { \baselineskip } }
+    \int_gzero:N \g_@@_chap_par_prevgraf_int
     \item
     \relax
   }
@@ -4087,8 +4022,11 @@
 \cs_new_protected:Nn \@@_narrow_end:
   {
     \@@_calc_final_line_length:
-    \skip_add:Nn \@topsepadd \l_@@_delta_below_skip
-    \int_set_eq:NN \@endparpenalty \@lowpenalty
+    \dim_compare:nNnTF \@outerparskip > \l_@@_narrow_belowskip_tl
+      { \skip_zero:N \@topsepadd }
+      { \skip_set:Nn \@topsepadd { \@@_skip_diff:NN \l_@@_narrow_belowskip_tl \@outerparskip } }
+    \skip_gset_eq:NN \g_@@_prev_inner_below_skip \@topsepadd
+    \legacy_if_set_false:n { @noparlist }
     \endlist
   }
 %    \end{macrocode}
@@ -4202,8 +4140,24 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\@@_poetry_chap:n}
+% \begin{macro}{\@@_poetry_ch:n}
 %   Position a chapter in a \env{poetry} environment.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_poetry_ch:n
+  {
+    \bool_if:NTF \l_@@_chap_show_bool
+      {
+        \bool_if:NTF \l_@@_chap_drop_bool
+          { \@@_poetry_chap:n { #1 } }
+          { \@@_poetry_nodrop_chap:n { #1 } }
+      }
+      { \@@_poetry_nodrop_chap:n { #1 } }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_poetry_chap:n}
+%   Position a drop chapter in a \env{poetry} environment.
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_poetry_chap:n
   {
@@ -4486,62 +4440,35 @@
       }
     \bool_set_true:N \l_@@_active_inner_bool
     \tl_set:Nn \l_@@_currenvir_str { poetry }
-    \mode_if_horizontal:T
-      { \par }
-    \list { }
-      {
-        \skip_set_eq:NN \l_@@_delta_below_skip \l_@@_poetry_belowskip_tl
-        \bool_if:NTF \g_@@_start_bool
-          {
-            \skip_zero:N \topsep
-            \skip_add:Nn \topsep \l_@@_parskip_correction_skip
-            \skip_sub:Nn \l_@@_delta_below_skip \l_@@_parskip_correction_skip
-            \bool_gset_false:N \g_@@_start_bool
-          }
-          {
-            \dim_compare:nTF
-              { \parskip >= \glueexpr \l_@@_poetry_aboveskip_tl > \c_zero_skip }
-              {
-                \skip_zero:N \topsep
-                \skip_zero:N \l_@@_delta_below_skip
-              }
-              {
-                \skip_set_eq:NN \topsep \l_@@_poetry_aboveskip_tl
-                \skip_sub:Nn \l_@@_delta_below_skip \l_@@_poetry_aboveskip_tl
-              }
-            \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
-              { \addvspace { \baselineskip } }
-            \int_gzero:N \g_@@_chap_par_prevgraf_int
-          }
-        \dim_set_eq:NN \leftmargin \l_@@_poetry_leftmargin_tl
-        \dim_set_eq:NN \rightmargin \l_@@_poetry_rightmargin_tl
-        \dim_set_eq:NN \itemindent \l_@@_poetry_indent_tl
-        \dim_set_eq:NN \listparindent \l_@@_poetry_indent_tl
-        \skip_zero:N \parsep
-        \skip_zero:N \partopsep
-        \dim_zero:N \labelsep
-      }
-    \raggedright
-    \dim_set_eq:NN \listparindent \l_@@_poetry_indent_tl
-    \dim_set_eq:NN \parindent \l_@@_poetry_indent_tl
     \bool_gset_false:N \g_@@_poetry_midparachap_show_verse_bool
-    \DeclareDocumentCommand { \ch } { sm }
-      {
-        \bool_if:NTF \l_@@_chap_show_bool
-          {
-            \bool_if:NTF \l_@@_chap_drop_bool
-              { \@@_poetry_chap:n { ##2 } }
-              { \@@_poetry_nodrop_chap:n { ##2 } }
-          }
-          { \@@_poetry_nodrop_chap:n { ##2 } }
-      }
+    \DeclareDocumentCommand { \ch } { sm } { \@@_poetry_ch:n { ##2 } }
     \cs_set_eq:NN \vs \@@_poetry_mode_vertical_verse:n
     \cs_set_eq:NN \extraskip \@@_poetry_extra_skip:
     \cs_set_eq:NN \selah \@@_selah_output:
     \cs_set_protected_nopar:Npn \textright ##1
+      { \@@_poetry_text_right:nn { \l_@@_text_right_sep_tl } { ##1 } }
+    \legacy_if:nTF { @newlist }
+      { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
+      { \dim_zero:N \l_@@_outer_itemindent_dim }
+    \list { }
       {
-        \@@_poetry_text_right:nn { \l_@@_text_right_sep_tl } { ##1 }
+        \dim_zero:N \labelsep
+        \dim_set_eq:NN \leftmargin \l_@@_poetry_leftmargin_tl
+        \dim_set_eq:NN \rightmargin \l_@@_poetry_rightmargin_tl
+        \dim_set:Nn \itemindent { \l_@@_poetry_indent_tl - \l_@@_outer_itemindent_dim }
+        \dim_set_eq:NN \listparindent \l_@@_poetry_indent_tl
+        \skip_zero:N \parsep
+        \skip_zero:N \partopsep
+        \dim_compare:nNnTF \parskip > { \l_@@_poetry_aboveskip_tl }
+          { \skip_zero:N \topsep }
+          { \skip_set:Nn \topsep { \@@_skip_diff:NN \l_@@_poetry_aboveskip_tl \parskip } }
+        \@@_setup_list_noindent:n { \l_@@_poetry_indent_tl }
       }
+    \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+      { \addvspace { \baselineskip } }
+    \int_gzero:N \g_@@_chap_par_prevgraf_int
+    \raggedright
+    \dim_set_eq:NN \parindent \l_@@_poetry_indent_tl
     \item
     \relax
     \cs_set_eq:NN \@@_tmp_para_end: \par
@@ -4558,8 +4485,11 @@
 \cs_new_protected:Nn \@@_poetry_end:
   {
     \@@_calc_final_line_length:
-    \skip_add:Nn \@topsepadd \l_@@_delta_below_skip
-    \int_set_eq:NN \@endparpenalty \@lowpenalty
+    \dim_compare:nNnTF \@outerparskip > { \l_@@_poetry_belowskip_tl }
+      { \skip_zero:N \@topsepadd }
+      { \skip_set:Nn \@topsepadd { \@@_skip_diff:NN \l_@@_poetry_belowskip_tl \@outerparskip } }
+    \skip_gset_eq:NN \g_@@_prev_inner_below_skip \@topsepadd
+    \legacy_if_set_false:n { @noparlist }
     \endlist
     \bool_gset_true:N \g_@@_poetry_end_bool
     \hook_gput_next_code:nn { para / begin }
@@ -4756,11 +4686,7 @@
           }
         \mode_leave_vertical:
       }
-    \peek_remove_spaces:n
-      {
-        \peek_meaning:NF \begin
-          { \bool_gset_false:N \g_@@_start_bool }
-      }
+    \ignorespaces
   }
   {
     \bool_if:NT \l_@@_compact_bool

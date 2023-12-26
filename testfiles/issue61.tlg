@@ -16,31 +16,24 @@ Completed box being shipped out [1]
 ..\glue(\lineskip) 0.0
 ..\vbox(598.0+0.0)x319.99997, glue set 553.94083fil
 ...\write-{}
-...\glue(\topskip) 1.60004
-...\hbox(8.39996+3.60004)x294.99994, glue set 294.99994fil, shifted 25.00003
+...\glue(\topskip) 1.85997
+...\hbox(8.14003+1.94444)x294.99994, glue set - 0.35526, shifted 25.00003
 ....\hbox(0.0+0.0)x0.0
+.....\glue 0.0
 .....\glue 0.0
 .....\glue -20.00003
 .....\glue -5.0
 .....\hbox(0.0+0.0)x20.00003, glue set 20.00003fil
 ......\glue 0.0 plus 1.0fil
 .....\glue 5.0
+.....\glue 0.0
+.....\glue 0.0
+.....\glue -17.0
+.....\glue -5.0
+.....\hbox(0.0+0.0)x17.0, glue set 17.0fil
+......\glue 0.0 plus 1.0fil
+.....\glue 5.0
 ....\penalty 0
-....\rule(8.39996+3.60004)x0.0
-....\penalty 10000
-....\glue(\parfillskip) 0.0 plus 1.0fil
-....\glue(\rightskip) 0.0
-...\rule(0.0+0.0)x*
-...\penalty 10000
-...\glue -16.0 plus -2.0 minus -1.0
-...\glue 0.0
-...\glue 0.0
-...\glue 0.0
-...\glue(\parskip) 4.0 plus 2.0 minus 1.0
-...\glue(\parskip) 0.0
-...\glue(\baselineskip) 0.25993
-...\hbox(8.14003+1.94444)x294.99994, glue set - 0.35526, shifted 25.00003
-....\hbox(0.0+0.0)x0.0
 ....\mathon
 ....\hbox(4.51111+0.0)x8.47226, shifted -3.62892
 .....\OT1/cmr/m/n/7 2
@@ -259,14 +252,13 @@ Completed box being shipped out [1]
 ...\glue(\abovedisplayskip) -12.0
 ...\glue(\baselineskip) 10.05556
 ...\hbox(0.0+0.0)x0.0, shifted 172.5, display
-...\penalty 301
+...\penalty 10000
 ...\glue(\belowdisplayskip) 0.0
-...\glue -16.0 plus -2.0 minus -1.0
-...\glue(\parskip) 4.0 plus 2.0 minus 1.0
+...\glue -12.0
+...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 5.05556
 ...\hbox(6.94444+1.94444)x294.99994, glue set 203.6227fill, shifted 25.00003
-....\hbox(0.0+0.0)x0.0
 ....\glue 0.0 plus 1.0fill
 ....\hbox(6.94444+1.94444)x91.37724
 .....\OT1/cmr/bx/n/10 E
@@ -289,6 +281,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
+...\penalty 51
 ...\glue 0.0
 ...\penalty -51
 ...\glue 10.0 plus 3.0 minus 5.0

@@ -1,14 +1,15 @@
 \documentclass[a4paper]{article}
 \input{regression-test}
 \usepackage{scripture}
+\scripturesetup{
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount
+}
 \pagestyle{empty}
-\ExplSyntaxOn
-\cs_set:Npn \cpg { \int_use:N \g__scripture_chap_par_prevgraf_int }
-\ExplSyntaxOff
 \begin{document}
 \START
 \showoutput
-\begin{scripture}[1 Corinthians 10:33b–11:2]
+\begin{scripture}[1 Corinthians 10:33b–11:2][noindent]
   \begin{midparachap}
     For I am not seeking my own good but the good of many, so that they may be
     saved. \ch{11}Follow my example, as I follow the example of Christ.
@@ -20,10 +21,29 @@
   traditions just as I passed them on to you.
 \end{scripture}
 
-\bigskip
-
 \begin{scripture}[1 Corinthians 11:1--2]
   \ch{11}Follow my example, as I follow the example of Christ.
+
+  \extraskip
+
+  \vs{2}I praise you for remembering me in everything and for holding to the
+  traditions just as I passed them on to you.
+\end{scripture}
+
+\begin{scripture}[1 Corinthians 10:33b–11:2][noindent]
+  \begin{midparachap}
+    For I am not seeking my own good but the good of many, so that they may be
+    saved. \ch*{11}Follow my example, as I follow the example of Christ.
+  \end{midparachap}
+
+  \extraskip
+
+  \vs{2}I praise you for remembering me in everything and for holding to the
+  traditions just as I passed them on to you.
+\end{scripture}
+
+\begin{scripture}[1 Corinthians 11:1--2]
+  \ch*{11}Follow my example, as I follow the example of Christ.
 
   \extraskip
 
