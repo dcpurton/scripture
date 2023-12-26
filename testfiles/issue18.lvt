@@ -2,6 +2,8 @@
 \input{regression-test}
 \usepackage{scripture}
 \scripturesetup{
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount,
   verse/first,
   poetry/aboveskip=\parskip,
   poetry/belowskip=\parskip,
@@ -30,8 +32,6 @@
   \vs{16}So it depends not on human will or exertion, but on God who shows
   mercy.
 \end{scripture}
-
-\bigskip
 
 \begin{scripture}[Romans 11:33--36]
   \vs{33}O the depth of the riches and wisdom and knowledge of God! How

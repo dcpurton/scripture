@@ -1,6 +1,10 @@
 \documentclass[a4paper]{article}
 \input{regression-test}
 \usepackage{scripture}
+\scripturesetup{
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount
+}
 \pagestyle{empty}
 \begin{document}
 \START
@@ -13,16 +17,12 @@
   \end{poetry}
 \end{scripture}
 
-\bigskip
-
 \begin{scripture}[Psalm 9:16][version=ESV]
   \begin{poetry}
     \vs{16}The \name{Lord} has made himself known; he has executed judgement;
     the wicked are snared in the work of their own hands.\textright{\itshape Higgaion. Selah}
   \end{poetry}
 \end{scripture}
-
-\bigskip
 
 \begin{scripture}[Jeremiah 2:29][compact]
   \begin{poetry}

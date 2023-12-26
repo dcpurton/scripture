@@ -4,7 +4,9 @@
 \scripturesetup{
   chapter/colour=blue,
   reference/colour=blue,
-  verse/colour=blue
+  verse/colour=blue,
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount
 }
 \pagestyle{empty}
 \begin{document}
@@ -17,8 +19,6 @@
   them.
 \end{scripture}
 
-\bigskip
-
 \begin{scripture}[Isaiah 5:1--2]
   \begin{poetry}
     \ch{5}I will sing for the one I love
@@ -38,8 +38,6 @@
   \end{poetry}
 \end{scripture}
 
-\bigskip
-
 \begin{scripture}[Genesis 1:1--2]
   \begin{hanging}
     \ch{1}In the beginning God created the heavens and the earth. \vs{2}Now the
@@ -48,8 +46,6 @@
   \end{hanging}
 \end{scripture}
 
-\bigskip
-
 \begin{scripture}[John 5:19--20][redletter]
   \vs{19}Jesus gave them this answer: \redletteron ‘Very truly I tell you, the
   Son can do nothing by himself; he can do only what he sees his Father doing,
@@ -57,8 +53,6 @@
   loves the Son and shows him all he does. Yes, and he will show him even
   greater works than these, so that you will be amazed.
 \end{scripture}
-
-\bigskip
 
 \scripturesetup{
   chapter/nodrop
@@ -71,8 +65,6 @@
   them.
 \end{scripture}
 
-\bigskip
-
 \begin{scripture}[Isaiah 5:1--2]
   \begin{poetry}
     \ch{5}I will sing for the one I love
@@ -91,8 +83,6 @@
     but it yielded only bad fruit.
   \end{poetry}
 \end{scripture}
-
-\bigskip
 
 \begin{scripture}[Genesis 1:1--2]
   \begin{hanging}

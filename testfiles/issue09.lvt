@@ -2,7 +2,9 @@
 \input{regression-test}
 \usepackage{scripture}
 \scripturesetup{
-  compact
+  compact,
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount
 }
 \pagestyle{empty}
 \begin{document}
@@ -17,8 +19,6 @@
   faces, with two they covered their feet, and with two they were flying.
 \end{scripture}
 
-\bigskip
-
 \begin{scripture}[Exodus 19:25--20:2]
   \vs{25}So Moses went down to the people and told them.
 
@@ -32,8 +32,6 @@
   \end{hanging}
 \end{scripture}
 
-\bigskip
-
 \begin{scripture}[Isaiah 12:1]
   \ch{12}In that day you will say:
 
@@ -46,8 +44,6 @@
   \end{poetry}
 \end{scripture}
 
-\bigskip
-
 \begin{scripture}[Isaiah 5:1]
   \begin{poetry}
     \ch{5}I will sing for the one I love
@@ -57,8 +53,6 @@
     on a fertile hillside.
   \end{poetry}
 \end{scripture}
-
-\bigskip
 
 \begin{scripture}[Hosea 6:11--7:1][poetry/leftmargin=2em,poetry/verse/sep=1em,version=NRSV]
   \begin{poetry}
@@ -77,8 +71,6 @@
   \end{poetry}
 \end{scripture}
 
-\bigskip
-
 \begin{scripture}[Genesis 1:1--2]
   \begin{hanging}
     \ch{1}In the beginning God created the heavens and the earth. \vs{2}Now the
@@ -86,8 +78,6 @@
     and the Spirit of God was hovering over the waters.
   \end{hanging}
 \end{scripture}
-
-\bigskip
 
 \begin{scripture}[1 Corinthians 10:31--11:1]
   \begin{midparachap}
@@ -98,8 +88,6 @@
     may be saved. \ch{11}Follow my example, as I follow the example of Christ.
   \end{midparachap}
 \end{scripture}
-
-\bigskip
 
 \begin{scripture}[Psalm 3:1--4][version=NIV84]
   \begin{poetry}

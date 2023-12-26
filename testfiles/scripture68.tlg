@@ -23,6 +23,13 @@ Completed box being shipped out [1]
 ....\vbox(27.57002+22.57)x156.49014
 .....\hbox(8.14003+1.94444)x156.49014, glue set 0.90546
 ......\hbox(0.0+0.0)x0.0
+.......\glue 0.0
+.......\glue -20.00003
+.......\glue -5.0
+.......\hbox(0.0+0.0)x20.00003, glue set 20.00003fil
+........\glue 0.0 plus 1.0fil
+.......\glue 5.0
+......\penalty 0
 ......\mathon
 ......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
 .......\OT1/cmr/m/n/7 2
@@ -87,9 +94,9 @@ Completed box being shipped out [1]
 ......\glue(\leftskip) 0.0 plus 1.0fil
 ......\hbox(0.0+0.0)x0.0
 .......\glue 0.0
-.......\glue -20.00003
+.......\glue -17.0
 .......\glue 0.0
-.......\hbox(0.0+0.0)x20.00003, glue set 20.00003fil
+.......\hbox(0.0+0.0)x17.0, glue set 17.0fil
 ........\glue 0.0 plus 1.0fil
 .......\glue 0.0
 ......\penalty 0
@@ -123,21 +130,26 @@ Completed box being shipped out [1]
 ......\penalty 10000
 ......\glue(\parfillskip) 0.0
 ......\glue(\rightskip) 0.0 plus 1.0fil
+.....\penalty 51
+.....\glue 6.0 plus 2.0 minus 2.0
+.....\glue(\parskip) 0.0
+.....\glue(\parskip) 0.0
 .....\penalty 10000
-.....\glue(\abovedisplayskip) -12.0
+.....\glue(\abovedisplayshortskip) -12.0
 .....\glue(\baselineskip) 10.05556
 .....\hbox(0.0+0.0)x0.0, shifted 78.24507, display
-.....\penalty 51
-.....\glue(\belowdisplayskip) 0.0
+.....\penalty 10000
+.....\glue(\belowdisplayshortskip) 0.0
 .....\glue -12.0
-.....\glue 12.0
-.....\penalty 51
-.....\glue -12.0
+.....\glue -6.0 plus -2.0 minus -2.0
+.....\glue(\parskip) 0.0
+.....\glue(\parskip) 0.0
 .....\glue 12.0
 .....\glue(\parskip) 0.0
 .....\glue(\parskip) 0.0
 .....\glue(\baselineskip) 5.05556
 .....\hbox(6.94444+0.0)x156.49014, glue set 99.75435fill
+......\hbox(0.0+0.0)x0.0
 ......\glue 0.0 plus 1.0fill
 ......\hbox(6.94444+0.0)x56.7358
 .......\OT1/cmr/bx/n/10 D
@@ -154,6 +166,7 @@ Completed box being shipped out [1]
 ......\penalty 10000
 ......\glue(\parfillskip) 0.0 plus 1.0fil
 ......\glue(\rightskip) 0.0
+.....\penalty 51
 ....\mathoff
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil

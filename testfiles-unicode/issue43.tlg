@@ -29,7 +29,15 @@ braces):
 >  {latex/scripttag}  =>  {}
 >  {latex/language}  =>  {Latex}
 >  {latex/langtag}  =>  {ENG}
->  {latex/bcp47}  =>  {}
+>  {latex/bcp47}  =>  {en-US}
+>  {latex/bcp47-language}  =>  {en}
+>  {latex/bcp47-region}  =>  {US}
+>  {latex/bcp47-script}  =>  {Latn}
+>  {latex/bcp47-variant}  =>  {}
+>  {latex/bcp47-extension-t}  =>  {}
+>  {latex/bcp47-extension-u}  =>  {}
+>  {latex/bcp47-extension-x}  =>  {}
+>  {latex/bcp47-casing}  =>  {}
 >  {latex/hyphennames}  =>  {english}
 >  {latex/direction}  =>  {LR}
 >  {latex/hyphenmins}  =>  {2,3}
@@ -47,6 +55,14 @@ braces):
 >  {english/language}  =>  {English}
 >  {english/langtag}  =>  {ENG}
 >  {english/bcp47}  =>  {en-AU}
+>  {english/bcp47-language}  =>  {en}
+>  {english/bcp47-region}  =>  {AU}
+>  {english/bcp47-script}  =>  {Latn}
+>  {english/bcp47-variant}  =>  {}
+>  {english/bcp47-extension-t}  =>  {}
+>  {english/bcp47-extension-u}  =>  {}
+>  {english/bcp47-extension-x}  =>  {}
+>  {english/bcp47-casing}  =>  {}
 >  {english/hyphennames}  =>  {english,american,usenglish,USenglish}
 >  {english/direction}  =>  {LR}
 >  {english/hyphenmins}  =>  {2,3}
@@ -64,6 +80,14 @@ braces):
 >  {french/language}  =>  {French}
 >  {french/langtag}  =>  {FRA}
 >  {french/bcp47}  =>  {fr-FR}
+>  {french/bcp47-language}  =>  {fr}
+>  {french/bcp47-region}  =>  {FR}
+>  {french/bcp47-script}  =>  {Latn}
+>  {french/bcp47-variant}  =>  {}
+>  {french/bcp47-extension-t}  =>  {}
+>  {french/bcp47-extension-u}  =>  {}
+>  {french/bcp47-extension-x}  =>  {}
+>  {french/bcp47-casing}  =>  {}
 >  {french/hyphennames}  =>  {french,francais}
 >  {french/direction}  =>  {LR}
 >  {french/hyphenmins}  =>  {2,2}
@@ -114,15 +138,18 @@ The property list \__xpg_alias contains the pairs (without outer braces):
 >  {fr-FR/target}  =>  {french}
 >  {fr-FR/variant}  =>  {french}
 >  {fr-FR/options}  =>  {variant=french}
+>  {fr-CA-u-sd-canb/target}  =>  {french}
+>  {fr-CA-u-sd-canb/variant}  =>  {acadian}
+>  {fr-CA-u-sd-canb/options}  =>  {variant=acadian}
 >  {fr-CA/target}  =>  {french}
 >  {fr-CA/variant}  =>  {canadian}
 >  {fr-CA/options}  =>  {variant=canadian}
 >  {fr-CH/target}  =>  {french}
 >  {fr-CH/variant}  =>  {swiss}
 >  {fr-CH/options}  =>  {variant=swiss}
->  {acadien/target}  =>  {french}
->  {acadien/variant}  =>  {acadian}
->  {acadien/options}  =>  {variant=acadian}
+>  {acadian/target}  =>  {french}
+>  {acadian/variant}  =>  {acadian}
+>  {acadian/options}  =>  {variant=acadian}
 >  {canadien/target}  =>  {french}
 >  {canadien/variant}  =>  {canadian}
 >  {canadien/options}  =>  {variant=canadian}.
@@ -138,14 +165,11 @@ Completed box being shipped out [1]
 ..\glue(\lineskip) 0.0
 ..\vbox(598.0+0.0)x345.0, glue set 563.93976fil, direction TLT
 ...\write-{}
-...\write1{\protect \xpglanginauxtrue }
-...\write1{\protect \selectlanguage *[variant=australian]{english}}
-...\write1{\@writefile{toc}{\protect \selectlanguage *[variant=australian]{engli\ETC.}
-...\write1{\protect \xpglanginauxfalse }
-...\write1{\protect \xpglanginauxtrue }
-...\write1{\protect \selectlanguage *{french}}
+...\write1{\@writefile{toc}{\protect \xpginauxfiletrue }}
+...\write1{\@writefile{lof}{\protect \xpginauxfiletrue }}
+...\write1{\@writefile{lot}{\protect \xpginauxfiletrue }}
+...\write1{\@writefile{toc}{\protect \selectlanguage *[variant=australian]{english}}}
 ...\write1{\@writefile{toc}{\protect \selectlanguage *{french}}}
-...\write1{\protect \xpglanginauxfalse }
 ...\glue(\topskip) 1.72308
 ...\hbox(8.27692+1.94)x345.0, glue set 0.23064, direction TLT
 ....\localpar
@@ -154,6 +178,13 @@ Completed box being shipped out [1]
 .....\localleftbox=null
 .....\localrightbox=null
 ....\hbox(0.0+0.0)x15.0, direction TLT
+.....\glue 15.0
+.....\glue -20.0
+.....\glue -5.0
+.....\hbox(0.0+0.0)x20.0, glue set 20.0fil, direction TLT
+......\glue 0.0 plus 1.0fil
+.....\glue 5.0
+....\penalty 0
 ....\mathon
 ....\hbox(0.0+0.0)x0.0, direction TLT
 ....\hbox(4.648+0.14)x4.483, shifted -3.62892, direction TLT
@@ -343,11 +374,13 @@ Completed box being shipped out [1]
 ...\glue(\abovedisplayskip) -12.0
 ...\glue(\baselineskip) 9.95
 ...\hbox(0.0+0.0)x0.0, shifted 172.5, direction TLT
-...\penalty 301
+...\penalty 10000
 ...\glue(\belowdisplayskip) 0.0
-...\glue -12.0 plus -1.0
+...\glue -12.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
 ...\glue 12.0
-...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 4.5
 ...\hbox(7.5+2.49)x345.0, glue set 243.57fill, direction TLT
@@ -380,11 +413,12 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
+...\penalty 51
 ...\glue 0.0
-...\write1{\protect \xpglanginauxtrue }
-...\write1{\protect \selectlanguage *[variant=australian]{english}}
-...\write1{\@writefile{toc}{\protect \selectlanguage *[variant=australian]{engli\ETC.}
-...\write1{\protect \xpglanginauxfalse }
+...\write1{\@writefile{toc}{\protect \selectlanguage *[variant=australian]{english}}}
+...\write1{\@writefile{toc}{\protect \xpginauxfilefalse }}
+...\write1{\@writefile{lof}{\protect \xpginauxfilefalse }}
+...\write1{\@writefile{lot}{\protect \xpginauxfilefalse }}
 ...\glue -2.49
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
@@ -392,30 +426,4 @@ Completed box being shipped out [1]
 ..\glue(\baselineskip) 30.0
 ..\hbox(0.0+0.0)x345.0, direction TLT
 ...\hbox(0.0+0.0)x345.0, direction TLT
-(issue43.aux
-Package polyglossia Info: Option: English, variant=australian.
-\l@australian = a dialect from \language\l@english 
-Package polyglossia Info: Option: English, variant=australian.
-\l@australian = a dialect from \language\l@english 
-LaTeX Info: Redefining \rmfamily on input line ....
-LaTeX Info: Redefining \sffamily on input line ....
-LaTeX Info: Redefining \ttfamily on input line ....
-Package polyglossia Info: Option: English, variant=australian.
-\l@australian = a dialect from \language\l@english 
-Package polyglossia Info: Option: English, variant=australian.
-\l@australian = a dialect from \language\l@english 
-LaTeX Info: Redefining \rmfamily on input line ....
-LaTeX Info: Redefining \sffamily on input line ....
-LaTeX Info: Redefining \ttfamily on input line ....
-Package polyglossia Info: Option: English, variant=australian.
-\l@australian = a dialect from \language\l@english 
-Package polyglossia Info: Option: English, variant=australian.
-\l@australian = a dialect from \language\l@english 
-LaTeX Info: Redefining \rmfamily on input line ....
-LaTeX Info: Redefining \sffamily on input line ....
-LaTeX Info: Redefining \ttfamily on input line ....
-Package polyglossia Info: Option: English, variant=australian.
-\l@australian = a dialect from \language\l@english 
-Package polyglossia Info: Option: English, variant=australian.
-\l@australian = a dialect from \language\l@english 
-)
+(issue43.aux)

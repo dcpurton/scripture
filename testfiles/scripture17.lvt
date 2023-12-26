@@ -1,7 +1,6 @@
 \documentclass[a4paper]{article}
 \input{regression-test}
 \usepackage{scripture}
-\usepackage{lipsum}
 \pagestyle{empty}
 \begin{document}
 \START
