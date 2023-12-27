@@ -185,7 +185,8 @@
 % \changes{v1.1}{2022/08/27}{Bug fixes}
 % \changes{v1.2}{2022/11/02}{Bug fixes}
 % \changes{v1.3}{2023/01/08}{Bug fixes}
-% \changes{v2.0}{2023/12/26}{Switch \LaTeX{} \env{list} based environment}
+% \changes{v2.0}{2023/12/26}{Switch \env{scripture} to a \LaTeX{} \env{list}
+%   based environment}
 %
 % \title{The \pkg{scripture} package}
 % \author{David Purton\thanks{Email: \url{dcpurton@marshwiggle.net}}}
@@ -599,6 +600,17 @@
 %   \end{syntax}
 %   Set default format for quotations. See section \ref{options} for
 %   supported formatting \meta{|options|}.
+% \end{function}
+%
+% \changes{v2.0}{2023/12/27}{Add \cs{scripturestyle} function}
+% \begin{function}[added=2023/12/27]{\scripturestyle, \scripturestyle*}
+%   \begin{syntax}
+%     |\scripturestyle|\marg{name}\marg{options}
+%     |\scripturestyle*|\marg{name}\marg{options}
+%   \end{syntax}
+%   Set \meta{|options|} which are saved as style with \meta{|name|}. These
+%   can later be set with the \opt{style} option. The starred version appends
+%   \meta{|options|} to an existing style rather than overwriting all options.
 % \end{function}
 %
 % \changes{v1.1}{2022/08/07}{Add \cs{scripturecurrentchapter} and
@@ -1664,6 +1676,15 @@
 %   \meta{|text|} used to for \cs{selah} in a \env{poetry} environment.
 % \end{option}
 %
+% \changes{v2.0}{2023/12/27}{Add \opt{style} option}
+% \begin{option}[added=2023/12/27]{style}
+%   \begin{syntax}
+%     style = \meta{name}
+%   \end{syntax}
+%   Set options previously saved with \cs{scripturestyle}. An error occurs if
+%   the style isn't defined.
+% \end{option}
+%
 % \changes{v1.2}{2022/08/30}{Add \opt{textright/sep} option}
 % \begin{option}[added=2022-08-30]{textright/sep}
 %   \begin{syntax}
@@ -2242,6 +2263,16 @@
     have~been~loaded~and~set~up.~Ignoring~option~language=#1. }
 %    \end{macrocode}
 %
+% Error if an unknown \opt{style} is requested.
+%
+%    \begin{macrocode}
+\msg_new:nnnn { scripture } { unknown-style }
+  { Style~#1~not~defined. }
+  { You~have~requested~style=#1,~but~it~has~not~been~defined.~
+    You~can~define~it~using~\token_to_str:N \scripturestyle.~
+    Ignoring~option~style=#1. }
+%    \end{macrocode}
+%
 % \subsection{Options}
 %
 % Key-value settings for the \env{scripture} environment and its inner
@@ -2387,6 +2418,11 @@
     , selah / sep              .tl_set:N           = \l_@@_selah_sep_tl
     , selah / sep              .value_required:n   = true
     , selah / sep              .initial:n          = 1 em
+    , style                    .choice:
+    , style / unknown          .code:n             = \msg_error:nnx
+                                                       { scripture }
+                                                       { unknown-style }
+                                                       { \exp_not:n {#1} }
     , textright / sep          .tl_set:N           = \l_@@_text_right_sep_tl
     , textright / sep          .value_required:n   = true
     , textright / sep          .initial:n          = 1 em
@@ -2532,6 +2568,30 @@
 %    \begin{macrocode}
 \ProcessKeyOptions
 %    \end{macrocode}
+%
+% \begin{macro}{\@@_setup_style:nnn}
+%   Specify options which can later be activated using the \opt{style} option.
+%   If the first argument is \val{true}, then the options are appended rather
+%   than replaced.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_setup_style:nnn
+  {
+    \bool_if:NTF #1
+      {
+        \tl_if_exist:cF { g__@@_style_ #2 _tl }
+          { \tl_new:c { g__@@_style_ #2 _tl } }
+        \@@_setup_style:nne \c_false_bool { #2 }
+          { \tl_use:c { g__@@_style_ #2 _tl } , #3 }
+      }
+      {
+        \tl_gset:cn { g__@@_style_ #2 _tl } { #3 }
+        \keys_define:nn { scripture }
+          { style / #2 .meta:n = { #3 } }
+      }
+  }
+\cs_generate_variant:Nn \@@_setup_style:nnn { nne }
+%    \end{macrocode}
+% \end{macro}
 %
 % \subsection{Hooks}
 %
@@ -4515,6 +4575,22 @@
 \NewDocumentCommand { \scripturesetup } { m }
   {
     \keys_set:nn { scripture } { #1 }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\scripturestyle}
+%   \begin{arguments}
+%     \item \meta{|name|} of the style.
+%     \item \meta{|options|} to set for the style.
+%   \end{arguments}
+%   Set key-value settings to be applied when using the \opt{style} option
+%   with value \val{name}. The starred version appends the \val{options} to
+%   any existing ones.
+%    \begin{macrocode}
+\NewDocumentCommand { \scripturestyle } { s m m }
+  {
+    \@@_setup_style:nnn { #1 } { #2 } { #3 }
   }
 %    \end{macrocode}
 % \end{macro}

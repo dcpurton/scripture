@@ -1,0 +1,70 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount
+}
+\scripturestyle{nivuk}{
+  poetry/leftmargin=1em,
+  poetry/verse/sep=0.05em,
+  version=NIVUK
+}
+\scripturestyle{nrsv}{
+  poetry/leftmargin=2em,
+  poetry/verse/sep=1em,
+  version=NRSV
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Hosea 6:11--7:2][style=nrsv]
+  \begin{poetry}
+    \vs{11}For you also, O Judah, a harvest is appointed.
+
+    \extraskip
+
+    When I would restore the fortunes of my people,
+    \ch{7}when I would heal Israel,
+    the corruption of Ephraim is revealed,
+    and the wicked deeds of Samaria;
+
+    for they deal falsely,
+    the thief breaks in,
+    and the bandits raid outside.
+
+    \vs{2}But they do not consider
+    that I remember all their wickedness.
+
+    Now their deeds surround them;
+    they are before my face.
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Hosea 6:11--7:2][style=nivuk]
+  \begin{poetry}
+    \vs{11}‘Also for you, Judah,
+    a harvest is appointed.
+
+    \extraskip
+
+    ‘Whenever I would restore the fortunes of my people,
+
+    \ch{7}whenever I would heal Israel,
+
+    the sins of Ephraim are exposed
+    and the crimes of Samaria revealed.
+
+    They practice deceit,
+    thieves break into houses,
+    bandits rob in the streets;
+
+    \vs{2}but they do not realize
+    that I remember all their evil deeds.
+
+    Their sins engulf them;
+    they are always before me.
+  \end{poetry}
+\end{scripture}
+\end{document}
