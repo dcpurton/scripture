@@ -3643,17 +3643,15 @@
             } ~
           \@totalleftmargin ~ \linewidth
       }
-    \mode_if_vertical:T
+    \tl_set:Nx \l_@@_chap_sep_tl
       {
-        \tl_set:Nx \l_@@_chap_sep_tl
+        \dim_eval:n
           {
-            \dim_eval:n
-              {
-                \l_@@_chap_sep_tl + \l_@@_hanging_parindent_saved_dim
-              }
+            \l_@@_chap_sep_tl + \l_@@_hanging_parindent_saved_dim
           }
-        \@@_nohang:
       }
+    \par
+    \@@_nohang:
     \hbox_set:Nn \l_@@_chap_box
       {
         \box_move_down:nn

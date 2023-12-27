@@ -1,0 +1,15 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Genesis 2:1]
+  \begin{hanging}
+    Filler text.
+    \ch{2}Thus the heavens and the earth were completed in all their vast
+    array.
+  \end{hanging}
+\end{scripture}
+\end{document}
