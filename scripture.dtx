@@ -303,6 +303,37 @@
 %
 % \subsubsection{Functions}
 %
+% \changes{v1.3}{2022/11/15}{Add feature to highlight translator added words}
+% \begin{function}[added=2022-11-15]{\added}
+%   \begin{syntax}
+%     |\added|\marg{words}
+%   \end{syntax}
+%   Some Bible translations mark out words added for clarity not found in the
+%   original language (e.g., in italics). This can be done using the \cs{added}
+%   function. The font and format can be set using the \opt{added/font} and
+%   \opt{added/format} options.
+% \end{function}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[John 1:18][verse/font=\bfseries,
+%     verse/format=#1, verse/sep=0.5em, version=KJV]
+%   \vs{18}No man hath seen God at any time, the
+%   only begotten Son, which is in the bosom of the
+%   Father, he hath declared \added{him}.
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[John 1:18][verse/font=\bfseries,
+%     verse/format=#1, verse/sep=0.5em, version=KJV]
+%   \vs{18}No man hath seen God at any time, the
+%   only begotten Son, which is in the bosom of the
+%   Father, he hath declared \added{him}.
+% \end{scripture}
+% \end{scriptureexample}
+%
 % \begin{function}{\ch, \ch*}
 %   \begin{syntax}
 %     |\ch|\marg{chapter number}
@@ -408,37 +439,6 @@
 %   \extraskip
 %
 %   Grace and peace to you from God our Father.
-% \end{scripture}
-% \end{scriptureexample}
-%
-% \changes{v1.3}{2022/11/15}{Add feature to highlight translator added words}
-% \begin{function}[added=2022-11-15]{\added}
-%   \begin{syntax}
-%     |\added|\marg{words}
-%   \end{syntax}
-%   Some Bible translations mark out words added for clarity not found in the
-%   original language (e.g., in italics). This can be done using the \cs{added}
-%   function. The font and format can be set using the \opt{added/font} and
-%   \opt{added/format} options.
-% \end{function}
-%
-% \begin{scriptureexample}
-% \begin{verbatim}
-% \begin{scripture}[John 1:18][verse/font=\bfseries,
-%     verse/format=#1, verse/sep=0.5em, version=KJV]
-%   \vs{18}No man hath seen God at any time, the
-%   only begotten Son, which is in the bosom of the
-%   Father, he hath declared \added{him}.
-% \end{scripture}
-% \end{verbatim}
-%
-% \tcblower
-%
-% \begin{scripture}[John 1:18][verse/font=\bfseries,
-%     verse/format=#1, verse/sep=0.5em, version=KJV]
-%   \vs{18}No man hath seen God at any time, the
-%   only begotten Son, which is in the bosom of the
-%   Father, he hath declared \added{him}.
 % \end{scripture}
 % \end{scriptureexample}
 %
@@ -594,6 +594,20 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
+% \changes{v1.1}{2022/08/07}{Add \cs{scripturecurrentchapter} and
+% \cs{scripturecurrentverse} variables}
+% \begin{function}[added=2022-08-07]{\scripturecurrentchapter,
+% \scripturecurrentverse}
+%   \begin{syntax}
+%     |\scripturecurrentchapter|
+%     |\scripturecurrentverse|
+%   \end{syntax}
+%   \cs{scripturecurrentcapter} and \cs{scripturecurrentverse} globally hold
+%   the most recent values parsed to \cs{ch} and \cs{vs}. They can initialised
+%   with \cs{renewcommand*} if required and could be used in hooks, for
+%   example.
+% \end{function}
+%
 % \begin{function}{\scripturesetup}
 %   \begin{syntax}
 %     |\scripturesetup|\marg{options}
@@ -611,20 +625,6 @@
 %   Set \meta{|options|} which are saved as style with \meta{|name|}. These
 %   can later be set with the \opt{style} option. The starred version appends
 %   \meta{|options|} to an existing style rather than overwriting all options.
-% \end{function}
-%
-% \changes{v1.1}{2022/08/07}{Add \cs{scripturecurrentchapter} and
-% \cs{scripturecurrentverse} variables}
-% \begin{function}[added=2022-08-07]{\scripturecurrentchapter,
-% \scripturecurrentverse}
-%   \begin{syntax}
-%     |\scripturecurrentchapter|
-%     |\scripturecurrentverse|
-%   \end{syntax}
-%   \cs{scripturecurrentcapter} and \cs{scripturecurrentverse} globally hold
-%   the most recent values parsed to \cs{ch} and \cs{vs}. They can initialised
-%   with \cs{renewcommand*} if required and could be used in hooks, for
-%   example.
 % \end{function}
 %
 % \changes{v1.1}{2022/07/29}{Add \cs{selah} function}
@@ -657,14 +657,6 @@
 %   \end{poetry}
 % \end{scripture}
 % \end{scriptureexample}
-%
-% \begin{function}{\scripturesetup}
-%   \begin{syntax}
-%     |\scripturesetup|\marg{options}
-%   \end{syntax}
-%   Set default format for quotations. See section \ref{options} for
-%   supported formatting \meta{|options|}.
-% \end{function}
 %
 % \changes{v1.2}{2022/08/30}{Add \cs{textright} function}
 % \begin{function}[added=2022-08-30]{\textright}
@@ -706,15 +698,16 @@
 %   \end{syntax}
 %   \cs{textscripture} sets an inline scripture quotation. The quotation is
 %   surrounded be the values of \opt{inline/begin} and \opt{inline/end} which
-%   default to |``\,| and |\,''|, respectively. This function also changes the
-%   defaults of some options as follows:
+%   default to |``\,| and |\,''|, respectively. This function also sets the
+%   \opt{compact} option and places the \val{reference} inline. The reference
+%   format can be controlled using the following options:
 %   \begin{itemize}
-%     \item \opt{compact} is set
-%     \item \opt{reference/sep} is set to |0.5em|
-%     \item \opt{reference/format} is set to |(#1)|
-%     \item \opt{version/format} is set to |#1|
-%     \item The \val{reference} is set inline.
+%     \item \opt{inline/reference/format}
+%     \item \opt{inline/reference/sep}
+%     \item \opt{inline/version/delim}
+%     \item \opt{inline/version/format}
 %   \end{itemize}
+%   Other \val{reference} and \val{version} options are inherited.
 %
 %   This function is equivalent to using the \env{scripture} environment with
 %   the \opt{inline} option.
@@ -1416,19 +1409,20 @@
 % \changes{v1.3}{2023/01/07}{Add \opt{inline} option}
 % \begin{option}[added=2023-01-07]{inline}
 %   \begin{syntax}
-%     inline
+%     inline = \meta{boolean} \hfill Default: false
 %   \end{syntax}
 %   Set the scripture quotation inline. The quotation is surrounded be the
 %   values of \opt{inline/begin} and \opt{inline/end} which default to |``\,|
-%   and |\,''|, respectively. This option also changes the defaults of some
-%   other options as follows:
+%   and |\,''|, respectively. This option also sets the \opt{compact} option
+%   set sets the \val{reference} inline. The reference format can be
+%   controlled using the following options:
 %   \begin{itemize}
-%     \item \opt{compact} is set
-%     \item \opt{reference/sep} is set to |0.5em|
-%     \item \opt{reference/format} is set to |(#1)|
-%     \item \opt{version/format} is set to |#1|
-%     \item The \val{reference} is set inline.
+%     \item \opt{inline/reference/format}
+%     \item \opt{inline/reference/sep}
+%     \item \opt{inline/version/delim}
+%     \item \opt{inline/version/format}
 %   \end{itemize}
+%   Other \val{reference} and \val{version} options are inherited.
 %
 %   \textbf{Warning:} \cs{par} is redefined to \cs{relax} when the
 %   \opt{inline} option is set. If you have anything other than expected
@@ -1453,6 +1447,43 @@
 %   Text inserted between the end of \cs{textscripture} or a \env{scripture}
 %   environment with the \opt{inline} option set and the \meta{|reference|}
 %   (if specified).
+% \end{option}
+%
+% \changes{v2.0}{2023/12/27}{Add \opt{inline/reference/format} option}
+% \begin{option}[added=2023-12-27]{inline/reference/format}
+%   \begin{syntax}
+%     inline/reference/format = \meta{macro} \hfill Default: (\#1)
+%   \end{syntax}
+%   \meta{|macro|} used to format the \val{reference} for an inline
+%   \env{scripture} quotation. |#1| contains the text of the \val{reference}
+%   and \val{version} (if specified).
+% \end{option}
+%
+% \changes{v2.0}{2023/12/27}{Add \opt{inline/reference/sep} option}
+% \begin{option}[added=2023-12-27]{inline/reference/sep}
+%   \begin{syntax}
+%     inline/reference/sep = \meta{dimen} \hfill Default: 0.5em
+%   \end{syntax}
+%   The \meta{|dimen|} between the end of an inline \env{scripture} quotation
+%   and its \val{reference}.
+% \end{option}
+%
+% \changes{v2.0}{2023/12/27}{Add \opt{inline/version/delim} option}
+% \begin{option}[added=2023-12-27]{inline/version/delim}
+%   \begin{syntax}
+%     inline/version/delim = \meta{delim} \hfill Default: \{\ \}
+%   \end{syntax}
+%   \meta{|delim|} to use between the \val{reference} and the \val{version} of
+%   an inline \env{scripture} quotation.
+% \end{option}
+%
+% \changes{v2.0}{2023/12/27}{Add \opt{inline/version/format} option}
+% \begin{option}[added=2023-12-27]{inline/version/format}
+%   \begin{syntax}
+%     inline/version/format = \meta{macro} \hfill Default: \#1
+%   \end{syntax}
+%   \meta{|macro|} used to format the \val{version} for an inline
+%   \env{scripture} quotation. |#1| contains the text of the \val{version}.
 % \end{option}
 %
 % \begin{option}{indent}
@@ -2280,288 +2311,293 @@
 %    \begin{macrocode}
 \keys_define:nn { scripture }
   {
-    , aboveskip                .tl_set:N           = \l_@@_aboveskip_tl
-    , aboveskip                .value_required:n   = true
-    , aboveskip                .initial:n          = \c_zero_skip
-    , added / font             .tl_set:N           = \l_@@_added_font_tl
-    , added / font             .value_required:n   = true
-    , added / font             .initial:n          =
-    , added / format           .cs_set:Np          = \@@_added_format:n #1
-    , added / format           .value_required:n   = true
-    , added / format           .initial:n          = \emph { #1 }
-    , belowskip                .tl_set:N           = \l_@@_belowskip_tl
-    , belowskip                .value_required:n   = true
-    , belowskip                .initial:n          = \c_zero_skip
-    , colour                   .tl_set:N           = \l_@@_colour_tl
-    , colour                   .value_required:n   = true
-    , colour                   .initial:n          = .
-    , color                    .meta:n             = { colour = { #1 } }
-    , compact                  .bool_set:N         = \l_@@_compact_bool
-    , compact                  .default:n          = true
-    , compact                  .initial:n          = false
-    , chapter / font           .tl_set:N           = \l_@@_chap_font_tl
-    , chapter / font           .value_required:n   = true
-    , chapter / font           .initial:n          = \bfseries
-    , chapter / colour         .tl_set:N           = \l_@@_chapter_colour_tl
-    , chapter / colour         .value_required:n   = true
-    , chapter / colour         .initial:n          = .
-    , chapter / color          .meta:n             = { chapter / colour = { #1 } }
-    , chapter / drop           .bool_set:N         = \l_@@_chap_drop_bool
-    , chapter / drop           .default:n          = true
-    , chapter / drop           .initial:n          = true
-    , chapter / format         .cs_set:Np          = \@@_chap_format:n #1
-    , chapter / format         .value_required:n   = true
-    , chapter / format         .initial:n          = #1
-    , chapter / hide           .bool_set_inverse:N = \l_@@_chap_show_bool
-    , chapter / hide           .default:n          = true
-    , chapter / nodrop         .bool_set_inverse:N = \l_@@_chap_drop_bool
-    , chapter / nodrop         .default:n          = true
-    , chapter / sep            .tl_set:N           = \l_@@_chap_sep_tl
-    , chapter / sep            .value_required:n   = true
-    , chapter / sep            .initial:n          = 0.5 em
-    , chapter / show           .bool_set:N         = \l_@@_chap_show_bool
-    , chapter / show           .default:n          = true
-    , chapter / show           .initial:n          = true
-    , chapter / showverse      .bool_set:N         = \l_@@_chap_show_verse_bool
-    , chapter / showverse      .default:n          = true
-    , chapter / showverse      .initial:n          = false
-    , extraskip                .tl_set:N           = \l_@@_extraskip_tl
-    , extraskip                .value_required:n   = true
-    , extraskip                .initial:n          = \medskipamount
-    , font                     .tl_set:N           = \l_@@_font_tl
-    , font                     .value_required:n   = true
-    , font                     .initial:n          =
-    , indent                   .bool_set:N         = \l_@@_indent_bool
-    , indent                   .default:n          = true
-    , indent                   .initial:n          = true
-    , _inline                  .bool_set:N         = \l_@@_inline_bool
-    , _inline                  .initial:n          = false
-    , inline                   .meta:n             = {
-                                                       _inline = true ,
-                                                       compact ,
-                                                       reference / format = (##1) ,
-                                                       reference / sep = 0.5 em,
-                                                       version / format = ##1
-                                                     }
-    , inline                   .value_forbidden:n  = true
-    , inline / begin           .tl_set:N           = \l_@@_inline_begin_tl
-    , inline / begin           .value_required:n   = true
-    , inline / begin           .initial:n          = ``\,
-    , inline / end             .tl_set:N           = \l_@@_inline_end_tl
-    , inline / end             .value_required:n   = true
-    , inline / end             .initial:n          = \,''
-    , language                 .tl_set:N           = \l_@@_language_tl
-    , language                 .value_required:n   = true
-    , language                 .initial:n          =
-    , language / variant       .tl_set:N           = \l_@@_language_variant_tl
-    , language / variant       .value_required:n   = true
-    , language / variant       .initial:n          =
-    , leftmargin               .tl_set:N           = \l_@@_leftmargin_tl
-    , leftmargin               .value_required:n   = true
-    , leftmargin               .initial:n          = \c_zero_dim
-    , name / font              .tl_set:N           = \l_@@_name_font_tl
-    , name / font              .value_required:n   = true
-    , name / font              .initial:n          = \scshape
-    , name / format            .cs_set:Np          = \@@_name_format:n #1
-    , name / format            .value_required:n   = true
-    , name / format            .initial:n          = #1
-    , noindent                 .bool_set_inverse:N = \l_@@_indent_bool
-    , noindent                 .default:n          = true
-    , parindent                .tl_set:N           = \l_@@_parindent_tl
-    , parindent                .value_required:n   = true
-    , parindent                .initial:n          = \parindent
-    , parskip                  .tl_set:N           = \l_@@_parskip_tl
-    , parskip                  .value_required:n   = true
-    , parskip                  .initial:n          = \parskip
-    , redletter                .bool_set:N         = \l_@@_red_letter_bool
-    , redletter                .default:n          = true
-    , redletter                .initial:n          = false
-    , redletter / colour       .tl_set:N           = \l_@@_red_letter_colour_tl
-    , redletter / colour       .value_required:n   = true
-    , redletter / colour       .initial:n          = red!80!black
-    , redletter / color        .meta:n             = { redletter / colour = { #1 } }
-    , reference / align        .choices:nn         = { left, right }
-                                                     {
-                                                       \tl_if_exist:NF \l_@@_ref_align_tl
-                                                         { \tl_new:N \l_@@_ref_align_tl }
-                                                       \tl_set_eq:NN \l_@@_ref_align_tl \l_keys_choice_tl
-                                                     }
-    , reference / align        .value_required:n   = true
-    , reference / align        .initial:n          = right
-    , reference / colour       .tl_set:N           = \l_@@_ref_colour_tl
-    , reference / colour       .value_required:n   = true
-    , reference / colour       .initial:n          = .
-    , reference / color        .meta:n             = { reference / colour = { #1 } }
-    , reference / font         .tl_set:N           = \l_@@_ref_font_tl
-    , reference / font         .value_required:n   = true
-    , reference / font         .initial:n          = \bfseries
-    , reference / format       .cs_set:Np          = \@@_ref_format:n #1
-    , reference / format       .value_required:n   = true
-    , reference / format       .initial:n          = #1
-    , reference / newline      .meta:n             = { reference / sep = \linewidth }
-    , reference / newline      .value_forbidden:n  = true
-    , reference / sep          .tl_set:N           = \l_@@_ref_sep_tl
-    , reference / sep          .value_required:n   = true
-    , reference / sep          .initial:n          = 2 em
-    , rightmargin              .tl_set:N           = \l_@@_rightmargin_tl
-    , rightmargin              .value_required:n   = true
-    , rightmargin              .initial:n          = \c_zero_dim
-    , selah / text             .tl_set:N           = \l_@@_selah_text_tl
-    , selah / text             .value_required:n   = true
-    , selah / text             .initial:n          = Selah
-    , selah / font             .tl_set:N           = \l_@@_selah_font_tl
-    , selah / font             .value_required:n   = true
-    , selah / font             .initial:n          = \itshape
-    , selah / format           .cs_set:Np          = \@@_selah_format:n #1
-    , selah / format           .value_required:n   = true
-    , selah / format           .initial:n          = #1
-    , selah / sep              .tl_set:N           = \l_@@_selah_sep_tl
-    , selah / sep              .value_required:n   = true
-    , selah / sep              .initial:n          = 1 em
-    , style                    .choice:
-    , style / unknown          .code:n             = \msg_error:nnx
-                                                       { scripture }
-                                                       { unknown-style }
-                                                       { \exp_not:n {#1} }
-    , textright / sep          .tl_set:N           = \l_@@_text_right_sep_tl
-    , textright / sep          .value_required:n   = true
-    , textright / sep          .initial:n          = 1 em
-    , verse / colour           .tl_set:N           = \l_@@_verse_colour_tl
-    , verse / colour           .value_required:n   = true
-    , verse / colour           .initial:n          = .
-    , verse / color            .meta:n             = { verse / colour = { #1 } }
-    , verse / first            .bool_set:N         = \l_@@_verse_first_bool
-    , verse / first            .default:n          = true
-    , verse / first            .initial:n          = false
-    , verse / firstformat      .cs_set:Np          = \@@_verse_first_format:n #1
-    , verse / firstformat      .value_required:n   = true
-    , verse / firstformat      .initial:n          = #1
-    , verse / firstsep         .tl_set:N           = \l_@@_verse_first_sep_tl
-    , verse / firstsep         .value_required:n   = true
-    , verse / firstsep         .initial:n          = 0.5em
-    , verse / font             .tl_set:N           = \l_@@_verse_font_tl
-    , verse / font             .value_required:n   = true
-    , verse / font             .initial:n          = 
-    , verse / format           .cs_set:Np          = \@@_verse_format:n #1
-    , verse / format           .value_required:n   = true
-    , verse / format           .initial:n          = \textsuperscript{#1}
-    , verse / hide             .bool_set_inverse:N = \l_@@_verse_show_bool
-    , verse / hide             .default:n          = true
-    , verse / sep              .tl_set:N           = \l_@@_verse_sep_tl
-    , verse / sep              .value_required:n   = true
-    , verse / sep              .initial:n          = 0.05 em
-    , verse / show             .bool_set:N         = \l_@@_verse_show_bool
-    , verse / show             .default:n          = true
-    , verse / show             .initial:n          = true
-    , version                  .tl_set:N           = \l_@@_version_tl
-    , version                  .value_required:n   = true
-    , version                  .initial:n          =
-    , version / delim          .tl_set:N           = \l_@@_version_delim_tl
-    , version / delim          .value_required:n   = true
-    , version / delim          .initial:n          = \c_space_tl
-    , version / format         .cs_set:Np          = \@@_version_format:n #1
-    , version / format         .value_required:n   = true
-    , version / format         .initial:n          = (#1)
+    , aboveskip                   .tl_set:N           = \l_@@_aboveskip_tl
+    , aboveskip                   .value_required:n   = true
+    , aboveskip                   .initial:n          = \c_zero_skip
+    , added / font                .tl_set:N           = \l_@@_added_font_tl
+    , added / font                .value_required:n   = true
+    , added / font                .initial:n          =
+    , added / format              .cs_set:Np          = \@@_added_format:n #1
+    , added / format              .value_required:n   = true
+    , added / format              .initial:n          = \emph { #1 }
+    , belowskip                   .tl_set:N           = \l_@@_belowskip_tl
+    , belowskip                   .value_required:n   = true
+    , belowskip                   .initial:n          = \c_zero_skip
+    , colour                      .tl_set:N           = \l_@@_colour_tl
+    , colour                      .value_required:n   = true
+    , colour                      .initial:n          = .
+    , color                       .meta:n             = { colour = { #1 } }
+    , compact                     .bool_set:N         = \l_@@_compact_bool
+    , compact                     .default:n          = true
+    , compact                     .initial:n          = false
+    , chapter / font              .tl_set:N           = \l_@@_chap_font_tl
+    , chapter / font              .value_required:n   = true
+    , chapter / font              .initial:n          = \bfseries
+    , chapter / colour            .tl_set:N           = \l_@@_chapter_colour_tl
+    , chapter / colour            .value_required:n   = true
+    , chapter / colour            .initial:n          = .
+    , chapter / color             .meta:n             = { chapter / colour = { #1 } }
+    , chapter / drop              .bool_set:N         = \l_@@_chap_drop_bool
+    , chapter / drop              .default:n          = true
+    , chapter / drop              .initial:n          = true
+    , chapter / format            .cs_set:Np          = \@@_chap_format:n #1
+    , chapter / format            .value_required:n   = true
+    , chapter / format            .initial:n          = #1
+    , chapter / hide              .bool_set_inverse:N = \l_@@_chap_show_bool
+    , chapter / hide              .default:n          = true
+    , chapter / nodrop            .bool_set_inverse:N = \l_@@_chap_drop_bool
+    , chapter / nodrop            .default:n          = true
+    , chapter / sep               .tl_set:N           = \l_@@_chap_sep_tl
+    , chapter / sep               .value_required:n   = true
+    , chapter / sep               .initial:n          = 0.5 em
+    , chapter / show              .bool_set:N         = \l_@@_chap_show_bool
+    , chapter / show              .default:n          = true
+    , chapter / show              .initial:n          = true
+    , chapter / showverse         .bool_set:N         = \l_@@_chap_show_verse_bool
+    , chapter / showverse         .default:n          = true
+    , chapter / showverse         .initial:n          = false
+    , extraskip                   .tl_set:N           = \l_@@_extraskip_tl
+    , extraskip                   .value_required:n   = true
+    , extraskip                   .initial:n          = \medskipamount
+    , font                        .tl_set:N           = \l_@@_font_tl
+    , font                        .value_required:n   = true
+    , font                        .initial:n          =
+    , indent                      .bool_set:N         = \l_@@_indent_bool
+    , indent                      .default:n          = true
+    , indent                      .initial:n          = true
+    , inline                      .bool_set:N         = \l_@@_inline_bool
+    , inline                      .default:n          = true
+    , inline                      .initial:n          = false
+    , inline / begin              .tl_set:N           = \l_@@_inline_begin_tl
+    , inline / begin              .value_required:n   = true
+    , inline / begin              .initial:n          = ``\,
+    , inline / end                .tl_set:N           = \l_@@_inline_end_tl
+    , inline / end                .value_required:n   = true
+    , inline / end                .initial:n          = \,''
+    , inline / reference / format .cs_set:Np          = \@@_inline_ref_format:n #1
+    , inline / reference / format .value_required:n   = true
+    , inline / reference / format .initial:n          = (#1)
+    , inline / reference / sep    .tl_set:N           = \l_@@_inline_ref_sep_tl
+    , inline / reference / sep    .value_required:n   = true
+    , inline / reference / sep    .initial:n          = 0.5 em
+    , inline / version / delim    .tl_set:N           = \l_@@_inline_version_delim_tl
+    , inline / version / delim    .value_required:n   = true
+    , inline / version / delim    .initial:n          = \c_space_tl
+    , inline / version / format   .cs_set:Np          = \@@_inline_version_format:n #1
+    , inline / version / format   .value_required:n   = true
+    , inline / version / format   .initial:n          = #1
+    , language                    .tl_set:N           = \l_@@_language_tl
+    , language                    .value_required:n   = true
+    , language                    .initial:n          =
+    , language / variant          .tl_set:N           = \l_@@_language_variant_tl
+    , language / variant          .value_required:n   = true
+    , language / variant          .initial:n          =
+    , leftmargin                  .tl_set:N           = \l_@@_leftmargin_tl
+    , leftmargin                  .value_required:n   = true
+    , leftmargin                  .initial:n          = \c_zero_dim
+    , name / font                 .tl_set:N           = \l_@@_name_font_tl
+    , name / font                 .value_required:n   = true
+    , name / font                 .initial:n          = \scshape
+    , name / format               .cs_set:Np          = \@@_name_format:n #1
+    , name / format               .value_required:n   = true
+    , name / format               .initial:n          = #1
+    , noindent                    .bool_set_inverse:N = \l_@@_indent_bool
+    , noindent                    .default:n          = true
+    , parindent                   .tl_set:N           = \l_@@_parindent_tl
+    , parindent                   .value_required:n   = true
+    , parindent                   .initial:n          = \parindent
+    , parskip                     .tl_set:N           = \l_@@_parskip_tl
+    , parskip                     .value_required:n   = true
+    , parskip                     .initial:n          = \parskip
+    , redletter                   .bool_set:N         = \l_@@_red_letter_bool
+    , redletter                   .default:n          = true
+    , redletter                   .initial:n          = false
+    , redletter / colour          .tl_set:N           = \l_@@_red_letter_colour_tl
+    , redletter / colour          .value_required:n   = true
+    , redletter / colour          .initial:n          = red!80!black
+    , redletter / color           .meta:n             = { redletter / colour = { #1 } }
+    , reference / align           .choices:nn         = { left, right }
+                                                        {
+                                                          \tl_if_exist:NF \l_@@_ref_align_tl
+                                                            { \tl_new:N \l_@@_ref_align_tl }
+                                                          \tl_set_eq:NN \l_@@_ref_align_tl \l_keys_choice_tl
+                                                        }
+    , reference / align           .value_required:n   = true
+    , reference / align           .initial:n          = right
+    , reference / colour          .tl_set:N           = \l_@@_ref_colour_tl
+    , reference / colour          .value_required:n   = true
+    , reference / colour          .initial:n          = .
+    , reference / color           .meta:n             = { reference / colour = { #1 } }
+    , reference / font            .tl_set:N           = \l_@@_ref_font_tl
+    , reference / font            .value_required:n   = true
+    , reference / font            .initial:n          = \bfseries
+    , reference / format          .cs_set:Np          = \@@_ref_format:n #1
+    , reference / format          .value_required:n   = true
+    , reference / format          .initial:n          = #1
+    , reference / newline         .meta:n             = { reference / sep = \linewidth }
+    , reference / newline         .value_forbidden:n  = true
+    , reference / sep             .tl_set:N           = \l_@@_ref_sep_tl
+    , reference / sep             .value_required:n   = true
+    , reference / sep             .initial:n          = 2 em
+    , rightmargin                 .tl_set:N           = \l_@@_rightmargin_tl
+    , rightmargin                 .value_required:n   = true
+    , rightmargin                 .initial:n          = \c_zero_dim
+    , selah / text                .tl_set:N           = \l_@@_selah_text_tl
+    , selah / text                .value_required:n   = true
+    , selah / text                .initial:n          = Selah
+    , selah / font                .tl_set:N           = \l_@@_selah_font_tl
+    , selah / font                .value_required:n   = true
+    , selah / font                .initial:n          = \itshape
+    , selah / format              .cs_set:Np          = \@@_selah_format:n #1
+    , selah / format              .value_required:n   = true
+    , selah / format              .initial:n          = #1
+    , selah / sep                 .tl_set:N           = \l_@@_selah_sep_tl
+    , selah / sep                 .value_required:n   = true
+    , selah / sep                 .initial:n          = 1 em
+    , style                       .choice:
+    , style / unknown             .code:n             = \msg_error:nnx
+                                                          { scripture }
+                                                          { unknown-style }
+                                                          { \exp_not:n {#1} }
+    , textright / sep             .tl_set:N           = \l_@@_text_right_sep_tl
+    , textright / sep             .value_required:n   = true
+    , textright / sep             .initial:n          = 1 em
+    , verse / colour              .tl_set:N           = \l_@@_verse_colour_tl
+    , verse / colour              .value_required:n   = true
+    , verse / colour              .initial:n          = .
+    , verse / color               .meta:n             = { verse / colour = { #1 } }
+    , verse / first               .bool_set:N         = \l_@@_verse_first_bool
+    , verse / first               .default:n          = true
+    , verse / first               .initial:n          = false
+    , verse / firstformat         .cs_set:Np          = \@@_verse_first_format:n #1
+    , verse / firstformat         .value_required:n   = true
+    , verse / firstformat         .initial:n          = #1
+    , verse / firstsep            .tl_set:N           = \l_@@_verse_first_sep_tl
+    , verse / firstsep            .value_required:n   = true
+    , verse / firstsep            .initial:n          = 0.5em
+    , verse / font                .tl_set:N           = \l_@@_verse_font_tl
+    , verse / font                .value_required:n   = true
+    , verse / font                .initial:n          = 
+    , verse / format              .cs_set:Np          = \@@_verse_format:n #1
+    , verse / format              .value_required:n   = true
+    , verse / format              .initial:n          = \textsuperscript{#1}
+    , verse / hide                .bool_set_inverse:N = \l_@@_verse_show_bool
+    , verse / hide                .default:n          = true
+    , verse / sep                 .tl_set:N           = \l_@@_verse_sep_tl
+    , verse / sep                 .value_required:n   = true
+    , verse / sep                 .initial:n          = 0.05 em
+    , verse / show                .bool_set:N         = \l_@@_verse_show_bool
+    , verse / show                .default:n          = true
+    , verse / show                .initial:n          = true
+    , version                     .tl_set:N           = \l_@@_version_tl
+    , version                     .value_required:n   = true
+    , version                     .initial:n          =
+    , version / delim             .tl_set:N           = \l_@@_version_delim_tl
+    , version / delim             .value_required:n   = true
+    , version / delim             .initial:n          = \c_space_tl
+    , version / format            .cs_set:Np          = \@@_version_format:n #1
+    , version / format            .value_required:n   = true
+    , version / format            .initial:n          = (#1)
 %    \end{macrocode}
 % Options for the \env{center} environment.
 %    \begin{macrocode}
-    , center / aboveskip       .tl_set:N           = \l_@@_center_aboveskip_tl
-    , center / aboveskip       .value_required:n   = true
-    , center / aboveskip       .initial:n          = \medskipamount
-    , center / belowskip       .tl_set:N           = \l_@@_center_belowskip_tl
-    , center / belowskip       .value_required:n   = true
-    , center / belowskip       .initial:n          = \medskipamount
-    , center / leftmargin      .tl_set:N           = \l_@@_center_leftmargin_tl
-    , center / leftmargin      .value_required:n   = true
-    , center / leftmargin      .initial:n          = \c_zero_dim
-    , center / rightmargin     .tl_set:N           = \l_@@_center_rightmargin_tl
-    , center / rightmargin     .value_required:n   = true
-    , center / rightmargin     .initial:n          = \c_zero_dim
+    , center / aboveskip          .tl_set:N           = \l_@@_center_aboveskip_tl
+    , center / aboveskip          .value_required:n   = true
+    , center / aboveskip          .initial:n          = \medskipamount
+    , center / belowskip          .tl_set:N           = \l_@@_center_belowskip_tl
+    , center / belowskip          .value_required:n   = true
+    , center / belowskip          .initial:n          = \medskipamount
+    , center / leftmargin         .tl_set:N           = \l_@@_center_leftmargin_tl
+    , center / leftmargin         .value_required:n   = true
+    , center / leftmargin         .initial:n          = \c_zero_dim
+    , center / rightmargin        .tl_set:N           = \l_@@_center_rightmargin_tl
+    , center / rightmargin        .value_required:n   = true
+    , center / rightmargin        .initial:n          = \c_zero_dim
 %    \end{macrocode}
 % Options for the \env{flushright} environment.
 %    \begin{macrocode}
-    , flushright / aboveskip   .tl_set:N           = \l_@@_flushright_aboveskip_tl
-    , flushright / aboveskip   .value_required:n   = true
-    , flushright / aboveskip   .initial:n          = \medskipamount
-    , flushright / belowskip   .tl_set:N           = \l_@@_flushright_belowskip_tl
-    , flushright / belowskip   .value_required:n   = true
-    , flushright / belowskip   .initial:n          = \medskipamount
-    , flushright / leftmargin  .tl_set:N           = \l_@@_flushright_leftmargin_tl
-    , flushright / leftmargin  .value_required:n   = true
-    , flushright / leftmargin  .initial:n          = \c_zero_dim
-    , flushright / rightmargin .tl_set:N           = \l_@@_flushright_rightmargin_tl
-    , flushright / rightmargin .value_required:n   = true
-    , flushright / rightmargin .initial:n          = \c_zero_dim
+    , flushright / aboveskip      .tl_set:N           = \l_@@_flushright_aboveskip_tl
+    , flushright / aboveskip      .value_required:n   = true
+    , flushright / aboveskip      .initial:n          = \medskipamount
+    , flushright / belowskip      .tl_set:N           = \l_@@_flushright_belowskip_tl
+    , flushright / belowskip      .value_required:n   = true
+    , flushright / belowskip      .initial:n          = \medskipamount
+    , flushright / leftmargin     .tl_set:N           = \l_@@_flushright_leftmargin_tl
+    , flushright / leftmargin     .value_required:n   = true
+    , flushright / leftmargin     .initial:n          = \c_zero_dim
+    , flushright / rightmargin    .tl_set:N           = \l_@@_flushright_rightmargin_tl
+    , flushright / rightmargin    .value_required:n   = true
+    , flushright / rightmargin    .initial:n          = \c_zero_dim
 %    \end{macrocode}
 % Options for the \env{hanging} environment.
 %    \begin{macrocode}
-    , hanging / aboveskip      .tl_set:N           = \l_@@_hanging_aboveskip_tl
-    , hanging / aboveskip      .value_required:n   = true
-    , hanging / aboveskip      .initial:n          = \medskipamount
-    , hanging / belowskip      .tl_set:N           = \l_@@_hanging_belowskip_tl
-    , hanging / belowskip      .value_required:n   = true
-    , hanging / belowskip      .initial:n          = \medskipamount
-    , hanging / hang           .tl_set:N           = \l_@@_hanging_hang_tl
-    , hanging / hang           .value_required:n   = true
-    , hanging / hang           .initial:n          = 2 em
-    , hanging / leftmargin     .tl_set:N           = \l_@@_hanging_leftmargin_tl
-    , hanging / leftmargin     .value_required:n   = true
-    , hanging / leftmargin     .initial:n          = 1 em
-    , hanging / rightmargin    .tl_set:N           = \l_@@_hanging_rightmargin_tl
-    , hanging / rightmargin    .value_required:n   = true
-    , hanging / rightmargin    .initial:n          = \c_zero_dim
+    , hanging / aboveskip         .tl_set:N           = \l_@@_hanging_aboveskip_tl
+    , hanging / aboveskip         .value_required:n   = true
+    , hanging / aboveskip         .initial:n          = \medskipamount
+    , hanging / belowskip         .tl_set:N           = \l_@@_hanging_belowskip_tl
+    , hanging / belowskip         .value_required:n   = true
+    , hanging / belowskip         .initial:n          = \medskipamount
+    , hanging / hang              .tl_set:N           = \l_@@_hanging_hang_tl
+    , hanging / hang              .value_required:n   = true
+    , hanging / hang              .initial:n          = 2 em
+    , hanging / leftmargin        .tl_set:N           = \l_@@_hanging_leftmargin_tl
+    , hanging / leftmargin        .value_required:n   = true
+    , hanging / leftmargin        .initial:n          = 1 em
+    , hanging / rightmargin       .tl_set:N           = \l_@@_hanging_rightmargin_tl
+    , hanging / rightmargin       .value_required:n   = true
+    , hanging / rightmargin       .initial:n          = \c_zero_dim
 %    \end{macrocode}
 % Options for the mid-paragraph chapters (including the \env{midparachap} environment).
 %    \begin{macrocode}
-    , midparachap / hideverse  .bool_set_inverse:N = \l_@@_midparachap_show_verse_bool
-    , midparachap / hideverse  .default:n          = true
-    , midparachap / showverse  .bool_set:N         = \l_@@_midparachap_show_verse_bool
-    , midparachap / showverse  .default:n          = true
-    , midparachap / showverse  .initial:n          = true
+    , midparachap / hideverse     .bool_set_inverse:N = \l_@@_midparachap_show_verse_bool
+    , midparachap / hideverse     .default:n          = true
+    , midparachap / showverse     .bool_set:N         = \l_@@_midparachap_show_verse_bool
+    , midparachap / showverse     .default:n          = true
+    , midparachap / showverse     .initial:n          = true
 %    \end{macrocode}
 % Options for the \env{narrow} environment.
 %    \begin{macrocode}
-    , narrow / aboveskip       .tl_set:N           = \l_@@_narrow_aboveskip_tl
-    , narrow / aboveskip       .value_required:n   = true
-    , narrow / aboveskip       .initial:n          = \medskipamount
-    , narrow / belowskip       .tl_set:N           = \l_@@_narrow_belowskip_tl
-    , narrow / belowskip       .value_required:n   = true
-    , narrow / belowskip       .initial:n          = \medskipamount
-    , narrow / leftmargin      .tl_set:N           = \l_@@_narrow_leftmargin_tl
-    , narrow / leftmargin      .value_required:n   = true
-    , narrow / leftmargin      .initial:n          = 1 em
-    , narrow / rightmargin     .tl_set:N           = \l_@@_narrow_rightmargin_tl
-    , narrow / rightmargin     .value_required:n   = true
-    , narrow / rightmargin     .initial:n          = 1 em
+    , narrow / aboveskip          .tl_set:N           = \l_@@_narrow_aboveskip_tl
+    , narrow / aboveskip          .value_required:n   = true
+    , narrow / aboveskip          .initial:n          = \medskipamount
+    , narrow / belowskip          .tl_set:N           = \l_@@_narrow_belowskip_tl
+    , narrow / belowskip          .value_required:n   = true
+    , narrow / belowskip          .initial:n          = \medskipamount
+    , narrow / leftmargin         .tl_set:N           = \l_@@_narrow_leftmargin_tl
+    , narrow / leftmargin         .value_required:n   = true
+    , narrow / leftmargin         .initial:n          = 1 em
+    , narrow / rightmargin        .tl_set:N           = \l_@@_narrow_rightmargin_tl
+    , narrow / rightmargin        .value_required:n   = true
+    , narrow / rightmargin        .initial:n          = 1 em
 %    \end{macrocode}
 % Options for the \env{poetry} environment.
 %    \begin{macrocode}
-    , poetry / aboveskip       .tl_set:N           = \l_@@_poetry_aboveskip_tl
-    , poetry / aboveskip       .value_required:n   = true
-    , poetry / aboveskip       .initial:n          = \medskipamount
-    , poetry / belowskip       .tl_set:N           = \l_@@_poetry_belowskip_tl
-    , poetry / belowskip       .value_required:n   = true
-    , poetry / belowskip       .initial:n          = \medskipamount
-    , poetry / bigindent       .tl_set:N           = \l_@@_poetry_big_indent_tl
-    , poetry / bigindent       .value_required:n   = true
-    , poetry / bigindent       .initial:n          = 4 em
-    , poetry / indent          .tl_set:N           = \l_@@_poetry_indent_tl
-    , poetry / indent          .value_required:n   = true
-    , poetry / indent          .initial:n          = 1 em
-    , poetry / leftmargin      .tl_set:N           = \l_@@_poetry_leftmargin_tl
-    , poetry / leftmargin      .value_required:n   = true
-    , poetry / leftmargin      .initial:n          = 1 em
-    , poetry / rightmargin     .tl_set:N           = \l_@@_poetry_rightmargin_tl
-    , poetry / rightmargin     .value_required:n   = true
-    , poetry / rightmargin     .initial:n          = \c_zero_dim
-    , poetry / verse / left    .bool_set_inverse:N = \l_@@_poetry_verse_right_bool
-    , poetry / verse / left    .default:n          = true
-    , poetry / verse / right   .bool_set:N         = \l_@@_poetry_verse_right_bool
-    , poetry / verse / right   .default:n          = true
-    , poetry / verse / right   .initial:n          = true
-    , poetry / verse / sep     .tl_set:N           = \l_@@_poetry_verse_sep_tl
-    , poetry / verse / sep     .value_required:n   = true
-    , poetry / verse / sep     .initial:n          = 0.05 em
+    , poetry / aboveskip          .tl_set:N           = \l_@@_poetry_aboveskip_tl
+    , poetry / aboveskip          .value_required:n   = true
+    , poetry / aboveskip          .initial:n          = \medskipamount
+    , poetry / belowskip          .tl_set:N           = \l_@@_poetry_belowskip_tl
+    , poetry / belowskip          .value_required:n   = true
+    , poetry / belowskip          .initial:n          = \medskipamount
+    , poetry / bigindent          .tl_set:N           = \l_@@_poetry_big_indent_tl
+    , poetry / bigindent          .value_required:n   = true
+    , poetry / bigindent          .initial:n          = 4 em
+    , poetry / indent             .tl_set:N           = \l_@@_poetry_indent_tl
+    , poetry / indent             .value_required:n   = true
+    , poetry / indent             .initial:n          = 1 em
+    , poetry / leftmargin         .tl_set:N           = \l_@@_poetry_leftmargin_tl
+    , poetry / leftmargin         .value_required:n   = true
+    , poetry / leftmargin         .initial:n          = 1 em
+    , poetry / rightmargin        .tl_set:N           = \l_@@_poetry_rightmargin_tl
+    , poetry / rightmargin        .value_required:n   = true
+    , poetry / rightmargin        .initial:n          = \c_zero_dim
+    , poetry / verse / left       .bool_set_inverse:N = \l_@@_poetry_verse_right_bool
+    , poetry / verse / left       .default:n          = true
+    , poetry / verse / right      .bool_set:N         = \l_@@_poetry_verse_right_bool
+    , poetry / verse / right      .default:n          = true
+    , poetry / verse / right      .initial:n          = true
+    , poetry / verse / sep        .tl_set:N           = \l_@@_poetry_verse_sep_tl
+    , poetry / verse / sep        .value_required:n   = true
+    , poetry / verse / sep        .initial:n          = 0.05 em
   }
 %    \end{macrocode}
 % Process package options.
@@ -4725,6 +4761,11 @@
         \tl_set:Nn \l_@@_belowskip_tl { 0pt }
         \tl_set:Nn \l_@@_leftmargin_tl { 0pt }
         \tl_set:Nn \l_@@_rightmargin_tl { 0pt }
+        \cs_set_eq:NN \@@_ref_format:n \@@_inline_ref_format:n
+        \tl_set_eq:NN \l_@@_ref_sep_tl \l_@@_inline_ref_sep_tl
+        \cs_set_eq:NN \@@_version_format:n \@@_inline_version_format:n
+        \tl_set_eq:NN \l_@@_version_delim_tl \l_@@_inline_version_delim_tl
+        \bool_set_true:N \l_@@_compact_bool
       }
     \bool_if:NT \l_@@_compact_bool
       {
