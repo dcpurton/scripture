@@ -2728,6 +2728,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_extra_skip:
   {
+    \mode_if_vertical:F \para_end:
     \int_compare:nNnT
       \g_@@_chap_par_prevgraf_int = 1
       {
@@ -4140,11 +4141,11 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\g_@@_poetry_midparachap_show_verse_bool}
+% \begin{macro}{\l_@@_poetry_midparachap_show_verse_bool}
 %   Flag indicating whether the verse number should be printed immediately
 %   after a \cs{ch} or not in a \env{poetry} environment.
 %    \begin{macrocode}
-\bool_new:N \g_@@_poetry_midparachap_show_verse_bool
+\bool_new:N \l_@@_poetry_midparachap_show_verse_bool
 %    \end{macrocode}
 % \end{macro}
 %
@@ -4169,28 +4170,6 @@
 %   Store the number of lines a line of poetry takes up.
 %    \begin{macrocode}
 \int_new:N \l_@@_poetry_prevgraf_int
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{\@@_poetry_extra_skip:}
-%   Insert a little extra vertical space between two lines in a \env{poetry}
-%   environment.
-%    \begin{macrocode}
-\cs_new_protected:Nn \@@_poetry_extra_skip:
-  {
-    \skip_vertical:n { \l_@@_extraskip_tl - \baselineskip - \parskip }
-    \bool_gset_false:N \g_@@_poetry_midparachap_show_verse_bool
-    \strut
-    \hook_gput_next_code:nn { para / after }
-      {
-        \hook_gput_next_code:nn { para / after }
-          {
-            \bool_gset_eq:NN
-              \g_@@_poetry_midparachap_show_verse_bool
-              \l_@@_midparachap_show_verse_bool
-          }
-      }
-  }
 %    \end{macrocode}
 % \end{macro}
 %
@@ -4253,12 +4232,15 @@
 \cs_new_protected:Nn \@@_poetry_chap:n
   {
     \@@_drop_chap_set_up:n { #1 }
-    \mode_if_vertical:TF
+    \cs_if_eq:NNTF \vs \@@_poetry_mode_vertical_verse:n
+      {
+        \dim_zero:N \l_@@_poetry_chap_indent_dim
+        \noindent
+      }
       {
         \dim_set_eq:NN \l_@@_poetry_chap_indent_dim \l_@@_poetry_indent_tl
         \mode_leave_vertical:
       }
-      { \dim_zero:N \l_@@_poetry_chap_indent_dim }
     \dim_set_eq:NN \l_@@_poetry_chap_sep_dim \l_@@_chap_sep_tl
     \dim_compare:nNnT
       { \l_@@_chap_width_dim + \l_@@_chap_sep_tl }
@@ -4300,10 +4282,7 @@
       \dim_eval:n
         { \linewidth - \l_@@_poetry_big_indent_tl }
 %    \end{macrocode}
-%   Because of interactions with \LaTeX{} \env{list} environments and
-%   \cs{@@_obeylines:}, \cs{@@_poetry_par:} setting the \cs{parshape} for the
-%   second line after a drop chapter number is more difficult than it should
-%   be. There's probably a better way.
+%   Set the \cs{parshape} for the second line after a drop chapter number.
 %    \begin{macrocode}
     \dim_compare:nNnT
       { \l_@@_chap_width_dim + \l_@@_poetry_chap_sep_dim }
@@ -4314,41 +4293,12 @@
           {
             \int_compare:nNnT \l_@@_poetry_prevgraf_int = 1
               {
-%    \end{macrocode}
-%   This \cs{parshape} is in effect when the next line is the second half of a
-%   poetry verse.
-%    \begin{macrocode}
-                \dim_compare:nNnTF
-                  { \l_@@_chap_width_dim + \l_@@_chap_sep_tl }
-                  <
-                  { \l_@@_poetry_leftmargin_tl + \l_@@_poetry_indent_tl }
-                  { \dim_zero:N \l_@@_poetry_chap_parshape_correction_dim }
-                  {
-                    \dim_set:Nn \l_@@_poetry_chap_parshape_correction_dim
-                      {
-                        \l_@@_chap_width_dim + \l_@@_chap_sep_tl -
-                        \l_@@_poetry_leftmargin_tl - \l_@@_poetry_indent_tl
-                      }
-                  }
-                \parshape 2 ~
-                  \dim_eval:n
-                    { \@totalleftmargin + \l_@@_poetry_chap_parshape_correction_dim } ~
-                  \dim_eval:n
-                    { \linewidth - \l_@@_poetry_chap_parshape_correction_dim } ~
-                  \dim_eval:n
-                    { \@totalleftmargin + \l_@@_poetry_big_indent_tl } ~
-                  \dim_eval:n
-                    { \linewidth - \l_@@_poetry_big_indent_tl }
-                \hook_gput_next_code:nn { para / after }
-                  {
-                    \hook_gclear_next_code:n { scripture / poetry / para / after }
-                  }
-                \hook_gput_next_code:nn { scripture / poetry / para / after }
-                  {
+                \cs_if_eq:NNTF \vs \@@_poetry_mode_vertical_verse:n
 %    \end{macrocode}
 %   This \cs{parshape} is in effect when the next line is the first half of a
 %   poetry verse.
 %    \begin{macrocode}
+                  {
                     \dim_compare:nNnTF
                       { \l_@@_chap_width_dim + \l_@@_chap_sep_tl }
                       <
@@ -4371,6 +4321,33 @@
                       \dim_eval:n
                         { \linewidth - \l_@@_poetry_big_indent_tl }
                   }
+%    \end{macrocode}
+%   This \cs{parshape} is in effect when the next line is the second half of a
+%   poetry verse.
+%    \begin{macrocode}
+                  {
+                    \dim_compare:nNnTF
+                      { \l_@@_chap_width_dim + \l_@@_chap_sep_tl }
+                      <
+                      { \l_@@_poetry_leftmargin_tl + \l_@@_poetry_indent_tl }
+                      { \dim_zero:N \l_@@_poetry_chap_parshape_correction_dim }
+                      {
+                        \dim_set:Nn \l_@@_poetry_chap_parshape_correction_dim
+                          {
+                            \l_@@_chap_width_dim + \l_@@_chap_sep_tl -
+                            \l_@@_poetry_leftmargin_tl - \l_@@_poetry_indent_tl
+                          }
+                      }
+                    \parshape 2 ~
+                      \dim_eval:n
+                        { \@totalleftmargin + \l_@@_poetry_chap_parshape_correction_dim } ~
+                      \dim_eval:n
+                        { \linewidth - \l_@@_poetry_chap_parshape_correction_dim } ~
+                      \dim_eval:n
+                        { \@totalleftmargin + \l_@@_poetry_big_indent_tl } ~
+                      \dim_eval:n
+                        { \linewidth - \l_@@_poetry_big_indent_tl }
+                  }
               }
           }
       }
@@ -4381,10 +4358,8 @@
     \group_end:
     \bool_lazy_or:nnT
       { \bool_if_p:n \l_@@_chap_show_verse_bool }
-      { \bool_if_p:n \g_@@_poetry_midparachap_show_verse_bool }
-      {
-        \@@_verse_output:n { 1 }
-      }
+      { \bool_if_p:n \l_@@_poetry_midparachap_show_verse_bool }
+      { \@@_verse_output:n { 1 } }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -4398,6 +4373,8 @@
     \cs_gset_nopar:Npn \scripturecurrentchapter { #1 }
     \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
     \group_begin:
+    \cs_if_eq:NNT \vs \@@_poetry_mode_vertical_verse:n
+      { \noindent }
     \bool_if:NTF \l_@@_chap_show_bool
       {
         \hbox_overlap_left:n
@@ -4414,10 +4391,8 @@
           }
         \bool_lazy_or:nnT
           { \bool_if_p:n \l_@@_chap_show_verse_bool }
-          { \bool_if_p:n \g_@@_poetry_midparachap_show_verse_bool }
-          {
-            \@@_verse_output:n { 1 }
-          }
+          { \bool_if_p:n \l_@@_poetry_midparachap_show_verse_bool }
+          { \@@_verse_output:n { 1 } }
       }
       {
         \hook_use:n { scripture / chap / before }
@@ -4475,16 +4450,8 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_poetry_par:
   {
-    \mode_if_vertical:TF
-      {
-        \cs_set_eq:NN \vs \@@_poetry_mode_vertical_verse:n
-        \noindent
-      }
-      {
-        \cs_set_eq:NN \vs \@@_poetry_mode_horizontal_verse:n
-        \@@_tmp_para_end:
-        \int_set_eq:NN \l_@@_poetry_prevgraf_int \prevgraf
-      }
+    \para_end:
+    \int_set:Nn \l_@@_poetry_prevgraf_int { \int_use:N \prevgraf }
     \parshape 2 ~ 
       \@totalleftmargin ~
       \linewidth ~
@@ -4506,15 +4473,45 @@
   \cs_gset_protected_nopar:Nn \@@_obeylines: %
     {%
       \char_set_catcode_active:N \^^M%
-      \cs_set_eq:NN ^^M \@@_obeylines_end:%
+      \cs_set_eq:NN ^^M \@@_obeylines_eol:%
     }%
 \group_end:
-\cs_new_protected:Nn \@@_obeylines_end:
+\cs_new_protected:Nn \@@_obeylines_eol:
   {
-    \peek_meaning:NF \end
+    \mode_if_vertical:TF
       {
-        \par
-        \int_set:Nn \l_@@_poetry_prevgraf_int { \int_use:N \prevgraf }
+        \cs_set_eq:NN \vs \@@_poetry_mode_vertical_verse:n
+        \hook_gput_next_code:nn { scripture / poetry / para / after }
+          { \bool_set_false:N \l_@@_poetry_midparachap_show_verse_bool }
+      }
+      { \cs_set_eq:NN \vs \@@_poetry_mode_horizontal_verse:n }
+    \peek_analysis_map_inline:n
+      {
+        \bool_case:nF
+          {
+            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \ch }
+              {
+                \bool_set_eq:NN \l_@@_poetry_midparachap_show_verse_bool \l_@@_midparachap_show_verse_bool
+                \@@_poetry_par:
+                \peek_analysis_map_break:n { ##1 }
+              }
+            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \end }
+              { \peek_analysis_map_break:n { ##1 } }
+            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \extraskip }
+              {
+                \hook_gput_next_code:nn { scripture / poetry / para / after }
+                  { \bool_set_false:N \l_@@_poetry_midparachap_show_verse_bool }
+                \peek_analysis_map_break:n { ##1 }
+              }
+            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \@@_obeylines_eol: }
+              { \cs_set_eq:NN \vs \@@_poetry_mode_vertical_verse:n }
+          }
+          {
+            \@@_poetry_par:
+            \cs_if_eq:NNT \vs \@@_poetry_mode_vertical_verse:n
+              { \noindent }
+            \peek_analysis_map_break:n { ##1 }
+          }
       }
   }
 %    \end{macrocode}
@@ -4534,7 +4531,6 @@
     \bool_gset_false:N \g_@@_poetry_midparachap_show_verse_bool
     \DeclareDocumentCommand { \ch } { sm } { \@@_poetry_ch:n { ##2 } }
     \cs_set_eq:NN \vs \@@_poetry_mode_vertical_verse:n
-    \cs_set_eq:NN \extraskip \@@_poetry_extra_skip:
     \cs_set_eq:NN \selah \@@_selah_output:
     \cs_set_protected_nopar:Npn \textright ##1
       { \@@_poetry_text_right:nn { \l_@@_text_right_sep_tl } { ##1 } }
@@ -4559,13 +4555,10 @@
       { \addvspace { \baselineskip } }
     \int_gzero:N \g_@@_chap_par_prevgraf_int
     \raggedright
+    \dim_set_eq:NN \listparindent \l_@@_poetry_indent_tl
     \dim_set_eq:NN \parindent \l_@@_poetry_indent_tl
     \item
     \relax
-    \cs_set_eq:NN \@@_tmp_para_end: \par
-    \cs_set_eq:NN \par \@@_poetry_par:
-    \hook_gput_next_code:nn { para / after }
-      { \bool_gset_eq:NN \g_@@_poetry_midparachap_show_verse_bool \l_@@_midparachap_show_verse_bool }
   }
 %    \end{macrocode}
 % \end{macro}
