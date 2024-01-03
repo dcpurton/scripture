@@ -2348,6 +2348,22 @@
     , chapter / hide              .default:n          = true
     , chapter / nodrop            .bool_set_inverse:N = \l_@@_chap_drop_bool
     , chapter / nodrop            .default:n          = true
+    , chapter / para              .bool_set:N         = \l_@@_chap_para_bool
+    , chapter / para              .default:n          = true
+    , chapter / para              .initial:n          = false
+    , chapter / para / aboveskip  .tl_set:N           = \l_@@_chap_para_aboveskip_tl
+    , chapter / para / aboveskip  .value_required:n   = true
+    , chapter / para / aboveskip  .initial:n          = \bigskipamount
+    , chapter / para / belowskip  .tl_set:N           = \l_@@_chap_para_belowskip_tl
+    , chapter / para / belowskip  .value_required:n   = true
+    , chapter / para / belowskip  .initial:n          = \medskipamount
+    , chapter / para / indent     .code:n             = {
+                                                          \bool_set:Nn
+                                                            \l_@@_chap_para_afterindent_bool
+                                                            { \str_if_eq_p:nn { #1 } { true } }
+                                                        }
+    , chapter / para / indent     .default:n          = true
+    , chapter / para / indent     .initial:n          = true
     , chapter / sep               .tl_set:N           = \l_@@_chap_sep_tl
     , chapter / sep               .value_required:n   = true
     , chapter / sep               .initial:n          = 0.5 em
@@ -2995,6 +3011,13 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\l_@@_para_chap_indent_dim}
+%   Indent used to center chapters when placed in their own paragraph.
+%    \begin{macrocode}
+\dim_new:N \l_@@_para_chap_indent_dim
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\@@_drop_chap_set_up:n}
 %   Set up chapter drop cap and calculate its various dimensions.
 %    \begin{macrocode}
@@ -3102,6 +3125,74 @@
         \vs { 1 }
       }
     \group_end:
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_para_chap:n}
+%   Format a chapter in its own paragraph.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_para_chap:n
+  {
+    \cs_gset_nopar:Npn \scripturecurrentchapter { #1 }
+    \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
+    \group_begin:
+    \skip_zero:N \parskip
+    \bool_if:NTF \l_@@_chap_show_bool
+      {
+        \dim_set_eq:NN \l_@@_para_chap_indent_dim \linewidth
+        \str_if_eq:VnTF \l_@@_currenvir_str { scripture }
+          {
+            \dim_set:Nn \l_@@_para_chap_indent_dim { 0.5 \l_@@_para_chap_indent_dim }
+          }
+          {
+            \dim_add:Nn \l_@@_para_chap_indent_dim { \leftmargin + \rightmargin }
+            \dim_set:Nn \l_@@_para_chap_indent_dim { 0.5 \l_@@_para_chap_indent_dim }
+            \dim_sub:Nn \l_@@_para_chap_indent_dim \leftmargin
+          }
+        \mode_if_vertical:F \para_end:
+        \addvspace { \l_@@_chap_para_aboveskip_tl }
+        \noindent
+        \skip_horizontal:N \l_@@_para_chap_indent_dim
+        \hbox_overlap_center:n
+          {
+            \hook_use:n { scripture / chap / before }
+            \group_begin:
+            \str_if_eq:VnF \l_@@_chapter_colour_tl { . }
+              { \exp_args:NV \color_select:n \l_@@_chapter_colour_tl }
+            \l_@@_chap_font_tl
+            \@@_chap_format:n { #1 }
+            \group_end:
+            \hook_use:n { scripture / chap / after }
+          }
+        \para_end:
+        \nobreak
+        \bool_lazy_any:nTF
+          {
+            { \str_if_eq_p:Vn \l_@@_currenvir_str { scripture } }
+            { \str_if_eq_p:Vn \l_@@_currenvir_str { midparachap } }
+            { \str_if_eq_p:Vn \l_@@_currenvir_str { narrow } }
+          }
+          { \legacy_if_set:nn { @afterindent } { \l_@@_chap_para_afterindent_bool } }
+          { \legacy_if_set_true:n { @afterindent } }
+        \@afterheading
+      }
+      {
+        \hook_use:n { scripture / chap / before }
+        \hook_use:n { scripture / chap / after }
+      }
+    \peek_meaning:NTF \c_space_token
+      {
+        \addvspace { \l_@@_chap_para_belowskip_tl }
+        \group_end:
+      }
+      {
+        \addvspace { \l_@@_chap_para_belowskip_tl }
+        \cs_if_eq:NNT \vs \@@_poetry_mode_vertical_verse:n
+          { \noindent }
+        \vs { 1 }
+        \group_end:
+      }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -3326,9 +3417,17 @@
                 { \int_gset_eq:NN \g_@@_mid_para_chap_prevgraf_int \prevgraf }
             }
           }
+          {
+            \bool_if:NTF \l_@@_chap_para_bool
+              { \@@_para_chap:n { #2 } }
+              { \@@_nodrop_chap:n { #2 } }
+          }
+      }
+      {
+        \bool_if:NTF \l_@@_chap_para_bool
+          { \@@_para_chap:n { #2 } }
           { \@@_nodrop_chap:n { #2 } }
       }
-      { \@@_nodrop_chap:n { #2 } }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -3363,6 +3462,8 @@
     \cs_set_eq:NN \extraskip \@@_extra_skip:
     \cs_set_eq:NN \redletteron \@@_red_letter_on:
     \cs_set_eq:NN \redletteroff \@@_red_letter_off:
+    \bool_if:NT \l_@@_chap_para_bool
+      { \bool_set_false:N \l_@@_chap_drop_bool }
     \DeclareDocumentCommand { \ch } { sm }
       { \@@_ch_output:nn { ##1 } { ##2 } }
     \cs_set_eq:NN \vs \@@_verse_output:n
@@ -3636,9 +3737,17 @@
       {
         \bool_if:NTF \l_@@_chap_drop_bool
           { \@@_hanging_chap:n { #1 } }
+          {
+            \bool_if:NTF \l_@@_chap_para_bool
+              { \@@_para_chap:n { #1 } }
+              { \@@_nodrop_chap:n { #1 } }
+          }
+      }
+      {
+        \bool_if:NTF \l_@@_chap_para_bool
+          { \@@_para_chap:n { #1 } }
           { \@@_nodrop_chap:n { #1 } }
       }
-      { \@@_nodrop_chap:n { #1 } }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -4219,9 +4328,17 @@
       {
         \bool_if:NTF \l_@@_chap_drop_bool
           { \@@_poetry_chap:n { #1 } }
+          {
+            \bool_if:NTF \l_@@_chap_para_bool
+              { \@@_para_chap:n { #1 } }
+              { \@@_poetry_nodrop_chap:n { #1 } }
+          }
+      }
+      {
+        \bool_if:NTF \l_@@_chap_para_bool
+          { \@@_para_chap:n { #1 } }
           { \@@_poetry_nodrop_chap:n { #1 } }
       }
-      { \@@_poetry_nodrop_chap:n { #1 } }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -4759,7 +4876,12 @@
         \tl_set_eq:NN \l_@@_ref_sep_tl \l_@@_inline_ref_sep_tl
         \cs_set_eq:NN \@@_version_format:n \@@_inline_version_format:n
         \tl_set_eq:NN \l_@@_version_delim_tl \l_@@_inline_version_delim_tl
+        \bool_set_false:N \l_@@_chap_para_bool
         \bool_set_true:N \l_@@_compact_bool
+      }
+    \bool_if:NT \l_@@_chap_para_bool
+      {
+        \RenewDocumentEnvironment { midparachap } { o } { \ignorespaces } { \unskip }
       }
     \bool_if:NT \l_@@_compact_bool
       {
