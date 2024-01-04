@@ -1283,6 +1283,67 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
+% \changes{v2.1}{2023/01/04}{Add \opt{chapter/para} option}
+% \begin{option}[added=2023-01-05]{chapter/para}
+%   \begin{syntax}
+%     chapter/para = \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   Set chapters in their own paragraph. The spacing before and after the
+%   chapter heading can be set using the \opt{chapter/para/aboveskip} and
+%   \opt{chapter/para/belowskip} options. The value of \meta{|boolean|} is
+%   optional and assumed to be \val{true} if not present.
+% \end{option}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[John 1:1][chapter/para,
+%     chapter/format=CHAPTER~#1, version=KJV]
+%   \ch{1}In the beginning was the Word, and the
+%   Word was with God, and the Word was God.
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[John 1:1][chapter/para,
+%     chapter/format=CHAPTER~#1, version=KJV]
+%   \ch{1}In the beginning was the Word, and the
+%   Word was with God, and the Word was God.
+% \end{scripture}
+% \end{scriptureexample}
+%
+% \changes{v2.1}{2023/01/04}{Add \opt{chapter/para/aboveskip} option}
+% \begin{option}[added=2023-01-05]{chapter/para/aboveskip}
+%   \begin{syntax}
+%     chapter/para/aboveskip = \meta{skip} \hfill Default: \cs{bigskipamount}
+%   \end{syntax}
+%   \meta{|skip|} added above \cs{ch} when \opt{chapter/para} is in effect.
+%   To be consistent with how the \pkg{parskip} package treats headings, no
+%   additional \cs{parskip} is inserted.
+% \end{option}
+%
+% \changes{v2.1}{2023/01/04}{Add \opt{chapter/para/belowskip} option}
+% \begin{option}[added=2023-01-05]{chapter/para/belowskip}
+%   \begin{syntax}
+%     chapter/para/belowskip = \meta{skip} \hfill Default: \cs{medskipamount}
+%   \end{syntax}
+%   \meta{|skip|} added below \cs{ch} when \opt{chapter/para} is in effect.
+%   To be consistent with how the \pkg{parskip} package treats headings, no
+%   additional \cs{parskip} is inserted.
+% \end{option}
+%
+% \changes{v2.1}{2023/01/05}{Add \opt{chapter/para/indent} option}
+% \begin{option}[added=2023-01-05]{chapter/para/indent}
+%   \begin{syntax}
+%     chapter/para/indent = \meta{boolean} \hfill Default: true
+%   \end{syntax}
+%   Whether to indent the line following a chapter heading when the
+%   \opt{chapter/para} option is set to \val{true}. This only has an effect in
+%   the \env{scripture}, \env{narrow} and \env{midparachap} environments. The
+%   value of \meta{|boolean|} is optional and assumed to be \val{true} if not
+%   present.
+% \end{option}
+%
 % \begin{option}{chapter/sep}
 %   \begin{syntax}
 %     chapter/sep = \meta{dimen} \hfill Default: 0.5em
