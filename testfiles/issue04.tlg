@@ -195,21 +195,10 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0 plus 1.0fil
-...\glue(\parskip) 0.0
-...\glue(\parskip) 0.0
-...\glue -6.0 plus 2.0 minus 2.0
+...\glue 6.0 plus 2.0 minus 2.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 1.6556
-...\hbox(8.39996+3.60004)x334.99998, glue set 162.49998fil, shifted 10.00002
-....\hbox(0.0+0.0)x10.00002
-....\rule(8.39996+3.60004)x0.0
-....\penalty 10000
-....\glue(\parfillskip) 0.0 plus 1.0fil
-....\glue(\rightskip) 0.0 plus 1.0fil
-...\glue(\parskip) 0.0
-...\glue(\parskip) 0.0
-...\glue(\baselineskip) 0.0
 ...\hbox(8.39996+3.60004)x334.99998, glue set 52.44421fil, shifted 10.00002
 ....\rule(8.39996+3.60004)x0.0
 ....\hbox(8.14003+0.0)x0.0, glue set - 4.98616fil
