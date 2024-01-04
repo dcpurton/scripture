@@ -1,0 +1,151 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount,
+  chapter/para,
+  chapter/format=CHAPTER~#1
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[John 1:1]
+  \ch{1}In the beginning was the Word, and the Word was with God, and the Word
+  was God.
+\end{scripture}
+
+\begin{scripture}[Genesis 1:1--2]
+  \begin{hanging}
+    \ch{1}In the beginning God created the heavens and the earth. \vs{2}Now
+    the earth was formless and empty, darkness was over the surface of the
+    deep, and the Spirit of God was hovering over the waters.
+  \end{hanging}
+\end{scripture}
+
+\begin{scripture}[1 Corinthians 10:31--11:1]
+  \begin{midparachap}
+    \vs{31}So whether you eat or drink or whatever you do, do it all for the
+    glory of God. \vs{32}Do not cause anyone to stumble, whether Jews, Greeks
+    or the church of God---\vs{33}even as I try to please everyone in every
+    way. For I am not seeking my own good but the good of many, so that they
+    may be saved. \ch{11}Follow my example, as I follow the example of Christ.
+  \end{midparachap}
+\end{scripture}
+
+\begin{scripture}[Isaiah 5:1]
+  \begin{poetry}
+    \ch{5}I will sing for the one I love
+    a song about his vineyard:
+
+    my loved one had a vineyard
+    on a fertile hillside.
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Psalm 3:1][chapter/format=PSALM~#1]
+  \ch{3}
+  \begin{center}
+    \footnotesize A psalm of David. When he fled from his son Absalom.
+  \end{center}
+  \begin{poetry}
+    \vs{1}\name{Lord}, how many are my foes!
+    How many rise up against me!
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Romans 14:23--15:1]
+  \vs{23}But whoever has doubts is condemned if they eat, because their eating
+  is not from faith; and everything that does not come from faith is sin.
+
+  \ch{15}We who are strong ought to bear with the failings of the weak and not
+  to please ourselves.
+\end{scripture}
+
+\begin{scripture}[Exodus 20:26--21:1]
+  \vs{26}And do not go up to my altar on steps, or your private parts may be
+  exposed.”
+
+  \extraskip
+
+  \ch{21}‘These are the laws you are to set before them:
+\end{scripture}
+
+\begin{scripture}[Genesis 1:31--2:1]
+  \begin{hanging}
+    \nohang\vs{31}God saw all that he had made, and it was very good. And
+    there was evening, and there was morn\-ing---the sixth day.
+
+    \extraskip
+
+    \ch{2}Thus the heavens and the earth were completed in all their vast
+    array.
+  \end{hanging}
+\end{scripture}
+
+\begin{scripture}[Isaiah 15:9--16:1]
+  \begin{poetry}
+    \vs{9}The waters of Dimon are full of blood,
+    but I will bring still more upon Dimon---
+
+    a lion upon the fugitives of Moab
+    and upon those who remain in the land.
+
+    \extraskip
+
+    \ch{16}Send lambs as tribute
+    to the ruler of the land,
+
+    from Sela, across the desert,
+    to the mount of Daughter Zion.
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Isaiah 3:26--4:1]
+  \begin{poetry}
+    \vs{26}The gates of Zion will lament and mourn;
+    destitute, she will sit on the ground.
+
+    \ch{4}In that day seven women
+    will take hold of one man
+
+    and say, ‘We will eat our own food
+    and provide our own clothes;
+
+    only let us be called by your name.
+    Take away our disgrace!’
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Hosea 6:11--7:1][poetry/leftmargin=2em,poetry/verse/sep=1em,version=NRSV]
+  \begin{poetry}
+    \vs{11}For you also, O Judah, a harvest is appointed.
+
+    \extraskip
+
+    When I would restore the fortunes of my people,
+    \ch{7}when I would heal Israel,
+    the corruption of Ephraim is revealed,
+    and the wicked deeds of Samaria;
+
+    for they deal falsely,
+    the thief breaks in,
+    and the bandits raid outside.
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Jeremiah 30:24--31:1]
+  \begin{poetry}
+    \vs{24}The fierce anger of the \name{Lord} will not turn back
+    until he fully accomplishes
+    the purposes of his heart.
+
+    In days to come
+    you will understand this.
+  \end{poetry}
+
+  \ch{31}‘At that time,’ declares the \name{Lord}, ‘I will be the God of all
+  the families of Israel, and they will be my people.’
+\end{scripture}
+\end{document}
