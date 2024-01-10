@@ -3773,7 +3773,7 @@
     \bool_set_true:N \l_@@_active_bool
     \tl_if_novalue:nF { #1 }
       { \tl_set:Nn \l_@@_ref_tl { #1 } }
-    \tl_set:Nn \l_@@_currenvir_str { scripture }
+    \str_set:Nn \l_@@_currenvir_str { scripture }
     \tl_if_novalue:nF { #2 }
       {
         \keys_set:nn { scripture } { #2 }
@@ -3937,7 +3937,7 @@
         \msg_error:nn { scripture } { nested-environment }
       }
     \bool_set_true:N \l_@@_active_inner_bool
-    \tl_set:Nn \l_@@_currenvir_str { center }
+    \str_set:Nn \l_@@_currenvir_str { center }
     \tl_if_novalue:nF { #1 }
       {
         \keys_set:nn
@@ -4002,7 +4002,7 @@
         \msg_error:nn { scripture } { nested-environment }
       }
     \bool_set_true:N \l_@@_active_inner_bool
-    \tl_set:Nn \l_@@_currenvir_str { flushright }
+    \str_set:Nn \l_@@_currenvir_str { flushright }
     \tl_if_novalue:nF { #1 }
       {
         \keys_set:nn
@@ -4205,7 +4205,7 @@
         \msg_error:nn { scripture } { nested-environment }
       }
     \bool_set_true:N \l_@@_active_inner_bool
-    \tl_set:Nn \l_@@_currenvir_str { hanging }
+    \str_set:Nn \l_@@_currenvir_str { hanging }
     \tl_if_novalue:nF { #1 }
       {
         \keys_set:nn
@@ -4394,7 +4394,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_mid_para_chap_begin:n
   {
-    \tl_set:Nn \l_@@_currenvir_str { midparachap }
+    \str_set:Nn \l_@@_currenvir_str { midparachap }
     \tl_if_novalue:nF { #1 }
       {
         \keys_set:nn
@@ -4507,7 +4507,7 @@
         \msg_error:nn { scripture } { nested-environment }
       }
     \bool_set_true:N \l_@@_active_inner_bool
-    \tl_set:Nn \l_@@_currenvir_str { narrow }
+    \str_set:Nn \l_@@_currenvir_str { narrow }
     \tl_if_novalue:nF { #1 }
       {
         \keys_set:nn
@@ -4980,7 +4980,7 @@
         \msg_error:nn { scripture } { nested-environment }
       }
     \bool_set_true:N \l_@@_active_inner_bool
-    \tl_set:Nn \l_@@_currenvir_str { poetry }
+    \str_set:Nn \l_@@_currenvir_str { poetry }
     \bool_gset_false:N \g_@@_poetry_midparachap_show_verse_bool
     \DeclareDocumentCommand { \ch } { sm } { \@@_poetry_ch:n { ##2 } }
     \cs_set_eq:NN \vs \@@_poetry_mode_vertical_verse:n
