@@ -1722,6 +1722,36 @@
 %   reference on the final line of the quotation.
 % \end{option}
 %
+% \changes{v2.1}{2024/01/10}{Add \opt{reference/position} option}
+% \begin{option}[added=2024-01-10]{reference/position}
+%   \begin{syntax}
+%     reference/position = start \textbar\ end \hfill Default: end
+%   \end{syntax}
+%   Set the position of the reference at either the start or end of the
+%   quotation. If \val{start} is specified, then the reference will be set
+%   inline unless the quotation begins with an inner environment. Any \cs{vs}
+%   or \cs{ch} is suppressed at the start of the quotation in the main
+%   \env{scripture} environment.
+% \end{option}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[John 1:1][version=NIV,
+%     reference/position=start]
+%   \ch{1}In the beginning was the Word, and the
+%   Word was with God, and the Word was God.
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[John 1:1][version=NIV,
+%     reference/position=start]
+%   \ch{1}In the beginning was the Word, and the
+%   Word was with God, and the Word was God.
+% \end{scripture}
+% \end{scriptureexample}
+%
 % \begin{option}{reference/sep}
 %   \begin{syntax}
 %     reference/sep = \meta{dimen} \hfill Default: 2em
@@ -1729,6 +1759,59 @@
 %   The minimum \meta{|dimen|} allowed between the end of a \env{scripture}
 %   quotation and its \val{reference} before the \val{reference} is pushed to
 %   the following line.
+% \end{option}
+%
+% \changes{v2.1}{2024/01/10}{Add \opt{reference/start/newline} option}
+% \begin{option}[added=2024-01-10]{reference/start/newline}
+%   \begin{syntax}
+%     reference/start/newline = \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   When \opt{reference/position} is set to \val{start}, this option controls
+%   whether the reference is set inline or on a line of its own before the
+%   quotation. Note that if the quotation begins with an inner environment the
+%   reference will always be on a new line unless the \opt{compact} option is
+%   also set. The value of \meta{|boolean|} is optional and assumed to be
+%   \val{true} if not present.
+% \end{option}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[John 1:1]%
+%     [reference/position=start,
+%      reference/start/newline]
+%   \ch{1}In the beginning was the Word, and the
+%   Word was with God, and the Word was God.
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[John 1:1]%
+%     [reference/position=start,
+%      reference/start/newline]
+%   \ch{1}In the beginning was the Word, and the
+%   Word was with God, and the Word was God.
+% \end{scripture}
+% \end{scriptureexample}
+%
+% \changes{v2.1}{2024/01/10}{Add \opt{reference/start/sep} option}
+% \begin{option}[added=2024-01-10]{reference/start/sep}
+%   \begin{syntax}
+%     reference/start/sep = \meta{dimen} \hfill Default: 1 em
+%   \end{syntax}
+%   The space inserted between the reference and the quotation when
+%   \opt{reference/position} is set to \val{start}. This only applies when the
+%   reference is inline and not on a line of its own.
+% \end{option}
+%
+% \changes{v2.1}{2024/01/10}{Add \opt{reference/start/vsep} option}
+% \begin{option}[added=2024-01-10]{reference/start/vsep}
+%   \begin{syntax}
+%     reference/start/sep = \meta{skip} \hfill Default: 0 pt
+%   \end{syntax}
+%   The vertical skip inserted between the reference and the quotation when
+%   \opt{reference/position} is set to \val{start}. This only applies when the
+%   reference is on a line of its own.
 % \end{option}
 %
 % \begin{option}{rightmargin}
@@ -1961,6 +2044,35 @@
 %   \meta{|macro|} used to format the \val{version} for a \env{scripture}
 %   quotation. |#1| contains the text of the \val{version}.
 % \end{option}
+%
+% \changes{v2.1}{2024/01/10}{Add \opt{version/position} option}
+% \begin{option}[added=2024-01-10]{version/position}
+%   \begin{syntax}
+%     version/position = withref \textbar\ end \hfill Default: withref
+%   \end{syntax}
+%   Set the position of the version at either with the reference or at the end
+%   of the quotation if \opt{reference/position} is set to \val{start}.
+% \end{option}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[John 1:1][version=NIV,
+%     reference/position=start,
+%     version/position=end]
+%   \ch{1}In the beginning was the Word, and the
+%   Word was with God, and the Word was God.
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[John 1:1][version=NIV,
+%     reference/position=start,
+%     version/position=end]
+%   \ch{1}In the beginning was the Word, and the
+%   Word was with God, and the Word was God.
+% \end{scripture}
+% \end{scriptureexample}
 %
 % \subsubsection{Options for the \env{center} environment}
 % \label{centeroptions}
