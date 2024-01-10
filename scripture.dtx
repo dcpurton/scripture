@@ -2514,9 +2514,26 @@
     , reference / format          .initial:n          = #1
     , reference / newline         .meta:n             = { reference / sep = \linewidth }
     , reference / newline         .value_forbidden:n  = true
+    , reference / position        .choices:nn         = { start, end }
+                                                        {
+                                                          \tl_if_exist:NF \l_@@_ref_position_tl
+                                                            { \tl_new:N \l_@@_ref_position_tl }
+                                                          \tl_set_eq:NN \l_@@_ref_position_tl \l_keys_choice_tl
+                                                        }
+    , reference / position        .value_required:n   = true
+    , reference / position        .initial:n          = end
     , reference / sep             .tl_set:N           = \l_@@_ref_sep_tl
     , reference / sep             .value_required:n   = true
     , reference / sep             .initial:n          = 2 em
+    , reference / start / newline .bool_set:N         = \l_@@_ref_start_newline_bool
+    , reference / start / newline .default:n          = true
+    , reference / start / newline .initial:n          = false
+    , reference / start / sep     .tl_set:N           = \l_@@_ref_start_sep_tl
+    , reference / start / sep     .value_required:n   = true
+    , reference / start / sep     .initial:n          = 1 em
+    , reference / start / vsep    .tl_set:N           = \l_@@_ref_vertical_sep_tl
+    , reference / start / vsep    .value_required:n   = true
+    , reference / start / vsep    .initial:n          = 0pt
     , rightmargin                 .tl_set:N           = \l_@@_rightmargin_tl
     , rightmargin                 .value_required:n   = true
     , rightmargin                 .initial:n          = \c_zero_dim
@@ -2576,6 +2593,14 @@
     , version / format            .cs_set:Np          = \@@_version_format:n #1
     , version / format            .value_required:n   = true
     , version / format            .initial:n          = (#1)
+    , version / position          .choices:nn         = { withref, end }
+                                                        {
+                                                          \tl_if_exist:NF \l_@@_version_position_tl
+                                                            { \tl_new:N \l_@@_version_position_tl }
+                                                          \tl_set_eq:NN \l_@@_version_position_tl \l_keys_choice_tl
+                                                        }
+    , version / position          .value_required:n   = true
+    , version / position          .initial:n          = withref
 %    \end{macrocode}
 % Options for the \env{center} environment.
 %    \begin{macrocode}
@@ -2866,10 +2891,10 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\@@_format_full_ref:n}
+% \begin{macro}{\@@_format_full_ref:nn}
 %   Format a scripture quotation with its reference.
 %    \begin{macrocode}
-\cs_new_protected:Nn \@@_format_full_ref:n
+\cs_new_protected:Nn \@@_format_full_ref:nn
   {
     \group_begin:
     \l_@@_ref_font_tl
@@ -2881,11 +2906,11 @@
 %    \end{macrocode}
 % Append a Bible version if it has been specified.
 %    \begin{macrocode}
-        \tl_if_empty:NF \l_@@_version_tl
+        \tl_if_empty:oF { #2 }
           {
-            \tl_if_empty:nF { #1 }
+            \tl_if_empty:oF { #1 }
               { \l_@@_version_delim_tl }
-            \@@_version_format:n { \l_@@_version_tl }
+            \@@_version_format:n { #2 }
           }
       }
     \group_end:
@@ -2900,7 +2925,7 @@
   {
     \hbox_set:Nn \l_@@_ref_box
       {
-        \@@_format_full_ref:n { #1 }
+        \@@_format_full_ref:nn { #1 } \l_@@_version_tl
       }
     \dim_compare:nNnT
       { \box_wd:N \l_@@_ref_box + \g_@@_final_line_dim + \l_@@_ref_sep_tl }
@@ -2924,6 +2949,112 @@
           { \skip_horizontal:n { \g_@@_final_line_dim + \l_@@_ref_sep_tl } }
       }
     \box_use:N \l_@@_ref_box
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_reference_start_inline:}
+%   Output the reference for the Scripture quotation when inline at the start.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_reference_start_inline:
+  {
+    \tl_if_empty:NF \l_@@_ref_tl
+      {
+        \tl_if_eq:NnTF \l_@@_version_position_tl { withref }
+          { \@@_format_full_ref:nn { \l_@@_ref_tl } { \l_@@_version_tl } }
+          { \@@_format_full_ref:nn { \l_@@_ref_tl } { } }
+        \skip_horizontal:N \l_@@_ref_start_sep_tl
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_reference_start_newline:}
+%   Output the reference for the Scripture quotation when on a new line at the
+%   start.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_reference_start_newline:
+  {
+    \tl_if_empty:NF \l_@@_ref_tl
+      {
+        \noindent
+        \str_if_eq:VnF \l_@@_currenvir_str { scripture }
+          { \skip_horizontal:n { -\leftmargin } }
+        \tl_if_eq:NnTF \l_@@_version_position_tl { withref }
+          { \@@_format_full_ref:nn { \l_@@_ref_tl } { \l_@@_version_tl } }
+          { \@@_format_full_ref:nn { \l_@@_ref_tl } { } }
+        \bool_if:NTF \l_@@_compact_bool
+          { \para_end: }
+          { \par }
+        \nobreak
+        \@afterheading
+        \addvspace { \l_@@_ref_vertical_sep_tl }
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_reference_start_peek:}
+%   Peek ahead at the beginning of the \env{scripture} environment to control
+%   how references are inserted at the start of a quotation.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_reference_start_peek:
+  {
+    \peek_remove_spaces:n
+      {
+        \tl_if_eq:NnT \l_@@_ref_position_tl { start }
+          {
+            \bool_lazy_or:nnF
+              { \str_if_eq_p:Vn \l_@@_currenvir_str { scripture } }
+              { \str_if_eq_p:Vn \l_@@_currenvir_str { midparachap } }
+              {
+                \bool_if:NF \l_@@_compact_bool
+                  { \bool_set_true:N \l_@@_ref_start_newline_bool }
+              }
+            \peek_analysis_map_inline:n
+              {
+                \bool_case:nF
+                  {
+                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \begin }
+                      { }
+                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \ch }
+                      {
+                        \bool_if:NTF \l_@@_ref_start_newline_bool
+                          { \@@_reference_start_newline: }
+                          {
+                            \cs_set_eq:NN \@@_temp_ch \ch
+                            \RenewDocumentCommand \ch { s m }
+                              { \cs_set_eq:NN \ch \@@_temp_ch }
+                            \@@_reference_start_inline:
+                          }
+                      }
+                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
+                      {
+                        \bool_if:NTF \l_@@_ref_start_newline_bool
+                          { \@@_reference_start_newline: }
+                          {
+                            \cs_set_eq:NN \@@_temp_vs \vs
+                            \RenewDocumentCommand \vs { m }
+                              { \cs_set_eq:NN \vs \@@_temp_vs }
+                            \@@_reference_start_inline:
+                          }
+                      }
+                  }
+                  {
+                    \bool_if:NTF \l_@@_ref_start_newline_bool
+                      { \@@_reference_start_newline: }
+                      { \@@_reference_start_inline: }
+                  }
+                \exp_args:No \token_if_eq_meaning:NNF { ##1 } \begin
+                  {
+                    \tl_clear:N \l_@@_ref_tl
+                    \tl_if_eq:NnF \l_@@_version_position_tl { end }
+                      { \tl_clear:N \l_@@_version_tl }
+                  }
+                \peek_analysis_map_break:n { ##1 }
+              }
+          }
+      }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -3405,7 +3536,7 @@
 % \subsubsection{The \env{scripture} environment}
 %
 % \begin{macro}{\l_@@_currenvir_str}
-%   Store the current \pkg{scripture} environment.
+%   Store the current \env{scripture} environment.
 %    \begin{macrocode}
 \str_new:N \l_@@_currenvir_str
 %    \end{macrocode}
@@ -3416,6 +3547,13 @@
 %   environment with non-zero \opt{parskip} option.
 %    \begin{macrocode}
 \skip_new:N \l_@@_parskip_correction_skip
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l_@@_ref_tl}
+%   Store the reference passed to the \env{scripture} environment.
+%    \begin{macrocode}
+\tl_new:N \l_@@_ref_tl
 %    \end{macrocode}
 % \end{macro}
 %
@@ -3493,10 +3631,10 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\@@_begin:n}
+% \begin{macro}{\@@_begin:nn}
 %   Begin a scripture quotation.
 %    \begin{macrocode}
-\cs_new_protected:Nn \@@_begin:n
+\cs_new_protected:Nn \@@_begin:nn
   {
     \cs_set_eq:NN \@@_noindent_saved: \noindent
     \bool_if:NT \l_@@_active_bool
@@ -3504,10 +3642,12 @@
         \msg_error:nn { scripture } { nested-environment }
       }
     \bool_set_true:N \l_@@_active_bool
-    \tl_set:Nn \l_@@_currenvir_str { scripture }
     \tl_if_novalue:nF { #1 }
+      { \tl_set:Nn \l_@@_ref_tl { #1 } }
+    \tl_set:Nn \l_@@_currenvir_str { scripture }
+    \tl_if_novalue:nF { #2 }
       {
-        \keys_set:nn { scripture } { #1 }
+        \keys_set:nn { scripture } { #2 }
       }
     \@@_select_language:
     \int_gzero:N \g_@@_chap_par_prevgraf_int
@@ -3584,29 +3724,35 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\@@_end:n}
+% \begin{macro}{\@@_end:}
 %   End a scripture quotation with a reference.
 %    \begin{macrocode}
-\cs_new_protected:Nn \@@_end:n
+\cs_new_protected:Nn \@@_end:
   {
+    \tl_if_eq:NnT \l_@@_ref_position_tl { start }
+      {
+        \tl_clear:N \l_@@_ref_tl
+        \tl_if_eq:NnT \l_@@_version_position_tl { withref }
+          { \tl_clear:N \l_@@_version_tl }
+      }
     \bool_if:NTF \l_@@_inline_bool
       {
         \unskip
         \@@_red_letter_off:
         \l_@@_inline_end_tl
         \bool_lazy_or:nnTF
-          { \tl_if_novalue_p:n { #1 } }
-          { \tl_if_empty_p:n { #1 } }
+          { \tl_if_novalue_p:n \l_@@_ref_tl }
+          { \tl_if_empty_p:N \l_@@_ref_tl }
           {
             \tl_if_empty:NF \l_@@_version_tl
               {
                 \skip_horizontal:N \l_@@_ref_sep_tl
-                \@@_format_full_ref:n { }
+                \@@_format_full_ref:nn { } \l_@@_version_tl
               }
           }
           {
             \skip_horizontal:N \l_@@_ref_sep_tl
-            \@@_format_full_ref:n { #1 }
+            \@@_format_full_ref:nn \l_@@_ref_tl \l_@@_version_tl
           }
       }
       {
@@ -3628,14 +3774,14 @@
         \parshape 1 ~ \@totalleftmargin ~ \linewidth
         \noindent
         \bool_lazy_or:nnTF
-          { \tl_if_novalue_p:n { #1 } }
-          { \tl_if_empty_p:n { #1 } }
+          { \tl_if_novalue_p:n \l_@@_ref_tl }
+          { \tl_if_empty_p:N \l_@@_ref_tl }
           { 
             \tl_if_empty:NTF \l_@@_version_tl
               { \hbox:n { } }
               { \@@_reference:n { } }
           }
-          { \@@_reference:n { #1 } }
+          { \@@_reference:n \l_@@_ref_tl }
 %    \end{macrocode}
 % Set \val{@noparlist} to \val{false} to ensure \cs{topsep} is always added
 % \env{scripture} environment
@@ -4834,7 +4980,7 @@
 %    \begin{macrocode}
 \NewDocumentEnvironment { scripture } { o o }
   {
-    \@@_begin:n { #2 }
+    \@@_begin:nn { #1 } { #2 }
 %    \end{macrocode}
 % \begin{envmacro}{center}
 %   \begin{arguments}
@@ -4844,7 +4990,7 @@
     \DeclareDocumentEnvironment { center } { o }
       {
         \@@_center_begin:n { ##1 }
-        \ignorespaces
+        \@@_reference_start_peek:
       }
       { \@@_center_end: }
 %    \end{macrocode}
@@ -4857,7 +5003,7 @@
     \DeclareDocumentEnvironment { flushright } { o }
       {
         \@@_flushright_begin:n { ##1 }
-        \ignorespaces
+        \@@_reference_start_peek:
       }
       { \@@_flushright_end: }
 %    \end{macrocode}
@@ -4870,7 +5016,7 @@
     \DeclareDocumentEnvironment { hanging } { o }
       {
         \@@_hanging_begin:n { ##1 }
-        \ignorespaces
+        \@@_reference_start_peek:
       }
       { \@@_hanging_end: }
 %    \end{macrocode}
@@ -4881,7 +5027,7 @@
     \DeclareDocumentEnvironment { midparachap } { o }
       {
         \@@_mid_para_chap_begin:n { ##1 }
-        \ignorespaces
+        \@@_reference_start_peek:
       }
       { \@@_mid_para_chap_end: }
 %    \end{macrocode}
@@ -4894,7 +5040,7 @@
     \DeclareDocumentEnvironment { narrow } { o }
       {
         \@@_narrow_begin:n { ##1 }
-        \ignorespaces
+        \@@_reference_start_peek:
       }
       { \@@_narrow_end: }
 %    \end{macrocode}
@@ -4915,7 +5061,7 @@
             { ##1 }
         }
         \@@_poetry_begin:
-        \ignorespaces
+        \@@_reference_start_peek:
       }
       { \@@_poetry_end: }
     \DeclareDocumentEnvironment { poetry } { }
@@ -4947,12 +5093,12 @@
     \bool_if:NT \l_@@_compact_bool
       {
         \scripturesetup { chapter / nodrop }
-        \RenewDocumentEnvironment { center } { o } { \ignorespaces } { \unskip }
-        \RenewDocumentEnvironment { flushright } { o } { \ignorespaces } { \unskip }
-        \RenewDocumentEnvironment { hanging } { o } { \ignorespaces } { \unskip }
-        \RenewDocumentEnvironment { midparachap } { o } { \ignorespaces } { \unskip }
-        \RenewDocumentEnvironment { narrow } { o } { \ignorespaces } { \unskip }
-        \RenewDocumentEnvironment { poetry } { o } { \ignorespaces } { \unskip }
+        \RenewDocumentEnvironment { center } { o } { \@@_reference_start_peek: } { \unskip }
+        \RenewDocumentEnvironment { flushright } { o } { \@@_reference_start_peek: } { \unskip }
+        \RenewDocumentEnvironment { hanging } { o } { \@@_reference_start_peek: } { \unskip }
+        \RenewDocumentEnvironment { midparachap } { o } { \@@_reference_start_peek: } { \unskip }
+        \RenewDocumentEnvironment { narrow } { o } { \@@_reference_start_peek: } { \unskip }
+        \RenewDocumentEnvironment { poetry } { o } { \@@_reference_start_peek: } { \unskip }
         \cs_set_eq:NN \\ \unskip
         \cs_set_eq:NN \par \relax
         \cs_set_eq:NN \extraskip \relax
@@ -4972,14 +5118,13 @@
             \c_space_tl
             ##1
           }
-        \mode_leave_vertical:
       }
-    \ignorespaces
+    \@@_reference_start_peek:
   }
   {
     \bool_if:NT \l_@@_compact_bool
       { \cs_set_eq:NN \par \endgraf }
-    \@@_end:n { #1 }
+    \@@_end:
   }
 %    \end{macrocode}
 % \end{envmacro}
