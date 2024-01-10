@@ -5221,7 +5221,8 @@
       }
     \bool_if:NT \l_@@_compact_bool
       {
-        \scripturesetup { chapter / nodrop }
+        \bool_set_false:N \l_@@_chap_drop_bool
+        \bool_set_false:N \l_@@_chap_para_bool
         \RenewDocumentEnvironment { center } { o } { \@@_reference_start_peek: } { \unskip }
         \RenewDocumentEnvironment { flushright } { o } { \@@_reference_start_peek: } { \unskip }
         \RenewDocumentEnvironment { hanging } { o } { \@@_reference_start_peek: } { \unskip }
