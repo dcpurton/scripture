@@ -1761,6 +1761,20 @@
 %   the following line.
 % \end{option}
 %
+% \changes{v2.1}{2024/01/10}{Add \opt{reference/start/inline} option}
+% \begin{option}[added=2024-01-10]{reference/start/inline}
+%   \begin{syntax}
+%     reference/start/inline = \meta{boolean} \hfill Default: true
+%   \end{syntax}
+%   When \opt{reference/position} is set to \val{start}, this option controls
+%   whether the reference is set inline or on a line of its own before the
+%   quotation. Note that if the quotation begins with an inner environment the
+%   reference will always be on a new line unless the \opt{compact} option is
+%   also set. The value of \meta{|boolean|} is optional and assumed to be
+%   \val{true} if not present. This option is the opposite of
+%   \opt{reference/start/newline}.
+% \end{option}
+%
 % \changes{v2.1}{2024/01/10}{Add \opt{reference/start/newline} option}
 % \begin{option}[added=2024-01-10]{reference/start/newline}
 %   \begin{syntax}
@@ -1771,7 +1785,8 @@
 %   quotation. Note that if the quotation begins with an inner environment the
 %   reference will always be on a new line unless the \opt{compact} option is
 %   also set. The value of \meta{|boolean|} is optional and assumed to be
-%   \val{true} if not present.
+%   \val{true} if not present. This option is the opposite of
+%   \opt{reference/start/inline}.
 % \end{option}
 %
 % \begin{scriptureexample}
@@ -2637,6 +2652,8 @@
     , reference / sep             .tl_set:N           = \l_@@_ref_sep_tl
     , reference / sep             .value_required:n   = true
     , reference / sep             .initial:n          = 2 em
+    , reference / start / inline  .bool_set_inverse:N = \l_@@_ref_start_newline_bool
+    , reference / start / inline  .default:n          = true
     , reference / start / newline .bool_set:N         = \l_@@_ref_start_newline_bool
     , reference / start / newline .default:n          = true
     , reference / start / newline .initial:n          = false
