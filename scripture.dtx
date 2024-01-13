@@ -1432,7 +1432,7 @@
 %     said:
 %   \end{midparachap}
 %   \begin{poetry}
-%     `In my distress I called to the Lord,
+%     `In my distress I called to the \name{Lord},
 %     and he answered me.
 %   \end{poetry}
 % \end{scripture}
@@ -1450,7 +1450,7 @@
 %     said:
 %   \end{midparachap}
 %   \begin{poetry}
-%     `In my distress I called to the Lord,
+%     `In my distress I called to the \name{Lord},
 %     and he answered me.
 %   \end{poetry}
 % \end{scripture}
@@ -2017,6 +2017,56 @@
 %   invisible, whether thrones or powers or rulers
 %   or authorities; all things have been created
 %   through him and for him.
+% \end{scripture}
+% \end{scriptureexample}
+%
+% \changes{v2.1}{2024/01/13}{Add \opt{verse/para} option}
+% \begin{option}[added=2024-01-13]{verse/para}
+%   \begin{syntax}
+%     verse/para = \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   Whether to set each verse on its own line. The value of \meta{|boolean|}
+%   is optional and assumed to be \val{true} if not present.
+% \end{option}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[Jonah 1:17--2:2a][verse/para,
+%     verse/sep=0.5em, chapter/para,
+%     chapter/format=CHAPTER~#1]
+%   \begin{midparachap}
+%     \vs{17}Now the \name{Lord} provided a huge
+%     fish to swallow Jonah, and Jonah was in the
+%     belly of the fish three days and three
+%     nights. \ch{2}From inside the fish Jonah
+%     prayed to the \name{Lord} his God. \vs{2}He
+%     said:
+%   \end{midparachap}
+%   \begin{poetry}
+%     `In my distress I called to the \name{Lord},
+%     and he answered me.
+%   \end{poetry}
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[Jonah 1:17--2:2a][verse/para,
+%     verse/format=#1, verse/font=\bfseries,
+%     verse/sep=0.5em, chapter/para,
+%     chapter/format=CHAPTER~#1]
+%   \begin{midparachap}
+%     \vs{17}Now the \name{Lord} provided a huge
+%     fish to swallow Jonah, and Jonah was in the
+%     belly of the fish three days and three
+%     nights. \ch{2}From inside the fish Jonah
+%     prayed to the \name{Lord} his God. \vs{2}He
+%     said:
+%   \end{midparachap}
+%   \begin{poetry}
+%     `In my distress I called to the \name{Lord},
+%     and he answered me.
+%   \end{poetry}
 % \end{scripture}
 % \end{scriptureexample}
 %
@@ -2709,6 +2759,9 @@
     , verse / format              .initial:n          = \textsuperscript{#1}
     , verse / hide                .bool_set_inverse:N = \l_@@_verse_show_bool
     , verse / hide                .default:n          = true
+    , verse / para                .bool_set:N         = \l_@@_verse_para_bool
+    , verse / para                .default:n          = true
+    , verse / para                .initial:n          = false
     , verse / sep                 .tl_set:N           = \l_@@_verse_sep_tl
     , verse / sep                 .value_required:n   = true
     , verse / sep                 .initial:n          = 0.05 em
@@ -3426,6 +3479,11 @@
     \cs_gset_nopar:Npn \scripturecurrentchapter { #1 }
     \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
     \group_begin:
+    \bool_if:NT \l_@@_verse_para_bool
+      {
+        \legacy_if:nF { @newlist }
+          { \mode_if_vertical:F \para_end: }
+      }
     \bool_if:NTF \l_@@_chap_show_bool
       {
         \hook_use:n { scripture / chap / before }
@@ -3621,6 +3679,18 @@
       }
     \hook_use:n { scripture / verse / after }
     \group_end:
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_verse_para_output:n}
+%   Output a formatted verse.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_verse_para_output:n
+  {
+    \legacy_if:nF { @newlist }
+      { \mode_if_vertical:F \para_end: }
+    \@@_verse_output:n { #1 }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -5221,10 +5291,16 @@
       {
         \RenewDocumentEnvironment { midparachap } { o } { \ignorespaces } { \unskip }
       }
+    \bool_if:NT \l_@@_verse_para_bool
+      {
+        \bool_set_true:N \l_@@_compact_bool
+        \cs_set_eq:NN \vs \@@_verse_para_output:n
+      }
     \bool_if:NT \l_@@_compact_bool
       {
         \bool_set_false:N \l_@@_chap_drop_bool
-        \bool_set_false:N \l_@@_chap_para_bool
+        \bool_if:NF \l_@@_verse_para_bool
+          { \bool_set_false:N \l_@@_chap_para_bool }
         \RenewDocumentEnvironment { center } { o } { \@@_reference_start_peek: } { \unskip }
         \RenewDocumentEnvironment { flushright } { o } { \@@_reference_start_peek: } { \unskip }
         \RenewDocumentEnvironment { hanging } { o } { \@@_reference_start_peek: } { \unskip }
