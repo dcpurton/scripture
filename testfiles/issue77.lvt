@@ -1,0 +1,52 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Acts 7:1--2]
+  \ch{7}Then the high priest asked Stephen, ‘Are these charges true?’
+
+  \vs{2}To this he replied: ‘Brothers and fathers, listen to me! The God of
+  glory appeared to our father Abraham while he was still in Mesopotamia,
+  before he lived in Harran.
+\end{scripture}
+
+\begin{scripture}[Acts 21:40--22:2]
+  \begin{midparachap}
+    \vs{40}After receiving the commander’s permission, Paul stood on the steps
+    and motioned to the crowd. When they were all silent, he said to them in
+    Aramaic: \ch{22}‘Brothers and fathers, listen now to my defence.’
+  \end{midparachap}
+
+  \vs{2}When they heard him speak to them in Aramaic, they became very quiet.
+\end{scripture}
+
+\scripturesetup{
+  parskip=.5\baselineskip plus 2pt,
+  parindent=0pt
+}
+
+\begin{scripture}[Acts 7:1--2]
+  \ch{7}Then the high priest asked Stephen, ‘Are these charges true?’
+
+  \vs{2}To this he replied: ‘Brothers and fathers, listen to me! The God of
+  glory appeared to our father Abraham while he was still in Mesopotamia,
+  before he lived in Harran.
+\end{scripture}
+
+\begin{scripture}[Acts 21:40--22:2]
+  \begin{midparachap}
+    \vs{40}After receiving the commander’s permission, Paul stood on the steps
+    and motioned to the crowd. When they were all silent, he said to them in
+    Aramaic: \ch{22}‘Brothers and fathers, listen now to my defence.’
+  \end{midparachap}
+
+  \vs{2}When they heard him speak to them in Aramaic, they became very quiet.
+\end{scripture}
+\end{document}
