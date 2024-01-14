@@ -3365,10 +3365,10 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\l_@@_chap_width_dim}
+% \begin{macro}{\g_@@_chap_width_dim}
 %   Calculated width of drop chapter number.
 %    \begin{macrocode}
-\dim_new:N \l_@@_chap_width_dim
+\dim_new:N \g_@@_chap_width_dim
 %    \end{macrocode}
 % \end{macro}
 %
@@ -3424,7 +3424,7 @@
           { \exp_args:NV \color_select:n \l_@@_chapter_colour_tl }
         \@@_chap_format:n { #1 }
       }
-    \dim_set:Nn \l_@@_chap_width_dim
+    \dim_gset:Nn \g_@@_chap_width_dim
       { \box_wd:N \l_@@_chap_tmp_box }
 %    \end{macrocode}
 %   Avoid breaks in the middle of drop chapters.
@@ -3451,13 +3451,13 @@
     \noindent
     \parshape 3 ~
       \dim_eval:n
-        { \@totalleftmargin + \l_@@_chap_width_dim + \l_@@_chap_sep_tl } ~
+        { \@totalleftmargin + \g_@@_chap_width_dim + \l_@@_chap_sep_tl } ~
       \dim_eval:n
-        { \linewidth - \l_@@_chap_width_dim - \l_@@_chap_sep_tl } ~
+        { \linewidth - \g_@@_chap_width_dim - \l_@@_chap_sep_tl } ~
       \dim_eval:n
-        { \@totalleftmargin + \l_@@_chap_width_dim + \l_@@_chap_sep_tl } ~
+        { \@totalleftmargin + \g_@@_chap_width_dim + \l_@@_chap_sep_tl } ~
       \dim_eval:n
-        { \linewidth - \l_@@_chap_width_dim - \l_@@_chap_sep_tl } ~
+        { \linewidth - \g_@@_chap_width_dim - \l_@@_chap_sep_tl } ~
       \@totalleftmargin ~
       \linewidth
     \group_begin:
@@ -3609,7 +3609,19 @@
         \legacy_if:nF { @newlist }
           {
             \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
-              { \extraskip }
+              {
+                \dim_compare:nNnT \parskip < \baselineskip
+                  {
+                    \dim_compare:nNnT { \g_@@_chap_width_dim + \l_@@_chap_sep_tl } > \parindent
+                      {
+                        \hook_gput_next_code:nn { para / begin }
+                          {
+                            \para_omit_indent:
+                            \skip_horizontal:n {\g_@@_chap_width_dim + \l_@@_chap_sep_tl }
+                          }
+                      }
+                  }
+              }
             \int_gzero:N \g_@@_chap_par_prevgraf_int
           }
         \parshape 1 ~ \@totalleftmargin ~ \linewidth
@@ -4167,33 +4179,33 @@
   {
     \@@_drop_chap_set_up:n { #1 }
     \dim_compare:nNnTF
-      \l_@@_chap_width_dim < \leftmargin
+      \g_@@_chap_width_dim < \leftmargin
       {
         \tl_set:Nx \l_@@_chap_sep_tl
           {
-            \dim_eval:n { \leftmargin - \l_@@_chap_width_dim }
+            \dim_eval:n { \leftmargin - \g_@@_chap_width_dim }
           }
       }
       {
         \parshape 3 ~
           \dim_eval:n
             {
-              \@totalleftmargin - \leftmargin + \l_@@_chap_width_dim +
+              \@totalleftmargin - \leftmargin + \g_@@_chap_width_dim +
               \l_@@_chap_sep_tl
             } ~
           \dim_eval:n
             {
-              \linewidth + \leftmargin - \l_@@_chap_width_dim -
+              \linewidth + \leftmargin - \g_@@_chap_width_dim -
               \l_@@_chap_sep_tl
             } ~
           \dim_eval:n
             {
-              \@totalleftmargin - \leftmargin + \l_@@_chap_width_dim +
+              \@totalleftmargin - \leftmargin + \g_@@_chap_width_dim +
               \l_@@_chap_sep_tl
             } ~
           \dim_eval:n
             {
-              \linewidth + \leftmargin - \l_@@_chap_width_dim -
+              \linewidth + \leftmargin - \g_@@_chap_width_dim -
               \l_@@_chap_sep_tl
             } ~
           \@totalleftmargin ~ \linewidth
@@ -4431,7 +4443,7 @@
     \dim_compare:nNnTF
       {
         \box_wd:N \l_@@_mid_para_chap_snap_box +
-        \l_@@_chap_width_dim +
+        \g_@@_chap_width_dim +
         \l_@@_chap_sep_tl
       }
       <
@@ -4516,8 +4528,8 @@
       \prevgraf < 3
       {
         \noindent
-        \skip_horizontal:n { \l_@@_chap_width_dim + \l_@@_chap_sep_tl }
-        \dim_gadd:Nn \g_@@_final_line_dim { \l_@@_chap_width_dim + \l_@@_chap_sep_tl }
+        \skip_horizontal:n { \g_@@_chap_width_dim + \l_@@_chap_sep_tl }
+        \dim_gadd:Nn \g_@@_final_line_dim { \g_@@_chap_width_dim + \l_@@_chap_sep_tl }
       }
     \box_use_drop:N \l_@@_mid_para_chap_line_box
     \vbox_set_end:
@@ -4560,7 +4572,24 @@
     \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \g_@@_mid_para_chap_prevgraf_int
     \hook_gput_next_code:nn { para / before }
       {
-        \int_gzero:N \g_@@_chap_par_prevgraf_int
+        \legacy_if:nF { @newlist }
+          {
+            \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+              {
+                \dim_compare:nNnT \parskip < \baselineskip
+                  {
+                    \dim_compare:nNnT { \g_@@_chap_width_dim + \l_@@_chap_sep_tl } > \parindent
+                      {
+                        \hook_gput_next_code:nn { para / begin }
+                          {
+                            \para_omit_indent:
+                            \skip_horizontal:n {\g_@@_chap_width_dim + \l_@@_chap_sep_tl }
+                          }
+                      }
+                  }
+              }
+            \int_gzero:N \g_@@_chap_par_prevgraf_int
+          }
         \parshape 1 ~ \@totalleftmargin ~ \linewidth
       }
   }
@@ -4768,14 +4797,14 @@
       }
     \dim_set_eq:NN \l_@@_poetry_chap_sep_dim \l_@@_chap_sep_tl
     \dim_compare:nNnT
-      { \l_@@_chap_width_dim + \l_@@_chap_sep_tl }
+      { \g_@@_chap_width_dim + \l_@@_chap_sep_tl }
       <
       { \l_@@_poetry_leftmargin_tl + \l_@@_poetry_chap_indent_dim }
       {
         \dim_set:Nn \l_@@_poetry_chap_sep_dim
           {
             \l_@@_poetry_leftmargin_tl + \l_@@_poetry_chap_indent_dim -
-            \l_@@_chap_width_dim
+            \g_@@_chap_width_dim
           }
       }
     \hbox_set:Nn \l_@@_chap_box
@@ -4794,7 +4823,7 @@
     \box_set_dp:Nn \l_@@_chap_box { \c_zero_dim }
     \dim_set:Nn \l_@@_poetry_chap_parshape_correction_dim
       {
-        \l_@@_chap_width_dim + \l_@@_poetry_chap_sep_dim -
+        \g_@@_chap_width_dim + \l_@@_poetry_chap_sep_dim -
         \l_@@_poetry_leftmargin_tl - \l_@@_poetry_chap_indent_dim
       }
     \parshape 2 ~
@@ -4810,7 +4839,7 @@
 %   Set the \cs{parshape} for the second line after a drop chapter number.
 %    \begin{macrocode}
     \dim_compare:nNnT
-      { \l_@@_chap_width_dim + \l_@@_poetry_chap_sep_dim }
+      { \g_@@_chap_width_dim + \l_@@_poetry_chap_sep_dim }
       >
       \l_@@_poetry_leftmargin_tl
       {
@@ -4825,14 +4854,14 @@
 %    \begin{macrocode}
                   {
                     \dim_compare:nNnTF
-                      { \l_@@_chap_width_dim + \l_@@_chap_sep_tl }
+                      { \g_@@_chap_width_dim + \l_@@_chap_sep_tl }
                       <
                       \l_@@_poetry_leftmargin_tl
                       { \dim_zero:N \l_@@_poetry_chap_parshape_correction_dim }
                       {
                         \dim_set:Nn \l_@@_poetry_chap_parshape_correction_dim
                           {
-                            \l_@@_chap_width_dim + \l_@@_chap_sep_tl -
+                            \g_@@_chap_width_dim + \l_@@_chap_sep_tl -
                             \l_@@_poetry_leftmargin_tl
                           }
                       }
@@ -4852,14 +4881,14 @@
 %    \begin{macrocode}
                   {
                     \dim_compare:nNnTF
-                      { \l_@@_chap_width_dim + \l_@@_chap_sep_tl }
+                      { \g_@@_chap_width_dim + \l_@@_chap_sep_tl }
                       <
                       { \l_@@_poetry_leftmargin_tl + \l_@@_poetry_indent_tl }
                       { \dim_zero:N \l_@@_poetry_chap_parshape_correction_dim }
                       {
                         \dim_set:Nn \l_@@_poetry_chap_parshape_correction_dim
                           {
-                            \l_@@_chap_width_dim + \l_@@_chap_sep_tl -
+                            \g_@@_chap_width_dim + \l_@@_chap_sep_tl -
                             \l_@@_poetry_leftmargin_tl - \l_@@_poetry_indent_tl
                           }
                       }
