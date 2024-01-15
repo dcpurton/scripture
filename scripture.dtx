@@ -3431,14 +3431,17 @@
 %    \begin{macrocode}
     \int_set_eq:NN \l_@@_clubpenalty_saved_int \clubpenalty
     \clubpenalty 10000
-    \hook_gput_next_code:nn { para / after }
-      {
-        \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \prevgraf
-        \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
-          { \penalty 10000 }
-        \hook_gput_next_code:nn { para / before }
-          { \int_set_eq:NN \clubpenalty \l_@@_clubpenalty_saved_int }
-      }
+    \bool_if:NF \l_@@_verse_para_bool
+    {
+      \hook_gput_next_code:nn { para / after }
+        {
+          \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \prevgraf
+          \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+            { \penalty 10000 }
+          \hook_gput_next_code:nn { para / before }
+            { \int_set_eq:NN \clubpenalty \l_@@_clubpenalty_saved_int }
+        }
+    }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -3467,6 +3470,17 @@
     \group_end:
     \bool_if:NT \l_@@_chap_show_verse_bool
       { \@@_verse_output:n { 1 } }
+    \bool_if:NT \l_@@_verse_para_bool
+    {
+      \hook_gput_next_code:nn { para / after }
+        {
+          \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \prevgraf
+          \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+            { \penalty 10000 }
+          \hook_gput_next_code:nn { para / before }
+            { \int_set_eq:NN \clubpenalty \l_@@_clubpenalty_saved_int }
+        }
+    }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -3601,7 +3615,7 @@
     \bool_if:NTF \l_@@_mid_para_chap_bool
       { \@@_mid_para_drop_chap_output: }
       {
-        \par
+        \para_end:
         \@@_drop_chap_output:
       }
     \hook_gput_next_code:nn { para / before }
@@ -3726,6 +3740,7 @@
     \skip_zero:N \belowdisplayshortskip
     \skip_zero:N \belowdisplayskip
     $$
+      \hook_use:n { para / after }
       \dim_compare:nNnT \predisplaysize > \c_zero_dim
         {
           \dim_gset:Nn \g_@@_final_line_dim
@@ -3735,6 +3750,7 @@
         {
           \dim_set:Nn \predisplaysize { \dim_use:N \predisplaysize }
           \int_set:Nn \prevgraf { \int_use:N \prevgraf }
+          \int_gset:Nn \g_@@_chap_par_prevgraf_int { \int_use:N \g_@@_chap_par_prevgraf_int }
         }
     $$
     \@@_reset_spacing:
@@ -4008,6 +4024,46 @@
 % \end{macro}
 %
 % \subsection{Scripture internal environments}
+%
+% \begin{macro}{\@@_compact_end_inner:}
+%   End a compact inner environment
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_compact_end_inner:
+  {
+    \bool_lazy_and:nnT \l_@@_verse_para_bool \l_@@_chap_drop_bool
+      {
+        \cs_set_eq:NN \par \para_end:
+        \@@_calc_final_line_length:
+        \int_gset_eq:NN \g_@@_mid_para_chap_prevgraf_int \g_@@_chap_par_prevgraf_int
+        \noindent
+        \hbox_to_wd:nn \g_@@_final_line_dim { }
+        \cs_set_eq:NN \par \relax
+        \hook_gput_next_code:nn { para / before }
+          {
+            \int_compare:nNnT \g_@@_mid_para_chap_prevgraf_int = 1
+              {
+                \dim_compare:nNnT \parskip < \baselineskip
+                  {
+                    \dim_compare:nNnT { \g_@@_chap_width_dim + \l_@@_chap_sep_tl } > \parindent
+                      {
+                        \hook_gput_next_code:nn { para / begin }
+                          {
+                            \para_omit_indent:
+                            \skip_horizontal:n {\g_@@_chap_width_dim + \l_@@_chap_sep_tl }
+                          }
+                      }
+                  }
+              }
+            \int_gzero:N \g_@@_chap_par_prevgraf_int
+            \parshape 1 ~ \@totalleftmargin ~ \linewidth
+          }
+      }
+    \unskip
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+%
 %
 % \subsubsection{The \env{center} environment}
 %
@@ -5327,15 +5383,23 @@
       }
     \bool_if:NT \l_@@_compact_bool
       {
-        \bool_set_false:N \l_@@_chap_drop_bool
         \bool_if:NF \l_@@_verse_para_bool
-          { \bool_set_false:N \l_@@_chap_para_bool }
-        \RenewDocumentEnvironment { center } { o } { \@@_reference_start_peek: } { \unskip }
-        \RenewDocumentEnvironment { flushright } { o } { \@@_reference_start_peek: } { \unskip }
-        \RenewDocumentEnvironment { hanging } { o } { \@@_reference_start_peek: } { \unskip }
-        \RenewDocumentEnvironment { midparachap } { o } { \@@_reference_start_peek: } { \unskip }
-        \RenewDocumentEnvironment { narrow } { o } { \@@_reference_start_peek: } { \unskip }
-        \RenewDocumentEnvironment { poetry } { o } { \@@_reference_start_peek: } { \unskip }
+          {
+            \bool_set_false:N \l_@@_chap_drop_bool
+            \bool_set_false:N \l_@@_chap_para_bool
+          }
+        \RenewDocumentEnvironment { center } { o }
+          { \@@_reference_start_peek: } { \@@_compact_end_inner: }
+        \RenewDocumentEnvironment { flushright } { o }
+          { \@@_reference_start_peek: } { \@@_compact_end_inner: }
+        \RenewDocumentEnvironment { hanging } { o }
+          { \@@_reference_start_peek: } { \@@_compact_end_inner: }
+        \RenewDocumentEnvironment { midparachap } { o }
+          { \@@_reference_start_peek: } { \@@_compact_end_inner: }
+        \RenewDocumentEnvironment { narrow } { o }
+          { \@@_reference_start_peek: } { \@@_compact_end_inner: }
+        \RenewDocumentEnvironment { poetry } { o }
+          { \@@_reference_start_peek: } { \@@_compact_end_inner: }
         \cs_set_eq:NN \\ \unskip
         \cs_set_eq:NN \par \relax
         \cs_set_eq:NN \extraskip \relax
