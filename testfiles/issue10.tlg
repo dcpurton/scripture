@@ -6423,6 +6423,7 @@ Completed box being shipped out [3]
 ......\glue 0.0 plus 1.0fil
 .....\glue 5.0
 ....\penalty 0
+....\glue 0.0
 ....\OT1/cmr/bx/n/10 I
 ....\OT1/cmr/bx/n/10 s
 ....\OT1/cmr/bx/n/10 a
@@ -6606,6 +6607,7 @@ Completed box being shipped out [3]
 ......\glue 0.0 plus 1.0fil
 .....\glue 5.0
 ....\penalty 0
+....\glue 0.0
 ....\OT1/cmr/bx/n/10 I
 ....\OT1/cmr/bx/n/10 s
 ....\OT1/cmr/bx/n/10 a
@@ -6823,6 +6825,7 @@ Completed box being shipped out [3]
 ......\glue 0.0 plus 1.0fil
 .....\glue 5.0
 ....\penalty 0
+....\glue 0.0
 ....\OT1/cmr/bx/n/10 1
 ....\glue 3.83331 plus 1.91666 minus 1.27777
 ....\OT1/cmr/bx/n/10 C
@@ -7304,6 +7307,7 @@ Completed box being shipped out [3]
 ......\glue 0.0 plus 1.0fil
 .....\glue 5.0
 ....\penalty 0
+....\glue 0.0
 ....\OT1/cmr/bx/n/10 G
 ....\OT1/cmr/bx/n/10 e
 ....\OT1/cmr/bx/n/10 n
@@ -7589,6 +7593,7 @@ Completed box being shipped out [3]
 ......\glue 0.0 plus 1.0fil
 .....\glue 5.0
 ....\penalty 0
+....\glue 0.0
 ....\OT1/cmr/bx/n/10 G
 ....\OT1/cmr/bx/n/10 e
 ....\OT1/cmr/bx/n/10 n
@@ -8175,6 +8180,7 @@ Completed box being shipped out [3]
 ......\glue 0.0 plus 1.0fil
 .....\glue 5.0
 ....\penalty 0
+....\glue 0.0
 ....\OT1/cmr/bx/n/10 I
 ....\OT1/cmr/bx/n/10 s
 ....\OT1/cmr/bx/n/10 a
