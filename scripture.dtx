@@ -542,6 +542,17 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
+% \changes{v2.1}{2024/01/18}{Add \cs{nopilcrow} function}
+% \begin{function}[added=2024-01-18]{\nopilcrow}
+%   \begin{syntax}
+%     |\nopilcrow|
+%   \end{syntax}
+%   When \opt{pilcrow} is |true|, this causes the next pilcrow that would
+%   normally by printed to be suppressed. You might do this if your quote
+%   begins half way through a paragraph and so should not be marked with a
+%   pilcrow.
+% \end{function}
+%
 % \changes{v1.2}{2022/08/31}{Add red letter feature}
 % \begin{function}[added=2022-08-31]{\redletteron, \redletteroff}
 %   \begin{syntax}
@@ -1653,6 +1664,61 @@
 %     parskip = \meta{skip} \hfill Default: \cs{parskip}
 %   \end{syntax}
 %   \meta{|skip|} to use between paragraphs in the \env{scripture} environment.
+% \end{option}
+%
+% \changes{v2.1}{2024/01/18}{Add \opt{pilcrow} option}
+% \begin{option}[added=2024-01-18]{pilcrow}
+%   \begin{syntax}
+%     pilcrow = \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   Whether to insert a pilcrow (\P) at the beginning of each paragraph. This
+%   option only has an effect when using the \opt{compact} or \opt{para/verse}
+%   options. The value of \meta{|boolean|} is optional and assumed to be
+%   \val{true} if not present.
+
+%   A subsequent pilcrow can be suppressed with the \cs{nopilcrow} macro.
+%   Inner environments start a new paragraph only if there is a blank line
+%   before them and similarly, there is only a new paragraph after an inner
+%   environment if it is followed by a blank line. New paragraphs are not
+%   inserted within a poetry environment, so to obtain a paragraph break
+%   within a block of poetry, use two \env{poetry} environments separated by a
+%   blank line.
+% \end{option}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[Deuteronomy 5:1][chapter/para,
+%     chapter/format=CHAPTER~#1, verse/para,
+%     verse/font=\bfseries, verse/format=#1,
+%     verse/sep=0.5em, pilcrow]
+%   \ch{5}Moses summoned all Israel and said:
+%
+%   Hear, Israel, the decrees and the laws I declare
+%   in your hearing today. Learn them and be sure to
+%   follow them.
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[Deuteronomy 5:1][chapter/para,
+%     chapter/format=CHAPTER~#1, verse/para,
+%     verse/font=\bfseries, verse/format=#1,
+%     verse/sep=0.5em, pilcrow]
+%   \ch{5}Moses summoned all Israel and said:
+%
+%   Hear, Israel, the decrees and the laws I declare
+%   in your hearing today. Learn them and be sure to
+%   follow them.
+% \end{scripture}
+% \end{scriptureexample}
+%
+% \changes{v2.1}{2024/01/18}{Add \opt{pilcrow/sep} option}
+% \begin{option}[added=2024-01-18]{pilcrow/sep}
+%   \begin{syntax}
+%     pilcrow/sep = \meta{dimen} \hfill Default: 0.5em
+%   \end{syntax}
+%   \meta{|dimen|} used to separate a pilcrow (\P) from the following text.
 % \end{option}
 %
 % \changes{v1.2}{2022/08/31}{Add \opt{redletter} option}
