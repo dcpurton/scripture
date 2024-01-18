@@ -1,0 +1,128 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount,
+  chapter/para,
+  chapter/format=CHAPTER #1,
+  verse/para,
+  verse/font=\bfseries,
+  verse/format=#1,
+  verse/sep=0.5em,
+  pilcrow
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[John 1:1--2]
+  \ch{1}In the beginning was the Word, and the Word was with God, and the Word
+  was God. \vs{2}He was with God in the beginning. \vs{3}Through him all
+  things were made; without him nothing was made that has been made. \vs{4}In
+  him was life, and that life was the light of all mankind. \vs{5}The light
+  shines in the darkness, and the darkness has not overcome it.
+
+  \vs{6}There was a man sent from God whose name was John. 
+\end{scripture}
+
+\begin{scripture}[Isaiah 5:1--2]
+  \begin{poetry}
+    \ch{5}I will sing for the one I love
+    a song about his vineyard:
+
+    my loved one had a vineyard
+    on a fertile hillside.
+
+    \vs{2}He dug it up and cleared it of stones
+    and planted it with the choicest vines.
+
+    He built a watchtower in it
+    and cut out a winepress as well.
+
+    Then he looked for a crop of good grapes,
+    but it yielded only bad fruit.
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Isaiah 2:5--6]
+  \begin{poetry}
+    \vs{5}Come, descendants of Jacob,
+    let us walk in the light of the \name{Lord}.
+  \end{poetry}
+  
+  \begin{poetry}
+    \vs{6}You, \name{Lord}, have abandoned your people,
+    the descendants of Jacob.
+
+    They are full of superstitions from the East;
+    they practise divination like the Philistines
+    and embrace pagan customs.
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[1 Corinthians 10:31--11:1]
+  \begin{midparachap}
+    \vs{31}So whether you eat or drink or whatever you do, do it all for the
+    glory of God. \vs{32}Do not cause anyone to stumble, whether Jews, Greeks
+    or the church of God---\vs{33}even as I try to please everyone in every
+    way. For I am not seeking my own good but the good of many, so that they
+    may be saved. \ch{11}Follow my example, as I follow the example of
+    Christ.
+  \end{midparachap}
+
+  \extraskip
+
+  \vs{2}I praise you for remembering me in everything and for holding to the
+  traditions just as I passed them on to you.
+\end{scripture}
+
+\begin{scripture}[Genesis 1:1--2]
+  \begin{hanging}
+    \ch{1}In the beginning God created the heavens and the earth. \vs{2}Now the
+    earth was formless and empty, darkness was over the surface of the deep,
+    and the Spirit of God was hovering over the waters.
+
+    \vs{3}And God said, ‘Let there be light,’ and there was light.
+  \end{hanging}
+\end{scripture}
+
+\begin{scripture}[Acts 7:1--2]
+  \ch{7}Then the high priest asked Stephen, ‘Are these charges true?’
+
+  \vs{2}To this he replied: ‘Brothers and fathers, listen to me! The God of
+  glory appeared to our father Abraham while he was still in Mesopotamia,
+  before he lived in Harran.
+\end{scripture}
+
+\begin{scripture}[Deuteronomy 5:1]
+  \ch{5}Moses summoned all Israel and said:
+
+  Hear, Israel, the decrees and the laws I declare in your hearing today.
+  Learn them and be sure to follow them.
+\end{scripture}
+
+\begin{scripture}[Acts 4:11--12]
+  \vs{11}Jesus is
+
+  \begin{poetry}
+    ‘“the stone you builders rejected,
+    which has become the cornerstone.”
+  \end{poetry}
+  \vs{12}Salvation is found in no one else, for there is no other name under
+  heaven given to mankind by which we must be saved.’
+\end{scripture}
+
+\begin{scripture}[2 Corinthians 6:16]
+  \nopilcrow\vs{16}What agreement is there between the temple of God and
+  idols? For we are the temple of the living God. As God has said:
+
+  \begin{poetry}
+    ‘I will live with them
+    and walk among them,
+
+    and I will be their God,
+    and they will be my people.’
+  \end{poetry}
+\end{scripture}
+\end{document}
