@@ -3275,7 +3275,6 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_reference_start_peek:
   {
-    \str_set:NV \l_@@_currenvir_str \@currenvir
     \peek_remove_spaces:n
       {
         \bool_lazy_and:nnTF
@@ -5642,17 +5641,41 @@
         \bool_gset:Nn \g_@@_mode_vertical_inner_bool
           { \mode_if_vertical_p: }
         \RenewDocumentEnvironment { center } { o }
-          { \@@_reference_start_peek: } { \@@_compact_end_inner: }
+          {
+            \str_set:Nn \l_@@_currenvir_str { center }
+            \@@_reference_start_peek:
+          }
+          { \@@_compact_end_inner: }
         \RenewDocumentEnvironment { flushright } { o }
-          { \@@_reference_start_peek: } { \@@_compact_end_inner: }
+          {
+            \str_set:Nn \l_@@_currenvir_str { flushright }
+            \@@_reference_start_peek:
+          }
+          { \@@_compact_end_inner: }
         \RenewDocumentEnvironment { hanging } { o }
-          { \@@_reference_start_peek: } { \@@_compact_end_inner: }
+          {
+            \str_set:Nn \l_@@_currenvir_str { hanging }
+            \@@_reference_start_peek:
+          }
+          { \@@_compact_end_inner: }
         \RenewDocumentEnvironment { midparachap } { o }
-          { \@@_reference_start_peek: } { \@@_compact_end_inner: }
+          {
+            \str_set:Nn \l_@@_currenvir_str { midparachap }
+            \@@_reference_start_peek:
+          }
+          { \@@_compact_end_inner: }
         \RenewDocumentEnvironment { narrow } { o }
-          { \@@_reference_start_peek: } { \@@_compact_end_inner: }
+          {
+            \str_set:Nn \l_@@_currenvir_str { narrow }
+            \@@_reference_start_peek:
+          }
+          { \@@_compact_end_inner: }
         \RenewDocumentEnvironment { poetry } { o }
-          { \@@_reference_start_peek: } { \@@_compact_end_inner: }
+          {
+            \str_set:Nn \l_@@_currenvir_str { poetry }
+            \@@_reference_start_peek:
+          }
+          { \@@_compact_end_inner: }
         \cs_set_eq:NN \\ \unskip
         \cs_set_eq:NN \par \@@_compact_par:
         \cs_set_eq:NN \extraskip \relax
