@@ -4259,7 +4259,7 @@
 % Set \val{@noparlist} to \val{false} to ensure \cs{topsep} is always added
 % \env{scripture} environment
 %    \begin{macrocode}
-        \@noparlistfalse
+        \legacy_if_set_false:n { @noparlist }
         \endlist
       }
     \cs_set_eq:NN \noindent \@@_noindent_saved:
