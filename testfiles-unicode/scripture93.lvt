@@ -1,10 +1,9 @@
 \documentclass[a4paper]{article}
 \input{regression-test}
-\usepackage[bidi=basic, layout=lists graphics]{babel}
+\usepackage[bidi=basic, layout=lists]{babel}
 \babelprovide[import, mapdigits, main]{persian}
 \babelprovide[import]{british}
 \babelfont[persian]{rm}[Renderer=Harfbuzz]{Amiri}
-\newif\iffoo
 \usepackage{scripture}
 \scripturesetup{
   belowskip=\bigskipamount
