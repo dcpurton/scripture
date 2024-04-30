@@ -1,0 +1,103 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage[bidi=basic, layout=lists graphics]{babel}
+\babelprovide[import, mapdigits, main]{persian}
+\babelprovide[import]{british}
+\babelfont[persian]{rm}[Renderer=Harfbuzz]{Amiri}
+\newif\iffoo
+\usepackage{scripture}
+\scripturesetup{
+  belowskip=\bigskipamount
+}
+\scripturestyle{nmv}{
+  language=persian,
+  version=NMV,
+  version/format=\foreignlanguage{british}{(##1)}
+}
+\scripturestyle{nivuk}{
+  language=british,
+  version=NIVUK
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[یوحنا ۱‏:۱–۳][style=nmv]
+  \ch{1}در آغاز کلام بود و کلام با خدا بود و کلام، خدا بود؛ \vs{2}همان در آغاز با
+  خدا بود. \vs{3}همه چیز به واسطۀ او پدید آمد، و از هرآنچه پدید آمد، هیچ چیز
+  بدون او پدیدار نگشت.
+\end{scripture}
+
+\begin{scripture}[John 1:1–3][style=nivuk]
+  \ch{1}In the beginning was the Word, and the Word was with God, and the Word
+  was God. \vs{2}He was with God in the beginning. \vs{3}Through him all
+  things were made; without him nothing was made that has been made.
+\end{scripture}
+
+\begin{scripture}[اِشعیا ۵۶‏:۱–۲][style=nmv]
+  \ch{56}خداوند چنین می‌فرماید:
+  \begin{poetry}
+    «انصاف را نگاه داشته،
+    عدالت را به عمل آورید،
+    
+    زیرا نجات من نزدیک شده،
+    و عدالت من به‌زودی منکشف خواهد شد.
+
+    \vs{2}خوشا به حال آن که چنین کند،
+    و کسی که بدین متمسک گردد؛
+
+    که شَبّات را نگاه داشته، آن را بی‌حرمت نسازد،
+    و دست خویش از هر عمل بد باز دارد.»
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Isaiah 56:1–2][style=nivuk]
+  \ch{56}This is what the \name{Lord} says:
+  \begin{poetry}
+    ‘Maintain justice
+    and do what is right,
+
+    for my salvation is close at hand
+    and my righteousness will soon be revealed.
+
+    \vs{2}Blessed is the one who does this~–
+    the person who holds it fast,
+
+    who keeps the Sabbath without desecrating it,
+    and keeps their hands from doing any evil.’
+  \end{poetry}
+\end{scripture}
+
+\selectlanguage{british}
+
+\section*{Selected language is \texttt{british}.}
+
+\begin{scripture}[یوحنا ۱‏:۱–۳][style=nmv]
+  \ch{1}در آغاز کلام بود و کلام با خدا بود و کلام، خدا بود؛ \vs{2}همان در آغاز با
+  خدا بود. \vs{3}همه چیز به واسطۀ او پدید آمد، و از هرآنچه پدید آمد، هیچ چیز
+  بدون او پدیدار نگشت.
+\end{scripture}
+
+\begin{scripture}[اِشعیا ۵۶‏:۱–۲][style=nmv]
+  \ch{56}خداوند چنین می‌فرماید:
+  \begin{poetry}
+    «انصاف را نگاه داشته،
+    عدالت را به عمل آورید،
+    
+    زیرا نجات من نزدیک شده،
+    و عدالت من به‌زودی منکشف خواهد شد.
+
+    \vs{2}خوشا به حال آن که چنین کند،
+    و کسی که بدین متمسک گردد؛
+
+    که شَبّات را نگاه داشته، آن را بی‌حرمت نسازد،
+    و دست خویش از هر عمل بد باز دارد.»
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[یوحنا ۱‏:۱–۳][style=nmv]
+  \ch{1}در آغاز کلام بود و کلام با خدا بود و کلام، خدا بود؛ \vs{2}همان در آغاز با
+  خدا بود. \vs{3}همه چیز به واسطۀ او پدید آمد، و از هرآنچه پدید آمد، هیچ چیز
+  بدون او پدیدار نگشت.
+\end{scripture}
+\end{document}
