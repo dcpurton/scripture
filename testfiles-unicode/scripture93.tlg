@@ -1,0 +1,2894 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+LaTeX Font Info:    Font shape `TU/Amiri(0)/bx/n' in size <10> not available
+(Font)              Font shape `TU/Amiri(0)/b/n' tried instead on input line ....
+LaTeX Font Info:    Font shape `TU/Amiri(0)/bx/n' in size <28.57584> not available
+(Font)              Font shape `TU/Amiri(0)/b/n' tried instead on input line ....
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line ....
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line ....
+(../loadhyph-en-gb.tex ASCII Hyphenation patterns for British English (../hyph-en-gb.tex))
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line ....
+Completed box being shipped out [1]
+\vbox(682.0+0.0)x398.0, direction TRT
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0, direction TRT
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil, direction TRT
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0, direction TRT
+....\hbox(0.0+0.0)x345.0, direction TRT
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set >20000.0fil, direction TRT
+...\write-{}
+...\write1{\babel@aux{persian}{}}
+...\write1{\babel@aux{persian}{}}
+...\glue(\topskip) 0.89
+...\hbox(9.11+5.17)x323.28314, glue set 0.37616, shifted 21.71686, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\kern-15.0
+....\hbox(0.0+0.0)x15.0, direction TRT
+.....\glue 15.0
+.....\glue -20.0
+.....\glue -5.0
+.....\hbox(0.0+0.0)x20.0, glue set 20.0fil, direction TRT
+......\glue 0.0 plus 1.0fil
+.....\glue 5.0
+....\penalty 0
+....\hbox(0.0+0.0)x0.0, direction TRT
+.....\hbox(17.45984+3.25764)x0.0, glue set - 21.71686fil, shifted 12.0, direction TRT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(17.45984+3.25764)x16.71686, direction TRT
+.......\TU/Amiri(0)/b/n/28.57584 ۱
+......\glue 5.0
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ر
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 آ
+....\TU/Amiri(0)/m/n/10 غ
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ز
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ک
+....\TU/Amiri(0)/m/n/10 ل
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 م
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 د
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 و
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ک
+....\TU/Amiri(0)/m/n/10 ل
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 م
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 خ
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 د
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 و
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ک
+....\TU/Amiri(0)/m/n/10 ل
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ،
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 خ
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ؛
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\mathon
+....\begindir TLT
+....\hbox(0.0+0.0)x0.0, direction TLT
+....\hbox(3.801+0.658)x4.595, shifted -3.62892, direction TLT
+.....\TU/Amiri(0)/m/n/7 ۲
+....\enddir TLT
+....\mathoff
+....\kern0.50003
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ن
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ر
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 آ
+....\TU/Amiri(0)/m/n/10 غ
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ز
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 خ
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 .
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\mathon
+....\begindir TLT
+....\hbox(0.0+0.0)x0.0, direction TLT
+....\hbox(3.899+0.651)x4.595, shifted -3.62892, direction TLT
+.....\TU/Amiri(0)/m/n/7 ۳
+....\enddir TLT
+....\mathoff
+....\kern0.50003
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ه
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 چ
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 ز
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 ه
+....\enddir TRT
+....\glue(\rightskip) 0.0
+...\penalty 200
+...\glue(\lineskip) 1.0
+...\hbox(9.51+5.41)x323.28314, glue set 77.69322fil, shifted 21.71686, direction TRT
+....\begindir TRT
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 س
+....\TU/Amiri(0)/m/n/10 ط
+....\pdfliteral page <lua data reference ...>
+....\TU/Amiri(0)/m/n/10 ۀ
+....\TU/Amiri(0)/m/n/10 
+....\pdfliteral page <lua data reference ...>
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 و
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 پ
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 د
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 آ
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ،
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 و
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ز
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 ر
+....\TU/Amiri(0)/m/n/10 آ
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 چ
+....\TU/Amiri(0)/m/n/10 ه
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 پ
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 د
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 آ
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ،
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 چ
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 چ
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 ز
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 ن
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 و
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 پ
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ر
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 گ
+....\TU/Amiri(0)/m/n/10 ش
+....\TU/Amiri(0)/m/n/10 ت
+....\TU/Amiri(0)/m/n/10 .
+....\penalty 10000
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\glue(\abovedisplayskip) -12.0
+...\glue(\baselineskip) 6.59
+...\hbox(0.0+0.0)x0.0, shifted 172.5, direction TLT
+...\penalty 10000
+...\glue(\belowdisplayskip) 0.0
+...\glue -12.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue 12.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 4.4
+...\hbox(7.6+2.93)x345.0, glue set 244.41998fill, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\hbox(0.0+0.0)x15.0, direction TRT
+....\glue 0.0 plus 1.0fill
+....\hbox(7.6+2.93)x85.58002, direction TRT
+.....\TU/Amiri(0)/bx/n/10 ی
+.....\TU/Amiri(0)/bx/n/10 و
+.....\TU/Amiri(0)/bx/n/10 ح
+.....\TU/Amiri(0)/bx/n/10 ن
+.....\TU/Amiri(0)/bx/n/10 ا
+.....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+.....\TU/Amiri(0)/bx/n/10 ۱
+.....\TU/Amiri(0)/bx/n/10 ‏
+.....\kern-2.92 (font)
+.....\TU/Amiri(0)/bx/n/10 :
+.....\TU/Amiri(0)/bx/n/10 ۱
+.....\TU/Amiri(0)/bx/n/10 –
+.....\TU/Amiri(0)/bx/n/10 ۳
+.....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+.....\begindir TLT
+.....\TU/lmr/bx/n/10 (
+.....\TU/lmr/bx/n/10 N
+.....\TU/lmr/bx/n/10 M
+.....\TU/lmr/bx/n/10 V
+.....\TU/lmr/bx/n/10 )
+.....\enddir TLT
+....\penalty 10000
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 51
+...\glue 12.0 plus 3.0 minus 4.0
+...\write1{\babel@aux{persian}{}}
+...\write1{\babel@aux{british}{}}
+...\penalty -51
+...\glue 0.0 plus 1.0
+...\glue 0.0 plus -1.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.02
+...\hbox(7.05+2.06)x324.47835, glue set - 0.58835, direction TLT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\begindir TLT
+....\kern-15.0
+....\hbox(0.0+0.0)x15.0, direction TLT
+.....\glue 15.0
+.....\glue -20.0
+.....\glue -5.0
+.....\hbox(0.0+0.0)x20.0, glue set 20.0fil, direction TLT
+......\glue 0.0 plus 1.0fil
+.....\glue 5.0
+....\penalty 0
+....\hbox(0.0+0.0)x0.0, direction TLT
+.....\hbox(18.08562+0.0)x0.0, glue set - 20.52165fil, shifted 12.0, direction TLT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(18.08562+0.0)x15.52165, direction TLT
+.......\TU/lmr/bx/n/27.56953 1
+......\glue 5.0
+....\TU/lmr/m/n/10 I
+....\TU/lmr/m/n/10 n
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 e
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 b
+....\kern0.28 (font)
+....\TU/lmr/m/n/10 e
+....\discretionary (penalty 50)
+.....< \TU/lmr/m/n/10 -
+....\TU/lmr/m/n/10 g
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 n
+....\discretionary (penalty 50)
+.....< \TU/lmr/m/n/10 -
+....\TU/lmr/m/n/10 n
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 n
+....\TU/lmr/m/n/10 g
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 w
+....\kern-0.28 (font)
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 s
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 e
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 W
+....\kern-0.83 (font)
+....\TU/lmr/m/n/10 o
+....\TU/lmr/m/n/10 r
+....\TU/lmr/m/n/10 d
+....\TU/lmr/m/n/10 ,
+....\glue(\spaceskip) 3.33 plus 2.08124 minus 0.888
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 n
+....\TU/lmr/m/n/10 d
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 e
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 W
+....\kern-0.83 (font)
+....\TU/lmr/m/n/10 o
+....\TU/lmr/m/n/10 r
+....\TU/lmr/m/n/10 d
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 w
+....\kern-0.28 (font)
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 s
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 w
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 h
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 G
+....\TU/lmr/m/n/10 o
+....\kern0.28 (font)
+....\TU/lmr/m/n/10 d
+....\TU/lmr/m/n/10 ,
+....\glue(\spaceskip) 3.33 plus 2.08124 minus 0.888
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 n
+....\TU/lmr/m/n/10 d
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 e
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 W
+....\kern-0.83 (font)
+....\TU/lmr/m/n/10 o
+....\TU/lmr/m/n/10 r
+....\TU/lmr/m/n/10 d
+....\enddir TLT
+....\enddir TRT
+....\glue(\rightskip) 0.0
+...\penalty 150
+...\glue(\baselineskip) 1.66309
+...\hbox(8.27692+2.06)x324.47835, glue set 0.36458, direction TLT
+....\begindir TRT
+....\begindir TLT
+....\TU/lmr/m/n/10 w
+....\kern-0.28 (font)
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 s
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 G
+....\TU/lmr/m/n/10 o
+....\kern0.28 (font)
+....\TU/lmr/m/n/10 d
+....\TU/lmr/m/n/10 .
+....\glue(\spaceskip) 4.44 plus 4.99498 minus 0.37
+....\mathon
+....\hbox(0.0+0.0)x0.0, direction TLT
+....\hbox(4.648+0.0)x4.483, shifted -3.62892, direction TLT
+.....\TU/lmr/m/n/7 2
+....\mathoff
+....\kern0.50003
+....\TU/lmr/m/n/10 H
+....\TU/lmr/m/n/10 e
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 w
+....\kern-0.28 (font)
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 s
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 w
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 h
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 G
+....\TU/lmr/m/n/10 o
+....\kern0.28 (font)
+....\TU/lmr/m/n/10 d
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 n
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 e
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 b
+....\kern0.28 (font)
+....\TU/lmr/m/n/10 e
+....\discretionary (penalty 50)
+.....< \TU/lmr/m/n/10 -
+....\TU/lmr/m/n/10 g
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 n
+....\discretionary (penalty 50)
+.....< \TU/lmr/m/n/10 -
+....\TU/lmr/m/n/10 n
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 n
+....\TU/lmr/m/n/10 g
+....\TU/lmr/m/n/10 .
+....\glue(\spaceskip) 4.44 plus 4.99498 minus 0.37
+....\mathon
+....\hbox(0.0+0.0)x0.0, direction TLT
+....\hbox(4.648+0.14)x4.483, shifted -3.62892, direction TLT
+.....\TU/lmr/m/n/7 3
+....\mathoff
+....\kern0.50003
+....\TU/lmr/m/n/10 T
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 r
+....\TU/lmr/m/n/10 o
+....\TU/lmr/m/n/10 u
+....\TU/lmr/m/n/10 g
+....\TU/lmr/m/n/10 h
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 m
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 l
+....\TU/lmr/m/n/10 l
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 n
+....\TU/lmr/m/n/10 g
+....\TU/lmr/m/n/10 s
+....\enddir TLT
+....\enddir TRT
+....\glue(\rightskip) 0.0
+...\penalty 50
+...\glue(\baselineskip) 3.0
+...\hbox(6.94+2.06)x345.0, glue set 63.48999fil, direction TLT
+....\begindir TRT
+....\begindir TLT
+....\TU/lmr/m/n/10 w
+....\kern-0.28 (font)
+....\TU/lmr/m/n/10 e
+....\TU/lmr/m/n/10 r
+....\TU/lmr/m/n/10 e
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 m
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 d
+....\TU/lmr/m/n/10 e
+....\TU/lmr/m/n/10 ;
+....\glue(\spaceskip) 3.33 plus 2.49748 minus 0.73999
+....\TU/lmr/m/n/10 w
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 o
+....\TU/lmr/m/n/10 u
+....\TU/lmr/m/n/10 t
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 m
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 n
+....\TU/lmr/m/n/10 o
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 h
+....\discretionary (penalty 50)
+.....< \TU/lmr/m/n/10 -
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 n
+....\TU/lmr/m/n/10 g
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 w
+....\kern-0.28 (font)
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 s
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 m
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 d
+....\TU/lmr/m/n/10 e
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 t
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 s
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 b
+....\kern0.28 (font)
+....\TU/lmr/m/n/10 e
+....\TU/lmr/m/n/10 e
+....\TU/lmr/m/n/10 n
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 m
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 d
+....\TU/lmr/m/n/10 e
+....\TU/lmr/m/n/10 .
+....\penalty 10000
+....\enddir TLT
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\glue(\abovedisplayskip) -12.0
+...\glue(\baselineskip) 9.94
+...\hbox(0.0+0.0)x0.0, shifted 172.5, direction TLT
+...\penalty 10000
+...\glue(\belowdisplayskip) 0.0
+...\glue -12.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue 12.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 4.5
+...\hbox(7.5+2.49)x345.0, glue set 222.82999fill, direction TLT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\begindir TLT
+....\hbox(0.0+0.0)x15.0, direction TLT
+....\glue 0.0 plus 1.0fill
+....\hbox(7.5+2.49)x107.17001, direction TLT
+.....\TU/lmr/bx/n/10 J
+.....\TU/lmr/bx/n/10 o
+.....\TU/lmr/bx/n/10 h
+.....\TU/lmr/bx/n/10 n
+.....\glue(\spaceskip) 3.83 plus 1.915 minus 1.27667
+.....\TU/lmr/bx/n/10 1
+.....\TU/lmr/bx/n/10 :
+.....\TU/lmr/bx/n/10 1
+.....\TU/lmr/bx/n/10 –
+.....\TU/lmr/bx/n/10 3
+.....\glue(\spaceskip) 3.83 plus 1.915 minus 1.27667
+.....\TU/lmr/bx/n/10 (
+.....\TU/lmr/bx/n/10 N
+.....\TU/lmr/bx/n/10 I
+.....\TU/lmr/bx/n/10 V
+.....\TU/lmr/bx/n/10 U
+.....\TU/lmr/bx/n/10 K
+.....\TU/lmr/bx/n/10 )
+....\penalty 10000
+....\enddir TLT
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 51
+...\glue 12.0 plus 3.0 minus 4.0
+...\write1{\babel@aux{persian}{}}
+...\write1{\babel@aux{persian}{}}
+...\penalty -51
+...\glue 0.0 plus 1.0
+...\glue 0.0 plus -1.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.23999
+...\hbox(7.27+2.92)x306.56628, glue set 230.79633fil, shifted 38.43372, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\kern-15.0
+....\hbox(0.0+0.0)x15.0, direction TRT
+.....\glue 15.0
+.....\glue -20.0
+.....\glue -5.0
+.....\hbox(0.0+0.0)x20.0, glue set 20.0fil, direction TRT
+......\glue 0.0 plus 1.0fil
+.....\glue 5.0
+....\penalty 0
+....\hbox(0.0+0.0)x0.0, direction TRT
+.....\hbox(16.45969+3.17192)x0.0, glue set - 38.43372fil, shifted 12.0, direction TRT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(16.45969+3.17192)x33.43372, direction TRT
+.......\begindir TLT
+.......\TU/Amiri(0)/b/n/28.57584 ۵
+.......\TU/Amiri(0)/b/n/28.57584 ۶
+.......\enddir TLT
+......\glue 5.0
+....\TU/Amiri(0)/m/n/10 خ
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 د
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 چ
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 ن
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 ‌
+....\kern-2.92 (font)
+....\TU/Amiri(0)/m/n/10 ف
+....\TU/Amiri(0)/m/n/10 ر
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 :
+....\penalty 10000
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\glue 12.0
+...\glue -14.92
+...\penalty -51
+...\glue 2.92
+...\glue 12.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\lineskip) 1.0
+...\hbox(9.51+2.33)x335.0, glue set 128.75003fil, shifted 10.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\kern-10.0
+....\hbox(0.0+0.0)x10.0, direction TRT
+.....\glue 10.0
+.....\glue -16.99997
+.....\glue 0.0
+.....\hbox(0.0+0.0)x16.99997, glue set 16.99997fil, direction TRT
+......\glue 0.0 plus 1.0fil
+.....\glue 0.0
+....\penalty 0
+....\TU/Amiri(0)/m/n/10 ^^ab
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 ص
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ف
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ر
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 گ
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ه
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ش
+....\TU/Amiri(0)/m/n/10 ت
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 ،
+....\penalty 10000
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 0.56
+...\hbox(9.11+3.61)x335.0, glue set 122.71fil, shifted 10.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\hbox(0.0+0.0)x10.0, direction TRT
+....\TU/Amiri(0)/m/n/10 ع
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ل
+....\TU/Amiri(0)/m/n/10 ت
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ر
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 ه
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ع
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ل
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 آ
+....\TU/Amiri(0)/m/n/10 و
+....\kern0.83 (font)
+....\TU/Amiri(0)/m/n/10 ر
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ،
+....\penalty 10000
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 0.25
+...\hbox(8.14+3.39)x335.0, glue set 121.32fil, shifted 10.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\kern0.83 (font)
+....\TU/Amiri(0)/m/n/10 ز
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 ر
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 ج
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ت
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ن
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 ز
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 ک
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ش
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 ،
+....\penalty 10000
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 0.47
+...\hbox(8.14+3.39)x335.0, glue set 91.68001fil, shifted 10.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\hbox(0.0+0.0)x10.0, direction TRT
+....\TU/Amiri(0)/m/n/10 و
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ع
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ل
+....\TU/Amiri(0)/m/n/10 ت
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ن
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 ‌
+....\kern-2.92 (font)
+....\TU/Amiri(0)/m/n/10 ز
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ی
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 ک
+....\TU/Amiri(0)/m/n/10 ش
+....\TU/Amiri(0)/m/n/10 ف
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 خ
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 د
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ش
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 .
+....\penalty 10000
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\lineskip) 1.0
+...\hbox(9.24+3.60004)x335.0, glue set 113.71503fil, shifted 10.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\rule(8.39996+3.60004)x0.0
+....\hbox(7.42992+0.0)x0.0, glue set - 5.09503fil, direction TRT
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\mathon
+.....\begindir TLT
+.....\hbox(0.0+0.0)x0.0, direction TLT
+.....\hbox(3.801+0.658)x4.595, shifted -3.62892, direction TLT
+......\TU/Amiri(0)/m/n/7 ۲
+.....\enddir TLT
+.....\mathoff
+.....\kern0.50003
+....\TU/Amiri(0)/m/n/10 خ
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 ش
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 ه
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ح
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ل
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 آ
+....\TU/Amiri(0)/m/n/10 ن
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ک
+....\TU/Amiri(0)/m/n/10 ه
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 چ
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 ن
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ک
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ،
+....\penalty 10000
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\lineskip) 1.0
+...\hbox(9.71+3.56)x335.0, glue set 107.975fil, shifted 10.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\hbox(0.0+0.0)x10.0, direction TRT
+....\TU/Amiri(0)/m/n/10 و
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ک
+....\TU/Amiri(0)/m/n/10 س
+....\TU/Amiri(0)/m/n/10 ی
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ک
+....\TU/Amiri(0)/m/n/10 ه
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 ن
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ت
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 س
+....\TU/Amiri(0)/m/n/10 ک
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 گ
+....\TU/Amiri(0)/m/n/10 ر
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ؛
+....\penalty 10000
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\lineskip) 1.0
+...\hbox(10.36+3.58)x335.0, glue set 88.11003fil, shifted 10.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\TU/Amiri(0)/m/n/10 ک
+....\TU/Amiri(0)/m/n/10 ه
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ش
+....\TU/Amiri(0)/m/n/10 َ
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 ّ
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ت
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ر
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 گ
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ه
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ش
+....\TU/Amiri(0)/m/n/10 ت
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 ،
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 آ
+....\TU/Amiri(0)/m/n/10 ن
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ر
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 ‌
+....\kern-2.92 (font)
+....\TU/Amiri(0)/m/n/10 ح
+....\TU/Amiri(0)/m/n/10 ر
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ت
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 س
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ز
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ،
+....\penalty 10000
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 1.15
+...\hbox(7.27+3.61)x335.0, glue set 95.61002fil, shifted 10.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\hbox(0.0+0.0)x10.0, direction TRT
+....\TU/Amiri(0)/m/n/10 و
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 س
+....\TU/Amiri(0)/m/n/10 ت
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 خ
+....\kern0.83 (font)
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 ش
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ز
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 ر
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ع
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ل
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 د
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ز
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ر
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 .
+....\TU/Amiri(0)/m/n/10 ^^bb
+....\penalty 10000
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\penalty 10000
+...\glue(\abovedisplayskip) -12.0
+...\glue(\baselineskip) 8.39
+...\hbox(0.0+0.0)x0.0, shifted 197.5, direction TLT
+...\penalty 51
+...\glue(\belowdisplayskip) 0.0
+...\glue -12.0
+...\glue 12.0
+...\penalty 51
+...\glue -12.0
+...\glue 12.0
+...\glue 6.0 plus 1.0 minus 2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 12.0
+...\hbox(0.0+0.0)x306.56628, glue set 306.56628fil, shifted 38.43372, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\penalty 10000
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\glue(\abovedisplayskip) -12.0
+...\glue(\baselineskip) 12.0
+...\hbox(0.0+0.0)x0.0, shifted 172.5, direction TLT
+...\penalty 10000
+...\glue(\belowdisplayskip) 0.0
+...\glue -12.0
+...\glue -12.0
+...\glue -6.0 plus -1.0 minus -2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 4.4
+...\hbox(7.6+2.72)x345.0, glue set 253.95998fill, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\glue 0.0 plus 1.0fill
+....\hbox(7.6+2.72)x91.04002, direction TRT
+.....\TU/Amiri(0)/bx/n/10 ا
+.....\TU/Amiri(0)/bx/n/10 ِ
+.....\TU/Amiri(0)/bx/n/10 ش
+.....\TU/Amiri(0)/bx/n/10 ع
+.....\TU/Amiri(0)/bx/n/10 ی
+.....\TU/Amiri(0)/bx/n/10 ا
+.....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+.....\begindir TLT
+.....\TU/Amiri(0)/bx/n/10 ۵
+.....\TU/Amiri(0)/bx/n/10 ۶
+.....\enddir TLT
+.....\TU/Amiri(0)/bx/n/10 ‏
+.....\kern-2.92 (font)
+.....\TU/Amiri(0)/bx/n/10 :
+.....\TU/Amiri(0)/bx/n/10 ۱
+.....\TU/Amiri(0)/bx/n/10 –
+.....\TU/Amiri(0)/bx/n/10 ۲
+.....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+.....\begindir TLT
+.....\TU/lmr/bx/n/10 (
+.....\TU/lmr/bx/n/10 N
+.....\TU/lmr/bx/n/10 M
+.....\TU/lmr/bx/n/10 V
+.....\TU/lmr/bx/n/10 )
+.....\enddir TLT
+....\penalty 10000
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 51
+...\glue 12.0 plus 3.0 minus 4.0
+...\write1{\babel@aux{persian}{}}
+...\write1{\babel@aux{british}{}}
+...\penalty -51
+...\glue 0.0 plus 1.0
+...\glue 0.0 plus -1.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.34
+...\hbox(6.94+2.05)x308.9567, glue set 184.41667fil, direction TLT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\begindir TLT
+....\kern-15.0
+....\hbox(0.0+0.0)x15.0, direction TLT
+.....\glue 15.0
+.....\glue -20.0
+.....\glue -5.0
+.....\hbox(0.0+0.0)x20.0, glue set 20.0fil, direction TLT
+......\glue 0.0 plus 1.0fil
+.....\glue 5.0
+....\penalty 0
+....\hbox(0.0+0.0)x0.0, direction TLT
+.....\hbox(18.08562+0.33084)x0.0, glue set - 36.0433fil, shifted 12.0, direction TLT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(18.08562+0.33084)x31.0433, direction TLT
+.......\TU/lmr/bx/n/27.56953 5
+.......\TU/lmr/bx/n/27.56953 6
+......\glue 5.0
+....\TU/lmr/m/n/10 T
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 s
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 s
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 w
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 t
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 e
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/sc/10 L
+....\TU/lmr/m/sc/10 o
+....\TU/lmr/m/sc/10 r
+....\TU/lmr/m/sc/10 d
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 s
+....\TU/lmr/m/n/10 a
+....\kern-0.28 (font)
+....\TU/lmr/m/n/10 y
+....\TU/lmr/m/n/10 s
+....\TU/lmr/m/n/10 :
+....\penalty 10000
+....\enddir TLT
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\glue 12.0
+...\glue -14.05
+...\penalty -51
+...\glue 2.05
+...\glue 12.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 3.02
+...\hbox(6.93+2.05)x335.0, glue set 130.66fil, direction TLT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\begindir TLT
+....\kern-10.0
+....\hbox(0.0+0.0)x10.0, direction TLT
+.....\glue 10.0
+.....\glue -21.99997
+.....\glue 0.0
+.....\hbox(0.0+0.0)x21.99997, glue set 21.99997fil, direction TLT
+......\glue 0.0 plus 1.0fil
+.....\glue 0.0
+....\penalty 0
+....\TU/lmr/m/n/10 ‘
+....\TU/lmr/m/n/10 M
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 n
+....\discretionary (penalty 50)
+.....< \TU/lmr/m/n/10 -
+.....= \kern-0.28 (font)
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 n
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 j
+....\TU/lmr/m/n/10 u
+....\TU/lmr/m/n/10 s
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 c
+....\TU/lmr/m/n/10 e
+....\penalty 10000
+....\enddir TLT
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 3.01
+...\hbox(6.94+2.06)x335.0, glue set 116.48001fil, direction TLT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\begindir TLT
+....\hbox(0.0+0.0)x10.0, direction TLT
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 n
+....\TU/lmr/m/n/10 d
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 d
+....\TU/lmr/m/n/10 o
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 w
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 t
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 s
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 r
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 g
+....\TU/lmr/m/n/10 h
+....\kern-0.28 (font)
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 ,
+....\penalty 10000
+....\enddir TLT
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.89
+...\hbox(7.05+2.05)x335.0, glue set 96.575fil, direction TLT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\begindir TLT
+....\TU/lmr/m/n/10 f
+....\TU/lmr/m/n/10 o
+....\TU/lmr/m/n/10 r
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 m
+....\kern-0.28 (font)
+....\TU/lmr/m/n/10 y
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 s
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 l
+....\discretionary (penalty 50)
+.....< \TU/lmr/m/n/10 -
+....\TU/lmr/m/n/10 v
+....\kern-0.56 (font)
+....\TU/lmr/m/n/10 a
+....\discretionary (penalty 50)
+.....< \TU/lmr/m/n/10 -
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 o
+....\TU/lmr/m/n/10 n
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 s
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 c
+....\TU/lmr/m/n/10 l
+....\TU/lmr/m/n/10 o
+....\TU/lmr/m/n/10 s
+....\TU/lmr/m/n/10 e
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 t
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 n
+....\TU/lmr/m/n/10 d
+....\penalty 10000
+....\enddir TLT
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 3.01
+...\hbox(6.94+2.06)x335.0, glue set 66.95fil, direction TLT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\begindir TLT
+....\hbox(0.0+0.0)x10.0, direction TLT
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 n
+....\TU/lmr/m/n/10 d
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 m
+....\kern-0.28 (font)
+....\TU/lmr/m/n/10 y
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 r
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 g
+....\TU/lmr/m/n/10 h
+....\kern-0.28 (font)
+....\TU/lmr/m/n/10 t
+....\discretionary (penalty 50)
+.....< \TU/lmr/m/n/10 -
+....\TU/lmr/m/n/10 e
+....\TU/lmr/m/n/10 o
+....\TU/lmr/m/n/10 u
+....\TU/lmr/m/n/10 s
+....\discretionary (penalty 50)
+.....< \TU/lmr/m/n/10 -
+....\TU/lmr/m/n/10 n
+....\TU/lmr/m/n/10 e
+....\TU/lmr/m/n/10 s
+....\TU/lmr/m/n/10 s
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 w
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 l
+....\TU/lmr/m/n/10 l
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 s
+....\TU/lmr/m/n/10 o
+....\kern0.28 (font)
+....\TU/lmr/m/n/10 o
+....\TU/lmr/m/n/10 n
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 b
+....\kern0.28 (font)
+....\TU/lmr/m/n/10 e
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 r
+....\TU/lmr/m/n/10 e
+....\discretionary (penalty 50)
+.....< \TU/lmr/m/n/10 -
+....\TU/lmr/m/n/10 v
+....\kern-0.28 (font)
+....\TU/lmr/m/n/10 e
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 l
+....\TU/lmr/m/n/10 e
+....\TU/lmr/m/n/10 d
+....\TU/lmr/m/n/10 .
+....\penalty 10000
+....\enddir TLT
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 1.54004
+...\hbox(8.39996+3.60004)x335.0, glue set 92.86499fil, direction TLT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\begindir TLT
+....\rule(8.39996+3.60004)x0.0
+....\hbox(8.27692+0.0)x0.0, glue set - 4.98303fil, direction TLT
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\mathon
+.....\hbox(0.0+0.0)x0.0, direction TLT
+.....\hbox(4.648+0.0)x4.483, shifted -3.62892, direction TLT
+......\TU/lmr/m/n/7 2
+.....\mathoff
+.....\kern0.50003
+....\TU/lmr/m/n/10 B
+....\TU/lmr/m/n/10 l
+....\TU/lmr/m/n/10 e
+....\TU/lmr/m/n/10 s
+....\TU/lmr/m/n/10 s
+....\TU/lmr/m/n/10 e
+....\TU/lmr/m/n/10 d
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 s
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 e
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 o
+....\TU/lmr/m/n/10 n
+....\TU/lmr/m/n/10 e
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 w
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 o
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 d
+....\TU/lmr/m/n/10 o
+....\kern0.28 (font)
+....\TU/lmr/m/n/10 e
+....\TU/lmr/m/n/10 s
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 s
+....\penalty 10000
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 –
+....\penalty 10000
+....\enddir TLT
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 1.34996
+...\hbox(7.05+1.94)x335.0, glue set 99.90001fil, direction TLT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\begindir TLT
+....\hbox(0.0+0.0)x10.0, direction TLT
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 e
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 p
+....\kern0.28 (font)
+....\TU/lmr/m/n/10 e
+....\TU/lmr/m/n/10 r
+....\discretionary (penalty 50)
+.....< \TU/lmr/m/n/10 -
+....\TU/lmr/m/n/10 s
+....\TU/lmr/m/n/10 o
+....\TU/lmr/m/n/10 n
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 w
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 o
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 o
+....\TU/lmr/m/n/10 l
+....\TU/lmr/m/n/10 d
+....\TU/lmr/m/n/10 s
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 t
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 f
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 s
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 ,
+....\penalty 10000
+....\enddir TLT
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 3.01
+...\hbox(7.05+2.06)x335.0, glue set 65.76001fil, direction TLT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\begindir TLT
+....\TU/lmr/m/n/10 w
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 o
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 k
+....\kern-0.28 (font)
+....\TU/lmr/m/n/10 e
+....\TU/lmr/m/n/10 e
+....\TU/lmr/m/n/10 p
+....\TU/lmr/m/n/10 s
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 e
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 S
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 b
+....\discretionary (penalty 50)
+.....< \TU/lmr/m/n/10 -
+....\TU/lmr/m/n/10 b
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 h
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 w
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 o
+....\TU/lmr/m/n/10 u
+....\TU/lmr/m/n/10 t
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 d
+....\TU/lmr/m/n/10 e
+....\discretionary (penalty 50)
+.....< \TU/lmr/m/n/10 -
+....\TU/lmr/m/n/10 s
+....\TU/lmr/m/n/10 e
+....\TU/lmr/m/n/10 c
+....\discretionary (penalty 50)
+.....< \TU/lmr/m/n/10 -
+....\TU/lmr/m/n/10 r
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 t
+....\discretionary (penalty 50)
+.....< \TU/lmr/m/n/10 -
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 n
+....\TU/lmr/m/n/10 g
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 ,
+....\penalty 10000
+....\enddir TLT
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.89
+...\hbox(7.05+2.06)x335.0, glue set 68.38fil, direction TLT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\begindir TLT
+....\hbox(0.0+0.0)x10.0, direction TLT
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 n
+....\TU/lmr/m/n/10 d
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 k
+....\kern-0.28 (font)
+....\TU/lmr/m/n/10 e
+....\TU/lmr/m/n/10 e
+....\TU/lmr/m/n/10 p
+....\TU/lmr/m/n/10 s
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 t
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 e
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 r
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 h
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 n
+....\TU/lmr/m/n/10 d
+....\TU/lmr/m/n/10 s
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 f
+....\TU/lmr/m/n/10 r
+....\TU/lmr/m/n/10 o
+....\TU/lmr/m/n/10 m
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 d
+....\TU/lmr/m/n/10 o
+....\discretionary (penalty 50)
+.....< \TU/lmr/m/n/10 -
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 n
+....\TU/lmr/m/n/10 g
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 a
+....\TU/lmr/m/n/10 n
+....\kern-0.28 (font)
+....\TU/lmr/m/n/10 y
+....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 e
+....\TU/lmr/m/n/10 v
+....\TU/lmr/m/n/10 i
+....\TU/lmr/m/n/10 l
+....\TU/lmr/m/n/10 .
+....\kern-1.39 (font)
+....\TU/lmr/m/n/10 ’
+....\penalty 10000
+....\enddir TLT
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\penalty 10000
+...\glue(\abovedisplayskip) -12.0
+...\glue(\baselineskip) 9.94
+...\hbox(0.0+0.0)x0.0, shifted 147.5, direction TLT
+...\penalty 51
+...\glue(\belowdisplayskip) 0.0
+...\glue -12.0
+...\glue 12.0
+...\penalty 51
+...\glue -12.0
+...\glue 12.0
+...\glue 6.0 plus 1.0 minus 2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 12.0
+...\hbox(0.0+0.0)x308.9567, glue set 308.9567fil, direction TLT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\begindir TLT
+....\penalty 10000
+....\enddir TLT
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\glue(\abovedisplayskip) -12.0
+...\glue(\baselineskip) 12.0
+...\hbox(0.0+0.0)x0.0, shifted 172.5, direction TLT
+...\penalty 10000
+...\glue(\belowdisplayskip) 0.0
+...\glue -12.0
+...\glue -12.0
+...\glue -6.0 plus -1.0 minus -2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 4.5
+...\hbox(7.5+2.49)x345.0, glue set 226.89fill, direction TLT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TRT
+....\begindir TLT
+....\glue 0.0 plus 1.0fill
+....\hbox(7.5+2.49)x118.11, direction TLT
+.....\TU/lmr/bx/n/10 I
+.....\TU/lmr/bx/n/10 s
+.....\TU/lmr/bx/n/10 a
+.....\TU/lmr/bx/n/10 i
+.....\TU/lmr/bx/n/10 a
+.....\TU/lmr/bx/n/10 h
+.....\glue(\spaceskip) 3.83 plus 1.915 minus 1.27667
+.....\TU/lmr/bx/n/10 5
+.....\TU/lmr/bx/n/10 6
+.....\TU/lmr/bx/n/10 :
+.....\TU/lmr/bx/n/10 1
+.....\TU/lmr/bx/n/10 –
+.....\TU/lmr/bx/n/10 2
+.....\glue(\spaceskip) 3.83 plus 1.915 minus 1.27667
+.....\TU/lmr/bx/n/10 (
+.....\TU/lmr/bx/n/10 N
+.....\TU/lmr/bx/n/10 I
+.....\TU/lmr/bx/n/10 V
+.....\TU/lmr/bx/n/10 U
+.....\TU/lmr/bx/n/10 K
+.....\TU/lmr/bx/n/10 )
+....\penalty 10000
+....\enddir TLT
+....\enddir TRT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 51
+...\glue 12.0 plus 3.0 minus 4.0
+...\write1{\babel@aux{persian}{}}
+...\write1{\babel@aux{british}{}}
+...\penalty -300
+...\glue 15.08499 plus 4.31 minus 0.86198
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 5.4588
+...\hbox(10.0512+2.8944)x345.0, glue set 140.43369fil, direction TLT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x0.0, direction TLT
+.....\glue 0.0
+....\TU/lmr/bx/n/14.4 S
+....\TU/lmr/bx/n/14.4 e
+....\discretionary (penalty 50)
+.....< \TU/lmr/bx/n/14.4 -
+....\TU/lmr/bx/n/14.4 l
+....\TU/lmr/bx/n/14.4 e
+....\TU/lmr/bx/n/14.4 c
+....\discretionary (penalty 50)
+.....< \TU/lmr/bx/n/14.4 -
+....\TU/lmr/bx/n/14.4 t
+....\TU/lmr/bx/n/14.4 e
+....\TU/lmr/bx/n/14.4 d
+....\glue(\spaceskip) 5.4 plus 2.7 minus 1.8
+....\TU/lmr/bx/n/14.4 l
+....\TU/lmr/bx/n/14.4 a
+....\TU/lmr/bx/n/14.4 n
+....\discretionary (penalty 50)
+.....< \TU/lmr/bx/n/14.4 -
+....\TU/lmr/bx/n/14.4 g
+....\TU/lmr/bx/n/14.4 u
+....\TU/lmr/bx/n/14.4 a
+....\TU/lmr/bx/n/14.4 g
+....\TU/lmr/bx/n/14.4 e
+....\glue(\spaceskip) 5.4 plus 2.7 minus 1.8
+....\TU/lmr/bx/n/14.4 i
+....\TU/lmr/bx/n/14.4 s
+....\kern0.0 (italic)
+....\glue 5.4 plus 2.7 minus 1.8
+....\TU/lmtt/b/n/14.4 b
+....\TU/lmtt/b/n/14.4 r
+....\TU/lmtt/b/n/14.4 i
+....\TU/lmtt/b/n/14.4 t
+....\TU/lmtt/b/n/14.4 i
+....\TU/lmtt/b/n/14.4 s
+....\TU/lmtt/b/n/14.4 h
+....\TU/lmr/bx/n/14.4 .
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\glue 9.913 plus 0.86198
+...\write1{\babel@aux{persian}{}}
+...\penalty 10000
+...\glue 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\lineskip) 1.0
+...\hbox(9.11+5.17)x323.28314, glue set 0.37616, shifted 21.71686, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TLT
+....\begindir TRT
+....\kern-15.0
+....\hbox(0.0+0.0)x15.0, direction TRT
+.....\glue 15.0
+.....\glue -20.0
+.....\glue -5.0
+.....\hbox(0.0+0.0)x20.0, glue set 20.0fil, direction TRT
+......\glue 0.0 plus 1.0fil
+.....\glue 5.0
+....\penalty 0
+....\hbox(0.0+0.0)x0.0, direction TRT
+.....\hbox(17.45984+3.25764)x0.0, glue set - 21.71686fil, shifted 12.0, direction TRT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(17.45984+3.25764)x16.71686, direction TRT
+.......\TU/Amiri(0)/b/n/28.57584 ۱
+......\glue 5.0
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ر
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 آ
+....\TU/Amiri(0)/m/n/10 غ
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ز
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ک
+....\TU/Amiri(0)/m/n/10 ل
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 م
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 د
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 و
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ک
+....\TU/Amiri(0)/m/n/10 ل
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 م
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 خ
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 د
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 و
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ک
+....\TU/Amiri(0)/m/n/10 ل
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ،
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 خ
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ؛
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\mathon
+....\begindir TLT
+....\hbox(0.0+0.0)x0.0, direction TLT
+....\hbox(3.801+0.658)x4.595, shifted -3.62892, direction TLT
+.....\TU/Amiri(0)/m/n/7 ۲
+....\enddir TLT
+....\mathoff
+....\kern0.50003
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ن
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ر
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 آ
+....\TU/Amiri(0)/m/n/10 غ
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ز
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 خ
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 .
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\mathon
+....\begindir TLT
+....\hbox(0.0+0.0)x0.0, direction TLT
+....\hbox(3.899+0.651)x4.595, shifted -3.62892, direction TLT
+.....\TU/Amiri(0)/m/n/7 ۳
+....\enddir TLT
+....\mathoff
+....\kern0.50003
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ه
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 چ
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 ز
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 ه
+....\enddir TRT
+....\enddir TLT
+....\glue(\rightskip) 0.0
+...\penalty 10050
+...\glue(\lineskip) 1.0
+...\hbox(9.51+5.41)x323.28314, glue set 77.69322fil, shifted 21.71686, direction TRT
+....\begindir TLT
+....\begindir TRT
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 س
+....\TU/Amiri(0)/m/n/10 ط
+....\pdfliteral page <lua data reference ...>
+....\TU/Amiri(0)/m/n/10 ۀ
+....\TU/Amiri(0)/m/n/10 
+....\pdfliteral page <lua data reference ...>
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 و
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 پ
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 د
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 آ
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ،
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 و
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ز
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 ر
+....\TU/Amiri(0)/m/n/10 آ
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 چ
+....\TU/Amiri(0)/m/n/10 ه
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 پ
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 د
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 آ
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ،
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 چ
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 چ
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 ز
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 ن
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 و
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 پ
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ر
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 گ
+....\TU/Amiri(0)/m/n/10 ش
+....\TU/Amiri(0)/m/n/10 ت
+....\TU/Amiri(0)/m/n/10 .
+....\penalty 10000
+....\enddir TRT
+....\enddir TLT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\glue(\abovedisplayskip) -12.0
+...\glue(\baselineskip) 6.59
+...\hbox(0.0+0.0)x0.0, shifted 172.5, direction TLT
+...\penalty 10000
+...\glue(\belowdisplayskip) 0.0
+...\glue -12.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue 12.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 4.4
+...\hbox(7.6+2.93)x345.0, glue set 244.41998fill, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TLT
+....\begindir TRT
+....\hbox(0.0+0.0)x15.0, direction TRT
+....\glue 0.0 plus 1.0fill
+....\hbox(7.6+2.93)x85.58002, direction TRT
+.....\TU/Amiri(0)/bx/n/10 ی
+.....\TU/Amiri(0)/bx/n/10 و
+.....\TU/Amiri(0)/bx/n/10 ح
+.....\TU/Amiri(0)/bx/n/10 ن
+.....\TU/Amiri(0)/bx/n/10 ا
+.....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+.....\TU/Amiri(0)/bx/n/10 ۱
+.....\TU/Amiri(0)/bx/n/10 ‏
+.....\kern-2.92 (font)
+.....\TU/Amiri(0)/bx/n/10 :
+.....\TU/Amiri(0)/bx/n/10 ۱
+.....\TU/Amiri(0)/bx/n/10 –
+.....\TU/Amiri(0)/bx/n/10 ۳
+.....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+.....\begindir TLT
+.....\TU/lmr/bx/n/10 (
+.....\TU/lmr/bx/n/10 N
+.....\TU/lmr/bx/n/10 M
+.....\TU/lmr/bx/n/10 V
+.....\TU/lmr/bx/n/10 )
+.....\enddir TLT
+....\penalty 10000
+....\enddir TRT
+....\enddir TLT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 51
+...\glue 12.0 plus 3.0 minus 4.0
+...\write1{\babel@aux{british}{}}
+...\write1{\babel@aux{persian}{}}
+...\penalty -51
+...\glue 0.0 plus 1.0
+...\glue 0.0 plus -1.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 1.8
+...\hbox(7.27+2.92)x306.56628, glue set 230.79633fil, shifted 38.43372, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TLT
+....\begindir TRT
+....\kern-15.0
+....\hbox(0.0+0.0)x15.0, direction TRT
+.....\glue 15.0
+.....\glue -20.0
+.....\glue -5.0
+.....\hbox(0.0+0.0)x20.0, glue set 20.0fil, direction TRT
+......\glue 0.0 plus 1.0fil
+.....\glue 5.0
+....\penalty 0
+....\hbox(0.0+0.0)x0.0, direction TRT
+.....\hbox(16.45969+3.17192)x0.0, glue set - 38.43372fil, shifted 12.0, direction TRT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(16.45969+3.17192)x33.43372, direction TRT
+.......\begindir TLT
+.......\TU/Amiri(0)/b/n/28.57584 ۵
+.......\TU/Amiri(0)/b/n/28.57584 ۶
+.......\enddir TLT
+......\glue 5.0
+....\TU/Amiri(0)/m/n/10 خ
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 د
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 چ
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 ن
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 ‌
+....\kern-2.92 (font)
+....\TU/Amiri(0)/m/n/10 ف
+....\TU/Amiri(0)/m/n/10 ر
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 :
+....\penalty 10000
+....\enddir TRT
+....\enddir TLT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\glue 12.0
+...\glue -14.92
+...\penalty -51
+...\glue 2.92
+...\glue 12.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\lineskip) 1.0
+...\hbox(9.51+2.33)x335.0, glue set 128.75003fil, shifted 10.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TLT
+....\begindir TRT
+....\kern-10.0
+....\hbox(0.0+0.0)x10.0, direction TRT
+.....\glue 10.0
+.....\glue -16.99997
+.....\glue 0.0
+.....\hbox(0.0+0.0)x16.99997, glue set 16.99997fil, direction TRT
+......\glue 0.0 plus 1.0fil
+.....\glue 0.0
+....\penalty 0
+....\TU/Amiri(0)/m/n/10 ^^ab
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 ص
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ف
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ر
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 گ
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ه
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ش
+....\TU/Amiri(0)/m/n/10 ت
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 ،
+....\penalty 10000
+....\enddir TRT
+....\enddir TLT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 0.56
+...\hbox(9.11+3.61)x335.0, glue set 122.71fil, shifted 10.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TLT
+....\begindir TRT
+....\hbox(0.0+0.0)x10.0, direction TRT
+....\TU/Amiri(0)/m/n/10 ع
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ل
+....\TU/Amiri(0)/m/n/10 ت
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ر
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 ه
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ع
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ل
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 آ
+....\TU/Amiri(0)/m/n/10 و
+....\kern0.83 (font)
+....\TU/Amiri(0)/m/n/10 ر
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ،
+....\penalty 10000
+....\enddir TRT
+....\enddir TLT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 0.25
+...\hbox(8.14+3.39)x335.0, glue set 121.32fil, shifted 10.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TLT
+....\begindir TRT
+....\kern0.83 (font)
+....\TU/Amiri(0)/m/n/10 ز
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 ر
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 ج
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ت
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ن
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 ز
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 ک
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ش
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 ،
+....\penalty 10000
+....\enddir TRT
+....\enddir TLT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 0.47
+...\hbox(8.14+3.39)x335.0, glue set 91.68001fil, shifted 10.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TLT
+....\begindir TRT
+....\hbox(0.0+0.0)x10.0, direction TRT
+....\TU/Amiri(0)/m/n/10 و
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ع
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ل
+....\TU/Amiri(0)/m/n/10 ت
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ن
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 ‌
+....\kern-2.92 (font)
+....\TU/Amiri(0)/m/n/10 ز
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ی
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 ک
+....\TU/Amiri(0)/m/n/10 ش
+....\TU/Amiri(0)/m/n/10 ف
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 خ
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 د
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ش
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 .
+....\penalty 10000
+....\enddir TRT
+....\enddir TLT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\lineskip) 1.0
+...\hbox(9.24+3.60004)x335.0, glue set 113.71503fil, shifted 10.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TLT
+....\begindir TRT
+....\rule(8.39996+3.60004)x0.0
+....\hbox(7.42992+0.0)x0.0, glue set - 5.09503fil, direction TRT
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\mathon
+.....\begindir TLT
+.....\hbox(0.0+0.0)x0.0, direction TLT
+.....\hbox(3.801+0.658)x4.595, shifted -3.62892, direction TLT
+......\TU/Amiri(0)/m/n/7 ۲
+.....\enddir TLT
+.....\mathoff
+.....\kern0.50003
+....\TU/Amiri(0)/m/n/10 خ
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 ش
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 ه
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ح
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ل
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 آ
+....\TU/Amiri(0)/m/n/10 ن
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ک
+....\TU/Amiri(0)/m/n/10 ه
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 چ
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 ن
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ک
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ،
+....\penalty 10000
+....\enddir TRT
+....\enddir TLT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\lineskip) 1.0
+...\hbox(9.71+3.56)x335.0, glue set 107.975fil, shifted 10.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TLT
+....\begindir TRT
+....\hbox(0.0+0.0)x10.0, direction TRT
+....\TU/Amiri(0)/m/n/10 و
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ک
+....\TU/Amiri(0)/m/n/10 س
+....\TU/Amiri(0)/m/n/10 ی
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ک
+....\TU/Amiri(0)/m/n/10 ه
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 ن
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ت
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 س
+....\TU/Amiri(0)/m/n/10 ک
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 گ
+....\TU/Amiri(0)/m/n/10 ر
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ؛
+....\penalty 10000
+....\enddir TRT
+....\enddir TLT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\lineskip) 1.0
+...\hbox(10.36+3.58)x335.0, glue set 88.11003fil, shifted 10.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TLT
+....\begindir TRT
+....\TU/Amiri(0)/m/n/10 ک
+....\TU/Amiri(0)/m/n/10 ه
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ش
+....\TU/Amiri(0)/m/n/10 َ
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 ّ
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ت
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ر
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 گ
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ه
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ش
+....\TU/Amiri(0)/m/n/10 ت
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 ،
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 آ
+....\TU/Amiri(0)/m/n/10 ن
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ر
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 ‌
+....\kern-2.92 (font)
+....\TU/Amiri(0)/m/n/10 ح
+....\TU/Amiri(0)/m/n/10 ر
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ت
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 س
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ز
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ،
+....\penalty 10000
+....\enddir TRT
+....\enddir TLT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue -3.58
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0, direction TRT
+...\hbox(0.0+0.0)x345.0, direction TRT
+Completed box being shipped out [2]
+\vbox(682.0+0.0)x398.0, direction TRT
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0, direction TRT
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil, direction TRT
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0, direction TRT
+....\hbox(0.0+0.0)x345.0, direction TRT
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 524.26404fil, direction TRT
+...\glue(\topskip) 2.73
+...\hbox(7.27+3.61)x335.0, glue set 95.61002fil, shifted 10.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TLT
+....\begindir TRT
+....\hbox(0.0+0.0)x10.0, direction TRT
+....\TU/Amiri(0)/m/n/10 و
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 س
+....\TU/Amiri(0)/m/n/10 ت
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 خ
+....\kern0.83 (font)
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 ش
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ز
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 ر
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ع
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ل
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 د
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ز
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ر
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 .
+....\TU/Amiri(0)/m/n/10 ^^bb
+....\penalty 10000
+....\enddir TRT
+....\enddir TLT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\penalty 10000
+...\glue(\abovedisplayskip) -12.0
+...\glue(\baselineskip) 8.39
+...\hbox(0.0+0.0)x0.0, shifted 197.5, direction TLT
+...\penalty 51
+...\glue(\belowdisplayskip) 0.0
+...\glue -12.0
+...\glue 12.0
+...\penalty 51
+...\glue -12.0
+...\glue 12.0
+...\glue 6.0 plus 1.0 minus 2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 12.0
+...\hbox(0.0+0.0)x306.56628, glue set 306.56628fil, shifted 38.43372, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TLT
+....\begindir TRT
+....\penalty 10000
+....\enddir TRT
+....\enddir TLT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\glue(\abovedisplayskip) -12.0
+...\glue(\baselineskip) 12.0
+...\hbox(0.0+0.0)x0.0, shifted 172.5, direction TLT
+...\penalty 10000
+...\glue(\belowdisplayskip) 0.0
+...\glue -12.0
+...\glue -12.0
+...\glue -6.0 plus -1.0 minus -2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 4.4
+...\hbox(7.6+2.72)x345.0, glue set 253.95998fill, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TLT
+....\begindir TRT
+....\glue 0.0 plus 1.0fill
+....\hbox(7.6+2.72)x91.04002, direction TRT
+.....\TU/Amiri(0)/bx/n/10 ا
+.....\TU/Amiri(0)/bx/n/10 ِ
+.....\TU/Amiri(0)/bx/n/10 ش
+.....\TU/Amiri(0)/bx/n/10 ع
+.....\TU/Amiri(0)/bx/n/10 ی
+.....\TU/Amiri(0)/bx/n/10 ا
+.....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+.....\begindir TLT
+.....\TU/Amiri(0)/bx/n/10 ۵
+.....\TU/Amiri(0)/bx/n/10 ۶
+.....\enddir TLT
+.....\TU/Amiri(0)/bx/n/10 ‏
+.....\kern-2.92 (font)
+.....\TU/Amiri(0)/bx/n/10 :
+.....\TU/Amiri(0)/bx/n/10 ۱
+.....\TU/Amiri(0)/bx/n/10 –
+.....\TU/Amiri(0)/bx/n/10 ۲
+.....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+.....\begindir TLT
+.....\TU/lmr/bx/n/10 (
+.....\TU/lmr/bx/n/10 N
+.....\TU/lmr/bx/n/10 M
+.....\TU/lmr/bx/n/10 V
+.....\TU/lmr/bx/n/10 )
+.....\enddir TLT
+....\penalty 10000
+....\enddir TRT
+....\enddir TLT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 51
+...\glue 12.0 plus 3.0 minus 4.0
+...\write1{\babel@aux{british}{}}
+...\write1{\babel@aux{persian}{}}
+...\penalty -51
+...\glue 0.0 plus 1.0
+...\glue 0.0 plus -1.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 0.17
+...\hbox(9.11+5.17)x323.28314, glue set 0.37616, shifted 21.71686, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TLT
+....\begindir TRT
+....\kern-15.0
+....\hbox(0.0+0.0)x15.0, direction TRT
+.....\glue 15.0
+.....\glue -20.0
+.....\glue -5.0
+.....\hbox(0.0+0.0)x20.0, glue set 20.0fil, direction TRT
+......\glue 0.0 plus 1.0fil
+.....\glue 5.0
+....\penalty 0
+....\hbox(0.0+0.0)x0.0, direction TRT
+.....\hbox(17.45984+3.25764)x0.0, glue set - 21.71686fil, shifted 12.0, direction TRT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(17.45984+3.25764)x16.71686, direction TRT
+.......\TU/Amiri(0)/b/n/28.57584 ۱
+......\glue 5.0
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ر
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 آ
+....\TU/Amiri(0)/m/n/10 غ
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ز
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ک
+....\TU/Amiri(0)/m/n/10 ل
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 م
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 د
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 و
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ک
+....\TU/Amiri(0)/m/n/10 ل
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 م
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 خ
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 د
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 و
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ک
+....\TU/Amiri(0)/m/n/10 ل
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ،
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 خ
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ؛
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\mathon
+....\begindir TLT
+....\hbox(0.0+0.0)x0.0, direction TLT
+....\hbox(3.801+0.658)x4.595, shifted -3.62892, direction TLT
+.....\TU/Amiri(0)/m/n/7 ۲
+....\enddir TLT
+....\mathoff
+....\kern0.50003
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ن
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ر
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 آ
+....\TU/Amiri(0)/m/n/10 غ
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ز
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 خ
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 .
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\mathon
+....\begindir TLT
+....\hbox(0.0+0.0)x0.0, direction TLT
+....\hbox(3.899+0.651)x4.595, shifted -3.62892, direction TLT
+.....\TU/Amiri(0)/m/n/7 ۳
+....\enddir TLT
+....\mathoff
+....\kern0.50003
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 ه
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 چ
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 ز
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 ه
+....\enddir TRT
+....\enddir TLT
+....\glue(\rightskip) 0.0
+...\penalty 200
+...\glue(\lineskip) 1.0
+...\hbox(9.51+5.41)x323.28314, glue set 77.69322fil, shifted 21.71686, direction TRT
+....\begindir TLT
+....\begindir TRT
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 س
+....\TU/Amiri(0)/m/n/10 ط
+....\pdfliteral page <lua data reference ...>
+....\TU/Amiri(0)/m/n/10 ۀ
+....\TU/Amiri(0)/m/n/10 
+....\pdfliteral page <lua data reference ...>
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 و
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 پ
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 د
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 آ
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ،
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 و
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ز
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 ر
+....\TU/Amiri(0)/m/n/10 آ
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 چ
+....\TU/Amiri(0)/m/n/10 ه
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 پ
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 د
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 آ
+....\TU/Amiri(0)/m/n/10 م
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ،
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ه
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 چ
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 چ
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 ز
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ب
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 و
+....\TU/Amiri(0)/m/n/10 ن
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 و
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 پ
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ی
+....\TU/Amiri(0)/m/n/10 د
+....\TU/Amiri(0)/m/n/10 ا
+....\TU/Amiri(0)/m/n/10 ر
+....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+....\TU/Amiri(0)/m/n/10 ن
+....\TU/Amiri(0)/m/n/10 گ
+....\TU/Amiri(0)/m/n/10 ش
+....\TU/Amiri(0)/m/n/10 ت
+....\TU/Amiri(0)/m/n/10 .
+....\penalty 10000
+....\enddir TRT
+....\enddir TLT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\glue(\abovedisplayskip) -12.0
+...\glue(\baselineskip) 6.59
+...\hbox(0.0+0.0)x0.0, shifted 172.5, direction TLT
+...\penalty 10000
+...\glue(\belowdisplayskip) 0.0
+...\glue -12.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue 12.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 4.4
+...\hbox(7.6+2.93)x345.0, glue set 244.41998fill, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\begindir TLT
+....\begindir TRT
+....\hbox(0.0+0.0)x15.0, direction TRT
+....\glue 0.0 plus 1.0fill
+....\hbox(7.6+2.93)x85.58002, direction TRT
+.....\TU/Amiri(0)/bx/n/10 ی
+.....\TU/Amiri(0)/bx/n/10 و
+.....\TU/Amiri(0)/bx/n/10 ح
+.....\TU/Amiri(0)/bx/n/10 ن
+.....\TU/Amiri(0)/bx/n/10 ا
+.....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+.....\TU/Amiri(0)/bx/n/10 ۱
+.....\TU/Amiri(0)/bx/n/10 ‏
+.....\kern-2.92 (font)
+.....\TU/Amiri(0)/bx/n/10 :
+.....\TU/Amiri(0)/bx/n/10 ۱
+.....\TU/Amiri(0)/bx/n/10 –
+.....\TU/Amiri(0)/bx/n/10 ۳
+.....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
+.....\begindir TLT
+.....\TU/lmr/bx/n/10 (
+.....\TU/lmr/bx/n/10 N
+.....\TU/lmr/bx/n/10 M
+.....\TU/lmr/bx/n/10 V
+.....\TU/lmr/bx/n/10 )
+.....\enddir TLT
+....\penalty 10000
+....\enddir TRT
+....\enddir TLT
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 51
+...\glue 12.0 plus 3.0 minus 4.0
+...\write1{\babel@aux{british}{}}
+...\glue -2.93
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0, direction TRT
+...\hbox(0.0+0.0)x345.0, direction TRT
+(scripture93.aux)
