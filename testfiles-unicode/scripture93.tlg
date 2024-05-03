@@ -108,6 +108,8 @@ Completed box being shipped out [1]
 ....\enddir TLT
 ....\mathoff
 ....\kern0.50003
+....\penalty 10000
+....\glue 0.0
 ....\TU/Amiri(0)/m/n/10 ه
 ....\TU/Amiri(0)/m/n/10 م
 ....\TU/Amiri(0)/m/n/10 ا
@@ -141,6 +143,8 @@ Completed box being shipped out [1]
 ....\enddir TLT
 ....\mathoff
 ....\kern0.50003
+....\penalty 10000
+....\glue 0.0
 ....\TU/Amiri(0)/m/n/10 ه
 ....\TU/Amiri(0)/m/n/10 م
 ....\TU/Amiri(0)/m/n/10 ه
@@ -420,6 +424,8 @@ Completed box being shipped out [1]
 .....\TU/lmr/m/n/7 2
 ....\mathoff
 ....\kern0.50003
+....\penalty 10000
+....\glue 0.0
 ....\TU/lmr/m/n/10 H
 ....\TU/lmr/m/n/10 e
 ....\glue(\spaceskip) 3.33 plus 1.665 minus 1.11
@@ -467,6 +473,8 @@ Completed box being shipped out [1]
 .....\TU/lmr/m/n/7 3
 ....\mathoff
 ....\kern0.50003
+....\penalty 10000
+....\glue 0.0
 ....\TU/lmr/m/n/10 T
 ....\TU/lmr/m/n/10 h
 ....\TU/lmr/m/n/10 r
@@ -872,6 +880,8 @@ Completed box being shipped out [1]
 .....\enddir TLT
 .....\mathoff
 .....\kern0.50003
+.....\penalty 10000
+.....\glue 0.0
 ....\TU/Amiri(0)/m/n/10 خ
 ....\TU/Amiri(0)/m/n/10 و
 ....\TU/Amiri(0)/m/n/10 ش
@@ -1432,6 +1442,8 @@ Completed box being shipped out [1]
 ......\TU/lmr/m/n/7 2
 .....\mathoff
 .....\kern0.50003
+.....\penalty 10000
+.....\glue 0.0
 ....\TU/lmr/m/n/10 B
 ....\TU/lmr/m/n/10 l
 ....\TU/lmr/m/n/10 e
@@ -1880,6 +1892,8 @@ Completed box being shipped out [1]
 ....\enddir TLT
 ....\mathoff
 ....\kern0.50003
+....\penalty 10000
+....\glue 0.0
 ....\TU/Amiri(0)/m/n/10 ه
 ....\TU/Amiri(0)/m/n/10 م
 ....\TU/Amiri(0)/m/n/10 ا
@@ -1913,6 +1927,8 @@ Completed box being shipped out [1]
 ....\enddir TLT
 ....\mathoff
 ....\kern0.50003
+....\penalty 10000
+....\glue 0.0
 ....\TU/Amiri(0)/m/n/10 ه
 ....\TU/Amiri(0)/m/n/10 م
 ....\TU/Amiri(0)/m/n/10 ه
@@ -2328,6 +2344,8 @@ Completed box being shipped out [1]
 .....\enddir TLT
 .....\mathoff
 .....\kern0.50003
+.....\penalty 10000
+.....\glue 0.0
 ....\TU/Amiri(0)/m/n/10 خ
 ....\TU/Amiri(0)/m/n/10 و
 ....\TU/Amiri(0)/m/n/10 ش
@@ -2703,6 +2721,8 @@ Completed box being shipped out [2]
 ....\enddir TLT
 ....\mathoff
 ....\kern0.50003
+....\penalty 10000
+....\glue 0.0
 ....\TU/Amiri(0)/m/n/10 ه
 ....\TU/Amiri(0)/m/n/10 م
 ....\TU/Amiri(0)/m/n/10 ا
@@ -2736,6 +2756,8 @@ Completed box being shipped out [2]
 ....\enddir TLT
 ....\mathoff
 ....\kern0.50003
+....\penalty 10000
+....\glue 0.0
 ....\TU/Amiri(0)/m/n/10 ه
 ....\TU/Amiri(0)/m/n/10 م
 ....\TU/Amiri(0)/m/n/10 ه

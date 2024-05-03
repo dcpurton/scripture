@@ -47,6 +47,8 @@ Completed box being shipped out [1]
 ........\OT1/cmr/m/n/7 1
 .......\mathoff
 .......\kern 0.50003
+.......\penalty 10000
+.......\glue 0.0
 ......\OT1/cmr/m/n/10 O
 ......\glue 3.33333 plus 1.66498 minus 1.11221
 ......\OT1/cmr/m/sc/10 L
@@ -133,6 +135,8 @@ Completed box being shipped out [1]
 ........\OT1/cmr/m/n/7 2
 .......\mathoff
 .......\kern 0.50003
+.......\penalty 10000
+.......\glue 0.0
 ......\OT1/cmr/m/n/10 M
 ......\OT1/cmr/m/n/10 a
 ......\OT1/cmr/m/n/10 n
@@ -222,6 +226,8 @@ Completed box being shipped out [1]
 ........\OT1/cmr/m/n/7 3
 .......\mathoff
 .......\kern 0.50003
+.......\penalty 10000
+.......\glue 0.0
 ......\OT1/cmr/m/n/10 B
 ......\OT1/cmr/m/n/10 u
 ......\OT1/cmr/m/n/10 t
@@ -338,6 +344,8 @@ Completed box being shipped out [1]
 ........\OT1/cmr/m/n/7 4
 .......\mathoff
 .......\kern 0.50003
+.......\penalty 10000
+.......\glue 0.0
 ......\OT1/cmr/m/n/10 T
 ......\kern-0.83334
 ......\OT1/cmr/m/n/10 o

@@ -3905,6 +3905,8 @@
             \group_end:
             \kern \l_@@_verse_sep_tl
           }
+        \nobreak
+        \skip_horizontal:N \c_zero_skip
       }
     \hook_use:n { scripture / verse / after }
     \bool_lazy_and:nnTF
@@ -3964,6 +3966,8 @@
           {
             \P
             \kern \l_@@_pilcrow_sep_tl
+            \nobreak
+            \skip_horizontal:N \c_zero_skip
           }
       }
   }

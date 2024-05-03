@@ -33,6 +33,8 @@ Completed box being shipped out [1]
 .....\T1/cmr/m/n/7 8
 ....\mathoff
 ....\kern 0.4999
+....\penalty 10000
+....\glue 0.0
 ....\T1/cmr/m/n/10 A
 ....\T1/cmr/m/n/10 l
 ....\T1/cmr/m/n/10 o

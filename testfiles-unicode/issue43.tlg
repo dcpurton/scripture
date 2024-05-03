@@ -60,6 +60,8 @@ Completed box being shipped out [1]
 .....\TU/lmr/m/n/7 8
 ....\mathoff
 ....\kern0.50003
+....\penalty 10000
+....\glue 0.0
 ....\TU/lmr/m/n/10 A
 ....\TU/lmr/m/n/10 l
 ....\TU/lmr/m/n/10 o

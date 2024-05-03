@@ -236,6 +236,8 @@ Completed box being shipped out [1]
 ......\OT1/cmr/m/n/7 1
 .....\mathoff
 .....\kern 0.50003
+.....\penalty 10000
+.....\glue 0.0
 ....\OT1/cmr/m/n/10 W
 ....\OT1/cmr/m/n/10 h
 ....\kern-0.27779
