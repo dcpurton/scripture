@@ -5,6 +5,7 @@ checkformat = "latex"
 stdengine    = "pdftex"
 checkengines = {"pdftex"}
 checkconfigs = {"build", "config-unicode"}
+typesetexe = "lualatex"
 
 -- Detail how to set the version automatically
 function update_tag(file, content, tagname, tagdate)

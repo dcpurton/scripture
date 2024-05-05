@@ -13,6 +13,11 @@
 %<*driver>
 \DocumentMetadata{}
 \documentclass[a4paper]{l3doc}
+\usepackage[bidi=basic, layout=lists]{babel}
+\babelprovide[import, main]{australian}
+\babelprovide[import, mapdigits, onchar=ids fonts]{persian}
+\babelfont[persian]{rm}[Renderer = Harfbuzz]{Amiri}
+\babelfont[persian]{tt}[Renderer = Harfbuzz, Scale=.75]{Kawkab Mono Regular}
 \usepackage[parindent=1em]{scripture}
 \usepackage[skins]{tcolorbox}
 \newtcolorbox{scriptureexample}[1][]{%
@@ -1582,7 +1587,68 @@
 %   environment. Make sure you have \pkg{babel} or \pkg{polyglossia} loaded
 %   and correctly set up for your specified language. If unset the current
 %   active language is used.
+%
+%   Right-to-left languages are only supported with \pkg{babel} and Lua\LaTeX.
+%   You will need to pass \texttt{bidi=basic, layout=lists} as options to
+%   \pkg{babel} to ensure everything is laid out correctly.
 % \end{option}
+%
+% \begin{scriptureexample}
+% \begingroup
+% \catcode`@=13
+% \def@#1{\ifcase#1\relax \egroup \or \bgroup\textdir TLT \else
+%   \bgroup\textdir TRT \fi}
+% \begin{verbatim}
+% \documentclass{article}
+% \usepackage[bidi=basic, layout=lists]{babel}
+% \babelprovide[import, main]{english}
+% \babelprovide[import, mapdigits]{persian}
+% \babelfont[persian]{rm}[
+%   Renderer=Harfbuzz]{Amiri}
+% \usepackage{scripture}
+% \begin{document}
+% \begin{scripture}[اِشعیا 56‏:1‏--2][version=NMV,
+%     language=persian]
+%                      @9@1\ch{56}@0خداوند چنین می‌فرماید:@0
+%                                    \begin{poetry}
+%                           @9»انصاف را نگاه داشته،@0
+%                          @9عدالت را به عمل آورید،@0
+%
+%                         @9زیرا نجات من نزدیک شده،@0
+%               @9و عدالت من به‌زودی منکشف خواهد شد.@0
+%
+%               @9@1\vs{2}@0خوشا به حال آن که چنین کند،@0
+%                       @9و کسی که بدین متمسک گردد؛@0
+%
+%      @9که شَبّات را نگاه داشته، آن را بی‌حرمت نسازد،@0
+%              @9و دست خویش از هر عمل بد باز دارد.«@0
+%                                      \end{poetry}
+% \end{scripture}
+% \end{document}
+% \end{verbatim}
+% \endgroup
+%
+% \tcblower
+%
+% \shapemode 2
+% \begin{scripture}[اِشعیا 56‏:1‏--2][version=NMV,
+%     language=persian]
+%   \ch{56}خداوند چنین می‌فرماید:
+%   \begin{poetry}
+%     «انصاف را نگاه داشته،
+%     عدالت را به عمل آورید،
+%
+%     زیرا نجات من نزدیک شده،
+%     و عدالت من به‌زودی منکشف خواهد شد.
+%
+%     \vs{2}خوشا به حال آن که چنین کند،
+%     و کسی که بدین متمسک گردد؛
+%
+%     که شَبّات را نگاه داشته، آن را بی‌حرمت نسازد،
+%     و دست خویش از هر عمل بد باز دارد.»
+%   \end{poetry}
+% \end{scripture}
+% \end{scriptureexample}
 %
 % \changes{v1.2}{2022/11/02}{Add \opt{language/variant} option}
 % \begin{option}[added=2022-11-02]{language/variant}
