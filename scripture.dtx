@@ -15,9 +15,17 @@
 \documentclass[a4paper]{l3doc}
 \usepackage[bidi=basic, layout=lists]{babel}
 \babelprovide[import, main]{australian}
+\babelprovide[import, onchar=ids fonts]{japanese}
 \babelprovide[import, mapdigits, onchar=ids fonts]{persian}
+\babelfont[japanese]{tt}[Scale=.9]{IPAMincho}
 \babelfont[persian]{rm}[Renderer = Harfbuzz]{Amiri}
 \babelfont[persian]{tt}[Renderer = Harfbuzz, Scale=.75]{Kawkab Mono Regular}
+\usepackage{luatexja-fontspec}
+\newcommand{\disablecjk}{%
+  \ltjsetparameter{jacharrange={-1, -2, -3, -4, -5, -6, -7, -8, -9}}}
+\newcommand{\enablecjk}{%
+  \ltjsetparameter{jacharrange={-1, +2, +3, -4, -5, +6, +7, -8, +9}}}
+\disablecjk
 \usepackage[parindent=1em]{scripture}
 \usepackage[skins]{tcolorbox}
 \newtcolorbox{scriptureexample}[1][]{%
@@ -1647,6 +1655,63 @@
 %     که شَبّات را نگاه داشته، آن را بی‌حرمت نسازد،
 %     و دست خویش از هر عمل بد باز دارد.»
 %   \end{poetry}
+% \end{scripture}
+% \end{scriptureexample}
+%
+% \textbf{Note} that for CJK scripts the \pkg{scripture} package is compatible
+% with specialist packages like \pkg{luatexja} and \pkg{ctex}. These packages
+% can give nicer kerning and protrusion out of the box. Although with some
+% effort you can set up \pkg{babel} along with \pkg{microtype} to give
+% comparable output.
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \documentclass{article}
+% \usepackage{luatexja}
+% \usepackage{scripture}
+% \begin{document}
+% \begin{scripture}[マルコの福音書 9:33--37][
+%     version=NJB]
+%   \vs{33}一行はカペナウムに着いた。イエスは家に入ってか
+%          ら、弟子たちにお尋ねになった。「来る途中、何を
+%          論じ合っていたのですか。」
+%   \vs{34}彼らは黙っていた。来る途中、だれが一番偉いか論
+%          じ合っていたからである。
+%   \vs{35}イエスは腰を下ろすと、十二人を呼んで言われた。
+%          「だれでも先頭に立ちたいと思う者は、皆の後にな
+%          り、皆に仕える者になりなさい。」
+%   \vs{36}それから、イエスは一人の子どもの手を取って、彼
+%          らの真ん中に立たせ、腕に抱いて彼らに言われた。
+%   \vs{37}「だれでも、このような子どもたちの一人を、わた
+%          しの名のゆえに受け入れる人は、わたしを受け入れ
+%          るのです。また、だれでもわたしを受け入れる人は
+%          、わたしではなく、わたしを遣わされた方を受け入
+%          れるのです。」
+% \end{scripture}
+% \end{document}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \enablecjk
+%
+% \begin{scripture}[マルコの福音書 9:33--37][
+%     version=NJB]
+%   \vs{33}一行はカペナウムに着いた。イエスは家に入ってか
+%          ら、弟子たちにお尋ねになった。「来る途中、何を
+%          論じ合っていたのですか。」
+%   \vs{34}彼らは黙っていた。来る途中、だれが一番偉いか論
+%          じ合っていたからである。
+%   \vs{35}イエスは腰を下ろすと、十二人を呼んで言われた。
+%          「だれでも先頭に立ちたいと思う者は、皆の後にな
+%          り、皆に仕える者になりなさい。」
+%   \vs{36}それから、イエスは一人の子どもの手を取って、彼
+%          らの真ん中に立たせ、腕に抱いて彼らに言われた。
+%   \vs{37}「だれでも、このような子どもたちの一人を、わた
+%          しの名のゆえに受け入れる人は、わたしを受け入れ
+%          るのです。また、だれでもわたしを受け入れる人は
+%          、わたしではなく、わたしを遣わされた方を受け入
+%          れるのです。」
 % \end{scripture}
 % \end{scriptureexample}
 %
