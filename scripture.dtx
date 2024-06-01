@@ -1198,6 +1198,23 @@
 %   text of the argument to \cs{added}.
 % \end{option}
 %
+% \changes{v2.1}{2024/06/01}{Add \opt{after} option}
+% \begin{option}[added=2024-06-01]{after}
+%   \begin{syntax}
+%     after = \meta{token list} \hfill Default: \emph{Empty}
+%   \end{syntax}
+%   Execute \meta{|token list|} at the end of the \env{scripture} environment.
+% \end{option}
+%
+% \changes{v2.1}{2024/06/01}{Add \opt{before} option}
+% \begin{option}[added=2024-06-01]{before}
+%   \begin{syntax}
+%     before = \meta{token list} \hfill Default: \emph{Empty}
+%   \end{syntax}
+%   Execute \meta{|token list|} at the beginning of the \env{scripture}
+%   environment.
+% \end{option}
+%
 % \begin{option}{belowskip}
 %   \begin{syntax}
 %     belowskip = \meta{skip} \hfill Default: 0pt
@@ -2775,6 +2792,12 @@
     , added / format              .cs_set:Np          = \@@_added_format:n #1
     , added / format              .value_required:n   = true
     , added / format              .initial:n          = \emph { #1 }
+    , after                       .tl_set:N           = \l_@@_after_tl
+    , after                       .value_required:n   = true
+    , after                       .initial:n          =
+    , before                      .tl_set:N           = \l_@@_before_tl
+    , before                      .value_required:n   = true
+    , before                      .initial:n          =
     , belowskip                   .tl_set:N           = \l_@@_belowskip_tl
     , belowskip                   .value_required:n   = true
     , belowskip                   .initial:n          = \c_zero_skip
@@ -4269,6 +4292,7 @@
       {
         \keys_set:nn { scripture } { #2 }
       }
+    \l_@@_before_tl
     \@@_select_language:
     \int_gzero:N \g_@@_chap_par_prevgraf_int
 %    \end{macrocode}
@@ -4427,6 +4451,7 @@
         \endlist
       }
     \cs_set_eq:NN \noindent \@@_noindent_saved:
+    \l_@@_after_tl
   }
 %    \end{macrocode}
 % \end{macro}
