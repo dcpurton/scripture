@@ -3510,7 +3510,11 @@
                     \tl_if_eq:NnF \l_@@_version_position_tl { end }
                       { \tl_clear:N \l_@@_version_tl }
                   }
-                \peek_analysis_map_break:n { ##1 }
+                \peek_analysis_map_break:n
+                  {
+                    \@@_fix_protrusion:
+                    ##1
+                  }
               }
           }
           {
@@ -3524,7 +3528,13 @@
                 \bool_case:nF
                   {
                     { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \nopilcrow }
-                      { }
+                      {
+                        \peek_analysis_map_break:n
+                          {
+                            ##1
+                            \@@_fix_protrusion:
+                          }
+                      }
                     { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \begin }
                       {
                         \bool_if:NF \l_@@_indent_bool
@@ -3555,7 +3565,11 @@
                   {
                     \@@_pilcrow_output:
                   }
-                \peek_analysis_map_break:n { ##1 }
+                \peek_analysis_map_break:n
+                  {
+                    \@@_fix_protrusion:
+                    ##1
+                  }
               }
           }
       }
@@ -3595,6 +3609,23 @@
   }
 %    \end{macrocode}
 % \end{macro}
+%
+% \begin{macro}{\@@_fix_protrusion:}
+%   The use of \cs{peek} macros breaks protrusion at the beginning of list
+%   environments. This function checks conditions and add \cs{leftprotrusion}.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_fix_protrusion:
+  {
+    \bool_if:NTF \l_@@_compact_bool
+      {
+        \str_if_eq:VnT \l_@@_currenvir_str { scripture }
+          { \cs_if_exist_use:N \leftprotrusion }
+      }
+      { \cs_if_exist_use:N \leftprotrusion }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
 % \subsubsection{Red lettering}
 %
 % \begin{macro}{\g_@@_red_letter_active_bool}
@@ -5558,7 +5589,11 @@
             \@@_poetry_par:
             \cs_if_eq:NNT \vs \@@_poetry_mode_vertical_verse:n
               { \noindent }
-            \peek_analysis_map_break:n { ##1 }
+            \peek_analysis_map_break:n
+              {
+                \@@_fix_protrusion:
+                ##1
+              }
           }
       }
   }

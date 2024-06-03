@@ -1,0 +1,35 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{microtype}
+\usepackage{scripture}
+\scripturesetup{
+  belowskip=\bigskipamount
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+
+\begin{scripture}[1 Samuel 15:22]
+  \vs{22}But Samuel replied:
+  \begin{poetry}
+    `Does the \name{Lord} delight in burnt offerings and sacrifices
+    as much as in obeying the \name{Lord}?
+
+    To obey is better than sacrifice,
+    and to heed is better than the fat of rams.
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[1 Samuel 15:22][compact]
+  \vs{22}But Samuel replied:
+  \begin{poetry}
+    `Does the \name{Lord} delight in burnt offerings and sacrifices
+    as much as in obeying the \name{Lord}?
+
+    To obey is better than sacrifice,
+    and to heed is better than the fat of rams.
+  \end{poetry}
+\end{scripture}
+\end{document}
+\end{document}
