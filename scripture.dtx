@@ -3512,8 +3512,7 @@
                   }
                 \peek_analysis_map_break:n
                   {
-                    \@@_fix_protrusion:
-                    ##1
+                    \@@_fix_protrusion:o { ##1 }
                   }
               }
           }
@@ -3532,7 +3531,7 @@
                         \peek_analysis_map_break:n
                           {
                             ##1
-                            \@@_fix_protrusion:
+                            \@@_fix_protrusion:n { }
                           }
                       }
                     { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \begin }
@@ -3567,8 +3566,7 @@
                   }
                 \peek_analysis_map_break:n
                   {
-                    \@@_fix_protrusion:
-                    ##1
+                    \@@_fix_protrusion:o { ##1 }
                   }
               }
           }
@@ -3610,11 +3608,11 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\@@_fix_protrusion:}
+% \begin{macro}{\@@_fix_protrusion:n, \@@_fix_protrusion:o}
 %   The use of \cs{peek} macros breaks protrusion at the beginning of list
 %   environments. This function checks conditions and add \cs{leftprotrusion}.
 %    \begin{macrocode}
-\cs_new_protected:Nn \@@_fix_protrusion:
+\cs_new_protected:Nn \@@_fix_protrusion:n
   {
     \bool_if:NTF \l_@@_compact_bool
       {
@@ -3622,7 +3620,9 @@
           { \cs_if_exist_use:N \leftprotrusion }
       }
       { \cs_if_exist_use:N \leftprotrusion }
+    #1
   }
+\cs_generate_variant:Nn \@@_fix_protrusion:n { o }
 %    \end{macrocode}
 % \end{macro}
 %
@@ -5591,8 +5591,7 @@
               { \noindent }
             \peek_analysis_map_break:n
               {
-                \@@_fix_protrusion:
-                ##1
+                \@@_fix_protrusion:o { ##1 }
               }
           }
       }
