@@ -4,6 +4,7 @@
 \scripturesetup{
   aboveskip=\bigskipamount,
   belowskip=\bigskipamount,
+  compact,
   chapter/para,
   chapter/format=CHAPTER #1,
   verse/para,

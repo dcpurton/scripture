@@ -1,0 +1,153 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount,
+  verse/para,
+  verse/font=\bfseries,
+  verse/format=#1,
+  verse/sep=0.5em,
+  poetry/leftmargin=2em,
+  poetry/verse/sep=0.5em,
+  hanging/leftmargin=2em,
+  pilcrow
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[John 1:1--2]
+  \ch{1}In the beginning was the Word, and the Word was with God, and the Word
+  was God. \vs{2}He was with God in the beginning.
+\end{scripture}
+
+\begin{scripture}[Isaiah 5:1--2]
+  \begin{poetry}
+    \ch{5}I will sing for the one I love
+    a song about his vineyard:
+
+    my loved one had a vineyard
+    on a fertile hillside.
+
+    \vs{2}He dug it up and cleared it of stones
+    and planted it with the choicest vines.
+
+    He built a watchtower in it
+    and cut out a winepress as well.
+
+    Then he looked for a crop of good grapes,
+    but it yielded only bad fruit.
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Isaiah 1:2]
+  \begin{poetry}
+    \vs{2}Hear me, you heavens! Listen, earth!
+    For the \name{Lord} has spoken:
+
+    ‘I reared children and brought them up,
+    but they have rebelled against me.
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[1 Samuel 15:22]
+  \vs{22}But Samuel replied:
+  \begin{poetry}
+    `Does the \name{Lord} delight in burnt offerings and sacrifices
+    as much as in obeying the \name{Lord}?
+
+    To obey is better than sacrifice,
+    and to heed is better than the fat of rams.
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[1 Corinthians 10:31--11:2]
+  \begin{midparachap}
+    \vs{31}So whether you eat or drink or whatever you do, do it all for the
+    glory of God. \vs{32}Do not cause anyone to stumble, whether Jews, Greeks
+    or the church of God~– \vs{33}even as I try to please everyone in every
+    way. For I am not seeking my own good but the good of many, so that they
+    may be saved. \ch{11}Follow my example, as I follow the example of
+    Christ.
+  \end{midparachap}
+
+  \extraskip
+
+  \vs{2}I praise you for remembering me in everything and for holding to the
+  traditions just as I passed them on to you.
+\end{scripture}
+
+\begin{scripture}[Genesis 1:1--5]
+  \begin{hanging}
+    \ch{1}In the beginning God created the heavens and the earth. \vs{2}Now the
+    earth was formless and empty, darkness was over the surface of the deep,
+    and the Spirit of God was hovering over the waters.
+
+    \vs{3}And God said, ‘Let there be light,’ and there was light. \vs{4}God
+    saw that the light was good, and he separated the light from the darkness.
+    \vs{5}God called the light ‘day’, and the darkness he called ‘night’. And
+    there was evening, and there was morning~– the first day.
+  \end{hanging}
+\end{scripture}
+
+\begin{scripture}[Genesis 1:6]
+  \begin{hanging}
+    \vs{6}And God said, ‘Let there be a vault between the waters to separate
+    water from water.’
+  \end{hanging}
+\end{scripture}
+ 
+\begin{scripture}[Genesis 1:11]
+  \begin{hanging}
+    \nohang\vs{11}Then God said, ‘Let the land produce vegetation:
+    seed-bearing plants and trees on the land that bear fruit with seed in it,
+    according to their various kinds.’ And it was so.
+  \end{hanging}
+\end{scripture}
+
+\begin{scripture}[Exodus 20:1--2]
+  \ch*{20}And God spoke all these words:
+  \begin{hanging}
+    \noindent\vs{2}‘I am the \name{Lord} your God, who brought you out of
+    Egypt, out of the land of slavery.
+  \end{hanging}
+\end{scripture}
+
+\begin{scripture}[Acts 7:1--2]
+  \ch{7}Then the high priest asked Stephen, ‘Are these charges true?’
+
+  \vs{2}To this he replied: ‘Brothers and fathers, listen to me! The God of
+  glory appeared to our father Abraham while he was still in Mesopotamia,
+  before he lived in Harran.
+\end{scripture}
+
+\begin{scripture}[3 John 1]
+  \vs{1}The elder,
+
+  \noindent To my dear friend Gaius, whom I love in the truth.
+\end{scripture}
+
+\begin{scripture}[2 Kings 18:19]
+  \vs{19}The field commander said to them, ‘Tell Hezekiah:
+
+  \begin{narrow}
+    ‘“This is what the great king, the king of Assyria, says: on what are you
+    basing this confidence of yours?
+  \end{narrow}
+\end{scripture}
+
+\begin{scripture}[Daniel 5:25]
+  \vs{25}‘This is the inscription that was written:
+  \begin{center}
+    \textsc{mene, mene, tekel, parsin}
+  \end{center}
+\end{scripture}
+
+\begin{scripture}[Isaiah 1:20]
+  \begin{flushright}
+    For the mouth of the \name{Lord} \\
+    has spoken.’
+  \end{flushright}
+\end{scripture}
+\end{document}

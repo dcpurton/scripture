@@ -1864,7 +1864,7 @@
 % \changes{v2.1}{2024/01/18}{Add \opt{pilcrow/sep} option}
 % \begin{option}[added=2024-01-18]{pilcrow/sep}
 %   \begin{syntax}
-%     pilcrow/sep = \meta{dimen} \hfill Default: 0.5em
+%     pilcrow/sep = \meta{dimen} \hfill Default: 0.25em
 %   \end{syntax}
 %   \meta{|dimen|} used to separate a pilcrow (\P) from the following text.
 % \end{option}
@@ -2908,7 +2908,7 @@
     , pilcrow                     .initial:n          = false
     , pilcrow / sep               .tl_set:N           = \l_@@_pilcrow_sep_tl
     , pilcrow / sep               .value_required:n   = true
-    , pilcrow / sep               .initial:n          = 0.5 em
+    , pilcrow / sep               .initial:n          = 0.25 em
     , redletter                   .bool_set:N         = \l_@@_red_letter_bool
     , redletter                   .default:n          = true
     , redletter                   .initial:n          = false
@@ -3172,14 +3172,14 @@
 %    \end{macrocode}
 % \end{hooks}
 %
-% \begin{hooks}{scripture/pilcrow}
-% This is an internal hook used to insert a pilcrow at the beginning of a
+% \begin{hooks}{scripture/pilcrow, scripture/poetry/pilcrow}
+% These are internal hooks used to insert a pilcrow at the beginning of a
 % paragraph. Pilcrows are activated using the \opt{pilcrow} option and are
 % only in effect when the \opt{verse/para} and/or \opt{compact} options are in
 % use.
-% \cs{scripturecurrentverse} respectively. These are global.
 %    \begin{macrocode}
 \hook_new:n { scripture / pilcrow }
+\hook_new:n { scripture / poetry / pilcrow }
 %    \end{macrocode}
 % \end{hooks}
 %
@@ -3239,10 +3239,28 @@
         \cs_set_protected_nopar:Npn \noindent
           {
             \skip_horizontal:n { -#1 }
+            \bool_if:NT \l_@@_verse_para_bool
+              {
+                \peek_meaning:NTF \vs
+                  {
+                    \bool_gset_true:N \g_@@_suppress_next_verse_para_bool
+                    \@@_set_pilcrow_hook:
+                  }
+                  {
+                    \str_if_eq:VnF \l_@@_currenvir_str { poetry }
+                      { \@@_pilcrow_output: }
+                  }
+              }
           }
         \hook_gput_next_code:nn { para / end }
           {
-            \cs_gset_eq:NN \noindent \tex_noindent:D
+            \bool_if:NTF \l_@@_verse_para_bool
+              {
+                \str_if_eq:VnTF \l_@@_currenvir_str { poetry }
+                  { \cs_gset_eq:NN \noindent \tex_noindent:D }
+                  { \cs_gset_eq:NN \noindent \@@_para_noindent: }
+              }
+              { \cs_gset_eq:NN \noindent \tex_noindent:D }
           }
       }
   }
@@ -3423,7 +3441,10 @@
   {
     \tl_if_empty:NF \l_@@_ref_tl
       {
+        \bool_gset_eq:NN \g_tmpa_bool \g_@@_suppress_next_pilcrow_bool
+        \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
         \noindent
+        \bool_gset_eq:NN \g_@@_suppress_next_pilcrow_bool \g_tmpa_bool
         \str_if_eq:VnF \l_@@_currenvir_str { scripture }
           { \skip_horizontal:n { -\leftmargin } }
         \tl_if_eq:NnTF \l_@@_version_position_tl { withref }
@@ -3431,7 +3452,16 @@
           { \@@_format_full_ref:nn { \l_@@_ref_tl } { } }
         \bool_if:NTF \l_@@_compact_bool
           { \para_end: }
-          { \par }
+          {
+            \bool_lazy_all:nTF
+              {
+                { \l_@@_verse_para_bool }
+                { \bool_not_p:n { \str_if_eq_p:Vn \l_@@_currenvir_str { hanging } } }
+                { \bool_not_p:n { \str_if_eq_p:Vn \l_@@_currenvir_str { poetry } } }
+              }
+              { \para_end: }
+              { \par }
+          }
         \nobreak
         \@afterheading
         \addvspace { \l_@@_ref_vertical_sep_tl }
@@ -3463,6 +3493,29 @@
               {
                 \bool_case:nF
                   {
+                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \noindent }
+                      {
+                        \bool_if:NTF \l_@@_ref_start_newline_bool
+                          { \@@_reference_start_newline: }
+                          { \@@_reference_start_inline: }
+                      }
+                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \nohang }
+                      {
+                        \bool_if:NTF \l_@@_ref_start_newline_bool
+                          { \@@_reference_start_newline: }
+                          { \@@_reference_start_inline: }
+                      }
+                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \nopilcrow }
+                      {
+                        \bool_if:NTF \l_@@_ref_start_newline_bool
+                          { \@@_reference_start_newline: }
+                          { \@@_reference_start_inline: }
+                        \peek_analysis_map_break:n
+                          {
+                            ##1
+                            \@@_fix_protrusion:n { }
+                          }
+                      }
                     { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \begin }
                       {
                         \bool_if:NF \l_@@_indent_bool
@@ -3501,7 +3554,13 @@
                   }
                   {
                     \bool_if:NTF \l_@@_ref_start_newline_bool
-                      { \@@_reference_start_newline: }
+                      {
+                        \@@_reference_start_newline:
+                        \bool_lazy_or:nnT
+                          { \l_@@_compact_bool }
+                          { \bool_not_p:n { \str_if_eq_p:Vn \l_@@_currenvir_str { poetry } } }
+                          { \@@_pilcrow_output: }
+                      }
                       { \@@_reference_start_inline: }
                   }
                 \exp_args:No \token_if_eq_meaning:NNF { ##1 } \begin
@@ -3511,21 +3570,18 @@
                       { \tl_clear:N \l_@@_version_tl }
                   }
                 \peek_analysis_map_break:n
-                  {
-                    \@@_fix_protrusion:o { ##1 }
-                  }
+                  { \@@_fix_protrusion:o { ##1 } }
               }
           }
           {
-            \str_if_eq:VnF \l_@@_currenvir_str { scripture }
-              {
-                \bool_if:NF \g_@@_mode_vertical_inner_bool
-                  { \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool }
-              }
             \peek_analysis_map_inline:n
               {
                 \bool_case:nF
                   {
+                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \noindent }
+                      { }
+                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \nohang }
+                      { }
                     { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \nopilcrow }
                       {
                         \peek_analysis_map_break:n
@@ -3551,18 +3607,15 @@
                       { }
                     { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
                       {
-                        \str_if_eq:VnT \l_@@_currenvir_str { poetry }
-                          {
-                            \mode_if_vertical:F
-                              {
-                                \hook_gput_next_code:nn
-                                  { scripture / pilcrow } { \@@_pilcrow_output: }
-                              }
-                          }
+                        \mode_if_vertical:F
+                          { \@@_set_pilcrow_hook: }
                       }
                   }
                   {
-                    \@@_pilcrow_output:
+                    \bool_lazy_or:nnT
+                      { \l_@@_compact_bool }
+                      { \bool_not_p:n { \str_if_eq_p:Vn \l_@@_currenvir_str { poetry } } }
+                      { \@@_pilcrow_output: }
                   }
                 \peek_analysis_map_break:n
                   {
@@ -3576,8 +3629,7 @@
 % \end{macro}
 %
 % \begin{macro}{\@@_compact_par:}
-%   \cs{par} macro used when the \opt{compact} or \opt{verse/para} options are
-%   in use.
+%   \cs{par} macro used when the \opt{compact} option is in use.
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_compact_par:
   {
@@ -3596,10 +3648,69 @@
                 { \exp_args:No \token_if_letter_p:N { ##1 } }
                   { \@@_pilcrow_output: }
                 { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
-                  {
-                     \hook_gput_next_code:nn
-                       { scripture / pilcrow } { \@@_pilcrow_output: }
-                  }
+                  { \@@_set_pilcrow_hook: }
+              }
+            \peek_analysis_map_break:n { ##1 }
+          }
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_para_noindent:}
+%   \cs{noindent} macro used when the \opt{verse/para} option is in use.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_para_noindent:
+  {
+    \legacy_if:nTF { @newlist }
+      {
+        \tex_noindent:D
+        \peek_meaning:NTF \vs
+          {
+            \bool_gset_true:N \g_@@_suppress_next_verse_para_bool
+            \@@_set_pilcrow_hook:
+          }
+          { \@@_pilcrow_output: }
+      }
+      {
+        \peek_meaning:NTF \vs
+          {
+            \bool_if:NT \l_@@_verse_para_bool
+              { \@par }
+            \tex_noindent:D
+            \bool_gset_true:N \g_@@_suppress_next_verse_para_bool
+            \@@_set_pilcrow_hook:
+          }
+          { \@@_pilcrow_output: }
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\g_@@_para_mode_vertical_bool}
+%   Flag that \cs{@@_para_par:} has been encountered and pilcrow not yet
+%   printed.
+%    \begin{macrocode}
+\bool_new:N \g_@@_para_mode_vertical_bool
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_para_par:}
+%   \cs{par} macro used when the \opt{verse/para} option is in use.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_para_par:
+  {
+    \bool_gset_true:N \g_@@_para_mode_vertical_bool
+    \peek_remove_spaces:n
+      {
+        \peek_analysis_map_inline:n
+          {
+            \bool_case:n
+              {
+                { \exp_args:No \token_if_letter_p:N { ##1 } }
+                  { \@@_pilcrow_output: }
+                { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
+                  { \@@_set_pilcrow_hook: }
               }
             \peek_analysis_map_break:n { ##1 }
           }
@@ -3835,7 +3946,13 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_drop_chap_output:
   {
-    \noindent
+    \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
+    \cs_if_eq:NNTF \noindent \@@_para_noindent:
+      {
+        \tex_noindent:D
+        \@@_pilcrow_output:
+      }
+      { \noindent }
     \parshape 3 ~
       \dim_eval:n
         { \@totalleftmargin + \g_@@_chap_width_dim + \l_@@_chap_sep_tl } ~
@@ -3865,6 +3982,7 @@
             { \int_set_eq:NN \clubpenalty \l_@@_clubpenalty_saved_int }
         }
     }
+    \hook_gclear_next_code:n { scripture / pilcrow }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -3906,6 +4024,7 @@
         \vs { 1 }
       }
     \group_end:
+    \hook_gclear_next_code:n { scripture / pilcrow }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -3933,7 +4052,12 @@
           }
         \mode_if_vertical:F \para_end:
         \addvspace { \l_@@_chap_para_aboveskip_tl }
-        \noindent
+        \bool_gset_eq:NN \g_tmpa_bool \g_@@_suppress_next_pilcrow_bool
+        \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
+        \str_if_eq:VnTF \l_@@_currenvir_str { midparachap }
+          { \tex_noindent:D }
+          { \noindent }
+        \bool_gset_eq:NN \g_@@_suppress_next_pilcrow_bool \g_tmpa_bool
         \skip_horizontal:N \l_@@_para_chap_indent_dim
         \hbox_overlap_center:n
           {
@@ -3966,13 +4090,25 @@
       {
         \addvspace { \l_@@_chap_para_belowskip_tl }
         \group_end:
+        \hook_use:n { scripture / poetry / pilcrow }
       }
       {
         \addvspace { \l_@@_chap_para_belowskip_tl }
-        \cs_if_eq:NNT \vs \@@_poetry_mode_vertical_verse:n
-          { \noindent }
-        \vs { 1 }
+        \cs_if_eq:NNTF \vs \@@_poetry_mode_vertical_verse:n
+          {
+            \bool_gset_eq:NN \g_tmpa_bool \g_@@_suppress_next_pilcrow_bool
+            \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
+            \noindent
+            \vs { 1 }
+            \bool_gset_eq:NN \g_@@_suppress_next_pilcrow_bool \g_tmpa_bool
+          }
+          {
+            \str_if_eq:VnT \l_@@_currenvir_str { midparachap }
+              { \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool }
+            \vs { 1 }
+          }
         \group_end:
+        \hook_use:n { scripture / poetry / pilcrow }
       }
   }
 %    \end{macrocode}
@@ -4049,6 +4185,14 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\g_@@_suppress_next_verse_para_bool}
+%   Suppress the next verse from starting a new paragraph when
+%   \opt{verse/para} is in use.
+%    \begin{macrocode}
+\bool_new:N \g_@@_suppress_next_verse_para_bool
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\@@_verse_output:n}
 %   Output a formatted verse.
 %    \begin{macrocode}
@@ -4094,11 +4238,7 @@
         \skip_horizontal:N \c_zero_skip
       }
     \hook_use:n { scripture / verse / after }
-    \bool_lazy_and:nnTF
-      { \str_if_eq_p:Vn \l_@@_currenvir_str { midparachap } }
-      { \int_compare_p:nNn { #1 } = \c_one_int }
-      { \hook_gclear_next_code:n { scripture / pilcrow } }
-      { \hook_use:n { scripture / pilcrow } }
+    \hook_use:n { scripture / pilcrow }
     \group_end:
   }
 %    \end{macrocode}
@@ -4110,22 +4250,54 @@
 \cs_new_protected:Nn \@@_verse_compact_output:n
   {
     \mode_if_vertical:T
-      { \hook_gput_next_code:nn { scripture / pilcrow } { \@@_pilcrow_output: } }
+      { \@@_set_pilcrow_hook: }
     \@@_verse_output:n { #1 }
   }
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\@@_verse_para_output:n}
-%   Output a formatted verse.
+%   Output a formatted verse when \opt{verse/para} is set.
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_verse_para_output:n
   {
     \mode_if_vertical:T
-      { \hook_gput_next_code:nn { scripture / pilcrow } { \@@_pilcrow_output: } }
-    \legacy_if:nF { @newlist }
-      { \mode_if_vertical:F \para_end: }
+      { \@@_set_pilcrow_hook: }
+    \bool_if:NTF \g_@@_suppress_next_verse_para_bool
+      { \bool_gset_false:N \g_@@_suppress_next_verse_para_bool }
+      {
+        \legacy_if:nF { @newlist }
+          { \mode_if_vertical:F \@par }
+      }
     \@@_verse_output:n { #1 }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_hanging_verse_para:n}
+%   Output a formatted verse when \opt{verse/para} is set and in a hanging
+%   environment.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_hanging_verse_para:n
+  {
+    \mode_if_vertical:T
+      { \@@_set_pilcrow_hook: }
+    \bool_if:NF \g_@@_suppress_next_verse_para_bool
+      {
+        \legacy_if:nF { @newlist }
+          {
+            \mode_if_vertical:F
+              {
+                \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
+                \hook_gput_next_code:nn { para / begin }
+                  { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
+                \par
+                \tex_noindent:D
+              }
+          }
+      }
+    \bool_gset_false:N \g_@@_suppress_next_verse_para_bool
+    \@@_hanging_verse:n { #1 }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -4139,20 +4311,40 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\@@_set_pilcrow_hook:}
+%   Set the next \hook{scripture/pilcrow} hook to output a pilcrow providing
+%   the hook is currently empty.
+%   \opt{verse/para} or \opt{compact} options are set.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_set_pilcrow_hook:
+  {
+    \hook_if_empty:nT { scripture / pilcrow }
+      {
+        \hook_gput_next_code:nn { scripture / pilcrow } { \@@_pilcrow_output: }
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\@@_pilcrow_output:}
-%   Output a formatted verse.
+%   Output a pilcrow (\P). Pilrows only display when either the
+%   \opt{verse/para} or \opt{compact} options are set.
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_pilcrow_output:
   {
-    \bool_lazy_and:nnT \l_@@_pilcrow_bool \l_@@_compact_bool
+    \bool_gset_false:N \g_@@_para_mode_vertical_bool
+    \bool_if:NT \l_@@_pilcrow_bool
       {
-        \bool_if:NTF \g_@@_suppress_next_pilcrow_bool
-          { \bool_gset_false:N \g_@@_suppress_next_pilcrow_bool }
+        \bool_lazy_or:nnT \l_@@_verse_para_bool \l_@@_compact_bool
           {
-            \P
-            \kern \l_@@_pilcrow_sep_tl
-            \nobreak
-            \skip_horizontal:N \c_zero_skip
+            \bool_if:NTF \g_@@_suppress_next_pilcrow_bool
+              { \bool_gset_false:N \g_@@_suppress_next_pilcrow_bool }
+              {
+                \P
+                \kern \l_@@_pilcrow_sep_tl
+                \nobreak
+                \skip_horizontal:N \c_zero_skip
+              }
           }
       }
   }
@@ -4277,7 +4469,9 @@
         \bool_if:NTF \l_@@_chap_drop_bool
           {
             \@@_chap:n { #2 }
-            \bool_if:nTF { #1 }
+            \bool_lazy_and:nnTF
+            { #1 }
+            { \bool_not_p:n { \l_@@_compact_bool } }
             {
               \hook_gput_next_code:nn { para / after }
                 {
@@ -4340,6 +4534,7 @@
     \cs_set_eq:NN \redletteroff \@@_red_letter_off:
     \cs_set:Npn \nopilcrow { \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool }
     \bool_gset_false:N \g_@@_suppress_next_pilcrow_bool
+    \bool_gset_false:N \g_@@_suppress_next_pilcrow_bool
     \bool_if:NT \l_@@_chap_para_bool
       { \bool_set_false:N \l_@@_chap_drop_bool }
     \DeclareDocumentCommand { \ch } { sm }
@@ -4353,6 +4548,8 @@
     \cs_set_protected_nopar:Npn \textright ##1
       { \@@_text_right:nn { \l_@@_text_right_sep_tl } { ##1 } }
     \hook_gclear_next_code:n { para / before }
+    \hook_gclear_next_code:n { scripture / pilcow }
+    \hook_gclear_next_code:n { scripture / poetry / pilcow }
     \l_@@_font_tl
     \exp_args:NnV \color_set:nn { scripture default colour } \l_@@_colour_tl
     \str_if_eq:VnF \l_@@_colour_tl { . }
@@ -4380,9 +4577,7 @@
                 \hook_gput_next_code:nn { para / begin }
                   {
                     \bool_if:NTF \l_@@_compact_bool
-                      {
-                        \para_omit_indent:
-                      }
+                      { \para_omit_indent: }
                       {
                         \bool_lazy_any:nT
                           {
@@ -4423,6 +4618,7 @@
         \tl_if_eq:NnT \l_@@_version_position_tl { withref }
           { \tl_clear:N \l_@@_version_tl }
       }
+    \cs_set_eq:NN \noindent \tex_noindent:D
     \bool_if:NTF \l_@@_inline_bool
       {
         \unskip
@@ -4504,7 +4700,7 @@
         \cs_set_eq:NN \par \para_end:
         \@@_calc_final_line_length:
         \int_gset_eq:NN \g_@@_mid_para_chap_prevgraf_int \g_@@_chap_par_prevgraf_int
-        \noindent
+        \tex_noindent:D
         \hbox_to_wd:nn \g_@@_final_line_dim { }
         \cs_set_eq:NN \par \relax
         \hook_gput_next_code:nn { para / before }
@@ -4556,11 +4752,9 @@
     \legacy_if:nTF { @newlist }
       { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
+    \cs_set_eq:NN \par \@par
     \list { }
       {
-%    \end{macrocode}
-% Ignore \opt{aboveskip} if at the beginning of a \env{scripture} environment.
-%    \begin{macrocode}
         \dim_zero:N \labelsep
         \dim_set_eq:NN \leftmargin \l_@@_center_leftmargin_tl
         \dim_set_eq:NN \rightmargin \l_@@_center_rightmargin_tl
@@ -4577,6 +4771,16 @@
       { \addvspace { \baselineskip } }
     \int_gzero:N \g_@@_chap_par_prevgraf_int
     \centering
+    \bool_if:NT \l_@@_verse_para_bool
+      {
+        \cs_set_eq:NN \par \@@_para_par:
+        \cs_set_protected:Npn \\
+          {
+            \mode_if_horizontal:TF
+              { \unskip }
+              { \@nolnerr }
+          }
+      }
     \item
     \relax
   }
@@ -4588,6 +4792,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_center_end:
   {
+    \cs_set_eq:NN \par \@par
     \dim_gset:Nn \g_@@_final_line_dim { \@totalleftmargin + \linewidth }
     \dim_compare:nNnTF \@outerparskip > \l_@@_center_belowskip_tl
       { \skip_zero:N \@topsepadd }
@@ -4621,11 +4826,9 @@
     \legacy_if:nTF { @newlist }
       { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
+    \cs_set_eq:NN \par \@par
     \list { }
       {
-%    \end{macrocode}
-% Ignore \opt{aboveskip} if at the beginning of a \env{scripture} environment.
-%    \begin{macrocode}
         \dim_zero:N \labelsep
         \dim_set_eq:NN \leftmargin \l_@@_flushright_leftmargin_tl
         \dim_set_eq:NN \rightmargin \l_@@_flushright_rightmargin_tl
@@ -4642,6 +4845,16 @@
       { \addvspace { \baselineskip } }
     \int_gzero:N \g_@@_chap_par_prevgraf_int
     \raggedleft
+    \bool_if:NT \l_@@_verse_para_bool
+      {
+        \cs_set_eq:NN \par \@@_para_par:
+        \cs_set_protected:Npn \\
+          {
+            \mode_if_horizontal:TF
+              { \unskip }
+              { \@nolnerr }
+          }
+      }
     \item
     \relax
   }
@@ -4653,6 +4866,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_flushright_end:
   {
+    \cs_set_eq:NN \par \@par
     \dim_gset:Nn \g_@@_final_line_dim { \@totalleftmargin + \linewidth }
     \dim_compare:nNnTF \@outerparskip > \l_@@_flushright_belowskip_tl
       { \skip_zero:N \@topsepadd }
@@ -4678,6 +4892,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_hanging_ch:n
   {
+    \bool_gset_false:N \g_@@_suppress_next_pilcrow_bool
     \bool_if:NTF \l_@@_chap_show_bool
       {
         \bool_if:NTF \l_@@_chap_drop_bool
@@ -4767,8 +4982,47 @@
       {
         \@@_verse_output:n { 1 }
       }
+    \@@_pilcrow_output:
+    \bool_if:NT \l_@@_verse_para_bool
+    {
+      \hook_gput_next_code:nn { para / after }
+        {
+          \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \prevgraf
+          \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+            { \penalty 10000 }
+          \hook_gput_next_code:nn { para / before }
+            {
+              \int_set_eq:NN \clubpenalty \l_@@_clubpenalty_saved_int
+            }
+        }
+    }
     \hook_gput_next_code:nn { para / begin }
-      { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
+      {
+        \int_compare:nNnTF \g_@@_chap_par_prevgraf_int = \c_one_int
+          {
+            \dim_compare:nNnTF
+              { \l_@@_hanging_leftmargin_tl } < { \g_@@_chap_width_dim + \l_@@_chap_sep_tl }
+              {
+                \parshape 2 ~
+                  \dim_eval:n
+                    {
+                      \@totalleftmargin - \leftmargin + \g_@@_chap_width_dim +
+                      \l_@@_chap_sep_tl
+                    } ~
+                  \dim_eval:n
+                    {
+                      \linewidth + \leftmargin - \g_@@_chap_width_dim -
+                      \l_@@_chap_sep_tl
+                    } ~
+                  \@totalleftmargin ~ \linewidth
+              }
+              { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
+            \hook_gput_next_code:nn { para / begin }
+              { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
+          }
+          { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
+        \int_gzero:N \g_@@_chap_par_prevgraf_int
+      }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -4781,11 +5035,13 @@
   {
     \mode_if_vertical:TF
       {
+        \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
         \strut
         \hbox_overlap_left:n
           {
             \@@_verse_output:n { #1 }
           }
+        \@@_pilcrow_output:
       }
       { \@@_verse_output:n { #1 } }
   }
@@ -4798,8 +5054,15 @@
 %    \begin{macrocode}
 \cs_new_protected_nopar:Nn \@@_nohang:
   {
-    \noindent
+    \legacy_if:nTF {@newlist}
+      { \skip_horizontal:n { \l_@@_hanging_hang_tl } }
+      { \tex_noindent:D }
     \hbox_to_wd:nn { \l_@@_hanging_parindent_saved_dim } { }
+    \peek_meaning:NT \vs
+      {
+        \bool_gset_true:N \g_@@_suppress_next_verse_para_bool
+        \@@_set_pilcrow_hook:
+      }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -4822,17 +5085,17 @@
           { #1 }
       }
     \DeclareDocumentCommand { \ch } { sm } { \@@_hanging_ch:n { ##2 } }
-    \cs_set_eq:NN \vs \@@_hanging_verse:n
+    \bool_if:NTF \l_@@_verse_para_bool
+      { \cs_set_eq:NN \vs \@@_hanging_verse_para:n }
+      { \cs_set_eq:NN \vs \@@_hanging_verse:n }
     \cs_set_eq:NN \nohang \@@_nohang:
     \dim_set_eq:NN \l_@@_hanging_parindent_saved_dim \parindent
     \legacy_if:nTF { @newlist }
       { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
+    \cs_set_eq:NN \par \@par
     \list { }
       {
-%    \end{macrocode}
-% Ignore \opt{aboveskip} if at the beginning of a \env{scripture} environment.
-%    \begin{macrocode}
         \dim_zero:N \labelsep
         \dim_set:Nn \leftmargin { \l_@@_hanging_leftmargin_tl + \l_@@_hanging_hang_tl }
         \dim_set_eq:NN \rightmargin \l_@@_hanging_rightmargin_tl
@@ -5010,9 +5273,7 @@
           { scripture / midparachap }
           { #1 }
       }
-    \bool_lazy_and:nnT
-      { \bool_if_p:n \l_@@_chap_show_verse_bool }
-      { \bool_if_p:n \l_@@_chap_drop_bool }
+    \bool_lazy_and:nnT \l_@@_chap_show_verse_bool \l_@@_chap_drop_bool
       {
         \bool_set_true:N \l_@@_midparachap_show_verse_bool
         \bool_set_false:N \l_@@_chap_show_verse_bool
@@ -5143,19 +5404,16 @@
     \legacy_if:nTF { @newlist }
       { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
+    \cs_set_eq:NN \par \@par
     \list { }
       {
-%    \end{macrocode}
-% Ignore \opt{aboveskip} if at the beginning of a \env{scripture} environment.
-%    \begin{macrocode}
-        %\int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
-        %  { \addvspace { \baselineskip } }
-        %\int_gzero:N \g_@@_chap_par_prevgraf_int
         \dim_zero:N \labelsep
         \dim_set_eq:NN \leftmargin \l_@@_narrow_leftmargin_tl
         \dim_set_eq:NN \rightmargin \l_@@_narrow_rightmargin_tl
         \dim_set_eq:NN \listparindent \parindent
-        \mode_if_vertical:TF
+        \bool_lazy_or:nnTF
+          { \mode_if_vertical_p: }
+          { \g_@@_para_mode_vertical_bool }
           {
             \dim_set:Nn \itemindent { \parindent - \l_@@_outer_itemindent_dim }
             \@@_setup_list_noindent:n { \parindent }
@@ -5173,6 +5431,8 @@
     \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
       { \addvspace { \baselineskip } }
     \int_gzero:N \g_@@_chap_par_prevgraf_int
+    \bool_if:NT \l_@@_verse_para_bool
+      { \cs_set_eq:NN \par \@@_para_par: }
     \item
     \relax
   }
@@ -5184,6 +5444,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_narrow_end:
   {
+    \cs_set_eq:NN \par \@par
     \@@_calc_final_line_length:
     \dim_compare:nNnTF \@outerparskip > \l_@@_narrow_belowskip_tl
       { \skip_zero:N \@topsepadd }
@@ -5435,10 +5696,9 @@
     \box_use:N \l_@@_chap_box
     \hook_use:n { scripture / chap / after }
     \group_end:
-    \bool_lazy_or:nnT
-      { \bool_if_p:n \l_@@_chap_show_verse_bool }
-      { \bool_if_p:n \l_@@_poetry_midparachap_show_verse_bool }
+    \bool_lazy_or:nnT \l_@@_chap_show_verse_bool \l_@@_poetry_midparachap_show_verse_bool
       { \@@_verse_output:n { 1 } }
+    \hook_use:n { scripture / poetry / pilcrow }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -5468,9 +5728,7 @@
             \skip_horizontal:N \l_@@_chap_sep_tl
             \hook_use:n { scripture / chap / after }
           }
-        \bool_lazy_or:nnT
-          { \bool_if_p:n \l_@@_chap_show_verse_bool }
-          { \bool_if_p:n \l_@@_poetry_midparachap_show_verse_bool }
+        \bool_lazy_or:nnT \l_@@_chap_show_verse_bool \l_@@_poetry_midparachap_show_verse_bool
           { \@@_verse_output:n { 1 } }
       }
       {
@@ -5479,6 +5737,7 @@
         \vs { 1 }
       }
     \group_end:
+    \hook_use:n { scripture / poetry / pilcrow }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -5492,6 +5751,7 @@
   {
     \group_begin:
     \tl_set_eq:NN \l_@@_verse_sep_tl \l_@@_poetry_verse_sep_tl
+    \hook_gclear_next_code:n { scripture / pilcrow }
     \strut
     \bool_if:NTF \l_@@_poetry_verse_right_bool
       {
@@ -5511,6 +5771,8 @@
           }
       }
     \group_end:
+    \bool_if:NF \g_@@_suppress_next_pilcrow_bool
+      { \hook_use:n { scripture / poetry / pilcrow } }
   }
 \cs_new_protected:Nn \@@_poetry_mode_horizontal_verse:n
   {
@@ -5577,9 +5839,12 @@
             { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \end }
               { \peek_analysis_map_break:n { ##1 } }
             { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \extraskip }
+              { \peek_analysis_map_break:n { ##1 } }
+            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
               {
-                \hook_gput_next_code:nn { scripture / poetry / para / after }
-                  { \bool_set_false:N \l_@@_poetry_midparachap_show_verse_bool }
+                \@@_poetry_par:
+                \cs_if_eq:NNT \vs \@@_poetry_mode_vertical_verse:n
+                  { \noindent }
                 \peek_analysis_map_break:n { ##1 }
               }
             { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \@@_obeylines_eol: }
@@ -5589,6 +5854,12 @@
             \@@_poetry_par:
             \cs_if_eq:NNT \vs \@@_poetry_mode_vertical_verse:n
               { \noindent }
+            \bool_if:NT \l_@@_verse_para_bool
+              {
+                \@@_pilcrow_output:
+                \bool_set_false:N \l_@@_verse_para_bool
+                \bool_set_false:N \l_@@_pilcrow_bool
+              }
             \peek_analysis_map_break:n
               {
                 \@@_fix_protrusion:o { ##1 }
@@ -5619,6 +5890,14 @@
     \legacy_if:nTF { @newlist }
       { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
+    \cs_set_eq:NN \par \para_end:
+    \cs_set_eq:NN \noindent \tex_noindent:D
+    \hook_gput_next_code:nn { scripture / poetry / pilcrow }
+      {
+        \@@_pilcrow_output:
+        \bool_set_false:N \l_@@_pilcrow_bool
+        \bool_set_false:N \l_@@_verse_para_bool
+      }
     \list { }
       {
         \dim_zero:N \labelsep
@@ -5850,11 +6129,25 @@
       }
     \bool_if:NT \l_@@_verse_para_bool
       {
-        \bool_set_true:N \l_@@_compact_bool
         \cs_set_eq:NN \vs \@@_verse_para_output:n
+        \cs_set_eq:NN \par \@@_para_par:
+        \cs_set_eq:NN \noindent \@@_para_noindent:
+        \cs_set_protected:Npn \\
+          {
+            \mode_if_horizontal:TF
+              { \unskip }
+              { \@nolnerr }
+          }
+        \RenewDocumentEnvironment { midparachap } { o }
+          {
+            \cs_set_eq:NN \noindent \tex_noindent:D
+            \@@_reference_start_peek:
+          }
+          { \para_end: }
       }
     \bool_if:NT \l_@@_compact_bool
       {
+        \cs_set_eq:NN \noindent \@@_para_noindent:
         \bool_if:NF \l_@@_verse_para_bool
           {
             \bool_set_false:N \l_@@_chap_drop_bool
@@ -5922,7 +6215,7 @@
     \@@_reference_start_peek:
   }
   {
-    \bool_if:NT \l_@@_compact_bool
+    \bool_lazy_or:nnT \l_@@_compact_bool \l_@@_verse_para_bool
       { \cs_set_eq:NN \par \para_end: }
     \@@_end:
   }

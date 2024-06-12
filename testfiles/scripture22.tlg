@@ -498,7 +498,6 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 3.85997
 ...\hbox(8.14003+1.94444)x314.99995, glue set 0.62146, shifted 30.00005
-....\kern 20.00003
 ....\hbox(0.0+0.0)x-20.00003
 .....\glue -20.00003
 .....\glue -17.0
@@ -507,6 +506,7 @@ Completed box being shipped out [1]
 ......\glue 0.0 plus 1.0fil
 .....\glue 0.0
 ....\penalty 0
+....\glue 20.00003
 ....\hbox(0.0+0.0)x15.0
 ....\mathon
 ....\hbox(4.51111+0.0)x8.47226, shifted -3.62892
