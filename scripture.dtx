@@ -4534,7 +4534,9 @@
     \cs_set_eq:NN \redletteroff \@@_red_letter_off:
     \cs_set:Npn \nopilcrow { \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool }
     \bool_gset_false:N \g_@@_suppress_next_pilcrow_bool
-    \bool_gset_false:N \g_@@_suppress_next_pilcrow_bool
+    \bool_gset_false:N \g_@@_suppress_next_verse_para_bool
+    \bool_gset_false:N \g_@@_mode_vertical_inner_bool
+    \skip_gzero:N \g_@@_prev_inner_below_skip
     \bool_if:NT \l_@@_chap_para_bool
       { \bool_set_false:N \l_@@_chap_drop_bool }
     \DeclareDocumentCommand { \ch } { sm }
@@ -5936,6 +5938,7 @@
     \skip_gset_eq:NN \g_@@_prev_inner_below_skip \@topsepadd
     \legacy_if_set_false:n { @noparlist }
     \endlist
+    \hook_gclear_next_code:n { scripture / poetry / pilcrow }
     \bool_gset_true:N \g_@@_poetry_end_bool
     \hook_gput_next_code:nn { para / begin }
       { \bool_gset_false:N \g_@@_poetry_end_bool }
@@ -6092,11 +6095,11 @@
     \DeclareDocumentEnvironment { poetryaux } { o }
       {
         \tl_if_novalue:nF { ##1 }
-        {
-          \keys_set:nn
-            { scripture / poetry }
-            { ##1 }
-        }
+          {
+            \keys_set:nn
+              { scripture / poetry }
+              { ##1 }
+          }
         \@@_poetry_begin:
         \@@_reference_start_peek:
       }
