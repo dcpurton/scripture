@@ -3676,7 +3676,7 @@
         \peek_meaning:NTF \vs
           {
             \bool_if:NT \l_@@_verse_para_bool
-              { \@par }
+              { \para_end: }
             \tex_noindent:D
             \bool_gset_true:N \g_@@_suppress_next_verse_para_bool
             \@@_set_pilcrow_hook:
@@ -4267,7 +4267,7 @@
       { \bool_gset_false:N \g_@@_suppress_next_verse_para_bool }
       {
         \legacy_if:nF { @newlist }
-          { \mode_if_vertical:F \@par }
+          { \mode_if_vertical:F \para_end: }
       }
     \@@_verse_output:n { #1 }
   }
@@ -4754,7 +4754,7 @@
     \legacy_if:nTF { @newlist }
       { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
-    \cs_set_eq:NN \par \@par
+    \cs_set_eq:NN \par \para_end:
     \list { }
       {
         \dim_zero:N \labelsep
@@ -4794,7 +4794,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_center_end:
   {
-    \cs_set_eq:NN \par \@par
+    \cs_set_eq:NN \par \para_end:
     \dim_gset:Nn \g_@@_final_line_dim { \@totalleftmargin + \linewidth }
     \dim_compare:nNnTF \@outerparskip > \l_@@_center_belowskip_tl
       { \skip_zero:N \@topsepadd }
@@ -4828,7 +4828,7 @@
     \legacy_if:nTF { @newlist }
       { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
-    \cs_set_eq:NN \par \@par
+    \cs_set_eq:NN \par \para_end:
     \list { }
       {
         \dim_zero:N \labelsep
@@ -4868,7 +4868,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_flushright_end:
   {
-    \cs_set_eq:NN \par \@par
+    \cs_set_eq:NN \par \para_end:
     \dim_gset:Nn \g_@@_final_line_dim { \@totalleftmargin + \linewidth }
     \dim_compare:nNnTF \@outerparskip > \l_@@_flushright_belowskip_tl
       { \skip_zero:N \@topsepadd }
@@ -5095,7 +5095,7 @@
     \legacy_if:nTF { @newlist }
       { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
-    \cs_set_eq:NN \par \@par
+    \cs_set_eq:NN \par \para_end:
     \list { }
       {
         \dim_zero:N \labelsep
@@ -5406,7 +5406,7 @@
     \legacy_if:nTF { @newlist }
       { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
-    \cs_set_eq:NN \par \@par
+    \cs_set_eq:NN \par \para_end:
     \list { }
       {
         \dim_zero:N \labelsep
@@ -5446,7 +5446,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_narrow_end:
   {
-    \cs_set_eq:NN \par \@par
+    \cs_set_eq:NN \par \para_end:
     \@@_calc_final_line_length:
     \dim_compare:nNnTF \@outerparskip > \l_@@_narrow_belowskip_tl
       { \skip_zero:N \@topsepadd }
@@ -6134,6 +6134,7 @@
       {
         \cs_set_eq:NN \vs \@@_verse_para_output:n
         \cs_set_eq:NN \par \@@_para_par:
+        \cs_set_eq:NN \@par \@@_para_par:
         \cs_set_eq:NN \noindent \@@_para_noindent:
         \cs_set_protected:Npn \\
           {
