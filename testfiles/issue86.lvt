@@ -150,4 +150,14 @@
     has spoken.’
   \end{flushright}
 \end{scripture}
+
+\begin{scripture}[Acts 4:11--12]
+  \nopilcrow\vs{11}Jesus is
+  \begin{poetry}
+    ‘“the stone you builders rejected,
+    which has become the cornerstone.”
+  \end{poetry}
+  \vs{12}Salvation is found in no one else, for there is no other name under
+  heaven given to mankind by which we must be saved.’
+\end{scripture}
 \end{document}

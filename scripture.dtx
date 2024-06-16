@@ -3695,6 +3695,15 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\g_@@_post_env_indent_box}
+%   Box to store the indent after an inner environment in the case where it is
+%   dropped by \cs{@@_dopeend:}. This box is then inserted if the next thing
+%   is a \cs{vs}. Only used when the \opt{verse/para} option is active.
+%    \begin{macrocode}
+\box_new:N \g_@@_post_env_indent_box
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\@@_para_par:}
 %   \cs{par} macro used when the \opt{verse/para} option is in use.
 %    \begin{macrocode}
@@ -3714,6 +3723,37 @@
               }
             \peek_analysis_map_break:n { ##1 }
           }
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_doendpe:}
+%   Custom version of \cs{@doendpe} macro used when the \opt{verse/para}
+%   option is in use. This handles pilcrows after inner environments.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_doendpe:
+  {
+    \box_gclear:N \g_@@_post_env_indent_box
+    \legacy_if_set_true:n { @endpe }
+    \cs_set_nopar:Npn \par
+      {
+        \@restorepar
+        \clubpenalty \@clubpenalty
+        \everypar { }
+        \par
+        \legacy_if_set_false:n { @endpe }
+        \bool_gset_false:N \g_@@_suppress_next_pilcrow_bool
+        \@@_para_par:
+      }
+    \everypar
+      {
+        \box_gset_to_last:N \g_@@_post_env_indent_box
+        \hook_gput_next_code:nn { para / after }
+          { \box_gclear:N \g_@@_post_env_indent_box }
+        \everypar { }
+        \legacy_if_set_false:n { @endpe }
+        \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
       }
   }
 %    \end{macrocode}
@@ -4211,6 +4251,11 @@
         \bool_set_false:N \l_@@_no_verse_first_bool
       }
     \group_begin:
+    \bool_if:NT \l_@@_verse_para_bool
+      {
+        \box_if_empty:NF \g_@@_post_env_indent_box
+          { \box_use_drop:N \g_@@_post_env_indent_box }
+      }
     \hook_use:n { scripture / verse / before }
     \bool_if:NT \l_@@_verse_show_bool
       {
@@ -4536,6 +4581,7 @@
     \bool_gset_false:N \g_@@_suppress_next_pilcrow_bool
     \bool_gset_false:N \g_@@_suppress_next_verse_para_bool
     \bool_gset_false:N \g_@@_mode_vertical_inner_bool
+    \box_gclear:N \g_@@_post_env_indent_box
     \skip_gzero:N \g_@@_prev_inner_below_skip
     \bool_if:NT \l_@@_chap_para_bool
       { \bool_set_false:N \l_@@_chap_drop_bool }
@@ -6135,6 +6181,7 @@
         \cs_set_eq:NN \vs \@@_verse_para_output:n
         \cs_set_eq:NN \par \@@_para_par:
         \cs_set_eq:NN \@par \@@_para_par:
+        \cs_set_eq:NN \@doendpe \@@_doendpe:
         \cs_set_eq:NN \noindent \@@_para_noindent:
         \cs_set_protected:Npn \\
           {
