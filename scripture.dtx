@@ -4803,6 +4803,10 @@
     \cs_set_eq:NN \par \para_end:
     \list { }
       {
+        \bool_lazy_or:nnF
+          { \mode_if_vertical_p: }
+          { \g_@@_para_mode_vertical_bool }
+          { \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool }
         \dim_zero:N \labelsep
         \dim_set_eq:NN \leftmargin \l_@@_center_leftmargin_tl
         \dim_set_eq:NN \rightmargin \l_@@_center_rightmargin_tl
@@ -4848,6 +4852,7 @@
     \skip_gset_eq:NN \g_@@_prev_inner_below_skip \@topsepadd
     \legacy_if_set_false:n { @noparlist }
     \endlist
+    \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
   }
 %    \end{macrocode}
 % \end{macro}
@@ -4877,6 +4882,10 @@
     \cs_set_eq:NN \par \para_end:
     \list { }
       {
+        \bool_lazy_or:nnF
+          { \mode_if_vertical_p: }
+          { \g_@@_para_mode_vertical_bool }
+          { \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool }
         \dim_zero:N \labelsep
         \dim_set_eq:NN \leftmargin \l_@@_flushright_leftmargin_tl
         \dim_set_eq:NN \rightmargin \l_@@_flushright_rightmargin_tl
@@ -4922,6 +4931,7 @@
     \skip_gset_eq:NN \g_@@_prev_inner_below_skip \@topsepadd
     \legacy_if_set_false:n { @noparlist }
     \endlist
+    \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
   }
 %    \end{macrocode}
 % \end{macro}
@@ -5144,6 +5154,10 @@
     \cs_set_eq:NN \par \para_end:
     \list { }
       {
+        \bool_lazy_or:nnF
+          { \mode_if_vertical_p: }
+          { \g_@@_para_mode_vertical_bool }
+          { \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool }
         \dim_zero:N \labelsep
         \dim_set:Nn \leftmargin { \l_@@_hanging_leftmargin_tl + \l_@@_hanging_hang_tl }
         \dim_set_eq:NN \rightmargin \l_@@_hanging_rightmargin_tl
@@ -5177,6 +5191,7 @@
     \skip_gset_eq:NN \g_@@_prev_inner_below_skip \@topsepadd
     \legacy_if_set_false:n { @noparlist }
     \endlist
+    \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
   }
 %    \end{macrocode}
 % \end{macro}
@@ -5467,6 +5482,7 @@
             \@@_setup_list_noindent:n { \parindent }
           }
           {
+            \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
             \dim_set:Nn \itemindent { -\l_@@_outer_itemindent_dim }
             \@@_setup_list_noindent:n { \c_zero_dim }
           }
@@ -5500,6 +5516,7 @@
     \skip_gset_eq:NN \g_@@_prev_inner_below_skip \@topsepadd
     \legacy_if_set_false:n { @noparlist }
     \endlist
+    \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
   }
 %    \end{macrocode}
 % \end{macro}
@@ -5948,6 +5965,10 @@
       }
     \list { }
       {
+        \bool_lazy_or:nnF
+          { \mode_if_vertical_p: }
+          { \g_@@_para_mode_vertical_bool }
+          { \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool }
         \dim_zero:N \labelsep
         \dim_set_eq:NN \leftmargin \l_@@_poetry_leftmargin_tl
         \dim_set_eq:NN \rightmargin \l_@@_poetry_rightmargin_tl
@@ -5984,6 +6005,7 @@
     \skip_gset_eq:NN \g_@@_prev_inner_below_skip \@topsepadd
     \legacy_if_set_false:n { @noparlist }
     \endlist
+    \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
     \hook_gclear_next_code:n { scripture / poetry / pilcrow }
     \bool_gset_true:N \g_@@_poetry_end_bool
     \hook_gput_next_code:nn { para / begin }
