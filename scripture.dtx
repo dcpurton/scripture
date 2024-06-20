@@ -3234,7 +3234,7 @@
 %    \begin{macrocode}
 \cs_new_protected_nopar:Nn \@@_setup_list_noindent:n
   {
-    \legacy_if:nT {@newlist}
+    \legacy_if:nT { @newlist }
       {
         \cs_set_protected_nopar:Npn \noindent
           {
@@ -5093,13 +5093,25 @@
   {
     \mode_if_vertical:TF
       {
-        \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
-        \strut
-        \hbox_overlap_left:n
+        \bool_lazy_and:nnTF
+          { \legacy_if_p:n { @newlist } }
+          { \g_@@_suppress_next_pilcrow_bool }
           {
-            \@@_verse_output:n { #1 }
+            \strut
+            \hbox_overlap_left:n
+              {
+                \@@_verse_output:n { #1 }
+              }
           }
-        \@@_pilcrow_output:
+          {
+            \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
+            \strut
+            \hbox_overlap_left:n
+              {
+                \@@_verse_output:n { #1 }
+              }
+            \@@_pilcrow_output:
+          }
       }
       { \@@_verse_output:n { #1 } }
   }
