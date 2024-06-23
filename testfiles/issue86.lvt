@@ -163,7 +163,7 @@
   heaven given to mankind by which we must be saved.’
 \end{scripture}
 
-\begin{scripture}[Genesis 1:26–28]
+\begin{scripture}[Genesis 1:26--28]
   \begin{hanging}
     \vs{26}Then God said, ‘Let us make mankind in our image, in our likeness,
     so that they may rule over the fish in the sea and the birds in the sky,
@@ -181,5 +181,51 @@
     the birds in the sky and over every living creature that moves on the
     ground.’
   \end{hanging}
+\end{scripture}
+
+\begin{scripture}[Genesis 2:1--4]
+  \begin{hanging}
+    \ch{2}Thus the heavens and the earth were completed in all their vast
+    array.
+
+    \vs{2}By the seventh day God had finished the work he had been doing; so
+    on the seventh day he rested from all his work. \vs{3}Then God blessed the
+    seventh day and made it holy, because on it he rested from all the work of
+    creating that he had done.
+  \end{hanging}
+
+  \vs{4}This is the account of the heavens and the earth when they were
+  created, when the \name{Lord} God made the earth and the heavens.
+\end{scripture}
+
+\begin{scripture}[2 Kings 18:25--26]
+  \begin{narrow}
+    \nopilcrow\vs{25}Furthermore, have I come to attack and destroy this place
+    without word from the \name{Lord}? The \name{Lord} himself told me to
+    march against this country and destroy it.”’
+  \end{narrow}
+
+  \vs{26}Then Eliakim son of Hilkiah, and Shebna and Joah said to the field
+  commander, ‘Please speak to your servants in Aramaic, since we understand
+  it. Don’t speak to us in Hebrew in the hearing of the people on the wall.’
+\end{scripture}
+
+\begin{scripture}[Isaiah 1:20--21]
+  \begin{poetry}[belowskip=0pt]
+    \nopilcrow\vs{20}but if you resist and rebel,
+    you will be devoured by the sword.’
+  \end{poetry}
+  \begin{flushright}[aboveskip=0pt]
+    For the mouth of the \name{Lord} has spoken.
+  \end{flushright}
+
+  \begin{poetry}
+    \vs{21}See how the faithful city
+    has become a prostitute!
+
+    She once was full of justice;
+    righteousness used to dwell in her~–
+    but now murderers!
+  \end{poetry}
 \end{scripture}
 \end{document}

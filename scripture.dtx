@@ -5917,6 +5917,16 @@
               { \peek_analysis_map_break:n { ##1 } }
             { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \extraskip }
               { \peek_analysis_map_break:n { ##1 } }
+            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \nopilcrow }
+              {
+                \@@_poetry_par:
+                \cs_if_eq:NNT \vs \@@_poetry_mode_vertical_verse:n
+                  { \noindent }
+                \peek_analysis_map_break:n
+                  {
+                    \@@_fix_protrusion:o { ##1 }
+                  }
+              }
             { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
               {
                 \@@_poetry_par:
