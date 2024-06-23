@@ -6235,10 +6235,14 @@
           }
         \RenewDocumentEnvironment { midparachap } { o }
           {
+            \str_set:Nn \l_@@_currenvir_str { midparachap }
             \cs_set_eq:NN \noindent \tex_noindent:D
             \@@_reference_start_peek:
           }
-          { \para_end: }
+          {
+            \para_end:
+            \bool_gset_false:N \g_@@_suppress_next_pilcrow_bool
+          }
       }
     \bool_if:NT \l_@@_compact_bool
       {
