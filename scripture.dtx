@@ -1820,17 +1820,18 @@
 %     pilcrow = \meta{boolean} \hfill Default: false
 %   \end{syntax}
 %   Whether to insert a pilcrow (\P) at the beginning of each paragraph. This
-%   option only has an effect when using the \opt{compact} or \opt{para/verse}
-%   options. The value of \meta{|boolean|} is optional and assumed to be
-%   \val{true} if not present.
-
+%   option only has an effect when using the \opt{compact} and/or
+%   \opt{para/verse} options. The value of \meta{|boolean|} is optional and
+%   assumed to be \val{true} if not present.
+%
 %   A subsequent pilcrow can be suppressed with the \cs{nopilcrow} macro.
 %   Inner environments start a new paragraph only if there is a blank line
 %   before them and similarly, there is only a new paragraph after an inner
 %   environment if it is followed by a blank line. New paragraphs are not
 %   inserted within a poetry environment, so to obtain a paragraph break
 %   within a block of poetry, use two \env{poetry} environments separated by a
-%   blank line.
+%   blank line. The exception to this is the \env{midparachap} environment
+%   which always starts and ends a paragraph.
 % \end{option}
 %
 % \begin{scriptureexample}
@@ -2240,13 +2241,15 @@
 %     verse/para = \meta{boolean} \hfill Default: false
 %   \end{syntax}
 %   Whether to set each verse on its own line. The value of \meta{|boolean|}
-%   is optional and assumed to be \val{true} if not present.
+%   is optional and assumed to be \val{true} if not present. Drop chapters and
+%   the shape of inner environments is preserved with this option unless the
+%   \opt{compact} option is also set.
 % \end{option}
 %
 % \begin{scriptureexample}
 % \begin{verbatim}
 % \begin{scripture}[Jonah 1:17--2:2a][verse/para,
-%     verse/sep=0.5em, chapter/para,
+%     verse/sep=0.5em, pilcrow, chapter/para,
 %     chapter/format=CHAPTER~#1]
 %   \begin{midparachap}
 %     \vs{17}Now the \name{Lord} provided a huge
@@ -2256,6 +2259,7 @@
 %     prayed to the \name{Lord} his God. \vs{2}He
 %     said:
 %   \end{midparachap}
+%
 %   \begin{poetry}
 %     `In my distress I called to the \name{Lord},
 %     and he answered me.
@@ -2267,7 +2271,7 @@
 %
 % \begin{scripture}[Jonah 1:17--2:2a][verse/para,
 %     verse/format=#1, verse/font=\bfseries,
-%     verse/sep=0.5em, chapter/para,
+%     verse/sep=0.5em, pilcrow, chapter/para,
 %     chapter/format=CHAPTER~#1]
 %   \begin{midparachap}
 %     \vs{17}Now the \name{Lord} provided a huge
@@ -2277,6 +2281,50 @@
 %     prayed to the \name{Lord} his God. \vs{2}He
 %     said:
 %   \end{midparachap}
+%
+%   \begin{poetry}
+%     `In my distress I called to the \name{Lord},
+%     and he answered me.
+%   \end{poetry}
+% \end{scripture}
+% \end{scriptureexample}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[Jonah 1:17--2:2a][verse/para,
+%     verse/sep=0.5em, pilcrow, chapter/para,
+%     chapter/format=CHAPTER~#1, compact]
+%   \begin{midparachap}
+%     \vs{17}Now the \name{Lord} provided a huge
+%     fish to swallow Jonah, and Jonah was in the
+%     belly of the fish three days and three
+%     nights. \ch{2}From inside the fish Jonah
+%     prayed to the \name{Lord} his God. \vs{2}He
+%     said:
+%   \end{midparachap}
+%
+%   \begin{poetry}
+%     `In my distress I called to the \name{Lord},
+%     and he answered me.
+%   \end{poetry}
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[Jonah 1:17--2:2a][verse/para,
+%     verse/format=#1, verse/font=\bfseries,
+%     verse/sep=0.5em, pilcrow, chapter/para,
+%     chapter/format=CHAPTER~#1, compact]
+%   \begin{midparachap}
+%     \vs{17}Now the \name{Lord} provided a huge
+%     fish to swallow Jonah, and Jonah was in the
+%     belly of the fish three days and three
+%     nights. \ch{2}From inside the fish Jonah
+%     prayed to the \name{Lord} his God. \vs{2}He
+%     said:
+%   \end{midparachap}
+%
 %   \begin{poetry}
 %     `In my distress I called to the \name{Lord},
 %     and he answered me.
