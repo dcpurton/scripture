@@ -4797,7 +4797,27 @@
         \@@_calc_final_line_length:
         \int_gset_eq:NN \g_@@_mid_para_chap_prevgraf_int \g_@@_chap_par_prevgraf_int
         \tex_noindent:D
-        \hbox_to_wd:nn \g_@@_final_line_dim { }
+        \bool_lazy_and:nnTF
+          { \bool_if_p:N \l_@@_compact_bool }
+          { \int_compare_p:nNn \g_@@_mid_para_chap_prevgraf_int = 1 }
+          {
+            \hook_gput_next_code:nn { env / \l_@@_currenvir_str / after }
+              {
+                \parshape 3 ~
+                  \@totalleftmargin ~ \linewidth ~
+                  \dim_eval:n
+                    { \@totalleftmargin + \g_@@_chap_width_dim + \l_@@_chap_sep_tl } ~
+                  \dim_eval:n
+                    { \linewidth - \g_@@_chap_width_dim - \l_@@_chap_sep_tl } ~
+                  \@totalleftmargin ~ \linewidth
+              }
+            \hbox_to_wd:nn { \g_@@_final_line_dim - \g_@@_chap_width_dim - \l_@@_chap_sep_tl } { }
+          }
+          {
+            \hbox_to_wd:nn \g_@@_final_line_dim { }
+          }
+        \c_space_token
+        \kern 0pt
         \cs_set_eq:NN \par \relax
         \hook_gput_next_code:nn { para / before }
           {
@@ -5319,6 +5339,35 @@
 %   Store space factor before a mid-paragraph chapter.
 %    \begin{macrocode}
 \int_new:N \l_@@_mid_para_chap_spacefactor_int
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_mid_para_chap_end_orig:n,
+%               \@@_mid_para_chap_end:n}
+% Custom \cs{end} macro for the \env{midparachap} environment. This is only
+% used when the \opt{verse/para} and/or \opt{compact} options are in use.
+%    \begin{macrocode}
+\cs_set_eq:Nc \@@_mid_para_chap_end_orig:n { end ~ }
+\cs_new_nopar:Nn \@@_mid_para_chap_end:n
+  {
+    \@@_mid_para_chap_end_orig:n { #1 }
+    \bool_if:NT \l_@@_compact_bool
+      { \c_space_token }
+    \peek_remove_spaces:n
+      {
+        \peek_analysis_map_inline:n
+          {
+            \bool_case:n
+              {
+                { \exp_args:No \token_if_letter_p:N { ##1 } }
+                  { \@@_pilcrow_output: }
+                { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
+                  { \@@_set_pilcrow_hook: }
+              }
+            \peek_analysis_map_break:n { ##1 }
+          }
+      }
+  }
 %    \end{macrocode}
 % \end{macro}
 %
@@ -6285,6 +6334,7 @@
           {
             \str_set:Nn \l_@@_currenvir_str { midparachap }
             \cs_set_eq:NN \noindent \tex_noindent:D
+            \cs_set_eq:cN { end ~ } \@@_mid_para_chap_end:n
             \@@_reference_start_peek:
           }
           {
@@ -6324,6 +6374,7 @@
         \RenewDocumentEnvironment { midparachap } { o }
           {
             \str_set:Nn \l_@@_currenvir_str { midparachap }
+            \cs_set_eq:cN { end ~ } \@@_mid_para_chap_end:n
             \@@_reference_start_peek:
           }
           { \@@_compact_end_inner: }
