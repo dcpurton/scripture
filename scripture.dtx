@@ -3498,6 +3498,13 @@
         \tl_if_eq:NnTF \l_@@_version_position_tl { withref }
           { \@@_format_full_ref:nn { \l_@@_ref_tl } { \l_@@_version_tl } }
           { \@@_format_full_ref:nn { \l_@@_ref_tl } { } }
+        \bool_lazy_or:nnT
+          { \str_if_eq_p:Vn \l_@@_currenvir_str { flushright } }
+          { \str_if_eq_p:Vn \l_@@_currenvir_str { center } }
+          {
+            \hfill
+            \strut
+          }
         \bool_if:NTF \l_@@_compact_bool
           { \para_end: }
           {

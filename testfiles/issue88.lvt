@@ -1,0 +1,25 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount,
+  reference/position=start
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Daniel 5:25]
+  \begin{center}
+    \textsc{mene, mene, tekel, parsin}
+  \end{center}
+\end{scripture}
+
+\begin{scripture}[Isaiah 1:20]
+  \begin{flushright}
+    For the mouth of the \name{Lord} \\
+    has spoken.’
+  \end{flushright}
+\end{scripture}
+\end{document}
