@@ -4097,7 +4097,9 @@
         \l_@@_chap_font_tl
         \@@_chap_format:n { #1 }
         \group_end:
-        \skip_horizontal:N \l_@@_chap_sep_tl
+        \kern \l_@@_chap_sep_tl
+        \nobreak
+        \skip_horizontal:N \c_zero_skip
         \hook_use:n { scripture / chap / after }
         \bool_if:NT \l_@@_chap_show_verse_bool
           {
