@@ -6,6 +6,7 @@
   belowskip=\bigskipamount,
   chapter/para,
   chapter/format=CHAPTER #1,
+  compact,
   verse/para,
   verse/font=\bfseries,
   verse/format=#1,

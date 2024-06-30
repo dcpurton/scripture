@@ -4,6 +4,7 @@
 \scripturesetup{
   aboveskip=\bigskipamount,
   belowskip=\bigskipamount,
+  compact,
   verse/para,
   verse/font=\bfseries,
   verse/format=#1,

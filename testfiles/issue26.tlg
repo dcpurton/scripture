@@ -6560,7 +6560,6 @@ Completed box being shipped out [2]
 ......\glue(\parskip) 0.0
 ......\glue(\baselineskip) 1.91553
 ......\hbox(8.14003+1.94444)x190.99995, glue set 0.4506, shifted 30.00005
-.......\kern 20.00003
 .......\hbox(0.0+0.0)x-20.00003
 ........\glue -20.00003
 ........\glue -17.0
@@ -6569,6 +6568,7 @@ Completed box being shipped out [2]
 .........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\penalty 0
+.......\glue 20.00003
 .......\hbox(0.0+0.0)x10.00002
 .......\mathon
 .......\hbox(4.51111+0.0)x4.48613, shifted -3.62892
@@ -13690,7 +13690,6 @@ Completed box being shipped out [4]
 ......\glue(\parskip) 0.0
 ......\glue(\baselineskip) 1.91553
 ......\hbox(8.14003+1.94444)x190.99995, glue set 0.4506, shifted 30.00005
-.......\kern 20.00003
 .......\hbox(0.0+0.0)x-20.00003
 ........\glue -20.00003
 ........\glue -17.0
@@ -13699,6 +13698,7 @@ Completed box being shipped out [4]
 .........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\penalty 0
+.......\glue 20.00003
 .......\hbox(0.0+0.0)x10.00002
 .......\mathon
 .......\hbox(4.51111+0.0)x4.48613, shifted -3.62892
