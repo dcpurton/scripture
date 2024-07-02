@@ -1582,7 +1582,9 @@ Completed box being shipped out [1]
 ....\penalty 0
 ....\OT1/cmr/bx/n/10 2
 ....\pdfcolorstack 0 pop
-....\glue 5.0
+....\kern 5.0
+....\penalty 10000
+....\glue 0.0
 ....\OT1/cmr/m/n/10 A
 ....\glue 3.33333 plus 1.66498 minus 1.11221
 ....\OT1/cmr/m/n/10 f
@@ -2390,7 +2392,9 @@ Completed box being shipped out [1]
 ....\penalty 0
 ....\OT1/cmr/bx/n/10 1
 ....\pdfcolorstack 0 pop
-....\glue 5.0
+....\kern 5.0
+....\penalty 10000
+....\glue 0.0
 ....\OT1/cmr/m/n/10 I
 ....\OT1/cmr/m/n/10 n
 ....\glue 3.33333 plus 1.66666 minus 1.11111

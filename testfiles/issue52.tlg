@@ -1068,7 +1068,9 @@ Completed box being shipped out [1]
 ....\kern0.83313
 ....\kern 1.6663
 ....\T1/cmr/bx/n/10 1
-....\glue 4.99878
+....\kern 4.99878
+....\penalty 10000
+....\glue 0.0
 ....\T1/cmr/m/n/10 I
 ....\T1/cmr/m/n/10 n
 ....\glue 3.33252 plus 1.66626 minus 1.11084
@@ -2052,7 +2054,9 @@ Completed box being shipped out [1]
 ...\hbox(7.49817+2.49939)x345.0, glue set 0.51685
 ....\T1/cmr/bx/n/10 1
 ....\T1/cmr/bx/n/10 1
-....\glue 4.99878
+....\kern 4.99878
+....\penalty 10000
+....\glue 0.0
 ....\T1/cmr/m/n/10 F
 ....\kern-0.83313
 ....\T1/cmr/m/n/10 o
