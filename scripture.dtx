@@ -4121,6 +4121,7 @@
         \vs { 1 }
       }
     \group_end:
+    \parshape 1 ~ \@totalleftmargin ~ \linewidth
     \hook_gclear_next_code:n { scripture / pilcrow }
   }
 %    \end{macrocode}
@@ -4369,7 +4370,13 @@
       { \bool_gset_false:N \g_@@_suppress_next_verse_para_bool }
       {
         \legacy_if:nF { @newlist }
-          { \mode_if_vertical:F \para_end: }
+          {
+            \mode_if_vertical:F
+              {
+                \para_end:
+                \parshape 1 ~ \@totalleftmargin ~ \linewidth
+              }
+          }
       }
     \@@_verse_output:n { #1 }
   }
@@ -4764,7 +4771,6 @@
             \skip_vertical:n { -\g_@@_prev_inner_below_skip }
           }
         \hook_gclear_next_code:n { para / before }
-        \parshape 1 ~ \@totalleftmargin ~ \linewidth
         \noindent
         \bool_lazy_or:nnTF
           { \tl_if_novalue_p:n \l_@@_ref_tl }
@@ -4775,6 +4781,7 @@
               { \@@_reference:n { } }
           }
           { \@@_reference:n \l_@@_ref_tl }
+        \parshape 1 ~ \@totalleftmargin ~ \linewidth
 %    \end{macrocode}
 % Set \val{@noparlist} to \val{false} to ensure \cs{topsep} is always added
 % \env{scripture} environment

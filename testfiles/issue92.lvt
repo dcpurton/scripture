@@ -1,0 +1,59 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  verse/para
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{quotation}
+  \begin{scripture}[Luke 12:13--15]
+    \vs{13}Someone in the crowd said to him, ‘Teacher, tell my brother to
+    divide the inheritance with me.’
+
+    \vs{14}Jesus replied, ‘Man, who appointed me a judge or an arbiter between
+    you?’ \vs{15}Then he said to them, ‘Watch out! Be on your guard against
+    all kinds of greed; life does not consist in an abundance of possessions.’
+  \end{scripture}
+\end{quotation}
+
+\begin{quote}
+  \begin{scripture}[Luke 12:13--15]
+    \vs{13}Someone in the crowd said to him, ‘Teacher, tell my brother to
+    divide the inheritance with me.’
+
+    \vs{14}Jesus replied, ‘Man, who appointed me a judge or an arbiter between
+    you?’ \vs{15}Then he said to them, ‘Watch out! Be on your guard against
+    all kinds of greed; life does not consist in an abundance of possessions.’
+  \end{scripture}
+\end{quote}
+
+\scripturesetup{
+  verse/para=false,
+  compact
+}
+
+\begin{quotation}
+  \begin{scripture}[Luke 12:13--15]
+    \vs{13}Someone in the crowd said to him, ‘Teacher, tell my brother to
+    divide the inheritance with me.’
+
+    \vs{14}Jesus replied, ‘Man, who appointed me a judge or an arbiter between
+    you?’ \vs{15}Then he said to them, ‘Watch out! Be on your guard against
+    all kinds of greed; life does not consist in an abundance of possessions.’
+  \end{scripture}
+\end{quotation}
+
+\begin{quote}
+  \begin{scripture}[Luke 12:13--15]
+    \vs{13}Someone in the crowd said to him, ‘Teacher, tell my brother to
+    divide the inheritance with me.’
+
+    \vs{14}Jesus replied, ‘Man, who appointed me a judge or an arbiter between
+    you?’ \vs{15}Then he said to them, ‘Watch out! Be on your guard against
+    all kinds of greed; life does not consist in an abundance of possessions.’
+  \end{scripture}
+\end{quote}
+\end{document}
