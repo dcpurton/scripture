@@ -3305,10 +3305,10 @@
             \bool_if:NTF \l_@@_verse_para_bool
               {
                 \str_if_eq:VnTF \l_@@_currenvir_str { poetry }
-                  { \cs_gset_eq:NN \noindent \tex_noindent:D }
-                  { \cs_gset_eq:NN \noindent \@@_para_noindent: }
+                  { \cs_set_eq:NN \noindent \tex_noindent:D }
+                  { \cs_set_eq:NN \noindent \@@_para_noindent: }
               }
-              { \cs_gset_eq:NN \noindent \tex_noindent:D }
+              { \cs_set_eq:NN \noindent \tex_noindent:D }
           }
       }
   }
