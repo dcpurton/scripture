@@ -1,26 +1,10 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
-LaTeX Info: Redefining \rmfamily on input line ....
-LaTeX Info: Redefining \sffamily on input line ....
-LaTeX Info: Redefining \ttfamily on input line ....
-Removing  `luaotfload.node_processor' from `pre_linebreak_filter'.
-Inserting `polyglossia-punct.process' in `pre_linebreak_filter'.
-Inserting `luaotfload.node_processor' in `pre_linebreak_filter'.
-Removing  `luaotfload.node_processor' from `hpack_filter'.
-Removing  `luaotfload.harf.finalize_hlist' from `hpack_filter'.
-Inserting `polyglossia-punct.process' in `hpack_filter'.
-Inserting `luaotfload.node_processor' in `hpack_filter'.
-Inserting `luaotfload.harf.finalize_hlist' in `hpack_filter'.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line ....
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line ....
-Package polyglossia Info: Option: English, variant=australian.
 \l@australian = a dialect from \language\l@english 
-LaTeX Info: Redefining \rmfamily on input line ....
-LaTeX Info: Redefining \sffamily on input line ....
-LaTeX Info: Redefining \ttfamily on input line ....
-Package polyglossia Info: Option: English, variant=australian.
 \l@australian = a dialect from \language\l@english 
 Completed box being shipped out [1]
 \vbox(682.0+0.0)x398.0, direction TLT

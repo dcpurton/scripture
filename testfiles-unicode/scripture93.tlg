@@ -1226,9 +1226,9 @@ Completed box being shipped out [1]
 ....\kern-10.0
 ....\hbox(0.0+0.0)x10.0, direction TLT
 .....\glue 10.0
-.....\glue -21.99997
 .....\glue 0.0
-.....\hbox(0.0+0.0)x21.99997, glue set 21.99997fil, direction TLT
+.....\glue 0.0
+.....\hbox(0.0+0.0)x0.0, direction TLT
 ......\glue 0.0 plus 1.0fil
 .....\glue 0.0
 ....\penalty 0
