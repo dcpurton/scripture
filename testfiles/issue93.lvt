@@ -1,0 +1,38 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount,
+  compact,
+  verse/para,
+  pilcrow
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{quotation}
+  \begin{scripture}[Luke 21:1--7]
+    \ch{21}As Jesus looked up, he saw the rich putting their gifts into the
+    temple treasury. \vs{2}He also saw a poor widow put in two very small
+    copper coins. \vs{3}‘Truly I tell you,’ he said, ‘this poor widow has put
+    in more than all the others. \vs{4}All these people gave their gifts out
+    of their wealth; but she out of her poverty put in all she had to live
+    on.’
+  \end{scripture}
+\end{quotation}
+
+\begin{quotation}
+  \begin{scripture}[Isaiah 30:1]
+    \begin{poetry}
+      \ch{30}‘Woe to the obstinate children,’
+      declares the \name{Lord},
+
+      ‘to those who carry out plans that are not mine,
+      forming an alliance, but not by my Spirit,
+      heaping sin upon sin;
+    \end{poetry}
+  \end{scripture}
+\end{quotation}
+\end{document}

@@ -20,7 +20,6 @@ Completed box being shipped out [1]
 ...\write-{}
 ...\glue(\topskip) 3.05556
 ...\hbox(6.94444+1.94444)x326.005, glue set - 0.48409, shifted 18.995
-....\kern -15.0
 ....\hbox(0.0+0.0)x15.0
 .....\glue 15.0
 .....\glue -20.00003
@@ -29,6 +28,7 @@ Completed box being shipped out [1]
 ......\glue 0.0 plus 1.0fil
 .....\glue 5.0
 ....\penalty 0
+....\glue -15.0
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(16.03377+0.0)x0.0, glue set - 18.995fil, shifted 12.0
 ......\glue 0.0 plus 1.0fil minus 1.0fil
@@ -212,7 +212,6 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 5.05556
 ...\hbox(6.94444+1.94444)x326.005, glue set 0.15508, shifted 18.995
-....\kern -15.0
 ....\hbox(0.0+0.0)x15.0
 .....\glue 15.0
 .....\glue -20.00003
@@ -221,6 +220,7 @@ Completed box being shipped out [1]
 ......\glue 0.0 plus 1.0fil
 .....\glue 5.0
 ....\penalty 0
+....\glue -15.0
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(16.03377+0.0)x0.0, glue set - 18.995fil, shifted 12.0
 ......\glue 0.0 plus 1.0fil minus 1.0fil
@@ -1285,7 +1285,6 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 5.05556
 ...\hbox(6.94444+1.94444)x326.005, glue set 76.93513fil, shifted 18.995
-....\kern -15.0
 ....\hbox(0.0+0.0)x15.0
 .....\glue 15.0
 .....\glue -20.00003
@@ -1294,6 +1293,7 @@ Completed box being shipped out [1]
 ......\glue 0.0 plus 1.0fil
 .....\glue 5.0
 ....\penalty 0
+....\glue -15.0
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(16.03377+0.0)x0.0, glue set - 18.995fil, shifted 12.0
 ......\glue 0.0 plus 1.0fil minus 1.0fil
@@ -1583,7 +1583,6 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 5.05556
 ...\hbox(6.94444+1.94444)x326.005, glue set 55.94907fil, shifted 18.995
-....\kern -15.0
 ....\hbox(0.0+0.0)x15.0
 .....\glue 15.0
 .....\glue -20.00003
@@ -1592,6 +1591,7 @@ Completed box being shipped out [1]
 ......\glue 0.0 plus 1.0fil
 .....\glue 5.0
 ....\penalty 0
+....\glue -15.0
 ....\hbox(0.0+0.0)x0.0
 .....\hbox(16.03377+0.0)x0.0, glue set - 18.995fil, shifted 12.0
 ......\glue 0.0 plus 1.0fil minus 1.0fil

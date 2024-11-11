@@ -4044,7 +4044,11 @@
     \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
     \cs_if_eq:NNTF \noindent \@@_para_noindent:
       {
-        \tex_noindent:D
+        \legacy_if:nTF { @newlist }
+          {
+            \skip_horizontal:n { -\l_@@_parindent_tl }
+          }
+          { \tex_noindent:D }
         \@@_pilcrow_output:
       }
       { \noindent }
