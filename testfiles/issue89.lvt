@@ -1,0 +1,101 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Luke 21:1--7]
+  \heading{The Widow's Offering}
+
+  \ch{21}As Jesus looked up, he saw the rich putting their gifts into the
+  temple treasury. \vs{2}He also saw a poor widow put in two very small copper
+  coins. \vs{3}‘Truly I tell you,’ he said, ‘this poor widow has put in more
+  than all the others. \vs{4}All these people gave their gifts out of their
+  wealth; but she out of her poverty put in all she had to live on.’
+
+  \heading{Signs of the End of the Age}
+
+  \vs{5}Some of his disciples were remarking about how the temple was adorned
+  with beautiful stones and with gifts dedicated to God. But Jesus said,
+  \vs{6}‘As for what you see here, the time will come when not one stone will
+  be left on another; every one of them will be thrown down.’
+
+  \vs{7}‘Teacher,’ they asked, ‘when will these things happen? And what will
+  be the sign that they are about to take place?’
+\end{scripture}
+
+\begin{quotation}
+  \begin{scripture}[Luke 21:1--7]
+    \heading{The Widow's Offering}
+
+    \ch{21}As Jesus looked up, he saw the rich putting their gifts into the
+    temple treasury. \vs{2}He also saw a poor widow put in two very small
+    copper coins. \vs{3}‘Truly I tell you,’ he said, ‘this poor widow has put
+    in more than all the others. \vs{4}All these people gave their gifts out
+    of their wealth; but she out of her poverty put in all she had to live
+    on.’
+
+    \heading{Signs of the End of the Age}
+
+    \vs{5}Some of his disciples were remarking about how the temple was
+    adorned with beautiful stones and with gifts dedicated to God. But Jesus
+    said, \vs{6}‘As for what you see here, the time will come when not one
+    stone will be left on another; every one of them will be thrown down.’
+
+    \vs{7}‘Teacher,’ they asked, ‘when will these things happen? And what will
+    be the sign that they are about to take place?’
+  \end{scripture}
+\end{quotation}
+
+\begin{scripture}[Isaiah 30:1]
+  \heading{Woe to the Obstinate Nation}
+
+  \begin{poetry}
+    \ch{30}‘Woe to the obstinate children,’
+    declares the \name{Lord},
+
+    ‘to those who carry out plans that are not mine,
+    forming an alliance, but not by my Spirit,
+    heaping sin upon sin;
+  \end{poetry}
+\end{scripture}
+
+\begin{quotation}
+  \begin{scripture}[Isaiah 30:1]
+    \heading{Woe to the Obstinate Nation}
+
+    \begin{poetry}
+      \ch{30}‘Woe to the obstinate children,’
+      declares the \name{Lord},
+
+      ‘to those who carry out plans that are not mine,
+      forming an alliance, but not by my Spirit,
+      heaping sin upon sin;
+    \end{poetry}
+  \end{scripture}
+\end{quotation}
+
+\begin{scripture}[][inline]
+  \heading{Signs of the End of the Age}
+
+  \vs{5}Some of his disciples were remarking about how the temple was adorned
+  with beautiful stones and with gifts dedicated to God. But Jesus said,
+  \vs{6}‘As for what you see here, the time will come when not one stone will
+  be left on another; every one of them will be thrown down.’
+\end{scripture}
+
+\begin{scripture}
+  \heading{The Beginning}
+
+  \begin{hanging}
+    \ch{1}In the beginning God created the heavens and the earth. \vs{2}Now
+    the earth was formless and empty, darkness was over the surface of the
+    deep, and the Spirit of God was hovering over the waters.
+  \end{hanging}
+\end{scripture}
+\end{document}
