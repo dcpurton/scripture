@@ -253,6 +253,9 @@
 %   \item Modify the \cs{parshape} within a \env{scripture} environment.
 %   \item Include any other \env{list} based environment within a
 %     \env{scripture} environment.
+%   \item Include any \cs{section} (or similar) functions within the
+%     \env{scripture} environment. A simple \cs{heading} function is provided
+%     instead.
 % \end{itemize}
 %
 % The \env{poetry} environment uses \cs{obeylines}. This means that it can not
@@ -455,6 +458,68 @@
 %   \extraskip
 %
 %   Grace and peace to you from God our Father.
+% \end{scripture}
+% \end{scriptureexample}
+%
+% \changes{v2.1}{2024/11/18}{Add simple heading function}
+% \begin{function}[added=2024-11-18]{\heading}
+%   \begin{syntax}
+%     |\heading|\marg{section heading}
+%   \end{syntax}
+%   The \cs{heading} function provides a simple section heading command for
+%   use within the \env{scripture} environment. Only one level is heading is
+%   provided. Further levels should be placed outside of the \env{scripture}
+%   environment. Additionally, the \cs{heading} function may not be used
+%   within a \env{scripture} inner environment.
+%
+%   The settings of headings can be controlled using the following options:
+%   \begin{itemize}
+%     \item \opt{heading/aboveskip}
+%     \item \opt{heading/afterindent}
+%     \item \opt{heading/align}
+%     \item \opt{heading/belowskip}
+%     \item \opt{heading/font}
+%     \item \opt{heading/format}
+%     \item \opt{heading/hide}
+%     \item \opt{heading/show}
+%   \end{itemize}
+%
+%   \noindent\textbf{Notes:}
+%   \begin{itemize}
+%     \item \cs{section} and related functions are not supported within the
+%       \env{scripture} environment.
+%     \item The \cs{heading} function is ignored when the \opt{inline} option
+%       is \val{true}.
+%   \end{itemize}
+% \end{function}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[Luke 21:5–6]
+%   \heading{Signs of the End of the Age}
+%
+%   \vs{5}Some of his disciples were remarking
+%   about how the temple was adorned with beautiful
+%   stones and with gifts dedicated to God. But
+%   Jesus said, \vs{6}``As for what you see here,
+%   the time will come when not one stone will be
+%   left on another; every one of them will be
+%   thrown down.''
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[Luke 21:5–6]
+%   \heading{Signs of the End of the Age}
+%
+%   \vs{5}Some of his disciples were remarking
+%   about how the temple was adorned with beautiful
+%   stones and with gifts dedicated to God. But
+%   Jesus said, \vs{6}``As for what you see here,
+%   the time will come when not one stone will be
+%   left on another; every one of them will be
+%   thrown down.''
 % \end{scripture}
 % \end{scriptureexample}
 %
@@ -1509,6 +1574,77 @@
 %     font = \meta{font} \hfill Default: \emph{Empty}
 %   \end{syntax}
 %   \meta{|font|} used for the \env{scripture} environment.
+% \end{option}
+%
+% \changes{v2.1}{2024/11/19}{Add \opt{heading/aboveskip} option}
+% \begin{option}[added=2024-11-19]{heading/aboveskip}
+%   \begin{syntax}
+%     heading/aboveskip = \meta{skip} \hfill Default: \cs{bigskipamount}
+%   \end{syntax}
+%   \meta{|skip|} inserted above a \cs{heading}.
+% \end{option}
+%
+% \changes{v2.1}{2024/11/19}{Add \opt{heading/afterindent} option}
+% \begin{option}[added=2024-11-19]{heading/afterindent}
+%   \begin{syntax}
+%     heading/afterindent = \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   Whether to indent the first paragraph following a \cs{heading}. The value
+%   of \meta{|boolean|} is optional and assumed to be \val{true} if not
+%   present.
+% \end{option}
+%
+% \changes{v2.1}{2024/11/19}{Add \opt{heading/align} option}
+% \begin{option}[added=2024-11-19]{heading/align}
+%   \begin{syntax}
+%     heading/align = left \textbar\ right \textbar\ center \hfill Default: left
+%   \end{syntax}
+%   Set the alignment of a \cs{heading}.
+% \end{option}
+%
+% \changes{v2.1}{2024/11/19}{Add \opt{heading/belowskip} option}
+% \begin{option}[added=2024-11-19]{heading/belowskip}
+%   \begin{syntax}
+%     heading/belowskip = \meta{skip} \hfill Default: \cs{medskipamount}
+%   \end{syntax}
+%   \meta{|skip|} inserted below a \cs{heading}.
+% \end{option}
+%
+% \changes{v2.1}{2024/11/19}{Add \opt{heading/font} option}
+% \begin{option}[added=2024-11-19]{heading/font}
+%   \begin{syntax}
+%     heading/font = \meta{font} \hfill Default: \cs{small}\cs{itshape}
+%   \end{syntax}
+%   \meta{|font|} used for a \cs{heading}.
+% \end{option}
+%
+% \changes{v2.1}{2024/11/19}{Add \opt{heading/format} option}
+% \begin{option}[added=2024-11-19]{heading/format}
+%   \begin{syntax}
+%     heading/format = \meta{macro} \hfill Default: \#1
+%   \end{syntax}
+%   \meta{|macro|} used to format a \cs{heading}. |#1| contains the text of
+%   the \val{heading}.
+% \end{option}
+%
+% \changes{v2.1}{2024/11/19}{Add \opt{heading/hide} option}
+% \begin{option}[added=2024-11-19]{heading/hide}
+%   \begin{syntax}
+%     heading/hide = \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   Whether to hide \cs{heading} functions. The value of \meta{|boolean|} is
+%   optional and assumed to be \val{true} if not present. This option is the
+%   opposite of \opt{heading/show}.
+% \end{option}
+%
+% \changes{v2.1}{2024/11/19}{Add \opt{heading/show} option}
+% \begin{option}[added=2024-11-19]{heading/show}
+%   \begin{syntax}
+%     heading/show = \meta{boolean} \hfill Default: true
+%   \end{syntax}
+%   Whether to show \cs{heading} functions. The value of \meta{|boolean|} is
+%   optional and assumed to be \val{true} if not present. This option is the
+%   opposite of \opt{heading/hide}.
 % \end{option}
 %
 % \changes{v1.3}{2023/01/07}{Add \opt{inline} option}
