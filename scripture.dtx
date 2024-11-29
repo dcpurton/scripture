@@ -3246,6 +3246,9 @@
     , verse / para                .bool_set:N         = \l_@@_verse_para_bool
     , verse / para                .default:n          = true
     , verse / para                .initial:n          = false
+    , verse / para / indent       .tl_set:N           = \l_@@_para_indent_tl
+    , verse / para / indent       .value_required:n   = true
+    , verse / para / indent       .initial:n          = \l_@@_parindent_tl
     , verse / sep                 .tl_set:N           = \l_@@_verse_sep_tl
     , verse / sep                 .value_required:n   = true
     , verse / sep                 .initial:n          = 0.05 em
@@ -3896,6 +3899,7 @@
 \cs_new_protected:Nn \@@_compact_par:
   {
     \bool_gset_false:N \g_@@_mode_vertical_inner_bool
+    \dim_set:Nn \parindent { \l_@@_parindent_tl }
     \peek_remove_spaces:n
       {
         \peek_analysis_map_inline:n
@@ -3973,6 +3977,7 @@
 \cs_new_protected:Nn \@@_para_par:
   {
     \bool_gset_true:N \g_@@_para_mode_vertical_bool
+    \dim_set:Nn \parindent { \l_@@_parindent_tl }
     \peek_remove_spaces:n
       {
         \peek_analysis_map_inline:n
@@ -4019,6 +4024,12 @@
         \everypar { }
         \legacy_if_set_false:n { @endpe }
         \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
+        \bool_if:NT \l_@@_verse_para_bool
+          {
+            \box_set_wd:Nn
+              \g_@@_post_env_indent_box
+              { \l_@@_para_indent_tl }
+          }
       }
   }
 %    \end{macrocode}
@@ -4580,6 +4591,8 @@
   {
     \mode_if_vertical:T
       { \@@_set_pilcrow_hook: }
+    \hook_if_empty:nT { scripture / pilcrow }
+      { \dim_set:Nn \parindent \l_@@_para_indent_tl }
     \bool_if:NTF \g_@@_suppress_next_verse_para_bool
       { \bool_gset_false:N \g_@@_suppress_next_verse_para_bool }
       {
@@ -4931,6 +4944,7 @@
     \hook_gclear_next_code:n { scripture / pilcow }
     \hook_gclear_next_code:n { scripture / poetry / pilcow }
     \l_@@_font_tl
+    \tl_set:Ne \l_@@_parindent_tl { \dim_eval:n { \l_@@_parindent_tl } }
     \exp_args:NnV \color_set:nn { scripture default colour } \l_@@_colour_tl
     \str_if_eq:VnF \l_@@_colour_tl { . }
       { \color_select:n { scripture default colour } }
