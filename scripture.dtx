@@ -3806,10 +3806,15 @@
                     \bool_if:NTF \l_@@_ref_start_newline_bool
                       {
                         \@@_reference_start_newline:
-                        \bool_lazy_or:nnT
-                          { \l_@@_compact_bool }
-                          { \bool_not_p:n { \str_if_eq_p:Vn \l_@@_currenvir_str { poetry } } }
-                          { \@@_pilcrow_output: }
+                        \bool_if:NTF \l_@@_compact_bool
+                          {
+                            \bool_if:NT \g_@@_mode_vertical_inner_bool
+                              { \@@_pilcrow_output: }
+                          }
+                          {
+                            \str_if_eq:VnF \l_@@_currenvir_str { poetry }
+                            { \@@_pilcrow_output: }
+                          }
                       }
                       { \@@_reference_start_inline: }
                   }
@@ -3864,10 +3869,15 @@
                       }
                   }
                   {
-                    \bool_lazy_or:nnT
-                      { \l_@@_compact_bool }
-                      { \bool_not_p:n { \str_if_eq_p:Vn \l_@@_currenvir_str { poetry } } }
-                      { \@@_pilcrow_output: }
+                    \bool_if:NTF \l_@@_compact_bool
+                      {
+                        \bool_if:NT \g_@@_mode_vertical_inner_bool
+                          { \@@_pilcrow_output: }
+                      }
+                      {
+                        \str_if_eq:VnF \l_@@_currenvir_str { poetry }
+                        { \@@_pilcrow_output: }
+                      }
                   }
                 \peek_analysis_map_break:n
                   {
@@ -3885,6 +3895,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_compact_par:
   {
+    \bool_gset_false:N \g_@@_mode_vertical_inner_bool
     \peek_remove_spaces:n
       {
         \peek_analysis_map_inline:n
@@ -3892,12 +3903,12 @@
             \bool_case:n
               {
                 { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \begin }
-                  {
-                    \bool_gset_true:N \g_@@_mode_vertical_inner_bool
-                  }
+                  { \bool_gset_true:N \g_@@_mode_vertical_inner_bool }
                 { \str_if_eq_p:Vn \l_@@_currenvir_str { poetry } }
                   { }
                 { \exp_args:No \token_if_letter_p:N { ##1 } }
+                  { \@@_pilcrow_output: }
+                { \exp_args:No \token_if_active_p:N { ##1 } }
                   { \@@_pilcrow_output: }
                 { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
                   { \@@_set_pilcrow_hook: }
@@ -3969,6 +3980,8 @@
             \bool_case:n
               {
                 { \exp_args:No \token_if_letter_p:N { ##1 } }
+                  { \@@_pilcrow_output: }
+                { \exp_args:No \token_if_active_p:N { ##1 } }
                   { \@@_pilcrow_output: }
                 { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
                   { \@@_set_pilcrow_hook: }
@@ -4643,6 +4656,7 @@
 \cs_new_protected:Nn \@@_pilcrow_output:
   {
     \bool_gset_false:N \g_@@_para_mode_vertical_bool
+    \bool_gset_false:N \g_@@_mode_vertical_inner_bool
     \bool_if:NT \l_@@_pilcrow_bool
       {
         \bool_lazy_or:nnT \l_@@_verse_para_bool \l_@@_compact_bool

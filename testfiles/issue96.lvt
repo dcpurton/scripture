@@ -1,0 +1,49 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount,
+  verse/para,
+  pilcrow
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Matthew 9:28]
+  \vs{28}When he had gone indoors, the blind men came to him, and he asked
+  them, ‘Do you believe that I am able to do this?’
+
+  ‘Yes, Lord,’ they replied.
+\end{scripture}
+
+\begin{scripture}[Hebrews 5:5]
+  \vs{5}In the same way, Christ did not take on himself the glory of becoming
+  a high priest. But God said to him,
+  \begin{poetry}
+    ‘You are my Son;
+    today I have become your Father.’
+  \end{poetry}
+\end{scripture}
+
+\scripturesetup{
+  compact
+}
+
+\begin{scripture}[Matthew 9:28]
+  \vs{28}When he had gone indoors, the blind men came to him, and he asked
+  them, ‘Do you believe that I am able to do this?’
+
+  ‘Yes, Lord,’ they replied.
+\end{scripture}
+
+\begin{scripture}[Hebrews 5:5]
+  \vs{5}In the same way, Christ did not take on himself the glory of becoming
+  a high priest. But God said to him,
+  \begin{poetry}
+    ‘You are my Son;
+    today I have become your Father.’
+  \end{poetry}
+\end{scripture}
+\end{document}
