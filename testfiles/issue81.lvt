@@ -1,0 +1,78 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount,
+  verse/para,
+  verse/para/indent=0pt,
+  verse/font=\bfseries,
+  verse/format=#1,
+  verse/sep=0.5em,
+  pilcrow
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[John 6:7--11]
+  \vs{7}Philip answered him, ‘It would take more than half a year’s wages to
+  buy enough bread for each one to have a bite!’
+
+  \vs{8}Another of his disciples, Andrew, Simon Peter’s brother, spoke up,
+  \vs{9}‘Here is a boy with five small barley loaves and two small fish, but
+  how far will they go among so many?’
+
+  \vs{10}Jesus said, ‘Make the people sit down.’ There was plenty of grass in
+  that place, and they sat down (about five thousand men were there).
+  \vs{11}Jesus then took the loaves, gave thanks, and distributed to those who
+  were seated as much as they wanted. He did the same with the fish.
+\end{scripture}
+
+\begin{scripture}[Hebrews 5:5--10]
+  \vs{5}In the same way, Christ did not take on himself the glory of becoming
+  a high priest. But God said to him,
+  \begin{poetry}
+    ‘You are my Son;
+    today I have become your Father.’
+  \end{poetry}
+  \vs{6}And he says in another place,
+  \begin{poetry}
+    ‘You are a priest for ever,
+    in the order of Melchizedek.’
+  \end{poetry}
+
+  \vs{7}During the days of Jesus’ life on earth, he offered up prayers and
+  petitions with fervent cries and tears to the one who could save him from
+  death, and he was heard because of his reverent submission. \vs{8}Son though
+  he was, he learned obedience from what he suffered \vs{9}and, once made
+  perfect, he became the source of eternal salvation for all who obey him
+  \vs{10}and was designated by God to be high priest in the order of
+  Melchizedek.
+\end{scripture}
+
+\scripturesetup{
+  compact
+}
+\begin{scripture}[Hebrews 5:5--10]
+  \vs{5}In the same way, Christ did not take on himself the glory of becoming
+  a high priest. But God said to him,
+  \begin{poetry}
+    ‘You are my Son;
+    today I have become your Father.’
+  \end{poetry}
+  \vs{6}And he says in another place,
+  \begin{poetry}
+    ‘You are a priest for ever,
+    in the order of Melchizedek.’
+  \end{poetry}
+
+  \vs{7}During the days of Jesus’ life on earth, he offered up prayers and
+  petitions with fervent cries and tears to the one who could save him from
+  death, and he was heard because of his reverent submission. \vs{8}Son though
+  he was, he learned obedience from what he suffered \vs{9}and, once made
+  perfect, he became the source of eternal salvation for all who obey him
+  \vs{10}and was designated by God to be high priest in the order of
+  Melchizedek.
+\end{scripture}
+\end{document}
