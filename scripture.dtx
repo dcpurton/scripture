@@ -6046,6 +6046,11 @@
 \cs_new_protected:Nn \@@_poetry_chap:n
   {
     \@@_drop_chap_set_up:n { #1 }
+     \hook_gput_next_code:nn { para / after }
+       {
+         \hook_gput_next_code:nn { para / after }
+           { \int_gzero:N \g_@@_chap_par_prevgraf_int }
+       }
     \cs_if_eq:NNTF \vs \@@_poetry_mode_vertical_verse:n
       {
         \dim_zero:N \l_@@_poetry_chap_indent_dim
@@ -6125,15 +6130,18 @@
                             \l_@@_poetry_leftmargin_tl
                           }
                       }
-                    \parshape 2 ~
-                      \dim_eval:n
-                        { \@totalleftmargin + \l_@@_poetry_chap_parshape_correction_dim } ~
-                      \dim_eval:n
-                        { \linewidth - \l_@@_poetry_chap_parshape_correction_dim } ~
-                      \dim_eval:n
-                        { \@totalleftmargin + \l_@@_poetry_big_indent_tl } ~
-                      \dim_eval:n
-                        { \linewidth - \l_@@_poetry_big_indent_tl }
+                    \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+                      {
+                        \parshape 2 ~
+                          \dim_eval:n
+                            { \@totalleftmargin + \l_@@_poetry_chap_parshape_correction_dim } ~
+                          \dim_eval:n
+                            { \linewidth - \l_@@_poetry_chap_parshape_correction_dim } ~
+                          \dim_eval:n
+                            { \@totalleftmargin + \l_@@_poetry_big_indent_tl } ~
+                          \dim_eval:n
+                            { \linewidth - \l_@@_poetry_big_indent_tl }
+                      }
                   }
 %    \end{macrocode}
 %   This \cs{parshape} is in effect when the next line is the second half of a
@@ -6216,10 +6224,8 @@
 %    \end{macrocode}
 % \end{macro}
 %
-%
 % \begin{macro}{\@@_poetry_mode_vertical_verse:n}
-%   Format a verse for poetry scripture quotations in vertical and horizontal
-%   mode.
+%   Format a verse for poetry scripture quotations in vertical mode.
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_poetry_mode_vertical_verse:n
   {
@@ -6227,34 +6233,52 @@
     \tl_set_eq:NN \l_@@_verse_sep_tl \l_@@_poetry_verse_sep_tl
     \hook_gclear_next_code:n { scripture / pilcrow }
     \strut
-    \bool_if:NTF \l_@@_poetry_verse_right_bool
+    \int_compare:nNnTF \g_@@_chap_par_prevgraf_int = 1
       {
-        \hbox_overlap_left:n
-          {
-            \@@_verse_output:n { #1 }
-          }
+        \@@_verse_output:n { #1 }
       }
       {
-        \hbox_overlap_left:n
+        \bool_if:NTF \l_@@_poetry_verse_right_bool
           {
-            \hbox_overlap_right:n
+            \hbox_overlap_left:n
               {
                 \@@_verse_output:n { #1 }
               }
-            \skip_horizontal:N \l_@@_poetry_leftmargin_tl
+          }
+          {
+            \hbox_overlap_left:n
+              {
+                \hbox_overlap_right:n
+                  {
+                    \@@_verse_output:n { #1 }
+                  }
+                \skip_horizontal:N \l_@@_poetry_leftmargin_tl
+              }
           }
       }
     \group_end:
     \bool_if:NF \g_@@_suppress_next_pilcrow_bool
       { \hook_use:n { scripture / poetry / pilcrow } }
   }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_poetry_mode_horizontal_verse:n}
+%   Format a verse for poetry scripture quotations in horizontal mode.
+%    \begin{macrocode}
 \cs_new_protected:Nn \@@_poetry_mode_horizontal_verse:n
   {
     \group_begin:
     \tl_set_eq:NN \l_@@_verse_sep_tl \l_@@_poetry_verse_sep_tl
-    \skip_horizontal:n { -\listparindent }
-    \@@_poetry_mode_vertical_verse:n { #1 }
-    \skip_horizontal:N \listparindent
+    \int_compare:nNnTF \g_@@_chap_par_prevgraf_int = 1
+      {
+        \@@_poetry_mode_vertical_verse:n { #1 }
+      }
+      {
+        \skip_horizontal:n { -\listparindent }
+        \@@_poetry_mode_vertical_verse:n { #1 }
+        \skip_horizontal:N \listparindent
+      }
     \group_end:
   }
 %    \end{macrocode}

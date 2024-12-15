@@ -1,0 +1,33 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Isaiah 40:1--3]
+  \begin{poetry}
+    \ch{40}Comfort, comfort my people,
+    says your God.
+
+    \vs{2}Speak tenderly to Jerusalem,
+    and proclaim to her
+
+    that her hard service has been completed,
+    that her sin has been paid for,
+
+    that she has received from the \name{Lord}’s hand
+    double for all her sins.
+
+    \extraskip
+
+    \vs{3}A voice of one calling:
+
+    “In the wilderness prepare
+    the way for the \name{Lord};
+
+    make straight in the desert
+    a highway for our God.
+  \end{poetry}
+\end{scripture}
+\end{document}
