@@ -11,6 +11,7 @@
   poetry/leftmargin=2em,
   poetry/verse/sep=0.5em,
   hanging/leftmargin=2em,
+  hanging/verse/sep=0.5em,
   pilcrow
 }
 \pagestyle{empty}

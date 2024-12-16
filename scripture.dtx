@@ -3320,6 +3320,14 @@
     , hanging / rightmargin       .tl_set:N           = \l_@@_hanging_rightmargin_tl
     , hanging / rightmargin       .value_required:n   = true
     , hanging / rightmargin       .initial:n          = \c_zero_dim
+    , hanging / verse / left      .bool_set_inverse:N = \l_@@_hanging_verse_right_bool
+    , hanging / verse / left      .default:n          = true
+    , hanging / verse / right     .bool_set:N         = \l_@@_hanging_verse_right_bool
+    , hanging / verse / right     .default:n          = true
+    , hanging / verse / right     .initial:n          = true
+    , hanging / verse / sep       .tl_set:N           = \l_@@_hanging_verse_sep_tl
+    , hanging / verse / sep       .value_required:n   = true
+    , hanging / verse / sep       .initial:n          = 0.05 em
 %    \end{macrocode}
 % Options for the mid-paragraph chapters (including the \env{midparachap} environment).
 %    \begin{macrocode}
@@ -5460,25 +5468,54 @@
   {
     \mode_if_vertical:TF
       {
+        \tl_set_eq:NN \l_tmpa_tl \l_@@_verse_sep_tl
+        \tl_set_eq:NN \l_@@_verse_sep_tl \l_@@_hanging_verse_sep_tl
         \bool_lazy_and:nnTF
           { \legacy_if_p:n { @newlist } }
           { \g_@@_suppress_next_pilcrow_bool }
           {
             \strut
-            \hbox_overlap_left:n
+            \bool_if:NTF \l_@@_hanging_verse_right_bool
               {
-                \@@_verse_output:n { #1 }
+                \hbox_overlap_left:n
+                  {
+                    \@@_verse_output:n { #1 }
+                  }
+              }
+              {
+                \hbox_overlap_left:n
+                  {
+                    \hbox_overlap_right:n
+                      {
+                        \@@_verse_output:n { #1 }
+                      }
+                    \skip_horizontal:N \l_@@_hanging_leftmargin_tl
+                  }
               }
           }
           {
             \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
             \strut
-            \hbox_overlap_left:n
+            \bool_if:NTF \l_@@_hanging_verse_right_bool
               {
-                \@@_verse_output:n { #1 }
+                \hbox_overlap_left:n
+                  {
+                    \@@_verse_output:n { #1 }
+                  }
+              }
+              {
+                \hbox_overlap_left:n
+                  {
+                    \hbox_overlap_right:n
+                      {
+                        \@@_verse_output:n { #1 }
+                      }
+                    \skip_horizontal:N \l_@@_hanging_leftmargin_tl
+                  }
               }
             \@@_pilcrow_output:
           }
+        \tl_set_eq:NN \l_@@_verse_sep_tl \l_tmpa_tl
       }
       { \@@_verse_output:n { #1 } }
   }
