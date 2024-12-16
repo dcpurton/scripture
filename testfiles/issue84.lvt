@@ -1,0 +1,44 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage[polutonikogreek]{babel}
+\usepackage{scripture}
+\scripturesetup{
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount,
+  leftmargin=2em,
+  rightmargin=2em,
+  hanging/hang=1em,
+  hanging/leftmargin=2em,
+  hanging/verse/sep=1em,
+  verse/font=\sffamily\bfseries,
+  chapter/nodrop,
+  chapter/nodropllap,
+  chapter/nodropsmash,
+  chapter/font=\huge\bfseries,
+  chapter/format=\raisebox{-.7ex}{#1}
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}
+  \begin{hanging}
+    \ch{1}Ἀρχὴ τοῦ εὐαγγελίου Ἰησοῦ χριστοῦ υἱοῦ θεοῦ· \vs{2}καθὼς γέγραπται
+    ἐν τῷ Ἡσαΐᾳ τῷ προφήτῃ· ἰδοὺ ἀποστέλλω τὸν ἄγγελόν μου πρὸ προσώπου σου,
+    ὃς κατασκευάσει τὴν ὁδόν σου. \vs{3}φωνὴ βοῶντος ἐν τῇ ἐρήμῳ ἑτοιμάσατε
+    τὴν ὁδὸν κυρίου, εὐθείας ποιεῖτε τὰς τρίβους αὐτοῦ.
+  \end{hanging}
+\end{scripture}
+
+\begin{scripture}
+  \begin{hanging}
+    \vs{28}Καὶ ἐξῆλθεν ἡ ἀκοὴ αὐτοῦ εὐθὺς πανταχοῦ εἰς ὅλην τὴν περίχωρον τῆς
+    Γαλιλαίας.
+
+    \vs{29}Καὶ εὐθὺς ἐκ τῆς συναγωγῆς ἐξελθόντες ἦλθον εἰς τὴν οἰκίαν Σίμωνος
+    καὶ Ἀνδρέου μετὰ Ἰακώβου καὶ Ἰωάννου. \vs{30}ἡ δὲ πενθερὰ Σίμωνος
+    κατέκειτο πυρέσσουσα, καὶ εὐθὺς λέγουσιν αὐτῷ περὶ αὐτῆς.
+  \end{hanging}
+\end{scripture}
+\end{document}
+\end{document}
