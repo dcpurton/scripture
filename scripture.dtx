@@ -15,8 +15,11 @@
 \documentclass[a4paper]{l3doc}
 \usepackage[bidi=basic, layout=lists]{babel}
 \babelprovide[import, main]{australian}
+\babelprovide[import, onchar=ids fonts]{ancientgreek}
 \babelprovide[import, onchar=ids fonts]{japanese}
 \babelprovide[import, mapdigits, onchar=ids fonts]{persian}
+\babelfont[ancientgreek]{rm}[BoldFont=NewCM10-Bold]{NewCM10-Regular}
+\babelfont[ancientgreek]{tt}{NewCMMono10-Regular}
 \babelfont[japanese]{tt}[Scale=.9]{IPAMincho}
 \babelfont[persian]{rm}[Renderer = Harfbuzz]{Amiri}
 \babelfont[persian]{tt}[Renderer = Harfbuzz, Scale=.75]{Kawkab Mono Regular}
@@ -44,6 +47,12 @@
 }
 \ExplSyntaxOn
 \makeatletter
+\hook_gput_code:nnn
+  { env / scripture / begin }
+  { scripturedoc }
+  {
+    \cs_set_eq:NN \list \__codedoc_oldlist:nn
+  }
 \cs_new_protected:Npn \__dcp_codedoc_environment_index:n #1
   {
     \@bsphack
@@ -1391,6 +1400,79 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
+% \changes{v2.1}{2024/12/17}{Add \opt{chapter/nodropllap} option}
+% \begin{option}[added=2024-12-17]{chapter/nodropllap}
+%   \begin{syntax}
+%     chapter/nodropllap = \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   Whether a chapter should overlap to the left when \opt{chapter/nodrop} is
+%   set. The value of \meta{|boolean|} is optional and assumed to be
+%   \val{true} if not present.
+% \end{option}
+%
+% \changes{v2.1}{2024/12/17}{Add \opt{chapter/nodropsmash} option}
+% \begin{option}[added=2024-12-17]{chapter/nodropsmash}
+%   \begin{syntax}
+%     chapter/nodropsmash = \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   Whether a chapter should be wrapped in \cs{smash} when
+%   \opt{chapter/nodrop} is set. This allows the chapter number to be larger
+%   than the line height without affecting line spacing. The value of
+%   \meta{|boolean|} is optional and assumed to be \val{true} if not present.
+% \end{option}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \documentclass{article}
+% \usepackage{babel}
+% \babelprovide[import, main]{english}
+% \babelprovide[import,
+%   onchar=ids fonts]{ancientgreek}
+% \babelfont[ancientgreek]{rm}[
+%   BoldFont=NewCM10-Bold]{NewCM10-Regular}
+% \usepackage{scripture}
+% \begin{document}
+% \begin{scripture}[Κατά Μάρκον 1:1--3][
+%     chapter/font=\huge\bfseries,
+%     chapter/format=\raisebox{-.6ex}{#1},
+%     chapter/nodrop, chapter/nodropllap,
+%     chapter/nodropsmash, hanging/hang=1em,
+%     hanging/leftmargin=2em, hanging/verse/left,
+%     hanging/verse/sep=1em, language=ancientgreek,
+%     verse/font=\sffamily\bfseries, version=THGNT]
+%   \begin{hanging}
+%     \ch{1}Ἀρχὴ τοῦ εὐαγγελίου Ἰησοῦ χριστοῦ υἱοῦ
+%     θεοῦ· \vs{2}καθὼς γέγραπται ἐν τῷ Ἡσαΐᾳ τῷ
+%     προφήτῃ· ἰδοὺ ἀποστέλλω τὸν ἄγγελόν μου πρὸ
+%     προσώπου σου, ὃς κατασκευάσει τὴν ὁδόν σου.
+%     \vs{3}φωνὴ βοῶντος ἐν τῇ ἐρήμῳ ἑτοιμάσατε τὴν
+%     ὁδὸν κυρίου, εὐθείας ποιεῖτε τὰς τρίβους αὐτοῦ.
+%   \end{hanging}
+% \end{scripture}
+% \end{document}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[Κατά Μάρκον 1:1--3][
+%     chapter/font=\huge\bfseries,
+%     chapter/format=\raisebox{-.6ex}{#1},
+%     chapter/nodrop, chapter/nodropllap,
+%     chapter/nodropsmash, hanging/hang=1em,
+%     hanging/leftmargin=2em, hanging/verse/left,
+%     hanging/verse/sep=1em, language=ancientgreek,
+%     verse/font=\sffamily\bfseries, version=THGNT]
+%   \begin{hanging}
+%     \ch{1}Ἀρχὴ τοῦ εὐαγγελίου Ἰησοῦ χριστοῦ υἱοῦ
+%     θεοῦ· \vs{2}καθὼς γέγραπται ἐν τῷ Ἡσαΐᾳ τῷ
+%     προφήτῃ· ἰδοὺ ἀποστέλλω τὸν ἄγγελόν μου πρὸ
+%     προσώπου σου, ὃς κατασκευάσει τὴν ὁδόν σου.
+%     \vs{3}φωνὴ βοῶντος ἐν τῇ ἐρήμῳ ἑτοιμάσατε τὴν
+%     ὁδὸν κυρίου, εὐθείας ποιεῖτε τὰς τρίβους αὐτοῦ.
+%   \end{hanging}
+% \end{scripture}
+% \end{scriptureexample}
+%
 % \changes{v2.1}{2023/01/04}{Add \opt{chapter/para} option}
 % \begin{option}[added=2023-01-05]{chapter/para}
 %   \begin{syntax}
@@ -2650,6 +2732,87 @@
 %     hanging/rightmargin = \meta{dimen} \hfill Default: 1em
 %   \end{syntax}
 %   \meta{|dimen|} used for the right margin of the \env{hanging} environment.
+% \end{option}
+%
+% \changes{v2.1}{2024/12/17}{Add \opt{hanging/verse/left} option}
+% \begin{option}[added=2024-12-17]{hanging/verse/left}
+%   \begin{syntax}
+%     hanging/verse/left = \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   Align verse numbers in \env{hanging} environments at the left margin of
+%   the \env{hanging} environment. This is only used for verses at the start
+%   of a paragraph. This option is the opposite of \opt{hanging/verse/right}.
+% \end{option}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \documentclass{article}
+% \usepackage{babel}
+% \babelprovide[import, main]{english}
+% \babelprovide[import,
+%   onchar=ids fonts]{ancientgreek}
+% \babelfont[ancientgreek]{rm}[
+%   BoldFont=NewCM10-Bold]{NewCM10-Regular}
+% \usepackage{scripture}
+% \begin{document}
+% \begin{scripture}[Κατά Μάρκον 1:28--30][
+%     hanging/hang=1em, hanging/leftmargin=2em,
+%     hanging/verse/left, hanging/verse/sep=1em,
+%     language=ancientgreek,
+%     verse/font=\sffamily\bfseries, version=THGNT]
+%   \begin{hanging}
+%     \vs{28}Καὶ ἐξῆλθεν ἡ ἀκοὴ αὐτοῦ εὐθὺς πανταχοῦ
+%     εἰς ὅλην τὴν περίχωρον τῆς Γαλιλαίας.
+%
+%     \vs{29}Καὶ εὐθὺς ἐκ τῆς συναγωγῆς ἐξελθόντες
+%     ἦλθον εἰς τὴν οἰκίαν Σίμωνος καὶ Ἀνδρέου μετὰ
+%     Ἰακώβου καὶ Ἰωάννου. \vs{30}ἡ δὲ πενθερὰ
+%     Σίμωνος κατέκειτο πυρέσσουσα, καὶ εὐθὺς
+%     λέγουσιν αὐτῷ περὶ αὐτῆς.
+%   \end{hanging}
+% \end{scripture}
+% \end{document}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[Κατά Μάρκον 1:28--30][
+%     hanging/hang=1em, hanging/leftmargin=2em,
+%     hanging/verse/left, hanging/verse/sep=1em,
+%     language=ancientgreek,
+%     verse/font=\sffamily\bfseries, version=THGNT]
+%   \begin{hanging}
+%     \vs{28}Καὶ ἐξῆλθεν ἡ ἀκοὴ αὐτοῦ εὐθὺς πανταχοῦ
+%     εἰς ὅλην τὴν περίχωρον τῆς Γαλιλαίας.
+%
+%     \vs{29}Καὶ εὐθὺς ἐκ τῆς συναγωγῆς ἐξελθόντες
+%     ἦλθον εἰς τὴν οἰκίαν Σίμωνος καὶ Ἀνδρέου μετὰ
+%     Ἰακώβου καὶ Ἰωάννου. \vs{30}ἡ δὲ πενθερὰ
+%     Σίμωνος κατέκειτο πυρέσσουσα, καὶ εὐθὺς
+%     λέγουσιν αὐτῷ περὶ αὐτῆς.
+%   \end{hanging}
+% \end{scripture}
+% \end{scriptureexample}
+%
+% \changes{v2.1}{2024/12/17}{Add \opt{hanging/verse/right} option}
+% \begin{option}[added=2024-12-17]{hanging/verse/right}
+%   \begin{syntax}
+%     hanging/verse/right = \meta{boolean} \hfill Default: true
+%   \end{syntax}
+%   Align verse numbers in \env{hanging} environments at the left margin of
+%   the \env{hanging} environment. The verse numbers overlap to the left. This
+%   is only used for verses at the start of a paragraph. This option is the
+%   opposite of \opt{hanging/verse/left}.
+% \end{option}
+%
+% \changes{v2.1}{2024/12/17}{Add \opt{hanging/verse/sep} option}
+% \begin{option}[added=2024-12-17]{hanging/verse/sep}
+%   \begin{syntax}
+%     hanging/verse/sep = \meta{dimen} \hfill Default: 0.05 em
+%   \end{syntax}
+%   \meta{|dimen|} used to separate a \cs{vs} from the following text in a
+%   \env{hanging} environment. This is only used for verses at the start of a
+%   paragraph.
 % \end{option}
 %
 % \subsubsection{Options for the \env{midparachap} environment}
