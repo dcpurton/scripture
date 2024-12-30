@@ -1296,6 +1296,17 @@
 %   \meta{|skip|} inserted below the \env{scripture} environment.
 % \end{option}
 %
+% \changes{v2.1}{2024/12/30}{Add \opt{chapter/align} option}
+% \begin{option}[added=2024-12-30]{chapter/align}
+%   \begin{syntax}
+%     chapter/align = left \textbar\ right\hfill Default: left
+%   \end{syntax}
+%   When \opt{chapter/align} is set to \val{right} a chapter will overlap to
+%   the left when \opt{chapter/nodrop} is set.
+%
+%   See also \opt{chapter/valign}.
+% \end{option}
+%
 % \changes{v1.2}{2022/09/07}{Add \opt{chapter/colour} option}
 % \begin{option}[added=2022-09-07]{chapter/colour, chapter/color}
 %   \begin{syntax}
@@ -1400,78 +1411,16 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
-% \changes{v2.1}{2024/12/17}{Add \opt{chapter/nodropllap} option}
-% \begin{option}[added=2024-12-17]{chapter/nodropllap}
+% \changes{v2.1}{2024/12/30}{Add \opt{chapter/smash} option}
+% \begin{option}[added=2024-12-30]{chapter/smash}
 %   \begin{syntax}
-%     chapter/nodropllap = \meta{boolean} \hfill Default: false
-%   \end{syntax}
-%   Whether a chapter should overlap to the left when \opt{chapter/nodrop} is
-%   set. The value of \meta{|boolean|} is optional and assumed to be
-%   \val{true} if not present.
-% \end{option}
-%
-% \changes{v2.1}{2024/12/17}{Add \opt{chapter/nodropsmash} option}
-% \begin{option}[added=2024-12-17]{chapter/nodropsmash}
-%   \begin{syntax}
-%     chapter/nodropsmash = \meta{boolean} \hfill Default: false
+%     chapter/smash = \meta{boolean} \hfill Default: false
 %   \end{syntax}
 %   Whether a chapter should be wrapped in \cs{smash} when
 %   \opt{chapter/nodrop} is set. This allows the chapter number to be larger
 %   than the line height without affecting line spacing. The value of
 %   \meta{|boolean|} is optional and assumed to be \val{true} if not present.
 % \end{option}
-%
-% \begin{scriptureexample}
-% \begin{verbatim}
-% \documentclass{article}
-% \usepackage{babel}
-% \babelprovide[import, main]{english}
-% \babelprovide[import,
-%   onchar=ids fonts]{ancientgreek}
-% \babelfont[ancientgreek]{rm}[
-%   BoldFont=NewCM10-Bold]{NewCM10-Regular}
-% \usepackage{scripture}
-% \begin{document}
-% \begin{scripture}[Κατά Μάρκον 1:1--3][
-%     chapter/font=\huge\bfseries,
-%     chapter/format=\raisebox{-.6ex}{#1},
-%     chapter/nodrop, chapter/nodropllap,
-%     chapter/nodropsmash, hanging/hang=1em,
-%     hanging/leftmargin=2em, hanging/verse/left,
-%     hanging/verse/sep=1em, language=ancientgreek,
-%     verse/font=\sffamily\bfseries, version=THGNT]
-%   \begin{hanging}
-%     \ch{1}Ἀρχὴ τοῦ εὐαγγελίου Ἰησοῦ χριστοῦ υἱοῦ
-%     θεοῦ· \vs{2}καθὼς γέγραπται ἐν τῷ Ἡσαΐᾳ τῷ
-%     προφήτῃ· ἰδοὺ ἀποστέλλω τὸν ἄγγελόν μου πρὸ
-%     προσώπου σου, ὃς κατασκευάσει τὴν ὁδόν σου.
-%     \vs{3}φωνὴ βοῶντος ἐν τῇ ἐρήμῳ ἑτοιμάσατε τὴν
-%     ὁδὸν κυρίου, εὐθείας ποιεῖτε τὰς τρίβους αὐτοῦ.
-%   \end{hanging}
-% \end{scripture}
-% \end{document}
-% \end{verbatim}
-%
-% \tcblower
-%
-% \begin{scripture}[Κατά Μάρκον 1:1--3][
-%     chapter/font=\huge\bfseries,
-%     chapter/format=\raisebox{-.6ex}{#1},
-%     chapter/nodrop, chapter/nodropllap,
-%     chapter/nodropsmash, hanging/hang=1em,
-%     hanging/leftmargin=2em, hanging/verse/left,
-%     hanging/verse/sep=1em, language=ancientgreek,
-%     verse/font=\sffamily\bfseries, version=THGNT]
-%   \begin{hanging}
-%     \ch{1}Ἀρχὴ τοῦ εὐαγγελίου Ἰησοῦ χριστοῦ υἱοῦ
-%     θεοῦ· \vs{2}καθὼς γέγραπται ἐν τῷ Ἡσαΐᾳ τῷ
-%     προφήτῃ· ἰδοὺ ἀποστέλλω τὸν ἄγγελόν μου πρὸ
-%     προσώπου σου, ὃς κατασκευάσει τὴν ὁδόν σου.
-%     \vs{3}φωνὴ βοῶντος ἐν τῇ ἐρήμῳ ἑτοιμάσατε τὴν
-%     ὁδὸν κυρίου, εὐθείας ποιεῖτε τὰς τρίβους αὐτοῦ.
-%   \end{hanging}
-% \end{scripture}
-% \end{scriptureexample}
 %
 % \changes{v2.1}{2023/01/04}{Add \opt{chapter/para} option}
 % \begin{option}[added=2023-01-05]{chapter/para}
@@ -1576,6 +1525,73 @@
 % \begin{scripture}[John 1:1][chapter/showverse]
 %   \ch{1}In the beginning was the Word, and the
 %   Word was with God, and the Word was God.
+% \end{scripture}
+% \end{scriptureexample}
+%
+% \changes{v2.1}{2024/12/30}{Add \opt{chapter/valign} option}
+% \begin{option}[added=2024-12-30]{chapter/valign}
+%   \begin{syntax}
+%     chapter/align = bottom \textbar\ middle \textbar\ top\hfill Default: bottom
+%   \end{syntax}
+%   Sets how a chapter will align vertically when \opt{chapter/nodrop} is set.
+%   \begin{itemize}
+%     \item \val{bottom}: Chapter will align at the text base line.
+%     \item \val{middle}: Chapter will align at the center of text.
+%     \item \val{top}: Chapter will align at the top of text.
+%   \end{itemize}
+%
+%   See also \opt{chapter/align}.
+% \end{option}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \documentclass{article}
+% \usepackage{babel}
+% \babelprovide[import, main]{english}
+% \babelprovide[import,
+%   onchar=ids fonts]{ancientgreek}
+% \babelfont[ancientgreek]{rm}[
+%   BoldFont=NewCM10-Bold]{NewCM10-Regular}
+% \usepackage{scripture}
+% \begin{document}
+% \begin{scripture}[Κατά Μάρκον 1:1--3][
+%     chapter/font=\huge\bfseries,
+%     chapter/align=right, chapter/nodrop,
+%     chapter/smash, chapter/valign=top,
+%     hanging/hang=1em, hanging/leftmargin=2em,
+%     hanging/verse/sep=1em, language=ancientgreek,
+%     verse/font=\sffamily\bfseries,
+%     verse/sep=0.25em, version=THGNT]
+%   \begin{hanging}
+%     \ch{1}Ἀρχὴ τοῦ εὐαγγελίου Ἰησοῦ χριστοῦ υἱοῦ
+%     θεοῦ· \vs{2}καθὼς γέγραπται ἐν τῷ Ἡσαΐᾳ τῷ
+%     προφήτῃ· ἰδοὺ ἀποστέλλω τὸν ἄγγελόν μου πρὸ
+%     προσώπου σου, ὃς κατασκευάσει τὴν ὁδόν σου.
+%     \vs{3}φωνὴ βοῶντος ἐν τῇ ἐρήμῳ ἑτοιμάσατε τὴν
+%     ὁδὸν κυρίου, εὐθείας ποιεῖτε τὰς τρίβους αὐτοῦ.
+%   \end{hanging}
+% \end{scripture}
+% \end{document}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[Κατά Μάρκον 1:1--3][
+%     chapter/font=\huge\bfseries,
+%     chapter/align=right, chapter/nodrop,
+%     chapter/smash, chapter/valign=top,
+%     hanging/hang=1em, hanging/leftmargin=2em,
+%     hanging/verse/sep=1em, language=ancientgreek,
+%     verse/font=\sffamily\bfseries,
+%     verse/sep=0.25em, version=THGNT]
+%   \begin{hanging}
+%     \ch{1}Ἀρχὴ τοῦ εὐαγγελίου Ἰησοῦ χριστοῦ υἱοῦ
+%     θεοῦ· \vs{2}καθὼς γέγραπται ἐν τῷ Ἡσαΐᾳ τῷ
+%     προφήτῃ· ἰδοὺ ἀποστέλλω τὸν ἄγγελόν μου πρὸ
+%     προσώπου σου, ὃς κατασκευάσει τὴν ὁδόν σου.
+%     \vs{3}φωνὴ βοῶντος ἐν τῇ ἐρήμῳ ἑτοιμάσατε τὴν
+%     ὁδὸν κυρίου, εὐθείας ποιεῖτε τὰς τρίβους αὐτοῦ.
+%   \end{hanging}
 % \end{scripture}
 % \end{scriptureexample}
 %
@@ -2758,7 +2774,7 @@
 % \begin{scripture}[Κατά Μάρκον 1:28--30][
 %     hanging/hang=1em, hanging/leftmargin=2em,
 %     hanging/verse/left, hanging/verse/sep=1em,
-%     language=ancientgreek,
+%     language=ancientgreek, verse/sep=0.25em,
 %     verse/font=\sffamily\bfseries, version=THGNT]
 %   \begin{hanging}
 %     \vs{28}Καὶ ἐξῆλθεν ἡ ἀκοὴ αὐτοῦ εὐθὺς πανταχοῦ
@@ -2779,7 +2795,7 @@
 % \begin{scripture}[Κατά Μάρκον 1:28--30][
 %     hanging/hang=1em, hanging/leftmargin=2em,
 %     hanging/verse/left, hanging/verse/sep=1em,
-%     language=ancientgreek,
+%     language=ancientgreek, verse/sep=0.25em,
 %     verse/font=\sffamily\bfseries, version=THGNT]
 %   \begin{hanging}
 %     \vs{28}Καὶ ἐξῆλθεν ἡ ἀκοὴ αὐτοῦ εὐθὺς πανταχοῦ
@@ -3167,6 +3183,26 @@
     , compact                     .bool_set:N         = \l_@@_compact_bool
     , compact                     .default:n          = true
     , compact                     .initial:n          = false
+    , chapter / align             .choices:nn         = { left, right }
+                                                        {
+                                                          \tl_if_exist:NF \l_@@_chapter_align_tl
+                                                            { \tl_new:N \l_@@_chapter_align_tl }
+                                                          \str_case:Vn \l_keys_choice_tl
+                                                            {
+                                                              { left }
+                                                                {
+                                                                  \tl_set:Nn \l_@@_chapter_align_tl
+                                                                    { l }
+                                                                }
+                                                              { right }
+                                                                {
+                                                                  \tl_set:Nn \l_@@_chapter_align_tl
+                                                                    { r }
+                                                                }
+                                                            }
+                                                        }
+    , chapter / align             .value_required:n   = true
+    , chapter / align             .initial:n          = left
     , chapter / font              .tl_set:N           = \l_@@_chap_font_tl
     , chapter / font              .value_required:n   = true
     , chapter / font              .initial:n          = \bfseries
@@ -3184,12 +3220,6 @@
     , chapter / hide              .default:n          = true
     , chapter / nodrop            .bool_set_inverse:N = \l_@@_chap_drop_bool
     , chapter / nodrop            .default:n          = true
-    , chapter / nodropllap        .bool_set:N         = \l_@@_chap_drop_llap_bool
-    , chapter / nodropllap        .default:n          = true
-    , chapter / nodropllap        .initial:n          = false
-    , chapter / nodropsmash       .bool_set:N         = \l_@@_chap_drop_smash_bool
-    , chapter / nodropsmash       .default:n          = true
-    , chapter / nodropsmash       .initial:n          = false
     , chapter / para              .bool_set:N         = \l_@@_chap_para_bool
     , chapter / para              .default:n          = true
     , chapter / para              .initial:n          = false
@@ -3215,6 +3245,34 @@
     , chapter / showverse         .bool_set:N         = \l_@@_chap_show_verse_bool
     , chapter / showverse         .default:n          = true
     , chapter / showverse         .initial:n          = false
+    , chapter / smash             .bool_set:N         = \l_@@_chap_smash_bool
+    , chapter / smash             .default:n          = true
+    , chapter / smash             .initial:n          = false
+    , chapter / valign            .choices:nn         = { bottom, middle, top }
+                                                        {
+                                                          \tl_if_exist:NF \l_@@_chapter_valign_tl
+                                                            { \tl_new:N \l_@@_chapter_valign_tl }
+                                                          \str_case:Vn \l_keys_choice_tl
+                                                            {
+                                                              { bottom }
+                                                                {
+                                                                  \tl_set:Nn \l_@@_chapter_valign_tl
+                                                                    { b }
+                                                                }
+                                                              { middle }
+                                                                {
+                                                                  \tl_set:Nn \l_@@_chapter_valign_tl
+                                                                    { vc }
+                                                                }
+                                                              { top }
+                                                                {
+                                                                  \tl_set:Nn \l_@@_chapter_valign_tl
+                                                                    { t }
+                                                                }
+                                                            }
+                                                        }
+    , chapter / valign            .value_required:n   = true
+    , chapter / valign            .initial:n          = bottom
     , extraskip                   .tl_set:N           = \l_@@_extraskip_tl
     , extraskip                   .value_required:n   = true
     , extraskip                   .initial:n          = \medskipamount
@@ -4382,6 +4440,41 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\l_@@_nodrop_chap_coffin}
+%   Coffin to place non-drop chapters inside.
+%    \begin{macrocode}
+\coffin_new:N \l_@@_nodrop_chap_coffin
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l_@@_nodrop_chap_voffset_dim}
+%   Vertical offset to use when setting non-drop chapters.
+%    \begin{macrocode}
+\dim_new:N \l_@@_nodrop_chap_voffset_dim
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l_@@_X_char_tl}
+%   Character to use for positioning chapters aligned with top of text line.
+%    \begin{macrocode}
+\tl_new:N \l_@@_X_char_tl
+\tl_set:Nn \l_@@_X_char_tl { X }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_get_X_height:}
+%   Calculate the height of \cs{l_@@_X_char_tl} for vertical alignment of
+%   non-drop chapters.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_get_X_height:
+  {
+    \hbox_set:Nn \l_@@_chap_tmp_box { \l_@@_X_char_tl }
+    \dim_set:Nn \l_@@_chap_X_height_dim
+      { \box_ht:N \l_@@_chap_tmp_box }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\@@_drop_chap_set_up:n}
 %   Set up chapter drop cap and calculate its various dimensions.
 %    \begin{macrocode}
@@ -4389,9 +4482,7 @@
   {
     \cs_gset_nopar:Npn \scripturecurrentchapter { #1 }
     \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
-    \hbox_set:Nn \l_@@_chap_tmp_box { X }
-    \dim_set:Nn \l_@@_chap_X_height_dim
-      { \box_ht:N \l_@@_chap_tmp_box }
+    \@@_get_X_height:
     \dim_set:Nn \l_@@_chap_height_dim
       { \baselineskip + \l_@@_chap_X_height_dim }
     \dim_set:Nn \l_@@_chap_fontsize_dim
@@ -4484,26 +4575,6 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\@@_nodrop_chap_print:n}
-%   Actually print a non-drop chapter.
-%    \begin{macrocode}
-\cs_new_protected:Nn \@@_nodrop_chap_print:n
-  {
-    \hook_use:n { scripture / chap / before }
-    \group_begin:
-    \str_if_eq:VnF \l_@@_chapter_colour_tl { . }
-      { \exp_args:NV \color_select:n \l_@@_chapter_colour_tl }
-    \l_@@_chap_font_tl
-    \@@_chap_format:n { #1 }
-    \group_end:
-    \kern \l_@@_chap_sep_tl
-    \nobreak
-    \skip_horizontal:N \c_zero_skip
-    \hook_use:n { scripture / chap / after }
-  }
-%    \end{macrocode}
-% \end{macro}
-%
 % \begin{macro}{\@@_nodrop_chap:n}
 %   Format a non-drop chapter.
 %    \begin{macrocode}
@@ -4519,39 +4590,45 @@
       }
     \bool_if:NTF \l_@@_chap_show_bool
       {
-        \bool_if:NTF \l_@@_chap_drop_llap_bool
+        \@@_get_X_height:
+        \hcoffin_set:Nn \l_@@_nodrop_chap_coffin
           {
-            \strut
-            \bool_if:NTF \l_@@_chap_drop_smash_bool
+            \str_if_eq:VnF \l_@@_chapter_colour_tl { . }
+              { \exp_args:NV \color_select:n \l_@@_chapter_colour_tl }
+            \l_@@_chap_font_tl
+            \@@_chap_format:n { #1 }
+            \kern \l_@@_chap_sep_tl
+          }
+        \dim_zero:N \l_@@_nodrop_chap_voffset_dim
+        \tl_if_eq:NnT \l_@@_chapter_valign_tl { t }
+          { \dim_set_eq:NN \l_@@_nodrop_chap_voffset_dim \l_@@_chap_X_height_dim }
+        \tl_if_eq:NnT \l_@@_chapter_valign_tl { vc }
+          { \dim_set:Nn \l_@@_nodrop_chap_voffset_dim { 0.5 \l_@@_chap_X_height_dim } }
+        \hook_use:n { scripture / chap / before }
+        \bool_if:NTF \l_@@_chap_smash_bool
+          {
+            \mode_leave_vertical:
+            \smash
               {
-                \smash
-                  {
-                    \llap
-                      {
-                        \@@_nodrop_chap_print:n { #1 }
-                      }
-                  }
-              }
-              {
-                \llap
-                  {
-                    \@@_nodrop_chap_print:n { #1 }
-                  }
+                \exp_args:NNoo
+                  \coffin_typeset:Nnnnn \l_@@_nodrop_chap_coffin
+                    { \l_@@_chapter_align_tl }
+                    { \l_@@_chapter_valign_tl }
+                    { 0pt }
+                    { \l_@@_nodrop_chap_voffset_dim }
               }
           }
           {
-            \bool_if:NTF \l_@@_chap_drop_smash_bool
-              {
-                \strut
-                \smash
-                  {
-                    \@@_nodrop_chap_print:n { #1 }
-                  }
-              }
-              {
-                \@@_nodrop_chap_print:n { #1 }
-              }
+            \exp_args:NNoo
+              \coffin_typeset:Nnnnn \l_@@_nodrop_chap_coffin
+                { \l_@@_chapter_align_tl }
+                { \l_@@_chapter_valign_tl }
+                { 0pt }
+                { \l_@@_nodrop_chap_voffset_dim }
           }
+        \nobreak
+        \skip_horizontal:N \c_zero_skip
+        \hook_use:n { scripture / chap / after }
         \bool_if:NT \l_@@_chap_show_verse_bool
           {
             \@@_verse_output:n { 1 }

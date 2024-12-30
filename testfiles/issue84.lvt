@@ -1,27 +1,35 @@
 \documentclass[a4paper]{article}
 \input{regression-test}
-\usepackage[polutonikogreek]{babel}
+\usepackage[english,polutonikogreek]{babel}
 \usepackage{scripture}
 \scripturesetup{
   aboveskip=\bigskipamount,
   belowskip=\bigskipamount,
-  leftmargin=2em,
-  rightmargin=2em,
   hanging/hang=1em,
-  hanging/leftmargin=2em,
+  hanging/leftmargin=-1em,
   hanging/verse/sep=1em,
   verse/font=\sffamily\bfseries,
+  chapter/align=right,
   chapter/nodrop,
-  chapter/nodropllap,
-  chapter/nodropsmash,
+  chapter/smash,
   chapter/font=\huge\bfseries,
-  chapter/format=\raisebox{-.7ex}{#1}
+  chapter/valign=top,
+  verse/sep=0.25em,
+  version=\foreignlanguage{english}{THGNT}
 }
+\DeclareSymbolFont{txsymbols}{OMS}{txsy}{m}{n}
+\DeclareMathSymbol{\aleph}{\mathord}{txsymbols}{64}
 \pagestyle{empty}
 \begin{document}
 \START
 \showoutput
-\begin{scripture}
+\begin{center}
+  \Huge\bfseries ΕΥΑΓΓΕΛΙΟΝ\\ ΚΑΤΑ ΜΑΡΚΟΝ
+\end{center}
+
+\bigskip
+
+\begin{scripture}[Κατά Μάρκον 1:1--3]
   \begin{hanging}
     \ch{1}Ἀρχὴ τοῦ εὐαγγελίου Ἰησοῦ χριστοῦ υἱοῦ θεοῦ· \vs{2}καθὼς γέγραπται
     ἐν τῷ Ἡσαΐᾳ τῷ προφήτῃ· ἰδοὺ ἀποστέλλω τὸν ἄγγελόν μου πρὸ προσώπου σου,
@@ -30,15 +38,23 @@
   \end{hanging}
 \end{scripture}
 
-\begin{scripture}
+\begin{scripture}[Κατά Μάρκον 1:28--31]
   \begin{hanging}
     \vs{28}Καὶ ἐξῆλθεν ἡ ἀκοὴ αὐτοῦ εὐθὺς πανταχοῦ εἰς ὅλην τὴν περίχωρον τῆς
     Γαλιλαίας.
 
     \vs{29}Καὶ εὐθὺς ἐκ τῆς συναγωγῆς ἐξελθόντες ἦλθον εἰς τὴν οἰκίαν Σίμωνος
     καὶ Ἀνδρέου μετὰ Ἰακώβου καὶ Ἰωάννου. \vs{30}ἡ δὲ πενθερὰ Σίμωνος
-    κατέκειτο πυρέσσουσα, καὶ εὐθὺς λέγουσιν αὐτῷ περὶ αὐτῆς.
+    κατέκειτο πυρέσσουσα, καὶ εὐθὺς λέγουσιν αὐτῷ περὶ αὐτῆς. \vs{31}καὶ
+    προσελθὼν ἤγειρεν αὐτὴν κρατήσας τῆς χειρός· καὶ ἀφῆκεν αὐτὴν ὁ πυρετός,
+    καὶ διηκόνει αὐτοῖς.
   \end{hanging}
 \end{scripture}
+
+\bigskip
+
+\noindent\footnotesize\textsuperscript{\sffamily\bfseries 1:31}
+\textbf{χειρός} $\aleph$ \foreignlanguage{english}{B L; \emph{add}} αυτης
+\foreignlanguage{english}{A C K} Δ Θ 69 1424
 \end{document}
 \end{document}
