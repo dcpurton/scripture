@@ -5339,7 +5339,7 @@ Completed box being shipped out [2]
 ....\glue(\rightskip) 0.0
 ...\penalty 50
 ...\glue(\baselineskip) 3.11111
-...\hbox(6.94444+1.94444)x345.0, glue set 3.7217fil
+...\hbox(6.94444+1.94444)x345.0, glue set 2.97173fil
 ....\OT1/cmr/m/n/10 t
 ....\OT1/cmr/m/n/10 h
 ....\OT1/cmr/m/n/10 e
@@ -5363,9 +5363,16 @@ Completed box being shipped out [2]
 ....\OT1/cmr/m/n/10 d
 ....\OT1/cmr/m/n/10 .
 ....\glue 4.44444 plus 4.99997 minus 0.37036
-....\OT1/cmr/bx/n/10 1
-....\OT1/cmr/bx/n/10 1
-....\kern 5.0
+....\hbox(6.44444+0.0)x17.24991
+.....\hbox(0.0+0.0)x0.0
+.....\kern 0.0
+.....\kern 0.0
+.....\hbox(6.44444+0.0)x17.24991
+......\pdfcolorstack 0 push {0 g 0 G}
+......\OT1/cmr/bx/n/10 1
+......\OT1/cmr/bx/n/10 1
+......\kern 5.74997
+......\pdfcolorstack 0 pop
 ....\penalty 10000
 ....\glue 0.0
 ....\OT1/cmr/m/n/10 F
@@ -6142,10 +6149,17 @@ Completed box being shipped out [3]
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 2.55556
-...\hbox(6.94444+1.94444)x345.0, glue set 0.58578
+...\hbox(6.94444+1.94444)x345.0, glue set 0.55246
 ....\hbox(0.0+0.0)x15.0
-....\OT1/cmr/bx/n/10 1
-....\kern 5.0
+....\hbox(6.44444+0.0)x11.49994
+.....\hbox(0.0+0.0)x0.0
+.....\kern 0.0
+.....\kern 0.0
+.....\hbox(6.44444+0.0)x11.49994
+......\pdfcolorstack 0 push {0 g 0 G}
+......\OT1/cmr/bx/n/10 1
+......\kern 5.74997
+......\pdfcolorstack 0 pop
 ....\penalty 10000
 ....\glue 0.0
 ....\OT1/cmr/m/n/10 I
@@ -6516,10 +6530,17 @@ Completed box being shipped out [3]
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 2.55556
-...\hbox(6.94444+1.94444)x345.0, glue set - 0.13712
+...\hbox(6.94444+1.94444)x345.0, glue set - 0.18065
 ....\hbox(0.0+0.0)x15.0
-....\OT1/cmr/bx/n/10 5
-....\kern 5.0
+....\hbox(6.44444+0.0)x11.49994
+.....\hbox(0.0+0.0)x0.0
+.....\kern 0.0
+.....\kern 0.0
+.....\hbox(6.44444+0.0)x11.49994
+......\pdfcolorstack 0 push {0 g 0 G}
+......\OT1/cmr/bx/n/10 5
+......\kern 5.74997
+......\pdfcolorstack 0 pop
 ....\penalty 10000
 ....\glue 0.0
 ....\OT1/cmr/m/n/10 I
@@ -7212,7 +7233,7 @@ Completed box being shipped out [3]
 ....\OT1/cmr/m/n/10 g
 ....\glue(\rightskip) 0.0
 ...\glue(\baselineskip) 3.11111
-...\hbox(6.94444+1.94444)x345.0, glue set - 0.0938
+...\hbox(6.94444+1.94444)x345.0, glue set - 0.14154
 ....\OT1/cmr/m/n/10 m
 ....\kern-0.27779
 ....\OT1/cmr/m/n/10 y
@@ -7286,9 +7307,16 @@ Completed box being shipped out [3]
 ....\OT1/cmr/m/n/10 d
 ....\OT1/cmr/m/n/10 .
 ....\glue 4.44444 plus 4.99997 minus 0.37036
-....\OT1/cmr/bx/n/10 1
-....\OT1/cmr/bx/n/10 1
-....\kern 5.0
+....\hbox(6.44444+0.0)x17.24991
+.....\hbox(0.0+0.0)x0.0
+.....\kern 0.0
+.....\kern 0.0
+.....\hbox(6.44444+0.0)x17.24991
+......\pdfcolorstack 0 push {0 g 0 G}
+......\OT1/cmr/bx/n/10 1
+......\OT1/cmr/bx/n/10 1
+......\kern 5.74997
+......\pdfcolorstack 0 pop
 ....\penalty 10000
 ....\glue 0.0
 ....\OT1/cmr/m/n/10 F
@@ -7416,10 +7444,17 @@ Completed box being shipped out [3]
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 1.35997
-...\hbox(8.14003+1.94444)x345.0, glue set - 0.16328
+...\hbox(8.14003+1.94444)x345.0, glue set - 0.22284
 ....\hbox(0.0+0.0)x15.0
-....\OT1/cmr/bx/n/10 1
-....\kern 5.0
+....\hbox(6.44444+0.0)x11.49994
+.....\hbox(0.0+0.0)x0.0
+.....\kern 0.0
+.....\kern 0.0
+.....\hbox(6.44444+0.0)x11.49994
+......\pdfcolorstack 0 push {0 g 0 G}
+......\OT1/cmr/bx/n/10 1
+......\kern 5.74997
+......\pdfcolorstack 0 pop
 ....\penalty 10000
 ....\glue 0.0
 ....\OT1/cmr/m/n/10 I
@@ -8291,10 +8326,17 @@ Completed box being shipped out [3]
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 5.05556
-...\hbox(6.94444+1.94444)x345.0, glue set - 0.13712
+...\hbox(6.94444+1.94444)x345.0, glue set - 0.18065
 ....\hbox(0.0+0.0)x15.0
-....\OT1/cmr/bx/n/10 5
-....\kern 5.0
+....\hbox(6.44444+0.0)x11.49994
+.....\hbox(0.0+0.0)x0.0
+.....\kern 0.0
+.....\kern 0.0
+.....\hbox(6.44444+0.0)x11.49994
+......\pdfcolorstack 0 push {0 g 0 G}
+......\OT1/cmr/bx/n/10 5
+......\kern 5.74997
+......\pdfcolorstack 0 pop
 ....\penalty 10000
 ....\glue 0.0
 ....\OT1/cmr/m/n/10 I

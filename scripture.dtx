@@ -15,8 +15,11 @@
 \documentclass[a4paper]{l3doc}
 \usepackage[bidi=basic, layout=lists]{babel}
 \babelprovide[import, main]{australian}
+\babelprovide[import, onchar=ids fonts]{ancientgreek}
 \babelprovide[import, onchar=ids fonts]{japanese}
 \babelprovide[import, mapdigits, onchar=ids fonts]{persian}
+\babelfont[ancientgreek]{rm}[BoldFont=NewCM10-Bold]{NewCM10-Regular}
+\babelfont[ancientgreek]{tt}{NewCMMono10-Regular}
 \babelfont[japanese]{tt}[Scale=.9]{IPAMincho}
 \babelfont[persian]{rm}[Renderer = Harfbuzz]{Amiri}
 \babelfont[persian]{tt}[Renderer = Harfbuzz, Scale=.75]{Kawkab Mono Regular}
@@ -44,6 +47,12 @@
 }
 \ExplSyntaxOn
 \makeatletter
+\hook_gput_code:nnn
+  { env / scripture / begin }
+  { scripturedoc }
+  {
+    \cs_set_eq:NN \list \__codedoc_oldlist:nn
+  }
 \cs_new_protected:Npn \__dcp_codedoc_environment_index:n #1
   {
     \@bsphack
@@ -1287,6 +1296,17 @@
 %   \meta{|skip|} inserted below the \env{scripture} environment.
 % \end{option}
 %
+% \changes{v2.1}{2024/12/30}{Add \opt{chapter/align} option}
+% \begin{option}[added=2024-12-30]{chapter/align}
+%   \begin{syntax}
+%     chapter/align = left \textbar\ right\hfill Default: left
+%   \end{syntax}
+%   When \opt{chapter/align} is set to \val{right} a chapter will overlap to
+%   the left when \opt{chapter/nodrop} is set.
+%
+%   See also \opt{chapter/valign}.
+% \end{option}
+%
 % \changes{v1.2}{2022/09/07}{Add \opt{chapter/colour} option}
 % \begin{option}[added=2022-09-07]{chapter/colour, chapter/color}
 %   \begin{syntax}
@@ -1391,6 +1411,17 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
+% \changes{v2.1}{2024/12/30}{Add \opt{chapter/smash} option}
+% \begin{option}[added=2024-12-30]{chapter/smash}
+%   \begin{syntax}
+%     chapter/smash = \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   Whether a chapter should be wrapped in \cs{smash} when
+%   \opt{chapter/nodrop} is set. This allows the chapter number to be larger
+%   than the line height without affecting line spacing. The value of
+%   \meta{|boolean|} is optional and assumed to be \val{true} if not present.
+% \end{option}
+%
 % \changes{v2.1}{2023/01/04}{Add \opt{chapter/para} option}
 % \begin{option}[added=2023-01-05]{chapter/para}
 %   \begin{syntax}
@@ -1494,6 +1525,73 @@
 % \begin{scripture}[John 1:1][chapter/showverse]
 %   \ch{1}In the beginning was the Word, and the
 %   Word was with God, and the Word was God.
+% \end{scripture}
+% \end{scriptureexample}
+%
+% \changes{v2.1}{2024/12/30}{Add \opt{chapter/valign} option}
+% \begin{option}[added=2024-12-30]{chapter/valign}
+%   \begin{syntax}
+%     chapter/align = bottom \textbar\ middle \textbar\ top\hfill Default: bottom
+%   \end{syntax}
+%   Sets how a chapter will align vertically when \opt{chapter/nodrop} is set.
+%   \begin{itemize}
+%     \item \val{bottom}: Chapter will align at the text base line.
+%     \item \val{middle}: Chapter will align at the center of text.
+%     \item \val{top}: Chapter will align at the top of text.
+%   \end{itemize}
+%
+%   See also \opt{chapter/align}.
+% \end{option}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \documentclass{article}
+% \usepackage{babel}
+% \babelprovide[import, main]{english}
+% \babelprovide[import,
+%   onchar=ids fonts]{ancientgreek}
+% \babelfont[ancientgreek]{rm}[
+%   BoldFont=NewCM10-Bold]{NewCM10-Regular}
+% \usepackage{scripture}
+% \begin{document}
+% \begin{scripture}[Κατά Μάρκον 1:1--3][
+%     chapter/font=\huge\bfseries,
+%     chapter/align=right, chapter/nodrop,
+%     chapter/smash, chapter/valign=top,
+%     hanging/hang=1em, hanging/leftmargin=2em,
+%     hanging/verse/sep=1em, language=ancientgreek,
+%     verse/font=\sffamily\bfseries,
+%     verse/sep=0.25em, version=THGNT]
+%   \begin{hanging}
+%     \ch{1}Ἀρχὴ τοῦ εὐαγγελίου Ἰησοῦ χριστοῦ υἱοῦ
+%     θεοῦ· \vs{2}καθὼς γέγραπται ἐν τῷ Ἡσαΐᾳ τῷ
+%     προφήτῃ· ἰδοὺ ἀποστέλλω τὸν ἄγγελόν μου πρὸ
+%     προσώπου σου, ὃς κατασκευάσει τὴν ὁδόν σου.
+%     \vs{3}φωνὴ βοῶντος ἐν τῇ ἐρήμῳ ἑτοιμάσατε τὴν
+%     ὁδὸν κυρίου, εὐθείας ποιεῖτε τὰς τρίβους αὐτοῦ.
+%   \end{hanging}
+% \end{scripture}
+% \end{document}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[Κατά Μάρκον 1:1--3][
+%     chapter/font=\huge\bfseries,
+%     chapter/align=right, chapter/nodrop,
+%     chapter/smash, chapter/valign=top,
+%     hanging/hang=1em, hanging/leftmargin=2em,
+%     hanging/verse/sep=1em, language=ancientgreek,
+%     verse/font=\sffamily\bfseries,
+%     verse/sep=0.25em, version=THGNT]
+%   \begin{hanging}
+%     \ch{1}Ἀρχὴ τοῦ εὐαγγελίου Ἰησοῦ χριστοῦ υἱοῦ
+%     θεοῦ· \vs{2}καθὼς γέγραπται ἐν τῷ Ἡσαΐᾳ τῷ
+%     προφήτῃ· ἰδοὺ ἀποστέλλω τὸν ἄγγελόν μου πρὸ
+%     προσώπου σου, ὃς κατασκευάσει τὴν ὁδόν σου.
+%     \vs{3}φωνὴ βοῶντος ἐν τῇ ἐρήμῳ ἑτοιμάσατε τὴν
+%     ὁδὸν κυρίου, εὐθείας ποιεῖτε τὰς τρίβους αὐτοῦ.
+%   \end{hanging}
 % \end{scripture}
 % \end{scriptureexample}
 %
@@ -2652,6 +2750,87 @@
 %   \meta{|dimen|} used for the right margin of the \env{hanging} environment.
 % \end{option}
 %
+% \changes{v2.1}{2024/12/17}{Add \opt{hanging/verse/left} option}
+% \begin{option}[added=2024-12-17]{hanging/verse/left}
+%   \begin{syntax}
+%     hanging/verse/left = \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   Align verse numbers in \env{hanging} environments at the left margin of
+%   the \env{hanging} environment. This is only used for verses at the start
+%   of a paragraph. This option is the opposite of \opt{hanging/verse/right}.
+% \end{option}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \documentclass{article}
+% \usepackage{babel}
+% \babelprovide[import, main]{english}
+% \babelprovide[import,
+%   onchar=ids fonts]{ancientgreek}
+% \babelfont[ancientgreek]{rm}[
+%   BoldFont=NewCM10-Bold]{NewCM10-Regular}
+% \usepackage{scripture}
+% \begin{document}
+% \begin{scripture}[Κατά Μάρκον 1:28--30][
+%     hanging/hang=1em, hanging/leftmargin=2em,
+%     hanging/verse/left, hanging/verse/sep=1em,
+%     language=ancientgreek, verse/sep=0.25em,
+%     verse/font=\sffamily\bfseries, version=THGNT]
+%   \begin{hanging}
+%     \vs{28}Καὶ ἐξῆλθεν ἡ ἀκοὴ αὐτοῦ εὐθὺς πανταχοῦ
+%     εἰς ὅλην τὴν περίχωρον τῆς Γαλιλαίας.
+%
+%     \vs{29}Καὶ εὐθὺς ἐκ τῆς συναγωγῆς ἐξελθόντες
+%     ἦλθον εἰς τὴν οἰκίαν Σίμωνος καὶ Ἀνδρέου μετὰ
+%     Ἰακώβου καὶ Ἰωάννου. \vs{30}ἡ δὲ πενθερὰ
+%     Σίμωνος κατέκειτο πυρέσσουσα, καὶ εὐθὺς
+%     λέγουσιν αὐτῷ περὶ αὐτῆς.
+%   \end{hanging}
+% \end{scripture}
+% \end{document}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[Κατά Μάρκον 1:28--30][
+%     hanging/hang=1em, hanging/leftmargin=2em,
+%     hanging/verse/left, hanging/verse/sep=1em,
+%     language=ancientgreek, verse/sep=0.25em,
+%     verse/font=\sffamily\bfseries, version=THGNT]
+%   \begin{hanging}
+%     \vs{28}Καὶ ἐξῆλθεν ἡ ἀκοὴ αὐτοῦ εὐθὺς πανταχοῦ
+%     εἰς ὅλην τὴν περίχωρον τῆς Γαλιλαίας.
+%
+%     \vs{29}Καὶ εὐθὺς ἐκ τῆς συναγωγῆς ἐξελθόντες
+%     ἦλθον εἰς τὴν οἰκίαν Σίμωνος καὶ Ἀνδρέου μετὰ
+%     Ἰακώβου καὶ Ἰωάννου. \vs{30}ἡ δὲ πενθερὰ
+%     Σίμωνος κατέκειτο πυρέσσουσα, καὶ εὐθὺς
+%     λέγουσιν αὐτῷ περὶ αὐτῆς.
+%   \end{hanging}
+% \end{scripture}
+% \end{scriptureexample}
+%
+% \changes{v2.1}{2024/12/17}{Add \opt{hanging/verse/right} option}
+% \begin{option}[added=2024-12-17]{hanging/verse/right}
+%   \begin{syntax}
+%     hanging/verse/right = \meta{boolean} \hfill Default: true
+%   \end{syntax}
+%   Align verse numbers in \env{hanging} environments at the left margin of
+%   the \env{hanging} environment. The verse numbers overlap to the left. This
+%   is only used for verses at the start of a paragraph. This option is the
+%   opposite of \opt{hanging/verse/left}.
+% \end{option}
+%
+% \changes{v2.1}{2024/12/17}{Add \opt{hanging/verse/sep} option}
+% \begin{option}[added=2024-12-17]{hanging/verse/sep}
+%   \begin{syntax}
+%     hanging/verse/sep = \meta{dimen} \hfill Default: 0.05 em
+%   \end{syntax}
+%   \meta{|dimen|} used to separate a \cs{vs} from the following text in a
+%   \env{hanging} environment. This is only used for verses at the start of a
+%   paragraph.
+% \end{option}
+%
 % \subsubsection{Options for the \env{midparachap} environment}
 % \label{midparachapoptions}
 %
@@ -3004,6 +3183,26 @@
     , compact                     .bool_set:N         = \l_@@_compact_bool
     , compact                     .default:n          = true
     , compact                     .initial:n          = false
+    , chapter / align             .choices:nn         = { left, right }
+                                                        {
+                                                          \tl_if_exist:NF \l_@@_chapter_align_tl
+                                                            { \tl_new:N \l_@@_chapter_align_tl }
+                                                          \str_case:Vn \l_keys_choice_tl
+                                                            {
+                                                              { left }
+                                                                {
+                                                                  \tl_set:Nn \l_@@_chapter_align_tl
+                                                                    { l }
+                                                                }
+                                                              { right }
+                                                                {
+                                                                  \tl_set:Nn \l_@@_chapter_align_tl
+                                                                    { r }
+                                                                }
+                                                            }
+                                                        }
+    , chapter / align             .value_required:n   = true
+    , chapter / align             .initial:n          = left
     , chapter / font              .tl_set:N           = \l_@@_chap_font_tl
     , chapter / font              .value_required:n   = true
     , chapter / font              .initial:n          = \bfseries
@@ -3046,6 +3245,34 @@
     , chapter / showverse         .bool_set:N         = \l_@@_chap_show_verse_bool
     , chapter / showverse         .default:n          = true
     , chapter / showverse         .initial:n          = false
+    , chapter / smash             .bool_set:N         = \l_@@_chap_smash_bool
+    , chapter / smash             .default:n          = true
+    , chapter / smash             .initial:n          = false
+    , chapter / valign            .choices:nn         = { bottom, middle, top }
+                                                        {
+                                                          \tl_if_exist:NF \l_@@_chapter_valign_tl
+                                                            { \tl_new:N \l_@@_chapter_valign_tl }
+                                                          \str_case:Vn \l_keys_choice_tl
+                                                            {
+                                                              { bottom }
+                                                                {
+                                                                  \tl_set:Nn \l_@@_chapter_valign_tl
+                                                                    { b }
+                                                                }
+                                                              { middle }
+                                                                {
+                                                                  \tl_set:Nn \l_@@_chapter_valign_tl
+                                                                    { vc }
+                                                                }
+                                                              { top }
+                                                                {
+                                                                  \tl_set:Nn \l_@@_chapter_valign_tl
+                                                                    { t }
+                                                                }
+                                                            }
+                                                        }
+    , chapter / valign            .value_required:n   = true
+    , chapter / valign            .initial:n          = bottom
     , extraskip                   .tl_set:N           = \l_@@_extraskip_tl
     , extraskip                   .value_required:n   = true
     , extraskip                   .initial:n          = \medskipamount
@@ -3320,6 +3547,14 @@
     , hanging / rightmargin       .tl_set:N           = \l_@@_hanging_rightmargin_tl
     , hanging / rightmargin       .value_required:n   = true
     , hanging / rightmargin       .initial:n          = \c_zero_dim
+    , hanging / verse / left      .bool_set_inverse:N = \l_@@_hanging_verse_right_bool
+    , hanging / verse / left      .default:n          = true
+    , hanging / verse / right     .bool_set:N         = \l_@@_hanging_verse_right_bool
+    , hanging / verse / right     .default:n          = true
+    , hanging / verse / right     .initial:n          = true
+    , hanging / verse / sep       .tl_set:N           = \l_@@_hanging_verse_sep_tl
+    , hanging / verse / sep       .value_required:n   = true
+    , hanging / verse / sep       .initial:n          = 0.05 em
 %    \end{macrocode}
 % Options for the mid-paragraph chapters (including the \env{midparachap} environment).
 %    \begin{macrocode}
@@ -4205,6 +4440,41 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\l_@@_nodrop_chap_coffin}
+%   Coffin to place non-drop chapters inside.
+%    \begin{macrocode}
+\coffin_new:N \l_@@_nodrop_chap_coffin
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l_@@_nodrop_chap_voffset_dim}
+%   Vertical offset to use when setting non-drop chapters.
+%    \begin{macrocode}
+\dim_new:N \l_@@_nodrop_chap_voffset_dim
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l_@@_X_char_tl}
+%   Character to use for positioning chapters aligned with top of text line.
+%    \begin{macrocode}
+\tl_new:N \l_@@_X_char_tl
+\tl_set:Nn \l_@@_X_char_tl { X }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_get_X_height:}
+%   Calculate the height of \cs{l_@@_X_char_tl} for vertical alignment of
+%   non-drop chapters.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_get_X_height:
+  {
+    \hbox_set:Nn \l_@@_chap_tmp_box { \l_@@_X_char_tl }
+    \dim_set:Nn \l_@@_chap_X_height_dim
+      { \box_ht:N \l_@@_chap_tmp_box }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\@@_drop_chap_set_up:n}
 %   Set up chapter drop cap and calculate its various dimensions.
 %    \begin{macrocode}
@@ -4212,9 +4482,7 @@
   {
     \cs_gset_nopar:Npn \scripturecurrentchapter { #1 }
     \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
-    \hbox_set:Nn \l_@@_chap_tmp_box { X }
-    \dim_set:Nn \l_@@_chap_X_height_dim
-      { \box_ht:N \l_@@_chap_tmp_box }
+    \@@_get_X_height:
     \dim_set:Nn \l_@@_chap_height_dim
       { \baselineskip + \l_@@_chap_X_height_dim }
     \dim_set:Nn \l_@@_chap_fontsize_dim
@@ -4322,14 +4590,42 @@
       }
     \bool_if:NTF \l_@@_chap_show_bool
       {
+        \@@_get_X_height:
+        \hcoffin_set:Nn \l_@@_nodrop_chap_coffin
+          {
+            \str_if_eq:VnF \l_@@_chapter_colour_tl { . }
+              { \exp_args:NV \color_select:n \l_@@_chapter_colour_tl }
+            \l_@@_chap_font_tl
+            \@@_chap_format:n { #1 }
+            \kern \l_@@_chap_sep_tl
+          }
+        \dim_zero:N \l_@@_nodrop_chap_voffset_dim
+        \tl_if_eq:NnT \l_@@_chapter_valign_tl { t }
+          { \dim_set_eq:NN \l_@@_nodrop_chap_voffset_dim \l_@@_chap_X_height_dim }
+        \tl_if_eq:NnT \l_@@_chapter_valign_tl { vc }
+          { \dim_set:Nn \l_@@_nodrop_chap_voffset_dim { 0.5 \l_@@_chap_X_height_dim } }
         \hook_use:n { scripture / chap / before }
-        \group_begin:
-        \str_if_eq:VnF \l_@@_chapter_colour_tl { . }
-          { \exp_args:NV \color_select:n \l_@@_chapter_colour_tl }
-        \l_@@_chap_font_tl
-        \@@_chap_format:n { #1 }
-        \group_end:
-        \kern \l_@@_chap_sep_tl
+        \bool_if:NTF \l_@@_chap_smash_bool
+          {
+            \mode_leave_vertical:
+            \smash
+              {
+                \exp_args:NNoo
+                  \coffin_typeset:Nnnnn \l_@@_nodrop_chap_coffin
+                    { \l_@@_chapter_align_tl }
+                    { \l_@@_chapter_valign_tl }
+                    { 0pt }
+                    { \l_@@_nodrop_chap_voffset_dim }
+              }
+          }
+          {
+            \exp_args:NNoo
+              \coffin_typeset:Nnnnn \l_@@_nodrop_chap_coffin
+                { \l_@@_chapter_align_tl }
+                { \l_@@_chapter_valign_tl }
+                { 0pt }
+                { \l_@@_nodrop_chap_voffset_dim }
+          }
         \nobreak
         \skip_horizontal:N \c_zero_skip
         \hook_use:n { scripture / chap / after }
@@ -5460,25 +5756,54 @@
   {
     \mode_if_vertical:TF
       {
+        \tl_set_eq:NN \l_tmpa_tl \l_@@_verse_sep_tl
+        \tl_set_eq:NN \l_@@_verse_sep_tl \l_@@_hanging_verse_sep_tl
         \bool_lazy_and:nnTF
           { \legacy_if_p:n { @newlist } }
           { \g_@@_suppress_next_pilcrow_bool }
           {
             \strut
-            \hbox_overlap_left:n
+            \bool_if:NTF \l_@@_hanging_verse_right_bool
               {
-                \@@_verse_output:n { #1 }
+                \hbox_overlap_left:n
+                  {
+                    \@@_verse_output:n { #1 }
+                  }
+              }
+              {
+                \hbox_overlap_left:n
+                  {
+                    \hbox_overlap_right:n
+                      {
+                        \@@_verse_output:n { #1 }
+                      }
+                    \skip_horizontal:N \l_@@_hanging_leftmargin_tl
+                  }
               }
           }
           {
             \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
             \strut
-            \hbox_overlap_left:n
+            \bool_if:NTF \l_@@_hanging_verse_right_bool
               {
-                \@@_verse_output:n { #1 }
+                \hbox_overlap_left:n
+                  {
+                    \@@_verse_output:n { #1 }
+                  }
+              }
+              {
+                \hbox_overlap_left:n
+                  {
+                    \hbox_overlap_right:n
+                      {
+                        \@@_verse_output:n { #1 }
+                      }
+                    \skip_horizontal:N \l_@@_hanging_leftmargin_tl
+                  }
               }
             \@@_pilcrow_output:
           }
+        \tl_set_eq:NN \l_@@_verse_sep_tl \l_tmpa_tl
       }
       { \@@_verse_output:n { #1 } }
   }
@@ -6673,6 +6998,8 @@
         \bool_if:NF \l_@@_verse_para_bool
           {
             \bool_set_false:N \l_@@_chap_drop_bool
+            \bool_set_false:N \l_@@_chap_drop_llap_bool
+            \bool_set_false:N \l_@@_chap_drop_smash_bool
             \bool_set_false:N \l_@@_chap_para_bool
             \cs_set_eq:NN \vs \@@_verse_compact_output:n
           }

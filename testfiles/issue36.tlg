@@ -2212,7 +2212,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 3.85997
-...\hbox(8.14003+1.94444)x345.0, glue set 0.36418
+...\hbox(8.14003+1.94444)x345.0, glue set 0.33084
 ....\hbox(0.0+0.0)x15.0
 .....\glue 15.0
 .....\glue -20.00003
@@ -2221,8 +2221,15 @@ Completed box being shipped out [1]
 ......\glue 0.0 plus 1.0fil
 .....\glue 5.0
 ....\penalty 0
-....\OT1/cmr/bx/n/10 1
-....\kern 5.0
+....\hbox(6.44444+0.0)x11.49994
+.....\hbox(0.0+0.0)x0.0
+.....\kern 0.0
+.....\kern 0.0
+.....\hbox(6.44444+0.0)x11.49994
+......\pdfcolorstack 0 push {0 g 0 G}
+......\OT1/cmr/bx/n/10 1
+......\kern 5.74997
+......\pdfcolorstack 0 pop
 ....\penalty 10000
 ....\glue 0.0
 ....\mathon
@@ -2632,7 +2639,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 3.85997
-...\hbox(8.14003+1.94444)x314.99995, glue set 70.19398fil, shifted 30.00005
+...\hbox(8.14003+1.94444)x314.99995, glue set 69.44402fil, shifted 30.00005
 ....\hbox(0.0+0.0)x-20.00003
 .....\glue -30.00005
 .....\glue 15.0
@@ -2649,8 +2656,15 @@ Completed box being shipped out [1]
 ......\glue 0.0 plus 1.0fil
 .....\glue 0.0
 ....\penalty 0
-....\OT1/cmr/bx/n/10 1
-....\kern 5.0
+....\hbox(6.44444+0.0)x11.49994
+.....\hbox(0.0+0.0)x0.0
+.....\kern 0.0
+.....\kern 0.0
+.....\hbox(6.44444+0.0)x11.49994
+......\pdfcolorstack 0 push {0 g 0 G}
+......\OT1/cmr/bx/n/10 1
+......\kern 5.74997
+......\pdfcolorstack 0 pop
 ....\penalty 10000
 ....\glue 0.0
 ....\mathon
@@ -3079,7 +3093,7 @@ Completed box being shipped out [2]
 .....\OT1/cmr/m/n/10 g
 .....\glue(\rightskip) 0.0
 ....\glue(\baselineskip) 1.91553
-....\hbox(8.14003+1.94444)x345.0, glue set 0.3769
+....\hbox(8.14003+1.94444)x345.0, glue set 0.34921
 .....\OT1/cmr/m/n/10 m
 .....\kern-0.27779
 .....\OT1/cmr/m/n/10 y
@@ -3153,9 +3167,16 @@ Completed box being shipped out [2]
 .....\OT1/cmr/m/n/10 d
 .....\OT1/cmr/m/n/10 .
 .....\glue 4.44444 plus 4.99997 minus 0.37036
-.....\OT1/cmr/bx/n/10 1
-.....\OT1/cmr/bx/n/10 1
-.....\kern 5.0
+.....\hbox(6.44444+0.0)x17.24991
+......\hbox(0.0+0.0)x0.0
+......\kern 0.0
+......\kern 0.0
+......\hbox(6.44444+0.0)x17.24991
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\OT1/cmr/bx/n/10 1
+.......\OT1/cmr/bx/n/10 1
+.......\kern 5.74997
+.......\pdfcolorstack 0 pop
 .....\penalty 10000
 .....\glue 0.0
 .....\mathon

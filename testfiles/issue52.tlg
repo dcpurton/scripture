@@ -1047,7 +1047,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 2.6134
-...\hbox(6.8872+1.94397)x345.0, glue set 0.15948
+...\hbox(6.8872+1.94397)x345.0, glue set 0.12488
 ....\hbox(0.0+0.0)x15.0
 ....\T1/cmr/m/n/10 L
 ....\T1/cmr/m/n/10 e
@@ -1067,8 +1067,15 @@ Completed box being shipped out [1]
 ....\T1/cmr/m/n/10 ^^R (ligature ,,)
 ....\kern0.83313
 ....\kern 1.6663
-....\T1/cmr/bx/n/10 1
-....\kern 4.99878
+....\hbox(6.48453+0.0)x11.4972
+.....\hbox(0.0+0.0)x0.0
+.....\kern 0.0
+.....\kern 0.0
+.....\hbox(6.48453+0.0)x11.4972
+......\pdfcolorstack 0 push {0.0 0.0 1.0 rg 0.0 0.0 1.0 RG}
+......\T1/cmr/bx/n/10 1
+......\kern 5.7486
+......\pdfcolorstack 0 pop
 ....\penalty 10000
 ....\glue 0.0
 ....\T1/cmr/m/n/10 I
@@ -2051,10 +2058,17 @@ Completed box being shipped out [1]
 ....\T1/cmr/m/n/10 .
 ....\glue(\rightskip) 0.0
 ...\glue(\baselineskip) 2.55786
-...\hbox(7.49817+2.49939)x345.0, glue set 0.51685
-....\T1/cmr/bx/n/10 1
-....\T1/cmr/bx/n/10 1
-....\kern 4.99878
+...\hbox(7.49817+2.49939)x345.0, glue set 0.47357
+....\hbox(6.48453+0.0)x17.24579
+.....\hbox(0.0+0.0)x0.0
+.....\kern 0.0
+.....\kern 0.0
+.....\hbox(6.48453+0.0)x17.24579
+......\pdfcolorstack 0 push {0.0 0.0 1.0 rg 0.0 0.0 1.0 RG}
+......\T1/cmr/bx/n/10 1
+......\T1/cmr/bx/n/10 1
+......\kern 5.7486
+......\pdfcolorstack 0 pop
 ....\penalty 10000
 ....\glue 0.0
 ....\T1/cmr/m/n/10 F
