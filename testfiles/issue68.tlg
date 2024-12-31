@@ -17,7 +17,7 @@ Completed box being shipped out [1]
 ..\vbox(598.0+0.0)x345.0, glue set 563.93976fil
 ...\write-{}
 ...\glue(\topskip) 1.83885
-...\hbox(8.16115+1.94397)x345.0, glue set 0.07437
+...\hbox(8.16115+1.94397)x345.0, glue set 0.13687
 ....\hbox(0.0+0.0)x15.0
 ....\T1/cmr/m/n/10 L
 ....\T1/cmr/m/n/10 e
@@ -35,7 +35,6 @@ Completed box being shipped out [1]
 ....\glue 4.44336 plus 3.33252 minus 0.55542
 ....\T1/cmr/m/n/10 ^^P (ligature ``)
 ....\kern0.83313
-....\kern 1.6663
 ....\mathon
 ....\hbox(4.53223+0.0)x8.47028, shifted -3.62892
 .....\T1/cmr/m/n/7 1
@@ -110,7 +109,7 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\penalty 150
 ...\glue(\baselineskip) 2.55786
-...\hbox(7.49817+2.49939)x345.0, glue set - 0.51265
+...\hbox(7.49817+2.49939)x345.0, glue set - 0.38553
 ....\T1/cmr/m/n/10 S
 ....\T1/cmr/m/n/10 o
 ....\T1/cmr/m/n/10 n
@@ -191,7 +190,6 @@ Completed box being shipped out [1]
 ....\T1/cmr/m/n/10 f
 ....\T1/cmr/m/n/10 e
 ....\T1/cmr/m/n/10 .
-....\kern 1.6663
 ....\T1/cmr/m/n/10 ^^Q (ligature '')
 ....\kern0.83313
 ....\glue 4.99878

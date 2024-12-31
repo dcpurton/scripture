@@ -799,7 +799,7 @@
 %   \end{syntax}
 %   \cs{textscripture} sets an inline scripture quotation. The quotation is
 %   surrounded be the values of \opt{inline/begin} and \opt{inline/end} which
-%   default to |``\,| and |\,''|, respectively. This function also sets the
+%   default to |``| and |''|, respectively. This function also sets the
 %   \opt{compact} option and places the \val{reference} inline. The reference
 %   format can be controlled using the following options:
 %   \begin{itemize}
@@ -1772,7 +1772,7 @@
 % \changes{v1.3}{2023/01/07}{Add \opt{inline/begin} option}
 % \begin{option}[added=2023-01-07]{inline/begin}
 %   \begin{syntax}
-%     inline/begin = \meta{text} \hfill Default: |``\,|
+%     inline/begin = \meta{text} \hfill Default: |``|
 %   \end{syntax}
 %   Text inserted at the beginning of \cs{textscripture} or a \env{scripture}
 %   environment with the \opt{inline} option set.
@@ -1781,7 +1781,7 @@
 % \changes{v1.3}{2023/01/07}{Add \opt{inline/end} option}
 % \begin{option}[added=2023-01-07]{inline/end}
 %   \begin{syntax}
-%     inline/end = \meta{text} \hfill Default: |\,''|
+%     inline/end = \meta{text} \hfill Default: |''|
 %   \end{syntax}
 %   Text inserted between the end of \cs{textscripture} or a \env{scripture}
 %   environment with the \opt{inline} option set and the \meta{|reference|}
@@ -3376,10 +3376,10 @@
     , inline                      .initial:n          = false
     , inline / begin              .tl_set:N           = \l_@@_inline_begin_tl
     , inline / begin              .value_required:n   = true
-    , inline / begin              .initial:n          = ``\,
+    , inline / begin              .initial:n          = ``
     , inline / end                .tl_set:N           = \l_@@_inline_end_tl
     , inline / end                .value_required:n   = true
-    , inline / end                .initial:n          = \,''
+    , inline / end                .initial:n          = ''
     , inline / reference / format .cs_set:Np          = \@@_inline_ref_format:n #1
     , inline / reference / format .value_required:n   = true
     , inline / reference / format .initial:n          = (#1)
