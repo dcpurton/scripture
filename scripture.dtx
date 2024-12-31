@@ -2728,6 +2728,50 @@
 %   \meta{|skip|} inserted below the \env{hanging} environment.
 % \end{option}
 %
+% \changes{v2.1}{2024/12/31}{Add \opt{hanging/chapter/indent} option}
+% \begin{option}[added=2024-12-31]{hanging/chapter/indent}
+%   \begin{syntax}
+%     hanging/chapter/indent = \meta{boolean} \hfill Default: true
+%   \end{syntax}
+%   Indent the first line of chapters in \env{hanging} environments. If this
+%   is set to \val{false}, then the paragraph will be set has a normal hanging
+%   paragraph (if there is room).
+% \end{option}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[Genesis 1:1--3][%
+%     hanging/chapter/indent=false]
+%   \begin{hanging}
+%     \ch{1}In the beginning God created the heavens
+%     and the earth. \vs{2}Now the earth was
+%     formless and empty, darkness was over the
+%     surface of the deep, and the Spirit of God was
+%     hovering over the waters.
+%
+%     \vs{3}And God said, ``Let there be light,''
+%     and there was light.
+%   \end{hanging}
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[Genesis 1:1--3][%
+%     hanging/chapter/indent=false]
+%   \begin{hanging}
+%     \ch{1}In the beginning God created the heavens
+%     and the earth. \vs{2}Now the earth was
+%     formless and empty, darkness was over the
+%     surface of the deep, and the Spirit of God was
+%     hovering over the waters.
+%
+%     \vs{3}And God said, ``Let there be light,''
+%     and there was light.
+%   \end{hanging}
+% \end{scripture}
+% \end{scriptureexample}
+%
 % \begin{option}{hanging/hang}
 %   \begin{syntax}
 %     hanging/hang = \meta{dimen} \hfill Default: 2em
@@ -3538,6 +3582,9 @@
     , hanging / belowskip         .tl_set:N           = \l_@@_hanging_belowskip_tl
     , hanging / belowskip         .value_required:n   = true
     , hanging / belowskip         .initial:n          = \medskipamount
+    , hanging / chapter / indent  .bool_set:N         = \l_@@_hanging_chapter_indent_bool
+    , hanging / chapter / indent  .default:n          = true
+    , hanging / chapter / indent  .initial:n          = true
     , hanging / hang              .tl_set:N           = \l_@@_hanging_hang_tl
     , hanging / hang              .value_required:n   = true
     , hanging / hang              .initial:n          = 2 em
@@ -5640,11 +5687,14 @@
   {
     \@@_drop_chap_set_up:n { #1 }
     \dim_compare:nNnTF
-      \g_@@_chap_width_dim < \leftmargin
+      { \g_@@_chap_width_dim + \l_@@_chap_sep_tl } < \leftmargin
       {
-        \tl_set:Nx \l_@@_chap_sep_tl
+        \bool_if:NT \l_@@_hanging_chapter_indent_bool
           {
-            \dim_eval:n { \leftmargin - \g_@@_chap_width_dim }
+            \tl_set:Nx \l_@@_chap_sep_tl
+              {
+                \dim_eval:n { \leftmargin - \g_@@_chap_width_dim }
+              }
           }
       }
       {
@@ -5671,15 +5721,45 @@
             } ~
           \@totalleftmargin ~ \linewidth
       }
-    \tl_set:Nx \l_@@_chap_sep_tl
+    \par
+    \bool_if:NTF \l_@@_hanging_chapter_indent_bool
       {
-        \dim_eval:n
+        \tl_set:Nx \l_@@_chap_sep_tl
           {
-            \l_@@_chap_sep_tl + \l_@@_hanging_parindent_saved_dim
+            \dim_eval:n
+              {
+                \l_@@_chap_sep_tl + \l_@@_hanging_parindent_saved_dim
+              }
+          }
+        \@@_nohang:
+      }
+      {
+        \mode_leave_vertical:
+        \dim_compare:nNnTF
+          { \g_@@_chap_width_dim + \l_@@_chap_sep_tl } > \l_@@_hanging_leftmargin_tl
+          {
+            \dim_compare:nNnTF
+              { \g_@@_chap_width_dim + \l_@@_chap_sep_tl } > \leftmargin
+              {
+                \skip_horizontal:n { \l_@@_hanging_hang_tl }
+              }
+              {
+                \skip_horizontal:n
+                  {
+                    \l_@@_chap_sep_tl +
+                    \g_@@_chap_width_dim -
+                    \l_@@_hanging_leftmargin_tl
+                  }
+              }
+          }
+          {
+            \tl_set:Nx \l_@@_chap_sep_tl
+              {
+                \dim_eval:n
+                  { \l_@@_hanging_leftmargin_tl - \g_@@_chap_width_dim }
+              }
           }
       }
-    \par
-    \@@_nohang:
     \hbox_set:Nn \l_@@_chap_box
       {
         \box_move_down:nn

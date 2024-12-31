@@ -1,0 +1,57 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount,
+  hanging/chapter/indent=false
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Genesis 1:1--3]
+  \begin{hanging}
+    \ch{1}In the beginning God created the heavens and the earth. \vs{2}Now the
+    earth was formless and empty, darkness was over the surface of the deep,
+    and the Spirit of God was hovering over the waters.
+
+    \vs{3}And God said, “Let there be light,” and there was light.
+  \end{hanging}
+\end{scripture}
+
+\begin{scripture}[Genesis 1:1--3]
+  \begin{hanging}
+    \ch{21}In the beginning God created the heavens and the earth. \vs{2}Now the
+    earth was formless and empty, darkness was over the surface of the deep,
+    and the Spirit of God was hovering over the waters.
+
+    \vs{3}And God said, “Let there be light,” and there was light.
+  \end{hanging}
+\end{scripture}
+
+\scripturesetup{
+  hanging/leftmargin=3em
+}
+
+\begin{scripture}[Genesis 1:1--3]
+  \begin{hanging}
+    \ch{1}In the beginning God created the heavens and the earth. \vs{2}Now the
+    earth was formless and empty, darkness was over the surface of the deep,
+    and the Spirit of God was hovering over the waters.
+
+    \vs{3}And God said, “Let there be light,” and there was light.
+  \end{hanging}
+\end{scripture}
+
+\begin{scripture}[Genesis 1:1--3]
+  \begin{hanging}
+    \ch{2221}In the beginning God created the heavens and the earth. \vs{2}Now the
+    earth was formless and empty, darkness was over the surface of the deep,
+    and the Spirit of God was hovering over the waters.
+
+    \vs{3}And God said, “Let there be light,” and there was light.
+  \end{hanging}
+\end{scripture}
+
+\end{document}
