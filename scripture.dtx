@@ -151,6 +151,10 @@
   }
 \DeclareDocumentEnvironment { environment } { O{} +v }
   {
+    \clist_map_inline:nn { #2 }
+      {
+        \MakeLinkTarget*{environment##1}
+      }
     \cs_set_eq:NN \__codedoc_function_index:n \__dcp_codedoc_environment_index:n
     \__codedoc_function:nnw {#1} {#2}
   }
@@ -201,14 +205,16 @@
     \__codedoc_function:nnw {#1} {#2}
   }
   { \__codedoc_function_end: }
+\DeclareDocumentCommand \env { m }
+  {
+    \hyperlink{environment#1}{\texttt{#1}}
+  }
 \DeclareDocumentCommand \opt { m }
   {
-    \SpecialOptionIndex {#1}
     \hyperlink{option#1}{\texttt{#1}}
   }
 \DeclareDocumentCommand \hook { m }
   {
-    \__dcp_codedoc_hook_index:n {#1}
     \hyperlink{hook#1}{\texttt{#1}}
   }
 \DeclareRobustCommand \val {\texttt}
@@ -231,7 +237,7 @@
 % \changes{v1.1}{2022/08/27}{Bug fixes}
 % \changes{v1.2}{2022/11/02}{Bug fixes}
 % \changes{v1.3}{2023/01/08}{Bug fixes}
-% \changes{v2.0}{2023/12/26}{Switch \env{scripture} to a \LaTeX{} \env{list}
+% \changes{v2.0}{2023/12/26}{Switch \env{scripture} to a \LaTeX{} \val{list}
 %   based environment}
 % \changes{v2.0}{2023/12/27}{Bug fixes}
 %
@@ -277,14 +283,14 @@
 %
 % \subsection{Limitations}
 %
-% The \pkg{scripture} package makes extensive use of \LaTeX{} \env{list}
+% The \pkg{scripture} package makes extensive use of \LaTeX{} \val{list}
 % environments and the \cs{parshape} command. This means there are some
 % limitations. In particular, you should not:
 % \begin{itemize}
 %   \item Nest the \env{scripture} environment or any of its internal
 %     environments.
 %   \item Modify the \cs{parshape} within a \env{scripture} environment.
-%   \item Include any other \env{list} based environment within a
+%   \item Include any other \val{list} based environment within a
 %     \env{scripture} environment.
 %   \item Include any \cs{section} (or similar) functions within the
 %     \env{scripture} environment. A simple \fn{heading} function is provided
@@ -294,7 +300,7 @@
 % The \env{poetry} environment uses \cs{obeylines}. This means that it can not
 % be placed in the argument of a macro. If you want to use the \env{poetry}
 % environment in a \pkg{beamer} slide, you must use the \texttt{fragile} option
-% for the \pkg{beamer} \env{frame} environment.
+% for the \pkg{beamer} \val{frame} environment.
 %
 % Some attempt is made to encourage appropriate page breaks, especially just
 % before a reference is added to a quotation, but this can still sometimes
@@ -825,15 +831,16 @@
 %   \fn{textscripture} sets an inline scripture quotation. The quotation is
 %   surrounded be the values of \opt{inline/begin} and \opt{inline/end} which
 %   default to |``| and |''|, respectively. This function also sets the
-%   \opt{compact} option and places the \val{reference} inline. The reference
-%   format can be controlled using the following options:
+%   \opt{compact} option and places the \meta{\val{reference}} inline. The
+%   reference format can be controlled using the following options:
 %   \begin{itemize}
 %     \item \opt{inline/reference/format}
 %     \item \opt{inline/reference/sep}
 %     \item \opt{inline/version/delim}
 %     \item \opt{inline/version/format}
 %   \end{itemize}
-%   Other \val{reference} and \val{version} options are inherited.
+%   Other \meta{\val{reference}} and \meta{\opt{version}} options are
+%   inherited.
 %
 %   This function is equivalent to using the \env{scripture} environment with
 %   the \opt{inline} option.
@@ -1795,7 +1802,7 @@
 %   Set the scripture quotation inline. The quotation is surrounded be the
 %   values of \opt{inline/begin} and \opt{inline/end} which default to |``\,|
 %   and |\,''|, respectively. This option also sets the \opt{compact} option
-%   set sets the \val{reference} inline. The reference format can be
+%   set sets the \meta{\val{reference}} inline. The reference format can be
 %   controlled using the following options:
 %   \begin{itemize}
 %     \item \opt{inline/reference/format}
@@ -1803,7 +1810,7 @@
 %     \item \opt{inline/version/delim}
 %     \item \opt{inline/version/format}
 %   \end{itemize}
-%   Other \val{reference} and \val{version} options are inherited.
+%   Other \meta{\val{reference}} and \meta{\opt{version}} options are inherited.
 %
 %   \textbf{Warning:} \cs{par} is redefined to \cs{relax} when the
 %   \opt{inline} option is set. If you have anything other than expected
@@ -1835,9 +1842,9 @@
 %   \begin{syntax}
 %     inline/reference/format = \meta{macro} \hfill Default: (\#1)
 %   \end{syntax}
-%   \meta{|macro|} used to format the \val{reference} for an inline
-%   \env{scripture} quotation. |#1| contains the text of the \val{reference}
-%   and \val{version} (if specified).
+%   \meta{|macro|} used to format the \meta{\val{reference}} for an inline
+%   \env{scripture} quotation. |#1| contains the text of the
+%   \meta{\val{reference}} and \meta{\opt{version}} (if specified).
 % \end{option}
 %
 % \changes{v2.0}{2023/12/27}{Add \opt{inline/reference/sep} option}
@@ -1846,7 +1853,7 @@
 %     inline/reference/sep = \meta{dimen} \hfill Default: 0.5em
 %   \end{syntax}
 %   The \meta{|dimen|} between the end of an inline \env{scripture} quotation
-%   and its \val{reference}.
+%   and its \meta{\val{reference}}.
 % \end{option}
 %
 % \changes{v2.0}{2023/12/27}{Add \opt{inline/version/delim} option}
@@ -1854,8 +1861,8 @@
 %   \begin{syntax}
 %     inline/version/delim = \meta{delim} \hfill Default: \{\ \}
 %   \end{syntax}
-%   \meta{|delim|} to use between the \val{reference} and the \val{version} of
-%   an inline \env{scripture} quotation.
+%   \meta{|delim|} to use between the \meta{\val{reference}} and the
+%   \meta{\opt{version}} of an inline \env{scripture} quotation.
 % \end{option}
 %
 % \changes{v2.0}{2023/12/27}{Add \opt{inline/version/format} option}
@@ -1863,8 +1870,9 @@
 %   \begin{syntax}
 %     inline/version/format = \meta{macro} \hfill Default: \#1
 %   \end{syntax}
-%   \meta{|macro|} used to format the \val{version} for an inline
-%   \env{scripture} quotation. |#1| contains the text of the \val{version}.
+%   \meta{|macro|} used to format the \meta{\opt{version}} for an inline
+%   \env{scripture} quotation. |#1| contains the text of the
+%   \meta{\opt{version}}.
 % \end{option}
 %
 % \begin{option}{indent}
@@ -2191,17 +2199,18 @@
 %   \begin{syntax}
 %     reference/font = \meta{font} \hfill Default: \cs{bfseries}
 %   \end{syntax}
-%   \meta{|font|} used when printing the \val{reference} for a \env{scripture}
-%   quotation.
+%   \meta{|font|} used when printing the \meta{\val{reference}} for a
+%   \env{scripture} quotation.
 % \end{option}
 %
 % \begin{option}{reference/format}
 %   \begin{syntax}
 %     reference/format = \meta{macro} \hfill Default: \#1
 %   \end{syntax}
-%   \meta{|macro|} used to format the \val{reference} for a \env{scripture}
-%   quotation. |#1| contains the text of the \val{reference} and \val{version}
-%   (if specified).
+%   \meta{|macro|} used to format the \meta{\val{reference}} for a
+%   \env{scripture} quotation. |#1| contains the text of the
+%   \meta{\val{reference}} and
+%   \meta{\opt{version}} (if specified).
 % \end{option}
 %
 % \changes{v1.3}{2023/01/08}{Add \opt{reference/newline} option}
@@ -2209,8 +2218,8 @@
 %   \begin{syntax}
 %     reference/newline
 %   \end{syntax}
-%   Always push the \val{reference} to a newline even if there is space for it
-%   to fit on the last line of the quotation. The option sets
+%   Always push the \meta{\val{reference}} to a newline even if there is space
+%   for it to fit on the last line of the quotation. The option sets
 %   \opt{reference/sep} to \cs{linewidth} so there is never room for the
 %   reference on the final line of the quotation.
 % \end{option}
@@ -2250,8 +2259,8 @@
 %     reference/sep = \meta{dimen} \hfill Default: 2em
 %   \end{syntax}
 %   The minimum \meta{|dimen|} allowed between the end of a \env{scripture}
-%   quotation and its \val{reference} before the \val{reference} is pushed to
-%   the following line.
+%   quotation and its \meta{\val{reference}} before the \meta{\val{reference}}
+%   is pushed to the following line.
 % \end{option}
 %
 % \changes{v2.1}{2024/01/10}{Add \opt{reference/start/inline} option}
@@ -2630,7 +2639,7 @@
 %   \begin{syntax}
 %     version = \meta{version} \hfill Default: \emph{Empty}
 %   \end{syntax}
-%   \meta{|version|} added to the \val{reference} for a \env{scripture}
+%   \meta{|version|} added to the \meta{\val{reference}} for a \env{scripture}
 %   quotation.
 % \end{option}
 %
@@ -2638,16 +2647,17 @@
 %   \begin{syntax}
 %     version/delim = \meta{delim} \hfill Default: \{\ \}
 %   \end{syntax}
-%   \meta{|delim|} to use between the \val{reference} and the \val{version} of a
-%   \env{scripture} quotation.
+%   \meta{|delim|} to use between the \meta{\val{reference}} and the
+%   \meta{\opt{version}} of a \env{scripture} quotation.
 % \end{option}
 %
 % \begin{option}{version/format}
 %   \begin{syntax}
 %     version/format = \meta{macro} \hfill Default: (\#1)
 %   \end{syntax}
-%   \meta{|macro|} used to format the \val{version} for a \env{scripture}
-%   quotation. |#1| contains the text of the \val{version}.
+%   \meta{|macro|} used to format the \meta{\opt{version}} for a
+%   \env{scripture} quotation. |#1| contains the text of the
+%   \meta{\opt{version}}.
 % \end{option}
 %
 % \changes{v2.1}{2024/01/10}{Add \opt{version/position} option}
@@ -7192,7 +7202,7 @@
 %   \begin{arguments}
 %     \item \meta{|options|} to set.
 %   \end{arguments}
-% The \env{poetryaux} environment is required because \cs{@@_obeylines:}
+% The \val{poetryaux} environment is required because \cs{@@_obeylines:}
 % breaks the reading of optional arguments.
 %    \begin{macrocode}
     \DeclareDocumentEnvironment { poetryaux } { o }
