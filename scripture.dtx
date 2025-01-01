@@ -175,6 +175,7 @@
 \DeclareDocumentEnvironment { option } { O{} +v }
   {
     \cs_set_eq:NN \__codedoc_function_index:n \SpecialOptionIndex
+    \MakeLinkTarget*{option#2}
     \__codedoc_function:nnw {#1} {#2}
   }
   { \__codedoc_function_end: }
@@ -187,7 +188,7 @@
 \DeclareDocumentCommand \opt { m }
   {
     \SpecialOptionIndex {#1}
-    \texttt{#1}
+    \hyperlink{option#1}{\texttt{#1}}
   }
 \DeclareDocumentCommand \hook { m }
   {
@@ -269,7 +270,7 @@
 %
 % The \env{poetry} environment uses \cs{obeylines}. This means that it can not
 % be placed in the argument of a macro. If you want to use the \env{poetry}
-% environment in a \pkg{beamer} slide, you must use the \opt{fragile} option
+% environment in a \pkg{beamer} slide, you must use the \texttt{fragile} option
 % for the \pkg{beamer} \env{frame} environment.
 %
 % Some attempt is made to encourage appropriate page breaks, especially just
