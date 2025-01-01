@@ -192,6 +192,15 @@
     \__codedoc_macro:nnw {#1} {#2}
   }
   { \__codedoc_macro_end: }
+\DeclareDocumentEnvironment { function } { O{} +v }
+  {
+    \clist_map_inline:nn { #2 }
+      {
+        \MakeLinkTarget*{function##1}
+      }
+    \__codedoc_function:nnw {#1} {#2}
+  }
+  { \__codedoc_function_end: }
 \DeclareDocumentCommand \opt { m }
   {
     \SpecialOptionIndex {#1}
@@ -203,6 +212,13 @@
     \hyperlink{hook#1}{\texttt{#1}}
   }
 \DeclareRobustCommand \val {\texttt}
+\DeclareDocumentCommand \fn  { O{} m }
+  {
+    \hyperlink{function \c_backslash_str #2}{
+      \__codedoc_cmd:no
+        { module = scripture , replace = false , #1 }
+        { \c_backslash_str #2} }
+  }
 \makeatother
 \ExplSyntaxOff
 \begin{document}
@@ -271,7 +287,7 @@
 %   \item Include any other \env{list} based environment within a
 %     \env{scripture} environment.
 %   \item Include any \cs{section} (or similar) functions within the
-%     \env{scripture} environment. A simple \cs{heading} function is provided
+%     \env{scripture} environment. A simple \fn{heading} function is provided
 %     instead.
 % \end{itemize}
 %
@@ -345,7 +361,7 @@
 %     |\added|\marg{words}
 %   \end{syntax}
 %   Some Bible translations mark out words added for clarity not found in the
-%   original language (e.g., in italics). This can be done using the \cs{added}
+%   original language (e.g., in italics). This can be done using the \fn{added}
 %   function. The font and format can be set using the \opt{added/font} and
 %   \opt{added/format} options.
 % \end{function}
@@ -381,7 +397,7 @@
 %   \meta{letter} which defaults to the value of \opt{chapter/xchar}, which in
 %   turn defaults to a capital \val{X} in the default font.
 %
-%   If the \opt{dropchap} option is \val{true} (default), then this function
+%   If the \opt{chapter/drop} option is \val{true} (default), then this function
 %   attempts to add sufficient space for the dropped chapter when its
 %   paragraph contains only one line. The starred version suppresses this
 %   behaviour.
@@ -485,10 +501,10 @@
 %   \begin{syntax}
 %     |\heading|\marg{section heading}
 %   \end{syntax}
-%   The \cs{heading} function provides a simple section heading command for
+%   The \fn{heading} function provides a simple section heading command for
 %   use within the \env{scripture} environment. Only one level is heading is
 %   provided. Further levels should be placed outside of the \env{scripture}
-%   environment. Additionally, the \cs{heading} function may not be used
+%   environment. Additionally, the \fn{heading} function may not be used
 %   within a \env{scripture} inner environment.
 %
 %   The settings of headings can be controlled using the following options:
@@ -507,7 +523,7 @@
 %   \begin{itemize}
 %     \item \cs{section} and related functions are not supported within the
 %       \env{scripture} environment.
-%     \item The \cs{heading} function is ignored when the \opt{inline} option
+%     \item The \fn{heading} function is ignored when the \opt{inline} option
 %       is \val{true}.
 %   \end{itemize}
 % \end{function}
@@ -550,13 +566,13 @@
 %     |\GOD|
 %   \end{syntax}
 %   Modern Bible translations frequently represent God's personal divine name
-%   using a small capitals typeface. This can be done using the \cs{name}
+%   using a small capitals typeface. This can be done using the \fn{name}
 %   function. The font and format can be set using the \opt{name/font} and
-%   \opt{name/format} options. The \cs{LORD} and \cs{GOD} macros equivalent to
-%   \cs{name}|{Lord}| and \cs{name}|{God}| respectively.
+%   \opt{name/format} options. The \fn{LORD} and \fn{GOD} macros equivalent to
+%   \fn{name}|{Lord}| and \fn{name}|{God}| respectively.
 %
-%   \textbf{Note:} Watch out that trailing spaces are not eaten by \cs{LORD}
-%   and \cs{GOD}. Using \cs{name} is safer and semantically better.
+%   \textbf{Note:} Watch out that trailing spaces are not eaten by \fn{LORD}
+%   and \fn{GOD}. Using \fn{name} is safer and semantically better.
 % \end{function}
 %
 % \begin{scriptureexample}
@@ -585,12 +601,12 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
-% \changes{v1.3}{2022/11/13}{Add \cs{nofirstverse} function}
+% \changes{v1.3}{2022/11/13}{Add \fn{nofirstverse} function}
 % \begin{function}[added=2022-11-13]{\nofirstverse}
 %   \begin{syntax}
 %     |\nofirstverse|
 %   \end{syntax}
-%   When \opt{verse/first} is |true|, this causes the next \cs{vs} to print
+%   When \opt{verse/first} is |true|, this causes the next \fn{vs} to print
 %   normally, rather than using the format specified by
 %   \opt{verse/firstformat}. You might do this if your quote begins half way
 %   through a paragraph and the first verse should be printed normally.
@@ -639,7 +655,7 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
-% \changes{v2.1}{2024/01/18}{Add \cs{nopilcrow} function}
+% \changes{v2.1}{2024/01/18}{Add \fn{nopilcrow} function}
 % \begin{function}[added=2024-01-18]{\nopilcrow}
 %   \begin{syntax}
 %     |\nopilcrow|
@@ -656,12 +672,12 @@
 %     |\redletteron|
 %     |\redletteroff|
 %   \end{syntax}
-%   Use \cs{redletteron} and \cs{redletteroff} to mark the beginning and end
+%   Use \fn{redletteron} and \fn{redletteroff} to mark the beginning and end
 %   of sections of text that should be attributed to Jesus speaking. Some
 %   attempt is made to ensure that the correct colour continues after an inner
-%   environment if \cs{redletteron} or \cs{redletteroff} occurs inside the
+%   environment if \fn{redletteron} or \fn{redletteroff} occurs inside the
 %   inner environment. If you experience problems with unexpected colour, try
-%   to ensure that matching \cs{redletteron} and \cs{redletteroff} marks occur
+%   to ensure that matching \fn{redletteron} and \fn{redletteroff} marks occur
 %   at the same group level. The colour of the text can be set using the
 %   \opt{redletter/colour} option. These commands only have an effect when the
 %   \opt{redletter} option is \val{true}.
@@ -705,16 +721,15 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
-% \changes{v1.1}{2022/08/07}{Add \cs{scripturecurrentchapter} and
-% \cs{scripturecurrentverse} variables}
-% \begin{function}[added=2022-08-07]{\scripturecurrentchapter,
-% \scripturecurrentverse}
+% \changes{v1.1}{2022/08/07}{Add \fn{scripturecurrentchapter} and
+% \fn{scripturecurrentverse} variables}
+% \begin{function}[added=2022-08-07]{\scripturecurrentchapter, \scripturecurrentverse}
 %   \begin{syntax}
 %     |\scripturecurrentchapter|
 %     |\scripturecurrentverse|
 %   \end{syntax}
-%   \cs{scripturecurrentcapter} and \cs{scripturecurrentverse} globally hold
-%   the most recent values parsed to \cs{ch} and \cs{vs}. They can initialised
+%   \fn{scripturecurrentchapter} and \fn{scripturecurrentverse} globally hold
+%   the most recent values parsed to \fn{ch} and \fn{vs}. They can initialised
 %   with \cs{renewcommand*} if required and could be used in hooks, for
 %   example.
 % \end{function}
@@ -727,7 +742,7 @@
 %   supported formatting \meta{|options|}.
 % \end{function}
 %
-% \changes{v2.0}{2023/12/27}{Add \cs{scripturestyle} function}
+% \changes{v2.0}{2023/12/27}{Add \fn{scripturestyle} function}
 % \begin{function}[added=2023/12/27]{\scripturestyle, \scripturestyle*}
 %   \begin{syntax}
 %     |\scripturestyle|\marg{name}\marg{options}
@@ -738,7 +753,7 @@
 %   \meta{|options|} to an existing style rather than overwriting all options.
 % \end{function}
 %
-% \changes{v1.1}{2022/07/29}{Add \cs{selah} function}
+% \changes{v1.1}{2022/07/29}{Add \fn{selah} function}
 % \begin{function}[added=2022-07-29]{\selah}
 %   \begin{syntax}
 %     |\selah|
@@ -769,7 +784,7 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
-% \changes{v1.2}{2022/08/30}{Add \cs{textright} function}
+% \changes{v1.2}{2022/08/30}{Add \fn{textright} function}
 % \begin{function}[added=2022-08-30]{\textright}
 %   \begin{syntax}
 %     |\textright|\marg{text}
@@ -802,12 +817,12 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
-% \changes{v1.3}{2023/01/07}{Add \cs{textscripture} function}
+% \changes{v1.3}{2023/01/07}{Add \fn{textscripture} function}
 % \begin{function}[added=2023-01-07]{\textscripture}
 %   \begin{syntax}
 %     |\textscripture|\oarg{reference}\oarg{options}\marg{quotation}
 %   \end{syntax}
-%   \cs{textscripture} sets an inline scripture quotation. The quotation is
+%   \fn{textscripture} sets an inline scripture quotation. The quotation is
 %   surrounded be the values of \opt{inline/begin} and \opt{inline/end} which
 %   default to |``| and |''|, respectively. This function also sets the
 %   \opt{compact} option and places the \val{reference} inline. The reference
@@ -824,8 +839,8 @@
 %   the \opt{inline} option.
 %
 %   \textbf{Warning:} \cs{par} is redefined to \cs{relax} inside the
-%   \cs{textscripture} function. If you have anything other than expected
-%   macros and environments inside your \cs{textscripture} function \TeX{}
+%   \fn{textscripture} function. If you have anything other than expected
+%   macros and environments inside your \fn{textscripture} function \TeX{}
 %   will likely get stuck in an infinite loop.
 % \end{function}
 %
@@ -1168,8 +1183,7 @@
 %
 % \changes{v1.1}{2022/08/07}{Add before and after hooks for verses and
 % chapters}
-% \begin{hooks}[added=2022-08-07]{scripture/chap/before, scripture/chap/after,
-%   scripture/verse/before, scripture/verse/after}
+% \begin{hooks}[added=2022-08-07]{scripture/chap/before, scripture/chap/after, scripture/verse/before, scripture/verse/after}
 % The following public hooks are available:
 %
 % \begin{description}
@@ -1179,7 +1193,7 @@
 %     the \opt{chapter/sep} space is inserted.
 %   \item[\hook{scripture/verse/before}] This hook is executed immediately
 %     before the \opt{verse/font} is set for the verse.
-%   \item[\hook{scripture/chap/after}] This hook is executed immediately after
+%   \item[\hook{scripture/verse/after}] This hook is executed immediately after
 %     the \opt{verse/sep} space is inserted.
 % \end{description}
 % \end{hooks}
@@ -1254,7 +1268,7 @@
 %
 % Default formatting \meta{|options|} can be set using
 % \cs{usepackage}|[|\meta{|options|}|]{scripture}| or
-% \cs{scripturesetup}|{|\meta{|options|}|}|. Local formatting \meta{|options|}
+% \fn{scripturesetup}|{|\meta{|options|}|}|. Local formatting \meta{|options|}
 % can be set by passing them to the various environments described above.
 %
 % \begin{option}{aboveskip}
@@ -1269,7 +1283,7 @@
 %   \begin{syntax}
 %     added/font = \meta{font} \hfill Default: \emph{Empty}
 %   \end{syntax}
-%   \meta{|font|} used for the \cs{added} function.
+%   \meta{|font|} used for the \fn{added} function.
 % \end{option}
 %
 % \changes{v1.3}{2022/11/15}{Add \opt{added/format} option}
@@ -1278,8 +1292,8 @@
 %     added/format = \meta{macro} \hfill Default: \cs{emph}\{\#1\}
 %   \end{syntax}
 %   \meta{|macro|} used to format the words that should be highlighted as
-%   added by the translators using the \cs{added} function. |#1| contains the
-%   text of the argument to \cs{added}.
+%   added by the translators using the \fn{added} function. |#1| contains the
+%   text of the argument to \fn{added}.
 % \end{option}
 %
 % \changes{v2.1}{2024/06/01}{Add \opt{after} option}
@@ -1341,7 +1355,7 @@
 %   \begin{syntax}
 %     chapter/font = \meta{font} \hfill Default: \cs{bfseries}
 %   \end{syntax}
-%   \meta{|font|} used for the \cs{ch} function.
+%   \meta{|font|} used for the \fn{ch} function.
 % \end{option}
 %
 % \changes{v1.1}{2022/07/28}{Add \opt{chapter/format} option}
@@ -1466,7 +1480,7 @@
 %   \begin{syntax}
 %     chapter/para/aboveskip = \meta{skip} \hfill Default: \cs{bigskipamount}
 %   \end{syntax}
-%   \meta{|skip|} added above \cs{ch} when \opt{chapter/para} is in effect.
+%   \meta{|skip|} added above \fn{ch} when \opt{chapter/para} is in effect.
 %   To be consistent with how the \pkg{parskip} package treats headings, no
 %   additional \cs{parskip} is inserted.
 % \end{option}
@@ -1476,7 +1490,7 @@
 %   \begin{syntax}
 %     chapter/para/belowskip = \meta{skip} \hfill Default: \cs{medskipamount}
 %   \end{syntax}
-%   \meta{|skip|} added below \cs{ch} when \opt{chapter/para} is in effect.
+%   \meta{|skip|} added below \fn{ch} when \opt{chapter/para} is in effect.
 %   To be consistent with how the \pkg{parskip} package treats headings, no
 %   additional \cs{parskip} is inserted.
 % \end{option}
@@ -1497,7 +1511,7 @@
 %   \begin{syntax}
 %     chapter/sep = \meta{dimen} \hfill Default: 0.5em
 %   \end{syntax}
-%   \meta{|dimen|} used to separate a \cs{ch} from the following text.
+%   \meta{|dimen|} used to separate a \fn{ch} from the following text.
 % \end{option}
 %
 % \changes{v1.1}{2022/08/15}{Add \opt{chapter/show} option}
@@ -1515,7 +1529,7 @@
 %   \begin{syntax}
 %     chapter/showverse = \meta{boolean} \hfill Default: false
 %   \end{syntax}
-%   Whether \cs{vs}|{1}| should be automatically inserted after \cs{ch}. The
+%   Whether \fn{vs}|{1}| should be automatically inserted after \fn{ch}. The
 %   value of \meta{|boolean|} is optional and assumed to be \val{true} if not
 %   present. See also \opt{midparachap/showverse} and
 %   \opt{midparachap/hideverse}. Note that \opt{chapter/showverse} take
@@ -1612,7 +1626,7 @@
 %   \end{syntax}
 %   Sets the character to which drop chapters and vertically aligned non-drop
 %   chapters are aligned. This can also be set for individual chapters using
-%   an optional argument to \cs{ch}.
+%   an optional argument to \fn{ch}.
 % \end{option}
 %
 % \changes{v1.2}{2022/08/31}{Add \opt{colour} option}
@@ -1630,7 +1644,7 @@
 %   \begin{syntax}
 %     compact = \meta{boolean} \hfill Default: false
 %   \end{syntax}
-%   This option removes all paragraph breaks along with any \cs{extraskip} in
+%   This option removes all paragraph breaks along with any \fn{extraskip} in
 %   the quotation so the whole quotation is a single paragraph of running
 %   prose. This option implies \opt{chapter/nodrop} and all options relating
 %   to inner environments are ignored.
@@ -1692,7 +1706,7 @@
 %   \begin{syntax}
 %     extraskip = \meta{skip} \hfill Default: \cs{medskipamount}
 %   \end{syntax}
-%   \meta{|skip|} used for the \cs{extraskip} function.
+%   \meta{|skip|} used for the \fn{extraskip} function.
 % \end{option}
 %
 % \begin{option}{font}
@@ -1707,7 +1721,7 @@
 %   \begin{syntax}
 %     heading/aboveskip = \meta{skip} \hfill Default: \cs{bigskipamount}
 %   \end{syntax}
-%   \meta{|skip|} inserted above a \cs{heading}.
+%   \meta{|skip|} inserted above a \fn{heading}.
 % \end{option}
 %
 % \changes{v2.1}{2024/11/19}{Add \opt{heading/afterindent} option}
@@ -1715,7 +1729,7 @@
 %   \begin{syntax}
 %     heading/afterindent = \meta{boolean} \hfill Default: false
 %   \end{syntax}
-%   Whether to indent the first paragraph following a \cs{heading}. The value
+%   Whether to indent the first paragraph following a \fn{heading}. The value
 %   of \meta{|boolean|} is optional and assumed to be \val{true} if not
 %   present.
 % \end{option}
@@ -1725,7 +1739,7 @@
 %   \begin{syntax}
 %     heading/align = left \textbar\ right \textbar\ center \hfill Default: left
 %   \end{syntax}
-%   Set the alignment of a \cs{heading}.
+%   Set the alignment of a \fn{heading}.
 % \end{option}
 %
 % \changes{v2.1}{2024/11/19}{Add \opt{heading/belowskip} option}
@@ -1733,7 +1747,7 @@
 %   \begin{syntax}
 %     heading/belowskip = \meta{skip} \hfill Default: \cs{medskipamount}
 %   \end{syntax}
-%   \meta{|skip|} inserted below a \cs{heading}.
+%   \meta{|skip|} inserted below a \fn{heading}.
 % \end{option}
 %
 % \changes{v2.1}{2024/11/19}{Add \opt{heading/font} option}
@@ -1741,7 +1755,7 @@
 %   \begin{syntax}
 %     heading/font = \meta{font} \hfill Default: \cs{small}\cs{itshape}
 %   \end{syntax}
-%   \meta{|font|} used for a \cs{heading}.
+%   \meta{|font|} used for a \fn{heading}.
 % \end{option}
 %
 % \changes{v2.1}{2024/11/19}{Add \opt{heading/format} option}
@@ -1749,7 +1763,7 @@
 %   \begin{syntax}
 %     heading/format = \meta{macro} \hfill Default: \#1
 %   \end{syntax}
-%   \meta{|macro|} used to format a \cs{heading}. |#1| contains the text of
+%   \meta{|macro|} used to format a \fn{heading}. |#1| contains the text of
 %   the \val{heading}.
 % \end{option}
 %
@@ -1758,7 +1772,7 @@
 %   \begin{syntax}
 %     heading/hide = \meta{boolean} \hfill Default: false
 %   \end{syntax}
-%   Whether to hide \cs{heading} functions. The value of \meta{|boolean|} is
+%   Whether to hide \fn{heading} functions. The value of \meta{|boolean|} is
 %   optional and assumed to be \val{true} if not present. This option is the
 %   opposite of \opt{heading/show}.
 % \end{option}
@@ -1768,7 +1782,7 @@
 %   \begin{syntax}
 %     heading/show = \meta{boolean} \hfill Default: true
 %   \end{syntax}
-%   Whether to show \cs{heading} functions. The value of \meta{|boolean|} is
+%   Whether to show \fn{heading} functions. The value of \meta{|boolean|} is
 %   optional and assumed to be \val{true} if not present. This option is the
 %   opposite of \opt{heading/hide}.
 % \end{option}
@@ -1802,7 +1816,7 @@
 %   \begin{syntax}
 %     inline/begin = \meta{text} \hfill Default: |``|
 %   \end{syntax}
-%   Text inserted at the beginning of \cs{textscripture} or a \env{scripture}
+%   Text inserted at the beginning of \fn{textscripture} or a \env{scripture}
 %   environment with the \opt{inline} option set.
 % \end{option}
 %
@@ -1811,7 +1825,7 @@
 %   \begin{syntax}
 %     inline/end = \meta{text} \hfill Default: |''|
 %   \end{syntax}
-%   Text inserted between the end of \cs{textscripture} or a \env{scripture}
+%   Text inserted between the end of \fn{textscripture} or a \env{scripture}
 %   environment with the \opt{inline} option set and the \meta{|reference|}
 %   (if specified).
 % \end{option}
@@ -2019,7 +2033,7 @@
 %   \begin{syntax}
 %     name/font = \meta{font} \hfill Default: \cs{scshape}
 %   \end{syntax}
-%   \meta{|font|} used for the \cs{name} function.
+%   \meta{|font|} used for the \fn{name} function.
 % \end{option}
 %
 % \changes{v1.2}{2022/09/01}{Add \opt{name/format} option}
@@ -2027,8 +2041,8 @@
 %   \begin{syntax}
 %     name/format = \meta{macro} \hfill Default: \#1
 %   \end{syntax}
-%   \meta{|macro|} used to format the \val{divine name} using the \cs{name}
-%   function. |#1| contains the text of the argument to \cs{name}.
+%   \meta{|macro|} used to format the \val{divine name} using the \fn{name}
+%   function. |#1| contains the text of the argument to \fn{name}.
 % \end{option}
 %
 % \begin{option}{noindent}
@@ -2086,7 +2100,7 @@
 %   \opt{verse/para} options. The value of \meta{|boolean|} is optional and
 %   assumed to be \val{true} if not present.
 %
-%   A subsequent pilcrow can be suppressed with the \cs{nopilcrow} macro.
+%   A subsequent pilcrow can be suppressed with the \fn{nopilcrow} macro.
 %   Inner environments start a new paragraph only if there is a blank line
 %   before them and similarly, there is only a new paragraph after an inner
 %   environment if it is followed by a blank line. New paragraphs are not
@@ -2139,7 +2153,7 @@
 %   \end{syntax}
 %   Whether to enable highlighting of Jesus' words in red. The value of
 %   \meta{|boolean|} is optional and assumed to be \val{true} if not present.
-%   The text needs to be marked up with \cs{redletteron} and \cs{redletteroff}
+%   The text needs to be marked up with \fn{redletteron} and \fn{redletteroff}
 %   for this option to have any effect.
 % \end{option}
 %
@@ -2149,8 +2163,8 @@
 %     redletter/colour = \meta{colour expression} \hfill Default: red!80!black
 %   \end{syntax}
 %   The \pkg{l3color} \meta{|colour expression|} to be used for the words of
-%   Jesus when the \opt{redletter} option is \val{true}. \cs{redletteron} and
-%   \cs{redletteroff} must be used to mark up the text. \opt{redletter/color}
+%   Jesus when the \opt{redletter} option is \val{true}. \fn{redletteron} and
+%   \fn{redletteroff} must be used to mark up the text. \opt{redletter/color}
 %   is an alias for \opt{redletter/colour}.
 % \end{option}
 %
@@ -2208,8 +2222,8 @@
 %   \end{syntax}
 %   Set the position of the reference at either the start or end of the
 %   quotation. If \val{start} is specified, then the reference will be set
-%   inline unless the quotation begins with an inner environment. Any \cs{vs}
-%   or \cs{ch} is suppressed at the start of the quotation in the main
+%   inline unless the quotation begins with an inner environment. Any \fn{vs}
+%   or \fn{ch} is suppressed at the start of the quotation in the main
 %   \env{scripture} environment.
 % \end{option}
 %
@@ -2320,14 +2334,14 @@
 %   \begin{syntax}
 %     selah/font = \meta{font} \hfill Default: \cs{itshape}
 %   \end{syntax}
-%   \meta{|font|} used when printing \cs{selah} in a \env{poetry} environment.
+%   \meta{|font|} used when printing \fn{selah} in a \env{poetry} environment.
 % \end{option}
 %
 % \begin{option}{selah/format}
 %   \begin{syntax}
 %     selah/format = \meta{macro} \hfill Default: \#1
 %   \end{syntax}
-%   \meta{|macro|} used to format the \cs{selah} in a \env{poetry}
+%   \meta{|macro|} used to format the \fn{selah} in a \env{poetry}
 %   environment. |#1| contains the value of \opt{selah/text}.
 % \end{option}
 %
@@ -2343,7 +2357,7 @@
 %   \begin{syntax}
 %     selah/text = \meta{text} \hfill Default: Selah
 %   \end{syntax}
-%   \meta{|text|} used to for \cs{selah} in a \env{poetry} environment.
+%   \meta{|text|} used to for \fn{selah} in a \env{poetry} environment.
 % \end{option}
 %
 % \changes{v2.0}{2023/12/27}{Add \opt{style} option}
@@ -2351,7 +2365,7 @@
 %   \begin{syntax}
 %     style = \meta{name}
 %   \end{syntax}
-%   Set options previously saved with \cs{scripturestyle}. An error occurs if
+%   Set options previously saved with \fn{scripturestyle}. An error occurs if
 %   the style isn't defined.
 % \end{option}
 %
@@ -2361,7 +2375,7 @@
 %     textright/sep = \meta{dimen} \hfill Default: 1em
 %   \end{syntax}
 %   The minimum \meta{|dimen|} allowed between the end of a line and text
-%   aligned to the right with \cs{textright} before the right aligned text is
+%   aligned to the right with \fn{textright} before the right aligned text is
 %   pushed to the following line.
 % \end{option}
 %
@@ -2383,7 +2397,7 @@
 %   In prose sections, print the verse number in a different format if it is
 %   at the start of the paragraph. The format and separation between verse and
 %   text are controlled with the \opt{verse/firstformat} and
-%   \opt{verse/firstsep} options. Use \cs{noversefirst} to suppress this at
+%   \opt{verse/firstsep} options. Use \fn{nofirstverse} to suppress this at
 %   the next verse (e.g., if your quote starts mid-way though a paragraph and
 %   a normal verse should be printed). The value of \meta{|boolean|} is optional
 %   and assumed to be true if not present.
@@ -2430,8 +2444,8 @@
 %   \begin{syntax}
 %     verse/firstformat = \meta{macro} \hfill Default: \#1
 %   \end{syntax}
-%   \meta{|macro|} used to format the first \cs{vs} in a paragraph. |#1|
-%   contains the argument of \cs{vs}. Only used if \opt{verse/first} is
+%   \meta{|macro|} used to format the first \fn{vs} in a paragraph. |#1|
+%   contains the argument of \fn{vs}. Only used if \opt{verse/first} is
 %   |true|.
 % \end{option}
 %
@@ -2440,7 +2454,7 @@
 %   \begin{syntax}
 %     verse/firstsep = \meta{dimen} \hfill Default: 0.5em
 %   \end{syntax}
-%   \meta{|dimen|} used to separate the first \cs{vs} in a paragraph from the
+%   \meta{|dimen|} used to separate the first \fn{vs} in a paragraph from the
 %   following text. Only used if \opt{verse/first} is |true|.
 % \end{option}
 %
@@ -2448,15 +2462,15 @@
 %   \begin{syntax}
 %     verse/font = \meta{font} \hfill Default: \emph{Empty}
 %   \end{syntax}
-%   \meta{|font|} used for the \cs{vs} function.
+%   \meta{|font|} used for the \fn{vs} function.
 % \end{option}
 %
 % \begin{option}{verse/format}
 %   \begin{syntax}
 %     verse/format = \meta{macro} \hfill Default: \cs{textsuperscript}\{\#1\}
 %   \end{syntax}
-%   \meta{|macro|} used to format the \cs{vs} function. |#1| contains the
-%   argument of \cs{vs}.
+%   \meta{|macro|} used to format the \fn{vs} function. |#1| contains the
+%   argument of \fn{vs}.
 % \end{option}
 %
 % \changes{v1.1}{2022/08/15}{Add \opt{verse/hide} option}
@@ -2599,7 +2613,7 @@
 %   \begin{syntax}
 %     verse/sep = \meta{dimen} \hfill Default: 0.05em
 %   \end{syntax}
-%   \meta{|dimen|} used to separate a \cs{vs} from the following text.
+%   \meta{|dimen|} used to separate a \fn{vs} from the following text.
 % \end{option}
 %
 % \changes{v1.1}{2022/08/15}{Add \opt{verse/show} option}
@@ -2669,7 +2683,7 @@
 % \label{centeroptions}
 %
 % If these options are passed directly to the \env{center} environment rather
-% than to the package, \cs{scripturesetup} or the \env{scripture} environment,
+% than to the package, \fn{scripturesetup} or the \env{scripture} environment,
 % then the |center/| prefix should be dropped.
 %
 % \begin{option}{center/aboveskip}
@@ -2704,7 +2718,7 @@
 % \label{flushrightoptions}
 %
 % If these options are passed directly to the \env{flushright} environment rather
-% than to the package, \cs{scripturesetup} or the \env{scripture} environment,
+% than to the package, \fn{scripturesetup} or the \env{scripture} environment,
 % then the |flushright/| prefix should be dropped.
 %
 % \begin{option}{flushright/aboveskip}
@@ -2739,7 +2753,7 @@
 % \label{hangingoptions}
 %
 % If these options are passed directly to the \env{hanging} environment rather
-% than to the package, \cs{scripturesetup} or the \env{scripture} environment,
+% than to the package, \fn{scripturesetup} or the \env{scripture} environment,
 % then the |hanging/| prefix should be dropped.
 %
 % \begin{option}{hanging/aboveskip}
@@ -2898,7 +2912,7 @@
 %   \begin{syntax}
 %     hanging/verse/sep = \meta{dimen} \hfill Default: 0.05 em
 %   \end{syntax}
-%   \meta{|dimen|} used to separate a \cs{vs} from the following text in a
+%   \meta{|dimen|} used to separate a \fn{vs} from the following text in a
 %   \env{hanging} environment. This is only used for verses at the start of a
 %   paragraph.
 % \end{option}
@@ -2907,16 +2921,16 @@
 % \label{midparachapoptions}
 %
 % If these options are passed directly to the \env{midparachap} environment
-% rather than to the package, \cs{scripturesetup} or the \env{scripture}
+% rather than to the package, \fn{scripturesetup} or the \env{scripture}
 % environment, then the |midparachap/| prefix should be dropped.
 %
 % \begin{option}{midparachap/hideverse}
 %   \begin{syntax}
 %     midparachap/hideverse = \meta{boolean} \hfill Default: false
 %   \end{syntax}
-%   Whether a \cs{vs}|{1}| should automatically be inserted after a \cs{ch}
-%   when the \cs{ch} occurs mid-paragraph. This also affects \cs{ch} in
-%   \env{poetry} environments. \cs{extraskip} begins a new paragraph in a
+%   Whether a \fn{vs}|{1}| should automatically be inserted after a \fn{ch}
+%   when the \fn{ch} occurs mid-paragraph. This also affects \fn{ch} in
+%   \env{poetry} environments. \fn{extraskip} begins a new paragraph in a
 %   \env{poetry} environment. The value of \meta{|boolean|} is optional and
 %   assumed to be \val{true} if not present. This option is the opposite of
 %   \opt{midparachap/showverse}. See also \opt{chapter/showverse}.
@@ -2968,9 +2982,9 @@
 %   \begin{syntax}
 %     midparachap/showverse = \meta{boolean} \hfill Default: true
 %   \end{syntax}
-%   Whether a \cs{vs}|{1}| should automatically be inserted after a \cs{ch}
-%   when the \cs{ch} occurs mid-paragraph. This also affects \cs{ch} in
-%   \env{poetry} environments. \cs{extraskip} begins a new paragraph in a
+%   Whether a \fn{vs}|{1}| should automatically be inserted after a \fn{ch}
+%   when the \fn{ch} occurs mid-paragraph. This also affects \fn{ch} in
+%   \env{poetry} environments. \fn{extraskip} begins a new paragraph in a
 %   \env{poetry} environment. The value of \meta{|boolean|} is optional and
 %   assumed to be \val{true} if not present. This option is the opposite of
 %   \opt{midparachap/hideverse}. See also \opt{chapter/showverse}.
@@ -2980,7 +2994,7 @@
 % \label{narrowoptions}
 %
 % If these options are passed directly to the \env{narrow} environment rather
-% than to the package, \cs{scripturesetup} or the \env{scripture} environment,
+% than to the package, \fn{scripturesetup} or the \env{scripture} environment,
 % then the |narrow/| prefix should be dropped.
 %
 % \begin{option}{narrow/aboveskip}
@@ -3015,7 +3029,7 @@
 % \label{poetryoptions}
 %
 % If these options are passed directly to the \env{poetry} environment rather
-% than to the package, \cs{scripturesetup} or the \env{scripture} environment,
+% than to the package, \fn{scripturesetup} or the \env{scripture} environment,
 % then the |poetry/| prefix should be dropped.
 %
 % \begin{option}{poetry/aboveskip}
@@ -3131,7 +3145,7 @@
 %   \begin{syntax}
 %     poetry/verse/sep = \meta{dimen} \hfill Default: 0.05 em
 %   \end{syntax}
-%   \meta{|dimen|} used to separate a \cs{vs} from the following text in a
+%   \meta{|dimen|} used to separate a \fn{vs} from the following text in a
 %   \env{poetry} environment. This is only used for verses at the start of a
 %   line.
 % \end{option}
@@ -3201,7 +3215,7 @@
     have~been~loaded~and~set~up.~Ignoring~option~language=#1. }
 %    \end{macrocode}
 %
-% Error if an \cs{heading} is not used in the main \env{scripture}
+% Error if an \fn{heading} is not used in the main \env{scripture}
 % environment.
 %
 %    \begin{macrocode}
@@ -3845,8 +3859,8 @@
 % \begin{hooks}{scripture/chap/before, scripture/chap/after,
 %   scripture/verse/before, scripture/verse/after}
 % Hooks for before and after chapters and verses. The current chapter and
-% verse is available in the hooks as \cs{scripturecurrentchapter} and
-% \cs{scripturecurrentverse} respectively. These are global.
+% verse is available in the hooks as \fn{scripturecurrentchapter} and
+% \fn{scripturecurrentverse} respectively. These are global.
 %    \begin{macrocode}
 \hook_new_pair:nn { scripture / chap / before } { scripture / chap / after }
 \hook_new_pair:nn { scripture / verse / before } { scripture / verse / after }
@@ -3969,7 +3983,7 @@
 % \begin{macro}{\@@_extra_skip:}
 %   Insert a little extra vertical space between two paragraphs. This function
 %   tests if the previous paragraph is only one line in length and began
-%   with a \cs{ch} function. If this condition is met, more space is added
+%   with a \fn{ch} function. If this condition is met, more space is added
 %   if necessary to avoid the following paragraph clashing with the drop
 %   chapter.
 %    \begin{macrocode}
@@ -4408,7 +4422,7 @@
 % \begin{macro}{\g_@@_post_env_indent_box}
 %   Box to store the indent after an inner environment in the case where it is
 %   dropped by \cs{@@_dopeend:}. This box is then inserted if the next thing
-%   is a \cs{vs}. Only used when the \opt{verse/para} option is active.
+%   is a \fn{vs}. Only used when the \opt{verse/para} option is active.
 %    \begin{macrocode}
 \box_new:N \g_@@_post_env_indent_box
 %    \end{macrocode}
@@ -5988,7 +6002,7 @@
 % \end{macro}
 %
 % \begin{macro}{\@@_hanging_verse:n}
-%   Position a \cs{vs} in a \env{hanging} environment. The verse is set to
+%   Position a \fn{vs} in a \env{hanging} environment. The verse is set to
 %   overlap to the left if at the beginning of a hanging paragraph.
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_hanging_verse:n
@@ -6520,7 +6534,7 @@
 %
 % \begin{macro}{\l_@@_poetry_midparachap_show_verse_bool}
 %   Flag indicating whether the verse number should be printed immediately
-%   after a \cs{ch} or not in a \env{poetry} environment.
+%   after a \fn{ch} or not in a \env{poetry} environment.
 %    \begin{macrocode}
 \bool_new:N \l_@@_poetry_midparachap_show_verse_bool
 %    \end{macrocode}
@@ -7039,7 +7053,7 @@
 % \subsection{Public \LaTeX{} Interface}
 %
 % \begin{macro}{\scripturecurrentchapter, \scripturecurrentverse}
-%   Globally stores the most recent argument of \cs{ch} and \cs{vs}. These
+%   Globally stores the most recent argument of \fn{ch} and \fn{vs}. These
 %   could be used in hooks, for example.
 %    \begin{macrocode}
 \cs_set_nopar:Npn \scripturecurrentchapter { }
