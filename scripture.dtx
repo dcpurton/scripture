@@ -157,6 +157,10 @@
   { \__codedoc_function_end: }
 \DeclareDocumentEnvironment { hooks } { O{} +v }
   {
+    \clist_map_inline:nn { #2 }
+      {
+        \MakeLinkTarget*{hook##1}
+      }
     \bool_if:NTF \l__codedoc_in_implementation_bool
       {
         \cs_set_eq:NN \__codedoc_macro_index:nN \__dcp_codedoc_hookmacro_index:nN
@@ -196,7 +200,7 @@
 \DeclareDocumentCommand \hook { m }
   {
     \__dcp_codedoc_hook_index:n {#1}
-    \texttt {#1}
+    \hyperlink{hook#1}{\texttt{#1}}
   }
 \DeclareRobustCommand \val {\texttt}
 \makeatother
