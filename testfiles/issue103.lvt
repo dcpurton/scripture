@@ -1,0 +1,45 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount,
+  chapter/align=right,
+  chapter/nodrop,
+  chapter/smash,
+  chapter/font=\huge\bfseries,
+  chapter/valign=top,
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Genesis 1:1--2]
+  \begin{hanging}
+    \ch{1}In the beginning God created the heavens and the earth. \vs{2}Now
+    the earth was formless and empty, darkness was over the surface of the
+    deep, and the Spirit of God was hovering over the waters.
+  \end{hanging}
+\end{scripture}
+
+\begin{scripture}[Genesis 1:1--2]
+  \begin{hanging}
+    \ch[\textsc{x}]{1}\textsc{in the beginning} God created the heavens and
+    the earth. \vs{2}Now the earth was formless and empty, darkness was over
+    the surface of the deep, and the Spirit of God was hovering over the
+    waters.
+  \end{hanging}
+\end{scripture}
+
+\scripturesetup{
+  chapter/xchar=\textsc{x}
+}
+
+\begin{scripture}[Genesis 1:1--2]
+  \begin{hanging}
+    \ch{1}\textsc{in the beginning} God created the heavens and the earth.
+    \vs{2}Now the earth was formless and empty, darkness was over the surface
+    of the deep, and the Spirit of God was hovering over the waters.
+  \end{hanging}
+\end{scripture}
+\end{document}

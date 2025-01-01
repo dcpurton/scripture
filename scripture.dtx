@@ -364,12 +364,14 @@
 %
 % \begin{function}{\ch, \ch*}
 %   \begin{syntax}
-%     |\ch|\marg{chapter number}
-%     |\ch*|\marg{chapter number}
+%     |\ch|\oarg{letter}\marg{chapter number}
+%     |\ch*|\oarg{letter}\marg{chapter number}
 %   \end{syntax}
 %   Format a chapter number. By default these are formatted using drop text
 %   taking up two lines and the text is separated from the chapter number by a
-%   horizontal space of 0.5\,em.
+%   horizontal space of 0.5\,em. The drop text is aligned to the top of
+%   \meta{letter} which defaults to the value of \opt{chapter/xchar}, which in
+%   turn defaults to a capital \val{X} in the default font.
 %
 %   If the \opt{dropchap} option is \val{true} (default), then this function
 %   attempts to add sufficient space for the dropped chapter when its
@@ -1594,6 +1596,16 @@
 %   \end{hanging}
 % \end{scripture}
 % \end{scriptureexample}
+%
+% \changes{v2.1}{2025/01/01}{Add \opt{chapter/xchar} option}
+% \begin{option}[added=2025-01-01]{chapter/xchar}
+%   \begin{syntax}
+%     chapter/xchar = \meta{character}\hfill Default: X
+%   \end{syntax}
+%   Sets the character to which drop chapters and vertically aligned non-drop
+%   chapters are aligned. This can also be set for individual chapters using
+%   an optional argument to \cs{ch}.
+% \end{option}
 %
 % \changes{v1.2}{2022/08/31}{Add \opt{colour} option}
 % \begin{option}[added=2022-08-31]{colour, color}
@@ -3317,6 +3329,9 @@
                                                         }
     , chapter / valign            .value_required:n   = true
     , chapter / valign            .initial:n          = bottom
+    , chapter / xchar             .tl_set:N           = \l_@@_X_char_tl
+    , chapter / xchar             .value_required:n   = true
+    , chapter / xchar             .initial:n          = X
     , extraskip                   .tl_set:N           = \l_@@_extraskip_tl
     , extraskip                   .value_required:n   = true
     , extraskip                   .initial:n          = \medskipamount
@@ -4070,8 +4085,14 @@
                           { \@@_reference_start_newline: }
                           {
                             \cs_set_eq:NN \@@_temp_ch \ch
-                            \RenewDocumentCommand \ch { s m }
-                              { \cs_set_eq:NN \ch \@@_temp_ch }
+                            \RenewDocumentCommand \ch { s o m }
+                              {
+                                \tl_if_novalue:nF { ##2 }
+                                  {
+                                    \tl_set:Nn \l_@@_X_char_tl { ##2 }
+                                  }
+                                \cs_set_eq:NN \ch \@@_temp_ch
+                              }
                             \@@_reference_start_inline:
                           }
                       }
@@ -4498,14 +4519,6 @@
 %   Vertical offset to use when setting non-drop chapters.
 %    \begin{macrocode}
 \dim_new:N \l_@@_nodrop_chap_voffset_dim
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{\l_@@_X_char_tl}
-%   Character to use for positioning chapters aligned with top of text line.
-%    \begin{macrocode}
-\tl_new:N \l_@@_X_char_tl
-\tl_set:Nn \l_@@_X_char_tl { X }
 %    \end{macrocode}
 % \end{macro}
 %
@@ -5272,8 +5285,14 @@
     \skip_gzero:N \g_@@_prev_inner_below_skip
     \bool_if:NT \l_@@_chap_para_bool
       { \bool_set_false:N \l_@@_chap_drop_bool }
-    \DeclareDocumentCommand { \ch } { sm }
-      { \@@_ch_output:nn { ##1 } { ##2 } }
+    \DeclareDocumentCommand { \ch } { s o m }
+      {
+        \tl_if_novalue:nF { ##2 }
+          {
+            \tl_set:Nn \l_@@_X_char_tl { ##2 }
+          }
+        \@@_ch_output:nn { ##1 } { ##3 }
+      }
     \cs_set_eq:NN \vs \@@_verse_output:n
     \cs_set_eq:NN \added \@@_added:n
     \cs_set_eq:NN \heading \@@_heading:n
@@ -5926,7 +5945,14 @@
           { scripture / hanging }
           { #1 }
       }
-    \DeclareDocumentCommand { \ch } { sm } { \@@_hanging_ch:n { ##2 } }
+    \DeclareDocumentCommand { \ch } { s o m }
+      {
+        \tl_if_novalue:nF { ##2 }
+          {
+            \tl_set:Nn \l_@@_X_char_tl { ##2 }
+          }
+        \@@_hanging_ch:n { ##3 }
+      }
     \bool_if:NTF \l_@@_verse_para_bool
       { \cs_set_eq:NN \vs \@@_hanging_verse_para:n }
       { \cs_set_eq:NN \vs \@@_hanging_verse:n }
@@ -6795,7 +6821,14 @@
     \bool_set_true:N \l_@@_active_inner_bool
     \str_set:Nn \l_@@_currenvir_str { poetry }
     \bool_gset_false:N \g_@@_poetry_midparachap_show_verse_bool
-    \DeclareDocumentCommand { \ch } { sm } { \@@_poetry_ch:n { ##2 } }
+    \DeclareDocumentCommand { \ch } { s o m }
+      {
+        \tl_if_novalue:nF { ##2 }
+          {
+            \tl_set:Nn \l_@@_X_char_tl { ##2 }
+          }
+        \@@_poetry_ch:n { ##3 }
+      }
     \cs_set_eq:NN \vs \@@_poetry_mode_vertical_verse:n
     \cs_set_eq:NN \selah \@@_selah_output:
     \cs_set_protected_nopar:Npn \textright ##1
