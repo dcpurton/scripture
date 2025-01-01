@@ -175,7 +175,10 @@
 \DeclareDocumentEnvironment { option } { O{} +v }
   {
     \cs_set_eq:NN \__codedoc_function_index:n \SpecialOptionIndex
-    \MakeLinkTarget*{option#2}
+    \clist_map_inline:nn { #2 }
+      {
+        \MakeLinkTarget*{option##1}
+      }
     \__codedoc_function:nnw {#1} {#2}
   }
   { \__codedoc_function_end: }
@@ -1167,9 +1170,9 @@
 %
 % \begin{description}
 %   \item[\hook{scripture/chap/before}] This hook is executed immediately
-%     before the \opt{chap/font} is set for the chapter.
+%     before the \opt{chapter/font} is set for the chapter.
 %   \item[\hook{scripture/chap/after}] This hook is executed immediately after
-%     the \opt{chap/sep} space is inserted.
+%     the \opt{chapter/sep} space is inserted.
 %   \item[\hook{scripture/verse/before}] This hook is executed immediately
 %     before the \opt{verse/font} is set for the verse.
 %   \item[\hook{scripture/chap/after}] This hook is executed immediately after
@@ -1243,7 +1246,7 @@
 % \subsection{Options}
 % \label{options}
 %
-% \changes{v1.3}{2023/01/08}{Remove \opt{reference/delim} option}
+% \changes{v1.3}{2023/01/08}{Remove \texttt{reference/delim} option}
 %
 % Default formatting \meta{|options|} can be set using
 % \cs{usepackage}|[|\meta{|options|}|]{scripture}| or
@@ -2076,7 +2079,7 @@
 %   \end{syntax}
 %   Whether to insert a pilcrow (\P) at the beginning of each paragraph. This
 %   option only has an effect when using the \opt{compact} and/or
-%   \opt{para/verse} options. The value of \meta{|boolean|} is optional and
+%   \opt{verse/para} options. The value of \meta{|boolean|} is optional and
 %   assumed to be \val{true} if not present.
 %
 %   A subsequent pilcrow can be suppressed with the \cs{nopilcrow} macro.
