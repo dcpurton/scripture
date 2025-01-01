@@ -1,0 +1,42 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  font=\sffamily
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[John 1:1--4]
+  \ch{1}In the beginning was the Word, and the Word was with God, and the Word
+  was God. \vs{2}He was with God in the beginning. \vs{3}Through him all
+  things were made; without him nothing was made that has been made. \vs{4}In
+  him was life, and that life was the light of all mankind. \vs{5}The light
+  shines in the darkness, and the darkness has not overcome it.
+\end{scripture}
+
+\bigskip
+
+\begin{scripture}[John 1:1--4][defaults]
+  \ch{1}In the beginning was the Word, and the Word was with God, and the Word
+  was God. \vs{2}He was with God in the beginning. \vs{3}Through him all
+  things were made; without him nothing was made that has been made. \vs{4}In
+  him was life, and that life was the light of all mankind. \vs{5}The light
+  shines in the darkness, and the darkness has not overcome it.
+\end{scripture}
+
+\scripturesetup{
+  defaults
+}
+
+\bigskip
+
+\begin{scripture}[John 1:1--4]
+  \ch{1}In the beginning was the Word, and the Word was with God, and the Word
+  was God. \vs{2}He was with God in the beginning. \vs{3}Through him all
+  things were made; without him nothing was made that has been made. \vs{4}In
+  him was life, and that life was the light of all mankind. \vs{5}The light
+  shines in the darkness, and the darkness has not overcome it.
+\end{scripture}
+\end{document}

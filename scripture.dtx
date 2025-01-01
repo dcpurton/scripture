@@ -1672,6 +1672,14 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
+% \changes{v2.1}{2025/01/01}{Add \opt{defaults} option}
+% \begin{option}[added=2025-01-01]{defaults}
+%   \begin{syntax}
+%     defaults
+%   \end{syntax}
+%   Resets options to defaults.
+% \end{option}
+%
 % \begin{option}{extraskip}
 %   \begin{syntax}
 %     extraskip = \meta{skip} \hfill Default: \cs{medskipamount}
@@ -3332,6 +3340,8 @@
     , chapter / xchar             .tl_set:N           = \l_@@_X_char_tl
     , chapter / xchar             .value_required:n   = true
     , chapter / xchar             .initial:n          = X
+    , defaults                    .code:n             = \cs_if_exist_use:N \@@_setup_reset_defaults:
+    , defaults                    .value_forbidden:n  = true
     , extraskip                   .tl_set:N           = \l_@@_extraskip_tl
     , extraskip                   .value_required:n   = true
     , extraskip                   .initial:n          = \medskipamount
@@ -3484,7 +3494,7 @@
     , reference / start / sep     .initial:n          = 1 em
     , reference / start / vsep    .tl_set:N           = \l_@@_ref_vertical_sep_tl
     , reference / start / vsep    .value_required:n   = true
-    , reference / start / vsep    .initial:n          = 0pt
+    , reference / start / vsep    .initial:n          = 0 pt
     , rightmargin                 .tl_set:N           = \l_@@_rightmargin_tl
     , rightmargin                 .value_required:n   = true
     , rightmargin                 .initial:n          = \c_zero_dim
@@ -3520,7 +3530,7 @@
     , verse / firstformat         .initial:n          = #1
     , verse / firstsep            .tl_set:N           = \l_@@_verse_first_sep_tl
     , verse / firstsep            .value_required:n   = true
-    , verse / firstsep            .initial:n          = 0.5em
+    , verse / firstsep            .initial:n          = 0.5 em
     , verse / font                .tl_set:N           = \l_@@_verse_font_tl
     , verse / font                .value_required:n   = true
     , verse / font                .initial:n          = 
@@ -3674,6 +3684,128 @@
 % Process package options.
 %    \begin{macrocode}
 \ProcessKeyOptions
+%    \end{macrocode}
+%
+% Create interface to reset all keys to defaults.
+%    \begin{macrocode}
+\tl_new:N \l_@@_default_options_tl
+\keys_precompile:nnN { scripture }
+  {
+    , aboveskip                   = \c_zero_skip
+    , added / font                =
+    , added / format              = \emph { #1 }
+    , after                       =
+    , before                      =
+    , belowskip                   = \c_zero_skip
+    , colour                      = .
+    , compact                     = false
+    , chapter / align             = left
+    , chapter / font              = \bfseries
+    , chapter / colour            = .
+    , chapter / drop              = true
+    , chapter / format            = #1
+    , chapter / para              = false
+    , chapter / para / aboveskip  = \bigskipamount
+    , chapter / para / belowskip  = \medskipamount
+    , chapter / para / indent     = true
+    , chapter / sep               = 0.5 em
+    , chapter / show              = true
+    , chapter / showverse         = false
+    , chapter / smash             = false
+    , chapter / valign            = bottom
+    , chapter / xchar             = X
+    , extraskip                   = \medskipamount
+    , font                        =
+    , heading / aboveskip         = \bigskipamount
+    , heading / afterindent       = false
+    , heading / align             = left
+    , heading / belowskip         = \medskipamount
+    , heading / font              = \small\itshape
+    , heading / format            = #1
+    , heading / show              = true
+    , indent                      = true
+    , inline                      = false
+    , inline / begin              = ``
+    , inline / end                = ''
+    , inline / reference / format = (#1)
+    , inline / reference / sep    = 0.5 em
+    , inline / version / delim    = \c_space_tl
+    , inline / version / format   = #1
+    , language                    =
+    , language / variant          =
+    , leftmargin                  = \c_zero_dim
+    , name / font                 = \scshape
+    , name / format               = #1
+    , parindent                   = \parindent
+    , parskip                     = \parskip
+    , pilcrow                     = false
+    , pilcrow / sep               = 0.25 em
+    , redletter                   = false
+    , redletter / colour          = red!80!black
+    , reference / align           = right
+    , reference / colour          = .
+    , reference / font            = \bfseries
+    , reference / format          = #1
+    , reference / position        = end
+    , reference / sep             = 2 em
+    , reference / start / newline = false
+    , reference / start / sep     = 1 em
+    , reference / start / vsep    = 0 pt
+    , rightmargin                 = \c_zero_dim
+    , selah / text                = Selah
+    , selah / font                = \itshape
+    , selah / format              = #1
+    , selah / sep                 = 1 em
+    , textright / sep             = 1 em
+    , verse / colour              = .
+    , verse / first               = false
+    , verse / firstformat         = #1
+    , verse / firstsep            = 0.5 em
+    , verse / font                =
+    , verse / format              = \textsuperscript{#1}
+    , verse / para                = false
+    , verse / para / indent       = \l_@@_parindent_tl
+    , verse / sep                 = 0.05 em
+    , verse / show                = true
+    , version                     =
+    , version / delim             = \c_space_tl
+    , version / format            = (#1)
+    , version / position          = withref
+    , center / aboveskip          = \medskipamount
+    , center / belowskip          = \medskipamount
+    , center / leftmargin         = \c_zero_dim
+    , center / rightmargin        = \c_zero_dim
+    , flushright / aboveskip      = \medskipamount
+    , flushright / belowskip      = \medskipamount
+    , flushright / leftmargin     = \c_zero_dim
+    , flushright / rightmargin    = \c_zero_dim
+    , hanging / aboveskip         = \medskipamount
+    , hanging / belowskip         = \medskipamount
+    , hanging / chapter / indent  = true
+    , hanging / hang              = 2 em
+    , hanging / leftmargin        = 1 em
+    , hanging / rightmargin       = \c_zero_dim
+    , hanging / verse / right     = true
+    , hanging / verse / sep       = 0.05 em
+    , midparachap / showverse     = true
+    , narrow / aboveskip          = \medskipamount
+    , narrow / belowskip          = \medskipamount
+    , narrow / leftmargin         = 1 em
+    , narrow / rightmargin        = 1 em
+    , poetry / aboveskip          = \medskipamount
+    , poetry / belowskip          = \medskipamount
+    , poetry / bigindent          = 4 em
+    , poetry / indent             = 1 em
+    , poetry / leftmargin         = 1 em
+    , poetry / rightmargin        = \c_zero_dim
+    , poetry / verse / right      = true
+    , poetry / verse / sep        = 0.05 em
+  }
+  \l_@@_default_options_tl
+\cs_new_protected:Nn \@@_setup_reset_defaults:
+  {
+    \l_@@_default_options_tl
+  }
 %    \end{macrocode}
 %
 % \begin{macro}{\@@_setup_style:nnn}
