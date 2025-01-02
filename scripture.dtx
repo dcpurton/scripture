@@ -1442,17 +1442,6 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
-% \changes{v2.1}{2024/12/30}{Add \opt{chapter/smash} option}
-% \begin{option}[added=2024-12-30]{chapter/smash}
-%   \begin{syntax}
-%     chapter/smash = \meta{boolean} \hfill Default: false
-%   \end{syntax}
-%   Whether a chapter should be wrapped in \cs{smash} when
-%   \opt{chapter/nodrop} is set. This allows the chapter number to be larger
-%   than the line height without affecting line spacing. The value of
-%   \meta{|boolean|} is optional and assumed to be \val{true} if not present.
-% \end{option}
-%
 % \changes{v2.1}{2023/01/04}{Add \opt{chapter/para} option}
 % \begin{option}[added=2023-01-05]{chapter/para}
 %   \begin{syntax}
@@ -1558,6 +1547,17 @@
 %   Word was with God, and the Word was God.
 % \end{scripture}
 % \end{scriptureexample}
+%
+% \changes{v2.1}{2024/12/30}{Add \opt{chapter/smash} option}
+% \begin{option}[added=2024-12-30]{chapter/smash}
+%   \begin{syntax}
+%     chapter/smash = \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   Whether a chapter should be wrapped in \cs{smash} when
+%   \opt{chapter/nodrop} is set. This allows the chapter number to be larger
+%   than the line height without affecting line spacing. The value of
+%   \meta{|boolean|} is optional and assumed to be \val{true} if not present.
+% \end{option}
 %
 % \changes{v2.1}{2024/12/30}{Add \opt{chapter/valign} option}
 % \begin{option}[added=2024-12-30]{chapter/valign}
@@ -1794,6 +1794,16 @@
 %   opposite of \opt{heading/hide}.
 % \end{option}
 %
+% \begin{option}{indent}
+%   \begin{syntax}
+%     indent = \meta{boolean} \hfill Default: true
+%   \end{syntax}
+%   Whether to indent the first line of a \env{scripture} environment or not
+%   by \opt{parindent}. The value of \meta{|boolean|} is optional and assumed
+%   to be \val{true} if not present. This option is the opposite of
+%   \opt{noindent}.
+% \end{option}
+%
 % \changes{v1.3}{2023/01/07}{Add \opt{inline} option}
 % \begin{option}[added=2023-01-07]{inline}
 %   \begin{syntax}
@@ -1873,16 +1883,6 @@
 %   \meta{|macro|} used to format the \meta{\opt{version}} for an inline
 %   \env{scripture} quotation. |#1| contains the text of the
 %   \meta{\opt{version}}.
-% \end{option}
-%
-% \begin{option}{indent}
-%   \begin{syntax}
-%     indent = \meta{boolean} \hfill Default: true
-%   \end{syntax}
-%   Whether to indent the first line of a \env{scripture} environment or not
-%   by \opt{parindent}. The value of \meta{|boolean|} is optional and assumed
-%   to be \val{true} if not present. This option is the opposite of
-%   \opt{noindent}.
 % \end{option}
 %
 % \changes{v1.2}{2022/11/02}{Add \opt{language} option}
@@ -2639,8 +2639,8 @@
 %   \begin{syntax}
 %     version = \meta{version} \hfill Default: \emph{Empty}
 %   \end{syntax}
-%   \meta{|version|} added to the \meta{\val{reference}} for a \env{scripture}
-%   quotation.
+%   \meta{\opt{version}} added to the \meta{\val{reference}} for a
+%   \env{scripture} quotation.
 % \end{option}
 %
 % \begin{option}{version/delim}
