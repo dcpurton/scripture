@@ -7088,8 +7088,9 @@
 %     \item \meta{|options|} to set for the style.
 %   \end{arguments}
 %   Set key-value settings to be applied when using the \opt{style} option
-%   with value \val{name}. The starred version appends the \val{options} to
-%   any existing ones.
+%   with value \val{name}. You may want to pass \opt{defaults} as the first
+%   option to ensure any unset options in your style are expected defaults.
+%   The starred version appends the \val{options} to any existing ones.
 %    \begin{macrocode}
 \NewDocumentCommand { \scripturestyle } { s m m }
   {
