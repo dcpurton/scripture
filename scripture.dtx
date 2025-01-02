@@ -1,6 +1,6 @@
 % \iffalse meta-comment
 %
-% Copyright (c) 2022-2023 David Purton <dcpurton@marshwiggle.net>
+% Copyright (c) 2022-2025 David Purton <dcpurton@marshwiggle.net>
 %
 % This work may be distributed and/or modified under the conditions of
 % the LaTeX Project Public License, either version 1.3c of this license
@@ -240,10 +240,11 @@
 % \changes{v2.0}{2023/12/26}{Switch \env{scripture} to a \LaTeX{} \val{list}
 %   based environment}
 % \changes{v2.0}{2023/12/27}{Bug fixes}
+% \changes{v2.1}{2025/01/02}{Bug fixes}
 %
 % \title{The \pkg{scripture} package}
 % \author{David Purton\thanks{Email: \url{dcpurton@marshwiggle.net}}}
-% \date{2023/12/27 v2.0}
+% \date{2025/01/02 v2.1}
 %
 % \maketitle
 %
@@ -502,7 +503,8 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
-% \changes{v2.1}{2024/11/19}{Add simple heading function}
+% \changes{v2.1}{2024/11/19}{Add feature to insert simple headings}
+% \changes{v2.1}{2024/11/19}{Add \fn{heading} function}
 % \begin{function}[added=2024-11-19]{\heading}
 %   \begin{syntax}
 %     |\heading|\marg{section heading}
@@ -1442,6 +1444,8 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
+% \changes{v2.1}{2024/01/05}{Add feature to set chapters in a paragraph of
+% their own}
 % \changes{v2.1}{2024/01/05}{Add \opt{chapter/para} option}
 % \begin{option}[added=2024-01-05]{chapter/para}
 %   \begin{syntax}
@@ -2098,6 +2102,8 @@
 %   \meta{|skip|} to use between paragraphs in the \env{scripture} environment.
 % \end{option}
 %
+% \changes{v2.1}{2024/01/18}{Add feature to add pilcrows at the start of
+% paragraphs.}
 % \changes{v2.1}{2024/01/18}{Add \opt{pilcrow} option}
 % \begin{option}[added=2024-01-18]{pilcrow}
 %   \begin{syntax}
@@ -2224,6 +2230,8 @@
 %   reference on the final line of the quotation.
 % \end{option}
 %
+% \changes{v2.1}{2024/01/10}{Add feature to place the reference at the start
+% of the quotation.}
 % \changes{v2.1}{2024/01/10}{Add \opt{reference/position} option}
 % \begin{option}[added=2024-01-10]{reference/position}
 %   \begin{syntax}
@@ -2520,6 +2528,7 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
+% \changes{v2.1}{2024/01/13}{Add feature to set each verse on a new line.}
 % \changes{v2.1}{2024/01/13}{Add \opt{verse/para} option}
 % \begin{option}[added=2024-01-13]{verse/para}
 %   \begin{syntax}
@@ -3171,7 +3180,7 @@
 %
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}[2022-11-01]
-\ProvidesExplPackage{scripture}{2023/12/27}{2.0}
+\ProvidesExplPackage{scripture}{2025/01/02}{2.1}
   {Format Scripture Quotations (DCP)}
 %    \end{macrocode}
 %
