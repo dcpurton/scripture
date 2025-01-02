@@ -2314,7 +2314,7 @@
 % \changes{v2.1}{2024/01/10}{Add \opt{reference/start/sep} option}
 % \begin{option}[added=2024-01-10]{reference/start/sep}
 %   \begin{syntax}
-%     reference/start/sep = \meta{dimen} \hfill Default: 1 em
+%     reference/start/sep = \meta{dimen} \hfill Default: 1em
 %   \end{syntax}
 %   The space inserted between the reference and the quotation when
 %   \opt{reference/position} is set to \val{start}. This only applies when the
@@ -2324,7 +2324,7 @@
 % \changes{v2.1}{2024/01/10}{Add \opt{reference/start/vsep} option}
 % \begin{option}[added=2024-01-10]{reference/start/vsep}
 %   \begin{syntax}
-%     reference/start/sep = \meta{skip} \hfill Default: 0 pt
+%     reference/start/sep = \meta{skip} \hfill Default: 0pt
 %   \end{syntax}
 %   The vertical skip inserted between the reference and the quotation when
 %   \opt{reference/position} is set to \val{start}. This only applies when the
@@ -2920,7 +2920,7 @@
 % \changes{v2.1}{2024/12/17}{Add \opt{hanging/verse/sep} option}
 % \begin{option}[added=2024-12-17]{hanging/verse/sep}
 %   \begin{syntax}
-%     hanging/verse/sep = \meta{dimen} \hfill Default: 0.05 em
+%     hanging/verse/sep = \meta{dimen} \hfill Default: 0.05em
 %   \end{syntax}
 %   \meta{|dimen|} used to separate a \fn{vs} from the following text in a
 %   \env{hanging} environment. This is only used for verses at the start of a
@@ -3153,7 +3153,7 @@
 % \changes{v1.1}{2022/07/31}{Add \opt{poetry/verse/sep} option}
 % \begin{option}[added=2022-07-31]{poetry/verse/sep}
 %   \begin{syntax}
-%     poetry/verse/sep = \meta{dimen} \hfill Default: 0.05 em
+%     poetry/verse/sep = \meta{dimen} \hfill Default: 0.05em
 %   \end{syntax}
 %   \meta{|dimen|} used to separate a \fn{vs} from the following text in a
 %   \env{poetry} environment. This is only used for verses at the start of a
@@ -3334,7 +3334,7 @@
     , chapter / para / indent     .initial:n          = true
     , chapter / sep               .tl_set:N           = \l_@@_chap_sep_tl
     , chapter / sep               .value_required:n   = true
-    , chapter / sep               .initial:n          = 0.5 em
+    , chapter / sep               .initial:n          = 0.5em
     , chapter / show              .bool_set:N         = \l_@@_chap_show_bool
     , chapter / show              .default:n          = true
     , chapter / show              .initial:n          = true
@@ -3442,7 +3442,7 @@
     , inline / reference / format .initial:n          = (#1)
     , inline / reference / sep    .tl_set:N           = \l_@@_inline_ref_sep_tl
     , inline / reference / sep    .value_required:n   = true
-    , inline / reference / sep    .initial:n          = 0.5 em
+    , inline / reference / sep    .initial:n          = 0.5em
     , inline / version / delim    .tl_set:N           = \l_@@_inline_version_delim_tl
     , inline / version / delim    .value_required:n   = true
     , inline / version / delim    .initial:n          = \c_space_tl
@@ -3477,7 +3477,7 @@
     , pilcrow                     .initial:n          = false
     , pilcrow / sep               .tl_set:N           = \l_@@_pilcrow_sep_tl
     , pilcrow / sep               .value_required:n   = true
-    , pilcrow / sep               .initial:n          = 0.25 em
+    , pilcrow / sep               .initial:n          = 0.25em
     , redletter                   .bool_set:N         = \l_@@_red_letter_bool
     , redletter                   .default:n          = true
     , redletter                   .initial:n          = false
@@ -3515,7 +3515,7 @@
     , reference / position        .initial:n          = end
     , reference / sep             .tl_set:N           = \l_@@_ref_sep_tl
     , reference / sep             .value_required:n   = true
-    , reference / sep             .initial:n          = 2 em
+    , reference / sep             .initial:n          = 2em
     , reference / start / inline  .bool_set_inverse:N = \l_@@_ref_start_newline_bool
     , reference / start / inline  .default:n          = true
     , reference / start / newline .bool_set:N         = \l_@@_ref_start_newline_bool
@@ -3523,10 +3523,10 @@
     , reference / start / newline .initial:n          = false
     , reference / start / sep     .tl_set:N           = \l_@@_ref_start_sep_tl
     , reference / start / sep     .value_required:n   = true
-    , reference / start / sep     .initial:n          = 1 em
+    , reference / start / sep     .initial:n          = 1em
     , reference / start / vsep    .tl_set:N           = \l_@@_ref_vertical_sep_tl
     , reference / start / vsep    .value_required:n   = true
-    , reference / start / vsep    .initial:n          = 0 pt
+    , reference / start / vsep    .initial:n          = 0pt
     , rightmargin                 .tl_set:N           = \l_@@_rightmargin_tl
     , rightmargin                 .value_required:n   = true
     , rightmargin                 .initial:n          = \c_zero_dim
@@ -3541,7 +3541,7 @@
     , selah / format              .initial:n          = #1
     , selah / sep                 .tl_set:N           = \l_@@_selah_sep_tl
     , selah / sep                 .value_required:n   = true
-    , selah / sep                 .initial:n          = 1 em
+    , selah / sep                 .initial:n          = 1em
     , style                       .choice:
     , style / unknown             .code:n             = \msg_error:nnx
                                                           { scripture }
@@ -3549,7 +3549,7 @@
                                                           { \exp_not:n {#1} }
     , textright / sep             .tl_set:N           = \l_@@_text_right_sep_tl
     , textright / sep             .value_required:n   = true
-    , textright / sep             .initial:n          = 1 em
+    , textright / sep             .initial:n          = 1em
     , verse / colour              .tl_set:N           = \l_@@_verse_colour_tl
     , verse / colour              .value_required:n   = true
     , verse / colour              .initial:n          = .
@@ -3562,7 +3562,7 @@
     , verse / firstformat         .initial:n          = #1
     , verse / firstsep            .tl_set:N           = \l_@@_verse_first_sep_tl
     , verse / firstsep            .value_required:n   = true
-    , verse / firstsep            .initial:n          = 0.5 em
+    , verse / firstsep            .initial:n          = 0.5em
     , verse / font                .tl_set:N           = \l_@@_verse_font_tl
     , verse / font                .value_required:n   = true
     , verse / font                .initial:n          = 
@@ -3579,7 +3579,7 @@
     , verse / para / indent       .initial:n          = \l_@@_parindent_tl
     , verse / sep                 .tl_set:N           = \l_@@_verse_sep_tl
     , verse / sep                 .value_required:n   = true
-    , verse / sep                 .initial:n          = 0.05 em
+    , verse / sep                 .initial:n          = 0.05em
     , verse / show                .bool_set:N         = \l_@@_verse_show_bool
     , verse / show                .default:n          = true
     , verse / show                .initial:n          = true
@@ -3644,10 +3644,10 @@
     , hanging / chapter / indent  .initial:n          = true
     , hanging / hang              .tl_set:N           = \l_@@_hanging_hang_tl
     , hanging / hang              .value_required:n   = true
-    , hanging / hang              .initial:n          = 2 em
+    , hanging / hang              .initial:n          = 2em
     , hanging / leftmargin        .tl_set:N           = \l_@@_hanging_leftmargin_tl
     , hanging / leftmargin        .value_required:n   = true
-    , hanging / leftmargin        .initial:n          = 1 em
+    , hanging / leftmargin        .initial:n          = 1em
     , hanging / rightmargin       .tl_set:N           = \l_@@_hanging_rightmargin_tl
     , hanging / rightmargin       .value_required:n   = true
     , hanging / rightmargin       .initial:n          = \c_zero_dim
@@ -3658,7 +3658,7 @@
     , hanging / verse / right     .initial:n          = true
     , hanging / verse / sep       .tl_set:N           = \l_@@_hanging_verse_sep_tl
     , hanging / verse / sep       .value_required:n   = true
-    , hanging / verse / sep       .initial:n          = 0.05 em
+    , hanging / verse / sep       .initial:n          = 0.05em
 %    \end{macrocode}
 % Options for the mid-paragraph chapters (including the \env{midparachap} environment).
 %    \begin{macrocode}
@@ -3678,10 +3678,10 @@
     , narrow / belowskip          .initial:n          = \medskipamount
     , narrow / leftmargin         .tl_set:N           = \l_@@_narrow_leftmargin_tl
     , narrow / leftmargin         .value_required:n   = true
-    , narrow / leftmargin         .initial:n          = 1 em
+    , narrow / leftmargin         .initial:n          = 1em
     , narrow / rightmargin        .tl_set:N           = \l_@@_narrow_rightmargin_tl
     , narrow / rightmargin        .value_required:n   = true
-    , narrow / rightmargin        .initial:n          = 1 em
+    , narrow / rightmargin        .initial:n          = 1em
 %    \end{macrocode}
 % Options for the \env{poetry} environment.
 %    \begin{macrocode}
@@ -3693,13 +3693,13 @@
     , poetry / belowskip          .initial:n          = \medskipamount
     , poetry / bigindent          .tl_set:N           = \l_@@_poetry_big_indent_tl
     , poetry / bigindent          .value_required:n   = true
-    , poetry / bigindent          .initial:n          = 4 em
+    , poetry / bigindent          .initial:n          = 4em
     , poetry / indent             .tl_set:N           = \l_@@_poetry_indent_tl
     , poetry / indent             .value_required:n   = true
-    , poetry / indent             .initial:n          = 1 em
+    , poetry / indent             .initial:n          = 1em
     , poetry / leftmargin         .tl_set:N           = \l_@@_poetry_leftmargin_tl
     , poetry / leftmargin         .value_required:n   = true
-    , poetry / leftmargin         .initial:n          = 1 em
+    , poetry / leftmargin         .initial:n          = 1em
     , poetry / rightmargin        .tl_set:N           = \l_@@_poetry_rightmargin_tl
     , poetry / rightmargin        .value_required:n   = true
     , poetry / rightmargin        .initial:n          = \c_zero_dim
@@ -3710,7 +3710,7 @@
     , poetry / verse / right      .initial:n          = true
     , poetry / verse / sep        .tl_set:N           = \l_@@_poetry_verse_sep_tl
     , poetry / verse / sep        .value_required:n   = true
-    , poetry / verse / sep        .initial:n          = 0.05 em
+    , poetry / verse / sep        .initial:n          = 0.05em
   }
 %    \end{macrocode}
 % Process package options.
@@ -3740,7 +3740,7 @@
     , chapter / para / aboveskip  = \bigskipamount
     , chapter / para / belowskip  = \medskipamount
     , chapter / para / indent     = true
-    , chapter / sep               = 0.5 em
+    , chapter / sep               = 0.5em
     , chapter / show              = true
     , chapter / showverse         = false
     , chapter / smash             = false
@@ -3760,7 +3760,7 @@
     , inline / begin              = ``
     , inline / end                = ''
     , inline / reference / format = (#1)
-    , inline / reference / sep    = 0.5 em
+    , inline / reference / sep    = 0.5em
     , inline / version / delim    = \c_space_tl
     , inline / version / format   = #1
     , language                    =
@@ -3771,7 +3771,7 @@
     , parindent                   = \parindent
     , parskip                     = \parskip
     , pilcrow                     = false
-    , pilcrow / sep               = 0.25 em
+    , pilcrow / sep               = 0.25em
     , redletter                   = false
     , redletter / colour          = red!80!black
     , reference / align           = right
@@ -3779,25 +3779,25 @@
     , reference / font            = \bfseries
     , reference / format          = #1
     , reference / position        = end
-    , reference / sep             = 2 em
+    , reference / sep             = 2em
     , reference / start / newline = false
-    , reference / start / sep     = 1 em
-    , reference / start / vsep    = 0 pt
+    , reference / start / sep     = 1em
+    , reference / start / vsep    = 0pt
     , rightmargin                 = \c_zero_dim
     , selah / text                = Selah
     , selah / font                = \itshape
     , selah / format              = #1
-    , selah / sep                 = 1 em
-    , textright / sep             = 1 em
+    , selah / sep                 = 1em
+    , textright / sep             = 1em
     , verse / colour              = .
     , verse / first               = false
     , verse / firstformat         = #1
-    , verse / firstsep            = 0.5 em
+    , verse / firstsep            = 0.5em
     , verse / font                =
     , verse / format              = \textsuperscript{#1}
     , verse / para                = false
     , verse / para / indent       = \l_@@_parindent_tl
-    , verse / sep                 = 0.05 em
+    , verse / sep                 = 0.05em
     , verse / show                = true
     , version                     =
     , version / delim             = \c_space_tl
@@ -3814,24 +3814,24 @@
     , hanging / aboveskip         = \medskipamount
     , hanging / belowskip         = \medskipamount
     , hanging / chapter / indent  = true
-    , hanging / hang              = 2 em
-    , hanging / leftmargin        = 1 em
+    , hanging / hang              = 2em
+    , hanging / leftmargin        = 1em
     , hanging / rightmargin       = \c_zero_dim
     , hanging / verse / right     = true
-    , hanging / verse / sep       = 0.05 em
+    , hanging / verse / sep       = 0.05em
     , midparachap / showverse     = true
     , narrow / aboveskip          = \medskipamount
     , narrow / belowskip          = \medskipamount
-    , narrow / leftmargin         = 1 em
-    , narrow / rightmargin        = 1 em
+    , narrow / leftmargin         = 1em
+    , narrow / rightmargin        = 1em
     , poetry / aboveskip          = \medskipamount
     , poetry / belowskip          = \medskipamount
-    , poetry / bigindent          = 4 em
-    , poetry / indent             = 1 em
-    , poetry / leftmargin         = 1 em
+    , poetry / bigindent          = 4em
+    , poetry / indent             = 1em
+    , poetry / leftmargin         = 1em
     , poetry / rightmargin        = \c_zero_dim
     , poetry / verse / right      = true
-    , poetry / verse / sep        = 0.05 em
+    , poetry / verse / sep        = 0.05em
   }
   \l_@@_default_options_tl
 \cs_new_protected:Nn \@@_setup_reset_defaults:
@@ -5231,7 +5231,7 @@
       \dim_compare:nNnTF \predisplaysize > \c_zero_dim
         {
           \dim_gset:Nn \g_@@_final_line_dim
-            { \predisplaysize - 2 em }
+            { \predisplaysize - 2em }
         }
         {
           \bool_if:NT \l_@@_textdir_change_in_group_bool
@@ -5250,7 +5250,7 @@
     \@@_reset_spacing:
     \dim_compare:nNnT \g_@@_final_line_dim > \paperwidth
       { \dim_gset:Nn \g_@@_final_line_dim { \@totalleftmargin + \linewidth } }
-    \dim_compare:nNnT \g_@@_final_line_dim > { \c_zero_dim - 1 sp }
+    \dim_compare:nNnT \g_@@_final_line_dim > { \c_zero_dim - 1sp }
       { \skip_vertical:n { -\baselineskip - \parskip } }
   }
 %    \end{macrocode}
@@ -6302,7 +6302,7 @@
         \l_@@_chap_sep_tl
       }
       <
-      { \linewidth - \leftskip - \rightskip - 3 em }
+      { \linewidth - \leftskip - \rightskip - 3em }
       {
         \@@_drop_chap_output:
         \hbox_unpack_drop:N \l_@@_mid_para_chap_snap_box
