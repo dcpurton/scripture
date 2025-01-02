@@ -54,10 +54,14 @@ and documentation (`scripture.pdf`) can be installed by running:
 l3build install --full
 ```
 
+**Note:** The documentation uses one font not found in a standard TeXLive
+installation. You can download `KawkabMono-Regular.ttf` from
+https://makkuk.com/kawkab-mono/.
+
 ## Licence
 
 ```
-Copyright (c) 2022-2023 David Purton <dcpurton@marshwiggle.net>
+Copyright (c) 2022-2025 David Purton <dcpurton@marshwiggle.net>
 
 This work may be distributed and/or modified under the conditions of
 the LaTeX Project Public License, either version 1.3c of this license
