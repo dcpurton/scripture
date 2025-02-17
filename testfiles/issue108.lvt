@@ -1,0 +1,47 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  version=NCV
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Matthew 5:1--12]
+  \ch{5}When Jesus saw the crowds, he went up on a hill and sat down. His
+  followers came to him, \vs{2}and he began to teach them, saying:
+
+  \begin{poetry}
+    \vs{3}“They are blessed who realize their spiritual poverty,
+    for the kingdom of heaven belongs to them.
+
+    \vs{4}They are blessed who grieve,
+    for God will comfort them.
+
+    \vs{5}They are blessed who are humble,
+    for the whole earth will be theirs.
+
+    \vs{6}They are blessed who hunger and thirst after justice,
+    for they will be satisfied.
+
+    \vs{7}They are blessed who show mercy to others,
+    for God will show mercy to them.
+
+    \vs{8}They are blessed whose thoughts are pure,
+    for they will see God.
+
+    \vs{9}They are blessed who work for peace,
+    for they will be called God’s children.
+
+    \vs{10}They are blessed who are persecuted for doing good,
+    for the kingdom of heaven belongs to them.
+  \end{poetry}
+
+  \vs{11}“People will insult you and hurt you. They will lie and say all kinds
+  of evil things about you because you follow me. But when they do, you will
+  be blessed. \vs{12}Rejoice and be glad, because you have a great reward
+  waiting for you in heaven. People did the same evil things to the prophets
+  who lived before you.
+\end{scripture}
+\end{document}

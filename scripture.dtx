@@ -5752,6 +5752,8 @@
     \legacy_if_set_false:n { @noparlist }
     \endlist
     \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
+    \hook_gput_next_code:nn { para / begin }
+      { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -5831,6 +5833,8 @@
     \legacy_if_set_false:n { @noparlist }
     \endlist
     \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
+    \hook_gput_next_code:nn { para / begin }
+      { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -6173,6 +6177,8 @@
     \legacy_if_set_false:n { @noparlist }
     \endlist
     \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
+    \hook_gput_next_code:nn { para / begin }
+      { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -6527,6 +6533,8 @@
     \legacy_if_set_false:n { @noparlist }
     \endlist
     \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
+    \hook_gput_next_code:nn { para / begin }
+      { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -7059,7 +7067,10 @@
     \hook_gclear_next_code:n { scripture / poetry / pilcrow }
     \bool_gset_true:N \g_@@_poetry_end_bool
     \hook_gput_next_code:nn { para / begin }
-      { \bool_gset_false:N \g_@@_poetry_end_bool }
+      {
+        \bool_gset_false:N \g_@@_poetry_end_bool
+        \parshape 1 ~ \@totalleftmargin ~ \linewidth
+      }
   }
 %    \end{macrocode}
 % \end{macro}
