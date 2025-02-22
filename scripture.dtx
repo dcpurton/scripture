@@ -6868,6 +6868,7 @@
     \group_end:
     \bool_if:NF \g_@@_suppress_next_pilcrow_bool
       { \hook_use:n { scripture / poetry / pilcrow } }
+    \cs_set_eq:NN \vs \@@_verse_output:n
   }
 %    \end{macrocode}
 % \end{macro}
@@ -6889,6 +6890,7 @@
         \skip_horizontal:N \listparindent
       }
     \group_end:
+    \cs_set_eq:NN \vs \@@_verse_output:n
   }
 %    \end{macrocode}
 % \end{macro}
@@ -6971,6 +6973,7 @@
             \@@_poetry_par:
             \cs_if_eq:NNT \vs \@@_poetry_mode_vertical_verse:n
               { \noindent }
+            \cs_set_eq:NN \vs \@@_verse_output:n
             \bool_if:NT \l_@@_verse_para_bool
               {
                 \@@_pilcrow_output:
