@@ -6818,9 +6818,9 @@
             \group_end:
             \skip_horizontal:N \l_@@_chap_sep_tl
             \hook_use:n { scripture / chap / after }
+            \bool_lazy_or:nnT \l_@@_chap_show_verse_bool \l_@@_poetry_midparachap_show_verse_bool
+              { \@@_verse_output:n { 1 } }
           }
-        \bool_lazy_or:nnT \l_@@_chap_show_verse_bool \l_@@_poetry_midparachap_show_verse_bool
-          { \@@_verse_output:n { 1 } }
       }
       {
         \hook_use:n { scripture / chap / before }

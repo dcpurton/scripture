@@ -82,7 +82,7 @@
 \end{scripture}
 
 \begin{scripture}[Isaiah 3:1]
-  \begin{poetry}
+  \begin{poetry}[leftmargin=2.5em]
     \ch{3}See now, the Lord,
     the \name{Lord} Almighty,
 
@@ -110,7 +110,7 @@
 \end{scripture}
 
 \begin{scripture}[Hosea 11:12--12:1]
-  \begin{poetry}
+  \begin{poetry}[leftmargin=2.5em]
     \vs{12}Ephraim has surrounded me with lies,
     and the house of Israel with deceit;
 
