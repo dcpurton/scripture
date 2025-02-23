@@ -1,0 +1,1829 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+LaTeX Font Warning: Font shape `TU/SBLHebrew(0)/bx/n' undefined
+(Font)              using `TU/SBLHebrew(0)/b/n' instead on input line ....
+LaTeX Font Warning: Font shape `TU/SBLHebrew(0)/b/n' undefined
+(Font)              using `TU/SBLHebrew(0)/m/n' instead on input line ....
+(../loadhyph-en-gb.tex ASCII Hyphenation patterns for British English (../hyph-en-gb.tex))
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line ....
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line ....
+LaTeX Font Warning: Font shape `TU/SBLHebrew(0)/bx/n' undefined
+(Font)              using `TU/SBLHebrew(0)/b/n' instead on input line ....
+Completed box being shipped out [1]
+\vbox(682.0+0.0)x398.0, direction TRT
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0, direction TRT
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil, direction TRT
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0, direction TRT
+....\hbox(0.0+0.0)x345.0, direction TRT
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 269.97116fil, direction TRT
+...\write-{}
+...\write1{\babel@aux{hebrew}{}}
+...\glue(\topskip) 1.81152
+...\hbox(8.18848+2.89063)x345.0, glue set 0.73183, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x15.0, direction TRT
+.....\glue 15.0
+.....\glue -20.0
+.....\glue -5.0
+.....\hbox(0.0+0.0)x20.0, glue set 20.0fil, direction TRT
+......\glue 0.0 plus 1.0fil
+.....\glue 5.0
+....\penalty 0
+....\hbox(6.55+0.0)x10.75, direction TRT
+.....\hbox(0.0+0.0)x0.0, direction TLT
+.....\kern0.0
+.....\kern0.0
+.....\hbox(6.55+0.0)x10.75, direction TRT
+......\pdfcolorstack 0 push {0 g 0 G}
+......\begindir TLT
+......\TU/lmr/bx/n/10 1
+......\enddir TLT
+......\kern5.0
+......\pdfcolorstack 0 pop
+....\penalty 10000
+....\glue 0.0
+....\mathon
+....\begindir TLT
+....\hbox(0.0+0.0)x0.0, direction TLT
+....\hbox(3.95801+0.00342)x4.0, shifted -3.62892, direction TLT
+.....\TU/SBLHebrew(0)/m/n/7 1
+....\enddir TLT
+....\mathoff
+....\kern2.84526
+....\penalty 10000
+....\glue 0.0
+....\TU/SBLHebrew(0)/b/n/10 בּ
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\TU/SBLHebrew(0)/b/n/10 ֵ
+....\kern-0.14648 (font)
+....\TU/SBLHebrew(0)/b/n/10 א
+....\TU/SBLHebrew(0)/b/n/10 שׁ
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ת
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 בּ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֣
+....\TU/SBLHebrew(0)/b/n/10 א
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.09766 (font)
+....\TU/SBLHebrew(0)/b/n/10 א
+....\TU/SBLHebrew(0)/b/n/10 ֱ
+....\kern-0.09766 (font)
+....\TU/SBLHebrew(0)/b/n/10 לֹ
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ֑
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ם
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 א
+....\TU/SBLHebrew(0)/b/n/10 ֵ
+....\TU/SBLHebrew(0)/b/n/10 ֥
+....\TU/SBLHebrew(0)/b/n/10 ת
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 שּׁ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\kern-0.19531 (font)
+....\TU/SBLHebrew(0)/b/n/10 מ
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ם
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 ו
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 א
+....\TU/SBLHebrew(0)/b/n/10 ֵ
+....\TU/SBLHebrew(0)/b/n/10 ֥
+....\TU/SBLHebrew(0)/b/n/10 ת
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\pdfliteral page <lua data reference ...>
+....\TU/SBLHebrew(0)/b/n/10 אָ
+....\TU/SBLHebrew(0)/b/n/10 
+....\pdfliteral page <lua data reference ...>
+....\TU/SBLHebrew(0)/b/n/10 ֽ
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\TU/SBLHebrew(0)/b/n/10 ֶ
+....\TU/SBLHebrew(0)/b/n/10 ץ
+....\TU/SBLHebrew(0)/b/n/10 ׃
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\mathon
+....\begindir TLT
+....\hbox(0.0+0.0)x0.0, direction TLT
+....\hbox(3.95801+0.00342)x4.0, shifted -3.62892, direction TLT
+.....\TU/SBLHebrew(0)/m/n/7 2
+....\enddir TLT
+....\mathoff
+....\kern2.84526
+....\penalty 10000
+....\glue 0.0
+....\TU/SBLHebrew(0)/b/n/10 ו
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\pdfliteral page <lua data reference ...>
+....\TU/SBLHebrew(0)/b/n/10 אָ
+....\TU/SBLHebrew(0)/b/n/10 
+....\pdfliteral page <lua data reference ...>
+....\TU/SBLHebrew(0)/b/n/10 ֗
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\TU/SBLHebrew(0)/b/n/10 ֶ
+....\TU/SBLHebrew(0)/b/n/10 ץ
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ת
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֥
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 ת
+....\TU/SBLHebrew(0)/b/n/10 ֹ
+....\TU/SBLHebrew(0)/b/n/10 ֨
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 וּ
+....\TU/SBLHebrew(0)/b/n/10 ֙
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.1709 (font)
+....\TU/SBLHebrew(0)/b/n/10 ו
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ב
+....\TU/SBLHebrew(0)/b/n/10 ֹ
+....\TU/SBLHebrew(0)/b/n/10 ֔
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 וּ
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 ו
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ח
+....\TU/SBLHebrew(0)/b/n/10 ֹ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\TU/SBLHebrew(0)/b/n/10 שׁ
+....\TU/SBLHebrew(0)/b/n/10 ֶ
+....\TU/SBLHebrew(0)/b/n/10 ךְ
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 ע
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ־
+....\TU/SBLHebrew(0)/b/n/10 פּ
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\kern-0.43945 (font)
+....\TU/SBLHebrew(0)/b/n/10 נ
+....\TU/SBLHebrew(0)/b/n/10 ֵ
+....\TU/SBLHebrew(0)/b/n/10 ֣
+....\TU/SBLHebrew(0)/b/n/10 י
+....\glue(\rightskip) 0.0
+...\penalty 200
+...\glue(\baselineskip) 3.9209
+...\hbox(8.18848+2.89063)x345.0, glue set 199.83887fil, direction TRT
+....\TU/SBLHebrew(0)/b/n/10 ת
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ֑
+....\TU/SBLHebrew(0)/b/n/10 וֹ
+....\TU/SBLHebrew(0)/b/n/10 ם
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 ו
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\TU/SBLHebrew(0)/b/n/10 ֣
+....\TU/SBLHebrew(0)/b/n/10 וּ
+....\TU/SBLHebrew(0)/b/n/10 ח
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.09766 (font)
+....\TU/SBLHebrew(0)/b/n/10 א
+....\TU/SBLHebrew(0)/b/n/10 ֱ
+....\kern-0.09766 (font)
+....\TU/SBLHebrew(0)/b/n/10 לֹ
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ֔
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ם
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 מ
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 ח
+....\TU/SBLHebrew(0)/b/n/10 ֶ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\TU/SBLHebrew(0)/b/n/10 פ
+....\TU/SBLHebrew(0)/b/n/10 ֶ
+....\TU/SBLHebrew(0)/b/n/10 ת
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 ע
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ־
+....\TU/SBLHebrew(0)/b/n/10 פּ
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\kern-0.43945 (font)
+....\TU/SBLHebrew(0)/b/n/10 נ
+....\TU/SBLHebrew(0)/b/n/10 ֵ
+....\TU/SBLHebrew(0)/b/n/10 ֥
+....\TU/SBLHebrew(0)/b/n/10 י
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\kern-0.19531 (font)
+....\TU/SBLHebrew(0)/b/n/10 מּ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֽ
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ם
+....\TU/SBLHebrew(0)/b/n/10 ׃
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\glue(\abovedisplayskip) -15.0
+...\glue(\baselineskip) 12.10938
+...\hbox(0.0+0.0)x0.0, shifted 172.5, direction TLT
+...\penalty 10000
+...\glue(\belowdisplayskip) 0.0
+...\glue -15.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 7.5
+...\hbox(7.5+2.49)x345.0, glue set 240.40001fill, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\glue 0.0 plus 1.0fill
+....\hbox(7.5+2.49)x104.59999, direction TRT
+.....\begindir TLT
+.....\write1{\babel@aux{british}{}}
+.....\begindir TLT
+.....\TU/lmr/bx/n/10 G
+.....\TU/lmr/bx/n/10 e
+.....\TU/lmr/bx/n/10 n
+.....\discretionary (penalty 50)
+......< \TU/lmr/bx/n/10 -
+.....\TU/lmr/bx/n/10 e
+.....\TU/lmr/bx/n/10 s
+.....\TU/lmr/bx/n/10 i
+.....\TU/lmr/bx/n/10 s
+.....\glue(\spaceskip) 3.83 plus 1.915 minus 1.27667
+.....\TU/lmr/bx/n/10 1
+.....\TU/lmr/bx/n/10 :
+.....\TU/lmr/bx/n/10 1
+.....\TU/lmr/bx/n/10 –
+.....\TU/lmr/bx/n/10 2
+.....\glue(\spaceskip) 3.83 plus 1.915 minus 1.27667
+.....\TU/lmr/bx/n/10 (
+.....\TU/lmr/bx/n/10 B
+.....\TU/lmr/bx/n/10 H
+.....\TU/lmr/bx/n/10 S
+.....\enddir TLT
+.....\TU/lmr/bx/n/10 )
+.....\enddir TLT
+.....\write1{\babel@aux{hebrew}{}}
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 51
+...\glue 12.0 plus 3.0 minus 4.0
+...\glue -14.49 plus -3.0 minus -4.0
+...\penalty -51
+...\glue 2.49
+...\glue 12.0 plus 3.0 minus 4.0
+...\glue -12.0 plus -3.0 minus -4.0
+...\glue 12.0 plus 4.0 minus 4.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 4.32152
+...\hbox(8.18848+2.89063)x315.0, glue set 99.30908fil, shifted 30.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x0.0, direction TRT
+.....\glue -30.0
+.....\glue 15.0
+.....\glue -20.0
+.....\glue -5.0
+.....\hbox(0.0+0.0)x20.0, glue set 20.0fil, direction TRT
+......\glue 0.0 plus 1.0fil
+.....\glue 5.0
+.....\glue 30.0
+.....\glue -15.0
+.....\glue -16.99997
+.....\glue 0.0
+.....\hbox(0.0+0.0)x16.99997, glue set 16.99997fil, direction TRT
+......\glue 0.0 plus 1.0fil
+.....\glue 0.0
+....\penalty 0
+....\glue 0.0
+....\hbox(7.58693+0.11)x0.0, glue set - 23.34526fil, direction TRT
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\begindir TLT
+.....\TU/lmr/bx/n/10 4
+.....\TU/lmr/bx/n/10 0
+.....\enddir TLT
+.....\glue 5.0
+.....\mathon
+.....\begindir TLT
+.....\hbox(0.0+0.0)x0.0, direction TLT
+.....\hbox(3.95801+0.00342)x4.0, shifted -3.62892, direction TLT
+......\TU/SBLHebrew(0)/m/n/7 1
+.....\enddir TLT
+.....\mathoff
+.....\kern2.84526
+.....\penalty 10000
+.....\glue 0.0
+....\TU/SBLHebrew(0)/b/n/10 נ
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 ח
+....\TU/SBLHebrew(0)/b/n/10 ֲ
+....\TU/SBLHebrew(0)/b/n/10 מ
+....\TU/SBLHebrew(0)/b/n/10 ֥
+....\TU/SBLHebrew(0)/b/n/10 וּ
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 נ
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 ח
+....\TU/SBLHebrew(0)/b/n/10 ֲ
+....\TU/SBLHebrew(0)/b/n/10 מ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\TU/SBLHebrew(0)/b/n/10 וּ
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 ע
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\kern-0.19531 (font)
+....\TU/SBLHebrew(0)/b/n/10 מּ
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ֑
+....\TU/SBLHebrew(0)/b/n/10 י
+....\glue 10.0
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ֹ
+....\TU/SBLHebrew(0)/b/n/10 א
+....\TU/SBLHebrew(0)/b/n/10 מ
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.09766 (font)
+....\TU/SBLHebrew(0)/b/n/10 א
+....\TU/SBLHebrew(0)/b/n/10 ֱ
+....\kern-0.09766 (font)
+....\TU/SBLHebrew(0)/b/n/10 לֹ
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ֵ
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 י
+....\kern-0.09766 (font)
+....\TU/SBLHebrew(0)/b/n/10 כ
+....\TU/SBLHebrew(0)/b/n/10 ֶ
+....\TU/SBLHebrew(0)/b/n/10 ֽ
+....\TU/SBLHebrew(0)/b/n/10 ם
+....\TU/SBLHebrew(0)/b/n/10 ׃
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 1.60942
+...\hbox(10.49995+4.50005)x315.0, glue set 95.41992fil, shifted 30.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x0.0, direction TRT
+....\glue 0.0
+....\rule(10.49995+4.50005)x0.0
+....\hbox(7.58693+0.0)x0.0, glue set - 6.84526fil, direction TRT
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\mathon
+.....\begindir TLT
+.....\hbox(0.0+0.0)x0.0, direction TLT
+.....\hbox(3.95801+0.00342)x4.0, shifted -3.62892, direction TLT
+......\TU/SBLHebrew(0)/m/n/7 2
+.....\enddir TLT
+.....\mathoff
+.....\kern2.84526
+.....\penalty 10000
+.....\glue 0.0
+....\glue 0.0
+....\kern-0.24414 (font)
+....\TU/SBLHebrew(0)/b/n/10 דּ
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 בּ
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\TU/SBLHebrew(0)/b/n/10 ֞
+....\TU/SBLHebrew(0)/b/n/10 וּ
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 ע
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\kern0.24414 (font)
+....\TU/SBLHebrew(0)/b/n/10 ־
+....\kern-0.3418 (font)
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ֵ
+....\TU/SBLHebrew(0)/b/n/10 ֤
+....\TU/SBLHebrew(0)/b/n/10 ב
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\TU/SBLHebrew(0)/b/n/10 ֽ
+....\TU/SBLHebrew(0)/b/n/10 וּ
+....\TU/SBLHebrew(0)/b/n/10 שׁ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\kern-0.14648 (font)
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\pdfliteral page <lua data reference ...>
+....\TU/SBLHebrew(0)/b/n/10 ִ֨
+....\TU/SBLHebrew(0)/b/n/10 
+....\pdfliteral page <lua data reference ...>
+....\TU/SBLHebrew(0)/b/n/10 ם
+....\TU/SBLHebrew(0)/b/n/10 ֙
+....\glue 10.0
+....\TU/SBLHebrew(0)/b/n/10 ו
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ק
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 א
+....\TU/SBLHebrew(0)/b/n/10 ֣
+....\TU/SBLHebrew(0)/b/n/10 וּ
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.09766 (font)
+....\TU/SBLHebrew(0)/b/n/10 א
+....\TU/SBLHebrew(0)/b/n/10 ֵ
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ֶ
+....\TU/SBLHebrew(0)/b/n/10 ֔
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.31148
+...\hbox(8.18848+2.89063)x315.0, glue set 100.60059fil, shifted 30.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x0.0, direction TRT
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 כּ
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ֤
+....\TU/SBLHebrew(0)/b/n/10 י
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 מ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֽ
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 אָ
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ֙
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 צ
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ב
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\pdfliteral page <lua data reference ...>
+....\TU/SBLHebrew(0)/b/n/10 אָ
+....\TU/SBLHebrew(0)/b/n/10 
+....\pdfliteral page <lua data reference ...>
+....\TU/SBLHebrew(0)/b/n/10 ֔
+....\TU/SBLHebrew(0)/b/n/10 הּ
+....\glue 10.0
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 כּ
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ֥
+....\TU/SBLHebrew(0)/b/n/10 י
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 נ
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 צ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 ע
+....\TU/SBLHebrew(0)/b/n/10 ֲ
+....\TU/SBLHebrew(0)/b/n/10 וֹ
+....\TU/SBLHebrew(0)/b/n/10 נ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֑
+....\TU/SBLHebrew(0)/b/n/10 הּ
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 3.9209
+...\hbox(8.18848+2.86621)x315.0, glue set 73.70361fil, shifted 30.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x0.0, direction TRT
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 כּ
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ֤
+....\TU/SBLHebrew(0)/b/n/10 י
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ק
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ח
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ֙
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.19531 (font)
+....\TU/SBLHebrew(0)/b/n/10 מ
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 יּ
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 ֣
+....\TU/SBLHebrew(0)/b/n/10 ד
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ו
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֔
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.14648 (font)
+....\TU/SBLHebrew(0)/b/n/10 כּ
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 פ
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ם
+....\glue 10.0
+....\kern-0.14648 (font)
+....\TU/SBLHebrew(0)/b/n/10 בּ
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\kern-0.19531 (font)
+....\TU/SBLHebrew(0)/b/n/10 כ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ־
+....\TU/SBLHebrew(0)/b/n/10 ח
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 טּ
+....\TU/SBLHebrew(0)/b/n/10 ֹ
+....\TU/SBLHebrew(0)/b/n/10 א
+....\kern-0.29297 (font)
+....\TU/SBLHebrew(0)/b/n/10 ת
+....\TU/SBLHebrew(0)/b/n/10 ֶ
+....\TU/SBLHebrew(0)/b/n/10 ֽ
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ׃
+....\glue 10.0
+....\TU/SBLHebrew(0)/b/n/10 ס
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\penalty 10000
+...\glue(\abovedisplayskip) -15.0
+...\glue(\baselineskip) 12.13379
+...\hbox(0.0+0.0)x0.0, shifted 207.5, direction TLT
+...\penalty 51
+...\glue(\belowdisplayskip) 0.0
+...\glue -15.0
+...\glue 15.0
+...\penalty 51
+...\glue -15.0
+...\glue 15.0
+...\glue 6.0 plus 1.0 minus 2.0
+...\glue -6.0 plus -1.0 minus -2.0
+...\penalty -51
+...\glue 6.0 plus 1.0 minus 2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 4.50005
+...\hbox(10.49995+4.50005)x305.0, glue set 135.55908fil, shifted 40.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\kern0.0
+....\hbox(0.0+0.0)x0.0, direction TRT
+.....\glue 0.0
+.....\glue -16.99997
+.....\glue 0.0
+.....\hbox(0.0+0.0)x16.99997, glue set 16.99997fil, direction TRT
+......\glue 0.0 plus 1.0fil
+.....\glue 0.0
+....\penalty 0
+....\rule(10.49995+4.50005)x0.0
+....\hbox(7.58351+0.0)x0.0, glue set - 6.84526fil, direction TRT
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\mathon
+.....\begindir TLT
+.....\hbox(0.0+0.0)x0.0, direction TLT
+.....\hbox(3.95459+0.94336)x4.0, shifted -3.62892, direction TLT
+......\TU/SBLHebrew(0)/m/n/7 3
+.....\enddir TLT
+.....\mathoff
+.....\kern2.84526
+.....\penalty 10000
+.....\glue 0.0
+....\TU/SBLHebrew(0)/b/n/10 ק
+....\TU/SBLHebrew(0)/b/n/10 ֣
+....\TU/SBLHebrew(0)/b/n/10 וֹ
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 ק
+....\TU/SBLHebrew(0)/b/n/10 וֹ
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\TU/SBLHebrew(0)/b/n/10 ֵ
+....\TU/SBLHebrew(0)/b/n/10 ֔
+....\TU/SBLHebrew(0)/b/n/10 א
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.49214
+...\hbox(8.00781+2.89063)x305.0, glue set 111.17188fil, shifted 40.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x0.0, direction TRT
+....\kern-0.09766 (font)
+....\TU/SBLHebrew(0)/b/n/10 בּ
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\kern-0.19531 (font)
+....\TU/SBLHebrew(0)/b/n/10 מּ
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\kern-0.24414 (font)
+....\TU/SBLHebrew(0)/b/n/10 ד
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 בּ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֕
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 פּ
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 נּ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\TU/SBLHebrew(0)/b/n/10 וּ
+....\glue 10.0
+....\TU/SBLHebrew(0)/b/n/10 דּ
+....\TU/SBLHebrew(0)/b/n/10 ֶ
+....\TU/SBLHebrew(0)/b/n/10 ֣
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\TU/SBLHebrew(0)/b/n/10 ֶ
+....\TU/SBLHebrew(0)/b/n/10 ךְ
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ו
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֑
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 3.9209
+...\hbox(8.18848+2.86621)x305.0, glue set 97.23877fil, shifted 40.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x0.0, direction TRT
+....\kern0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 שּׁ
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\TU/SBLHebrew(0)/b/n/10 וּ
+....\TU/SBLHebrew(0)/b/n/10 ֙
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 בּ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ע
+....\TU/SBLHebrew(0)/b/n/10 ֲ
+....\kern-0.24414 (font)
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ב
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֔
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\glue 10.0
+....\TU/SBLHebrew(0)/b/n/10 מ
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ס
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\kern-0.09766 (font)
+....\TU/SBLHebrew(0)/b/n/10 לּ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ֵ
+....\kern-0.09766 (font)
+....\TU/SBLHebrew(0)/b/n/10 א
+....\kern-0.09766 (font)
+....\TU/SBLHebrew(0)/b/n/10 לֹ
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ֵ
+....\TU/SBLHebrew(0)/b/n/10 ֽ
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 נ
+....\TU/SBLHebrew(0)/b/n/10 וּ
+....\TU/SBLHebrew(0)/b/n/10 ׃
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 1.63383
+...\hbox(10.49995+4.50005)x305.0, glue set 87.88818fil, shifted 40.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x0.0, direction TRT
+....\glue 0.0
+....\rule(10.49995+4.50005)x0.0
+....\hbox(7.53566+0.0)x0.0, glue set - 6.84526fil, direction TRT
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\mathon
+.....\begindir TLT
+.....\hbox(0.0+0.0)x0.0, direction TLT
+.....\hbox(3.90674+0.86133)x4.0, shifted -3.62892, direction TLT
+......\TU/SBLHebrew(0)/m/n/7 4
+.....\enddir TLT
+.....\mathoff
+.....\kern2.84526
+.....\penalty 10000
+.....\glue 0.0
+....\glue 0.0
+....\kern-0.19531 (font)
+....\TU/SBLHebrew(0)/b/n/10 כּ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ־
+....\kern-0.48828 (font)
+....\TU/SBLHebrew(0)/b/n/10 גּ
+....\TU/SBLHebrew(0)/b/n/10 ֶ
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 א
+....\TU/SBLHebrew(0)/b/n/10 ֙
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\kern-0.39063 (font)
+....\TU/SBLHebrew(0)/b/n/10 נּ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 שׂ
+....\TU/SBLHebrew(0)/b/n/10 ֵ
+....\TU/SBLHebrew(0)/b/n/10 ֔
+....\TU/SBLHebrew(0)/b/n/10 א
+....\glue 10.0
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 ו
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\kern-0.19531 (font)
+....\TU/SBLHebrew(0)/b/n/10 כ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ־
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 ֥
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 ו
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ג
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ב
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ע
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 שׁ
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 פּ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֑
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 וּ
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.31148
+...\hbox(8.18848+2.86621)x305.0, glue set 82.01904fil, shifted 40.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x0.0, direction TRT
+....\TU/SBLHebrew(0)/b/n/10 ו
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֤
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ֶ
+....\TU/SBLHebrew(0)/b/n/10 ֽ
+....\TU/SBLHebrew(0)/b/n/10 ע
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ק
+....\TU/SBLHebrew(0)/b/n/10 ֹ
+....\TU/SBLHebrew(0)/b/n/10 ב
+....\TU/SBLHebrew(0)/b/n/10 ֙
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.29297 (font)
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\kern-0.19531 (font)
+....\TU/SBLHebrew(0)/b/n/10 מ
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\kern0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 שׁ
+....\TU/SBLHebrew(0)/b/n/10 ֔
+....\TU/SBLHebrew(0)/b/n/10 וֹ
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\glue 10.0
+....\TU/SBLHebrew(0)/b/n/10 ו
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\kern-0.24414 (font)
+....\TU/SBLHebrew(0)/b/n/10 כ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 ס
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ם
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.3418 (font)
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\kern-0.14648 (font)
+....\TU/SBLHebrew(0)/b/n/10 ב
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ק
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ע
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֽ
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ׃
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 1.63383
+...\hbox(10.49995+4.50005)x305.0, glue set 47.80518fil, shifted 40.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x0.0, direction TRT
+....\glue 0.0
+....\rule(10.49995+4.50005)x0.0
+....\hbox(7.51173+0.0)x0.0, glue set - 6.84526fil, direction TRT
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\mathon
+.....\begindir TLT
+.....\hbox(0.0+0.0)x0.0, direction TLT
+.....\hbox(3.88281+0.94678)x4.0, shifted -3.62892, direction TLT
+......\TU/SBLHebrew(0)/m/n/7 5
+.....\enddir TLT
+.....\mathoff
+.....\kern2.84526
+.....\penalty 10000
+.....\glue 0.0
+....\glue 0.0
+....\TU/SBLHebrew(0)/b/n/10 ו
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 נ
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\kern-0.36621 (font)
+....\TU/SBLHebrew(0)/b/n/10 ג
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\kern-0.09766 (font)
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 כּ
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ב
+....\TU/SBLHebrew(0)/b/n/10 ֣
+....\TU/SBLHebrew(0)/b/n/10 וֹ
+....\TU/SBLHebrew(0)/b/n/10 ד
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ו
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֑
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\glue 10.0
+....\TU/SBLHebrew(0)/b/n/10 ו
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 א
+....\TU/SBLHebrew(0)/b/n/10 ֤
+....\TU/SBLHebrew(0)/b/n/10 וּ
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.19531 (font)
+....\TU/SBLHebrew(0)/b/n/10 כ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\kern-0.24414 (font)
+....\TU/SBLHebrew(0)/b/n/10 ־
+....\TU/SBLHebrew(0)/b/n/10 בּ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 שׂ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\TU/SBLHebrew(0)/b/n/10 ֙
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 ח
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 דּ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֔
+....\TU/SBLHebrew(0)/b/n/10 ו
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 כּ
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ֛
+....\TU/SBLHebrew(0)/b/n/10 י
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.14648 (font)
+....\TU/SBLHebrew(0)/b/n/10 פּ
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ֥
+....\TU/SBLHebrew(0)/b/n/10 י
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ו
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.24414 (font)
+....\TU/SBLHebrew(0)/b/n/10 דּ
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 בּ
+....\TU/SBLHebrew(0)/b/n/10 ֵ
+....\TU/SBLHebrew(0)/b/n/10 ֽ
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\TU/SBLHebrew(0)/b/n/10 ׃
+....\glue 10.0
+....\TU/SBLHebrew(0)/b/n/10 ס
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\penalty 10000
+...\glue(\abovedisplayskip) -15.0
+...\glue(\baselineskip) 10.49995
+...\hbox(0.0+0.0)x0.0, shifted 212.5, direction TLT
+...\penalty 51
+...\glue(\belowdisplayskip) 0.0
+...\glue -15.0
+...\glue 15.0
+...\penalty 51
+...\glue -15.0
+...\glue 15.0
+...\glue 6.0 plus 1.0 minus 2.0
+...\glue -6.0 plus -1.0 minus -2.0
+...\penalty -51
+...\glue 6.0 plus 1.0 minus 2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 4.50005
+...\hbox(10.49995+4.50005)x315.0, glue set 98.62793fil, shifted 30.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\kern0.0
+....\hbox(0.0+0.0)x0.0, direction TRT
+.....\glue 0.0
+.....\glue -16.99997
+.....\glue 0.0
+.....\hbox(0.0+0.0)x16.99997, glue set 16.99997fil, direction TRT
+......\glue 0.0 plus 1.0fil
+.....\glue 0.0
+....\penalty 0
+....\rule(10.49995+4.50005)x0.0
+....\hbox(8.39357+0.0)x0.0, glue set - 6.84526fil, direction TRT
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\mathon
+.....\begindir TLT
+.....\hbox(0.0+0.0)x0.0, direction TLT
+.....\hbox(4.76465+0.07178)x4.0, shifted -3.62892, direction TLT
+......\TU/SBLHebrew(0)/m/n/7 6
+.....\enddir TLT
+.....\mathoff
+.....\kern2.84526
+.....\penalty 10000
+.....\glue 0.0
+....\TU/SBLHebrew(0)/b/n/10 ק
+....\TU/SBLHebrew(0)/b/n/10 ֚
+....\TU/SBLHebrew(0)/b/n/10 וֹ
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 א
+....\TU/SBLHebrew(0)/b/n/10 ֹ
+....\TU/SBLHebrew(0)/b/n/10 מ
+....\TU/SBLHebrew(0)/b/n/10 ֵ
+....\TU/SBLHebrew(0)/b/n/10 ֣
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 ק
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֔
+....\TU/SBLHebrew(0)/b/n/10 א
+....\glue 10.0
+....\TU/SBLHebrew(0)/b/n/10 ו
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 אָ
+....\TU/SBLHebrew(0)/b/n/10 מ
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 מ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֣
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 א
+....\TU/SBLHebrew(0)/b/n/10 ֶ
+....\TU/SBLHebrew(0)/b/n/10 ק
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֑
+....\TU/SBLHebrew(0)/b/n/10 א
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.31148
+...\hbox(8.18848+2.86621)x315.0, glue set 83.95264fil, shifted 30.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x0.0, direction TRT
+....\kern-0.19531 (font)
+....\TU/SBLHebrew(0)/b/n/10 כּ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ־
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 בּ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 שׂ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֣
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 ח
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 צ
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ֔
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\glue 10.0
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 ו
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\kern-0.19531 (font)
+....\TU/SBLHebrew(0)/b/n/10 כ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ־
+....\TU/SBLHebrew(0)/b/n/10 ח
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\kern-0.21973 (font)
+....\TU/SBLHebrew(0)/b/n/10 ס
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 דּ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\TU/SBLHebrew(0)/b/n/10 וֹ
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 כּ
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 צ
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ֥
+....\kern0.07324 (font)
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ץ
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 שּׂ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ד
+....\TU/SBLHebrew(0)/b/n/10 ֶ
+....\TU/SBLHebrew(0)/b/n/10 ֽ
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ׃
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\penalty 10000
+...\glue(\abovedisplayskip) -15.0
+...\glue(\baselineskip) 12.13379
+...\hbox(0.0+0.0)x0.0, shifted 207.5, direction TLT
+...\penalty 51
+...\glue(\belowdisplayskip) 0.0
+...\glue -15.0
+...\glue 15.0
+...\penalty 51
+...\glue -15.0
+...\glue 15.0
+...\glue 6.0 plus 1.0 minus 2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\penalty 10000
+...\glue(\abovedisplayskip) -15.0
+...\glue(\baselineskip) 15.0
+...\hbox(0.0+0.0)x0.0, shifted 172.5, direction TLT
+...\penalty 10000
+...\glue(\belowdisplayskip) 0.0
+...\glue -15.0
+...\glue -6.0 plus -1.0 minus -2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 7.5
+...\hbox(7.5+2.49)x345.0, glue set 242.77fill, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\glue 0.0 plus 1.0fill
+....\hbox(7.5+2.49)x102.23, direction TRT
+.....\begindir TLT
+.....\write1{\babel@aux{british}{}}
+.....\begindir TLT
+.....\TU/lmr/bx/n/10 J
+.....\TU/lmr/bx/n/10 e
+.....\discretionary (penalty 50)
+......< \TU/lmr/bx/n/10 -
+.....\TU/lmr/bx/n/10 s
+.....\TU/lmr/bx/n/10 a
+.....\TU/lmr/bx/n/10 i
+.....\TU/lmr/bx/n/10 a
+.....\glue(\spaceskip) 3.83 plus 1.915 minus 1.27667
+.....\TU/lmr/bx/n/10 4
+.....\TU/lmr/bx/n/10 0
+.....\TU/lmr/bx/n/10 :
+.....\TU/lmr/bx/n/10 1
+.....\TU/lmr/bx/n/10 –
+.....\TU/lmr/bx/n/10 6
+.....\glue(\spaceskip) 3.83 plus 1.915 minus 1.27667
+.....\TU/lmr/bx/n/10 (
+.....\TU/lmr/bx/n/10 B
+.....\TU/lmr/bx/n/10 H
+.....\TU/lmr/bx/n/10 S
+.....\enddir TLT
+.....\TU/lmr/bx/n/10 )
+.....\enddir TLT
+.....\write1{\babel@aux{hebrew}{}}
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 51
+...\glue 12.0 plus 3.0 minus 4.0
+...\glue -14.49 plus -3.0 minus -4.0
+...\penalty -51
+...\glue 2.49
+...\glue 12.0 plus 3.0 minus 4.0
+...\glue -12.0 plus -3.0 minus -4.0
+...\glue 12.0 plus 4.0 minus 4.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.01004
+...\hbox(10.49995+4.50005)x315.0, glue set 84.15771fil, shifted 30.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x0.0, direction TRT
+.....\glue -30.0
+.....\glue 15.0
+.....\glue -20.0
+.....\glue -5.0
+.....\hbox(0.0+0.0)x20.0, glue set 20.0fil, direction TRT
+......\glue 0.0 plus 1.0fil
+.....\glue 5.0
+.....\glue 30.0
+.....\glue -15.0
+.....\glue -16.99997
+.....\glue 0.0
+.....\hbox(0.0+0.0)x16.99997, glue set 16.99997fil, direction TRT
+......\glue 0.0 plus 1.0fil
+.....\glue 0.0
+....\penalty 0
+....\glue 0.0
+....\rule(10.49995+4.50005)x0.0
+....\hbox(7.58693+0.0)x0.0, glue set - 10.34526fil, direction TRT
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\mathon
+.....\begindir TLT
+.....\hbox(0.0+0.0)x0.0, direction TLT
+.....\hbox(3.95801+0.94678)x7.5, shifted -3.62892, direction TLT
+......\begindir TLT
+......\TU/SBLHebrew(0)/m/n/7 1
+......\TU/SBLHebrew(0)/m/n/7 5
+......\enddir TLT
+.....\enddir TLT
+.....\mathoff
+.....\kern2.84526
+.....\penalty 10000
+.....\glue 0.0
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ֵ
+....\TU/SBLHebrew(0)/b/n/10 ֤
+....\TU/SBLHebrew(0)/b/n/10 ן
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 גּ
+....\TU/SBLHebrew(0)/b/n/10 וֹ
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ם
+....\TU/SBLHebrew(0)/b/n/10 ֙
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.09766 (font)
+....\TU/SBLHebrew(0)/b/n/10 כּ
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 מ
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 ֣
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.19531 (font)
+....\TU/SBLHebrew(0)/b/n/10 מ
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 דּ
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ֔
+....\TU/SBLHebrew(0)/b/n/10 י
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 וּ
+....\TU/SBLHebrew(0)/b/n/10 כ
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 שׁ
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 ֥
+....\TU/SBLHebrew(0)/b/n/10 ח
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 ק
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 מ
+....\TU/SBLHebrew(0)/b/n/10 ֹ
+....\kern-0.14648 (font)
+....\TU/SBLHebrew(0)/b/n/10 א
+....\TU/SBLHebrew(0)/b/n/10 ז
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 נ
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\TU/SBLHebrew(0)/b/n/10 
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ם
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 נ
+....\TU/SBLHebrew(0)/b/n/10 ֶ
+....\TU/SBLHebrew(0)/b/n/10 ח
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 שׁ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֑
+....\TU/SBLHebrew(0)/b/n/10 ב
+....\TU/SBLHebrew(0)/b/n/10 וּ
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.10638
+...\hbox(8.39357+2.89063)x315.0, glue set 84.05101fil, shifted 30.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x0.0, direction TRT
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ֵ
+....\TU/SBLHebrew(0)/b/n/10 ֥
+....\TU/SBLHebrew(0)/b/n/10 ן
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.21973 (font)
+....\TU/SBLHebrew(0)/b/n/10 א
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 יּ
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ם
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.21973 (font)
+....\TU/SBLHebrew(0)/b/n/10 כּ
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 דּ
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 ֥
+....\TU/SBLHebrew(0)/b/n/10 ק
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 טּ
+....\TU/SBLHebrew(0)/b/n/10 ֽ
+....\TU/SBLHebrew(0)/b/n/10 וֹ
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ׃
+....\glue 10.0
+....\mathon
+....\begindir TLT
+....\hbox(0.0+0.0)x0.0, direction TLT
+....\hbox(4.76465+0.07178)x7.5, shifted -3.62892, direction TLT
+.....\begindir TLT
+.....\TU/SBLHebrew(0)/m/n/7 1
+.....\TU/SBLHebrew(0)/m/n/7 6
+.....\enddir TLT
+....\enddir TLT
+....\mathoff
+....\kern2.84526
+....\penalty 10000
+....\glue 0.0
+....\TU/SBLHebrew(0)/b/n/10 וּ
+....\kern-0.3418 (font)
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ב
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 נ
+....\TU/SBLHebrew(0)/b/n/10 ֕
+....\TU/SBLHebrew(0)/b/n/10 וֹ
+....\TU/SBLHebrew(0)/b/n/10 ן
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.21973 (font)
+....\TU/SBLHebrew(0)/b/n/10 א
+....\TU/SBLHebrew(0)/b/n/10 ֵ
+....\TU/SBLHebrew(0)/b/n/10 ֥
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ן
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern0.07324 (font)
+....\TU/SBLHebrew(0)/b/n/10 דּ
+....\TU/SBLHebrew(0)/b/n/10 ֵ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\TU/SBLHebrew(0)/b/n/10 י
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 בּ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ע
+....\TU/SBLHebrew(0)/b/n/10 ֵ
+....\TU/SBLHebrew(0)/b/n/10 ֑
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 3.9209
+...\hbox(8.18848+2.86621)x315.0, glue set 116.82617fil, shifted 30.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x0.0, direction TRT
+....\TU/SBLHebrew(0)/b/n/10 ו
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ח
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 יּ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ת
+....\TU/SBLHebrew(0)/b/n/10 ֔
+....\TU/SBLHebrew(0)/b/n/10 וֹ
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.21973 (font)
+....\TU/SBLHebrew(0)/b/n/10 א
+....\TU/SBLHebrew(0)/b/n/10 ֵ
+....\TU/SBLHebrew(0)/b/n/10 ֥
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ן
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern0.07324 (font)
+....\TU/SBLHebrew(0)/b/n/10 דּ
+....\TU/SBLHebrew(0)/b/n/10 ֵ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\TU/SBLHebrew(0)/b/n/10 י
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 ע
+....\TU/SBLHebrew(0)/b/n/10 וֹ
+....\kern-0.09766 (font)
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ֽ
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ׃
+....\glue 10.0
+....\TU/SBLHebrew(0)/b/n/10 ס
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 1.63383
+...\hbox(10.49995+4.50005)x315.0, glue set 76.74632fil, shifted 30.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x0.0, direction TRT
+....\rule(10.49995+4.50005)x0.0
+....\mathon
+....\begindir TLT
+....\hbox(0.0+0.0)x0.0, direction TLT
+....\hbox(3.95801+0.86816)x7.5, shifted -3.62892, direction TLT
+.....\begindir TLT
+.....\TU/SBLHebrew(0)/m/n/7 1
+.....\TU/SBLHebrew(0)/m/n/7 7
+.....\enddir TLT
+....\enddir TLT
+....\mathoff
+....\kern2.84526
+....\penalty 10000
+....\glue 0.0
+....\kern-0.19531 (font)
+....\TU/SBLHebrew(0)/b/n/10 כּ
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ־
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 גּ
+....\TU/SBLHebrew(0)/b/n/10 וֹ
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\TU/SBLHebrew(0)/b/n/10 ם
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 כּ
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\kern-0.21973 (font)
+....\pdfliteral page <lua data reference ...>
+....\TU/SBLHebrew(0)/b/n/10 אַ
+....\TU/SBLHebrew(0)/b/n/10 
+....\pdfliteral page <lua data reference ...>
+....\TU/SBLHebrew(0)/b/n/10 ֣
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ן
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 נ
+....\TU/SBLHebrew(0)/b/n/10 ֶ
+....\kern-0.41504 (font)
+....\TU/SBLHebrew(0)/b/n/10 ג
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 דּ
+....\TU/SBLHebrew(0)/b/n/10 ֑
+....\TU/SBLHebrew(0)/b/n/10 וֹ
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 מ
+....\TU/SBLHebrew(0)/b/n/10 ֵ
+....\TU/SBLHebrew(0)/b/n/10 א
+....\TU/SBLHebrew(0)/b/n/10 ֶ
+....\TU/SBLHebrew(0)/b/n/10 ֥
+....\kern-0.19531 (font)
+....\TU/SBLHebrew(0)/b/n/10 פ
+....\TU/SBLHebrew(0)/b/n/10 ֶ
+....\TU/SBLHebrew(0)/b/n/10 ס
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 ו
+....\TU/SBLHebrew(0)/b/n/10 ָ
+....\TU/SBLHebrew(0)/b/n/10 ת
+....\TU/SBLHebrew(0)/b/n/10 ֹ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 וּ
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 נ
+....\TU/SBLHebrew(0)/b/n/10 ֶ
+....\TU/SBLHebrew(0)/b/n/10 ח
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 שׁ
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 ב
+....\TU/SBLHebrew(0)/b/n/10 וּ
+....\kern0.24414 (font)
+....\TU/SBLHebrew(0)/b/n/10 ־
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ֽ
+....\TU/SBLHebrew(0)/b/n/10 וֹ
+....\TU/SBLHebrew(0)/b/n/10 ׃
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 0.0
+...\hbox(10.49995+4.50005)x315.0, glue set 87.18262fil, shifted 30.0, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x0.0, direction TRT
+....\glue 0.0
+....\rule(10.49995+4.50005)x0.0
+....\hbox(8.44142+0.0)x0.0, glue set - 10.34526fil, direction TRT
+.....\glue 0.0 plus 1.0fil minus 1.0fil
+.....\mathon
+.....\begindir TLT
+.....\hbox(0.0+0.0)x0.0, direction TLT
+.....\hbox(4.8125+0.0752)x7.5, shifted -3.62892, direction TLT
+......\begindir TLT
+......\TU/SBLHebrew(0)/m/n/7 1
+......\TU/SBLHebrew(0)/m/n/7 8
+......\enddir TLT
+.....\enddir TLT
+.....\mathoff
+.....\kern2.84526
+.....\penalty 10000
+.....\glue 0.0
+....\glue 0.0
+....\TU/SBLHebrew(0)/b/n/10 ו
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\kern-0.09766 (font)
+....\TU/SBLHebrew(0)/b/n/10 א
+....\TU/SBLHebrew(0)/b/n/10 ֶ
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ־
+....\kern-0.19531 (font)
+....\TU/SBLHebrew(0)/b/n/10 מ
+....\TU/SBLHebrew(0)/b/n/10 ִ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\TU/SBLHebrew(0)/b/n/10 י
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.41504 (font)
+....\TU/SBLHebrew(0)/b/n/10 תּ
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 ד
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\kern-0.19531 (font)
+....\TU/SBLHebrew(0)/b/n/10 מּ
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 י
+....\TU/SBLHebrew(0)/b/n/10 ֣
+....\TU/SBLHebrew(0)/b/n/10 וּ
+....\TU/SBLHebrew(0)/b/n/10 ן
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.09766 (font)
+....\TU/SBLHebrew(0)/b/n/10 א
+....\TU/SBLHebrew(0)/b/n/10 ֵ
+....\TU/SBLHebrew(0)/b/n/10 ֑
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.1709 (font)
+....\TU/SBLHebrew(0)/b/n/10 וּ
+....\TU/SBLHebrew(0)/b/n/10 מ
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\kern-0.3418 (font)
+....\TU/SBLHebrew(0)/b/n/10 ה
+....\TU/SBLHebrew(0)/b/n/10 ־
+....\kern-0.12207 (font)
+....\TU/SBLHebrew(0)/b/n/10 דּ
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 מ
+....\TU/SBLHebrew(0)/b/n/10 ֖
+....\TU/SBLHebrew(0)/b/n/10 וּ
+....\TU/SBLHebrew(0)/b/n/10 ת
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\kern-0.19531 (font)
+....\TU/SBLHebrew(0)/b/n/10 תּ
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 ֥
+....\TU/SBLHebrew(0)/b/n/10 ע
+....\TU/SBLHebrew(0)/b/n/10 ַ
+....\TU/SBLHebrew(0)/b/n/10 ר
+....\TU/SBLHebrew(0)/b/n/10 ְ
+....\TU/SBLHebrew(0)/b/n/10 כ
+....\TU/SBLHebrew(0)/b/n/10 וּ
+....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
+....\TU/SBLHebrew(0)/b/n/10 ל
+....\TU/SBLHebrew(0)/b/n/10 ֽ
+....\TU/SBLHebrew(0)/b/n/10 וֹ
+....\TU/SBLHebrew(0)/b/n/10 ׃
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\penalty 10000
+...\glue(\abovedisplayskip) -15.0
+...\glue(\baselineskip) 10.49995
+...\hbox(0.0+0.0)x0.0, shifted 207.5, direction TLT
+...\penalty 51
+...\glue(\belowdisplayskip) 0.0
+...\glue -15.0
+...\glue 15.0
+...\penalty 51
+...\glue -15.0
+...\glue 15.0
+...\glue 6.0 plus 1.0 minus 2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\penalty 10000
+...\glue(\abovedisplayskip) -15.0
+...\glue(\baselineskip) 15.0
+...\hbox(0.0+0.0)x0.0, shifted 172.5, direction TLT
+...\penalty 10000
+...\glue(\belowdisplayskip) 0.0
+...\glue -15.0
+...\glue -6.0 plus -1.0 minus -2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 7.5
+...\hbox(7.5+2.49)x345.0, glue set 231.27fill, direction TRT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\glue 0.0 plus 1.0fill
+....\hbox(7.5+2.49)x113.73, direction TRT
+.....\begindir TLT
+.....\write1{\babel@aux{british}{}}
+.....\begindir TLT
+.....\TU/lmr/bx/n/10 J
+.....\TU/lmr/bx/n/10 e
+.....\discretionary (penalty 50)
+......< \TU/lmr/bx/n/10 -
+.....\TU/lmr/bx/n/10 s
+.....\TU/lmr/bx/n/10 a
+.....\TU/lmr/bx/n/10 i
+.....\TU/lmr/bx/n/10 a
+.....\glue(\spaceskip) 3.83 plus 1.915 minus 1.27667
+.....\TU/lmr/bx/n/10 4
+.....\TU/lmr/bx/n/10 0
+.....\TU/lmr/bx/n/10 :
+.....\TU/lmr/bx/n/10 1
+.....\TU/lmr/bx/n/10 4
+.....\TU/lmr/bx/n/10 –
+.....\TU/lmr/bx/n/10 1
+.....\TU/lmr/bx/n/10 8
+.....\glue(\spaceskip) 3.83 plus 1.915 minus 1.27667
+.....\TU/lmr/bx/n/10 (
+.....\TU/lmr/bx/n/10 B
+.....\TU/lmr/bx/n/10 H
+.....\TU/lmr/bx/n/10 S
+.....\enddir TLT
+.....\TU/lmr/bx/n/10 )
+.....\enddir TLT
+.....\write1{\babel@aux{hebrew}{}}
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 51
+...\glue 12.0 plus 3.0 minus 4.0
+...\glue -2.49
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0, direction TRT
+...\hbox(0.0+0.0)x345.0, direction TRT
+(scripture94.aux)
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.

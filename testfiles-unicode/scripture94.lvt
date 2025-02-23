@@ -1,0 +1,63 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage[bidi=basic, layout=lists]{babel}
+\babelprovide[import, main]{hebrew}
+\babelprovide[import]{british}
+\babelfont[hebrew]{rm}{SBL Hebrew}
+\babeladjust{bidi.mirroring=off}
+\usepackage{scripture}
+\scripturesetup{
+  belowskip=\bigskipamount,
+  chapter/showverse,
+  chapter/nodrop,
+  chapter/format={\foreignlanguage{british}{#1}},
+  reference/font={\selectlanguage{british}\bfseries},
+  verse/sep=1mm,
+  version={BHS},
+  poetry/leftmargin=3em,
+  poetry/indent=0mm,
+  poetry/verse/sep=1mm
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Genesis 1:1--2]
+  \ch{1}בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃ \vs{2}וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֨הוּ֙ וָבֹ֔הוּ
+  וְחֹ֖שֶׁךְ עַל־פְּנֵ֣י תְה֑וֹם וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־פְּנֵ֥י הַמָּֽיִם׃
+\end{scripture}
+
+\begin{scripture}[Jesaia 40:1--6]
+  \begin{poetry}
+    \ch{40}נַחֲמ֥וּ נַחֲמ֖וּ עַמִּ֑י\quad יֹאמַ֖ר אֱלֹהֵיכֶֽם׃
+    \vs{2}דַּבְּר֞וּ עַל־לֵ֤ב יְרֽוּשָׁלִַ֨ם֙\quad  וְקִרְא֣וּ אֵלֶ֔יהָ
+    כִּ֤י מָֽלְאָה֙ צְבָאָ֔הּ\quad כִּ֥י נִרְצָ֖ה עֲוֹנָ֑הּ
+    כִּ֤י לָקְחָה֙ מִיַּ֣ד יְהוָ֔ה כִּפְלַ֖יִם\quad בְּכָל־חַטֹּאתֶֽיהָ׃\quad ס
+  \end{poetry}
+  \begin{poetry}[leftmargin=4em]
+    \vs{3}ק֣וֹל קוֹרֵ֔א
+    בַּמִּדְבָּ֕ר פַּנּ֖וּ\quad דֶּ֣רֶךְ יְהוָ֑ה
+    יַשְּׁרוּ֙ בָּעֲרָבָ֔ה\quad מְסִלָּ֖ה לֵאלֹהֵֽינוּ׃
+    \vs{4}כָּל־גֶּיא֙ יִנָּשֵׂ֔א\quad וְכָל־הַ֥ר וְגִבְעָ֖ה יִשְׁפָּ֑לוּ
+    וְהָיָ֤ה הֶֽעָקֹב֙ לְמִישׁ֔וֹר\quad וְהָרְכָסִ֖ים לְבִקְעָֽה׃
+    \vs{5}וְנִגְלָ֖ה כְּב֣וֹד יְהוָ֑ה\quad וְרָא֤וּ כָל־בָּשָׂר֙ יַחְדָּ֔ו כִּ֛י פִּ֥י יְהוָ֖ה דִּבֵּֽר׃\quad ס
+  \end{poetry}
+  \begin{poetry}
+    \vs{6}ק֚וֹל אֹמֵ֣ר קְרָ֔א\quad וְאָמַ֖ר מָ֣ה אֶקְרָ֑א
+    כָּל־הַבָּשָׂ֣ר חָצִ֔יר\quad וְכָל־חַסְדּ֖וֹ כְּצִ֥יץ הַשָּׂדֶֽה׃
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Jesaia 40:14--18]
+  \begin{poetry}
+    \vs{15}הֵ֤ן גּוֹיִם֙ כְּמַ֣ר מִדְּלִ֔י וּכְשַׁ֥חַק מֹאזְנַ֖יִם נֶחְשָׁ֑בוּ
+    הֵ֥ן אִיִּ֖ים כַּדַּ֥ק יִטּֽוֹל׃\quad \vs{16}וּלְבָנ֕וֹן אֵ֥ין דֵּ֖י בָּעֵ֑ר
+    וְחַיָּת֔וֹ אֵ֥ין דֵּ֖י עוֹלָֽה׃\quad ס
+    \strut\vs{17}כָּל־הַגּוֹיִ֖ם כְּאַ֣יִן נֶגְדּ֑וֹ מֵאֶ֥פֶס וָתֹ֖הוּ נֶחְשְׁבוּ־לֽוֹ׃
+    \vs{18}וְאֶל־מִ֖י תְּדַמְּי֣וּן אֵ֑ל וּמַה־דְּמ֖וּת תַּ֥עַרְכוּ לֽוֹ׃
+  \end{poetry}
+\end{scripture}
+
+\end{document}
