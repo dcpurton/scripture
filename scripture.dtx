@@ -393,10 +393,13 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
-% \begin{function}{\ch, \ch*}
+% \changes{v2.2}{2025/03/02}{Add auto chapter numbering}
+% \begin{function}{\ch, \ch*, \newch, \newch*}
 %   \begin{syntax}
 %     |\ch|\oarg{letter}\marg{chapter number}
 %     |\ch*|\oarg{letter}\marg{chapter number}
+%     |\newch|\oarg{letter}
+%     |\newch*|\oarg{letter}
 %   \end{syntax}
 %   Format a chapter number. By default these are formatted using drop text
 %   taking up two lines and the text is separated from the chapter number by a
@@ -408,6 +411,10 @@
 %   attempts to add sufficient space for the dropped chapter when its
 %   paragraph contains only one line. The starred version suppresses this
 %   behaviour.
+%
+%   \cs{newch} and \cs{newch*} behave similarly except that the chapter number
+%   is automatically incremented. The initial chapter can be set by passing
+%   \opt{chapter} to the \env{scirpture} environment.
 % \end{function}
 %
 % \begin{scriptureexample}[lefthand ratio=0.55]
@@ -871,11 +878,17 @@
 % perish but have eternal life.}.
 % \end{scriptureexample}
 %
-% \begin{function}{\vs}
+% \changes{v2.2}{2025/03/02}{Add auto verse numbering}
+% \begin{function}{\vs, \newvs}
 %   \begin{syntax}
 %     |\vs|\marg{verse number}
+%     |\newvs|
 %   \end{syntax}
 %   Format a verse number. By default these are formatted using a superscript.
+%
+%   \cs{newvs} behaves similarly except that the verse number is automatically
+%   incremented. The initial verse can be set by passing \opt{verse} to the
+%   \env{scirpture} environment.
 % \end{function}
 %
 % \subsubsection{Environments}
@@ -1327,6 +1340,27 @@
 %     belowskip = \meta{skip} \hfill Default: 0pt
 %   \end{syntax}
 %   \meta{|skip|} inserted below the \env{scripture} environment.
+% \end{option}
+%
+% \changes{v2.2}{2025/03/02}{Add \opt{book} option}
+% \begin{option}[added=2025-03-02]{book}
+%   \begin{syntax}
+%     book = name\hfill Default: \emph{Empty}
+%   \end{syntax}
+%   Initialise the book name for the current quotation.
+%
+%   See also \opt{chapter} and \opt{verse}.
+% \end{option}
+%
+% \changes{v2.2}{2025/03/02}{Add \opt{chapter} option}
+% \begin{option}[added=2025-03-02]{chapter}
+%   \begin{syntax}
+%     chapter = \meta{integer}\hfill Default: 1
+%   \end{syntax}
+%   Initialise the chapter number when using automatic chapter numbering with
+%   \cs{newch}.
+%
+%   See also \opt{book} and \opt{verse}.
 % \end{option}
 %
 % \changes{v2.1}{2024/12/30}{Add \opt{chapter/align} option}
@@ -2394,6 +2428,17 @@
 %   The minimum \meta{|dimen|} allowed between the end of a line and text
 %   aligned to the right with \fn{textright} before the right aligned text is
 %   pushed to the following line.
+% \end{option}
+%
+% \changes{v2.2}{2025/03/02}{Add \opt{verse} option}
+% \begin{option}[added=2025-03-02]{verse}
+%   \begin{syntax}
+%     verse = \meta{integer}\hfill Default: 1
+%   \end{syntax}
+%   Initialise the chapter number when using automatic verse numbering with
+%   \cs{newvs}.
+%
+%   See also \opt{book} and \opt{chapter}.
 % \end{option}
 %
 % \changes{v1.2}{2022/09/07}{Add \opt{verse/colour} option}
@@ -3914,7 +3959,7 @@
 % \end{macro}
 %
 % \begin{macro}{\g_@@_first_verse_set_bool}
-%   Set to \val{true} when the first \vs{vs} or \cs{vs} has been set. This is
+%   Set to \val{true} when the first \cs{ch} or \cs{vs} has been set. This is
 %   used to ensure automatic chapter and verse numbering starts at the right
 %   place.
 %    \begin{macrocode}
