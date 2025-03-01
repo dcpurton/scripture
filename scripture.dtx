@@ -3290,6 +3290,7 @@
     , compact                     .initial:n          = false
     , chapter                     .int_gset:N         = \g_@@_chapter_int
     , chapter                     .value_required:n   = true
+    , chapter                     .initial:n          = \c_one_int
     , chapter / align             .choices:nn         = { left, right }
                                                         {
                                                           \tl_if_exist:NF \l_@@_chapter_align_tl
@@ -3563,6 +3564,7 @@
     , textright / sep             .initial:n          = 1em
     , verse                       .int_gset:N         = \g_@@_verse_int
     , verse                       .value_required:n   = true
+    , verse                       .initial:n          = \c_one_int
     , verse / colour              .tl_set:N           = \l_@@_verse_colour_tl
     , verse / colour              .value_required:n   = true
     , verse / colour              .initial:n          = .
@@ -5498,6 +5500,10 @@
     \tl_if_novalue:nF { #1 }
       { \tl_set:Nn \l_@@_ref_tl { #1 } }
     \str_set:Nn \l_@@_currenvir_str { scripture }
+    \bool_gset_false:N \g_@@_first_verse_set_bool
+    \int_gset:Nn \g_@@_chapter_int \c_one_int
+    \int_gset:Nn \g_@@_verse_int \c_one_int
+    \tl_gclear:N \g_@@_book_tl
     \tl_if_novalue:nF { #2 }
       {
         \keys_set:nn { scripture } { #2 }
