@@ -3279,6 +3279,8 @@
     , belowskip                   .tl_set:N           = \l_@@_belowskip_tl
     , belowskip                   .value_required:n   = true
     , belowskip                   .initial:n          = \c_zero_skip
+    , book                        .tl_gset:N          = \g_@@_book_tl
+    , book                        .value_required:n   = true
     , colour                      .tl_set:N           = \l_@@_colour_tl
     , colour                      .value_required:n   = true
     , colour                      .initial:n          = .
@@ -3286,6 +3288,8 @@
     , compact                     .bool_set:N         = \l_@@_compact_bool
     , compact                     .default:n          = true
     , compact                     .initial:n          = false
+    , chapter                     .int_gset:N         = \g_@@_chapter_int
+    , chapter                     .value_required:n   = true
     , chapter / align             .choices:nn         = { left, right }
                                                         {
                                                           \tl_if_exist:NF \l_@@_chapter_align_tl
@@ -3557,6 +3561,8 @@
     , textright / sep             .tl_set:N           = \l_@@_text_right_sep_tl
     , textright / sep             .value_required:n   = true
     , textright / sep             .initial:n          = 1em
+    , verse                       .int_gset:N         = \g_@@_verse_int
+    , verse                       .value_required:n   = true
     , verse / colour              .tl_set:N           = \l_@@_verse_colour_tl
     , verse / colour              .value_required:n   = true
     , verse / colour              .initial:n          = .
@@ -3905,6 +3911,15 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\g_@@_first_verse_set_bool}
+%   Set to \val{true} when the first \vs{vs} or \cs{vs} has been set. This is
+%   used to ensure automatic chapter and verse numbering starts at the right
+%   place.
+%    \begin{macrocode}
+\bool_new:N \g_@@_first_verse_set_bool
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\g_@@_mode_vertical_inner_bool}
 %   Whether an inner environment is starting in vertical mode. This flag is
 %   only used with the \opt{compact} and \opt{verse/para} options.
@@ -3953,14 +3968,20 @@
             \skip_horizontal:n { -#1 }
             \bool_if:NT \l_@@_verse_para_bool
               {
-                \peek_meaning:NTF \vs
+                \peek_analysis_map_inline:n
                   {
-                    \bool_gset_true:N \g_@@_suppress_next_verse_para_bool
-                    \@@_set_pilcrow_hook:
-                  }
-                  {
-                    \str_if_eq:VnF \l_@@_currenvir_str { poetry }
-                      { \@@_pilcrow_output: }
+                    \bool_lazy_or:nnTF
+                      { \exp_args:No \token_if_eq_meaning_p:NN { ####1 } \vs }
+                      { \exp_args:No \token_if_eq_meaning_p:NN { ####1 } \newvs }
+                      {
+                        \bool_gset_true:N \g_@@_suppress_next_verse_para_bool
+                        \@@_set_pilcrow_hook:
+                      }
+                      {
+                        \str_if_eq:VnF \l_@@_currenvir_str { poetry }
+                          { \@@_pilcrow_output: }
+                      }
+                    \peek_analysis_map_break:n { ####1 }
                   }
               }
           }
@@ -4267,6 +4288,23 @@
                             \@@_reference_start_inline:
                           }
                       }
+                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newch }
+                      {
+                        \bool_if:NTF \l_@@_ref_start_newline_bool
+                          { \@@_reference_start_newline: }
+                          {
+                            \cs_set_eq:NN \@@_temp_newch \newch
+                            \RenewDocumentCommand \newch { s o }
+                              {
+                                \tl_if_novalue:nF { ##2 }
+                                  {
+                                    \tl_set:Nn \l_@@_X_char_tl { ##2 }
+                                  }
+                                \cs_set_eq:NN \newch \@@_temp_newch
+                              }
+                            \@@_reference_start_inline:
+                          }
+                      }
                     { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
                       {
                         \bool_if:NTF \l_@@_ref_start_newline_bool
@@ -4275,6 +4313,17 @@
                             \cs_set_eq:NN \@@_temp_vs \vs
                             \RenewDocumentCommand \vs { m }
                               { \cs_set_eq:NN \vs \@@_temp_vs }
+                            \@@_reference_start_inline:
+                          }
+                      }
+                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
+                      {
+                        \bool_if:NTF \l_@@_ref_start_newline_bool
+                          { \@@_reference_start_newline: }
+                          {
+                            \cs_set_eq:NN \@@_temp_newvs \newvs
+                            \RenewDocumentCommand \newvs { }
+                              { \cs_set_eq:NN \newvs \@@_temp_newvs }
                             \@@_reference_start_inline:
                           }
                       }
@@ -4339,7 +4388,14 @@
                       }
                     { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \ch }
                       { }
+                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newch }
+                      { }
                     { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
+                      {
+                        \mode_if_vertical:F
+                          { \@@_set_pilcrow_hook: }
+                      }
+                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
                       {
                         \mode_if_vertical:F
                           { \@@_set_pilcrow_hook: }
@@ -4390,6 +4446,8 @@
                   { \@@_pilcrow_output: }
                 { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
                   { \@@_set_pilcrow_hook: }
+                { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
+                  { \@@_set_pilcrow_hook: }
               }
             \peek_analysis_map_break:n { ##1 }
           }
@@ -4406,23 +4464,32 @@
     \legacy_if:nTF { @newlist }
       {
         \tex_noindent:D
-        \peek_meaning:NTF \vs
+        \peek_analysis_map_inline:n
           {
-            \bool_gset_true:N \g_@@_suppress_next_verse_para_bool
-            \@@_set_pilcrow_hook:
+            \bool_lazy_or:nnTF
+              { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
+              { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
+              { \bool_gset_true:N \g_@@_suppress_next_verse_para_bool }
+              { \@@_pilcrow_output: }
+            \peek_analysis_map_break:n { ##1 }
           }
-          { \@@_pilcrow_output: }
       }
       {
-        \peek_meaning:NTF \vs
+        \peek_analysis_map_inline:n
           {
-            \bool_if:NT \l_@@_verse_para_bool
-              { \para_end: }
-            \tex_noindent:D
-            \bool_gset_true:N \g_@@_suppress_next_verse_para_bool
-            \@@_set_pilcrow_hook:
+            \bool_lazy_or:nnTF
+              { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
+              { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
+              {
+                \bool_if:NT \l_@@_verse_para_bool
+                  { \para_end: }
+                \tex_noindent:D
+                \bool_gset_true:N \g_@@_suppress_next_verse_para_bool
+                \@@_set_pilcrow_hook:
+              }
+              { \@@_pilcrow_output: }
+            \peek_analysis_map_break:n { ##1 }
           }
-          { \@@_pilcrow_output: }
       }
   }
 %    \end{macrocode}
@@ -4463,6 +4530,8 @@
                 { \exp_args:No \token_if_active_p:N { ##1 } }
                   { \@@_pilcrow_output: }
                 { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
+                  { \@@_set_pilcrow_hook: }
+                { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
                   { \@@_set_pilcrow_hook: }
               }
             \peek_analysis_map_break:n { ##1 }
@@ -5465,6 +5534,29 @@
         \@@_ch_output:nn { ##1 } { ##3 }
       }
     \cs_set_eq:NN \vs \@@_verse_output:n
+    \DeclareDocumentCommand { \newch } { s o }
+      {
+        \bool_if:NTF \g_@@_first_verse_set_bool
+          {
+            \int_gincr:N \g_@@_chapter_int
+            \int_gset:Nn \g_@@_verse_int \c_one_int
+          }
+          { \bool_gset_true:N \g_@@_first_verse_set_bool }
+        \bool_if:nTF { ##1 }
+          {
+            \ch* [ ##2 ] { \int_use:N \g_@@_chapter_int }
+          }
+          {
+            \ch [ ##2 ] { \int_use:N \g_@@_chapter_int }
+          }
+      }
+    \DeclareDocumentCommand { \newvs } { }
+      {
+        \bool_if:NTF \g_@@_first_verse_set_bool
+          { \int_gincr:N \g_@@_verse_int }
+          { \bool_gset_true:N \g_@@_first_verse_set_bool }
+        \vs { \int_use:N \g_@@_verse_int }
+      }
     \cs_set_eq:NN \added \@@_added:n
     \cs_set_eq:NN \heading \@@_heading:n
     \cs_set_eq:NN \name \@@_name:n
@@ -6092,10 +6184,16 @@
       { \skip_horizontal:n { \l_@@_hanging_hang_tl } }
       { \tex_noindent:D }
     \hbox_to_wd:nn { \l_@@_hanging_parindent_saved_dim } { }
-    \peek_meaning:NT \vs
+    \peek_analysis_map_inline:n
       {
-        \bool_gset_true:N \g_@@_suppress_next_verse_para_bool
-        \@@_set_pilcrow_hook:
+        \bool_lazy_or:nnT
+          { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
+          { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
+          {
+            \bool_gset_true:N \g_@@_suppress_next_verse_para_bool
+            \@@_set_pilcrow_hook:
+          }
+        \peek_analysis_map_break:n { ##1 }
       }
   }
 %    \end{macrocode}
@@ -6268,6 +6366,8 @@
                 { \exp_args:No \token_if_letter_p:N { ##1 } }
                   { \@@_pilcrow_output: }
                 { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
+                  { \@@_set_pilcrow_hook: }
+                { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
                   { \@@_set_pilcrow_hook: }
               }
             \peek_analysis_map_break:n { ##1 }
@@ -6944,6 +7044,12 @@
                 \@@_poetry_par:
                 \peek_analysis_map_break:n { ##1 }
               }
+            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newch }
+              {
+                \bool_set_eq:NN \l_@@_poetry_midparachap_show_verse_bool \l_@@_midparachap_show_verse_bool
+                \@@_poetry_par:
+                \peek_analysis_map_break:n { ##1 }
+              }
             { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \end }
               { \peek_analysis_map_break:n { ##1 } }
             { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \extraskip }
@@ -6959,6 +7065,13 @@
                   }
               }
             { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
+              {
+                \@@_poetry_par:
+                \cs_if_eq:NNT \vs \@@_poetry_mode_vertical_verse:n
+                  { \noindent }
+                \peek_analysis_map_break:n { ##1 }
+              }
+            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
               {
                 \@@_poetry_par:
                 \cs_if_eq:NNT \vs \@@_poetry_mode_vertical_verse:n
