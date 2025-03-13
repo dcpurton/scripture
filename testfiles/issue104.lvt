@@ -1,0 +1,93 @@
+\documentclass[a4paper,twocolumn]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  aboveskip=\medskipamount,
+  belowskip=\medskipamount
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Genesis 1:24--2:7][book=Genesis, verse=24]
+  \begin{hanging}
+    \newvs And God said, ‘Let the land produce living creatures according to
+    their kinds: the livestock, the creatures that move along the ground, and
+    the wild animals, each according to its kind.’ And it was so. \newvs God
+    made the wild animals according to their kinds, the livestock according to
+    their kinds, and all the creatures that move along the ground according to
+    their kinds. And God saw that it was good.
+
+    \nohang\newvs Then God said, ‘Let us make mankind in our image, in our
+    likeness, so that they may rule over the fish in the sea and the birds in
+    the sky, over the livestock and all the wild animals, and over all the
+    creatures that move along the ground.’
+  \end{hanging}
+
+  \begin{poetry}
+    \newvs So God created mankind in his own image,
+    in the image of God he created them;
+    male and female he created them.
+  \end{poetry}
+
+  \begin{hanging}
+    \nohang\newvs God blessed them and said to them, ‘Be fruitful and increase
+    in number; fill the earth and subdue it. Rule over the fish in the sea and
+    the birds in the sky and over every living creature that moves on the
+    ground.’
+
+    \nohang\newvs Then God said, ‘I give you every seed-bearing plant on the
+    face of the whole earth and every tree that has fruit with seed in it.
+    They will be yours for food. \newvs And to all the beasts of the earth and
+    all the birds in the sky and all the creatures that move along the ground
+    – everything that has the breath of life in it – I give every green plant
+    for food.’ And it was so.
+
+    \nohang\newvs God saw all that he had made, and it was very good. And
+    there was evening, and there was morning – the sixth day.
+
+    \extraskip
+
+    \newch Thus the heavens and the earth were completed in all their vast
+    array.
+
+    \extraskip
+
+    \newvs By the seventh day God had finished the work he had been doing; so
+    on the seventh day he rested from all his work. \newvs Then God blessed
+    the seventh day and made it holy, because on it he rested from all the
+    work of creating that he had done.
+  \end{hanging}
+
+  \newvs This is the account of the heavens and the earth when they were
+  created, when the Lord God made the earth and the heavens.
+
+  \newvs Now no shrub had yet appeared on the earth and no plant had yet
+  sprung up, for the Lord God had not sent rain on the earth and there was no
+  one to work the ground, \newvs but streams came up from the earth and
+  watered the whole surface of the ground. \newvs Then the Lord God formed a
+  man from the dust of the ground and breathed into his nostrils the breath of
+  life, and the man became a living being.
+\end{scripture}
+
+\begin{scripture}[John 1:1--13][book=John]
+  \newch In the beginning was the Word, and the Word was with God, and the
+  Word was God. \newvs He was with God in the beginning. \newvs Through him
+  all things were made; without him nothing was made that has been made.
+  \newvs In him was life, and that life was the light of all mankind. \newvs
+  The light shines in the darkness, and the darkness has not overcome it.
+
+  \newvs There was a man sent from God whose name was John. \newvs He came as
+  a witness to testify concerning that light, so that through him all might
+  believe. \newvs He himself was not the light; he came only as a witness to
+  the light.
+
+  \newvs The true light that gives light to everyone was coming into the
+  world.  \newvs He was in the world, and though the world was made through
+  him, the world did not recognise him. \newvs He came to that which was his
+  own, but his own did not receive him. \newvs Yet to all who did receive him,
+  to those who believed in his name, he gave the right to become children of
+  God – \newvs children born not of natural descent, nor of human decision or
+  a husband’s will, but born of God.
+\end{scripture}
+\end{document}
