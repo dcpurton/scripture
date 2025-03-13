@@ -5848,6 +5848,13 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\l_@@_hanging_chap_sep_dim}
+%   Calculated chapter separation used in the \env{hanging} environment.
+%    \begin{macrocode}
+\dim_new:N \l_@@_hanging_chap_sep_dim
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\@@_hanging_ch:n}
 %   Position a chapter in a \env{hanging} environment.
 %    \begin{macrocode}
@@ -5878,16 +5885,15 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_hanging_chap:n
   {
+    \dim_set_eq:NN \l_@@_hanging_chap_sep_dim \l_@@_chap_sep_tl
     \@@_drop_chap_set_up:n { #1 }
     \dim_compare:nNnTF
-      { \g_@@_chap_width_dim + \l_@@_chap_sep_tl } < \leftmargin
+      { \g_@@_chap_width_dim + \l_@@_hanging_chap_sep_dim } < \leftmargin
       {
         \bool_if:NT \l_@@_hanging_chapter_indent_bool
           {
-            \tl_set:Nx \l_@@_chap_sep_tl
-              {
-                \dim_eval:n { \leftmargin - \g_@@_chap_width_dim }
-              }
+            \dim_set:Nn \l_@@_hanging_chap_sep_dim
+              { \leftmargin - \g_@@_chap_width_dim }
           }
       }
       {
@@ -5895,62 +5901,54 @@
           \dim_eval:n
             {
               \@totalleftmargin - \leftmargin + \g_@@_chap_width_dim +
-              \l_@@_chap_sep_tl
+              \l_@@_hanging_chap_sep_dim
             } ~
           \dim_eval:n
             {
               \linewidth + \leftmargin - \g_@@_chap_width_dim -
-              \l_@@_chap_sep_tl
+              \l_@@_hanging_chap_sep_dim
             } ~
           \dim_eval:n
             {
               \@totalleftmargin - \leftmargin + \g_@@_chap_width_dim +
-              \l_@@_chap_sep_tl
+              \l_@@_hanging_chap_sep_dim
             } ~
           \dim_eval:n
             {
               \linewidth + \leftmargin - \g_@@_chap_width_dim -
-              \l_@@_chap_sep_tl
+              \l_@@_hanging_chap_sep_dim
             } ~
           \@totalleftmargin ~ \linewidth
       }
     \par
     \bool_if:NTF \l_@@_hanging_chapter_indent_bool
       {
-        \tl_set:Nx \l_@@_chap_sep_tl
-          {
-            \dim_eval:n
-              {
-                \l_@@_chap_sep_tl + \l_@@_hanging_parindent_saved_dim
-              }
-          }
+        \dim_set:Nn \l_@@_hanging_chap_sep_dim
+          { \l_@@_hanging_chap_sep_dim + \l_@@_hanging_parindent_saved_dim }
         \@@_nohang:
       }
       {
         \mode_leave_vertical:
         \dim_compare:nNnTF
-          { \g_@@_chap_width_dim + \l_@@_chap_sep_tl } > \l_@@_hanging_leftmargin_tl
+          { \g_@@_chap_width_dim + \l_@@_hanging_chap_sep_dim } > \l_@@_hanging_leftmargin_tl
           {
             \dim_compare:nNnTF
-              { \g_@@_chap_width_dim + \l_@@_chap_sep_tl } > \leftmargin
+              { \g_@@_chap_width_dim + \l_@@_hanging_chap_sep_dim } > \leftmargin
               {
                 \skip_horizontal:n { \l_@@_hanging_hang_tl }
               }
               {
                 \skip_horizontal:n
                   {
-                    \l_@@_chap_sep_tl +
+                    \l_@@_hanging_chap_sep_dim +
                     \g_@@_chap_width_dim -
                     \l_@@_hanging_leftmargin_tl
                   }
               }
           }
           {
-            \tl_set:Nx \l_@@_chap_sep_tl
-              {
-                \dim_eval:n
-                  { \l_@@_hanging_leftmargin_tl - \g_@@_chap_width_dim }
-              }
+            \dim_set:Nn \l_@@_hanging_chap_sep_dim
+              { \l_@@_hanging_leftmargin_tl - \g_@@_chap_width_dim }
           }
       }
     \hbox_set:Nn \l_@@_chap_box
@@ -5961,7 +5959,7 @@
             \hbox_overlap_left:n
               {
                 \box_use:N \l_@@_chap_tmp_box
-                \skip_horizontal:N \l_@@_chap_sep_tl
+                \skip_horizontal:N \l_@@_hanging_chap_sep_dim
               }
           }
       }
@@ -5995,18 +5993,19 @@
         \int_compare:nNnTF \g_@@_chap_par_prevgraf_int = \c_one_int
           {
             \dim_compare:nNnTF
-              { \l_@@_hanging_leftmargin_tl } < { \g_@@_chap_width_dim + \l_@@_chap_sep_tl }
+              { \l_@@_hanging_leftmargin_tl } <
+                { \g_@@_chap_width_dim + \l_@@_hanging_chap_sep_dim }
               {
                 \parshape 2 ~
                   \dim_eval:n
                     {
                       \@totalleftmargin - \leftmargin + \g_@@_chap_width_dim +
-                      \l_@@_chap_sep_tl
+                      \l_@@_hanging_chap_sep_dim
                     } ~
                   \dim_eval:n
                     {
                       \linewidth + \leftmargin - \g_@@_chap_width_dim -
-                      \l_@@_chap_sep_tl
+                      \l_@@_hanging_chap_sep_dim
                     } ~
                   \@totalleftmargin ~ \linewidth
               }
