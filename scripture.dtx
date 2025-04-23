@@ -7182,6 +7182,7 @@
       { \dim_zero:N \l_@@_outer_itemindent_dim }
     \cs_set_eq:NN \par \para_end:
     \cs_set_eq:NN \noindent \tex_noindent:D
+    \hook_gclear_next_code:n { para / before }
     \hook_gput_next_code:nn { scripture / poetry / pilcrow }
       {
         \@@_pilcrow_output:

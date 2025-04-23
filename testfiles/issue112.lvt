@@ -1,0 +1,23 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\hsize 5cm
+\linewidth 5cm
+\begin{scripture}
+  \ch{3}In those days John the Baptist came, preaching in the wilderness of
+  Judea \vs{2}and saying, ‘Repent, for the kingdom of heaven has come near.’
+  \vs{3}This is he who was spoken of through the prophet Isaiah:
+
+  \begin{poetry}
+    ‘A voice of one calling in the wilderness,
+    “Prepare the way for the Lord,
+    make straight paths for him.”’
+  \end{poetry}
+\end{scripture}
+\end{document}
