@@ -925,7 +925,7 @@ Completed box being shipped out [1]
 ..\glue(\baselineskip) 30.0
 ..\hbox(0.0+0.0)x452.0
 ...\hbox(0.0+0.0)x452.0
-Underfull \hbox (badness 1472) in paragraph at lines 31--32
+Underfull \hbox (badness 1472) in paragraph at lines ...
 []$[]$\OT1/cmr/m/n/10 The field com-man-der said to them, `Tell
 \hbox(8.14003+1.94444)x221.0, glue set 2.45331
 .\hbox(0.0+0.0)x10.00002
@@ -1520,7 +1520,7 @@ Completed box being shipped out [2]
 ....\rule(*+*)x0.0
 ....\glue 0.0 plus 1.0fil
 ....\hbox(598.0+0.0)x221.0
-.....\vbox(598.0+0.0)x221.0, glue set 564.0fil
+.....\vbox(598.0+0.0)x221.0, glue set 562.05556fil
 ......\glue(\topskip) 3.05556
 ......\hbox(6.94444+1.94444)x200.99997, glue set 0.64998, shifted 10.00002
 .......\OT1/cmr/m/n/10 e
@@ -1658,7 +1658,6 @@ Completed box being shipped out [2]
 .......\glue(\rightskip) 0.0
 ......\penalty 51
 ......\glue 0.0
-......\glue -1.94444
 ......\glue 0.0 plus 1.0fil
 ......\glue 0.0
 .....\glue 0.0 plus 1.0fil minus 1.0fil
@@ -2273,7 +2272,7 @@ Completed box being shipped out [3]
 ....\rule(*+*)x0.0
 ....\glue 0.0 plus 1.0fil
 ....\hbox(598.0+0.0)x221.0
-.....\vbox(598.0+0.0)x221.0, glue set 576.0fil
+.....\vbox(598.0+0.0)x221.0, glue set 574.05556fil
 ......\glue(\topskip) 1.85997
 ......\hbox(8.14003+1.94444)x221.0, glue set 7.3884fil
 .......\hbox(0.0+0.0)x10.00002
@@ -2372,7 +2371,6 @@ Completed box being shipped out [3]
 .......\glue(\rightskip) 0.0
 ......\penalty 51
 ......\glue 0.0
-......\glue -1.94444
 ......\glue 0.0 plus 1.0fil
 ......\glue 0.0
 .....\glue 0.0 plus 1.0fil minus 1.0fil

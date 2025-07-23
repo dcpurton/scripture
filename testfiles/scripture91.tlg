@@ -19,7 +19,7 @@ Completed box being shipped out [1]
 ..\vbox(598.0+0.0)x452.0
 ...\hbox(598.0+0.0)x452.0, glue set 5.0fil
 ....\hbox(598.0+0.0)x221.0
-.....\vbox(598.0+0.0)x221.0, glue set 480.0fil
+.....\vbox(598.0+0.0)x221.0, glue set 477.5fil
 ......\write-{}
 ......\glue(\topskip) 1.60004
 ......\hbox(8.39996+3.60004)x200.99997, glue set 16.97206fil, shifted 20.00003
@@ -485,7 +485,6 @@ Completed box being shipped out [1]
 .......\glue(\rightskip) 0.0
 ......\penalty 51
 ......\glue 0.0
-......\glue -2.5
 ......\glue 0.0 plus 1.0fil
 ......\glue 0.0
 .....\glue 0.0 plus 1.0fil minus 1.0fil

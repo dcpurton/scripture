@@ -163,10 +163,9 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/n/10 r
 ....\OT1/cmr/m/n/10 e
 ....\glue(\rightskip) 0.0
-...\marks1{\__mark_id:n {1}Mark{} 1:40}
-...\marks2{\__mark_id:n {2}Mark{} 1:40}
-...\marks3{\__mark_id:n {3}Mark{} 1:40}
-...\mark{{Mark{} 1:40}{Mark{} 1:40}}
+...\marks1{\__mark_value:nn {1}{Mark{} 1:40}}
+...\marks2{\__mark_value:nn {2}{Mark{} 1:40}}
+...\marks3{\__mark_value:nn {3}{Mark{} 1:40}}
 ...\penalty 300
 ...\glue(\baselineskip) 3.11111
 ...\hbox(6.94444+1.94444)x345.0, glue set 202.77751fil
@@ -293,10 +292,9 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/n/10 `
 ....\OT1/cmr/m/n/10 I
 ....\glue(\rightskip) 0.0
-...\marks1{\__mark_id:n {4}Mark{} 1:41}
-...\marks2{\__mark_id:n {5}Mark{} 1:41}
-...\marks3{\__mark_id:n {6}Mark{} 1:41}
-...\mark{{Mark{} 1:41}{Mark{} 1:41}}
+...\marks1{\__mark_value:nn {4}{Mark{} 1:41}}
+...\marks2{\__mark_value:nn {5}{Mark{} 1:41}}
+...\marks3{\__mark_value:nn {6}{Mark{} 1:41}}
 ...\penalty 150
 ...\glue(\baselineskip) 1.91553
 ...\hbox(8.14003+1.94444)x345.0, glue set - 0.11996
@@ -387,10 +385,9 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/n/10 a
 ....\OT1/cmr/m/n/10 s
 ....\glue(\rightskip) 0.0
-...\marks1{\__mark_id:n {7}Mark{} 1:42}
-...\marks2{\__mark_id:n {8}Mark{} 1:42}
-...\marks3{\__mark_id:n {9}Mark{} 1:42}
-...\mark{{Mark{} 1:42}{Mark{} 1:42}}
+...\marks1{\__mark_value:nn {7}{Mark{} 1:42}}
+...\marks2{\__mark_value:nn {8}{Mark{} 1:42}}
+...\marks3{\__mark_value:nn {9}{Mark{} 1:42}}
 ...\penalty 150
 ...\glue(\baselineskip) 3.11111
 ...\hbox(6.94444+0.0)x345.0, glue set 306.0555fil
@@ -504,14 +501,12 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/n/10 '
 ....\OT1/cmr/m/n/10 t
 ....\glue(\rightskip) 0.0
-...\marks1{\__mark_id:n {10}Mark{} 1:43}
-...\marks2{\__mark_id:n {11}Mark{} 1:43}
-...\marks3{\__mark_id:n {12}Mark{} 1:43}
-...\mark{{Mark{} 1:43}{Mark{} 1:43}}
-...\marks1{\__mark_id:n {13}Mark{} 1:44}
-...\marks2{\__mark_id:n {14}Mark{} 1:44}
-...\marks3{\__mark_id:n {15}Mark{} 1:44}
-...\mark{{Mark{} 1:44}{Mark{} 1:44}}
+...\marks1{\__mark_value:nn {10}{Mark{} 1:43}}
+...\marks2{\__mark_value:nn {11}{Mark{} 1:43}}
+...\marks3{\__mark_value:nn {12}{Mark{} 1:43}}
+...\marks1{\__mark_value:nn {13}{Mark{} 1:44}}
+...\marks2{\__mark_value:nn {14}{Mark{} 1:44}}
+...\marks3{\__mark_value:nn {15}{Mark{} 1:44}}
 ...\penalty 150
 ...\glue(\baselineskip) 3.11111
 ...\hbox(6.94444+1.94444)x345.0, glue set 0.21434
@@ -685,10 +680,9 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/n/10 a
 ....\OT1/cmr/m/n/10 d
 ....\glue(\rightskip) 0.0
-...\marks1{\__mark_id:n {16}Mark{} 1:45}
-...\marks2{\__mark_id:n {17}Mark{} 1:45}
-...\marks3{\__mark_id:n {18}Mark{} 1:45}
-...\mark{{Mark{} 1:45}{Mark{} 1:45}}
+...\marks1{\__mark_value:nn {16}{Mark{} 1:45}}
+...\marks2{\__mark_value:nn {17}{Mark{} 1:45}}
+...\marks3{\__mark_value:nn {18}{Mark{} 1:45}}
 ...\glue(\baselineskip) 3.11111
 ...\hbox(6.94444+1.94444)x345.0, glue set 0.44443
 ....\OT1/cmr/m/n/10 h
@@ -1080,10 +1074,9 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/n/10 r
 ....\OT1/cmr/m/n/10 e
 ....\glue(\rightskip) 0.0
-...\marks1{\__mark_id:n {19}Mark{} 2:2}
-...\marks2{\__mark_id:n {20}Mark{} 2:2}
-...\marks3{\__mark_id:n {21}Mark{} 2:2}
-...\mark{{Mark{} 2:2}{Mark{} 2:2}}
+...\marks1{\__mark_value:nn {19}{Mark{} 2:2}}
+...\marks2{\__mark_value:nn {20}{Mark{} 2:2}}
+...\marks3{\__mark_value:nn {21}{Mark{} 2:2}}
 ...\glue(\baselineskip) 3.11111
 ...\hbox(6.94444+1.94444)x345.0, glue set - 0.39044
 ....\OT1/cmr/m/n/10 w
@@ -1253,10 +1246,9 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/n/10 m
 ....\OT1/cmr/m/n/10 .
 ....\glue(\rightskip) 0.0
-...\marks1{\__mark_id:n {22}Mark{} 2:3}
-...\marks2{\__mark_id:n {23}Mark{} 2:3}
-...\marks3{\__mark_id:n {24}Mark{} 2:3}
-...\mark{{Mark{} 2:3}{Mark{} 2:3}}
+...\marks1{\__mark_value:nn {22}{Mark{} 2:3}}
+...\marks2{\__mark_value:nn {23}{Mark{} 2:3}}
+...\marks3{\__mark_value:nn {24}{Mark{} 2:3}}
 ...\glue(\baselineskip) 1.91553
 ...\hbox(8.14003+1.94444)x345.0, glue set 0.60641
 ....\hbox(4.51111+0.0)x4.48613, shifted -3.62892
@@ -1340,10 +1332,9 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/n/10 a
 ....\OT1/cmr/m/n/10 n
 ....\glue(\rightskip) 0.0
-...\marks1{\__mark_id:n {25}Mark{} 2:4}
-...\marks2{\__mark_id:n {26}Mark{} 2:4}
-...\marks3{\__mark_id:n {27}Mark{} 2:4}
-...\mark{{Mark{} 2:4}{Mark{} 2:4}}
+...\marks1{\__mark_value:nn {25}{Mark{} 2:4}}
+...\marks2{\__mark_value:nn {26}{Mark{} 2:4}}
+...\marks3{\__mark_value:nn {27}{Mark{} 2:4}}
 ...\glue(\baselineskip) 3.11111
 ...\hbox(6.94444+1.94444)x345.0, glue set - 0.39647
 ....\OT1/cmr/m/n/10 o
@@ -1519,10 +1510,9 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/n/10 e
 ....\OT1/cmr/m/n/10 d
 ....\glue(\rightskip) 0.0
-...\marks1{\__mark_id:n {28}Mark{} 2:5}
-...\marks2{\__mark_id:n {29}Mark{} 2:5}
-...\marks3{\__mark_id:n {30}Mark{} 2:5}
-...\mark{{Mark{} 2:5}{Mark{} 2:5}}
+...\marks1{\__mark_value:nn {28}{Mark{} 2:5}}
+...\marks2{\__mark_value:nn {29}{Mark{} 2:5}}
+...\marks3{\__mark_value:nn {30}{Mark{} 2:5}}
 ...\penalty 150
 ...\glue(\baselineskip) 3.11111
 ...\hbox(6.94444+1.94444)x345.0, glue set 195.63858fil
@@ -1656,10 +1646,9 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/n/10 s
 ....\OT1/cmr/m/n/10 ,
 ....\glue(\rightskip) 0.0
-...\marks1{\__mark_id:n {31}Mark{} 2:6}
-...\marks2{\__mark_id:n {32}Mark{} 2:6}
-...\marks3{\__mark_id:n {33}Mark{} 2:6}
-...\mark{{Mark{} 2:6}{Mark{} 2:6}}
+...\marks1{\__mark_value:nn {31}{Mark{} 2:6}}
+...\marks2{\__mark_value:nn {32}{Mark{} 2:6}}
+...\marks3{\__mark_value:nn {33}{Mark{} 2:6}}
 ...\penalty 150
 ...\glue(\baselineskip) 1.91553
 ...\hbox(8.14003+1.94444)x345.0, glue set 0.05988
@@ -1751,10 +1740,9 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/n/10 n
 ....\OT1/cmr/m/n/10 s
 ....\glue(\rightskip) 0.0
-...\marks1{\__mark_id:n {34}Mark{} 2:7}
-...\marks2{\__mark_id:n {35}Mark{} 2:7}
-...\marks3{\__mark_id:n {36}Mark{} 2:7}
-...\mark{{Mark{} 2:7}{Mark{} 2:7}}
+...\marks1{\__mark_value:nn {34}{Mark{} 2:7}}
+...\marks2{\__mark_value:nn {35}{Mark{} 2:7}}
+...\marks3{\__mark_value:nn {36}{Mark{} 2:7}}
 ...\penalty 150
 ...\glue(\baselineskip) 3.11111
 ...\hbox(6.94444+0.0)x345.0, glue set 274.37485fil
@@ -1867,10 +1855,9 @@ Completed box being shipped out [1]
 ....\discretionary
 ....\OT1/cmr/m/n/10 -
 ....\glue(\rightskip) 0.0
-...\marks1{\__mark_id:n {37}Mark{} 2:8}
-...\marks2{\__mark_id:n {38}Mark{} 2:8}
-...\marks3{\__mark_id:n {39}Mark{} 2:8}
-...\mark{{Mark{} 2:8}{Mark{} 2:8}}
+...\marks1{\__mark_value:nn {37}{Mark{} 2:8}}
+...\marks2{\__mark_value:nn {38}{Mark{} 2:8}}
+...\marks3{\__mark_value:nn {39}{Mark{} 2:8}}
 ...\penalty 250
 ...\glue(\baselineskip) 3.11111
 ...\hbox(6.94444+1.94444)x345.0, glue set 0.27469
@@ -2053,10 +2040,9 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/n/10 t
 ....\OT1/cmr/m/n/10 o
 ....\glue(\rightskip) 0.0
-...\marks1{\__mark_id:n {40}Mark{} 2:9}
-...\marks2{\__mark_id:n {41}Mark{} 2:9}
-...\marks3{\__mark_id:n {42}Mark{} 2:9}
-...\mark{{Mark{} 2:9}{Mark{} 2:9}}
+...\marks1{\__mark_value:nn {40}{Mark{} 2:9}}
+...\marks2{\__mark_value:nn {41}{Mark{} 2:9}}
+...\marks3{\__mark_value:nn {42}{Mark{} 2:9}}
 ...\glue(\baselineskip) 1.91553
 ...\hbox(8.14003+1.94444)x345.0, glue set 0.42525
 ....\OT1/cmr/m/n/10 s
@@ -2147,10 +2133,9 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/n/10 h
 ....\OT1/cmr/m/n/10 e
 ....\glue(\rightskip) 0.0
-...\marks1{\__mark_id:n {43}Mark{} 2:10}
-...\marks2{\__mark_id:n {44}Mark{} 2:10}
-...\marks3{\__mark_id:n {45}Mark{} 2:10}
-...\mark{{Mark{} 2:10}{Mark{} 2:10}}
+...\marks1{\__mark_value:nn {43}{Mark{} 2:10}}
+...\marks2{\__mark_value:nn {44}{Mark{} 2:10}}
+...\marks3{\__mark_value:nn {45}{Mark{} 2:10}}
 ...\glue(\baselineskip) 1.91553
 ...\hbox(8.14003+1.94444)x345.0, glue set 0.02373
 ....\OT1/cmr/m/n/10 S
@@ -2247,10 +2232,9 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/n/10 `
 ....\OT1/cmr/m/n/10 I
 ....\glue(\rightskip) 0.0
-...\marks1{\__mark_id:n {46}Mark{} 2:11}
-...\marks2{\__mark_id:n {47}Mark{} 2:11}
-...\marks3{\__mark_id:n {48}Mark{} 2:11}
-...\mark{{Mark{} 2:11}{Mark{} 2:11}}
+...\marks1{\__mark_value:nn {46}{Mark{} 2:11}}
+...\marks2{\__mark_value:nn {47}{Mark{} 2:11}}
+...\marks3{\__mark_value:nn {48}{Mark{} 2:11}}
 ...\glue(\baselineskip) 1.91553
 ...\hbox(8.14003+1.94444)x345.0, glue set 0.23465
 ....\OT1/cmr/m/n/10 t
@@ -2339,10 +2323,9 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/n/10 n
 ....\OT1/cmr/m/n/10 d
 ....\glue(\rightskip) 0.0
-...\marks1{\__mark_id:n {49}Mark{} 2:12}
-...\marks2{\__mark_id:n {50}Mark{} 2:12}
-...\marks3{\__mark_id:n {51}Mark{} 2:12}
-...\mark{{Mark{} 2:12}{Mark{} 2:12}}
+...\marks1{\__mark_value:nn {49}{Mark{} 2:12}}
+...\marks2{\__mark_value:nn {50}{Mark{} 2:12}}
+...\marks3{\__mark_value:nn {51}{Mark{} 2:12}}
 ...\glue(\baselineskip) 3.11111
 ...\hbox(6.94444+1.94444)x345.0, glue set 0.55998
 ....\OT1/cmr/m/n/10 w
