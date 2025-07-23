@@ -3326,6 +3326,7 @@
     , belowskip                   .initial:n          = \c_zero_skip
     , book                        .tl_gset:N          = \g_@@_book_tl
     , book                        .value_required:n   = true
+    , book                        .initial:n          =
     , colour                      .tl_set:N           = \l_@@_colour_tl
     , colour                      .value_required:n   = true
     , colour                      .initial:n          = .
@@ -3789,8 +3790,10 @@
     , after                       =
     , before                      =
     , belowskip                   = \c_zero_skip
+    , book                        =
     , colour                      = .
     , compact                     = false
+    , chapter                     = \c_one_int
     , chapter / align             = left
     , chapter / font              = \bfseries
     , chapter / colour            = .
@@ -3849,6 +3852,7 @@
     , selah / format              = #1
     , selah / sep                 = 1em
     , textright / sep             = 1em
+    , verse                       = \c_one_int
     , verse / colour              = .
     , verse / first               = false
     , verse / firstformat         = #1
