@@ -5107,7 +5107,9 @@
     \bool_if:NTF \l_@@_mid_para_chap_bool
       { \@@_mid_para_drop_chap_output: }
       {
-        \para_end:
+        \bool_if:NTF \l_@@_verse_para_bool
+          { \para_end: }
+          { \par }
         \@@_drop_chap_output:
         \str_if_eq:VnF \l_@@_currenvir_str { midparachap }
           { \@@_pilcrow_output: }

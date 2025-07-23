@@ -6,7 +6,6 @@
 \babelprovide[import, main]{hebrew}
 \babelprovide[import]{british}
 \babelfont[hebrew]{rm}{SBL Hebrew}
-\babeladjust{bidi.mirroring=off}
 \usepackage{scripture}
 \scripturesetup{
   belowskip=\bigskipamount,

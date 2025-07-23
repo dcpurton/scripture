@@ -3,7 +3,7 @@
 \usepackage[bidi=basic, layout=lists]{babel}
 \babelprovide[import, mapdigits, main]{persian}
 \babelprovide[import]{british}
-\babelfont[persian]{rm}[Renderer=Harfbuzz]{Amiri}
+\babelfont[persian]{rm}{Amiri}
 \usepackage{scripture}
 \scripturesetup{
   belowskip=\bigskipamount

@@ -260,19 +260,19 @@ Completed box being shipped out [1]
 ....\hbox(0.0+0.0)x15.0, direction TRT
 ....\glue 0.0 plus 1.0fill
 ....\hbox(7.6+2.93)x85.58002, direction TRT
-.....\TU/Amiri(0)/bx/n/10 ی
-.....\TU/Amiri(0)/bx/n/10 و
-.....\TU/Amiri(0)/bx/n/10 ح
-.....\TU/Amiri(0)/bx/n/10 ن
-.....\TU/Amiri(0)/bx/n/10 ا
+.....\TU/Amiri(0)/b/n/10 ی
+.....\TU/Amiri(0)/b/n/10 و
+.....\TU/Amiri(0)/b/n/10 ح
+.....\TU/Amiri(0)/b/n/10 ن
+.....\TU/Amiri(0)/b/n/10 ا
 .....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
-.....\TU/Amiri(0)/bx/n/10 ۱
-.....\TU/Amiri(0)/bx/n/10 ‏
+.....\TU/Amiri(0)/b/n/10 ۱
+.....\TU/Amiri(0)/b/n/10 ‏
 .....\kern-2.92 (font)
-.....\TU/Amiri(0)/bx/n/10 :
-.....\TU/Amiri(0)/bx/n/10 ۱
-.....\TU/Amiri(0)/bx/n/10 –
-.....\TU/Amiri(0)/bx/n/10 ۳
+.....\TU/Amiri(0)/b/n/10 :
+.....\TU/Amiri(0)/b/n/10 ۱
+.....\TU/Amiri(0)/b/n/10 –
+.....\TU/Amiri(0)/b/n/10 ۳
 .....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
 .....\begindir TLT
 .....\TU/lmr/bx/n/10 (
@@ -1110,23 +1110,23 @@ Completed box being shipped out [1]
 ....\begindir TRT
 ....\glue 0.0 plus 1.0fill
 ....\hbox(7.6+2.72)x91.04002, direction TRT
-.....\TU/Amiri(0)/bx/n/10 ا
-.....\TU/Amiri(0)/bx/n/10 ِ
-.....\TU/Amiri(0)/bx/n/10 ش
-.....\TU/Amiri(0)/bx/n/10 ع
-.....\TU/Amiri(0)/bx/n/10 ی
-.....\TU/Amiri(0)/bx/n/10 ا
+.....\TU/Amiri(0)/b/n/10 ا
+.....\TU/Amiri(0)/b/n/10 ِ
+.....\TU/Amiri(0)/b/n/10 ش
+.....\TU/Amiri(0)/b/n/10 ع
+.....\TU/Amiri(0)/b/n/10 ی
+.....\TU/Amiri(0)/b/n/10 ا
 .....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
 .....\begindir TLT
-.....\TU/Amiri(0)/bx/n/10 ۵
-.....\TU/Amiri(0)/bx/n/10 ۶
+.....\TU/Amiri(0)/b/n/10 ۵
+.....\TU/Amiri(0)/b/n/10 ۶
 .....\enddir TLT
-.....\TU/Amiri(0)/bx/n/10 ‏
+.....\TU/Amiri(0)/b/n/10 ‏
 .....\kern-2.92 (font)
-.....\TU/Amiri(0)/bx/n/10 :
-.....\TU/Amiri(0)/bx/n/10 ۱
-.....\TU/Amiri(0)/bx/n/10 –
-.....\TU/Amiri(0)/bx/n/10 ۲
+.....\TU/Amiri(0)/b/n/10 :
+.....\TU/Amiri(0)/b/n/10 ۱
+.....\TU/Amiri(0)/b/n/10 –
+.....\TU/Amiri(0)/b/n/10 ۲
 .....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
 .....\begindir TLT
 .....\TU/lmr/bx/n/10 (
@@ -1215,7 +1215,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 3.02
-...\hbox(6.93+2.05)x335.0, glue set 130.66fil, direction TLT
+...\hbox(6.93+2.05)x335.0, glue set 130.66fil, shifted 10.0, direction TLT
 ....\localpar
 .....\localinterlinepenalty=0
 .....\localbrokenpenalty=0
@@ -1226,9 +1226,9 @@ Completed box being shipped out [1]
 ....\kern-10.0
 ....\hbox(0.0+0.0)x10.0, direction TLT
 .....\glue 10.0
+.....\glue -16.99997
 .....\glue 0.0
-.....\glue 0.0
-.....\hbox(0.0+0.0)x0.0, direction TLT
+.....\hbox(0.0+0.0)x16.99997, glue set 16.99997fil, direction TLT
 ......\glue 0.0 plus 1.0fil
 .....\glue 0.0
 ....\penalty 0
@@ -1260,7 +1260,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 3.01
-...\hbox(6.94+2.06)x335.0, glue set 116.48001fil, direction TLT
+...\hbox(6.94+2.06)x335.0, glue set 116.48001fil, shifted 10.0, direction TLT
 ....\localpar
 .....\localinterlinepenalty=0
 .....\localbrokenpenalty=0
@@ -1299,7 +1299,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 2.89
-...\hbox(7.05+2.05)x335.0, glue set 96.575fil, direction TLT
+...\hbox(7.05+2.05)x335.0, glue set 96.575fil, shifted 10.0, direction TLT
 ....\localpar
 .....\localinterlinepenalty=0
 .....\localbrokenpenalty=0
@@ -1354,7 +1354,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 3.01
-...\hbox(6.94+2.06)x335.0, glue set 66.95fil, direction TLT
+...\hbox(6.94+2.06)x335.0, glue set 66.95fil, shifted 10.0, direction TLT
 ....\localpar
 .....\localinterlinepenalty=0
 .....\localbrokenpenalty=0
@@ -1425,7 +1425,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 1.54004
-...\hbox(8.39996+3.60004)x335.0, glue set 92.86499fil, direction TLT
+...\hbox(8.39996+3.60004)x335.0, glue set 92.86499fil, shifted 10.0, direction TLT
 ....\localpar
 .....\localinterlinepenalty=0
 .....\localbrokenpenalty=0
@@ -1488,7 +1488,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 1.34996
-...\hbox(7.05+1.94)x335.0, glue set 99.90001fil, direction TLT
+...\hbox(7.05+1.94)x335.0, glue set 99.90001fil, shifted 10.0, direction TLT
 ....\localpar
 .....\localinterlinepenalty=0
 .....\localbrokenpenalty=0
@@ -1537,7 +1537,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 3.01
-...\hbox(7.05+2.06)x335.0, glue set 65.76001fil, direction TLT
+...\hbox(7.05+2.06)x335.0, glue set 65.76001fil, shifted 10.0, direction TLT
 ....\localpar
 .....\localinterlinepenalty=0
 .....\localbrokenpenalty=0
@@ -1607,7 +1607,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 2.89
-...\hbox(7.05+2.06)x335.0, glue set 68.38fil, direction TLT
+...\hbox(7.05+2.06)x335.0, glue set 68.38fil, shifted 10.0, direction TLT
 ....\localpar
 .....\localinterlinepenalty=0
 .....\localbrokenpenalty=0
@@ -1672,7 +1672,7 @@ Completed box being shipped out [1]
 ...\penalty 10000
 ...\glue(\abovedisplayskip) -12.0
 ...\glue(\baselineskip) 9.94
-...\hbox(0.0+0.0)x0.0, shifted 147.5, direction TLT
+...\hbox(0.0+0.0)x0.0, shifted 197.5, direction TLT
 ...\penalty 51
 ...\glue(\belowdisplayskip) 0.0
 ...\glue -12.0
@@ -1708,8 +1708,11 @@ Completed box being shipped out [1]
 ...\glue -6.0 plus -1.0 minus -2.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
+...\glue 12.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 4.5
-...\hbox(7.5+2.49)x345.0, glue set 226.89fill, direction TLT
+...\hbox(7.5+2.49)x345.0, glue set 211.89fill, direction TLT
 ....\localpar
 .....\localinterlinepenalty=0
 .....\localbrokenpenalty=0
@@ -1717,6 +1720,7 @@ Completed box being shipped out [1]
 .....\localrightbox=null
 ....\begindir TRT
 ....\begindir TLT
+....\hbox(0.0+0.0)x15.0, direction TLT
 ....\glue 0.0 plus 1.0fill
 ....\hbox(7.5+2.49)x118.11, direction TLT
 .....\TU/lmr/bx/n/10 I
@@ -2048,19 +2052,19 @@ Completed box being shipped out [1]
 ....\hbox(0.0+0.0)x15.0, direction TRT
 ....\glue 0.0 plus 1.0fill
 ....\hbox(7.6+2.93)x85.58002, direction TRT
-.....\TU/Amiri(0)/bx/n/10 ی
-.....\TU/Amiri(0)/bx/n/10 و
-.....\TU/Amiri(0)/bx/n/10 ح
-.....\TU/Amiri(0)/bx/n/10 ن
-.....\TU/Amiri(0)/bx/n/10 ا
+.....\TU/Amiri(0)/b/n/10 ی
+.....\TU/Amiri(0)/b/n/10 و
+.....\TU/Amiri(0)/b/n/10 ح
+.....\TU/Amiri(0)/b/n/10 ن
+.....\TU/Amiri(0)/b/n/10 ا
 .....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
-.....\TU/Amiri(0)/bx/n/10 ۱
-.....\TU/Amiri(0)/bx/n/10 ‏
+.....\TU/Amiri(0)/b/n/10 ۱
+.....\TU/Amiri(0)/b/n/10 ‏
 .....\kern-2.92 (font)
-.....\TU/Amiri(0)/bx/n/10 :
-.....\TU/Amiri(0)/bx/n/10 ۱
-.....\TU/Amiri(0)/bx/n/10 –
-.....\TU/Amiri(0)/bx/n/10 ۳
+.....\TU/Amiri(0)/b/n/10 :
+.....\TU/Amiri(0)/b/n/10 ۱
+.....\TU/Amiri(0)/b/n/10 –
+.....\TU/Amiri(0)/b/n/10 ۳
 .....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
 .....\begindir TLT
 .....\TU/lmr/bx/n/10 (
@@ -2420,9 +2424,23 @@ Completed box being shipped out [1]
 ....\enddir TLT
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0 plus 1.0fil
-...\glue(\parskip) 0.0
-...\glue(\parskip) 0.0
-...\glue(\lineskip) 1.0
+...\glue -3.56
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0, direction TRT
+...\hbox(0.0+0.0)x345.0, direction TRT
+Completed box being shipped out [2]
+\vbox(682.0+0.0)x398.0, direction TRT
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0, direction TRT
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil, direction TRT
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0, direction TRT
+....\hbox(0.0+0.0)x345.0, direction TRT
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 508.97565fil, direction TRT
+...\glue(\topskip) 0.0
 ...\hbox(10.36+3.58)x335.0, glue set 88.11003fil, shifted 10.0, direction TRT
 ....\localpar
 .....\localinterlinepenalty=0
@@ -2482,23 +2500,9 @@ Completed box being shipped out [1]
 ....\enddir TLT
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0 plus 1.0fil
-...\glue -3.58
-...\glue 0.0 plus 0.0001fil
-..\glue(\baselineskip) 30.0
-..\hbox(0.0+0.0)x345.0, direction TRT
-...\hbox(0.0+0.0)x345.0, direction TRT
-Completed box being shipped out [2]
-\vbox(682.0+0.0)x398.0, direction TRT
-.\glue 17.0
-.\vbox(665.0+0.0)x345.0, shifted 53.0, direction TRT
-..\vbox(12.0+0.0)x345.0, glue set 12.0fil, direction TRT
-...\glue 0.0 plus 1.0fil
-...\hbox(0.0+0.0)x345.0, direction TRT
-....\hbox(0.0+0.0)x345.0, direction TRT
-..\glue 25.0
-..\glue(\lineskip) 0.0
-..\vbox(598.0+0.0)x345.0, glue set 524.26404fil, direction TRT
-...\glue(\topskip) 2.73
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 1.15
 ...\hbox(7.27+3.61)x335.0, glue set 95.61002fil, shifted 10.0, direction TRT
 ....\localpar
 .....\localinterlinepenalty=0
@@ -2598,23 +2602,23 @@ Completed box being shipped out [2]
 ....\begindir TRT
 ....\glue 0.0 plus 1.0fill
 ....\hbox(7.6+2.72)x91.04002, direction TRT
-.....\TU/Amiri(0)/bx/n/10 ا
-.....\TU/Amiri(0)/bx/n/10 ِ
-.....\TU/Amiri(0)/bx/n/10 ش
-.....\TU/Amiri(0)/bx/n/10 ع
-.....\TU/Amiri(0)/bx/n/10 ی
-.....\TU/Amiri(0)/bx/n/10 ا
+.....\TU/Amiri(0)/b/n/10 ا
+.....\TU/Amiri(0)/b/n/10 ِ
+.....\TU/Amiri(0)/b/n/10 ش
+.....\TU/Amiri(0)/b/n/10 ع
+.....\TU/Amiri(0)/b/n/10 ی
+.....\TU/Amiri(0)/b/n/10 ا
 .....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
 .....\begindir TLT
-.....\TU/Amiri(0)/bx/n/10 ۵
-.....\TU/Amiri(0)/bx/n/10 ۶
+.....\TU/Amiri(0)/b/n/10 ۵
+.....\TU/Amiri(0)/b/n/10 ۶
 .....\enddir TLT
-.....\TU/Amiri(0)/bx/n/10 ‏
+.....\TU/Amiri(0)/b/n/10 ‏
 .....\kern-2.92 (font)
-.....\TU/Amiri(0)/bx/n/10 :
-.....\TU/Amiri(0)/bx/n/10 ۱
-.....\TU/Amiri(0)/bx/n/10 –
-.....\TU/Amiri(0)/bx/n/10 ۲
+.....\TU/Amiri(0)/b/n/10 :
+.....\TU/Amiri(0)/b/n/10 ۱
+.....\TU/Amiri(0)/b/n/10 –
+.....\TU/Amiri(0)/b/n/10 ۲
 .....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
 .....\begindir TLT
 .....\TU/lmr/bx/n/10 (
@@ -2877,19 +2881,19 @@ Completed box being shipped out [2]
 ....\hbox(0.0+0.0)x15.0, direction TRT
 ....\glue 0.0 plus 1.0fill
 ....\hbox(7.6+2.93)x85.58002, direction TRT
-.....\TU/Amiri(0)/bx/n/10 ی
-.....\TU/Amiri(0)/bx/n/10 و
-.....\TU/Amiri(0)/bx/n/10 ح
-.....\TU/Amiri(0)/bx/n/10 ن
-.....\TU/Amiri(0)/bx/n/10 ا
+.....\TU/Amiri(0)/b/n/10 ی
+.....\TU/Amiri(0)/b/n/10 و
+.....\TU/Amiri(0)/b/n/10 ح
+.....\TU/Amiri(0)/b/n/10 ن
+.....\TU/Amiri(0)/b/n/10 ا
 .....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
-.....\TU/Amiri(0)/bx/n/10 ۱
-.....\TU/Amiri(0)/bx/n/10 ‏
+.....\TU/Amiri(0)/b/n/10 ۱
+.....\TU/Amiri(0)/b/n/10 ‏
 .....\kern-2.92 (font)
-.....\TU/Amiri(0)/bx/n/10 :
-.....\TU/Amiri(0)/bx/n/10 ۱
-.....\TU/Amiri(0)/bx/n/10 –
-.....\TU/Amiri(0)/bx/n/10 ۳
+.....\TU/Amiri(0)/b/n/10 :
+.....\TU/Amiri(0)/b/n/10 ۱
+.....\TU/Amiri(0)/b/n/10 –
+.....\TU/Amiri(0)/b/n/10 ۳
 .....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
 .....\begindir TLT
 .....\TU/lmr/bx/n/10 (
@@ -2906,7 +2910,6 @@ Completed box being shipped out [2]
 ...\penalty 51
 ...\glue 12.0 plus 3.0 minus 4.0
 ...\write1{\babel@aux{british}{}}
-...\glue -2.93
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil

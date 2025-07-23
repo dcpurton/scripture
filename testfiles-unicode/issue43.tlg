@@ -16,10 +16,10 @@ Completed box being shipped out [1]
 ....\hbox(0.0+0.0)x345.0, direction TLT
 ..\glue 25.0
 ..\glue(\lineskip) 0.0
-..\vbox(598.0+0.0)x345.0, glue set 563.93976fil, direction TLT
+..\vbox(598.0+0.0)x345.0, glue set 561.45001fil, direction TLT
 ...\write-{}
-...\write1{\@writefile{toc}{\selectlanguage *[variant=australian]{english}}}
-...\write1{\@writefile{toc}{\selectlanguage *[]{french}}}
+...\write1{\@writefile{toc}{\xpg@aux {variant=australian}{english}}}
+...\write1{\@writefile{toc}{\xpg@aux {}{french}}}
 ...\glue(\topskip) 1.72308
 ...\hbox(8.27692+1.94)x345.0, glue set 0.23064, direction TLT
 ....\localpar
@@ -267,8 +267,7 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\penalty 51
 ...\glue 0.0
-...\write1{\@writefile{toc}{\selectlanguage *[variant=australian]{english}}}
-...\glue -2.49
+...\write1{\@writefile{toc}{\xpg@aux {variant=australian}{english}}}
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil

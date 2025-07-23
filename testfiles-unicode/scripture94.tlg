@@ -21,7 +21,7 @@ Completed box being shipped out [1]
 ....\hbox(0.0+0.0)x345.0, direction TRT
 ..\glue 25.0
 ..\glue(\lineskip) 0.0
-..\vbox(598.0+0.0)x345.0, glue set 269.97116fil, direction TRT
+..\vbox(598.0+0.0)x345.0, glue set 267.48141fil, direction TRT
 ...\write-{}
 ...\write1{\babel@aux{hebrew}{}}
 ...\glue(\topskip) 1.81152
@@ -291,7 +291,6 @@ Completed box being shipped out [1]
 ....\hbox(7.5+2.49)x104.59999, direction TRT
 .....\begindir TLT
 .....\write1{\babel@aux{british}{}}
-.....\begindir TLT
 .....\TU/lmr/bx/n/10 G
 .....\TU/lmr/bx/n/10 e
 .....\TU/lmr/bx/n/10 n
@@ -312,7 +311,6 @@ Completed box being shipped out [1]
 .....\TU/lmr/bx/n/10 B
 .....\TU/lmr/bx/n/10 H
 .....\TU/lmr/bx/n/10 S
-.....\enddir TLT
 .....\TU/lmr/bx/n/10 )
 .....\enddir TLT
 .....\write1{\babel@aux{hebrew}{}}
@@ -1281,7 +1279,6 @@ Completed box being shipped out [1]
 ....\hbox(7.5+2.49)x102.23, direction TRT
 .....\begindir TLT
 .....\write1{\babel@aux{british}{}}
-.....\begindir TLT
 .....\TU/lmr/bx/n/10 J
 .....\TU/lmr/bx/n/10 e
 .....\discretionary (penalty 50)
@@ -1302,7 +1299,6 @@ Completed box being shipped out [1]
 .....\TU/lmr/bx/n/10 B
 .....\TU/lmr/bx/n/10 H
 .....\TU/lmr/bx/n/10 S
-.....\enddir TLT
 .....\TU/lmr/bx/n/10 )
 .....\enddir TLT
 .....\write1{\babel@aux{hebrew}{}}
@@ -1786,7 +1782,6 @@ Completed box being shipped out [1]
 ....\hbox(7.5+2.49)x113.73, direction TRT
 .....\begindir TLT
 .....\write1{\babel@aux{british}{}}
-.....\begindir TLT
 .....\TU/lmr/bx/n/10 J
 .....\TU/lmr/bx/n/10 e
 .....\discretionary (penalty 50)
@@ -1809,7 +1804,6 @@ Completed box being shipped out [1]
 .....\TU/lmr/bx/n/10 B
 .....\TU/lmr/bx/n/10 H
 .....\TU/lmr/bx/n/10 S
-.....\enddir TLT
 .....\TU/lmr/bx/n/10 )
 .....\enddir TLT
 .....\write1{\babel@aux{hebrew}{}}
@@ -1818,7 +1812,6 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\penalty 51
 ...\glue 12.0 plus 3.0 minus 4.0
-...\glue -2.49
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
