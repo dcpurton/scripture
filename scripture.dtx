@@ -4078,7 +4078,12 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_extra_skip:
   {
-    \mode_if_vertical:F \par
+    \mode_if_vertical:F
+      {
+        \bool_if:NTF \l_@@_verse_para_bool
+          { \para_end: }
+          { \par }
+      }
     \int_compare:nNnT
       \g_@@_chap_par_prevgraf_int = 1
       {
