@@ -298,6 +298,15 @@
 %     instead.
 % \end{itemize}
 %
+% The code which attempts to avoid drop chapters clashing with text is also a
+% bit fragile and can easily break, especially when there are unexpected
+% paragraph breaks.
+%
+% Footnotes are supported, but as the \env{midparachap} environment is a
+% implemented with a \cs{vbox}, footnotes will vanish. In this case you must
+% use \cs{footnotemark} and then \cs{footnotetext} after the \env{midparachap}
+% environment.
+%
 % The \env{poetry} environment uses \cs{obeylines}. This means that it can not
 % be placed in the argument of a macro. If you want to use the \env{poetry}
 % environment in a \pkg{beamer} slide, you must use the \texttt{fragile} option
@@ -4868,14 +4877,12 @@
     \clubpenalty 10000
     \bool_if:NF \l_@@_verse_para_bool
     {
-      \hook_gput_next_code:nn { para / after }
+      \str_if_eq:VnTF \l_@@_currenvir_str { poetry }
+        { \int_gset_eq:NN \g_@@_current_group_level_b_int \currentgrouplevel }
         {
-          \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \prevgraf
-          \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
-            { \penalty 10000 }
-          \hook_gput_next_code:nn { para / before }
-            { \int_set_eq:NN \clubpenalty \l_@@_clubpenalty_saved_int }
+          \int_gset:Nn \g_@@_current_group_level_b_int { \currentgrouplevel + 1 }
         }
+      \@@_chap_par_save_prevgraf_at_group_level:
     }
   }
 %    \end{macrocode}
@@ -4917,14 +4924,8 @@
       { \@@_verse_output:n { 1 } }
     \bool_if:NT \l_@@_verse_para_bool
     {
-      \hook_gput_next_code:nn { para / after }
-        {
-          \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \prevgraf
-          \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
-            { \penalty 10000 }
-          \hook_gput_next_code:nn { para / before }
-            { \int_set_eq:NN \clubpenalty \l_@@_clubpenalty_saved_int }
-        }
+      \int_gset_eq:NN \g_@@_current_group_level_b_int \currentgrouplevel
+      \@@_chap_par_save_prevgraf_at_group_level:
     }
     \hook_gclear_next_code:n { scripture / pilcrow }
   }
@@ -5119,27 +5120,100 @@
         \str_if_eq:VnF \l_@@_currenvir_str { midparachap }
           { \@@_pilcrow_output: }
       }
+    \int_gset_eq:NN \g_@@_current_group_level_a_int \currentgrouplevel
+    \@@_reset_par_at_group_level:
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\g_@@_current_group_level_a_int,
+%     \g_@@_current_group_level_a_int, \g_@@_current_group_level_c_int}
+%   Track the group level so indent and spacing is correctly reset after a
+%   drop chapter even if the first paragraph of the chapter contains something
+%   like a \cs{footnote}.
+%    \begin{macrocode}
+\int_new:N \g_@@_current_group_level_a_int
+\int_new:N \g_@@_current_group_level_b_int
+\int_new:N \g_@@_current_group_level_c_int
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_reset_par_at_group_level:}
+%   This function skips over inner groups (like \cs{footnote}) before
+%   resetting the \cs{parshape} after a drop chapter.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_reset_par_at_group_level:
+  {
     \hook_gput_next_code:nn { para / before }
       {
-        \legacy_if:nF { @newlist }
+        \int_compare:nNnTF
+          { \g_@@_current_group_level_a_int } = { \currentgrouplevel }
           {
-            \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+            \legacy_if:nF { @newlist }
               {
-                \dim_compare:nNnT \parskip < \baselineskip
+                \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
                   {
-                    \dim_compare:nNnT { \g_@@_chap_width_dim + \l_@@_chap_sep_tl } > \parindent
+                    \dim_compare:nNnT \parskip < \baselineskip
                       {
-                        \hook_gput_next_code:nn { para / begin }
+                        \dim_compare:nNnT
+                          { \g_@@_chap_width_dim + \l_@@_chap_sep_tl } > \parindent
                           {
-                            \para_omit_indent:
-                            \skip_horizontal:n {\g_@@_chap_width_dim + \l_@@_chap_sep_tl }
+                            \hook_gput_next_code:nn { para / begin }
+                              {
+                                \para_omit_indent:
+                                \skip_horizontal:n {\g_@@_chap_width_dim + \l_@@_chap_sep_tl }
+                              }
                           }
                       }
                   }
+                \int_gzero:N \g_@@_chap_par_prevgraf_int
               }
-            \int_gzero:N \g_@@_chap_par_prevgraf_int
+            \parshape 1 ~ \@totalleftmargin ~ \linewidth
           }
-        \parshape 1 ~ \@totalleftmargin ~ \linewidth
+          { \@@_reset_par_at_group_level: }
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_chap_par_save_prevgraf_at_group_level:}
+%   This function skips over inner groups (like \cs{footnote}) before
+%   saving the \cs{prevgraf}.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_chap_par_save_prevgraf_at_group_level:
+  {
+    \hook_gput_next_code:nn { para / after }
+      {
+        \int_compare:nNnTF
+          { \g_@@_current_group_level_b_int } = { \currentgrouplevel }
+          {
+            \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \prevgraf
+            \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+              { \penalty 10000 }
+            \hook_gput_next_code:nn { para / before }
+              { \int_set_eq:NN \clubpenalty \l_@@_clubpenalty_saved_int }
+          }
+          { \@@_chap_par_save_prevgraf_at_group_level: }
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_zero_chap_par_prevgraf_at_group_level:}
+%   This function skips over inner groups (like \cs{footnote}) before
+%   zeroing \cs{g_@@_chap_par_prevgraf_int}.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_zero_chap_par_prevgraf_at_group_level:
+  {
+    \hook_gput_next_code:nn { para / after }
+      {
+        \int_compare:nNnTF
+          { \g_@@_current_group_level_c_int } = { \currentgrouplevel }
+          {
+            \hook_gput_next_code:nn { para / after }
+              { \int_gzero:N \g_@@_chap_par_prevgraf_int }
+          }
+          { \@@_zero_chap_par_prevgraf_at_group_level: }
       }
   }
 %    \end{macrocode}
@@ -5630,6 +5704,8 @@
     \hook_gclear_next_code:n { para / before }
     \hook_gclear_next_code:n { scripture / pilcow }
     \hook_gclear_next_code:n { scripture / poetry / pilcow }
+    \hook_gput_code:nnn { cmd / @makefntext / before } { scripture }
+      { \cs_set_eq:NN \noindent \tex_noindent:D }
     \l_@@_font_tl
     \tl_set:Ne \l_@@_parindent_tl { \dim_eval:n { \l_@@_parindent_tl } }
     \exp_args:NnV \color_set:nn { scripture default colour } \l_@@_colour_tl
@@ -5740,6 +5816,7 @@
             \skip_vertical:n { -\g_@@_prev_inner_below_skip }
           }
         \hook_gclear_next_code:n { para / before }
+        \hook_gclear_next_code:n { para / after }
         \noindent
         \bool_lazy_or:nnTF
           { \tl_if_novalue_p:n \l_@@_ref_tl }
@@ -5758,6 +5835,7 @@
         \legacy_if_set_false:n { @noparlist }
         \endlist
       }
+    \hook_gremove_code:nn { cmd / @makefntext / before } { scripture }
     \cs_set_eq:NN \noindent \@@_noindent_saved:
     \l_@@_after_tl
   }
@@ -5771,6 +5849,8 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_compact_end_inner:
   {
+    \hook_gclear_next_code:n { para / before }
+    \hook_gclear_next_code:n { para / begin }
     \bool_gset_false:N \g_@@_mode_vertical_inner_bool
     \str_if_eq:VnT \l_@@_ref_position_tl { start }
       {
@@ -5804,25 +5884,8 @@
         \c_space_token
         \kern 0pt
         \cs_set_eq:NN \par \relax
-        \hook_gput_next_code:nn { para / before }
-          {
-            \int_compare:nNnT \g_@@_mid_para_chap_prevgraf_int = 1
-              {
-                \dim_compare:nNnT \parskip < \baselineskip
-                  {
-                    \dim_compare:nNnT { \g_@@_chap_width_dim + \l_@@_chap_sep_tl } > \parindent
-                      {
-                        \hook_gput_next_code:nn { para / begin }
-                          {
-                            \para_omit_indent:
-                            \skip_horizontal:n {\g_@@_chap_width_dim + \l_@@_chap_sep_tl }
-                          }
-                      }
-                  }
-              }
-            \int_gzero:N \g_@@_chap_par_prevgraf_int
-            \parshape 1 ~ \@totalleftmargin ~ \linewidth
-          }
+        \int_gset:Nn \g_@@_current_group_level_a_int { \currentgrouplevel - 1 }
+        \@@_reset_par_at_group_level:
       }
     \unskip
   }
@@ -5854,6 +5917,7 @@
       { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
     \cs_set_eq:NN \par \para_end:
+    \int_gset_eq:NN \g_@@_current_group_level_b_int \currentgrouplevel
     \list { }
       {
         \bool_lazy_or:nnF
@@ -5935,6 +5999,7 @@
       { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
     \cs_set_eq:NN \par \para_end:
+    \int_gset_eq:NN \g_@@_current_group_level_b_int \currentgrouplevel
     \list { }
       {
         \bool_lazy_or:nnF
@@ -6295,7 +6360,8 @@
       { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
     \cs_set_eq:NN \par \para_end:
-    \hook_gclear_next_code:n { para/ before }
+    \hook_gclear_next_code:n { para / before }
+    \int_gset_eq:NN \g_@@_current_group_level_b_int \currentgrouplevel
     \list { }
       {
         \bool_lazy_or:nnF
@@ -6596,28 +6662,8 @@
     \noindent
     \skip_horizontal:N \g_@@_final_line_dim
     \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \g_@@_mid_para_chap_prevgraf_int
-    \hook_gput_next_code:nn { para / before }
-      {
-        \legacy_if:nF { @newlist }
-          {
-            \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
-              {
-                \dim_compare:nNnT \parskip < \baselineskip
-                  {
-                    \dim_compare:nNnT { \g_@@_chap_width_dim + \l_@@_chap_sep_tl } > \parindent
-                      {
-                        \hook_gput_next_code:nn { para / begin }
-                          {
-                            \para_omit_indent:
-                            \skip_horizontal:n {\g_@@_chap_width_dim + \l_@@_chap_sep_tl }
-                          }
-                      }
-                  }
-              }
-            \int_gzero:N \g_@@_chap_par_prevgraf_int
-          }
-        \parshape 1 ~ \@totalleftmargin ~ \linewidth
-      }
+    \int_gset:Nn \g_@@_current_group_level_a_int { \currentgrouplevel - 1 }
+    \@@_reset_par_at_group_level:
   }
 %    \end{macrocode}
 % \end{macro}
@@ -6645,6 +6691,7 @@
       { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
     \cs_set_eq:NN \par \para_end:
+    \int_gset_eq:NN \g_@@_current_group_level_b_int \currentgrouplevel
     \list { }
       {
         \dim_zero:N \labelsep
@@ -6816,11 +6863,8 @@
 \cs_new_protected:Nn \@@_poetry_chap:n
   {
     \@@_drop_chap_set_up:n { #1 }
-     \hook_gput_next_code:nn { para / after }
-       {
-         \hook_gput_next_code:nn { para / after }
-           { \int_gzero:N \g_@@_chap_par_prevgraf_int }
-       }
+    \int_gset_eq:NN \g_@@_current_group_level_c_int \currentgrouplevel
+    \@@_zero_chap_par_prevgraf_at_group_level:
     \cs_if_eq:NNTF \vs \@@_poetry_mode_vertical_verse:n
       {
         \dim_zero:N \l_@@_poetry_chap_indent_dim
@@ -7200,6 +7244,7 @@
         \bool_set_false:N \l_@@_pilcrow_bool
         \bool_set_false:N \l_@@_verse_para_bool
       }
+    \int_gset_eq:NN \g_@@_current_group_level_b_int \currentgrouplevel
     \list { }
       {
         \bool_lazy_or:nnF
