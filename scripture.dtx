@@ -4868,14 +4868,8 @@
     \clubpenalty 10000
     \bool_if:NF \l_@@_verse_para_bool
     {
-      \hook_gput_next_code:nn { para / after }
-        {
-          \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \prevgraf
-          \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
-            { \penalty 10000 }
-          \hook_gput_next_code:nn { para / before }
-            { \int_set_eq:NN \clubpenalty \l_@@_clubpenalty_saved_int }
-        }
+      \int_set_eq:NN \l_@@_current_group_level_b_int \currentgrouplevel
+      \@@_chap_par_save_prevgraf_at_group_level:
     }
   }
 %    \end{macrocode}
@@ -4917,14 +4911,16 @@
       { \@@_verse_output:n { 1 } }
     \bool_if:NT \l_@@_verse_para_bool
     {
-      \hook_gput_next_code:nn { para / after }
-        {
-          \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \prevgraf
-          \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
-            { \penalty 10000 }
-          \hook_gput_next_code:nn { para / before }
-            { \int_set_eq:NN \clubpenalty \l_@@_clubpenalty_saved_int }
-        }
+      %\hook_gput_next_code:nn { para / after }
+      %  {
+      %    \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \prevgraf
+      %    \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+      %      { \penalty 10000 }
+      %    \hook_gput_next_code:nn { para / before }
+      %      { \int_set_eq:NN \clubpenalty \l_@@_clubpenalty_saved_int }
+      %  }
+      \int_set_eq:NN \l_@@_current_group_level_b_int \currentgrouplevel
+      \@@_chap_par_save_prevgraf_at_group_level:
     }
     \hook_gclear_next_code:n { scripture / pilcrow }
   }
@@ -5139,7 +5135,59 @@
               }
             \int_gzero:N \g_@@_chap_par_prevgraf_int
           }
-        \parshape 1 ~ \@totalleftmargin ~ \linewidth
+      }
+    \int_set_eq:NN \l_@@_current_group_level_a_int \currentgrouplevel
+    \@@_reset_par_at_group_level:
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l_@@_current_group_level_a_int,
+%     \l_@@_current_group_level_a_int}
+%   Track the group level so indent and spacing is correctly reset after a
+%   drop chapter even if the first paragraph of the chapter contains something
+%   like a \cs{footnote}.
+%    \begin{macrocode}
+\int_new:N \l_@@_current_group_level_a_int
+\int_new:N \l_@@_current_group_level_b_int
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_reset_par_at_group_level:}
+%   This function skips over inner groups (like \cs{footnote}) before
+%   resetting the \cs{parshape} after a drop chapter.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_reset_par_at_group_level:
+  {
+    \hook_gput_next_code:nn { para / before }
+      {
+        \int_compare:nNnTF
+          { \l_@@_current_group_level_a_int } = { \currentgrouplevel }
+          { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
+          { \@@_reset_par_at_group_level: }
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_chap_par_save_prevgraf_at_group_level:}
+%   This function skips over inner groups (like \cs{footnote}) before
+%   saving the \cs{prevgraf}.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_chap_par_save_prevgraf_at_group_level:
+  {
+    \hook_gput_next_code:nn { para / after }
+      {
+        \int_compare:nNnTF
+          { \l_@@_current_group_level_b_int } = { \currentgrouplevel - 1 }
+          {
+            \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \prevgraf
+            \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+              { \penalty 10000 }
+            \hook_gput_next_code:nn { para / before }
+              { \int_set_eq:NN \clubpenalty \l_@@_clubpenalty_saved_int }
+          }
+          { \@@_chap_par_save_prevgraf_at_group_level: }
       }
   }
 %    \end{macrocode}
