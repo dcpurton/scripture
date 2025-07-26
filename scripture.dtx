@@ -2430,6 +2430,16 @@
 %   pushed to the following line.
 % \end{option}
 %
+% \changes{v2.2}{2025/07/26}{Add \opt{thefootnote} option}
+% \begin{option}[added=2025-07-26]{thefootnote}
+%   \begin{syntax}
+%     thefootnote = \meta{format} \hfill Default: |\emph{\alph{footnote}}|
+%   \end{syntax}
+%   The \meta{format} for footnote numbers. To avoid confusion with verse
+%   numbers, redefine \cs{thefootnote} by default to emphasised Latin
+%   characters.
+% \end{option}
+%
 % \changes{v2.2}{2025/03/02}{Add \opt{verse} option}
 % \begin{option}[added=2025-03-02]{verse}
 %   \begin{syntax}
@@ -3608,6 +3618,9 @@
     , textright / sep             .tl_set:N           = \l_@@_text_right_sep_tl
     , textright / sep             .value_required:n   = true
     , textright / sep             .initial:n          = 1em
+    , thefootnote                 .cs_set:Np          = \thefootnote { #1 }
+    , thefootnote                 .value_required:n   = true
+    , thefootnote                 .initial:n          = \emph { \alph { footnote } }
     , verse                       .int_gset:N         = \g_@@_verse_int
     , verse                       .value_required:n   = true
     , verse                       .initial:n          = \c_one_int
@@ -3852,6 +3865,7 @@
     , selah / format              = #1
     , selah / sep                 = 1em
     , textright / sep             = 1em
+    , thefootnote                 = \emph { \alph { footnote } }
     , verse                       = \c_one_int
     , verse / colour              = .
     , verse / first               = false
@@ -4868,14 +4882,8 @@
     \clubpenalty 10000
     \bool_if:NF \l_@@_verse_para_bool
     {
-      \hook_gput_next_code:nn { para / after }
-        {
-          \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \prevgraf
-          \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
-            { \penalty 10000 }
-          \hook_gput_next_code:nn { para / before }
-            { \int_set_eq:NN \clubpenalty \l_@@_clubpenalty_saved_int }
-        }
+      \int_set:Nn \l_@@_current_group_level_b_int { \currentgrouplevel + 1 }
+      \@@_chap_par_save_prevgraf_at_group_level:
     }
   }
 %    \end{macrocode}
@@ -4917,14 +4925,8 @@
       { \@@_verse_output:n { 1 } }
     \bool_if:NT \l_@@_verse_para_bool
     {
-      \hook_gput_next_code:nn { para / after }
-        {
-          \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \prevgraf
-          \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
-            { \penalty 10000 }
-          \hook_gput_next_code:nn { para / before }
-            { \int_set_eq:NN \clubpenalty \l_@@_clubpenalty_saved_int }
-        }
+      \int_set_eq:NN \l_@@_current_group_level_b_int \currentgrouplevel
+      \@@_chap_par_save_prevgraf_at_group_level:
     }
     \hook_gclear_next_code:n { scripture / pilcrow }
   }
@@ -5119,27 +5121,79 @@
         \str_if_eq:VnF \l_@@_currenvir_str { midparachap }
           { \@@_pilcrow_output: }
       }
+    \int_set_eq:NN \l_@@_current_group_level_a_int \currentgrouplevel
+    \@@_reset_par_at_group_level:
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l_@@_current_group_level_a_int,
+%     \l_@@_current_group_level_a_int}
+%   Track the group level so indent and spacing is correctly reset after a
+%   drop chapter even if the first paragraph of the chapter contains something
+%   like a \cs{footnote}.
+%    \begin{macrocode}
+\int_new:N \l_@@_current_group_level_a_int
+\int_new:N \l_@@_current_group_level_b_int
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_reset_par_at_group_level:}
+%   This function skips over inner groups (like \cs{footnote}) before
+%   resetting the \cs{parshape} after a drop chapter.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_reset_par_at_group_level:
+  {
     \hook_gput_next_code:nn { para / before }
       {
-        \legacy_if:nF { @newlist }
+        \int_compare:nNnTF
+          { \l_@@_current_group_level_a_int } = { \currentgrouplevel }
           {
-            \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+            \legacy_if:nF { @newlist }
               {
-                \dim_compare:nNnT \parskip < \baselineskip
+                \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
                   {
-                    \dim_compare:nNnT { \g_@@_chap_width_dim + \l_@@_chap_sep_tl } > \parindent
+                    \dim_compare:nNnT \parskip < \baselineskip
                       {
-                        \hook_gput_next_code:nn { para / begin }
+                        \dim_compare:nNnT
+                          { \g_@@_chap_width_dim + \l_@@_chap_sep_tl } > \parindent
                           {
-                            \para_omit_indent:
-                            \skip_horizontal:n {\g_@@_chap_width_dim + \l_@@_chap_sep_tl }
+                            \hook_gput_next_code:nn { para / begin }
+                              {
+                                \para_omit_indent:
+                                \skip_horizontal:n {\g_@@_chap_width_dim + \l_@@_chap_sep_tl }
+                              }
                           }
                       }
                   }
+                \int_gzero:N \g_@@_chap_par_prevgraf_int
               }
-            \int_gzero:N \g_@@_chap_par_prevgraf_int
+            \parshape 1 ~ \@totalleftmargin ~ \linewidth
           }
-        \parshape 1 ~ \@totalleftmargin ~ \linewidth
+          { \@@_reset_par_at_group_level: }
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@@_chap_par_save_prevgraf_at_group_level:}
+%   This function skips over inner groups (like \cs{footnote}) before
+%   saving the \cs{prevgraf}.
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_chap_par_save_prevgraf_at_group_level:
+  {
+    \hook_gput_next_code:nn { para / after }
+      {
+        \int_compare:nNnTF
+          { \l_@@_current_group_level_b_int } = { \currentgrouplevel }
+          {
+            \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \prevgraf
+            \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+              { \penalty 10000 }
+            \hook_gput_next_code:nn { para / before }
+              { \int_set_eq:NN \clubpenalty \l_@@_clubpenalty_saved_int }
+          }
+          { \@@_chap_par_save_prevgraf_at_group_level: }
       }
   }
 %    \end{macrocode}
@@ -5854,6 +5908,7 @@
       { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
     \cs_set_eq:NN \par \para_end:
+    \int_set_eq:NN \l_@@_current_group_level_b_int \currentgrouplevel
     \list { }
       {
         \bool_lazy_or:nnF
@@ -5935,6 +5990,7 @@
       { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
     \cs_set_eq:NN \par \para_end:
+    \int_set_eq:NN \l_@@_current_group_level_b_int \currentgrouplevel
     \list { }
       {
         \bool_lazy_or:nnF
@@ -6296,6 +6352,7 @@
       { \dim_zero:N \l_@@_outer_itemindent_dim }
     \cs_set_eq:NN \par \para_end:
     \hook_gclear_next_code:n { para/ before }
+    \int_set_eq:NN \l_@@_current_group_level_b_int \currentgrouplevel
     \list { }
       {
         \bool_lazy_or:nnF
@@ -6645,6 +6702,7 @@
       { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
     \cs_set_eq:NN \par \para_end:
+    \int_set_eq:NN \l_@@_current_group_level_b_int \currentgrouplevel
     \list { }
       {
         \dim_zero:N \labelsep
@@ -7200,6 +7258,7 @@
         \bool_set_false:N \l_@@_pilcrow_bool
         \bool_set_false:N \l_@@_verse_para_bool
       }
+    \int_set_eq:NN \l_@@_current_group_level_b_int \currentgrouplevel
     \list { }
       {
         \bool_lazy_or:nnF
@@ -7420,7 +7479,18 @@
       { \endpoetryaux }
 %    \end{macrocode}
 % \end{envmacro}
+% Some macros need to be reset to their defaults inside \cs{footnote}.
 %    \begin{macrocode}
+    \NewCommandCopy \@@_footnote: \footnote
+    \RenewDocumentCommand \footnote { o +m }
+      {
+        \group_begin:
+          \cs_set_eq:NN \noindent \tex_noindent:D
+          \tl_if_novalue:nTF { ##1 }
+            { \@@_footnote: { ##2 } }
+            { \@@_footnote: [ ##1 ] { ##2 } }
+        \group_end:
+      }
     \bool_if:NT \l_@@_inline_bool
       {
         \tl_set:Nn \l_@@_aboveskip_tl { 0pt }
