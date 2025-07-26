@@ -4882,7 +4882,7 @@
     \clubpenalty 10000
     \bool_if:NF \l_@@_verse_para_bool
     {
-      \int_set_eq:NN \l_@@_current_group_level_b_int \currentgrouplevel
+      \int_set:Nn \l_@@_current_group_level_b_int { \currentgrouplevel + 1 }
       \@@_chap_par_save_prevgraf_at_group_level:
     }
   }
@@ -4925,14 +4925,6 @@
       { \@@_verse_output:n { 1 } }
     \bool_if:NT \l_@@_verse_para_bool
     {
-      %\hook_gput_next_code:nn { para / after }
-      %  {
-      %    \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \prevgraf
-      %    \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
-      %      { \penalty 10000 }
-      %    \hook_gput_next_code:nn { para / before }
-      %      { \int_set_eq:NN \clubpenalty \l_@@_clubpenalty_saved_int }
-      %  }
       \int_set_eq:NN \l_@@_current_group_level_b_int \currentgrouplevel
       \@@_chap_par_save_prevgraf_at_group_level:
     }
@@ -5129,27 +5121,6 @@
         \str_if_eq:VnF \l_@@_currenvir_str { midparachap }
           { \@@_pilcrow_output: }
       }
-    \hook_gput_next_code:nn { para / before }
-      {
-        \legacy_if:nF { @newlist }
-          {
-            \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
-              {
-                \dim_compare:nNnT \parskip < \baselineskip
-                  {
-                    \dim_compare:nNnT { \g_@@_chap_width_dim + \l_@@_chap_sep_tl } > \parindent
-                      {
-                        \hook_gput_next_code:nn { para / begin }
-                          {
-                            \para_omit_indent:
-                            \skip_horizontal:n {\g_@@_chap_width_dim + \l_@@_chap_sep_tl }
-                          }
-                      }
-                  }
-              }
-            \int_gzero:N \g_@@_chap_par_prevgraf_int
-          }
-      }
     \int_set_eq:NN \l_@@_current_group_level_a_int \currentgrouplevel
     \@@_reset_par_at_group_level:
   }
@@ -5177,7 +5148,28 @@
       {
         \int_compare:nNnTF
           { \l_@@_current_group_level_a_int } = { \currentgrouplevel }
-          { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
+          {
+            \legacy_if:nF { @newlist }
+              {
+                \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+                  {
+                    \dim_compare:nNnT \parskip < \baselineskip
+                      {
+                        \dim_compare:nNnT
+                          { \g_@@_chap_width_dim + \l_@@_chap_sep_tl } > \parindent
+                          {
+                            \hook_gput_next_code:nn { para / begin }
+                              {
+                                \para_omit_indent:
+                                \skip_horizontal:n {\g_@@_chap_width_dim + \l_@@_chap_sep_tl }
+                              }
+                          }
+                      }
+                  }
+                \int_gzero:N \g_@@_chap_par_prevgraf_int
+              }
+            \parshape 1 ~ \@totalleftmargin ~ \linewidth
+          }
           { \@@_reset_par_at_group_level: }
       }
   }
@@ -5193,7 +5185,7 @@
     \hook_gput_next_code:nn { para / after }
       {
         \int_compare:nNnTF
-          { \l_@@_current_group_level_b_int } = { \currentgrouplevel - 1 }
+          { \l_@@_current_group_level_b_int } = { \currentgrouplevel }
           {
             \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \prevgraf
             \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
@@ -5916,6 +5908,7 @@
       { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
     \cs_set_eq:NN \par \para_end:
+    \int_set_eq:NN \l_@@_current_group_level_b_int \currentgrouplevel
     \list { }
       {
         \bool_lazy_or:nnF
@@ -5997,6 +5990,7 @@
       { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
     \cs_set_eq:NN \par \para_end:
+    \int_set_eq:NN \l_@@_current_group_level_b_int \currentgrouplevel
     \list { }
       {
         \bool_lazy_or:nnF
@@ -6358,6 +6352,7 @@
       { \dim_zero:N \l_@@_outer_itemindent_dim }
     \cs_set_eq:NN \par \para_end:
     \hook_gclear_next_code:n { para/ before }
+    \int_set_eq:NN \l_@@_current_group_level_b_int \currentgrouplevel
     \list { }
       {
         \bool_lazy_or:nnF
@@ -6707,6 +6702,7 @@
       { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
     \cs_set_eq:NN \par \para_end:
+    \int_set_eq:NN \l_@@_current_group_level_b_int \currentgrouplevel
     \list { }
       {
         \dim_zero:N \labelsep
@@ -7262,6 +7258,7 @@
         \bool_set_false:N \l_@@_pilcrow_bool
         \bool_set_false:N \l_@@_verse_para_bool
       }
+    \int_set_eq:NN \l_@@_current_group_level_b_int \currentgrouplevel
     \list { }
       {
         \bool_lazy_or:nnF
