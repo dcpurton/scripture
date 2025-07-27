@@ -1,0 +1,264 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Colossians 3:1--14]
+  \ch{3}Since, then, you have been raised with Christ, set your hearts on
+  things above, where Christ is, seated at the right hand of God. \vs{2}Set
+  your minds on things above, not on earthly things. \vs{3}For you died, and
+  your life is now hidden with Christ in God. \vs{4}When Christ, who is
+  your\footnote{\emph{3} Some manuscripts \emph{our}} life, appears, then you
+  also will appear with him in glory.
+
+  \vs{5}Put to death, therefore, whatever belongs to your earthly nature:
+  sexual immorality, impurity, lust, evil desires and greed, which is
+  idolatry. \vs{6}Because of these, the wrath of God is
+  coming.\footnote{\emph{6} Some early manuscripts \emph{coming on those who
+  are disobedient}} \vs{7}You used to walk in these ways, in the life you once
+  lived. \vs{8}But now you must also rid yourselves of all such things as
+  these: anger, rage, malice, slander, and filthy language from your lips.
+  \vs{9}Do not lie to each other, since you have taken off your old self with
+  its practices \vs{10}and have put on the new self, which is being renewed in
+  knowledge in the image of its Creator. \vs{11}Here there is no Gentile or
+  Jew, circumcised or uncircumcised, barbarian, Scythian, slave or free, but
+  Christ is all, and is in all.
+
+  \vs{12}Therefore, as God’s chosen people, holy and dearly loved, clothe
+  yourselves with compassion, kindness, humility, gentleness and patience.
+  \vs{13}Bear with each other and forgive one another if any of you has a
+  grievance against someone. Forgive as the Lord forgave you. \vs{14}And over
+  all these virtues put on love, which binds them all together in perfect
+  unity.
+\end{scripture}
+
+\begin{scripture}[1 Thessalonians 1:1--2]
+  \ch{1}Paul, Silas \footnote{\emph{1} Greek \emph{Silvanus}, a variant of
+  \emph{Silas}} and Timothy,
+
+  \extraskip
+
+  To the church of the Thessalonians in God the Father and the Lord Jesus
+  Christ:
+
+  \extraskip
+
+  Grace and peace to you.
+
+  \extraskip
+
+  \vs{2}We always thank God for all of you and continually mention you in our
+  prayers. \vs{3}We remember before our God and Father your work produced by
+  faith, your labour prompted by love, and your endurance inspired by hope in
+  our Lord Jesus Christ.
+\end{scripture}
+
+\begin{scripture}[Isaiah 18:1--2]
+  \begin{poetry}
+    \ch{18}Woe to the land of whirring wings\footnote{\emph{1} Or \emph{of locusts}}
+    along the rivers of Cush,\footnote{\emph{1} That is, the upper Nile region}
+
+    \vs{2}which sends envoys by sea
+    in papyrus boats over the water.
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Habakkuk 3:1--2]
+  \ch{3}A prayer of Habakkuk the prophet. On
+  \emph{shigionoth}.\footnote{\emph{3} Probably a literary or musical term}
+
+  \begin{poetry}
+    \vs{2}\name{Lord}, I have heard of your fame;
+    I stand in awe of your deeds, \name{Lord}.
+
+    Repeat them in our day,
+    in our time make them known;
+    in wrath remember mercy.
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Jeremiah 50:1--2]
+  \ch{50}This is the word the \name{Lord} spoke through Jeremiah the prophet
+  concerning Babylon and the land of the Babylonians:\footnote{\emph{1} Or
+  \emph{Chaldeans}; also in verses 8, 25, 35 and 45}
+
+  \begin{poetry}
+    \vs{2}‘Announce and proclaim among the nations,
+    lift up a banner and proclaim it;
+    keep nothing back, but say,
+
+    “Babylon will be captured;
+    Bel will be put to shame,
+    Marduk filled with terror.
+
+    Her images will be put to shame
+    and her idols filled with terror.”
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Genesis 1:1--5]
+  \begin{hanging}
+    \ch{1}In the beginning God created\footnote{\emph{1} ver 21, 27; Ge 2:3}
+    the heavens and the earth. \vs{2}Now the earth was formless and empty,
+    darkness was over the surface of the deep, and the Spirit of God was
+    hovering over the waters.
+
+    \vs{3}And God said, ‘Let there be light,’ and there was
+    light.\footnote{\emph{3} 2Co 4:6*; 1Jn 1:5--7} \vs{4}God saw that the
+    light was good, and he separated the light from the darkness.  \vs{5}God
+    called the light ‘day’, and the darkness he called ‘night’. And there was
+    evening, and there was morning – the first day.
+  \end{hanging}
+\end{scripture}
+
+\begin{scripture}[1 Corinthians 10:31--11:2]
+  \begin{midparachap}
+    \vs{31}So whether you eat or drink or whatever you do, do it all for the
+    glory of God. \vs{32}Do not cause anyone to stumble, whether Jews, Greeks
+    or the church of God---\vs{33}even as I try to please everyone in every
+    way. For I am not seeking my own good but the good of many, so that they
+    may be saved. \ch{11}Follow my example,\footnotemark{} as I follow the
+    example of Christ.
+  \end{midparachap}\footnotetext{\emph{1} S 1Co 4:16}
+
+  \extraskip
+
+  \vs{2}I praise you for remembering me in everything and for holding to the
+  traditions just as I passed them on to you.
+\end{scripture}
+
+\scripturesetup{
+  verse/para,
+  pilcrow
+}
+
+\begin{scripture}[Colossians 3:1--14]
+  \ch{3}Since, then, you have been raised with Christ, set your hearts on
+  things above, where Christ is, seated at the right hand of God. \vs{2}Set
+  your minds on things above, not on earthly things. \vs{3}For you died, and
+  your life is now hidden with Christ in God. \vs{4}When Christ, who is
+  your\footnote{\emph{3} Some manuscripts \emph{our}} life, appears, then you
+  also will appear with him in glory.
+
+  \vs{5}Put to death, therefore, whatever belongs to your earthly nature:
+  sexual immorality, impurity, lust, evil desires and greed, which is
+  idolatry. \vs{6}Because of these, the wrath of God is
+  coming.\footnote{\emph{6} Some early manuscripts \emph{coming on those who
+  are disobedient}} \vs{7}You used to walk in these ways, in the life you once
+  lived. \vs{8}But now you must also rid yourselves of all such things as
+  these: anger, rage, malice, slander, and filthy language from your lips.
+  \vs{9}Do not lie to each other, since you have taken off your old self with
+  its practices \vs{10}and have put on the new self, which is being renewed in
+  knowledge in the image of its Creator. \vs{11}Here there is no Gentile or
+  Jew, circumcised or uncircumcised, barbarian, Scythian, slave or free, but
+  Christ is all, and is in all.
+
+  \vs{12}Therefore, as God’s chosen people, holy and dearly loved, clothe
+  yourselves with compassion, kindness, humility, gentleness and patience.
+  \vs{13}Bear with each other and forgive one another if any of you has a
+  grievance against someone. Forgive as the Lord forgave you. \vs{14}And over
+  all these virtues put on love, which binds them all together in perfect
+  unity.
+\end{scripture}
+
+\begin{scripture}[1 Thessalonians 1:1--2]
+  \ch{1}Paul, Silas\footnote{\emph{1} Greek \emph{Silvanus}, a variant of
+  \emph{Silas}} and Timothy,
+
+  \extraskip
+
+  To the church of the Thessalonians in God the Father and the Lord Jesus
+  Christ:
+
+  \extraskip
+
+  Grace and peace to you.
+
+  \extraskip
+
+  \vs{2}We always thank God for all of you and continually mention you in our
+  prayers. \vs{3}We remember before our God and Father your work produced by
+  faith, your labour prompted by love, and your endurance inspired by hope in
+  our Lord Jesus Christ.
+\end{scripture}
+
+\begin{scripture}[Isaiah 18:1--2]
+  \begin{poetry}
+    \ch{18}Woe to the land of whirring wings\footnote{\emph{1} Or \emph{of locusts}}
+    along the rivers of Cush,\footnote{\emph{1} That is, the upper Nile region}
+
+    \vs{2}which sends envoys by sea
+    in papyrus boats over the water.
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Habakkuk 3:1--2]
+  \ch{3}A prayer of Habakkuk the prophet. On
+  \emph{shigionoth}.\footnote{\emph{3} Probably a literary or musical term}
+
+  \begin{poetry}
+    \vs{2}\name{Lord}, I have heard of your fame;
+    I stand in awe of your deeds, \name{Lord}.
+
+    Repeat them in our day,
+    in our time make them known;
+    in wrath remember mercy.
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Jeremiah 50:1--2]
+  \ch{50}This is the word the \name{Lord} spoke through Jeremiah the prophet
+  concerning Babylon and the land of the Babylonians:\footnote{\emph{1} Or
+  \emph{Chaldeans}; also in verses 8, 25, 35 and 45}
+
+  \begin{poetry}
+    \vs{2}‘Announce and proclaim among the nations,
+    lift up a banner and proclaim it;
+    keep nothing back, but say,
+
+    “Babylon will be captured;
+    Bel will be put to shame,
+    Marduk filled with terror.
+
+    Her images will be put to shame
+    and her idols filled with terror.”
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Genesis 1:1--5]
+  \begin{hanging}
+    \ch{1}In the beginning God created\footnote{\emph{1} ver 21, 27; Ge 2:3}
+    the heavens and the earth. \vs{2}Now the earth was formless and empty,
+    darkness was over the surface of the deep, and the Spirit of God was
+    hovering over the waters.
+
+    \vs{3}And God said, ‘Let there be light,’ and there was
+    light.\footnote{\emph{3} 2Co 4:6*; 1Jn 1:5--7} \vs{4}God saw that the
+    light was good, and he separated the light from the darkness.  \vs{5}God
+    called the light ‘day’, and the darkness he called ‘night’. And there was
+    evening, and there was morning – the first day.
+  \end{hanging}
+\end{scripture}
+
+\begin{scripture}[1 Corinthians 10:31--11:2]
+  \begin{midparachap}
+    \vs{31}So whether you eat or drink or whatever you do, do it all for the
+    glory of God. \vs{32}Do not cause anyone to stumble, whether Jews, Greeks
+    or the church of God---\vs{33}even as I try to please everyone in every
+    way. For I am not seeking my own good but the good of many, so that they
+    may be saved. \ch{11}Follow my example,\footnotemark{} as I follow the
+    example of Christ.
+  \end{midparachap}\footnotetext{\emph{1} S 1Co 4:16}
+
+  \extraskip
+
+  \vs{2}I praise you for remembering me in everything and for holding to the
+  traditions just as I passed them on to you.
+\end{scripture}
+\end{document}
