@@ -1088,15 +1088,14 @@ Completed box being shipped out [1]
 ...\glue(\abovedisplayskip) -12.0
 ...\glue(\baselineskip) 10.05556
 ...\hbox(0.0+0.0)x0.0, shifted 172.5, display
-....\penalty 10000
 ...\penalty 51
 ...\glue(\belowdisplayskip) 0.0
+...\penalty 10000
 ...\glue -12.0 plus -1.0
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 12.0
-...\hbox(0.0+0.0)x345.0, glue set 72.56514fil
-....\glue 32.98999
+...\hbox(0.0+0.0)x345.0, glue set 105.55513fil
 ....\hbox(0.0+0.0)x236.11154
 ....\glue 3.33333 plus 1.66666 minus 1.11111
 ....\kern 0.0
