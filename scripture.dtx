@@ -151,7 +151,7 @@
   }
 \DeclareDocumentEnvironment { environment } { O{} +v }
   {
-    \clist_map_inline:nn { #2 }
+    \clist_map_inline:nn {#2}
       {
         \MakeLinkTarget*{environment##1}
       }
@@ -161,7 +161,7 @@
   { \__codedoc_function_end: }
 \DeclareDocumentEnvironment { hooks } { O{} +v }
   {
-    \clist_map_inline:nn { #2 }
+    \clist_map_inline:nn {#2}
       {
         \MakeLinkTarget*{hook##1}
       }
@@ -183,7 +183,7 @@
 \DeclareDocumentEnvironment { option } { O{} +v }
   {
     \cs_set_eq:NN \__codedoc_function_index:n \SpecialOptionIndex
-    \clist_map_inline:nn { #2 }
+    \clist_map_inline:nn {#2}
       {
         \MakeLinkTarget*{option##1}
       }
@@ -198,7 +198,7 @@
   { \__codedoc_macro_end: }
 \DeclareDocumentEnvironment { function } { O{} +v }
   {
-    \clist_map_inline:nn { #2 }
+    \clist_map_inline:nn {#2}
       {
         \MakeLinkTarget*{function##1}
       }
@@ -3325,7 +3325,7 @@
     , added / font                .initial:n          =
     , added / format              .cs_set:Np          = \@@_added_format:n #1
     , added / format              .value_required:n   = true
-    , added / format              .initial:n          = \emph { #1 }
+    , added / format              .initial:n          = \emph {#1}
     , after                       .tl_set:N           = \l_@@_after_tl
     , after                       .value_required:n   = true
     , after                       .initial:n          =
@@ -3341,7 +3341,7 @@
     , colour                      .tl_set:N           = \l_@@_colour_tl
     , colour                      .value_required:n   = true
     , colour                      .initial:n          = .
-    , color                       .meta:n             = { colour = { #1 } }
+    , color                       .meta:n             = { colour = {#1} }
     , compact                     .bool_set:N         = \l_@@_compact_bool
     , compact                     .default:n          = true
     , compact                     .initial:n          = false
@@ -3374,7 +3374,7 @@
     , chapter / colour            .tl_set:N           = \l_@@_chapter_colour_tl
     , chapter / colour            .value_required:n   = true
     , chapter / colour            .initial:n          = .
-    , chapter / color             .meta:n             = { chapter / colour = { #1 } }
+    , chapter / color             .meta:n             = { chapter / colour = {#1} }
     , chapter / drop              .bool_set:N         = \l_@@_chap_drop_bool
     , chapter / drop              .default:n          = true
     , chapter / drop              .initial:n          = true
@@ -3397,7 +3397,7 @@
     , chapter / para / indent     .code:n             = {
                                                           \bool_set:Nn
                                                             \l_@@_chap_para_afterindent_bool
-                                                            { \str_if_eq_p:nn { #1 } { true } }
+                                                            { \str_if_eq_p:nn {#1} { true } }
                                                         }
     , chapter / para / indent     .default:n          = true
     , chapter / para / indent     .initial:n          = true
@@ -3553,7 +3553,7 @@
     , redletter / colour          .tl_set:N           = \l_@@_red_letter_colour_tl
     , redletter / colour          .value_required:n   = true
     , redletter / colour          .initial:n          = red!80!black
-    , redletter / color           .meta:n             = { redletter / colour = { #1 } }
+    , redletter / color           .meta:n             = { redletter / colour = {#1} }
     , reference / align           .choices:nn         = { left, right }
                                                         {
                                                           \tl_if_exist:NF \l_@@_ref_align_tl
@@ -3565,7 +3565,7 @@
     , reference / colour          .tl_set:N           = \l_@@_ref_colour_tl
     , reference / colour          .value_required:n   = true
     , reference / colour          .initial:n          = .
-    , reference / color           .meta:n             = { reference / colour = { #1 } }
+    , reference / color           .meta:n             = { reference / colour = {#1} }
     , reference / font            .tl_set:N           = \l_@@_ref_font_tl
     , reference / font            .value_required:n   = true
     , reference / font            .initial:n          = \bfseries
@@ -3625,7 +3625,7 @@
     , verse / colour              .tl_set:N           = \l_@@_verse_colour_tl
     , verse / colour              .value_required:n   = true
     , verse / colour              .initial:n          = .
-    , verse / color               .meta:n             = { verse / colour = { #1 } }
+    , verse / color               .meta:n             = { verse / colour = {#1} }
     , verse / first               .bool_set:N         = \l_@@_verse_first_bool
     , verse / first               .default:n          = true
     , verse / first               .initial:n          = false
@@ -3797,7 +3797,7 @@
   {
     , aboveskip                   = \c_zero_skip
     , added / font                =
-    , added / format              = \emph { #1 }
+    , added / format              = \emph {#1}
     , after                       =
     , before                      =
     , belowskip                   = \c_zero_skip
@@ -3926,13 +3926,13 @@
       {
         \tl_if_exist:cF { g__@@_style_ #2 _tl }
           { \tl_new:c { g__@@_style_ #2 _tl } }
-        \@@_setup_style:nne \c_false_bool { #2 }
+        \@@_setup_style:nne \c_false_bool {#2}
           { \tl_use:c { g__@@_style_ #2 _tl } , #3 }
       }
       {
-        \tl_gset:cn { g__@@_style_ #2 _tl } { #3 }
+        \tl_gset:cn { g__@@_style_ #2 _tl } {#3}
         \keys_define:nn { scripture }
-          { style / #2 .meta:n = { #3 } }
+          { style / #2 .meta:n = {#3} }
       }
   }
 \cs_generate_variant:Nn \@@_setup_style:nnn { nne }
@@ -4033,8 +4033,8 @@
                 \peek_analysis_map_inline:n
                   {
                     \bool_lazy_or:nnTF
-                      { \exp_args:No \token_if_eq_meaning_p:NN { ####1 } \vs }
-                      { \exp_args:No \token_if_eq_meaning_p:NN { ####1 } \newvs }
+                      { \exp_args:No \token_if_eq_meaning_p:NN {####1} \vs }
+                      { \exp_args:No \token_if_eq_meaning_p:NN {####1} \newvs }
                       {
                         \bool_gset_true:N \g_@@_suppress_next_verse_para_bool
                         \@@_set_pilcrow_hook:
@@ -4043,7 +4043,7 @@
                         \str_if_eq:VnF \l_@@_currenvir_str { poetry }
                           { \@@_pilcrow_output: }
                       }
-                    \peek_analysis_map_break:n { ####1 }
+                    \peek_analysis_map_break:n {####1}
                   }
               }
           }
@@ -4132,7 +4132,7 @@
           \unskip
           \hfil
           \penalty 50
-          \skip_horizontal:n { #1 }
+          \skip_horizontal:n {#1}
           \hbox:n {}
           \nobreak
           \hfill
@@ -4170,11 +4170,11 @@
 %    \end{macrocode}
 % Append a Bible version if it has been specified.
 %    \begin{macrocode}
-        \tl_if_empty:oF { #2 }
+        \tl_if_empty:oF {#2}
           {
-            \tl_if_empty:oF { #1 }
+            \tl_if_empty:oF {#1}
               { \l_@@_version_delim_tl }
-            \@@_version_format:n { #2 }
+            \@@_version_format:n {#2}
           }
       }
     \group_end:
@@ -4189,7 +4189,7 @@
   {
     \hbox_set:Nn \l_@@_ref_box
       {
-        \@@_format_full_ref:nn { #1 } \l_@@_version_tl
+        \@@_format_full_ref:nn {#1} \l_@@_version_tl
       }
     \dim_compare:nNnT
       { \box_wd:N \l_@@_ref_box + \g_@@_final_line_dim + \l_@@_ref_sep_tl }
@@ -4300,21 +4300,21 @@
               {
                 \bool_case:nF
                   {
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \heading }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \heading }
                       { \@@_reference_start_newline: }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \noindent }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \noindent }
                       {
                         \bool_if:NTF \l_@@_ref_start_newline_bool
                           { \@@_reference_start_newline: }
                           { \@@_reference_start_inline: }
                       }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \nohang }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \nohang }
                       {
                         \bool_if:NTF \l_@@_ref_start_newline_bool
                           { \@@_reference_start_newline: }
                           { \@@_reference_start_inline: }
                       }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \nopilcrow }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \nopilcrow }
                       {
                         \bool_if:NTF \l_@@_ref_start_newline_bool
                           { \@@_reference_start_newline: }
@@ -4325,7 +4325,7 @@
                             \@@_fix_protrusion:n { }
                           }
                       }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \begin }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \begin }
                       {
                         \bool_if:NF \l_@@_indent_bool
                           {
@@ -4338,7 +4338,7 @@
                               }
                           }
                       }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \ch }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \ch }
                       {
                         \bool_if:NTF \l_@@_ref_start_newline_bool
                           { \@@_reference_start_newline: }
@@ -4346,16 +4346,16 @@
                             \cs_set_eq:NN \@@_temp_ch \ch
                             \RenewDocumentCommand \ch { s o m }
                               {
-                                \tl_if_novalue:nF { ##2 }
+                                \tl_if_novalue:nF {##2}
                                   {
-                                    \tl_set:Nn \l_@@_X_char_tl { ##2 }
+                                    \tl_set:Nn \l_@@_X_char_tl {##2}
                                   }
                                 \cs_set_eq:NN \ch \@@_temp_ch
                               }
                             \@@_reference_start_inline:
                           }
                       }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newch }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newch }
                       {
                         \bool_if:NTF \l_@@_ref_start_newline_bool
                           { \@@_reference_start_newline: }
@@ -4363,16 +4363,16 @@
                             \cs_set_eq:NN \@@_temp_newch \newch
                             \RenewDocumentCommand \newch { s o }
                               {
-                                \tl_if_novalue:nF { ##2 }
+                                \tl_if_novalue:nF {##2}
                                   {
-                                    \tl_set:Nn \l_@@_X_char_tl { ##2 }
+                                    \tl_set:Nn \l_@@_X_char_tl {##2}
                                   }
                                 \cs_set_eq:NN \newch \@@_temp_newch
                               }
                             \@@_reference_start_inline:
                           }
                       }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \vs }
                       {
                         \bool_if:NTF \l_@@_ref_start_newline_bool
                           { \@@_reference_start_newline: }
@@ -4383,7 +4383,7 @@
                             \@@_reference_start_inline:
                           }
                       }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newvs }
                       {
                         \bool_if:NTF \l_@@_ref_start_newline_bool
                           { \@@_reference_start_newline: }
@@ -4411,14 +4411,14 @@
                       }
                       { \@@_reference_start_inline: }
                   }
-                \exp_args:No \token_if_eq_meaning:NNF { ##1 } \begin
+                \exp_args:No \token_if_eq_meaning:NNF {##1} \begin
                   {
                     \tl_clear:N \l_@@_ref_tl
                     \tl_if_eq:NnF \l_@@_version_position_tl { end }
                       { \tl_clear:N \l_@@_version_tl }
                   }
                 \peek_analysis_map_break:n
-                  { \@@_fix_protrusion:o { ##1 } }
+                  { \@@_fix_protrusion:o {##1} }
               }
           }
           {
@@ -4426,13 +4426,13 @@
               {
                 \bool_case:nF
                   {
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \heading }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \heading }
                       { }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \noindent }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \noindent }
                       { }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \nohang }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \nohang }
                       { }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \nopilcrow }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \nopilcrow }
                       {
                         \peek_analysis_map_break:n
                           {
@@ -4440,7 +4440,7 @@
                             \@@_fix_protrusion:n { }
                           }
                       }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \begin }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \begin }
                       {
                         \bool_if:NF \l_@@_indent_bool
                           {
@@ -4453,16 +4453,16 @@
                               }
                           }
                       }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \ch }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \ch }
                       { }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newch }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newch }
                       { }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \vs }
                       {
                         \mode_if_vertical:F
                           { \@@_set_pilcrow_hook: }
                       }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newvs }
                       {
                         \mode_if_vertical:F
                           { \@@_set_pilcrow_hook: }
@@ -4481,7 +4481,7 @@
                   }
                 \peek_analysis_map_break:n
                   {
-                    \@@_fix_protrusion:o { ##1 }
+                    \@@_fix_protrusion:o {##1}
                   }
               }
           }
@@ -4503,20 +4503,20 @@
           {
             \bool_case:n
               {
-                { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \begin }
+                { \exp_args:No \token_if_eq_meaning_p:NN {##1} \begin }
                   { \bool_gset_true:N \g_@@_mode_vertical_inner_bool }
                 { \str_if_eq_p:Vn \l_@@_currenvir_str { poetry } }
                   { }
-                { \exp_args:No \token_if_letter_p:N { ##1 } }
+                { \exp_args:No \token_if_letter_p:N {##1} }
                   { \@@_pilcrow_output: }
-                { \exp_args:No \token_if_active_p:N { ##1 } }
+                { \exp_args:No \token_if_active_p:N {##1} }
                   { \@@_pilcrow_output: }
-                { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
+                { \exp_args:No \token_if_eq_meaning_p:NN {##1} \vs }
                   { \@@_set_pilcrow_hook: }
-                { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
+                { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newvs }
                   { \@@_set_pilcrow_hook: }
               }
-            \peek_analysis_map_break:n { ##1 }
+            \peek_analysis_map_break:n {##1}
           }
       }
   }
@@ -4534,19 +4534,19 @@
         \peek_analysis_map_inline:n
           {
             \bool_lazy_or:nnTF
-              { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
-              { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
+              { \exp_args:No \token_if_eq_meaning_p:NN {##1} \vs }
+              { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newvs }
               { \bool_gset_true:N \g_@@_suppress_next_verse_para_bool }
               { \@@_pilcrow_output: }
-            \peek_analysis_map_break:n { ##1 }
+            \peek_analysis_map_break:n {##1}
           }
       }
       {
         \peek_analysis_map_inline:n
           {
             \bool_lazy_or:nnTF
-              { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
-              { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
+              { \exp_args:No \token_if_eq_meaning_p:NN {##1} \vs }
+              { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newvs }
               {
                 \bool_if:NT \l_@@_verse_para_bool
                   { \para_end: }
@@ -4555,7 +4555,7 @@
                 \@@_set_pilcrow_hook:
               }
               { \@@_pilcrow_output: }
-            \peek_analysis_map_break:n { ##1 }
+            \peek_analysis_map_break:n {##1}
           }
       }
   }
@@ -4592,16 +4592,16 @@
           {
             \bool_case:n
               {
-                { \exp_args:No \token_if_letter_p:N { ##1 } }
+                { \exp_args:No \token_if_letter_p:N {##1} }
                   { \@@_pilcrow_output: }
-                { \exp_args:No \token_if_active_p:N { ##1 } }
+                { \exp_args:No \token_if_active_p:N {##1} }
                   { \@@_pilcrow_output: }
-                { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
+                { \exp_args:No \token_if_eq_meaning_p:NN {##1} \vs }
                   { \@@_set_pilcrow_hook: }
-                { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
+                { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newvs }
                   { \@@_set_pilcrow_hook: }
               }
-            \peek_analysis_map_break:n { ##1 }
+            \peek_analysis_map_break:n {##1}
           }
       }
   }
@@ -4847,7 +4847,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_drop_chap_set_up:n
   {
-    \cs_gset_nopar:Npn \scripturecurrentchapter { #1 }
+    \cs_gset_nopar:Npn \scripturecurrentchapter {#1}
     \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
     \@@_get_X_height:
     \dim_set:Nn \l_@@_chap_height_dim
@@ -4868,7 +4868,7 @@
           \selectfont
         \str_if_eq:VnF \l_@@_chapter_colour_tl { . }
           { \exp_args:NV \color_select:n \l_@@_chapter_colour_tl }
-        \@@_chap_format:n { #1 }
+        \@@_chap_format:n {#1}
       }
     \dim_gset:Nn \g_@@_chap_width_dim
       { \box_wd:N \l_@@_chap_tmp_box }
@@ -4939,7 +4939,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_nodrop_chap:n
   {
-    \cs_gset_nopar:Npn \scripturecurrentchapter { #1 }
+    \cs_gset_nopar:Npn \scripturecurrentchapter {#1}
     \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
     \group_begin:
     \bool_if:NT \l_@@_verse_para_bool
@@ -4955,7 +4955,7 @@
             \str_if_eq:VnF \l_@@_chapter_colour_tl { . }
               { \exp_args:NV \color_select:n \l_@@_chapter_colour_tl }
             \l_@@_chap_font_tl
-            \@@_chap_format:n { #1 }
+            \@@_chap_format:n {#1}
             \kern \l_@@_chap_sep_tl
           }
         \dim_zero:N \l_@@_nodrop_chap_voffset_dim
@@ -5012,7 +5012,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_para_chap:n
   {
-    \cs_gset_nopar:Npn \scripturecurrentchapter { #1 }
+    \cs_gset_nopar:Npn \scripturecurrentchapter {#1}
     \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
     \group_begin:
     \skip_zero:N \parskip
@@ -5044,7 +5044,7 @@
             \str_if_eq:VnF \l_@@_chapter_colour_tl { . }
               { \exp_args:NV \color_select:n \l_@@_chapter_colour_tl }
             \l_@@_chap_font_tl
-            \@@_chap_format:n { #1 }
+            \@@_chap_format:n {#1}
             \group_end:
             \hook_use:n { scripture / chap / after }
           }
@@ -5097,7 +5097,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_chap:n
   {
-    \@@_drop_chap_set_up:n { #1 }
+    \@@_drop_chap_set_up:n {#1}
     \hbox_set:Nn \l_@@_chap_box
       {
         \box_move_down:nn
@@ -5251,7 +5251,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_verse_output:n
   {
-    \cs_gset_nopar:Npn \scripturecurrentverse { #1 }
+    \cs_gset_nopar:Npn \scripturecurrentverse {#1}
     \legacy_if:nTF { @endpe }
       { \bool_set_false:N \l_@@_verse_par_start_bool }
       { \bool_set_true:N \l_@@_verse_par_start_bool }
@@ -5283,12 +5283,12 @@
             { \bool_not_p:n { \str_if_eq_p:Vn \l_@@_currenvir_str { poetry } } }
           }
           {
-            \@@_verse_first_format:n { #1 }
+            \@@_verse_first_format:n {#1}
             \group_end:
             \kern \l_@@_verse_first_sep_tl
           }
           {
-            \@@_verse_format:n { #1 }
+            \@@_verse_format:n {#1}
             \group_end:
             \kern \l_@@_verse_sep_tl
           }
@@ -5309,7 +5309,7 @@
   {
     \mode_if_vertical:T
       { \@@_set_pilcrow_hook: }
-    \@@_verse_output:n { #1 }
+    \@@_verse_output:n {#1}
   }
 %    \end{macrocode}
 % \end{macro}
@@ -5335,7 +5335,7 @@
               }
           }
       }
-    \@@_verse_output:n { #1 }
+    \@@_verse_output:n {#1}
   }
 %    \end{macrocode}
 % \end{macro}
@@ -5363,7 +5363,7 @@
           }
       }
     \bool_gset_false:N \g_@@_suppress_next_verse_para_bool
-    \@@_hanging_verse:n { #1 }
+    \@@_hanging_verse:n {#1}
   }
 %    \end{macrocode}
 % \end{macro}
@@ -5489,7 +5489,7 @@
   {
     \group_begin:
     \l_@@_added_font_tl
-    \@@_added_format:n { #1 }
+    \@@_added_format:n {#1}
     \group_end:
   }
 %    \end{macrocode}
@@ -5518,7 +5518,7 @@
               }
             \l_@@_heading_align_tl
             \l_@@_heading_font_tl
-            \@@_heading_format:n { #1 }
+            \@@_heading_format:n {#1}
             \@@_list_para_end:
             \group_end:
             \bool_if:NTF \l_@@_verse_para_bool
@@ -5554,7 +5554,7 @@
   {
     \group_begin:
     \l_@@_name_font_tl
-    \@@_name_format:n { #1 }
+    \@@_name_format:n {#1}
     \group_end:
   }
 %    \end{macrocode}
@@ -5579,9 +5579,9 @@
       {
         \bool_if:NTF \l_@@_chap_drop_bool
           {
-            \@@_chap:n { #2 }
+            \@@_chap:n {#2}
             \bool_lazy_and:nnTF
-            { #1 }
+            {#1}
             { \bool_not_p:n { \l_@@_compact_bool } }
             {
               \hook_gput_next_code:nn { para / after }
@@ -5597,14 +5597,14 @@
           }
           {
             \bool_if:NTF \l_@@_chap_para_bool
-              { \@@_para_chap:n { #2 } }
-              { \@@_nodrop_chap:n { #2 } }
+              { \@@_para_chap:n {#2} }
+              { \@@_nodrop_chap:n {#2} }
           }
       }
       {
         \bool_if:NTF \l_@@_chap_para_bool
-          { \@@_para_chap:n { #2 } }
-          { \@@_nodrop_chap:n { #2 } }
+          { \@@_para_chap:n {#2} }
+          { \@@_nodrop_chap:n {#2} }
       }
   }
 %    \end{macrocode}
@@ -5621,16 +5621,16 @@
         \msg_error:nn { scripture } { nested-environment }
       }
     \bool_set_true:N \l_@@_active_bool
-    \tl_if_novalue:nF { #1 }
-      { \tl_set:Nn \l_@@_ref_tl { #1 } }
+    \tl_if_novalue:nF {#1}
+      { \tl_set:Nn \l_@@_ref_tl {#1} }
     \str_set:Nn \l_@@_currenvir_str { scripture }
     \bool_gset_false:N \g_@@_first_verse_set_bool
     \int_gset_eq:NN \g_@@_chapter_int \c_one_int
     \int_gset_eq:NN \g_@@_verse_int \c_one_int
     \tl_gclear:N \g_@@_book_tl
-    \tl_if_novalue:nF { #2 }
+    \tl_if_novalue:nF {#2}
       {
-        \keys_set:nn { scripture } { #2 }
+        \keys_set:nn { scripture } {#2}
       }
     \l_@@_before_tl
     \@@_select_language:
@@ -5657,11 +5657,11 @@
       { \bool_set_false:N \l_@@_chap_drop_bool }
     \DeclareDocumentCommand { \ch } { s o m }
       {
-        \tl_if_novalue:nF { ##2 }
+        \tl_if_novalue:nF {##2}
           {
-            \tl_set:Nn \l_@@_X_char_tl { ##2 }
+            \tl_set:Nn \l_@@_X_char_tl {##2}
           }
-        \@@_ch_output:nn { ##1 } { ##3 }
+        \@@_ch_output:nn {##1} {##3}
       }
     \cs_set_eq:NN \vs \@@_verse_output:n
     \DeclareDocumentCommand { \newch } { s o }
@@ -5672,7 +5672,7 @@
             \int_gset:Nn \g_@@_verse_int \c_one_int
           }
           { \bool_gset_true:N \g_@@_first_verse_set_bool }
-        \bool_if:nTF { ##1 }
+        \bool_if:nTF {##1}
           {
             \ch* [ ##2 ] { \int_use:N \g_@@_chapter_int }
           }
@@ -5694,7 +5694,7 @@
     \cs_set_protected_nopar:Npn \GOD { \name { God } }
     \cs_set_eq:NN \nofirstverse \@@_no_first_verse:
     \cs_set_protected_nopar:Npn \textright ##1
-      { \@@_text_right:nn { \l_@@_text_right_sep_tl } { ##1 } }
+      { \@@_text_right:nn { \l_@@_text_right_sep_tl } {##1} }
     \hook_gclear_next_code:n { para / before }
     \hook_gclear_next_code:n { scripture / pilcow }
     \hook_gclear_next_code:n { scripture / poetry / pilcow }
@@ -5901,11 +5901,11 @@
       }
     \bool_set_true:N \l_@@_active_inner_bool
     \str_set:Nn \l_@@_currenvir_str { center }
-    \tl_if_novalue:nF { #1 }
+    \tl_if_novalue:nF {#1}
       {
         \keys_set:nn
           { scripture / center }
-          { #1 }
+          {#1}
       }
     \legacy_if:nTF { @newlist }
       { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
@@ -5983,11 +5983,11 @@
       }
     \bool_set_true:N \l_@@_active_inner_bool
     \str_set:Nn \l_@@_currenvir_str { flushright }
-    \tl_if_novalue:nF { #1 }
+    \tl_if_novalue:nF {#1}
       {
         \keys_set:nn
           { scripture / flushright }
-          { #1 }
+          {#1}
       }
     \legacy_if:nTF { @newlist }
       { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
@@ -6077,17 +6077,17 @@
     \bool_if:NTF \l_@@_chap_show_bool
       {
         \bool_if:NTF \l_@@_chap_drop_bool
-          { \@@_hanging_chap:n { #1 } }
+          { \@@_hanging_chap:n {#1} }
           {
             \bool_if:NTF \l_@@_chap_para_bool
-              { \@@_para_chap:n { #1 } }
-              { \@@_nodrop_chap:n { #1 } }
+              { \@@_para_chap:n {#1} }
+              { \@@_nodrop_chap:n {#1} }
           }
       }
       {
         \bool_if:NTF \l_@@_chap_para_bool
-          { \@@_para_chap:n { #1 } }
-          { \@@_nodrop_chap:n { #1 } }
+          { \@@_para_chap:n {#1} }
+          { \@@_nodrop_chap:n {#1} }
       }
   }
 %    \end{macrocode}
@@ -6099,7 +6099,7 @@
 \cs_new_protected:Nn \@@_hanging_chap:n
   {
     \dim_set:Nn \l_@@_hanging_chap_sep_dim { \l_@@_chap_sep_tl }
-    \@@_drop_chap_set_up:n { #1 }
+    \@@_drop_chap_set_up:n {#1}
     \dim_compare:nNnTF
       { \g_@@_chap_width_dim + \l_@@_hanging_chap_sep_dim } < { \leftmargin }
       {
@@ -6252,7 +6252,7 @@
               {
                 \hbox_overlap_left:n
                   {
-                    \@@_verse_output:n { #1 }
+                    \@@_verse_output:n {#1}
                   }
               }
               {
@@ -6260,7 +6260,7 @@
                   {
                     \hbox_overlap_right:n
                       {
-                        \@@_verse_output:n { #1 }
+                        \@@_verse_output:n {#1}
                       }
                     \skip_horizontal:N \l_@@_hanging_leftmargin_tl
                   }
@@ -6273,7 +6273,7 @@
               {
                 \hbox_overlap_left:n
                   {
-                    \@@_verse_output:n { #1 }
+                    \@@_verse_output:n {#1}
                   }
               }
               {
@@ -6281,7 +6281,7 @@
                   {
                     \hbox_overlap_right:n
                       {
-                        \@@_verse_output:n { #1 }
+                        \@@_verse_output:n {#1}
                       }
                     \skip_horizontal:N \l_@@_hanging_leftmargin_tl
                   }
@@ -6290,7 +6290,7 @@
           }
         \tl_set_eq:NN \l_@@_verse_sep_tl \l_tmpa_tl
       }
-      { \@@_verse_output:n { #1 } }
+      { \@@_verse_output:n {#1} }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -6308,13 +6308,13 @@
     \peek_analysis_map_inline:n
       {
         \bool_lazy_or:nnT
-          { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
-          { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
+          { \exp_args:No \token_if_eq_meaning_p:NN {##1} \vs }
+          { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newvs }
           {
             \bool_gset_true:N \g_@@_suppress_next_verse_para_bool
             \@@_set_pilcrow_hook:
           }
-        \peek_analysis_map_break:n { ##1 }
+        \peek_analysis_map_break:n {##1}
       }
   }
 %    \end{macrocode}
@@ -6331,19 +6331,19 @@
       }
     \bool_set_true:N \l_@@_active_inner_bool
     \str_set:Nn \l_@@_currenvir_str { hanging }
-    \tl_if_novalue:nF { #1 }
+    \tl_if_novalue:nF {#1}
       {
         \keys_set:nn
           { scripture / hanging }
-          { #1 }
+          {#1}
       }
     \DeclareDocumentCommand { \ch } { s o m }
       {
-        \tl_if_novalue:nF { ##2 }
+        \tl_if_novalue:nF {##2}
           {
-            \tl_set:Nn \l_@@_X_char_tl { ##2 }
+            \tl_set:Nn \l_@@_X_char_tl {##2}
           }
-        \@@_hanging_ch:n { ##3 }
+        \@@_hanging_ch:n {##3}
       }
     \bool_if:NTF \l_@@_verse_para_bool
       { \cs_set_eq:NN \vs \@@_hanging_verse_para:n }
@@ -6476,7 +6476,7 @@
 \cs_set_eq:Nc \@@_mid_para_chap_end_orig:n { end ~ }
 \cs_new_nopar:Nn \@@_mid_para_chap_end:n
   {
-    \@@_mid_para_chap_end_orig:n { #1 }
+    \@@_mid_para_chap_end_orig:n {#1}
     \bool_if:NT \l_@@_compact_bool
       { \c_space_token }
     \peek_remove_spaces:n
@@ -6485,14 +6485,14 @@
           {
             \bool_case:n
               {
-                { \exp_args:No \token_if_letter_p:N { ##1 } }
+                { \exp_args:No \token_if_letter_p:N {##1} }
                   { \@@_pilcrow_output: }
-                { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
+                { \exp_args:No \token_if_eq_meaning_p:NN {##1} \vs }
                   { \@@_set_pilcrow_hook: }
-                { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
+                { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newvs }
                   { \@@_set_pilcrow_hook: }
               }
-            \peek_analysis_map_break:n { ##1 }
+            \peek_analysis_map_break:n {##1}
           }
       }
   }
@@ -6567,11 +6567,11 @@
 \cs_new_protected:Nn \@@_mid_para_chap_begin:n
   {
     \str_set:Nn \l_@@_currenvir_str { midparachap }
-    \tl_if_novalue:nF { #1 }
+    \tl_if_novalue:nF {#1}
       {
         \keys_set:nn
           { scripture / midparachap }
-          { #1 }
+          {#1}
       }
     \bool_lazy_and:nnT { \l_@@_chap_show_verse_bool } { \l_@@_chap_drop_bool }
       {
@@ -6675,11 +6675,11 @@
       }
     \bool_set_true:N \l_@@_active_inner_bool
     \str_set:Nn \l_@@_currenvir_str { narrow }
-    \tl_if_novalue:nF { #1 }
+    \tl_if_novalue:nF {#1}
       {
         \keys_set:nn
           { scripture / narrow }
-          { #1 }
+          {#1}
       }
     \legacy_if:nTF { @newlist }
       { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
@@ -6800,7 +6800,7 @@
       \unskip
       \hfil
       \penalty 50
-      \skip_horizontal:n { #1 }
+      \skip_horizontal:n {#1}
       \hbox:n {}
       \nobreak
       \hfill
@@ -6835,17 +6835,17 @@
     \bool_if:NTF \l_@@_chap_show_bool
       {
         \bool_if:NTF \l_@@_chap_drop_bool
-          { \@@_poetry_chap:n { #1 } }
+          { \@@_poetry_chap:n {#1} }
           {
             \bool_if:NTF \l_@@_chap_para_bool
-              { \@@_para_chap:n { #1 } }
-              { \@@_poetry_nodrop_chap:n { #1 } }
+              { \@@_para_chap:n {#1} }
+              { \@@_poetry_nodrop_chap:n {#1} }
           }
       }
       {
         \bool_if:NTF \l_@@_chap_para_bool
-          { \@@_para_chap:n { #1 } }
-          { \@@_poetry_nodrop_chap:n { #1 } }
+          { \@@_para_chap:n {#1} }
+          { \@@_poetry_nodrop_chap:n {#1} }
       }
   }
 %    \end{macrocode}
@@ -6856,7 +6856,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_poetry_chap:n
   {
-    \@@_drop_chap_set_up:n { #1 }
+    \@@_drop_chap_set_up:n {#1}
     \int_gset_eq:NN \g_@@_current_group_level_c_int \currentgrouplevel
     \@@_zero_chap_par_prevgraf_at_group_level:
     \cs_if_eq:NNTF \vs \@@_poetry_mode_vertical_verse:n
@@ -6999,7 +6999,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_poetry_nodrop_chap:n
   {
-    \cs_gset_nopar:Npn \scripturecurrentchapter { #1 }
+    \cs_gset_nopar:Npn \scripturecurrentchapter {#1}
     \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
     \group_begin:
     \cs_if_eq:NNT \vs \@@_poetry_mode_vertical_verse:n
@@ -7013,7 +7013,7 @@
             \l_@@_chap_font_tl
             \str_if_eq:VnF \l_@@_chapter_colour_tl { . }
               { \exp_args:NV \color_select:n \l_@@_chapter_colour_tl }
-            \@@_chap_format:n { #1 }
+            \@@_chap_format:n {#1}
             \group_end:
             \skip_horizontal:N \l_@@_chap_sep_tl
             \hook_use:n { scripture / chap / after }
@@ -7043,14 +7043,14 @@
     \strut
     \int_compare:nNnTF { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
       {
-        \@@_verse_output:n { #1 }
+        \@@_verse_output:n {#1}
       }
       {
         \bool_if:NTF \l_@@_poetry_verse_right_bool
           {
             \hbox_overlap_left:n
               {
-                \@@_verse_output:n { #1 }
+                \@@_verse_output:n {#1}
               }
           }
           {
@@ -7058,7 +7058,7 @@
               {
                 \hbox_overlap_right:n
                   {
-                    \@@_verse_output:n { #1 }
+                    \@@_verse_output:n {#1}
                   }
                 \skip_horizontal:N \l_@@_poetry_leftmargin_tl
               }
@@ -7081,11 +7081,11 @@
     \tl_set_eq:NN \l_@@_verse_sep_tl \l_@@_poetry_verse_sep_tl
     \int_compare:nNnTF { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
       {
-        \@@_poetry_mode_vertical_verse:n { #1 }
+        \@@_poetry_mode_vertical_verse:n {#1}
       }
       {
         \skip_horizontal:n { - \listparindent }
-        \@@_poetry_mode_vertical_verse:n { #1 }
+        \@@_poetry_mode_vertical_verse:n {#1}
         \skip_horizontal:N \listparindent
       }
     \group_end:
@@ -7138,47 +7138,47 @@
       {
         \bool_case:nF
           {
-            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \ch }
+            { \exp_args:No \token_if_eq_meaning_p:NN {##1} \ch }
               {
                 \bool_set_eq:NN \l_@@_poetry_midparachap_show_verse_bool \l_@@_midparachap_show_verse_bool
                 \@@_poetry_par:
-                \peek_analysis_map_break:n { ##1 }
+                \peek_analysis_map_break:n {##1}
               }
-            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newch }
+            { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newch }
               {
                 \bool_set_eq:NN \l_@@_poetry_midparachap_show_verse_bool \l_@@_midparachap_show_verse_bool
                 \@@_poetry_par:
-                \peek_analysis_map_break:n { ##1 }
+                \peek_analysis_map_break:n {##1}
               }
-            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \end }
-              { \peek_analysis_map_break:n { ##1 } }
-            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \extraskip }
-              { \peek_analysis_map_break:n { ##1 } }
-            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \nopilcrow }
+            { \exp_args:No \token_if_eq_meaning_p:NN {##1} \end }
+              { \peek_analysis_map_break:n {##1} }
+            { \exp_args:No \token_if_eq_meaning_p:NN {##1} \extraskip }
+              { \peek_analysis_map_break:n {##1} }
+            { \exp_args:No \token_if_eq_meaning_p:NN {##1} \nopilcrow }
               {
                 \@@_poetry_par:
                 \cs_if_eq:NNT \vs \@@_poetry_mode_vertical_verse:n
                   { \noindent }
                 \peek_analysis_map_break:n
                   {
-                    \@@_fix_protrusion:o { ##1 }
+                    \@@_fix_protrusion:o {##1}
                   }
               }
-            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
+            { \exp_args:No \token_if_eq_meaning_p:NN {##1} \vs }
               {
                 \@@_poetry_par:
                 \cs_if_eq:NNT \vs \@@_poetry_mode_vertical_verse:n
                   { \noindent }
-                \peek_analysis_map_break:n { ##1 }
+                \peek_analysis_map_break:n {##1}
               }
-            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
+            { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newvs }
               {
                 \@@_poetry_par:
                 \cs_if_eq:NNT \vs \@@_poetry_mode_vertical_verse:n
                   { \noindent }
-                \peek_analysis_map_break:n { ##1 }
+                \peek_analysis_map_break:n {##1}
               }
-            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \@@_obeylines_eol: }
+            { \exp_args:No \token_if_eq_meaning_p:NN {##1} \@@_obeylines_eol: }
               { \cs_set_eq:NN \vs \@@_poetry_mode_vertical_verse:n }
           }
           {
@@ -7194,7 +7194,7 @@
               }
             \peek_analysis_map_break:n
               {
-                \@@_fix_protrusion:o { ##1 }
+                \@@_fix_protrusion:o {##1}
               }
           }
       }
@@ -7216,16 +7216,16 @@
     \bool_gset_false:N \g_@@_poetry_midparachap_show_verse_bool
     \DeclareDocumentCommand { \ch } { s o m }
       {
-        \tl_if_novalue:nF { ##2 }
+        \tl_if_novalue:nF {##2}
           {
-            \tl_set:Nn \l_@@_X_char_tl { ##2 }
+            \tl_set:Nn \l_@@_X_char_tl {##2}
           }
-        \@@_poetry_ch:n { ##3 }
+        \@@_poetry_ch:n {##3}
       }
     \cs_set_eq:NN \vs \@@_poetry_mode_vertical_verse:n
     \cs_set_eq:NN \selah \@@_selah_output:
     \cs_set_protected_nopar:Npn \textright ##1
-      { \@@_poetry_text_right:nn { \l_@@_text_right_sep_tl } { ##1 } }
+      { \@@_poetry_text_right:nn { \l_@@_text_right_sep_tl } {##1} }
     \legacy_if:nTF { @newlist }
       { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
@@ -7312,7 +7312,7 @@
 %    \begin{macrocode}
 \NewDocumentCommand { \scripturesetup } { m }
   {
-    \keys_set:nn { scripture } { #1 }
+    \keys_set:nn { scripture } {#1}
   }
 %    \end{macrocode}
 % \end{macro}
@@ -7329,7 +7329,7 @@
 %    \begin{macrocode}
 \NewDocumentCommand { \scripturestyle } { s m m }
   {
-    \@@_setup_style:nnn { #1 } { #2 } { #3 }
+    \@@_setup_style:nnn {#1} {#2} {#3}
   }
 %    \end{macrocode}
 % \end{macro}
@@ -7345,7 +7345,7 @@
 %    \begin{macrocode}
 \NewDocumentCommand { \textscripture } { o o +m }
   {
-    \tl_if_novalue:nTF { #2 }
+    \tl_if_novalue:nTF {#2}
       {
         \begin { scripture } [ #1 ] [ inline ]
       }
@@ -7367,7 +7367,7 @@
 %    \begin{macrocode}
 \NewDocumentEnvironment { scripture } { o o }
   {
-    \@@_begin:nn { #1 } { #2 }
+    \@@_begin:nn {#1} {#2}
 %    \end{macrocode}
 % \begin{envmacro}{center}
 %   \begin{arguments}
@@ -7376,7 +7376,7 @@
 %    \begin{macrocode}
     \DeclareDocumentEnvironment { center } { o }
       {
-        \@@_center_begin:n { ##1 }
+        \@@_center_begin:n {##1}
         \@@_reference_start_peek:
       }
       { \@@_center_end: }
@@ -7389,7 +7389,7 @@
 %    \begin{macrocode}
     \DeclareDocumentEnvironment { flushright } { o }
       {
-        \@@_flushright_begin:n { ##1 }
+        \@@_flushright_begin:n {##1}
         \@@_reference_start_peek:
       }
       { \@@_flushright_end: }
@@ -7402,7 +7402,7 @@
 %    \begin{macrocode}
     \DeclareDocumentEnvironment { hanging } { o }
       {
-        \@@_hanging_begin:n { ##1 }
+        \@@_hanging_begin:n {##1}
         \@@_reference_start_peek:
       }
       { \@@_hanging_end: }
@@ -7413,7 +7413,7 @@
 %    \begin{macrocode}
     \DeclareDocumentEnvironment { midparachap } { o }
       {
-        \@@_mid_para_chap_begin:n { ##1 }
+        \@@_mid_para_chap_begin:n {##1}
         \@@_reference_start_peek:
       }
       { \@@_mid_para_chap_end: }
@@ -7426,7 +7426,7 @@
 %    \begin{macrocode}
     \DeclareDocumentEnvironment { narrow } { o }
       {
-        \@@_narrow_begin:n { ##1 }
+        \@@_narrow_begin:n {##1}
         \@@_reference_start_peek:
       }
       { \@@_narrow_end: }
@@ -7441,11 +7441,11 @@
 %    \begin{macrocode}
     \DeclareDocumentEnvironment { poetryaux } { o }
       {
-        \tl_if_novalue:nF { ##1 }
+        \tl_if_novalue:nF {##1}
           {
             \keys_set:nn
               { scripture / poetry }
-              { ##1 }
+              {##1}
           }
         \@@_poetry_begin:
         \@@_reference_start_peek:
