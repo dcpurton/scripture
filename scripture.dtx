@@ -6409,7 +6409,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Npn \@@_vbox_set_top:Nw #1
   {
-    \tex_setbox:D #1 \tex_vtop:D
+    \setbox #1 \vtop
       \c_group_begin_token
         \color_group_begin:
   }
