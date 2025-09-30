@@ -5026,7 +5026,7 @@
           {
             \dim_add:Nn \l_@@_para_chap_indent_dim { \leftmargin + \rightmargin }
             \dim_set:Nn \l_@@_para_chap_indent_dim { 0.5 \l_@@_para_chap_indent_dim }
-            \dim_sub:Nn \l_@@_para_chap_indent_dim \leftmargin
+            \dim_sub:Nn \l_@@_para_chap_indent_dim { \leftmargin }
           }
         \mode_if_vertical:F \para_end:
         \addvspace { \l_@@_chap_para_aboveskip_tl }
@@ -5153,12 +5153,12 @@
           {
             \legacy_if:nF { @newlist }
               {
-                \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+                \int_compare:nNnT { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
                   {
-                    \dim_compare:nNnT \parskip < \baselineskip
+                    \dim_compare:nNnT { \parskip } < { \baselineskip }
                       {
                         \dim_compare:nNnT
-                          { \g_@@_chap_width_dim + \l_@@_chap_sep_tl } > \parindent
+                          { \g_@@_chap_width_dim + \l_@@_chap_sep_tl } > { \parindent }
                           {
                             \hook_gput_next_code:nn { para / begin }
                               {
@@ -5190,7 +5190,7 @@
           { \g_@@_current_group_level_b_int } = { \currentgrouplevel }
           {
             \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \prevgraf
-            \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+            \int_compare:nNnT { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
               { \penalty 10000 }
             \hook_gput_next_code:nn { para / before }
               { \int_set_eq:NN \clubpenalty \l_@@_clubpenalty_saved_int }
@@ -5438,7 +5438,7 @@
     \skip_zero:N \belowdisplayskip
     $$
       \hook_use:n { para / after }
-      \dim_compare:nNnTF \predisplaysize > \c_zero_dim
+      \dim_compare:nNnTF { \predisplaysize } > { \c_zero_dim }
         {
           \dim_gset:Nn \g_@@_final_line_dim
             { \predisplaysize - 2em }
@@ -5458,9 +5458,9 @@
         }
     $$
     \@@_reset_spacing:
-    \dim_compare:nNnT \g_@@_final_line_dim > \paperwidth
+    \dim_compare:nNnT { \g_@@_final_line_dim } > { \paperwidth }
       { \dim_gset:Nn \g_@@_final_line_dim { \@totalleftmargin + \linewidth } }
-    \dim_compare:nNnT \g_@@_final_line_dim > { \c_zero_dim - 1sp }
+    \dim_compare:nNnT { \g_@@_final_line_dim } > { \c_zero_dim - 1sp }
       { \skip_vertical:n { -\baselineskip - \parskip } }
   }
 %    \end{macrocode}
@@ -5721,13 +5721,13 @@
           { \dim_zero:N \l_@@_outer_itemindent_dim }
         \list { }
           {
-            \dim_set_eq:NN \leftmargin \l_@@_leftmargin_tl
-            \dim_set_eq:NN \rightmargin \l_@@_rightmargin_tl
+            \dim_set:Nn \leftmargin { \l_@@_leftmargin_tl }
+            \dim_set:Nn \rightmargin { \l_@@_rightmargin_tl }
             \dim_set:Nn \itemindent { \l_@@_parindent_tl - \l_@@_outer_itemindent_dim }
-            \dim_set_eq:NN \listparindent \l_@@_parindent_tl
+            \dim_set:Nn \listparindent { \l_@@_parindent_tl }
             \skip_zero:N \partopsep
-            \skip_set_eq:NN \parsep \l_@@_parskip_tl
-            \dim_compare:nNnTF \parskip > \l_@@_aboveskip_tl
+            \skip_set:Nn \parsep { \l_@@_parskip_tl }
+            \dim_compare:nNnTF { \parskip } > { \l_@@_aboveskip_tl }
               { \skip_zero:N \topsep }
               { \skip_set:Nn \topsep { \@@_skip_diff:NN \l_@@_aboveskip_tl \parskip } }
             \@@_setup_list_noindent:n { \l_@@_parindent_tl }
@@ -5804,14 +5804,14 @@
         \int_set:Nn \postdisplaypenalty { 10000 }
         \@@_calc_final_line_length:
         \dim_gsub:Nn \g_@@_final_line_dim \@totalleftmargin
-        \dim_compare:nNnTF \@outerparskip > \l_@@_belowskip_tl
+        \dim_compare:nNnTF { \@outerparskip } > { \l_@@_belowskip_tl }
           { \skip_zero:N \@topsepadd }
           { \skip_set:Nn \@topsepadd { \@@_skip_diff:NN \l_@@_belowskip_tl \@outerparskip } }
 %    \end{macrocode}
 % If a \env{scripture} quotation ends with an inner environment, remove the
 % below skip of the inner environment. Also correct for \cs{textdir} quirk.
 %    \begin{macrocode}
-        \int_compare:nNnT \prevgraf = \c_zero_int
+        \int_compare:nNnT { \prevgraf } = { \c_zero_int }
           {
             \bool_if:NT \l_@@_textdir_change_in_group_bool
               { \skip_vertical:n { -\baselineskip } }
@@ -5866,7 +5866,7 @@
         \tex_noindent:D
         \bool_lazy_and:nnTF
           { \bool_if_p:N \l_@@_compact_bool }
-          { \int_compare_p:nNn \g_@@_mid_para_chap_prevgraf_int = 1 }
+          { \int_compare_p:nNn { \g_@@_mid_para_chap_prevgraf_int } = { \c_one_int } }
           {
             \hook_gput_next_code:nn { env / \l_@@_currenvir_str / after }
               {
@@ -5927,18 +5927,18 @@
           { \g_@@_para_mode_vertical_bool }
           { \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool }
         \dim_zero:N \labelsep
-        \dim_set_eq:NN \leftmargin \l_@@_center_leftmargin_tl
-        \dim_set_eq:NN \rightmargin \l_@@_center_rightmargin_tl
+        \dim_set:Nn \leftmargin { \l_@@_center_leftmargin_tl }
+        \dim_set:Nn \rightmargin { \l_@@_center_rightmargin_tl }
         \dim_set:Nn \itemindent { -\l_@@_outer_itemindent_dim }
         \dim_zero:N \listparindent
         \skip_set_eq:NN \parsep \parskip
         \skip_zero:N \partopsep
-        \dim_compare:nNnTF \parskip > \l_@@_center_aboveskip_tl
+        \dim_compare:nNnTF { \parskip } > { \l_@@_center_aboveskip_tl }
           { \skip_zero:N \topsep }
           { \skip_set:Nn \topsep { \@@_skip_diff:NN \l_@@_center_aboveskip_tl \parskip } }
         \@@_setup_list_noindent:n { \c_zero_dim }
       }
-    \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+    \int_compare:nNnT { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
       { \addvspace { \baselineskip } }
     \int_gzero:N \g_@@_chap_par_prevgraf_int
     \centering
@@ -5965,7 +5965,7 @@
   {
     \cs_set_eq:NN \par \para_end:
     \dim_gset:Nn \g_@@_final_line_dim { \@totalleftmargin + \linewidth }
-    \dim_compare:nNnTF \@outerparskip > \l_@@_center_belowskip_tl
+    \dim_compare:nNnTF { \@outerparskip } > { \l_@@_center_belowskip_tl }
       { \skip_zero:N \@topsepadd }
       { \skip_set:Nn \@topsepadd { \@@_skip_diff:NN \l_@@_center_belowskip_tl \@outerparskip } }
     \skip_gset_eq:NN \g_@@_prev_inner_below_skip \@topsepadd
@@ -6009,18 +6009,18 @@
           { \g_@@_para_mode_vertical_bool }
           { \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool }
         \dim_zero:N \labelsep
-        \dim_set_eq:NN \leftmargin \l_@@_flushright_leftmargin_tl
-        \dim_set_eq:NN \rightmargin \l_@@_flushright_rightmargin_tl
+        \dim_set:Nn \leftmargin { \l_@@_flushright_leftmargin_tl }
+        \dim_set:Nn \rightmargin { \l_@@_flushright_rightmargin_tl }
         \dim_set:Nn \itemindent { -\l_@@_outer_itemindent_dim }
         \dim_zero:N \listparindent
         \skip_set_eq:NN \parsep \parskip
         \skip_zero:N \partopsep
-        \dim_compare:nNnTF \parskip > \l_@@_flushright_aboveskip_tl
+        \dim_compare:nNnTF { \parskip } > { \l_@@_flushright_aboveskip_tl }
           { \skip_zero:N \topsep }
           { \skip_set:Nn \topsep { \@@_skip_diff:NN \l_@@_flushright_aboveskip_tl \parskip } }
         \@@_setup_list_noindent:n { \c_zero_dim }
       }
-    \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+    \int_compare:nNnT { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
       { \addvspace { \baselineskip } }
     \int_gzero:N \g_@@_chap_par_prevgraf_int
     \raggedleft
@@ -6047,7 +6047,7 @@
   {
     \cs_set_eq:NN \par \para_end:
     \dim_gset:Nn \g_@@_final_line_dim { \@totalleftmargin + \linewidth }
-    \dim_compare:nNnTF \@outerparskip > \l_@@_flushright_belowskip_tl
+    \dim_compare:nNnTF { \@outerparskip } > { \l_@@_flushright_belowskip_tl }
       { \skip_zero:N \@topsepadd }
       { \skip_set:Nn \@topsepadd { \@@_skip_diff:NN \l_@@_flushright_belowskip_tl \@outerparskip } }
     \skip_gset_eq:NN \g_@@_prev_inner_below_skip \@topsepadd
@@ -6106,10 +6106,10 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_hanging_chap:n
   {
-    \dim_set_eq:NN \l_@@_hanging_chap_sep_dim \l_@@_chap_sep_tl
+    \dim_set:Nn \l_@@_hanging_chap_sep_dim { \l_@@_chap_sep_tl }
     \@@_drop_chap_set_up:n { #1 }
     \dim_compare:nNnTF
-      { \g_@@_chap_width_dim + \l_@@_hanging_chap_sep_dim } < \leftmargin
+      { \g_@@_chap_width_dim + \l_@@_hanging_chap_sep_dim } < { \leftmargin }
       {
         \bool_if:NT \l_@@_hanging_chapter_indent_bool
           {
@@ -6151,10 +6151,10 @@
       {
         \mode_leave_vertical:
         \dim_compare:nNnTF
-          { \g_@@_chap_width_dim + \l_@@_hanging_chap_sep_dim } > \l_@@_hanging_leftmargin_tl
+          { \g_@@_chap_width_dim + \l_@@_hanging_chap_sep_dim } > { \l_@@_hanging_leftmargin_tl }
           {
             \dim_compare:nNnTF
-              { \g_@@_chap_width_dim + \l_@@_hanging_chap_sep_dim } > \leftmargin
+              { \g_@@_chap_width_dim + \l_@@_hanging_chap_sep_dim } > { \leftmargin }
               {
                 \skip_horizontal:n { \l_@@_hanging_hang_tl }
               }
@@ -6201,7 +6201,7 @@
       \hook_gput_next_code:nn { para / after }
         {
           \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \prevgraf
-          \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+          \int_compare:nNnT { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
             { \penalty 10000 }
           \hook_gput_next_code:nn { para / before }
             {
@@ -6211,7 +6211,7 @@
     }
     \hook_gput_next_code:nn { para / begin }
       {
-        \int_compare:nNnTF \g_@@_chap_par_prevgraf_int = \c_one_int
+        \int_compare:nNnTF { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
           {
             \dim_compare:nNnTF
               { \l_@@_hanging_leftmargin_tl } <
@@ -6372,17 +6372,17 @@
           { \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool }
         \dim_zero:N \labelsep
         \dim_set:Nn \leftmargin { \l_@@_hanging_leftmargin_tl + \l_@@_hanging_hang_tl }
-        \dim_set_eq:NN \rightmargin \l_@@_hanging_rightmargin_tl
+        \dim_set:Nn \rightmargin { \l_@@_hanging_rightmargin_tl }
         \dim_set:Nn \itemindent { -\l_@@_hanging_hang_tl - \l_@@_outer_itemindent_dim }
         \dim_set:Nn \listparindent { -\l_@@_hanging_hang_tl }
         \skip_set_eq:NN \parsep \parskip
         \skip_zero:N \partopsep
-        \dim_compare:nNnTF \parskip > \l_@@_hanging_aboveskip_tl
+        \dim_compare:nNnTF { \parskip } > { \l_@@_hanging_aboveskip_tl }
           { \skip_zero:N \topsep }
           { \skip_set:Nn \topsep { \@@_skip_diff:NN \l_@@_hanging_aboveskip_tl \parskip } }
         \@@_setup_list_noindent:n { -\l_@@_hanging_hang_tl }
       }
-    \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+    \int_compare:nNnT { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
       { \addvspace { \baselineskip } }
     \int_gzero:N \g_@@_chap_par_prevgraf_int
     \item
@@ -6397,7 +6397,7 @@
 \cs_new_protected:Nn \@@_hanging_end:
   {
     \@@_calc_final_line_length:
-    \dim_compare:nNnTF \@outerparskip > \l_@@_hanging_belowskip_tl
+    \dim_compare:nNnTF { \@outerparskip } > { \l_@@_hanging_belowskip_tl }
       { \skip_zero:N \@topsepadd }
       { \skip_set:Nn \@topsepadd { \@@_skip_diff:NN \l_@@_hanging_belowskip_tl \@outerparskip } }
     \skip_gset_eq:NN \g_@@_prev_inner_below_skip \@topsepadd
@@ -6619,7 +6619,7 @@
     \box_clear:N \l_@@_mid_para_chap_snap_box
     \nointerlineskip
     \int_compare:nNnT
-      \prevgraf < 3
+      { \prevgraf } < { 3 }
       {
         \noindent
         \skip_horizontal:n { \g_@@_chap_width_dim + \l_@@_chap_sep_tl }
@@ -6697,8 +6697,8 @@
     \list { }
       {
         \dim_zero:N \labelsep
-        \dim_set_eq:NN \leftmargin \l_@@_narrow_leftmargin_tl
-        \dim_set_eq:NN \rightmargin \l_@@_narrow_rightmargin_tl
+        \dim_set:Nn \leftmargin { \l_@@_narrow_leftmargin_tl }
+        \dim_set:Nn \rightmargin { \l_@@_narrow_rightmargin_tl }
         \dim_set_eq:NN \listparindent \parindent
         \bool_lazy_or:nnTF
           { \mode_if_vertical_p: }
@@ -6714,11 +6714,11 @@
           }
         \skip_set_eq:NN \parsep \parskip
         \skip_zero:N \partopsep
-        \dim_compare:nNnTF \parskip > \l_@@_narrow_aboveskip_tl
+        \dim_compare:nNnTF { \parskip } > { \l_@@_narrow_aboveskip_tl }
           { \skip_zero:N \topsep }
           { \skip_set:Nn \topsep { \@@_skip_diff:NN \l_@@_narrow_aboveskip_tl \parskip } }
       }
-    \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+    \int_compare:nNnT { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
       { \addvspace { \baselineskip } }
     \int_gzero:N \g_@@_chap_par_prevgraf_int
     \bool_if:NT \l_@@_verse_para_bool
@@ -6736,7 +6736,7 @@
   {
     \cs_set_eq:NN \par \para_end:
     \@@_calc_final_line_length:
-    \dim_compare:nNnTF \@outerparskip > \l_@@_narrow_belowskip_tl
+    \dim_compare:nNnTF { \@outerparskip } > { \l_@@_narrow_belowskip_tl }
       { \skip_zero:N \@topsepadd }
       { \skip_set:Nn \@topsepadd { \@@_skip_diff:NN \l_@@_narrow_belowskip_tl \@outerparskip } }
     \skip_gset_eq:NN \g_@@_prev_inner_below_skip \@topsepadd
@@ -6873,10 +6873,10 @@
         \noindent
       }
       {
-        \dim_set_eq:NN \l_@@_poetry_chap_indent_dim \l_@@_poetry_indent_tl
+        \dim_set:Nn \l_@@_poetry_chap_indent_dim { \l_@@_poetry_indent_tl }
         \mode_leave_vertical:
       }
-    \dim_set_eq:NN \l_@@_poetry_chap_sep_dim \l_@@_chap_sep_tl
+    \dim_set:Nn \l_@@_poetry_chap_sep_dim { \l_@@_chap_sep_tl }
     \dim_compare:nNnT
       { \g_@@_chap_width_dim + \l_@@_chap_sep_tl }
       <
@@ -6922,11 +6922,11 @@
     \dim_compare:nNnT
       { \g_@@_chap_width_dim + \l_@@_poetry_chap_sep_dim }
       >
-      \l_@@_poetry_leftmargin_tl
+      { \l_@@_poetry_leftmargin_tl }
       {
         \hook_gput_next_code:nn { scripture / poetry / para / after }
           {
-            \int_compare:nNnT \l_@@_poetry_prevgraf_int = 1
+            \int_compare:nNnT { \l_@@_poetry_prevgraf_int } = { \c_one_int }
               {
                 \cs_if_eq:NNTF \vs \@@_poetry_mode_vertical_verse:n
 %    \end{macrocode}
@@ -6937,7 +6937,7 @@
                     \dim_compare:nNnTF
                       { \g_@@_chap_width_dim + \l_@@_chap_sep_tl }
                       <
-                      \l_@@_poetry_leftmargin_tl
+                      { \l_@@_poetry_leftmargin_tl }
                       { \dim_zero:N \l_@@_poetry_chap_parshape_correction_dim }
                       {
                         \dim_set:Nn \l_@@_poetry_chap_parshape_correction_dim
@@ -6946,7 +6946,7 @@
                             \l_@@_poetry_leftmargin_tl
                           }
                       }
-                    \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+                    \int_compare:nNnT { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
                       {
                         \parshape 2 ~
                           \dim_eval:n
@@ -7049,7 +7049,7 @@
     \tl_set_eq:NN \l_@@_verse_sep_tl \l_@@_poetry_verse_sep_tl
     \hook_gclear_next_code:n { scripture / pilcrow }
     \strut
-    \int_compare:nNnTF \g_@@_chap_par_prevgraf_int = 1
+    \int_compare:nNnTF { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
       {
         \@@_verse_output:n { #1 }
       }
@@ -7087,7 +7087,7 @@
   {
     \group_begin:
     \tl_set_eq:NN \l_@@_verse_sep_tl \l_@@_poetry_verse_sep_tl
-    \int_compare:nNnTF \g_@@_chap_par_prevgraf_int = 1
+    \int_compare:nNnTF { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
       {
         \@@_poetry_mode_vertical_verse:n { #1 }
       }
@@ -7254,22 +7254,22 @@
           { \g_@@_para_mode_vertical_bool }
           { \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool }
         \dim_zero:N \labelsep
-        \dim_set_eq:NN \leftmargin \l_@@_poetry_leftmargin_tl
-        \dim_set_eq:NN \rightmargin \l_@@_poetry_rightmargin_tl
+        \dim_set:Nn \leftmargin { \l_@@_poetry_leftmargin_tl }
+        \dim_set:Nn \rightmargin { \l_@@_poetry_rightmargin_tl }
         \dim_set:Nn \itemindent { \l_@@_poetry_indent_tl - \l_@@_outer_itemindent_dim }
-        \dim_set_eq:NN \listparindent \l_@@_poetry_indent_tl
+        \dim_set:Nn \listparindent { \l_@@_poetry_indent_tl }
         \skip_zero:N \parsep
         \skip_zero:N \partopsep
-        \dim_compare:nNnTF \parskip > { \l_@@_poetry_aboveskip_tl }
+        \dim_compare:nNnTF { \parskip } > { \l_@@_poetry_aboveskip_tl }
           { \skip_zero:N \topsep }
           { \skip_set:Nn \topsep { \@@_skip_diff:NN \l_@@_poetry_aboveskip_tl \parskip } }
         \@@_setup_list_noindent:n { \l_@@_poetry_indent_tl }
       }
-    \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+    \int_compare:nNnT { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
       { \addvspace { \baselineskip } }
     \int_gzero:N \g_@@_chap_par_prevgraf_int
     \raggedright
-    \dim_set_eq:NN \parindent \l_@@_poetry_indent_tl
+    \dim_set:Nn \parindent { \l_@@_poetry_indent_tl }
     \item
     \relax
   }
@@ -7282,7 +7282,7 @@
 \cs_new_protected:Nn \@@_poetry_end:
   {
     \@@_calc_final_line_length:
-    \dim_compare:nNnTF \@outerparskip > { \l_@@_poetry_belowskip_tl }
+    \dim_compare:nNnTF { \@outerparskip } > { \l_@@_poetry_belowskip_tl }
       { \skip_zero:N \@topsepadd }
       { \skip_set:Nn \@topsepadd { \@@_skip_diff:NN \l_@@_poetry_belowskip_tl \@outerparskip } }
     \skip_gset_eq:NN \g_@@_prev_inner_below_skip \@topsepadd
