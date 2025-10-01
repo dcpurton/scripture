@@ -3946,7 +3946,7 @@
       {
         \tl_if_exist:cF { g__@@_style_ #2 _tl }
           { \tl_new:c { g__@@_style_ #2 _tl } }
-        \@@_setup_style:nne \c_false_bool {#2}
+        \@@_setup_style:nne { \c_false_bool } {#2}
           { \tl_use:c { g__@@_style_ #2 _tl } , #3 }
       }
       {
@@ -5029,7 +5029,9 @@
     \bool_if:NT \l_@@_verse_para_bool
       {
         \legacy_if:nF { @newlist }
-          { \mode_if_vertical:F \para_end: }
+          {
+            \mode_if_vertical:F { \para_end: }
+          }
       }
     \bool_if:NTF \l_@@_chap_show_bool
       {
@@ -5122,7 +5124,7 @@
               { 0.5 \l_@@_para_chap_indent_dim }
             \dim_sub:Nn \l_@@_para_chap_indent_dim { \leftmargin }
           }
-        \mode_if_vertical:F \para_end:
+        \mode_if_vertical:F { \para_end: }
         \addvspace { \l_@@_chap_para_aboveskip_tl }
         \bool_gset_eq:NN \g_tmpa_bool \g_@@_suppress_next_pilcrow_bool
         \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
@@ -5442,7 +5444,9 @@
     \mode_if_vertical:T
       { \@@_set_pilcrow_hook: }
     \hook_if_empty:nT { scripture / pilcrow }
-      { \dim_set:Nn \parindent \l_@@_para_indent_tl }
+      {
+        \dim_set:Nn \parindent { \l_@@_para_indent_tl }
+      }
     \bool_if:NTF \g_@@_suppress_next_verse_para_bool
       { \bool_gset_false:N \g_@@_suppress_next_verse_para_bool }
       {
@@ -5805,7 +5809,7 @@
         \bool_if:NTF \g_@@_first_verse_set_bool
           {
             \int_gincr:N \g_@@_chapter_int
-            \int_gset:Nn \g_@@_verse_int \c_one_int
+            \int_gset_eq:NN \g_@@_verse_int \c_one_int
           }
           { \bool_gset_true:N \g_@@_first_verse_set_bool }
         \bool_if:nTF {##1}
@@ -5944,13 +5948,13 @@
             \tl_if_empty:NF \l_@@_version_tl
               {
                 \skip_horizontal:N \l_@@_ref_sep_tl
-                \@@_format_full_ref:nn { } \l_@@_version_tl
+                \@@_format_full_ref:nn { } { \l_@@_version_tl }
               }
           }
           {
             \skip_horizontal:N \l_@@_ref_sep_tl
             \@@_format_full_ref:nn
-              \l_@@_ref_tl \l_@@_version_tl
+              { \l_@@_ref_tl } { \l_@@_version_tl }
           }
       }
       {
@@ -5989,7 +5993,9 @@
               { \hbox:n { } }
               { \@@_reference:n { } }
           }
-          { \@@_reference:n \l_@@_ref_tl }
+          {
+            \@@_reference:n { \l_@@_ref_tl }
+          }
         \parshape 1 ~ \@totalleftmargin ~ \linewidth
 %    \end{macrocode}
 % Set \val{@noparlist} to \val{false} to ensure \cs{topsep} is always added
@@ -6063,7 +6069,7 @@
               { }
           }
           {
-            \hbox_to_wd:nn \g_@@_final_line_dim { }
+            \hbox_to_wd:nn { \g_@@_final_line_dim } { }
           }
         \c_space_token
         \kern 0pt
@@ -6099,7 +6105,9 @@
           {#1}
       }
     \legacy_if:nTF { @newlist }
-      { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
+      {
+        \dim_add:Nn \l_@@_outer_itemindent_dim { \itemindent }
+      }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
     \cs_set_eq:NN \par \para_end:
     \int_gset_eq:NN \g_@@_current_group_level_b_int \currentgrouplevel
@@ -6196,7 +6204,9 @@
           {#1}
       }
     \legacy_if:nTF { @newlist }
-      { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
+      {
+        \dim_add:Nn \l_@@_outer_itemindent_dim { \itemindent }
+      }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
     \cs_set_eq:NN \par \para_end:
     \int_gset_eq:NN \g_@@_current_group_level_b_int \currentgrouplevel
@@ -6594,7 +6604,9 @@
     \cs_set_eq:NN \nohang \@@_nohang:
     \dim_set_eq:NN \l_@@_hanging_parindent_saved_dim \parindent
     \legacy_if:nTF { @newlist }
-      { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
+      {
+        \dim_add:Nn \l_@@_outer_itemindent_dim { \itemindent }
+      }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
     \cs_set_eq:NN \par \para_end:
     \hook_gclear_next_code:n { para / before }
@@ -6959,7 +6971,9 @@
           {#1}
       }
     \legacy_if:nTF { @newlist }
-      { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
+      {
+        \dim_add:Nn \l_@@_outer_itemindent_dim { \itemindent }
+      }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
     \cs_set_eq:NN \par \para_end:
     \int_gset_eq:NN \g_@@_current_group_level_b_int \currentgrouplevel
@@ -7583,7 +7597,9 @@
           { \l_@@_text_right_sep_tl } {##1}
       }
     \legacy_if:nTF { @newlist }
-      { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
+      {
+        \dim_add:Nn \l_@@_outer_itemindent_dim { \itemindent }
+      }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
     \cs_set_eq:NN \par \para_end:
     \cs_set_eq:NN \noindent \@@_noindent_saved:
