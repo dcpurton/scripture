@@ -3353,7 +3353,7 @@
         {
           \tl_if_exist:NF \l_@@_chapter_align_tl
             { \tl_new:N \l_@@_chapter_align_tl }
-          \str_case:Vn \l_keys_choice_tl
+          \str_case:Vn \l_keys_choice_str
             {
               { left }
                 {
@@ -3422,7 +3422,7 @@
         {
           \tl_if_exist:NF \l_@@_chapter_valign_tl
             { \tl_new:N \l_@@_chapter_valign_tl }
-          \str_case:Vn \l_keys_choice_tl
+          \str_case:Vn \l_keys_choice_str
             {
               { bottom }
                 {
@@ -3465,7 +3465,7 @@
         {
           \tl_if_exist:NF \l_@@_heading_align_tl
             { \tl_new:N \l_@@_heading_align_tl }
-          \str_case:Vn \l_keys_choice_tl
+          \str_case:Vn \l_keys_choice_str
             {
               { left }
                 {
@@ -3567,7 +3567,7 @@
         {
           \tl_if_exist:NF \l_@@_ref_align_tl
             { \tl_new:N \l_@@_ref_align_tl }
-          \tl_set_eq:NN \l_@@_ref_align_tl \l_keys_choice_tl
+          \tl_set_eq:NN \l_@@_ref_align_tl \l_keys_choice_str
         }
     , reference / align .value_required:n = true
     , reference / align .initial:n = right
@@ -3588,7 +3588,7 @@
         {
           \tl_if_exist:NF \l_@@_ref_position_tl
             { \tl_new:N \l_@@_ref_position_tl }
-          \tl_set_eq:NN \l_@@_ref_position_tl \l_keys_choice_tl
+          \tl_set_eq:NN \l_@@_ref_position_tl \l_keys_choice_str
         }
     , reference / position .value_required:n = true
     , reference / position .initial:n = end
@@ -3681,7 +3681,7 @@
         {
           \tl_if_exist:NF \l_@@_version_position_tl
             { \tl_new:N \l_@@_version_position_tl }
-          \tl_set_eq:NN \l_@@_version_position_tl \l_keys_choice_tl
+          \tl_set_eq:NN \l_@@_version_position_tl \l_keys_choice_str
         }
     , version / position .value_required:n = true
     , version / position .initial:n = withref
