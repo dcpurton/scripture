@@ -4678,7 +4678,7 @@
   {
     \box_gclear:N \g_@@_post_env_indent_box
     \legacy_if_set_true:n { @endpe }
-    \cs_set_nopar:Npn \par
+    \cs_set_protected:Npn \par
       {
         \@restorepar
         \clubpenalty \@clubpenalty
@@ -5786,7 +5786,7 @@
     \cs_set_eq:NN \extraskip \@@_extra_skip:
     \cs_set_eq:NN \redletteron \@@_red_letter_on:
     \cs_set_eq:NN \redletteroff \@@_red_letter_off:
-    \cs_set:Npn \nopilcrow
+    \cs_set_protected:Npn \nopilcrow
       { \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool }
     \bool_gset_false:N \g_@@_suppress_next_pilcrow_bool
     \bool_gset_false:N \g_@@_suppress_next_verse_para_bool
@@ -6751,7 +6751,7 @@
 % used when the \opt{verse/para} and/or \opt{compact} options are in use.
 %    \begin{macrocode}
 \cs_set_eq:Nc \@@_mid_para_chap_end_orig:n { end ~ }
-\cs_new_nopar:Nn \@@_mid_para_chap_end:n
+\cs_new_protected_nopar:Nn \@@_mid_para_chap_end:n
   {
     \@@_mid_para_chap_end_orig:n {#1}
     \bool_if:NT \l_@@_compact_bool
@@ -7949,7 +7949,7 @@
         \cs_set_eq:NN \par \@@_compact_par:
         \cs_set_eq:NN \extraskip \relax
         \cs_set_eq:NN \nohang \relax
-        \cs_set:Npn \selah
+        \cs_set_protected:Npn \selah
           {
             \group_begin:
             \l_@@_selah_font_tl
