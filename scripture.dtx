@@ -151,7 +151,7 @@
   }
 \DeclareDocumentEnvironment { environment } { O{} +v }
   {
-    \clist_map_inline:nn { #2 }
+    \clist_map_inline:nn {#2}
       {
         \MakeLinkTarget*{environment##1}
       }
@@ -161,7 +161,7 @@
   { \__codedoc_function_end: }
 \DeclareDocumentEnvironment { hooks } { O{} +v }
   {
-    \clist_map_inline:nn { #2 }
+    \clist_map_inline:nn {#2}
       {
         \MakeLinkTarget*{hook##1}
       }
@@ -183,7 +183,7 @@
 \DeclareDocumentEnvironment { option } { O{} +v }
   {
     \cs_set_eq:NN \__codedoc_function_index:n \SpecialOptionIndex
-    \clist_map_inline:nn { #2 }
+    \clist_map_inline:nn {#2}
       {
         \MakeLinkTarget*{option##1}
       }
@@ -198,7 +198,7 @@
   { \__codedoc_macro_end: }
 \DeclareDocumentEnvironment { function } { O{} +v }
   {
-    \clist_map_inline:nn { #2 }
+    \clist_map_inline:nn {#2}
       {
         \MakeLinkTarget*{function##1}
       }
@@ -3236,7 +3236,7 @@
 %
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}[2022-11-01]
-\ProvidesExplPackage{scripture}{2025/01/02}{2.1}
+\ProvidesExplPackage{scripture}{2025/08/09}{2.2}
   {Format Scripture Quotations (DCP)}
 %    \end{macrocode}
 %
@@ -3317,472 +3317,492 @@
 %    \begin{macrocode}
 \keys_define:nn { scripture }
   {
-    , aboveskip                   .tl_set:N           = \l_@@_aboveskip_tl
-    , aboveskip                   .value_required:n   = true
-    , aboveskip                   .initial:n          = \c_zero_skip
-    , added / font                .tl_set:N           = \l_@@_added_font_tl
-    , added / font                .value_required:n   = true
-    , added / font                .initial:n          =
-    , added / format              .cs_set:Np          = \@@_added_format:n #1
-    , added / format              .value_required:n   = true
-    , added / format              .initial:n          = \emph { #1 }
-    , after                       .tl_set:N           = \l_@@_after_tl
-    , after                       .value_required:n   = true
-    , after                       .initial:n          =
-    , before                      .tl_set:N           = \l_@@_before_tl
-    , before                      .value_required:n   = true
-    , before                      .initial:n          =
-    , belowskip                   .tl_set:N           = \l_@@_belowskip_tl
-    , belowskip                   .value_required:n   = true
-    , belowskip                   .initial:n          = \c_zero_skip
-    , book                        .tl_gset:N          = \g_@@_book_tl
-    , book                        .value_required:n   = true
-    , book                        .initial:n          =
-    , colour                      .tl_set:N           = \l_@@_colour_tl
-    , colour                      .value_required:n   = true
-    , colour                      .initial:n          = .
-    , color                       .meta:n             = { colour = { #1 } }
-    , compact                     .bool_set:N         = \l_@@_compact_bool
-    , compact                     .default:n          = true
-    , compact                     .initial:n          = false
-    , chapter                     .int_gset:N         = \g_@@_chapter_int
-    , chapter                     .value_required:n   = true
-    , chapter                     .initial:n          = \c_one_int
-    , chapter / align             .choices:nn         = { left, right }
-                                                        {
-                                                          \tl_if_exist:NF \l_@@_chapter_align_tl
-                                                            { \tl_new:N \l_@@_chapter_align_tl }
-                                                          \str_case:Vn \l_keys_choice_tl
-                                                            {
-                                                              { left }
-                                                                {
-                                                                  \tl_set:Nn \l_@@_chapter_align_tl
-                                                                    { l }
-                                                                }
-                                                              { right }
-                                                                {
-                                                                  \tl_set:Nn \l_@@_chapter_align_tl
-                                                                    { r }
-                                                                }
-                                                            }
-                                                        }
-    , chapter / align             .value_required:n   = true
-    , chapter / align             .initial:n          = left
-    , chapter / font              .tl_set:N           = \l_@@_chap_font_tl
-    , chapter / font              .value_required:n   = true
-    , chapter / font              .initial:n          = \bfseries
-    , chapter / colour            .tl_set:N           = \l_@@_chapter_colour_tl
-    , chapter / colour            .value_required:n   = true
-    , chapter / colour            .initial:n          = .
-    , chapter / color             .meta:n             = { chapter / colour = { #1 } }
-    , chapter / drop              .bool_set:N         = \l_@@_chap_drop_bool
-    , chapter / drop              .default:n          = true
-    , chapter / drop              .initial:n          = true
-    , chapter / format            .cs_set:Np          = \@@_chap_format:n #1
-    , chapter / format            .value_required:n   = true
-    , chapter / format            .initial:n          = #1
-    , chapter / hide              .bool_set_inverse:N = \l_@@_chap_show_bool
-    , chapter / hide              .default:n          = true
-    , chapter / nodrop            .bool_set_inverse:N = \l_@@_chap_drop_bool
-    , chapter / nodrop            .default:n          = true
-    , chapter / para              .bool_set:N         = \l_@@_chap_para_bool
-    , chapter / para              .default:n          = true
-    , chapter / para              .initial:n          = false
-    , chapter / para / aboveskip  .tl_set:N           = \l_@@_chap_para_aboveskip_tl
-    , chapter / para / aboveskip  .value_required:n   = true
-    , chapter / para / aboveskip  .initial:n          = \bigskipamount
-    , chapter / para / belowskip  .tl_set:N           = \l_@@_chap_para_belowskip_tl
-    , chapter / para / belowskip  .value_required:n   = true
-    , chapter / para / belowskip  .initial:n          = \medskipamount
-    , chapter / para / indent     .code:n             = {
-                                                          \bool_set:Nn
-                                                            \l_@@_chap_para_afterindent_bool
-                                                            { \str_if_eq_p:nn { #1 } { true } }
-                                                        }
-    , chapter / para / indent     .default:n          = true
-    , chapter / para / indent     .initial:n          = true
-    , chapter / sep               .tl_set:N           = \l_@@_chap_sep_tl
-    , chapter / sep               .value_required:n   = true
-    , chapter / sep               .initial:n          = 0.5em
-    , chapter / show              .bool_set:N         = \l_@@_chap_show_bool
-    , chapter / show              .default:n          = true
-    , chapter / show              .initial:n          = true
-    , chapter / showverse         .bool_set:N         = \l_@@_chap_show_verse_bool
-    , chapter / showverse         .default:n          = true
-    , chapter / showverse         .initial:n          = false
-    , chapter / smash             .bool_set:N         = \l_@@_chap_smash_bool
-    , chapter / smash             .default:n          = true
-    , chapter / smash             .initial:n          = false
-    , chapter / valign            .choices:nn         = { bottom, middle, top }
-                                                        {
-                                                          \tl_if_exist:NF \l_@@_chapter_valign_tl
-                                                            { \tl_new:N \l_@@_chapter_valign_tl }
-                                                          \str_case:Vn \l_keys_choice_tl
-                                                            {
-                                                              { bottom }
-                                                                {
-                                                                  \tl_set:Nn \l_@@_chapter_valign_tl
-                                                                    { b }
-                                                                }
-                                                              { middle }
-                                                                {
-                                                                  \tl_set:Nn \l_@@_chapter_valign_tl
-                                                                    { vc }
-                                                                }
-                                                              { top }
-                                                                {
-                                                                  \tl_set:Nn \l_@@_chapter_valign_tl
-                                                                    { t }
-                                                                }
-                                                            }
-                                                        }
-    , chapter / valign            .value_required:n   = true
-    , chapter / valign            .initial:n          = bottom
-    , chapter / xchar             .tl_set:N           = \l_@@_X_char_tl
-    , chapter / xchar             .value_required:n   = true
-    , chapter / xchar             .initial:n          = X
-    , defaults                    .code:n             = \cs_if_exist_use:N \@@_setup_reset_defaults:
-    , defaults                    .value_forbidden:n  = true
-    , extraskip                   .tl_set:N           = \l_@@_extraskip_tl
-    , extraskip                   .value_required:n   = true
-    , extraskip                   .initial:n          = \medskipamount
-    , font                        .tl_set:N           = \l_@@_font_tl
-    , font                        .value_required:n   = true
-    , font                        .initial:n          =
-    , heading / aboveskip         .tl_set:N           = \l_@@_heading_aboveskip_tl
-    , heading / aboveskip         .value_required:n   = true
-    , heading / aboveskip         .initial:n          = \bigskipamount
-    , heading / afterindent       .bool_set:N         = \l_@@_heading_afterindent_bool
-    , heading / afterindent       .default:n          = true
-    , heading / afterindent       .initial:n          = false
-    , heading / align             .choices:nn         = { left, right, center }
-                                                        {
-                                                          \tl_if_exist:NF \l_@@_heading_align_tl
-                                                            { \tl_new:N \l_@@_heading_align_tl }
-                                                          \str_case:Vn \l_keys_choice_tl
-                                                            {
-                                                              { left }
-                                                                {
-                                                                  \tl_set:Nn \l_@@_heading_align_tl
-                                                                    { \raggedright }
-                                                                }
-                                                              { right }
-                                                                {
-                                                                  \tl_set:Nn \l_@@_heading_align_tl
-                                                                    { \raggedleft }
-                                                                }
-                                                              { center }
-                                                                {
-                                                                  \tl_set:Nn \l_@@_heading_align_tl
-                                                                    { \centering }
-                                                                }
-                                                            }
-                                                        }
-    , heading / align             .value_required:n   = true
-    , heading / align             .initial:n          = left
-    , heading / belowskip         .tl_set:N           = \l_@@_heading_belowskip_tl
-    , heading / belowskip         .value_required:n   = true
-    , heading / belowskip         .initial:n          = \medskipamount
-    , heading / font              .tl_set:N           = \l_@@_heading_font_tl
-    , heading / font              .value_required:n   = true
-    , heading / font              .initial:n          = \small\itshape
-    , heading / format            .cs_set:Np          = \@@_heading_format:n #1
-    , heading / format            .value_required:n   = true
-    , heading / format            .initial:n          = #1
-    , heading / hide              .bool_set_inverse:N = \l_@@_heading_show_bool
-    , heading / hide              .default:n          = true
-    , heading / show              .bool_set:N         = \l_@@_heading_show_bool
-    , heading / show              .default:n          = true
-    , heading / show              .initial:n          = true
-    , indent                      .bool_set:N         = \l_@@_indent_bool
-    , indent                      .default:n          = true
-    , indent                      .initial:n          = true
-    , inline                      .bool_set:N         = \l_@@_inline_bool
-    , inline                      .default:n          = true
-    , inline                      .initial:n          = false
-    , inline / begin              .tl_set:N           = \l_@@_inline_begin_tl
-    , inline / begin              .value_required:n   = true
-    , inline / begin              .initial:n          = ``
-    , inline / end                .tl_set:N           = \l_@@_inline_end_tl
-    , inline / end                .value_required:n   = true
-    , inline / end                .initial:n          = ''
-    , inline / reference / format .cs_set:Np          = \@@_inline_ref_format:n #1
-    , inline / reference / format .value_required:n   = true
-    , inline / reference / format .initial:n          = (#1)
-    , inline / reference / sep    .tl_set:N           = \l_@@_inline_ref_sep_tl
-    , inline / reference / sep    .value_required:n   = true
-    , inline / reference / sep    .initial:n          = 0.5em
-    , inline / version / delim    .tl_set:N           = \l_@@_inline_version_delim_tl
-    , inline / version / delim    .value_required:n   = true
-    , inline / version / delim    .initial:n          = \c_space_tl
-    , inline / version / format   .cs_set:Np          = \@@_inline_version_format:n #1
-    , inline / version / format   .value_required:n   = true
-    , inline / version / format   .initial:n          = #1
-    , language                    .tl_set:N           = \l_@@_language_tl
-    , language                    .value_required:n   = true
-    , language                    .initial:n          =
-    , language / variant          .tl_set:N           = \l_@@_language_variant_tl
-    , language / variant          .value_required:n   = true
-    , language / variant          .initial:n          =
-    , leftmargin                  .tl_set:N           = \l_@@_leftmargin_tl
-    , leftmargin                  .value_required:n   = true
-    , leftmargin                  .initial:n          = \c_zero_dim
-    , name / font                 .tl_set:N           = \l_@@_name_font_tl
-    , name / font                 .value_required:n   = true
-    , name / font                 .initial:n          = \scshape
-    , name / format               .cs_set:Np          = \@@_name_format:n #1
-    , name / format               .value_required:n   = true
-    , name / format               .initial:n          = #1
-    , noindent                    .bool_set_inverse:N = \l_@@_indent_bool
-    , noindent                    .default:n          = true
-    , parindent                   .tl_set:N           = \l_@@_parindent_tl
-    , parindent                   .value_required:n   = true
-    , parindent                   .initial:n          = \parindent
-    , parskip                     .tl_set:N           = \l_@@_parskip_tl
-    , parskip                     .value_required:n   = true
-    , parskip                     .initial:n          = \parskip
-    , pilcrow                     .bool_set:N         = \l_@@_pilcrow_bool
-    , pilcrow                     .default:n          = true
-    , pilcrow                     .initial:n          = false
-    , pilcrow / sep               .tl_set:N           = \l_@@_pilcrow_sep_tl
-    , pilcrow / sep               .value_required:n   = true
-    , pilcrow / sep               .initial:n          = 0.25em
-    , redletter                   .bool_set:N         = \l_@@_red_letter_bool
-    , redletter                   .default:n          = true
-    , redletter                   .initial:n          = false
-    , redletter / colour          .tl_set:N           = \l_@@_red_letter_colour_tl
-    , redletter / colour          .value_required:n   = true
-    , redletter / colour          .initial:n          = red!80!black
-    , redletter / color           .meta:n             = { redletter / colour = { #1 } }
-    , reference / align           .choices:nn         = { left, right }
-                                                        {
-                                                          \tl_if_exist:NF \l_@@_ref_align_tl
-                                                            { \tl_new:N \l_@@_ref_align_tl }
-                                                          \tl_set_eq:NN \l_@@_ref_align_tl \l_keys_choice_tl
-                                                        }
-    , reference / align           .value_required:n   = true
-    , reference / align           .initial:n          = right
-    , reference / colour          .tl_set:N           = \l_@@_ref_colour_tl
-    , reference / colour          .value_required:n   = true
-    , reference / colour          .initial:n          = .
-    , reference / color           .meta:n             = { reference / colour = { #1 } }
-    , reference / font            .tl_set:N           = \l_@@_ref_font_tl
-    , reference / font            .value_required:n   = true
-    , reference / font            .initial:n          = \bfseries
-    , reference / format          .cs_set:Np          = \@@_ref_format:n #1
-    , reference / format          .value_required:n   = true
-    , reference / format          .initial:n          = #1
-    , reference / newline         .meta:n             = { reference / sep = \linewidth }
-    , reference / newline         .value_forbidden:n  = true
-    , reference / position        .choices:nn         = { start, end }
-                                                        {
-                                                          \tl_if_exist:NF \l_@@_ref_position_tl
-                                                            { \tl_new:N \l_@@_ref_position_tl }
-                                                          \tl_set_eq:NN \l_@@_ref_position_tl \l_keys_choice_tl
-                                                        }
-    , reference / position        .value_required:n   = true
-    , reference / position        .initial:n          = end
-    , reference / sep             .tl_set:N           = \l_@@_ref_sep_tl
-    , reference / sep             .value_required:n   = true
-    , reference / sep             .initial:n          = 2em
-    , reference / start / inline  .bool_set_inverse:N = \l_@@_ref_start_newline_bool
-    , reference / start / inline  .default:n          = true
-    , reference / start / newline .bool_set:N         = \l_@@_ref_start_newline_bool
-    , reference / start / newline .default:n          = true
-    , reference / start / newline .initial:n          = false
-    , reference / start / sep     .tl_set:N           = \l_@@_ref_start_sep_tl
-    , reference / start / sep     .value_required:n   = true
-    , reference / start / sep     .initial:n          = 1em
-    , reference / start / vsep    .tl_set:N           = \l_@@_ref_vertical_sep_tl
-    , reference / start / vsep    .value_required:n   = true
-    , reference / start / vsep    .initial:n          = 0pt
-    , rightmargin                 .tl_set:N           = \l_@@_rightmargin_tl
-    , rightmargin                 .value_required:n   = true
-    , rightmargin                 .initial:n          = \c_zero_dim
-    , selah / text                .tl_set:N           = \l_@@_selah_text_tl
-    , selah / text                .value_required:n   = true
-    , selah / text                .initial:n          = Selah
-    , selah / font                .tl_set:N           = \l_@@_selah_font_tl
-    , selah / font                .value_required:n   = true
-    , selah / font                .initial:n          = \itshape
-    , selah / format              .cs_set:Np          = \@@_selah_format:n #1
-    , selah / format              .value_required:n   = true
-    , selah / format              .initial:n          = #1
-    , selah / sep                 .tl_set:N           = \l_@@_selah_sep_tl
-    , selah / sep                 .value_required:n   = true
-    , selah / sep                 .initial:n          = 1em
-    , style                       .choice:
-    , style / unknown             .code:n             = \msg_error:nnx
-                                                          { scripture }
-                                                          { unknown-style }
-                                                          { \exp_not:n {#1} }
-    , textright / sep             .tl_set:N           = \l_@@_text_right_sep_tl
-    , textright / sep             .value_required:n   = true
-    , textright / sep             .initial:n          = 1em
-    , verse                       .int_gset:N         = \g_@@_verse_int
-    , verse                       .value_required:n   = true
-    , verse                       .initial:n          = \c_one_int
-    , verse / colour              .tl_set:N           = \l_@@_verse_colour_tl
-    , verse / colour              .value_required:n   = true
-    , verse / colour              .initial:n          = .
-    , verse / color               .meta:n             = { verse / colour = { #1 } }
-    , verse / first               .bool_set:N         = \l_@@_verse_first_bool
-    , verse / first               .default:n          = true
-    , verse / first               .initial:n          = false
-    , verse / firstformat         .cs_set:Np          = \@@_verse_first_format:n #1
-    , verse / firstformat         .value_required:n   = true
-    , verse / firstformat         .initial:n          = #1
-    , verse / firstsep            .tl_set:N           = \l_@@_verse_first_sep_tl
-    , verse / firstsep            .value_required:n   = true
-    , verse / firstsep            .initial:n          = 0.5em
-    , verse / font                .tl_set:N           = \l_@@_verse_font_tl
-    , verse / font                .value_required:n   = true
-    , verse / font                .initial:n          = 
-    , verse / format              .cs_set:Np          = \@@_verse_format:n #1
-    , verse / format              .value_required:n   = true
-    , verse / format              .initial:n          = \textsuperscript{#1}
-    , verse / hide                .bool_set_inverse:N = \l_@@_verse_show_bool
-    , verse / hide                .default:n          = true
-    , verse / para                .bool_set:N         = \l_@@_verse_para_bool
-    , verse / para                .default:n          = true
-    , verse / para                .initial:n          = false
-    , verse / para / indent       .tl_set:N           = \l_@@_para_indent_tl
-    , verse / para / indent       .value_required:n   = true
-    , verse / para / indent       .initial:n          = \l_@@_parindent_tl
-    , verse / sep                 .tl_set:N           = \l_@@_verse_sep_tl
-    , verse / sep                 .value_required:n   = true
-    , verse / sep                 .initial:n          = 0.05em
-    , verse / show                .bool_set:N         = \l_@@_verse_show_bool
-    , verse / show                .default:n          = true
-    , verse / show                .initial:n          = true
-    , version                     .tl_set:N           = \l_@@_version_tl
-    , version                     .value_required:n   = true
-    , version                     .initial:n          =
-    , version / delim             .tl_set:N           = \l_@@_version_delim_tl
-    , version / delim             .value_required:n   = true
-    , version / delim             .initial:n          = \c_space_tl
-    , version / format            .cs_set:Np          = \@@_version_format:n #1
-    , version / format            .value_required:n   = true
-    , version / format            .initial:n          = (#1)
-    , version / position          .choices:nn         = { withref, end }
-                                                        {
-                                                          \tl_if_exist:NF \l_@@_version_position_tl
-                                                            { \tl_new:N \l_@@_version_position_tl }
-                                                          \tl_set_eq:NN \l_@@_version_position_tl \l_keys_choice_tl
-                                                        }
-    , version / position          .value_required:n   = true
-    , version / position          .initial:n          = withref
+    , aboveskip .tl_set:N = \l_@@_aboveskip_tl
+    , aboveskip .value_required:n = true
+    , aboveskip .initial:n = \c_zero_skip
+    , added / font .tl_set:N = \l_@@_added_font_tl
+    , added / font .value_required:n = true
+    , added / font .initial:n =
+    , added / format .cs_set:Np = \@@_added_format:n #1
+    , added / format .value_required:n = true
+    , added / format .initial:n = \emph {#1}
+    , after .tl_set:N = \l_@@_after_tl
+    , after .value_required:n = true
+    , after .initial:n =
+    , before .tl_set:N = \l_@@_before_tl
+    , before .value_required:n = true
+    , before .initial:n =
+    , belowskip .tl_set:N = \l_@@_belowskip_tl
+    , belowskip .value_required:n = true
+    , belowskip .initial:n = \c_zero_skip
+    , book .tl_gset:N = \g_@@_book_tl
+    , book .value_required:n = true
+    , book .initial:n =
+    , colour .tl_set:N = \l_@@_colour_tl
+    , colour .value_required:n = true
+    , colour .initial:n = .
+    , color .meta:n = { colour = {#1} }
+    , compact .bool_set:N = \l_@@_compact_bool
+    , compact .default:n = true
+    , compact .initial:n = false
+    , chapter .int_gset:N = \g_@@_chapter_int
+    , chapter .value_required:n = true
+    , chapter .initial:n = \c_one_int
+    , chapter / align .choices:nn =
+        { left, right }
+        {
+          \tl_if_exist:NF \l_@@_chapter_align_tl
+            { \tl_new:N \l_@@_chapter_align_tl }
+          \str_case:Vn \l_keys_choice_str
+            {
+              { left }
+                {
+                  \tl_set:Nn \l_@@_chapter_align_tl
+                    { l }
+                }
+              { right }
+                {
+                  \tl_set:Nn \l_@@_chapter_align_tl
+                    { r }
+                }
+            }
+        }
+    , chapter / align .value_required:n = true
+    , chapter / align .initial:n = left
+    , chapter / font .tl_set:N = \l_@@_chap_font_tl
+    , chapter / font .value_required:n = true
+    , chapter / font .initial:n = \bfseries
+    , chapter / colour .tl_set:N = \l_@@_chapter_colour_tl
+    , chapter / colour .value_required:n = true
+    , chapter / colour .initial:n = .
+    , chapter / color .meta:n = { chapter / colour = {#1} }
+    , chapter / drop .bool_set:N = \l_@@_chap_drop_bool
+    , chapter / drop .default:n = true
+    , chapter / drop .initial:n = true
+    , chapter / format .cs_set:Np = \@@_chap_format:n #1
+    , chapter / format .value_required:n = true
+    , chapter / format .initial:n = #1
+    , chapter / hide .bool_set_inverse:N = \l_@@_chap_show_bool
+    , chapter / hide .default:n = true
+    , chapter / nodrop .bool_set_inverse:N = \l_@@_chap_drop_bool
+    , chapter / nodrop .default:n = true
+    , chapter / para .bool_set:N = \l_@@_chap_para_bool
+    , chapter / para .default:n = true
+    , chapter / para .initial:n = false
+    , chapter / para / aboveskip .tl_set:N =
+        \l_@@_chap_para_aboveskip_tl
+    , chapter / para / aboveskip .value_required:n = true
+    , chapter / para / aboveskip .initial:n = \bigskipamount
+    , chapter / para / belowskip .tl_set:N =
+        \l_@@_chap_para_belowskip_tl
+    , chapter / para / belowskip .value_required:n = true
+    , chapter / para / belowskip .initial:n = \medskipamount
+    , chapter / para / indent .code:n =
+        {
+          \bool_set:Nn
+            \l_@@_chap_para_afterindent_bool
+            { \str_if_eq_p:nn {#1} { true } }
+        }
+    , chapter / para / indent .default:n = true
+    , chapter / para / indent .initial:n = true
+    , chapter / sep .tl_set:N = \l_@@_chap_sep_tl
+    , chapter / sep .value_required:n = true
+    , chapter / sep .initial:n = 0.5em
+    , chapter / show .bool_set:N = \l_@@_chap_show_bool
+    , chapter / show .default:n = true
+    , chapter / show .initial:n = true
+    , chapter / showverse .bool_set:N = \l_@@_chap_show_verse_bool
+    , chapter / showverse .default:n = true
+    , chapter / showverse .initial:n = false
+    , chapter / smash .bool_set:N = \l_@@_chap_smash_bool
+    , chapter / smash .default:n = true
+    , chapter / smash .initial:n = false
+    , chapter / valign .choices:nn =
+        { bottom, middle, top }
+        {
+          \tl_if_exist:NF \l_@@_chapter_valign_tl
+            { \tl_new:N \l_@@_chapter_valign_tl }
+          \str_case:Vn \l_keys_choice_str
+            {
+              { bottom }
+                {
+                  \tl_set:Nn \l_@@_chapter_valign_tl
+                    { b }
+                }
+              { middle }
+                {
+                  \tl_set:Nn \l_@@_chapter_valign_tl
+                    { vc }
+                }
+              { top }
+                {
+                  \tl_set:Nn \l_@@_chapter_valign_tl
+                    { t }
+                }
+            }
+        }
+    , chapter / valign .value_required:n = true
+    , chapter / valign .initial:n = bottom
+    , chapter / xchar .tl_set:N = \l_@@_X_char_tl
+    , chapter / xchar .value_required:n = true
+    , chapter / xchar .initial:n = X
+    , defaults .code:n = \cs_if_exist_use:N \@@_setup_reset_defaults:
+    , defaults .value_forbidden:n = true
+    , extraskip .tl_set:N = \l_@@_extraskip_tl
+    , extraskip .value_required:n = true
+    , extraskip .initial:n = \medskipamount
+    , font .tl_set:N = \l_@@_font_tl
+    , font .value_required:n = true
+    , font .initial:n =
+    , heading / aboveskip .tl_set:N = \l_@@_heading_aboveskip_tl
+    , heading / aboveskip .value_required:n = true
+    , heading / aboveskip .initial:n = \bigskipamount
+    , heading / afterindent .bool_set:N = \l_@@_heading_afterindent_bool
+    , heading / afterindent .default:n = true
+    , heading / afterindent .initial:n = false
+    , heading / align .choices:nn =
+        { left, right, center }
+        {
+          \tl_if_exist:NF \l_@@_heading_align_tl
+            { \tl_new:N \l_@@_heading_align_tl }
+          \str_case:Vn \l_keys_choice_str
+            {
+              { left }
+                {
+                  \tl_set:Nn \l_@@_heading_align_tl
+                    { \raggedright }
+                }
+              { right }
+                {
+                  \tl_set:Nn \l_@@_heading_align_tl
+                    { \raggedleft }
+                }
+              { center }
+                {
+                  \tl_set:Nn \l_@@_heading_align_tl
+                    { \centering }
+                }
+            }
+        }
+    , heading / align .value_required:n = true
+    , heading / align .initial:n = left
+    , heading / belowskip .tl_set:N = \l_@@_heading_belowskip_tl
+    , heading / belowskip .value_required:n = true
+    , heading / belowskip .initial:n = \medskipamount
+    , heading / font .tl_set:N = \l_@@_heading_font_tl
+    , heading / font .value_required:n = true
+    , heading / font .initial:n = \small\itshape
+    , heading / format .cs_set:Np = \@@_heading_format:n #1
+    , heading / format .value_required:n = true
+    , heading / format .initial:n = #1
+    , heading / hide .bool_set_inverse:N = \l_@@_heading_show_bool
+    , heading / hide .default:n = true
+    , heading / show .bool_set:N = \l_@@_heading_show_bool
+    , heading / show .default:n = true
+    , heading / show .initial:n = true
+    , indent .bool_set:N = \l_@@_indent_bool
+    , indent .default:n = true
+    , indent .initial:n = true
+    , inline .bool_set:N = \l_@@_inline_bool
+    , inline .default:n = true
+    , inline .initial:n = false
+    , inline / begin .tl_set:N = \l_@@_inline_begin_tl
+    , inline / begin .value_required:n = true
+    , inline / begin .initial:n = ``
+    , inline / end .tl_set:N = \l_@@_inline_end_tl
+    , inline / end .value_required:n = true
+    , inline / end .initial:n = ''
+    , inline / reference / format .cs_set:Np =
+        \@@_inline_ref_format:n #1
+    , inline / reference / format .value_required:n = true
+    , inline / reference / format .initial:n = (#1)
+    , inline / reference / sep .tl_set:N = \l_@@_inline_ref_sep_tl
+    , inline / reference / sep .value_required:n = true
+    , inline / reference / sep .initial:n = 0.5em
+    , inline / version / delim .tl_set:N = \l_@@_inline_version_delim_tl
+    , inline / version / delim .value_required:n = true
+    , inline / version / delim .initial:n = \c_space_tl
+    , inline / version / format .cs_set:Np =
+        \@@_inline_version_format:n #1
+    , inline / version / format .value_required:n = true
+    , inline / version / format .initial:n = #1
+    , language .tl_set:N = \l_@@_language_tl
+    , language .value_required:n = true
+    , language .initial:n =
+    , language / variant .tl_set:N = \l_@@_language_variant_tl
+    , language / variant .value_required:n = true
+    , language / variant .initial:n =
+    , leftmargin .tl_set:N = \l_@@_leftmargin_tl
+    , leftmargin .value_required:n = true
+    , leftmargin .initial:n = \c_zero_dim
+    , name / font .tl_set:N = \l_@@_name_font_tl
+    , name / font .value_required:n = true
+    , name / font .initial:n = \scshape
+    , name / format .cs_set:Np = \@@_name_format:n #1
+    , name / format .value_required:n = true
+    , name / format .initial:n = #1
+    , noindent .bool_set_inverse:N = \l_@@_indent_bool
+    , noindent .default:n = true
+    , parindent .tl_set:N = \l_@@_parindent_tl
+    , parindent .value_required:n = true
+    , parindent .initial:n = \parindent
+    , parskip .tl_set:N = \l_@@_parskip_tl
+    , parskip .value_required:n = true
+    , parskip .initial:n = \parskip
+    , pilcrow .bool_set:N = \l_@@_pilcrow_bool
+    , pilcrow .default:n = true
+    , pilcrow .initial:n = false
+    , pilcrow / sep .tl_set:N = \l_@@_pilcrow_sep_tl
+    , pilcrow / sep .value_required:n = true
+    , pilcrow / sep .initial:n = 0.25em
+    , redletter .bool_set:N = \l_@@_red_letter_bool
+    , redletter .default:n = true
+    , redletter .initial:n = false
+    , redletter / colour .tl_set:N = \l_@@_red_letter_colour_tl
+    , redletter / colour .value_required:n = true
+    , redletter / colour .initial:n = red!80!black
+    , redletter / color .meta:n = { redletter / colour = {#1} }
+    , reference / align .choices:nn =
+        { left, right }
+        {
+          \tl_if_exist:NF \l_@@_ref_align_tl
+            { \tl_new:N \l_@@_ref_align_tl }
+          \tl_set_eq:NN \l_@@_ref_align_tl \l_keys_choice_str
+        }
+    , reference / align .value_required:n = true
+    , reference / align .initial:n = right
+    , reference / colour .tl_set:N = \l_@@_ref_colour_tl
+    , reference / colour .value_required:n = true
+    , reference / colour .initial:n = .
+    , reference / color .meta:n = { reference / colour = {#1} }
+    , reference / font .tl_set:N = \l_@@_ref_font_tl
+    , reference / font .value_required:n = true
+    , reference / font .initial:n = \bfseries
+    , reference / format .cs_set:Np = \@@_ref_format:n #1
+    , reference / format .value_required:n = true
+    , reference / format .initial:n = #1
+    , reference / newline .meta:n = { reference / sep = \linewidth }
+    , reference / newline .value_forbidden:n = true
+    , reference / position .choices:nn =
+        { start, end }
+        {
+          \tl_if_exist:NF \l_@@_ref_position_tl
+            { \tl_new:N \l_@@_ref_position_tl }
+          \tl_set_eq:NN \l_@@_ref_position_tl \l_keys_choice_str
+        }
+    , reference / position .value_required:n = true
+    , reference / position .initial:n = end
+    , reference / sep .tl_set:N = \l_@@_ref_sep_tl
+    , reference / sep .value_required:n = true
+    , reference / sep .initial:n = 2em
+    , reference / start / inline .bool_set_inverse:N =
+        \l_@@_ref_start_newline_bool
+    , reference / start / inline .default:n = true
+    , reference / start / newline .bool_set:N =
+        \l_@@_ref_start_newline_bool
+    , reference / start / newline .default:n = true
+    , reference / start / newline .initial:n = false
+    , reference / start / sep .tl_set:N = \l_@@_ref_start_sep_tl
+    , reference / start / sep .value_required:n = true
+    , reference / start / sep .initial:n = 1em
+    , reference / start / vsep .tl_set:N = \l_@@_ref_vertical_sep_tl
+    , reference / start / vsep .value_required:n = true
+    , reference / start / vsep .initial:n = 0pt
+    , rightmargin .tl_set:N = \l_@@_rightmargin_tl
+    , rightmargin .value_required:n = true
+    , rightmargin .initial:n = \c_zero_dim
+    , selah / text .tl_set:N = \l_@@_selah_text_tl
+    , selah / text .value_required:n = true
+    , selah / text .initial:n = Selah
+    , selah / font .tl_set:N = \l_@@_selah_font_tl
+    , selah / font .value_required:n = true
+    , selah / font .initial:n = \itshape
+    , selah / format .cs_set:Np = \@@_selah_format:n #1
+    , selah / format .value_required:n = true
+    , selah / format .initial:n = #1
+    , selah / sep .tl_set:N = \l_@@_selah_sep_tl
+    , selah / sep .value_required:n = true
+    , selah / sep .initial:n = 1em
+    , style .choice:
+    , style / unknown .code:n = \msg_error:nnx
+                                  { scripture }
+                                  { unknown-style }
+                                  { \exp_not:n {#1} }
+    , textright / sep .tl_set:N = \l_@@_text_right_sep_tl
+    , textright / sep .value_required:n = true
+    , textright / sep .initial:n = 1em
+    , verse .int_gset:N = \g_@@_verse_int
+    , verse .value_required:n = true
+    , verse .initial:n = \c_one_int
+    , verse / colour .tl_set:N = \l_@@_verse_colour_tl
+    , verse / colour .value_required:n = true
+    , verse / colour .initial:n = .
+    , verse / color .meta:n = { verse / colour = {#1} }
+    , verse / first .bool_set:N = \l_@@_verse_first_bool
+    , verse / first .default:n = true
+    , verse / first .initial:n = false
+    , verse / firstformat .cs_set:Np = \@@_verse_first_format:n #1
+    , verse / firstformat .value_required:n = true
+    , verse / firstformat .initial:n = #1
+    , verse / firstsep .tl_set:N = \l_@@_verse_first_sep_tl
+    , verse / firstsep .value_required:n = true
+    , verse / firstsep .initial:n = 0.5em
+    , verse / font .tl_set:N = \l_@@_verse_font_tl
+    , verse / font .value_required:n = true
+    , verse / font .initial:n = 
+    , verse / format .cs_set:Np = \@@_verse_format:n #1
+    , verse / format .value_required:n = true
+    , verse / format .initial:n = \textsuperscript{#1}
+    , verse / hide .bool_set_inverse:N = \l_@@_verse_show_bool
+    , verse / hide .default:n = true
+    , verse / para .bool_set:N = \l_@@_verse_para_bool
+    , verse / para .default:n = true
+    , verse / para .initial:n = false
+    , verse / para / indent .tl_set:N = \l_@@_para_indent_tl
+    , verse / para / indent .value_required:n = true
+    , verse / para / indent .initial:n = \l_@@_parindent_tl
+    , verse / sep .tl_set:N = \l_@@_verse_sep_tl
+    , verse / sep .value_required:n = true
+    , verse / sep .initial:n = 0.05em
+    , verse / show .bool_set:N = \l_@@_verse_show_bool
+    , verse / show .default:n = true
+    , verse / show .initial:n = true
+    , version .tl_set:N = \l_@@_version_tl
+    , version .value_required:n = true
+    , version .initial:n =
+    , version / delim .tl_set:N = \l_@@_version_delim_tl
+    , version / delim .value_required:n = true
+    , version / delim .initial:n = \c_space_tl
+    , version / format .cs_set:Np = \@@_version_format:n #1
+    , version / format .value_required:n = true
+    , version / format .initial:n = (#1)
+    , version / position .choices:nn =
+        { withref, end }
+        {
+          \tl_if_exist:NF \l_@@_version_position_tl
+            { \tl_new:N \l_@@_version_position_tl }
+          \tl_set_eq:NN \l_@@_version_position_tl \l_keys_choice_str
+        }
+    , version / position .value_required:n = true
+    , version / position .initial:n = withref
 %    \end{macrocode}
 % Options for the \env{center} environment.
 %    \begin{macrocode}
-    , center / aboveskip          .tl_set:N           = \l_@@_center_aboveskip_tl
-    , center / aboveskip          .value_required:n   = true
-    , center / aboveskip          .initial:n          = \medskipamount
-    , center / belowskip          .tl_set:N           = \l_@@_center_belowskip_tl
-    , center / belowskip          .value_required:n   = true
-    , center / belowskip          .initial:n          = \medskipamount
-    , center / leftmargin         .tl_set:N           = \l_@@_center_leftmargin_tl
-    , center / leftmargin         .value_required:n   = true
-    , center / leftmargin         .initial:n          = \c_zero_dim
-    , center / rightmargin        .tl_set:N           = \l_@@_center_rightmargin_tl
-    , center / rightmargin        .value_required:n   = true
-    , center / rightmargin        .initial:n          = \c_zero_dim
+    , center / aboveskip .tl_set:N = \l_@@_center_aboveskip_tl
+    , center / aboveskip .value_required:n = true
+    , center / aboveskip .initial:n = \medskipamount
+    , center / belowskip .tl_set:N = \l_@@_center_belowskip_tl
+    , center / belowskip .value_required:n = true
+    , center / belowskip .initial:n = \medskipamount
+    , center / leftmargin .tl_set:N = \l_@@_center_leftmargin_tl
+    , center / leftmargin .value_required:n = true
+    , center / leftmargin .initial:n = \c_zero_dim
+    , center / rightmargin .tl_set:N = \l_@@_center_rightmargin_tl
+    , center / rightmargin .value_required:n = true
+    , center / rightmargin .initial:n = \c_zero_dim
 %    \end{macrocode}
 % Options for the \env{flushright} environment.
 %    \begin{macrocode}
-    , flushright / aboveskip      .tl_set:N           = \l_@@_flushright_aboveskip_tl
-    , flushright / aboveskip      .value_required:n   = true
-    , flushright / aboveskip      .initial:n          = \medskipamount
-    , flushright / belowskip      .tl_set:N           = \l_@@_flushright_belowskip_tl
-    , flushright / belowskip      .value_required:n   = true
-    , flushright / belowskip      .initial:n          = \medskipamount
-    , flushright / leftmargin     .tl_set:N           = \l_@@_flushright_leftmargin_tl
-    , flushright / leftmargin     .value_required:n   = true
-    , flushright / leftmargin     .initial:n          = \c_zero_dim
-    , flushright / rightmargin    .tl_set:N           = \l_@@_flushright_rightmargin_tl
-    , flushright / rightmargin    .value_required:n   = true
-    , flushright / rightmargin    .initial:n          = \c_zero_dim
+    , flushright / aboveskip .tl_set:N = \l_@@_flushright_aboveskip_tl
+    , flushright / aboveskip .value_required:n = true
+    , flushright / aboveskip .initial:n = \medskipamount
+    , flushright / belowskip .tl_set:N = \l_@@_flushright_belowskip_tl
+    , flushright / belowskip .value_required:n = true
+    , flushright / belowskip .initial:n = \medskipamount
+    , flushright / leftmargin .tl_set:N = \l_@@_flushright_leftmargin_tl
+    , flushright / leftmargin .value_required:n = true
+    , flushright / leftmargin .initial:n = \c_zero_dim
+    , flushright / rightmargin .tl_set:N =
+        \l_@@_flushright_rightmargin_tl
+    , flushright / rightmargin .value_required:n = true
+    , flushright / rightmargin .initial:n = \c_zero_dim
 %    \end{macrocode}
 % Options for the \env{hanging} environment.
 %    \begin{macrocode}
-    , hanging / aboveskip         .tl_set:N           = \l_@@_hanging_aboveskip_tl
-    , hanging / aboveskip         .value_required:n   = true
-    , hanging / aboveskip         .initial:n          = \medskipamount
-    , hanging / belowskip         .tl_set:N           = \l_@@_hanging_belowskip_tl
-    , hanging / belowskip         .value_required:n   = true
-    , hanging / belowskip         .initial:n          = \medskipamount
-    , hanging / chapter / indent  .bool_set:N         = \l_@@_hanging_chapter_indent_bool
-    , hanging / chapter / indent  .default:n          = true
-    , hanging / chapter / indent  .initial:n          = true
-    , hanging / hang              .tl_set:N           = \l_@@_hanging_hang_tl
-    , hanging / hang              .value_required:n   = true
-    , hanging / hang              .initial:n          = 2em
-    , hanging / leftmargin        .tl_set:N           = \l_@@_hanging_leftmargin_tl
-    , hanging / leftmargin        .value_required:n   = true
-    , hanging / leftmargin        .initial:n          = 1em
-    , hanging / rightmargin       .tl_set:N           = \l_@@_hanging_rightmargin_tl
-    , hanging / rightmargin       .value_required:n   = true
-    , hanging / rightmargin       .initial:n          = \c_zero_dim
-    , hanging / verse / left      .bool_set_inverse:N = \l_@@_hanging_verse_right_bool
-    , hanging / verse / left      .default:n          = true
-    , hanging / verse / right     .bool_set:N         = \l_@@_hanging_verse_right_bool
-    , hanging / verse / right     .default:n          = true
-    , hanging / verse / right     .initial:n          = true
-    , hanging / verse / sep       .tl_set:N           = \l_@@_hanging_verse_sep_tl
-    , hanging / verse / sep       .value_required:n   = true
-    , hanging / verse / sep       .initial:n          = 0.05em
+    , hanging / aboveskip .tl_set:N = \l_@@_hanging_aboveskip_tl
+    , hanging / aboveskip .value_required:n = true
+    , hanging / aboveskip .initial:n = \medskipamount
+    , hanging / belowskip .tl_set:N = \l_@@_hanging_belowskip_tl
+    , hanging / belowskip .value_required:n = true
+    , hanging / belowskip .initial:n = \medskipamount
+    , hanging / chapter / indent .bool_set:N =
+        \l_@@_hanging_chapter_indent_bool
+    , hanging / chapter / indent .default:n = true
+    , hanging / chapter / indent .initial:n = true
+    , hanging / hang .tl_set:N = \l_@@_hanging_hang_tl
+    , hanging / hang .value_required:n = true
+    , hanging / hang .initial:n = 2em
+    , hanging / leftmargin .tl_set:N = \l_@@_hanging_leftmargin_tl
+    , hanging / leftmargin .value_required:n = true
+    , hanging / leftmargin .initial:n = 1em
+    , hanging / rightmargin .tl_set:N = \l_@@_hanging_rightmargin_tl
+    , hanging / rightmargin .value_required:n = true
+    , hanging / rightmargin .initial:n = \c_zero_dim
+    , hanging / verse / left .bool_set_inverse:N =
+        \l_@@_hanging_verse_right_bool
+    , hanging / verse / left .default:n = true
+    , hanging / verse / right .bool_set:N =
+        \l_@@_hanging_verse_right_bool
+    , hanging / verse / right .default:n = true
+    , hanging / verse / right .initial:n = true
+    , hanging / verse / sep .tl_set:N = \l_@@_hanging_verse_sep_tl
+    , hanging / verse / sep .value_required:n = true
+    , hanging / verse / sep .initial:n = 0.05em
 %    \end{macrocode}
 % Options for the mid-paragraph chapters (including the \env{midparachap} environment).
 %    \begin{macrocode}
-    , midparachap / hideverse     .bool_set_inverse:N = \l_@@_midparachap_show_verse_bool
-    , midparachap / hideverse     .default:n          = true
-    , midparachap / showverse     .bool_set:N         = \l_@@_midparachap_show_verse_bool
-    , midparachap / showverse     .default:n          = true
-    , midparachap / showverse     .initial:n          = true
+    , midparachap / hideverse .bool_set_inverse:N =
+        \l_@@_midparachap_show_verse_bool
+    , midparachap / hideverse .default:n = true
+    , midparachap / showverse .bool_set:N =
+        \l_@@_midparachap_show_verse_bool
+    , midparachap / showverse .default:n = true
+    , midparachap / showverse .initial:n = true
 %    \end{macrocode}
 % Options for the \env{narrow} environment.
 %    \begin{macrocode}
-    , narrow / aboveskip          .tl_set:N           = \l_@@_narrow_aboveskip_tl
-    , narrow / aboveskip          .value_required:n   = true
-    , narrow / aboveskip          .initial:n          = \medskipamount
-    , narrow / belowskip          .tl_set:N           = \l_@@_narrow_belowskip_tl
-    , narrow / belowskip          .value_required:n   = true
-    , narrow / belowskip          .initial:n          = \medskipamount
-    , narrow / leftmargin         .tl_set:N           = \l_@@_narrow_leftmargin_tl
-    , narrow / leftmargin         .value_required:n   = true
-    , narrow / leftmargin         .initial:n          = 1em
-    , narrow / rightmargin        .tl_set:N           = \l_@@_narrow_rightmargin_tl
-    , narrow / rightmargin        .value_required:n   = true
-    , narrow / rightmargin        .initial:n          = 1em
+    , narrow / aboveskip .tl_set:N = \l_@@_narrow_aboveskip_tl
+    , narrow / aboveskip .value_required:n = true
+    , narrow / aboveskip .initial:n = \medskipamount
+    , narrow / belowskip .tl_set:N = \l_@@_narrow_belowskip_tl
+    , narrow / belowskip .value_required:n = true
+    , narrow / belowskip .initial:n = \medskipamount
+    , narrow / leftmargin .tl_set:N = \l_@@_narrow_leftmargin_tl
+    , narrow / leftmargin .value_required:n = true
+    , narrow / leftmargin .initial:n = 1em
+    , narrow / rightmargin .tl_set:N = \l_@@_narrow_rightmargin_tl
+    , narrow / rightmargin .value_required:n = true
+    , narrow / rightmargin .initial:n = 1em
 %    \end{macrocode}
 % Options for the \env{poetry} environment.
 %    \begin{macrocode}
-    , poetry / aboveskip          .tl_set:N           = \l_@@_poetry_aboveskip_tl
-    , poetry / aboveskip          .value_required:n   = true
-    , poetry / aboveskip          .initial:n          = \medskipamount
-    , poetry / belowskip          .tl_set:N           = \l_@@_poetry_belowskip_tl
-    , poetry / belowskip          .value_required:n   = true
-    , poetry / belowskip          .initial:n          = \medskipamount
-    , poetry / bigindent          .tl_set:N           = \l_@@_poetry_big_indent_tl
-    , poetry / bigindent          .value_required:n   = true
-    , poetry / bigindent          .initial:n          = 4em
-    , poetry / indent             .tl_set:N           = \l_@@_poetry_indent_tl
-    , poetry / indent             .value_required:n   = true
-    , poetry / indent             .initial:n          = 1em
-    , poetry / leftmargin         .tl_set:N           = \l_@@_poetry_leftmargin_tl
-    , poetry / leftmargin         .value_required:n   = true
-    , poetry / leftmargin         .initial:n          = 1em
-    , poetry / rightmargin        .tl_set:N           = \l_@@_poetry_rightmargin_tl
-    , poetry / rightmargin        .value_required:n   = true
-    , poetry / rightmargin        .initial:n          = \c_zero_dim
-    , poetry / verse / left       .bool_set_inverse:N = \l_@@_poetry_verse_right_bool
-    , poetry / verse / left       .default:n          = true
-    , poetry / verse / right      .bool_set:N         = \l_@@_poetry_verse_right_bool
-    , poetry / verse / right      .default:n          = true
-    , poetry / verse / right      .initial:n          = true
-    , poetry / verse / sep        .tl_set:N           = \l_@@_poetry_verse_sep_tl
-    , poetry / verse / sep        .value_required:n   = true
-    , poetry / verse / sep        .initial:n          = 0.05em
+    , poetry / aboveskip .tl_set:N = \l_@@_poetry_aboveskip_tl
+    , poetry / aboveskip .value_required:n = true
+    , poetry / aboveskip .initial:n = \medskipamount
+    , poetry / belowskip .tl_set:N = \l_@@_poetry_belowskip_tl
+    , poetry / belowskip .value_required:n = true
+    , poetry / belowskip .initial:n = \medskipamount
+    , poetry / bigindent .tl_set:N = \l_@@_poetry_big_indent_tl
+    , poetry / bigindent .value_required:n = true
+    , poetry / bigindent .initial:n = 4em
+    , poetry / indent .tl_set:N = \l_@@_poetry_indent_tl
+    , poetry / indent .value_required:n = true
+    , poetry / indent .initial:n = 1em
+    , poetry / leftmargin .tl_set:N = \l_@@_poetry_leftmargin_tl
+    , poetry / leftmargin .value_required:n = true
+    , poetry / leftmargin .initial:n = 1em
+    , poetry / rightmargin .tl_set:N = \l_@@_poetry_rightmargin_tl
+    , poetry / rightmargin .value_required:n = true
+    , poetry / rightmargin .initial:n = \c_zero_dim
+    , poetry / verse / left .bool_set_inverse:N =
+        \l_@@_poetry_verse_right_bool
+    , poetry / verse / left .default:n = true
+    , poetry / verse / right .bool_set:N = \l_@@_poetry_verse_right_bool
+    , poetry / verse / right .default:n = true
+    , poetry / verse / right .initial:n = true
+    , poetry / verse / sep .tl_set:N = \l_@@_poetry_verse_sep_tl
+    , poetry / verse / sep .value_required:n = true
+    , poetry / verse / sep .initial:n = 0.05em
   }
 %    \end{macrocode}
 % Process package options.
@@ -3797,7 +3817,7 @@
   {
     , aboveskip                   = \c_zero_skip
     , added / font                =
-    , added / format              = \emph { #1 }
+    , added / format              = \emph {#1}
     , after                       =
     , before                      =
     , belowskip                   = \c_zero_skip
@@ -3926,13 +3946,13 @@
       {
         \tl_if_exist:cF { g__@@_style_ #2 _tl }
           { \tl_new:c { g__@@_style_ #2 _tl } }
-        \@@_setup_style:nne \c_false_bool { #2 }
+        \@@_setup_style:nne { \c_false_bool } {#2}
           { \tl_use:c { g__@@_style_ #2 _tl } , #3 }
       }
       {
-        \tl_gset:cn { g__@@_style_ #2 _tl } { #3 }
+        \tl_gset:cn { g__@@_style_ #2 _tl } {#3}
         \keys_define:nn { scripture }
-          { style / #2 .meta:n = { #3 } }
+          { style / #2 .meta:n = {#3} }
       }
   }
 \cs_generate_variant:Nn \@@_setup_style:nnn { nne }
@@ -4033,17 +4053,18 @@
                 \peek_analysis_map_inline:n
                   {
                     \bool_lazy_or:nnTF
-                      { \exp_args:No \token_if_eq_meaning_p:NN { ####1 } \vs }
-                      { \exp_args:No \token_if_eq_meaning_p:NN { ####1 } \newvs }
+                      { \exp_args:No \token_if_eq_meaning_p:NN {####1} \vs }
+                      { \exp_args:No \token_if_eq_meaning_p:NN {####1} \newvs }
                       {
-                        \bool_gset_true:N \g_@@_suppress_next_verse_para_bool
+                        \bool_gset_true:N
+                          \g_@@_suppress_next_verse_para_bool
                         \@@_set_pilcrow_hook:
                       }
                       {
                         \str_if_eq:VnF \l_@@_currenvir_str { poetry }
                           { \@@_pilcrow_output: }
                       }
-                    \peek_analysis_map_break:n { ####1 }
+                    \peek_analysis_map_break:n {####1}
                   }
               }
           }
@@ -4052,10 +4073,10 @@
             \bool_if:NTF \l_@@_verse_para_bool
               {
                 \str_if_eq:VnTF \l_@@_currenvir_str { poetry }
-                  { \cs_set_eq:NN \noindent \tex_noindent:D }
+                  { \cs_set_eq:NN \noindent \@@_noindent_saved: }
                   { \cs_set_eq:NN \noindent \@@_para_noindent: }
               }
-              { \cs_set_eq:NN \noindent \tex_noindent:D }
+              { \cs_set_eq:NN \noindent \@@_noindent_saved: }
           }
       }
   }
@@ -4096,10 +4117,12 @@
           { \par }
       }
     \int_compare:nNnT
-      \g_@@_chap_par_prevgraf_int = 1
+      { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
       {
         \dim_compare:nNnT
-          { \parskip + \glueexpr \l_@@_extraskip_tl } < \baselineskip
+          { \parskip + \glueexpr \l_@@_extraskip_tl }
+          <
+          { \baselineskip }
           {
             \addvspace { \baselineskip }
           }
@@ -4132,7 +4155,7 @@
           \unskip
           \hfil
           \penalty 50
-          \skip_horizontal:n { #1 }
+          \skip_horizontal:n {#1}
           \hbox:n {}
           \nobreak
           \hfill
@@ -4170,11 +4193,11 @@
 %    \end{macrocode}
 % Append a Bible version if it has been specified.
 %    \begin{macrocode}
-        \tl_if_empty:oF { #2 }
+        \tl_if_empty:oF {#2}
           {
-            \tl_if_empty:oF { #1 }
+            \tl_if_empty:oF {#1}
               { \l_@@_version_delim_tl }
-            \@@_version_format:n { #2 }
+            \@@_version_format:n {#2}
           }
       }
     \group_end:
@@ -4189,17 +4212,21 @@
   {
     \hbox_set:Nn \l_@@_ref_box
       {
-        \@@_format_full_ref:nn { #1 } \l_@@_version_tl
+        \@@_format_full_ref:nn {#1} \l_@@_version_tl
       }
     \dim_compare:nNnT
-      { \box_wd:N \l_@@_ref_box + \g_@@_final_line_dim + \l_@@_ref_sep_tl }
+      {
+        \box_wd:N \l_@@_ref_box +
+          \g_@@_final_line_dim + \l_@@_ref_sep_tl
+      }
       >
-      \linewidth
+      { \linewidth }
       {
         \skip_vertical:N \baselineskip
         \tl_if_eq:NnT \l_@@_ref_align_tl { left }
           {
-            \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+            \int_compare:nNnT
+              { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
               { \skip_vertical:N \baselineskip }
           }
       }
@@ -4207,10 +4234,16 @@
       { \hfill }
       {
         \dim_compare:nNnT
-          { \box_wd:N \l_@@_ref_box + \g_@@_final_line_dim + \l_@@_ref_sep_tl }
+          {
+            \box_wd:N \l_@@_ref_box +
+              \g_@@_final_line_dim + \l_@@_ref_sep_tl
+          }
           <
-          \linewidth
-          { \skip_horizontal:n { \g_@@_final_line_dim + \l_@@_ref_sep_tl } }
+          { \linewidth }
+          {
+            \skip_horizontal:n
+              { \g_@@_final_line_dim + \l_@@_ref_sep_tl }
+          }
       }
     \box_use:N \l_@@_ref_box
   }
@@ -4225,7 +4258,10 @@
     \tl_if_empty:NF \l_@@_ref_tl
       {
         \tl_if_eq:NnTF \l_@@_version_position_tl { withref }
-          { \@@_format_full_ref:nn { \l_@@_ref_tl } { \l_@@_version_tl } }
+          {
+            \@@_format_full_ref:nn
+              { \l_@@_ref_tl } { \l_@@_version_tl }
+          }
           { \@@_format_full_ref:nn { \l_@@_ref_tl } { } }
         \skip_horizontal:N \l_@@_ref_start_sep_tl
       }
@@ -4246,9 +4282,12 @@
         \noindent
         \bool_gset_eq:NN \g_@@_suppress_next_pilcrow_bool \g_tmpa_bool
         \str_if_eq:VnF \l_@@_currenvir_str { scripture }
-          { \skip_horizontal:n { -\leftmargin } }
+          { \skip_horizontal:n { - \leftmargin } }
         \tl_if_eq:NnTF \l_@@_version_position_tl { withref }
-          { \@@_format_full_ref:nn { \l_@@_ref_tl } { \l_@@_version_tl } }
+          {
+            \@@_format_full_ref:nn
+              { \l_@@_ref_tl } { \l_@@_version_tl }
+          }
           { \@@_format_full_ref:nn { \l_@@_ref_tl } { } }
         \bool_lazy_or:nnT
           { \str_if_eq_p:Vn \l_@@_currenvir_str { flushright } }
@@ -4263,8 +4302,14 @@
             \bool_lazy_all:nTF
               {
                 { \l_@@_verse_para_bool }
-                { \bool_not_p:n { \str_if_eq_p:Vn \l_@@_currenvir_str { hanging } } }
-                { \bool_not_p:n { \str_if_eq_p:Vn \l_@@_currenvir_str { poetry } } }
+                {
+                  \bool_not_p:n
+                    { \str_if_eq_p:Vn \l_@@_currenvir_str { hanging } }
+                }
+                {
+                  \bool_not_p:n
+                    { \str_if_eq_p:Vn \l_@@_currenvir_str { poetry } }
+                }
               }
               { \para_end: }
               { \par }
@@ -4300,21 +4345,21 @@
               {
                 \bool_case:nF
                   {
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \heading }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \heading }
                       { \@@_reference_start_newline: }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \noindent }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \noindent }
                       {
                         \bool_if:NTF \l_@@_ref_start_newline_bool
                           { \@@_reference_start_newline: }
                           { \@@_reference_start_inline: }
                       }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \nohang }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \nohang }
                       {
                         \bool_if:NTF \l_@@_ref_start_newline_bool
                           { \@@_reference_start_newline: }
                           { \@@_reference_start_inline: }
                       }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \nopilcrow }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \nopilcrow }
                       {
                         \bool_if:NTF \l_@@_ref_start_newline_bool
                           { \@@_reference_start_newline: }
@@ -4325,20 +4370,28 @@
                             \@@_fix_protrusion:n { }
                           }
                       }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \begin }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \begin }
                       {
                         \bool_if:NF \l_@@_indent_bool
                           {
                             \hook_gput_next_code:nn { para / begin }
                               {
                                 \bool_lazy_or:nnT
-                                  { \str_if_eq_p:Vn \l_@@_currenvir_str { midparachap } }
-                                  { \str_if_eq_p:Vn \l_@@_currenvir_str { scripture } }
+                                  {
+                                    \str_if_eq_p:Vn
+                                      \l_@@_currenvir_str
+                                      { midparachap }
+                                  }
+                                  {
+                                    \str_if_eq_p:Vn
+                                      \l_@@_currenvir_str
+                                      { scripture }
+                                  }
                                   { \para_omit_indent: }
                               }
                           }
                       }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \ch }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \ch }
                       {
                         \bool_if:NTF \l_@@_ref_start_newline_bool
                           { \@@_reference_start_newline: }
@@ -4346,51 +4399,51 @@
                             \cs_set_eq:NN \@@_temp_ch \ch
                             \RenewDocumentCommand \ch { s o m }
                               {
-                                \tl_if_novalue:nF { ##2 }
+                                \tl_if_novalue:nF {##2}
                                   {
-                                    \tl_set:Nn \l_@@_X_char_tl { ##2 }
+                                    \tl_set:Nn \l_@@_X_char_tl {##2}
                                   }
-                                \cs_set_eq:NN \ch \@@_temp_ch
+                                \cs_set_eq:NN \ch \@@_temp_ch:
                               }
                             \@@_reference_start_inline:
                           }
                       }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newch }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newch }
                       {
                         \bool_if:NTF \l_@@_ref_start_newline_bool
                           { \@@_reference_start_newline: }
                           {
-                            \cs_set_eq:NN \@@_temp_newch \newch
+                            \cs_set_eq:NN \@@_temp_newch: \newch
                             \RenewDocumentCommand \newch { s o }
                               {
-                                \tl_if_novalue:nF { ##2 }
+                                \tl_if_novalue:nF {##2}
                                   {
-                                    \tl_set:Nn \l_@@_X_char_tl { ##2 }
+                                    \tl_set:Nn \l_@@_X_char_tl {##2}
                                   }
-                                \cs_set_eq:NN \newch \@@_temp_newch
+                                \cs_set_eq:NN \newch \@@_temp_newch:
                               }
                             \@@_reference_start_inline:
                           }
                       }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \vs }
                       {
                         \bool_if:NTF \l_@@_ref_start_newline_bool
                           { \@@_reference_start_newline: }
                           {
-                            \cs_set_eq:NN \@@_temp_vs \vs
+                            \cs_set_eq:NN \@@_temp_vs: \vs
                             \RenewDocumentCommand \vs { m }
-                              { \cs_set_eq:NN \vs \@@_temp_vs }
+                              { \cs_set_eq:NN \vs \@@_temp_vs: }
                             \@@_reference_start_inline:
                           }
                       }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newvs }
                       {
                         \bool_if:NTF \l_@@_ref_start_newline_bool
                           { \@@_reference_start_newline: }
                           {
-                            \cs_set_eq:NN \@@_temp_newvs \newvs
+                            \cs_set_eq:NN \@@_temp_newvs: \newvs
                             \RenewDocumentCommand \newvs { }
-                              { \cs_set_eq:NN \newvs \@@_temp_newvs }
+                              { \cs_set_eq:NN \newvs \@@_temp_newvs: }
                             \@@_reference_start_inline:
                           }
                       }
@@ -4405,20 +4458,21 @@
                               { \@@_pilcrow_output: }
                           }
                           {
-                            \str_if_eq:VnF \l_@@_currenvir_str { poetry }
-                            { \@@_pilcrow_output: }
+                            \str_if_eq:VnF
+                              \l_@@_currenvir_str { poetry }
+                              { \@@_pilcrow_output: }
                           }
                       }
                       { \@@_reference_start_inline: }
                   }
-                \exp_args:No \token_if_eq_meaning:NNF { ##1 } \begin
+                \exp_args:No \token_if_eq_meaning:NNF {##1} \begin
                   {
                     \tl_clear:N \l_@@_ref_tl
                     \tl_if_eq:NnF \l_@@_version_position_tl { end }
                       { \tl_clear:N \l_@@_version_tl }
                   }
                 \peek_analysis_map_break:n
-                  { \@@_fix_protrusion:o { ##1 } }
+                  { \@@_fix_protrusion:o {##1} }
               }
           }
           {
@@ -4426,13 +4480,13 @@
               {
                 \bool_case:nF
                   {
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \heading }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \heading }
                       { }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \noindent }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \noindent }
                       { }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \nohang }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \nohang }
                       { }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \nopilcrow }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \nopilcrow }
                       {
                         \peek_analysis_map_break:n
                           {
@@ -4440,29 +4494,37 @@
                             \@@_fix_protrusion:n { }
                           }
                       }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \begin }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \begin }
                       {
                         \bool_if:NF \l_@@_indent_bool
                           {
                             \hook_gput_next_code:nn { para / begin }
                               {
                                 \bool_lazy_or:nnT
-                                  { \str_if_eq_p:Vn \l_@@_currenvir_str { midparachap } }
-                                  { \str_if_eq_p:Vn \l_@@_currenvir_str { scripture } }
+                                  {
+                                    \str_if_eq_p:Vn
+                                      \l_@@_currenvir_str
+                                      { midparachap }
+                                  }
+                                  {
+                                    \str_if_eq_p:Vn
+                                      \l_@@_currenvir_str
+                                      { scripture }
+                                  }
                                   { \para_omit_indent: }
                               }
                           }
                       }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \ch }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \ch }
                       { }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newch }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newch }
                       { }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \vs }
                       {
                         \mode_if_vertical:F
                           { \@@_set_pilcrow_hook: }
                       }
-                    { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
+                    { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newvs }
                       {
                         \mode_if_vertical:F
                           { \@@_set_pilcrow_hook: }
@@ -4481,7 +4543,7 @@
                   }
                 \peek_analysis_map_break:n
                   {
-                    \@@_fix_protrusion:o { ##1 }
+                    \@@_fix_protrusion:o {##1}
                   }
               }
           }
@@ -4503,20 +4565,20 @@
           {
             \bool_case:n
               {
-                { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \begin }
+                { \exp_args:No \token_if_eq_meaning_p:NN {##1} \begin }
                   { \bool_gset_true:N \g_@@_mode_vertical_inner_bool }
                 { \str_if_eq_p:Vn \l_@@_currenvir_str { poetry } }
                   { }
-                { \exp_args:No \token_if_letter_p:N { ##1 } }
+                { \exp_args:No \token_if_letter_p:N {##1} }
                   { \@@_pilcrow_output: }
-                { \exp_args:No \token_if_active_p:N { ##1 } }
+                { \exp_args:No \token_if_active_p:N {##1} }
                   { \@@_pilcrow_output: }
-                { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
+                { \exp_args:No \token_if_eq_meaning_p:NN {##1} \vs }
                   { \@@_set_pilcrow_hook: }
-                { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
+                { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newvs }
                   { \@@_set_pilcrow_hook: }
               }
-            \peek_analysis_map_break:n { ##1 }
+            \peek_analysis_map_break:n {##1}
           }
       }
   }
@@ -4530,32 +4592,32 @@
   {
     \legacy_if:nTF { @newlist }
       {
-        \tex_noindent:D
+        \@@_noindent_saved:
         \peek_analysis_map_inline:n
           {
             \bool_lazy_or:nnTF
-              { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
-              { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
+              { \exp_args:No \token_if_eq_meaning_p:NN {##1} \vs }
+              { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newvs }
               { \bool_gset_true:N \g_@@_suppress_next_verse_para_bool }
               { \@@_pilcrow_output: }
-            \peek_analysis_map_break:n { ##1 }
+            \peek_analysis_map_break:n {##1}
           }
       }
       {
         \peek_analysis_map_inline:n
           {
             \bool_lazy_or:nnTF
-              { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
-              { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
+              { \exp_args:No \token_if_eq_meaning_p:NN {##1} \vs }
+              { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newvs }
               {
                 \bool_if:NT \l_@@_verse_para_bool
                   { \para_end: }
-                \tex_noindent:D
+                \@@_noindent_saved:
                 \bool_gset_true:N \g_@@_suppress_next_verse_para_bool
                 \@@_set_pilcrow_hook:
               }
               { \@@_pilcrow_output: }
-            \peek_analysis_map_break:n { ##1 }
+            \peek_analysis_map_break:n {##1}
           }
       }
   }
@@ -4592,16 +4654,16 @@
           {
             \bool_case:n
               {
-                { \exp_args:No \token_if_letter_p:N { ##1 } }
+                { \exp_args:No \token_if_letter_p:N {##1} }
                   { \@@_pilcrow_output: }
-                { \exp_args:No \token_if_active_p:N { ##1 } }
+                { \exp_args:No \token_if_active_p:N {##1} }
                   { \@@_pilcrow_output: }
-                { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
+                { \exp_args:No \token_if_eq_meaning_p:NN {##1} \vs }
                   { \@@_set_pilcrow_hook: }
-                { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
+                { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newvs }
                   { \@@_set_pilcrow_hook: }
               }
-            \peek_analysis_map_break:n { ##1 }
+            \peek_analysis_map_break:n {##1}
           }
       }
   }
@@ -4616,7 +4678,7 @@
   {
     \box_gclear:N \g_@@_post_env_indent_box
     \legacy_if_set_true:n { @endpe }
-    \cs_set_nopar:Npn \par
+    \cs_set_protected:Npn \par
       {
         \@restorepar
         \clubpenalty \@clubpenalty
@@ -4683,7 +4745,8 @@
         \exp_args:NV \color_select:n \l_@@_red_letter_colour_tl
         \str_if_eq:VnF \l_@@_currenvir_str { scripture }
           {
-            \hook_gput_next_code:nn { env / \l_@@_currenvir_str / after }
+            \hook_gput_next_code:nn
+              { env / \l_@@_currenvir_str / after }
               {
                 \exp_args:NV \color_select:n \l_@@_red_letter_colour_tl
               }
@@ -4704,7 +4767,8 @@
         \bool_gset_false:N \g_@@_red_letter_active_bool
         \str_if_eq:VnF \l_@@_currenvir_str { scripture }
           {
-            \hook_gput_next_code:nn { env / \l_@@_currenvir_str / after }
+            \hook_gput_next_code:nn
+              { env / \l_@@_currenvir_str / after }
               {
                 \color_select:n { scripture default colour }
               }
@@ -4847,7 +4911,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_drop_chap_set_up:n
   {
-    \cs_gset_nopar:Npn \scripturecurrentchapter { #1 }
+    \cs_gset_nopar:Npn \scripturecurrentchapter {#1}
     \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
     \@@_get_X_height:
     \dim_set:Nn \l_@@_chap_height_dim
@@ -4868,7 +4932,7 @@
           \selectfont
         \str_if_eq:VnF \l_@@_chapter_colour_tl { . }
           { \exp_args:NV \color_select:n \l_@@_chapter_colour_tl }
-        \@@_chap_format:n { #1 }
+        \@@_chap_format:n {#1}
       }
     \dim_gset:Nn \g_@@_chap_width_dim
       { \box_wd:N \l_@@_chap_tmp_box }
@@ -4880,9 +4944,13 @@
     \bool_if:NF \l_@@_verse_para_bool
     {
       \str_if_eq:VnTF \l_@@_currenvir_str { poetry }
-        { \int_gset_eq:NN \g_@@_current_group_level_b_int \currentgrouplevel }
         {
-          \int_gset:Nn \g_@@_current_group_level_b_int { \currentgrouplevel + 1 }
+          \int_gset_eq:NN
+            \g_@@_current_group_level_b_int \currentgrouplevel
+        }
+        {
+          \int_gset:Nn \g_@@_current_group_level_b_int
+            { \currentgrouplevel + 1 }
         }
       \@@_chap_par_save_prevgraf_at_group_level:
     }
@@ -4900,21 +4968,37 @@
       {
         \legacy_if:nTF { @newlist }
           {
-            \skip_horizontal:n { -\l_@@_parindent_tl }
+            \skip_horizontal:n { - \l_@@_parindent_tl }
           }
-          { \tex_noindent:D }
+          { \@@_noindent_saved: }
         \@@_pilcrow_output:
       }
       { \noindent }
     \parshape 3 ~
       \dim_eval:n
-        { \@totalleftmargin + \g_@@_chap_width_dim + \l_@@_chap_sep_tl } ~
+        {
+          \@totalleftmargin +
+          \g_@@_chap_width_dim +
+          \l_@@_chap_sep_tl
+        } ~
       \dim_eval:n
-        { \linewidth - \g_@@_chap_width_dim - \l_@@_chap_sep_tl } ~
+        {
+          \linewidth -
+          \g_@@_chap_width_dim -
+          \l_@@_chap_sep_tl
+        } ~
       \dim_eval:n
-        { \@totalleftmargin + \g_@@_chap_width_dim + \l_@@_chap_sep_tl } ~
+        {
+          \@totalleftmargin +
+          \g_@@_chap_width_dim +
+          \l_@@_chap_sep_tl
+        } ~
       \dim_eval:n
-        { \linewidth - \g_@@_chap_width_dim - \l_@@_chap_sep_tl } ~
+        {
+          \linewidth -
+          \g_@@_chap_width_dim -
+          \l_@@_chap_sep_tl
+        } ~
       \@totalleftmargin ~
       \linewidth
     \group_begin:
@@ -4939,13 +5023,15 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_nodrop_chap:n
   {
-    \cs_gset_nopar:Npn \scripturecurrentchapter { #1 }
+    \cs_gset_nopar:Npn \scripturecurrentchapter {#1}
     \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
     \group_begin:
     \bool_if:NT \l_@@_verse_para_bool
       {
         \legacy_if:nF { @newlist }
-          { \mode_if_vertical:F \para_end: }
+          {
+            \mode_if_vertical:F { \para_end: }
+          }
       }
     \bool_if:NTF \l_@@_chap_show_bool
       {
@@ -4955,14 +5041,21 @@
             \str_if_eq:VnF \l_@@_chapter_colour_tl { . }
               { \exp_args:NV \color_select:n \l_@@_chapter_colour_tl }
             \l_@@_chap_font_tl
-            \@@_chap_format:n { #1 }
+            \@@_chap_format:n {#1}
             \kern \l_@@_chap_sep_tl
           }
         \dim_zero:N \l_@@_nodrop_chap_voffset_dim
         \tl_if_eq:NnT \l_@@_chapter_valign_tl { t }
-          { \dim_set_eq:NN \l_@@_nodrop_chap_voffset_dim \l_@@_chap_X_height_dim }
+          {
+            \dim_set_eq:NN
+              \l_@@_nodrop_chap_voffset_dim
+              \l_@@_chap_X_height_dim
+          }
         \tl_if_eq:NnT \l_@@_chapter_valign_tl { vc }
-          { \dim_set:Nn \l_@@_nodrop_chap_voffset_dim { 0.5 \l_@@_chap_X_height_dim } }
+          {
+            \dim_set:Nn \l_@@_nodrop_chap_voffset_dim
+              { 0.5 \l_@@_chap_X_height_dim }
+          }
         \hook_use:n { scripture / chap / before }
         \bool_if:NTF \l_@@_chap_smash_bool
           {
@@ -5012,7 +5105,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_para_chap:n
   {
-    \cs_gset_nopar:Npn \scripturecurrentchapter { #1 }
+    \cs_gset_nopar:Npn \scripturecurrentchapter {#1}
     \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
     \group_begin:
     \skip_zero:N \parskip
@@ -5021,19 +5114,22 @@
         \dim_set_eq:NN \l_@@_para_chap_indent_dim \linewidth
         \str_if_eq:VnTF \l_@@_currenvir_str { scripture }
           {
-            \dim_set:Nn \l_@@_para_chap_indent_dim { 0.5 \l_@@_para_chap_indent_dim }
+            \dim_set:Nn \l_@@_para_chap_indent_dim
+              { 0.5 \l_@@_para_chap_indent_dim }
           }
           {
-            \dim_add:Nn \l_@@_para_chap_indent_dim { \leftmargin + \rightmargin }
-            \dim_set:Nn \l_@@_para_chap_indent_dim { 0.5 \l_@@_para_chap_indent_dim }
-            \dim_sub:Nn \l_@@_para_chap_indent_dim \leftmargin
+            \dim_add:Nn \l_@@_para_chap_indent_dim
+              { \leftmargin + \rightmargin }
+            \dim_set:Nn \l_@@_para_chap_indent_dim
+              { 0.5 \l_@@_para_chap_indent_dim }
+            \dim_sub:Nn \l_@@_para_chap_indent_dim { \leftmargin }
           }
-        \mode_if_vertical:F \para_end:
+        \mode_if_vertical:F { \para_end: }
         \addvspace { \l_@@_chap_para_aboveskip_tl }
         \bool_gset_eq:NN \g_tmpa_bool \g_@@_suppress_next_pilcrow_bool
         \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
         \str_if_eq:VnTF \l_@@_currenvir_str { midparachap }
-          { \tex_noindent:D }
+          { \@@_noindent_saved: }
           { \noindent }
         \bool_gset_eq:NN \g_@@_suppress_next_pilcrow_bool \g_tmpa_bool
         \skip_horizontal:N \l_@@_para_chap_indent_dim
@@ -5044,7 +5140,7 @@
             \str_if_eq:VnF \l_@@_chapter_colour_tl { . }
               { \exp_args:NV \color_select:n \l_@@_chapter_colour_tl }
             \l_@@_chap_font_tl
-            \@@_chap_format:n { #1 }
+            \@@_chap_format:n {#1}
             \group_end:
             \hook_use:n { scripture / chap / after }
           }
@@ -5056,8 +5152,13 @@
             { \str_if_eq_p:Vn \l_@@_currenvir_str { midparachap } }
             { \str_if_eq_p:Vn \l_@@_currenvir_str { narrow } }
           }
-          { \legacy_if_set:nn { @afterindent } { \l_@@_chap_para_afterindent_bool } }
-          { \legacy_if_set_true:n { @afterindent } }
+          {
+            \legacy_if_set:nn
+              { @afterindent } { \l_@@_chap_para_afterindent_bool }
+          }
+          {
+            \legacy_if_set_true:n { @afterindent }
+          }
         \@afterheading
       }
       {
@@ -5074,11 +5175,13 @@
         \addvspace { \l_@@_chap_para_belowskip_tl }
         \cs_if_eq:NNTF \vs \@@_poetry_mode_vertical_verse:n
           {
-            \bool_gset_eq:NN \g_tmpa_bool \g_@@_suppress_next_pilcrow_bool
+            \bool_gset_eq:NN
+              \g_tmpa_bool \g_@@_suppress_next_pilcrow_bool
             \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
             \noindent
             \vs { 1 }
-            \bool_gset_eq:NN \g_@@_suppress_next_pilcrow_bool \g_tmpa_bool
+            \bool_gset_eq:NN
+              \g_@@_suppress_next_pilcrow_bool \g_tmpa_bool
           }
           {
             \str_if_eq:VnT \l_@@_currenvir_str { midparachap }
@@ -5097,7 +5200,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_chap:n
   {
-    \@@_drop_chap_set_up:n { #1 }
+    \@@_drop_chap_set_up:n {#1}
     \hbox_set:Nn \l_@@_chap_box
       {
         \box_move_down:nn
@@ -5153,17 +5256,27 @@
           {
             \legacy_if:nF { @newlist }
               {
-                \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+                \int_compare:nNnT
+                  { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
                   {
-                    \dim_compare:nNnT \parskip < \baselineskip
+                    \dim_compare:nNnT { \parskip } < { \baselineskip }
                       {
                         \dim_compare:nNnT
-                          { \g_@@_chap_width_dim + \l_@@_chap_sep_tl } > \parindent
+                          {
+                            \g_@@_chap_width_dim +
+                            \l_@@_chap_sep_tl
+                          }
+                          >
+                          { \parindent }
                           {
                             \hook_gput_next_code:nn { para / begin }
                               {
                                 \para_omit_indent:
-                                \skip_horizontal:n {\g_@@_chap_width_dim + \l_@@_chap_sep_tl }
+                                \skip_horizontal:n
+                                  {
+                                    \g_@@_chap_width_dim +
+                                    \l_@@_chap_sep_tl
+                                  }
                               }
                           }
                       }
@@ -5190,10 +5303,14 @@
           { \g_@@_current_group_level_b_int } = { \currentgrouplevel }
           {
             \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \prevgraf
-            \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+            \int_compare:nNnT
+              { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
               { \penalty 10000 }
             \hook_gput_next_code:nn { para / before }
-              { \int_set_eq:NN \clubpenalty \l_@@_clubpenalty_saved_int }
+              {
+                \int_set_eq:NN
+                  \clubpenalty \l_@@_clubpenalty_saved_int
+              }
           }
           { \@@_chap_par_save_prevgraf_at_group_level: }
       }
@@ -5251,7 +5368,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_verse_output:n
   {
-    \cs_gset_nopar:Npn \scripturecurrentverse { #1 }
+    \cs_gset_nopar:Npn \scripturecurrentverse {#1}
     \legacy_if:nTF { @endpe }
       { \bool_set_false:N \l_@@_verse_par_start_bool }
       { \bool_set_true:N \l_@@_verse_par_start_bool }
@@ -5280,15 +5397,20 @@
           {
             { \l_@@_verse_first_bool }
             { \l_@@_verse_par_start_bool }
-            { \bool_not_p:n { \str_if_eq_p:Vn \l_@@_currenvir_str { poetry } } }
+            {
+              \bool_not_p:n
+                {
+                  \str_if_eq_p:Vn \l_@@_currenvir_str { poetry }
+                }
+            }
           }
           {
-            \@@_verse_first_format:n { #1 }
+            \@@_verse_first_format:n {#1}
             \group_end:
             \kern \l_@@_verse_first_sep_tl
           }
           {
-            \@@_verse_format:n { #1 }
+            \@@_verse_format:n {#1}
             \group_end:
             \kern \l_@@_verse_sep_tl
           }
@@ -5309,7 +5431,7 @@
   {
     \mode_if_vertical:T
       { \@@_set_pilcrow_hook: }
-    \@@_verse_output:n { #1 }
+    \@@_verse_output:n {#1}
   }
 %    \end{macrocode}
 % \end{macro}
@@ -5322,7 +5444,9 @@
     \mode_if_vertical:T
       { \@@_set_pilcrow_hook: }
     \hook_if_empty:nT { scripture / pilcrow }
-      { \dim_set:Nn \parindent \l_@@_para_indent_tl }
+      {
+        \dim_set:Nn \parindent { \l_@@_para_indent_tl }
+      }
     \bool_if:NTF \g_@@_suppress_next_verse_para_bool
       { \bool_gset_false:N \g_@@_suppress_next_verse_para_bool }
       {
@@ -5335,7 +5459,7 @@
               }
           }
       }
-    \@@_verse_output:n { #1 }
+    \@@_verse_output:n {#1}
   }
 %    \end{macrocode}
 % \end{macro}
@@ -5358,12 +5482,12 @@
                 \hook_gput_next_code:nn { para / begin }
                   { \parshape 1 ~ \@totalleftmargin ~ \linewidth }
                 \par
-                \tex_noindent:D
+                \@@_noindent_saved:
               }
           }
       }
     \bool_gset_false:N \g_@@_suppress_next_verse_para_bool
-    \@@_hanging_verse:n { #1 }
+    \@@_hanging_verse:n {#1}
   }
 %    \end{macrocode}
 % \end{macro}
@@ -5386,7 +5510,8 @@
   {
     \hook_if_empty:nT { scripture / pilcrow }
       {
-        \hook_gput_next_code:nn { scripture / pilcrow } { \@@_pilcrow_output: }
+        \hook_gput_next_code:nn
+          { scripture / pilcrow } { \@@_pilcrow_output: }
       }
   }
 %    \end{macrocode}
@@ -5402,7 +5527,8 @@
     \bool_gset_false:N \g_@@_mode_vertical_inner_bool
     \bool_if:NT \l_@@_pilcrow_bool
       {
-        \bool_lazy_or:nnT \l_@@_verse_para_bool \l_@@_compact_bool
+        \bool_lazy_or:nnT
+          { \l_@@_verse_para_bool } { \l_@@_compact_bool }
           {
             \bool_if:NTF \g_@@_suppress_next_pilcrow_bool
               { \bool_gset_false:N \g_@@_suppress_next_pilcrow_bool }
@@ -5432,13 +5558,13 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_calc_final_line_length:
   {
-    \skip_set:Nn \abovedisplayshortskip { -\baselineskip }
+    \skip_set:Nn \abovedisplayshortskip { - \baselineskip }
     \skip_set_eq:NN \abovedisplayskip \abovedisplayshortskip
     \skip_zero:N \belowdisplayshortskip
     \skip_zero:N \belowdisplayskip
     $$
       \hook_use:n { para / after }
-      \dim_compare:nNnTF \predisplaysize > \c_zero_dim
+      \dim_compare:nNnTF { \predisplaysize } > { \c_zero_dim }
         {
           \dim_gset:Nn \g_@@_final_line_dim
             { \predisplaysize - 2em }
@@ -5454,14 +5580,20 @@
         {
           \dim_set:Nn \predisplaysize { \dim_use:N \predisplaysize }
           \int_set:Nn \prevgraf { \int_use:N \prevgraf }
-          \int_gset:Nn \g_@@_chap_par_prevgraf_int { \int_use:N \g_@@_chap_par_prevgraf_int }
+          \int_gset:Nn \g_@@_chap_par_prevgraf_int
+            { \int_use:N \g_@@_chap_par_prevgraf_int }
         }
     $$
     \@@_reset_spacing:
-    \dim_compare:nNnT \g_@@_final_line_dim > \paperwidth
-      { \dim_gset:Nn \g_@@_final_line_dim { \@totalleftmargin + \linewidth } }
-    \dim_compare:nNnT \g_@@_final_line_dim > { \c_zero_dim - 1sp }
-      { \skip_vertical:n { -\baselineskip - \parskip } }
+    \dim_compare:nNnT { \g_@@_final_line_dim } > { \paperwidth }
+      {
+        \dim_gset:Nn \g_@@_final_line_dim
+          { \@totalleftmargin + \linewidth }
+      }
+    \dim_compare:nNnT { \g_@@_final_line_dim } > { \c_zero_dim - 1sp }
+      {
+        \skip_vertical:n { - \baselineskip - \parskip }
+      }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -5472,14 +5604,6 @@
 %   Store the current \env{scripture} environment.
 %    \begin{macrocode}
 \str_new:N \l_@@_currenvir_str
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{\l_@@_parskip_correction_skip}
-%   Correction to ensure consistent \cs{parskip} at start of \env{scripture}
-%   environment with non-zero \opt{parskip} option.
-%    \begin{macrocode}
-\skip_new:N \l_@@_parskip_correction_skip
 %    \end{macrocode}
 % \end{macro}
 %
@@ -5497,7 +5621,7 @@
   {
     \group_begin:
     \l_@@_added_font_tl
-    \@@_added_format:n { #1 }
+    \@@_added_format:n {#1}
     \group_end:
   }
 %    \end{macrocode}
@@ -5517,16 +5641,16 @@
             \bool_set_false:N \l_@@_pilcrow_bool
             \legacy_if:nTF { @newlist }
               {
-                \skip_horizontal:n { -\parindent }
+                \skip_horizontal:n { - \parindent }
               }
               {
                 \@@_list_para_end:
                 \addvspace { \l_@@_heading_aboveskip_tl }
-                \tex_noindent:D
+                \@@_noindent_saved:
               }
             \l_@@_heading_align_tl
             \l_@@_heading_font_tl
-            \@@_heading_format:n { #1 }
+            \@@_heading_format:n {#1}
             \@@_list_para_end:
             \group_end:
             \bool_if:NTF \l_@@_verse_para_bool
@@ -5534,9 +5658,10 @@
                 \cs_set_eq:NN \noindent \_@@_para_noindent:
               }
               {
-                \cs_set_eq:NN \noindent \tex_noindent:D
+                \cs_set_eq:NN \noindent \@@_noindent_saved:
               }
-            \legacy_if_set:nn { @afterindent } \l_@@_heading_afterindent_bool
+            \legacy_if_set:nn
+              { @afterindent } { \l_@@_heading_afterindent_bool }
             \bool_if:NF \l_@@_heading_afterindent_bool
               {
                 \hook_gput_next_code:nn { para / before }
@@ -5549,7 +5674,10 @@
           { \ignorespaces }
       }
       {
-        \msg_error:nnx { scripture } { heading-error } { \l_@@_currenvir_str }
+        \msg_error:nnx
+          { scripture }
+          { heading-error }
+          { \l_@@_currenvir_str }
       }
   }
 %    \end{macrocode}
@@ -5562,7 +5690,7 @@
   {
     \group_begin:
     \l_@@_name_font_tl
-    \@@_name_format:n { #1 }
+    \@@_name_format:n {#1}
     \group_end:
   }
 %    \end{macrocode}
@@ -5587,9 +5715,9 @@
       {
         \bool_if:NTF \l_@@_chap_drop_bool
           {
-            \@@_chap:n { #2 }
+            \@@_chap:n {#2}
             \bool_lazy_and:nnTF
-            { #1 }
+            {#1}
             { \bool_not_p:n { \l_@@_compact_bool } }
             {
               \hook_gput_next_code:nn { para / after }
@@ -5600,19 +5728,22 @@
             }
             {
               \hook_gput_next_code:nn { para / after }
-                { \int_gset_eq:NN \g_@@_mid_para_chap_prevgraf_int \prevgraf }
+                {
+                  \int_gset_eq:NN
+                    \g_@@_mid_para_chap_prevgraf_int \prevgraf
+                }
             }
           }
           {
             \bool_if:NTF \l_@@_chap_para_bool
-              { \@@_para_chap:n { #2 } }
-              { \@@_nodrop_chap:n { #2 } }
+              { \@@_para_chap:n {#2} }
+              { \@@_nodrop_chap:n {#2} }
           }
       }
       {
         \bool_if:NTF \l_@@_chap_para_bool
-          { \@@_para_chap:n { #2 } }
-          { \@@_nodrop_chap:n { #2 } }
+          { \@@_para_chap:n {#2} }
+          { \@@_nodrop_chap:n {#2} }
       }
   }
 %    \end{macrocode}
@@ -5629,16 +5760,16 @@
         \msg_error:nn { scripture } { nested-environment }
       }
     \bool_set_true:N \l_@@_active_bool
-    \tl_if_novalue:nF { #1 }
-      { \tl_set:Nn \l_@@_ref_tl { #1 } }
+    \tl_if_novalue:nF {#1}
+      { \tl_set:Nn \l_@@_ref_tl {#1} }
     \str_set:Nn \l_@@_currenvir_str { scripture }
     \bool_gset_false:N \g_@@_first_verse_set_bool
-    \int_gset:Nn \g_@@_chapter_int \c_one_int
-    \int_gset:Nn \g_@@_verse_int \c_one_int
+    \int_gset:Nn \g_@@_chapter_int { 1 }
+    \int_gset:Nn \g_@@_verse_int { 1 }
     \tl_gclear:N \g_@@_book_tl
-    \tl_if_novalue:nF { #2 }
+    \tl_if_novalue:nF {#2}
       {
-        \keys_set:nn { scripture } { #2 }
+        \keys_set:nn { scripture } {#2}
       }
     \l_@@_before_tl
     \@@_select_language:
@@ -5649,13 +5780,14 @@
     \everydisplay { }
     \int_set:Nn \predisplaypenalty { 10000 }
     \int_set_eq:NN \postdisplaypenalty \@lowpenalty
-    \int_set:Nn \@beginparpenalty { -\@lowpenalty }
+    \int_set:Nn \@beginparpenalty { - \@lowpenalty }
     \int_set_eq:NN \@endparpenalty \@lowpenalty
     \bool_gset_false:N \g_@@_poetry_end_bool
     \cs_set_eq:NN \extraskip \@@_extra_skip:
     \cs_set_eq:NN \redletteron \@@_red_letter_on:
     \cs_set_eq:NN \redletteroff \@@_red_letter_off:
-    \cs_set:Npn \nopilcrow { \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool }
+    \cs_set_protected:Npn \nopilcrow
+      { \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool }
     \bool_gset_false:N \g_@@_suppress_next_pilcrow_bool
     \bool_gset_false:N \g_@@_suppress_next_verse_para_bool
     \bool_gset_false:N \g_@@_mode_vertical_inner_bool
@@ -5665,11 +5797,11 @@
       { \bool_set_false:N \l_@@_chap_drop_bool }
     \DeclareDocumentCommand { \ch } { s o m }
       {
-        \tl_if_novalue:nF { ##2 }
+        \tl_if_novalue:nF {##2}
           {
-            \tl_set:Nn \l_@@_X_char_tl { ##2 }
+            \tl_set:Nn \l_@@_X_char_tl {##2}
           }
-        \@@_ch_output:nn { ##1 } { ##3 }
+        \@@_ch_output:nn {##1} {##3}
       }
     \cs_set_eq:NN \vs \@@_verse_output:n
     \DeclareDocumentCommand { \newch } { s o }
@@ -5677,10 +5809,10 @@
         \bool_if:NTF \g_@@_first_verse_set_bool
           {
             \int_gincr:N \g_@@_chapter_int
-            \int_gset:Nn \g_@@_verse_int \c_one_int
+            \int_gset:Nn \g_@@_verse_int { 1 }
           }
           { \bool_gset_true:N \g_@@_first_verse_set_bool }
-        \bool_if:nTF { ##1 }
+        \bool_if:nTF {##1}
           {
             \ch* [ ##2 ] { \int_use:N \g_@@_chapter_int }
           }
@@ -5702,15 +5834,17 @@
     \cs_set_protected_nopar:Npn \GOD { \name { God } }
     \cs_set_eq:NN \nofirstverse \@@_no_first_verse:
     \cs_set_protected_nopar:Npn \textright ##1
-      { \@@_text_right:nn { \l_@@_text_right_sep_tl } { ##1 } }
+      { \@@_text_right:nn { \l_@@_text_right_sep_tl } {##1} }
     \hook_gclear_next_code:n { para / before }
     \hook_gclear_next_code:n { scripture / pilcow }
     \hook_gclear_next_code:n { scripture / poetry / pilcow }
     \hook_gput_code:nnn { cmd / @makefntext / before } { scripture }
-      { \cs_set_eq:NN \noindent \tex_noindent:D }
+      { \cs_set_eq:NN \noindent \@@_noindent_saved: }
     \l_@@_font_tl
-    \tl_set:Ne \l_@@_parindent_tl { \dim_eval:n { \l_@@_parindent_tl } }
-    \exp_args:NnV \color_set:nn { scripture default colour } \l_@@_colour_tl
+    \tl_set:Ne \l_@@_parindent_tl
+      { \dim_eval:n { \l_@@_parindent_tl } }
+    \exp_args:NnV
+      \color_set:nn { scripture default colour } \l_@@_colour_tl
     \str_if_eq:VnF \l_@@_colour_tl { . }
       { \color_select:n { scripture default colour } }
     \bool_if:NTF \l_@@_inline_bool
@@ -5721,15 +5855,24 @@
           { \dim_zero:N \l_@@_outer_itemindent_dim }
         \list { }
           {
-            \dim_set_eq:NN \leftmargin \l_@@_leftmargin_tl
-            \dim_set_eq:NN \rightmargin \l_@@_rightmargin_tl
-            \dim_set:Nn \itemindent { \l_@@_parindent_tl - \l_@@_outer_itemindent_dim }
-            \dim_set_eq:NN \listparindent \l_@@_parindent_tl
+            \dim_set:Nn \leftmargin { \l_@@_leftmargin_tl }
+            \dim_set:Nn \rightmargin { \l_@@_rightmargin_tl }
+            \dim_set:Nn \itemindent
+              {
+                \l_@@_parindent_tl - \l_@@_outer_itemindent_dim
+              }
+            \dim_set:Nn \listparindent { \l_@@_parindent_tl }
             \skip_zero:N \partopsep
-            \skip_set_eq:NN \parsep \l_@@_parskip_tl
-            \dim_compare:nNnTF \parskip > \l_@@_aboveskip_tl
+            \skip_set:Nn \parsep { \l_@@_parskip_tl }
+            \dim_compare:nNnTF { \parskip } > { \l_@@_aboveskip_tl }
               { \skip_zero:N \topsep }
-              { \skip_set:Nn \topsep { \@@_skip_diff:NN \l_@@_aboveskip_tl \parskip } }
+              {
+                \skip_set:Nn \topsep
+                  {
+                    \@@_skip_diff:NN
+                      \l_@@_aboveskip_tl \parskip
+                  }
+              }
             \@@_setup_list_noindent:n { \l_@@_parindent_tl }
             \bool_if:NF \l_@@_indent_bool
               {
@@ -5740,16 +5883,31 @@
                       {
                         \bool_lazy_any:nT
                           {
-                            { \str_if_eq_p:Vn \l_@@_currenvir_str { midparachap } }
-                            { \str_if_eq_p:Vn \l_@@_currenvir_str { narrow } }
-                            { \str_if_eq_p:Vn \l_@@_currenvir_str { scripture } }
+                            {
+                              \str_if_eq_p:Vn
+                                \l_@@_currenvir_str { midparachap }
+                            }
+                            {
+                              \str_if_eq_p:Vn
+                                \l_@@_currenvir_str { narrow }
+                            }
+                            {
+                              \str_if_eq_p:Vn
+                                \l_@@_currenvir_str { scripture }
+                            }
                           }
                           {
                             \legacy_if:nTF { @noparlist }
                               {
                                 \bool_lazy_and:nnF
-                                  { \str_if_eq_p:Vn \l_@@_currenvir_str { narrow } }
-                                  { \str_if_eq_p:Vn \l_@@_ref_position_tl { start } }
+                                  {
+                                    \str_if_eq_p:Vn
+                                      \l_@@_currenvir_str { narrow }
+                                  }
+                                  {
+                                    \str_if_eq_p:Vn
+                                      \l_@@_ref_position_tl { start }
+                                  }
                                   { \noindent }
                               }
                               { \para_omit_indent: }
@@ -5777,7 +5935,7 @@
         \tl_if_eq:NnT \l_@@_version_position_tl { withref }
           { \tl_clear:N \l_@@_version_tl }
       }
-    \cs_set_eq:NN \noindent \tex_noindent:D
+    \cs_set_eq:NN \noindent \@@_noindent_saved:
     \bool_if:NTF \l_@@_inline_bool
       {
         \unskip
@@ -5790,12 +5948,13 @@
             \tl_if_empty:NF \l_@@_version_tl
               {
                 \skip_horizontal:N \l_@@_ref_sep_tl
-                \@@_format_full_ref:nn { } \l_@@_version_tl
+                \@@_format_full_ref:nn { } { \l_@@_version_tl }
               }
           }
           {
             \skip_horizontal:N \l_@@_ref_sep_tl
-            \@@_format_full_ref:nn \l_@@_ref_tl \l_@@_version_tl
+            \@@_format_full_ref:nn
+              { \l_@@_ref_tl } { \l_@@_version_tl }
           }
       }
       {
@@ -5803,19 +5962,25 @@
         \skip_zero:N \parskip
         \int_set:Nn \postdisplaypenalty { 10000 }
         \@@_calc_final_line_length:
-        \dim_gsub:Nn \g_@@_final_line_dim \@totalleftmargin
-        \dim_compare:nNnTF \@outerparskip > \l_@@_belowskip_tl
+        \dim_gsub:Nn \g_@@_final_line_dim { \@totalleftmargin }
+        \dim_compare:nNnTF { \@outerparskip } > { \l_@@_belowskip_tl }
           { \skip_zero:N \@topsepadd }
-          { \skip_set:Nn \@topsepadd { \@@_skip_diff:NN \l_@@_belowskip_tl \@outerparskip } }
+          {
+            \skip_set:Nn \@topsepadd
+              {
+                \@@_skip_diff:NN
+                  \l_@@_belowskip_tl \@outerparskip
+              }
+          }
 %    \end{macrocode}
 % If a \env{scripture} quotation ends with an inner environment, remove the
 % below skip of the inner environment. Also correct for \cs{textdir} quirk.
 %    \begin{macrocode}
-        \int_compare:nNnT \prevgraf = \c_zero_int
+        \int_compare:nNnT { \prevgraf } = { \c_zero_int }
           {
             \bool_if:NT \l_@@_textdir_change_in_group_bool
-              { \skip_vertical:n { -\baselineskip } }
-            \skip_vertical:n { -\g_@@_prev_inner_below_skip }
+              { \skip_vertical:n { - \baselineskip } }
+            \skip_vertical:n { - \g_@@_prev_inner_below_skip }
           }
         \hook_gclear_next_code:n { para / before }
         \hook_gclear_next_code:n { para / after }
@@ -5828,7 +5993,9 @@
               { \hbox:n { } }
               { \@@_reference:n { } }
           }
-          { \@@_reference:n \l_@@_ref_tl }
+          {
+            \@@_reference:n { \l_@@_ref_tl }
+          }
         \parshape 1 ~ \@totalleftmargin ~ \linewidth
 %    \end{macrocode}
 % Set \val{@noparlist} to \val{false} to ensure \cs{topsep} is always added
@@ -5858,35 +6025,57 @@
       {
         \tl_gclear:N \l_@@_ref_tl
       }
-    \bool_lazy_and:nnT \l_@@_verse_para_bool \l_@@_chap_drop_bool
+    \bool_lazy_and:nnT
+      { \l_@@_verse_para_bool } { \l_@@_chap_drop_bool }
       {
         \cs_set_eq:NN \par \para_end:
         \@@_calc_final_line_length:
-        \int_gset_eq:NN \g_@@_mid_para_chap_prevgraf_int \g_@@_chap_par_prevgraf_int
-        \tex_noindent:D
+        \int_gset_eq:NN
+          \g_@@_mid_para_chap_prevgraf_int
+          \g_@@_chap_par_prevgraf_int
+        \@@_noindent_saved:
         \bool_lazy_and:nnTF
           { \bool_if_p:N \l_@@_compact_bool }
-          { \int_compare_p:nNn \g_@@_mid_para_chap_prevgraf_int = 1 }
           {
-            \hook_gput_next_code:nn { env / \l_@@_currenvir_str / after }
+            \int_compare_p:nNn
+              { \g_@@_mid_para_chap_prevgraf_int } = { \c_one_int }
+          }
+          {
+            \hook_gput_next_code:nn
+              { env / \l_@@_currenvir_str / after }
               {
                 \parshape 3 ~
                   \@totalleftmargin ~ \linewidth ~
                   \dim_eval:n
-                    { \@totalleftmargin + \g_@@_chap_width_dim + \l_@@_chap_sep_tl } ~
+                    {
+                      \@totalleftmargin +
+                      \g_@@_chap_width_dim +
+                      \l_@@_chap_sep_tl
+                    } ~
                   \dim_eval:n
-                    { \linewidth - \g_@@_chap_width_dim - \l_@@_chap_sep_tl } ~
+                    {
+                      \linewidth -
+                      \g_@@_chap_width_dim -
+                      \l_@@_chap_sep_tl
+                    } ~
                   \@totalleftmargin ~ \linewidth
               }
-            \hbox_to_wd:nn { \g_@@_final_line_dim - \g_@@_chap_width_dim - \l_@@_chap_sep_tl } { }
+            \hbox_to_wd:nn
+              {
+                \g_@@_final_line_dim -
+                \g_@@_chap_width_dim -
+                \l_@@_chap_sep_tl
+              }
+              { }
           }
           {
-            \hbox_to_wd:nn \g_@@_final_line_dim { }
+            \hbox_to_wd:nn { \g_@@_final_line_dim } { }
           }
         \c_space_token
         \kern 0pt
         \cs_set_eq:NN \par \relax
-        \int_gset:Nn \g_@@_current_group_level_a_int { \currentgrouplevel - 1 }
+        \int_gset:Nn \g_@@_current_group_level_a_int
+          { \currentgrouplevel - \c_one_int }
         \@@_reset_par_at_group_level:
       }
     \unskip
@@ -5909,14 +6098,16 @@
       }
     \bool_set_true:N \l_@@_active_inner_bool
     \str_set:Nn \l_@@_currenvir_str { center }
-    \tl_if_novalue:nF { #1 }
+    \tl_if_novalue:nF {#1}
       {
         \keys_set:nn
           { scripture / center }
-          { #1 }
+          {#1}
       }
     \legacy_if:nTF { @newlist }
-      { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
+      {
+        \dim_add:Nn \l_@@_outer_itemindent_dim { \itemindent }
+      }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
     \cs_set_eq:NN \par \para_end:
     \int_gset_eq:NN \g_@@_current_group_level_b_int \currentgrouplevel
@@ -5927,18 +6118,25 @@
           { \g_@@_para_mode_vertical_bool }
           { \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool }
         \dim_zero:N \labelsep
-        \dim_set_eq:NN \leftmargin \l_@@_center_leftmargin_tl
-        \dim_set_eq:NN \rightmargin \l_@@_center_rightmargin_tl
-        \dim_set:Nn \itemindent { -\l_@@_outer_itemindent_dim }
+        \dim_set:Nn \leftmargin { \l_@@_center_leftmargin_tl }
+        \dim_set:Nn \rightmargin { \l_@@_center_rightmargin_tl }
+        \dim_set:Nn \itemindent { - \l_@@_outer_itemindent_dim }
         \dim_zero:N \listparindent
         \skip_set_eq:NN \parsep \parskip
         \skip_zero:N \partopsep
-        \dim_compare:nNnTF \parskip > \l_@@_center_aboveskip_tl
+        \dim_compare:nNnTF
+          { \parskip } > { \l_@@_center_aboveskip_tl }
           { \skip_zero:N \topsep }
-          { \skip_set:Nn \topsep { \@@_skip_diff:NN \l_@@_center_aboveskip_tl \parskip } }
+          {
+            \skip_set:Nn \topsep
+              {
+                \@@_skip_diff:NN
+                  \l_@@_center_aboveskip_tl \parskip
+              }
+          }
         \@@_setup_list_noindent:n { \c_zero_dim }
       }
-    \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+    \int_compare:nNnT { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
       { \addvspace { \baselineskip } }
     \int_gzero:N \g_@@_chap_par_prevgraf_int
     \centering
@@ -5964,10 +6162,18 @@
 \cs_new_protected:Nn \@@_center_end:
   {
     \cs_set_eq:NN \par \para_end:
-    \dim_gset:Nn \g_@@_final_line_dim { \@totalleftmargin + \linewidth }
-    \dim_compare:nNnTF \@outerparskip > \l_@@_center_belowskip_tl
+    \dim_gset:Nn \g_@@_final_line_dim
+      { \@totalleftmargin + \linewidth }
+    \dim_compare:nNnTF
+      { \@outerparskip } > { \l_@@_center_belowskip_tl }
       { \skip_zero:N \@topsepadd }
-      { \skip_set:Nn \@topsepadd { \@@_skip_diff:NN \l_@@_center_belowskip_tl \@outerparskip } }
+      {
+        \skip_set:Nn \@topsepadd
+          {
+            \@@_skip_diff:NN
+              \l_@@_center_belowskip_tl \@outerparskip
+          }
+      }
     \skip_gset_eq:NN \g_@@_prev_inner_below_skip \@topsepadd
     \legacy_if_set_false:n { @noparlist }
     \endlist
@@ -5991,14 +6197,16 @@
       }
     \bool_set_true:N \l_@@_active_inner_bool
     \str_set:Nn \l_@@_currenvir_str { flushright }
-    \tl_if_novalue:nF { #1 }
+    \tl_if_novalue:nF {#1}
       {
         \keys_set:nn
           { scripture / flushright }
-          { #1 }
+          {#1}
       }
     \legacy_if:nTF { @newlist }
-      { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
+      {
+        \dim_add:Nn \l_@@_outer_itemindent_dim { \itemindent }
+      }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
     \cs_set_eq:NN \par \para_end:
     \int_gset_eq:NN \g_@@_current_group_level_b_int \currentgrouplevel
@@ -6009,18 +6217,25 @@
           { \g_@@_para_mode_vertical_bool }
           { \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool }
         \dim_zero:N \labelsep
-        \dim_set_eq:NN \leftmargin \l_@@_flushright_leftmargin_tl
-        \dim_set_eq:NN \rightmargin \l_@@_flushright_rightmargin_tl
-        \dim_set:Nn \itemindent { -\l_@@_outer_itemindent_dim }
+        \dim_set:Nn \leftmargin { \l_@@_flushright_leftmargin_tl }
+        \dim_set:Nn \rightmargin { \l_@@_flushright_rightmargin_tl }
+        \dim_set:Nn \itemindent { - \l_@@_outer_itemindent_dim }
         \dim_zero:N \listparindent
         \skip_set_eq:NN \parsep \parskip
         \skip_zero:N \partopsep
-        \dim_compare:nNnTF \parskip > \l_@@_flushright_aboveskip_tl
+        \dim_compare:nNnTF
+          { \parskip } > { \l_@@_flushright_aboveskip_tl }
           { \skip_zero:N \topsep }
-          { \skip_set:Nn \topsep { \@@_skip_diff:NN \l_@@_flushright_aboveskip_tl \parskip } }
+          {
+            \skip_set:Nn \topsep
+              {
+                \@@_skip_diff:NN
+                  \l_@@_flushright_aboveskip_tl \parskip
+              }
+          }
         \@@_setup_list_noindent:n { \c_zero_dim }
       }
-    \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+    \int_compare:nNnT { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
       { \addvspace { \baselineskip } }
     \int_gzero:N \g_@@_chap_par_prevgraf_int
     \raggedleft
@@ -6047,9 +6262,16 @@
   {
     \cs_set_eq:NN \par \para_end:
     \dim_gset:Nn \g_@@_final_line_dim { \@totalleftmargin + \linewidth }
-    \dim_compare:nNnTF \@outerparskip > \l_@@_flushright_belowskip_tl
+    \dim_compare:nNnTF
+      { \@outerparskip } > { \l_@@_flushright_belowskip_tl }
       { \skip_zero:N \@topsepadd }
-      { \skip_set:Nn \@topsepadd { \@@_skip_diff:NN \l_@@_flushright_belowskip_tl \@outerparskip } }
+      {
+        \skip_set:Nn \@topsepadd
+          {
+            \@@_skip_diff:NN
+              \l_@@_flushright_belowskip_tl \@outerparskip
+          }
+      }
     \skip_gset_eq:NN \g_@@_prev_inner_below_skip \@topsepadd
     \legacy_if_set_false:n { @noparlist }
     \endlist
@@ -6085,17 +6307,17 @@
     \bool_if:NTF \l_@@_chap_show_bool
       {
         \bool_if:NTF \l_@@_chap_drop_bool
-          { \@@_hanging_chap:n { #1 } }
+          { \@@_hanging_chap:n {#1} }
           {
             \bool_if:NTF \l_@@_chap_para_bool
-              { \@@_para_chap:n { #1 } }
-              { \@@_nodrop_chap:n { #1 } }
+              { \@@_para_chap:n {#1} }
+              { \@@_nodrop_chap:n {#1} }
           }
       }
       {
         \bool_if:NTF \l_@@_chap_para_bool
-          { \@@_para_chap:n { #1 } }
-          { \@@_nodrop_chap:n { #1 } }
+          { \@@_para_chap:n {#1} }
+          { \@@_nodrop_chap:n {#1} }
       }
   }
 %    \end{macrocode}
@@ -6106,10 +6328,12 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_hanging_chap:n
   {
-    \dim_set_eq:NN \l_@@_hanging_chap_sep_dim \l_@@_chap_sep_tl
-    \@@_drop_chap_set_up:n { #1 }
+    \dim_set:Nn \l_@@_hanging_chap_sep_dim { \l_@@_chap_sep_tl }
+    \@@_drop_chap_set_up:n {#1}
     \dim_compare:nNnTF
-      { \g_@@_chap_width_dim + \l_@@_hanging_chap_sep_dim } < \leftmargin
+      { \g_@@_chap_width_dim + \l_@@_hanging_chap_sep_dim }
+      <
+      { \leftmargin }
       {
         \bool_if:NT \l_@@_hanging_chapter_indent_bool
           {
@@ -6145,16 +6369,26 @@
     \bool_if:NTF \l_@@_hanging_chapter_indent_bool
       {
         \dim_set:Nn \l_@@_hanging_chap_sep_dim
-          { \l_@@_hanging_chap_sep_dim + \l_@@_hanging_parindent_saved_dim }
+          {
+            \l_@@_hanging_chap_sep_dim +
+            \l_@@_hanging_parindent_saved_dim
+          }
         \@@_nohang:
       }
       {
         \mode_leave_vertical:
         \dim_compare:nNnTF
-          { \g_@@_chap_width_dim + \l_@@_hanging_chap_sep_dim } > \l_@@_hanging_leftmargin_tl
+          { \g_@@_chap_width_dim + \l_@@_hanging_chap_sep_dim }
+          >
+          { \l_@@_hanging_leftmargin_tl }
           {
             \dim_compare:nNnTF
-              { \g_@@_chap_width_dim + \l_@@_hanging_chap_sep_dim } > \leftmargin
+              {
+                \g_@@_chap_width_dim +
+                \l_@@_hanging_chap_sep_dim
+              }
+              >
+              { \leftmargin }
               {
                 \skip_horizontal:n { \l_@@_hanging_hang_tl }
               }
@@ -6169,7 +6403,10 @@
           }
           {
             \dim_set:Nn \l_@@_hanging_chap_sep_dim
-              { \l_@@_hanging_leftmargin_tl - \g_@@_chap_width_dim }
+              {
+                \l_@@_hanging_leftmargin_tl -
+                \g_@@_chap_width_dim
+              }
           }
       }
     \hbox_set:Nn \l_@@_chap_box
@@ -6201,7 +6438,8 @@
       \hook_gput_next_code:nn { para / after }
         {
           \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \prevgraf
-          \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+          \int_compare:nNnT
+            { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
             { \penalty 10000 }
           \hook_gput_next_code:nn { para / before }
             {
@@ -6211,16 +6449,22 @@
     }
     \hook_gput_next_code:nn { para / begin }
       {
-        \int_compare:nNnTF \g_@@_chap_par_prevgraf_int = \c_one_int
+        \int_compare:nNnTF
+          { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
           {
             \dim_compare:nNnTF
-              { \l_@@_hanging_leftmargin_tl } <
-                { \g_@@_chap_width_dim + \l_@@_hanging_chap_sep_dim }
+              { \l_@@_hanging_leftmargin_tl }
+              <
+              {
+                \g_@@_chap_width_dim +
+                \l_@@_hanging_chap_sep_dim
+              }
               {
                 \parshape 2 ~
                   \dim_eval:n
                     {
-                      \@totalleftmargin - \leftmargin + \g_@@_chap_width_dim +
+                      \@totalleftmargin - \leftmargin +
+                      \g_@@_chap_width_dim +
                       \l_@@_hanging_chap_sep_dim
                     } ~
                   \dim_eval:n
@@ -6250,7 +6494,8 @@
     \mode_if_vertical:TF
       {
         \tl_set_eq:NN \l_tmpa_tl \l_@@_verse_sep_tl
-        \tl_set_eq:NN \l_@@_verse_sep_tl \l_@@_hanging_verse_sep_tl
+        \tl_set_eq:NN
+          \l_@@_verse_sep_tl \l_@@_hanging_verse_sep_tl
         \bool_lazy_and:nnTF
           { \legacy_if_p:n { @newlist } }
           { \g_@@_suppress_next_pilcrow_bool }
@@ -6260,7 +6505,7 @@
               {
                 \hbox_overlap_left:n
                   {
-                    \@@_verse_output:n { #1 }
+                    \@@_verse_output:n {#1}
                   }
               }
               {
@@ -6268,7 +6513,7 @@
                   {
                     \hbox_overlap_right:n
                       {
-                        \@@_verse_output:n { #1 }
+                        \@@_verse_output:n {#1}
                       }
                     \skip_horizontal:N \l_@@_hanging_leftmargin_tl
                   }
@@ -6281,7 +6526,7 @@
               {
                 \hbox_overlap_left:n
                   {
-                    \@@_verse_output:n { #1 }
+                    \@@_verse_output:n {#1}
                   }
               }
               {
@@ -6289,7 +6534,7 @@
                   {
                     \hbox_overlap_right:n
                       {
-                        \@@_verse_output:n { #1 }
+                        \@@_verse_output:n {#1}
                       }
                     \skip_horizontal:N \l_@@_hanging_leftmargin_tl
                   }
@@ -6298,7 +6543,7 @@
           }
         \tl_set_eq:NN \l_@@_verse_sep_tl \l_tmpa_tl
       }
-      { \@@_verse_output:n { #1 } }
+      { \@@_verse_output:n {#1} }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -6309,20 +6554,20 @@
 %    \begin{macrocode}
 \cs_new_protected_nopar:Nn \@@_nohang:
   {
-    \legacy_if:nTF {@newlist}
+    \legacy_if:nTF { @newlist }
       { \skip_horizontal:n { \l_@@_hanging_hang_tl } }
-      { \tex_noindent:D }
+      { \@@_noindent_saved: }
     \hbox_to_wd:nn { \l_@@_hanging_parindent_saved_dim } { }
     \peek_analysis_map_inline:n
       {
         \bool_lazy_or:nnT
-          { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
-          { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
+          { \exp_args:No \token_if_eq_meaning_p:NN {##1} \vs }
+          { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newvs }
           {
             \bool_gset_true:N \g_@@_suppress_next_verse_para_bool
             \@@_set_pilcrow_hook:
           }
-        \peek_analysis_map_break:n { ##1 }
+        \peek_analysis_map_break:n {##1}
       }
   }
 %    \end{macrocode}
@@ -6339,19 +6584,19 @@
       }
     \bool_set_true:N \l_@@_active_inner_bool
     \str_set:Nn \l_@@_currenvir_str { hanging }
-    \tl_if_novalue:nF { #1 }
+    \tl_if_novalue:nF {#1}
       {
         \keys_set:nn
           { scripture / hanging }
-          { #1 }
+          {#1}
       }
     \DeclareDocumentCommand { \ch } { s o m }
       {
-        \tl_if_novalue:nF { ##2 }
+        \tl_if_novalue:nF {##2}
           {
-            \tl_set:Nn \l_@@_X_char_tl { ##2 }
+            \tl_set:Nn \l_@@_X_char_tl {##2}
           }
-        \@@_hanging_ch:n { ##3 }
+        \@@_hanging_ch:n {##3}
       }
     \bool_if:NTF \l_@@_verse_para_bool
       { \cs_set_eq:NN \vs \@@_hanging_verse_para:n }
@@ -6359,7 +6604,9 @@
     \cs_set_eq:NN \nohang \@@_nohang:
     \dim_set_eq:NN \l_@@_hanging_parindent_saved_dim \parindent
     \legacy_if:nTF { @newlist }
-      { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
+      {
+        \dim_add:Nn \l_@@_outer_itemindent_dim { \itemindent }
+      }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
     \cs_set_eq:NN \par \para_end:
     \hook_gclear_next_code:n { para / before }
@@ -6371,18 +6618,33 @@
           { \g_@@_para_mode_vertical_bool }
           { \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool }
         \dim_zero:N \labelsep
-        \dim_set:Nn \leftmargin { \l_@@_hanging_leftmargin_tl + \l_@@_hanging_hang_tl }
-        \dim_set_eq:NN \rightmargin \l_@@_hanging_rightmargin_tl
-        \dim_set:Nn \itemindent { -\l_@@_hanging_hang_tl - \l_@@_outer_itemindent_dim }
-        \dim_set:Nn \listparindent { -\l_@@_hanging_hang_tl }
+        \dim_set:Nn \leftmargin
+          {
+            \l_@@_hanging_leftmargin_tl +
+            \l_@@_hanging_hang_tl
+          }
+        \dim_set:Nn \rightmargin { \l_@@_hanging_rightmargin_tl }
+        \dim_set:Nn \itemindent
+          {
+            - \l_@@_hanging_hang_tl -
+            \l_@@_outer_itemindent_dim
+          }
+        \dim_set:Nn \listparindent { - \l_@@_hanging_hang_tl }
         \skip_set_eq:NN \parsep \parskip
         \skip_zero:N \partopsep
-        \dim_compare:nNnTF \parskip > \l_@@_hanging_aboveskip_tl
+        \dim_compare:nNnTF
+          { \parskip } > { \l_@@_hanging_aboveskip_tl }
           { \skip_zero:N \topsep }
-          { \skip_set:Nn \topsep { \@@_skip_diff:NN \l_@@_hanging_aboveskip_tl \parskip } }
-        \@@_setup_list_noindent:n { -\l_@@_hanging_hang_tl }
+          {
+            \skip_set:Nn \topsep
+              {
+                \@@_skip_diff:NN
+                  \l_@@_hanging_aboveskip_tl \parskip
+              }
+          }
+        \@@_setup_list_noindent:n { - \l_@@_hanging_hang_tl }
       }
-    \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+    \int_compare:nNnT { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
       { \addvspace { \baselineskip } }
     \int_gzero:N \g_@@_chap_par_prevgraf_int
     \item
@@ -6397,9 +6659,16 @@
 \cs_new_protected:Nn \@@_hanging_end:
   {
     \@@_calc_final_line_length:
-    \dim_compare:nNnTF \@outerparskip > \l_@@_hanging_belowskip_tl
+    \dim_compare:nNnTF
+      { \@outerparskip } > { \l_@@_hanging_belowskip_tl }
       { \skip_zero:N \@topsepadd }
-      { \skip_set:Nn \@topsepadd { \@@_skip_diff:NN \l_@@_hanging_belowskip_tl \@outerparskip } }
+      {
+        \skip_set:Nn \@topsepadd
+          {
+            \@@_skip_diff:NN
+              \l_@@_hanging_belowskip_tl \@outerparskip
+          }
+      }
     \skip_gset_eq:NN \g_@@_prev_inner_below_skip \@topsepadd
     \legacy_if_set_false:n { @noparlist }
     \endlist
@@ -6417,7 +6686,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Npn \@@_vbox_set_top:Nw #1
   {
-    \tex_setbox:D #1 \tex_vtop:D
+    \setbox #1 \vtop
       \c_group_begin_token
         \color_group_begin:
   }
@@ -6482,9 +6751,9 @@
 % used when the \opt{verse/para} and/or \opt{compact} options are in use.
 %    \begin{macrocode}
 \cs_set_eq:Nc \@@_mid_para_chap_end_orig:n { end ~ }
-\cs_new_nopar:Nn \@@_mid_para_chap_end:n
+\cs_new_protected_nopar:Nn \@@_mid_para_chap_end:n
   {
-    \@@_mid_para_chap_end_orig:n { #1 }
+    \@@_mid_para_chap_end_orig:n {#1}
     \bool_if:NT \l_@@_compact_bool
       { \c_space_token }
     \peek_remove_spaces:n
@@ -6493,14 +6762,14 @@
           {
             \bool_case:n
               {
-                { \exp_args:No \token_if_letter_p:N { ##1 } }
+                { \exp_args:No \token_if_letter_p:N {##1} }
                   { \@@_pilcrow_output: }
-                { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
+                { \exp_args:No \token_if_eq_meaning_p:NN {##1} \vs }
                   { \@@_set_pilcrow_hook: }
-                { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
+                { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newvs }
                   { \@@_set_pilcrow_hook: }
               }
-            \peek_analysis_map_break:n { ##1 }
+            \peek_analysis_map_break:n {##1}
           }
       }
   }
@@ -6554,7 +6823,7 @@
       {
         \group_begin:
         \noindent
-        \skip_horizontal:n { -\leftskip }
+        \skip_horizontal:n { - \leftskip }
         \hbox_unpack_drop:N \l_@@_mid_para_chap_snap_box
         \skip_zero:N \parfillskip
         \par
@@ -6575,13 +6844,15 @@
 \cs_new_protected:Nn \@@_mid_para_chap_begin:n
   {
     \str_set:Nn \l_@@_currenvir_str { midparachap }
-    \tl_if_novalue:nF { #1 }
+    \tl_if_novalue:nF {#1}
       {
         \keys_set:nn
           { scripture / midparachap }
-          { #1 }
+          {#1}
       }
-    \bool_lazy_and:nnT \l_@@_chap_show_verse_bool \l_@@_chap_drop_bool
+    \bool_lazy_and:nnT
+      { \l_@@_chap_show_verse_bool }
+      { \l_@@_chap_drop_bool }
       {
         \bool_set_true:N \l_@@_midparachap_show_verse_bool
         \bool_set_false:N \l_@@_chap_show_verse_bool
@@ -6591,7 +6862,8 @@
     \@@_vbox_set_top:Nw \l_@@_mid_para_chap_box
     \dim_zero:N \leftskip
     \dim_zero:N \rightskip
-    \dim_set_eq:NN \l_@@_mid_para_chap_totalleftmargin_dim \@totalleftmargin
+    \dim_set_eq:NN
+      \l_@@_mid_para_chap_totalleftmargin_dim \@totalleftmargin
     \dim_zero:N \@totalleftmargin
     \dim_set_eq:NN \hsize \linewidth
     \skip_zero:N \parskip
@@ -6615,15 +6887,20 @@
         \unpenalty
       }
     \dim_gset:Nn \g_@@_final_line_dim
-      { \box_wd:N \l_@@_mid_para_chap_snap_box + \l_@@_mid_para_chap_totalleftmargin_dim }
+      {
+        \box_wd:N \l_@@_mid_para_chap_snap_box +
+        \l_@@_mid_para_chap_totalleftmargin_dim
+      }
     \box_clear:N \l_@@_mid_para_chap_snap_box
     \nointerlineskip
     \int_compare:nNnT
-      \prevgraf < 3
+      { \prevgraf } < { 3 }
       {
         \noindent
-        \skip_horizontal:n { \g_@@_chap_width_dim + \l_@@_chap_sep_tl }
-        \dim_gadd:Nn \g_@@_final_line_dim { \g_@@_chap_width_dim + \l_@@_chap_sep_tl }
+        \skip_horizontal:n
+          { \g_@@_chap_width_dim + \l_@@_chap_sep_tl }
+        \dim_gadd:Nn \g_@@_final_line_dim
+          { \g_@@_chap_width_dim + \l_@@_chap_sep_tl }
       }
     \box_use_drop:N \l_@@_mid_para_chap_line_box
     \vbox_set_end:
@@ -6643,7 +6920,8 @@
           {
             \int_set:Nn \vbadness { 10000 }
             \vbox_set_split_to_ht:NNn
-              \l_@@_mid_para_chap_split_box \l_@@_mid_para_chap_box
+              \l_@@_mid_para_chap_split_box
+              \l_@@_mid_para_chap_box
               { \pagegoal - \pagetotal - \baselineskip }
             \vbox_set_top:Nn \l_@@_mid_para_chap_split_top_box
               { \vbox_unpack_drop:N \l_@@_mid_para_chap_split_box }
@@ -6660,11 +6938,14 @@
     \par
     \dim_set_eq:NN \prevdepth \g_@@_mid_para_chap_prevdepth_dim
     \int_zero:N \prevgraf
-    \skip_vertical:n { -\parskip - \baselineskip }
+    \skip_vertical:n { - \parskip - \baselineskip }
     \noindent
     \skip_horizontal:N \g_@@_final_line_dim
-    \int_gset_eq:NN \g_@@_chap_par_prevgraf_int \g_@@_mid_para_chap_prevgraf_int
-    \int_gset:Nn \g_@@_current_group_level_a_int { \currentgrouplevel - 1 }
+    \int_gset_eq:NN
+      \g_@@_chap_par_prevgraf_int
+      \g_@@_mid_para_chap_prevgraf_int
+    \int_gset:Nn \g_@@_current_group_level_a_int
+      { \currentgrouplevel - \c_one_int }
     \@@_reset_par_at_group_level:
   }
 %    \end{macrocode}
@@ -6683,42 +6964,52 @@
       }
     \bool_set_true:N \l_@@_active_inner_bool
     \str_set:Nn \l_@@_currenvir_str { narrow }
-    \tl_if_novalue:nF { #1 }
+    \tl_if_novalue:nF {#1}
       {
         \keys_set:nn
           { scripture / narrow }
-          { #1 }
+          {#1}
       }
     \legacy_if:nTF { @newlist }
-      { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
+      {
+        \dim_add:Nn \l_@@_outer_itemindent_dim { \itemindent }
+      }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
     \cs_set_eq:NN \par \para_end:
     \int_gset_eq:NN \g_@@_current_group_level_b_int \currentgrouplevel
     \list { }
       {
         \dim_zero:N \labelsep
-        \dim_set_eq:NN \leftmargin \l_@@_narrow_leftmargin_tl
-        \dim_set_eq:NN \rightmargin \l_@@_narrow_rightmargin_tl
+        \dim_set:Nn \leftmargin { \l_@@_narrow_leftmargin_tl }
+        \dim_set:Nn \rightmargin { \l_@@_narrow_rightmargin_tl }
         \dim_set_eq:NN \listparindent \parindent
         \bool_lazy_or:nnTF
           { \mode_if_vertical_p: }
           { \g_@@_para_mode_vertical_bool }
           {
-            \dim_set:Nn \itemindent { \parindent - \l_@@_outer_itemindent_dim }
+            \dim_set:Nn \itemindent
+              { \parindent - \l_@@_outer_itemindent_dim }
             \@@_setup_list_noindent:n { \parindent }
           }
           {
             \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
-            \dim_set:Nn \itemindent { -\l_@@_outer_itemindent_dim }
+            \dim_set:Nn \itemindent { - \l_@@_outer_itemindent_dim }
             \@@_setup_list_noindent:n { \c_zero_dim }
           }
         \skip_set_eq:NN \parsep \parskip
         \skip_zero:N \partopsep
-        \dim_compare:nNnTF \parskip > \l_@@_narrow_aboveskip_tl
+        \dim_compare:nNnTF
+          { \parskip } > { \l_@@_narrow_aboveskip_tl }
           { \skip_zero:N \topsep }
-          { \skip_set:Nn \topsep { \@@_skip_diff:NN \l_@@_narrow_aboveskip_tl \parskip } }
+          {
+            \skip_set:Nn \topsep
+              {
+                \@@_skip_diff:NN
+                  \l_@@_narrow_aboveskip_tl \parskip
+              }
+          }
       }
-    \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+    \int_compare:nNnT { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
       { \addvspace { \baselineskip } }
     \int_gzero:N \g_@@_chap_par_prevgraf_int
     \bool_if:NT \l_@@_verse_para_bool
@@ -6736,9 +7027,16 @@
   {
     \cs_set_eq:NN \par \para_end:
     \@@_calc_final_line_length:
-    \dim_compare:nNnTF \@outerparskip > \l_@@_narrow_belowskip_tl
+    \dim_compare:nNnTF
+      { \@outerparskip } > { \l_@@_narrow_belowskip_tl }
       { \skip_zero:N \@topsepadd }
-      { \skip_set:Nn \@topsepadd { \@@_skip_diff:NN \l_@@_narrow_belowskip_tl \@outerparskip } }
+      {
+        \skip_set:Nn \@topsepadd
+          {
+            \@@_skip_diff:NN
+              \l_@@_narrow_belowskip_tl \@outerparskip
+          }
+      }
     \skip_gset_eq:NN \g_@@_prev_inner_below_skip \@topsepadd
     \legacy_if_set_false:n { @noparlist }
     \endlist
@@ -6808,7 +7106,7 @@
       \unskip
       \hfil
       \penalty 50
-      \skip_horizontal:n { #1 }
+      \skip_horizontal:n {#1}
       \hbox:n {}
       \nobreak
       \hfill
@@ -6843,17 +7141,17 @@
     \bool_if:NTF \l_@@_chap_show_bool
       {
         \bool_if:NTF \l_@@_chap_drop_bool
-          { \@@_poetry_chap:n { #1 } }
+          { \@@_poetry_chap:n {#1} }
           {
             \bool_if:NTF \l_@@_chap_para_bool
-              { \@@_para_chap:n { #1 } }
-              { \@@_poetry_nodrop_chap:n { #1 } }
+              { \@@_para_chap:n {#1} }
+              { \@@_poetry_nodrop_chap:n {#1} }
           }
       }
       {
         \bool_if:NTF \l_@@_chap_para_bool
-          { \@@_para_chap:n { #1 } }
-          { \@@_poetry_nodrop_chap:n { #1 } }
+          { \@@_para_chap:n {#1} }
+          { \@@_poetry_nodrop_chap:n {#1} }
       }
   }
 %    \end{macrocode}
@@ -6864,7 +7162,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_poetry_chap:n
   {
-    \@@_drop_chap_set_up:n { #1 }
+    \@@_drop_chap_set_up:n {#1}
     \int_gset_eq:NN \g_@@_current_group_level_c_int \currentgrouplevel
     \@@_zero_chap_par_prevgraf_at_group_level:
     \cs_if_eq:NNTF \vs \@@_poetry_mode_vertical_verse:n
@@ -6873,18 +7171,23 @@
         \noindent
       }
       {
-        \dim_set_eq:NN \l_@@_poetry_chap_indent_dim \l_@@_poetry_indent_tl
+        \dim_set:Nn \l_@@_poetry_chap_indent_dim
+          { \l_@@_poetry_indent_tl }
         \mode_leave_vertical:
       }
-    \dim_set_eq:NN \l_@@_poetry_chap_sep_dim \l_@@_chap_sep_tl
+    \dim_set:Nn \l_@@_poetry_chap_sep_dim { \l_@@_chap_sep_tl }
     \dim_compare:nNnT
       { \g_@@_chap_width_dim + \l_@@_chap_sep_tl }
       <
-      { \l_@@_poetry_leftmargin_tl + \l_@@_poetry_chap_indent_dim }
+      {
+        \l_@@_poetry_leftmargin_tl +
+        \l_@@_poetry_chap_indent_dim
+      }
       {
         \dim_set:Nn \l_@@_poetry_chap_sep_dim
           {
-            \l_@@_poetry_leftmargin_tl + \l_@@_poetry_chap_indent_dim -
+            \l_@@_poetry_leftmargin_tl +
+            \l_@@_poetry_chap_indent_dim -
             \g_@@_chap_width_dim
           }
       }
@@ -6904,12 +7207,16 @@
     \box_set_dp:Nn \l_@@_chap_box { \c_zero_dim }
     \dim_set:Nn \l_@@_poetry_chap_parshape_correction_dim
       {
-        \g_@@_chap_width_dim + \l_@@_poetry_chap_sep_dim -
-        \l_@@_poetry_leftmargin_tl - \l_@@_poetry_chap_indent_dim
+        \g_@@_chap_width_dim +
+        \l_@@_poetry_chap_sep_dim -
+        \l_@@_poetry_leftmargin_tl -
+        \l_@@_poetry_chap_indent_dim
       }
     \parshape 2 ~
       \dim_eval:n
-        { \@totalleftmargin + \l_@@_poetry_chap_parshape_correction_dim } ~
+        {
+          \@totalleftmargin + \l_@@_poetry_chap_parshape_correction_dim
+        } ~
       \dim_eval:n
         { \linewidth - \l_@@_poetry_chap_parshape_correction_dim } ~
       \dim_eval:n
@@ -6922,11 +7229,12 @@
     \dim_compare:nNnT
       { \g_@@_chap_width_dim + \l_@@_poetry_chap_sep_dim }
       >
-      \l_@@_poetry_leftmargin_tl
+      { \l_@@_poetry_leftmargin_tl }
       {
         \hook_gput_next_code:nn { scripture / poetry / para / after }
           {
-            \int_compare:nNnT \l_@@_poetry_prevgraf_int = 1
+            \int_compare:nNnT
+              { \l_@@_poetry_prevgraf_int } = { \c_one_int }
               {
                 \cs_if_eq:NNTF \vs \@@_poetry_mode_vertical_verse:n
 %    \end{macrocode}
@@ -6935,28 +7243,49 @@
 %    \begin{macrocode}
                   {
                     \dim_compare:nNnTF
-                      { \g_@@_chap_width_dim + \l_@@_chap_sep_tl }
-                      <
-                      \l_@@_poetry_leftmargin_tl
-                      { \dim_zero:N \l_@@_poetry_chap_parshape_correction_dim }
                       {
-                        \dim_set:Nn \l_@@_poetry_chap_parshape_correction_dim
+                        \g_@@_chap_width_dim +
+                        \l_@@_chap_sep_tl
+                      }
+                      <
+                      { \l_@@_poetry_leftmargin_tl }
+                      {
+                        \dim_zero:N
+                          \l_@@_poetry_chap_parshape_correction_dim
+                      }
+                      {
+                        \dim_set:Nn
+                          \l_@@_poetry_chap_parshape_correction_dim
                           {
-                            \g_@@_chap_width_dim + \l_@@_chap_sep_tl -
+                            \g_@@_chap_width_dim +
+                            \l_@@_chap_sep_tl -
                             \l_@@_poetry_leftmargin_tl
                           }
                       }
-                    \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+                    \int_compare:nNnT
+                      { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
                       {
                         \parshape 2 ~
                           \dim_eval:n
-                            { \@totalleftmargin + \l_@@_poetry_chap_parshape_correction_dim } ~
+                            {
+                              \@totalleftmargin +
+                              \l_@@_poetry_chap_parshape_correction_dim
+                            } ~
                           \dim_eval:n
-                            { \linewidth - \l_@@_poetry_chap_parshape_correction_dim } ~
+                            {
+                              \linewidth -
+                              \l_@@_poetry_chap_parshape_correction_dim
+                            } ~
                           \dim_eval:n
-                            { \@totalleftmargin + \l_@@_poetry_big_indent_tl } ~
+                            {
+                              \@totalleftmargin +
+                              \l_@@_poetry_big_indent_tl
+                            } ~
                           \dim_eval:n
-                            { \linewidth - \l_@@_poetry_big_indent_tl }
+                            {
+                              \linewidth -
+                              \l_@@_poetry_big_indent_tl
+                            }
                       }
                   }
 %    \end{macrocode}
@@ -6965,24 +7294,43 @@
 %    \begin{macrocode}
                   {
                     \dim_compare:nNnTF
-                      { \g_@@_chap_width_dim + \l_@@_chap_sep_tl }
-                      <
-                      { \l_@@_poetry_leftmargin_tl + \l_@@_poetry_indent_tl }
-                      { \dim_zero:N \l_@@_poetry_chap_parshape_correction_dim }
                       {
-                        \dim_set:Nn \l_@@_poetry_chap_parshape_correction_dim
+                        \g_@@_chap_width_dim + \l_@@_chap_sep_tl
+                      }
+                      <
+                      {
+                        \l_@@_poetry_leftmargin_tl +
+                        \l_@@_poetry_indent_tl
+                      }
+                      {
+                        \dim_zero:N
+                          \l_@@_poetry_chap_parshape_correction_dim
+                      }
+                      {
+                        \dim_set:Nn
+                        \l_@@_poetry_chap_parshape_correction_dim
                           {
-                            \g_@@_chap_width_dim + \l_@@_chap_sep_tl -
-                            \l_@@_poetry_leftmargin_tl - \l_@@_poetry_indent_tl
+                            \g_@@_chap_width_dim +
+                            \l_@@_chap_sep_tl -
+                            \l_@@_poetry_leftmargin_tl -
+                            \l_@@_poetry_indent_tl
                           }
                       }
                     \parshape 2 ~
                       \dim_eval:n
-                        { \@totalleftmargin + \l_@@_poetry_chap_parshape_correction_dim } ~
+                        {
+                          \@totalleftmargin +
+                          \l_@@_poetry_chap_parshape_correction_dim
+                        } ~
                       \dim_eval:n
-                        { \linewidth - \l_@@_poetry_chap_parshape_correction_dim } ~
+                        {
+                          \linewidth -
+                          \l_@@_poetry_chap_parshape_correction_dim
+                        } ~
                       \dim_eval:n
-                        { \@totalleftmargin + \l_@@_poetry_big_indent_tl } ~
+                        {
+                          \@totalleftmargin + \l_@@_poetry_big_indent_tl
+                        } ~
                       \dim_eval:n
                         { \linewidth - \l_@@_poetry_big_indent_tl }
                   }
@@ -6994,7 +7342,9 @@
     \box_use:N \l_@@_chap_box
     \hook_use:n { scripture / chap / after }
     \group_end:
-    \bool_lazy_or:nnT \l_@@_chap_show_verse_bool \l_@@_poetry_midparachap_show_verse_bool
+    \bool_lazy_or:nnT
+      { \l_@@_chap_show_verse_bool }
+      { \l_@@_poetry_midparachap_show_verse_bool }
       { \@@_verse_output:n { 1 } }
     \hook_use:n { scripture / poetry / pilcrow }
   }
@@ -7007,7 +7357,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_poetry_nodrop_chap:n
   {
-    \cs_gset_nopar:Npn \scripturecurrentchapter { #1 }
+    \cs_gset_nopar:Npn \scripturecurrentchapter {#1}
     \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
     \group_begin:
     \cs_if_eq:NNT \vs \@@_poetry_mode_vertical_verse:n
@@ -7021,11 +7371,13 @@
             \l_@@_chap_font_tl
             \str_if_eq:VnF \l_@@_chapter_colour_tl { . }
               { \exp_args:NV \color_select:n \l_@@_chapter_colour_tl }
-            \@@_chap_format:n { #1 }
+            \@@_chap_format:n {#1}
             \group_end:
             \skip_horizontal:N \l_@@_chap_sep_tl
             \hook_use:n { scripture / chap / after }
-            \bool_lazy_or:nnT \l_@@_chap_show_verse_bool \l_@@_poetry_midparachap_show_verse_bool
+            \bool_lazy_or:nnT
+              { \l_@@_chap_show_verse_bool }
+              { \l_@@_poetry_midparachap_show_verse_bool }
               { \@@_verse_output:n { 1 } }
           }
       }
@@ -7049,16 +7401,16 @@
     \tl_set_eq:NN \l_@@_verse_sep_tl \l_@@_poetry_verse_sep_tl
     \hook_gclear_next_code:n { scripture / pilcrow }
     \strut
-    \int_compare:nNnTF \g_@@_chap_par_prevgraf_int = 1
+    \int_compare:nNnTF { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
       {
-        \@@_verse_output:n { #1 }
+        \@@_verse_output:n {#1}
       }
       {
         \bool_if:NTF \l_@@_poetry_verse_right_bool
           {
             \hbox_overlap_left:n
               {
-                \@@_verse_output:n { #1 }
+                \@@_verse_output:n {#1}
               }
           }
           {
@@ -7066,7 +7418,7 @@
               {
                 \hbox_overlap_right:n
                   {
-                    \@@_verse_output:n { #1 }
+                    \@@_verse_output:n {#1}
                   }
                 \skip_horizontal:N \l_@@_poetry_leftmargin_tl
               }
@@ -7087,13 +7439,13 @@
   {
     \group_begin:
     \tl_set_eq:NN \l_@@_verse_sep_tl \l_@@_poetry_verse_sep_tl
-    \int_compare:nNnTF \g_@@_chap_par_prevgraf_int = 1
+    \int_compare:nNnTF { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
       {
-        \@@_poetry_mode_vertical_verse:n { #1 }
+        \@@_poetry_mode_vertical_verse:n {#1}
       }
       {
-        \skip_horizontal:n { -\listparindent }
-        \@@_poetry_mode_vertical_verse:n { #1 }
+        \skip_horizontal:n { - \listparindent }
+        \@@_poetry_mode_vertical_verse:n {#1}
         \skip_horizontal:N \listparindent
       }
     \group_end:
@@ -7127,11 +7479,11 @@
 %    \begin{macrocode}
 \group_begin:
   \char_set_catcode_active:N \^^M
-  \cs_gset_protected_nopar:Nn \@@_obeylines: %
-    {%
-      \char_set_catcode_active:N \^^M%
-      \cs_set_eq:NN ^^M \@@_obeylines_eol:%
-    }%
+  \cs_gset_protected_nopar:Nn \@@_obeylines:
+    {
+      \char_set_catcode_active:N \^^M
+      \cs_set_eq:NN ^^M \@@_obeylines_eol:
+    }
 \group_end:
 \cs_new_protected:Nn \@@_obeylines_eol:
   {
@@ -7146,47 +7498,54 @@
       {
         \bool_case:nF
           {
-            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \ch }
+            { \exp_args:No \token_if_eq_meaning_p:NN {##1} \ch }
               {
-                \bool_set_eq:NN \l_@@_poetry_midparachap_show_verse_bool \l_@@_midparachap_show_verse_bool
+                \bool_set_eq:NN
+                  \l_@@_poetry_midparachap_show_verse_bool
+                  \l_@@_midparachap_show_verse_bool
                 \@@_poetry_par:
-                \peek_analysis_map_break:n { ##1 }
+                \peek_analysis_map_break:n {##1}
               }
-            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newch }
+            { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newch }
               {
-                \bool_set_eq:NN \l_@@_poetry_midparachap_show_verse_bool \l_@@_midparachap_show_verse_bool
+                \bool_set_eq:NN
+                  \l_@@_poetry_midparachap_show_verse_bool
+                  \l_@@_midparachap_show_verse_bool
                 \@@_poetry_par:
-                \peek_analysis_map_break:n { ##1 }
+                \peek_analysis_map_break:n {##1}
               }
-            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \end }
-              { \peek_analysis_map_break:n { ##1 } }
-            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \extraskip }
-              { \peek_analysis_map_break:n { ##1 } }
-            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \nopilcrow }
+            { \exp_args:No \token_if_eq_meaning_p:NN {##1} \end }
+              { \peek_analysis_map_break:n {##1} }
+            { \exp_args:No \token_if_eq_meaning_p:NN {##1} \extraskip }
+              { \peek_analysis_map_break:n {##1} }
+            { \exp_args:No \token_if_eq_meaning_p:NN {##1} \nopilcrow }
               {
                 \@@_poetry_par:
                 \cs_if_eq:NNT \vs \@@_poetry_mode_vertical_verse:n
                   { \noindent }
                 \peek_analysis_map_break:n
                   {
-                    \@@_fix_protrusion:o { ##1 }
+                    \@@_fix_protrusion:o {##1}
                   }
               }
-            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \vs }
+            { \exp_args:No \token_if_eq_meaning_p:NN {##1} \vs }
               {
                 \@@_poetry_par:
                 \cs_if_eq:NNT \vs \@@_poetry_mode_vertical_verse:n
                   { \noindent }
-                \peek_analysis_map_break:n { ##1 }
+                \peek_analysis_map_break:n {##1}
               }
-            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \newvs }
+            { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newvs }
               {
                 \@@_poetry_par:
                 \cs_if_eq:NNT \vs \@@_poetry_mode_vertical_verse:n
                   { \noindent }
-                \peek_analysis_map_break:n { ##1 }
+                \peek_analysis_map_break:n {##1}
               }
-            { \exp_args:No \token_if_eq_meaning_p:NN { ##1 } \@@_obeylines_eol: }
+            {
+              \exp_args:No
+                \token_if_eq_meaning_p:NN {##1} \@@_obeylines_eol:
+            }
               { \cs_set_eq:NN \vs \@@_poetry_mode_vertical_verse:n }
           }
           {
@@ -7202,7 +7561,7 @@
               }
             \peek_analysis_map_break:n
               {
-                \@@_fix_protrusion:o { ##1 }
+                \@@_fix_protrusion:o {##1}
               }
           }
       }
@@ -7224,21 +7583,26 @@
     \bool_gset_false:N \g_@@_poetry_midparachap_show_verse_bool
     \DeclareDocumentCommand { \ch } { s o m }
       {
-        \tl_if_novalue:nF { ##2 }
+        \tl_if_novalue:nF {##2}
           {
-            \tl_set:Nn \l_@@_X_char_tl { ##2 }
+            \tl_set:Nn \l_@@_X_char_tl {##2}
           }
-        \@@_poetry_ch:n { ##3 }
+        \@@_poetry_ch:n {##3}
       }
     \cs_set_eq:NN \vs \@@_poetry_mode_vertical_verse:n
     \cs_set_eq:NN \selah \@@_selah_output:
     \cs_set_protected_nopar:Npn \textright ##1
-      { \@@_poetry_text_right:nn { \l_@@_text_right_sep_tl } { ##1 } }
+      {
+        \@@_poetry_text_right:nn
+          { \l_@@_text_right_sep_tl } {##1}
+      }
     \legacy_if:nTF { @newlist }
-      { \dim_add:Nn \l_@@_outer_itemindent_dim \itemindent }
+      {
+        \dim_add:Nn \l_@@_outer_itemindent_dim { \itemindent }
+      }
       { \dim_zero:N \l_@@_outer_itemindent_dim }
     \cs_set_eq:NN \par \para_end:
-    \cs_set_eq:NN \noindent \tex_noindent:D
+    \cs_set_eq:NN \noindent \@@_noindent_saved:
     \hook_gclear_next_code:n { para / before }
     \hook_gput_next_code:nn { scripture / poetry / pilcrow }
       {
@@ -7254,22 +7618,31 @@
           { \g_@@_para_mode_vertical_bool }
           { \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool }
         \dim_zero:N \labelsep
-        \dim_set_eq:NN \leftmargin \l_@@_poetry_leftmargin_tl
-        \dim_set_eq:NN \rightmargin \l_@@_poetry_rightmargin_tl
-        \dim_set:Nn \itemindent { \l_@@_poetry_indent_tl - \l_@@_outer_itemindent_dim }
-        \dim_set_eq:NN \listparindent \l_@@_poetry_indent_tl
+        \dim_set:Nn \leftmargin { \l_@@_poetry_leftmargin_tl }
+        \dim_set:Nn \rightmargin { \l_@@_poetry_rightmargin_tl }
+        \dim_set:Nn \itemindent
+          {
+            \l_@@_poetry_indent_tl - \l_@@_outer_itemindent_dim
+          }
+        \dim_set:Nn \listparindent { \l_@@_poetry_indent_tl }
         \skip_zero:N \parsep
         \skip_zero:N \partopsep
-        \dim_compare:nNnTF \parskip > { \l_@@_poetry_aboveskip_tl }
+        \dim_compare:nNnTF { \parskip } > { \l_@@_poetry_aboveskip_tl }
           { \skip_zero:N \topsep }
-          { \skip_set:Nn \topsep { \@@_skip_diff:NN \l_@@_poetry_aboveskip_tl \parskip } }
+          {
+            \skip_set:Nn \topsep
+              {
+                \@@_skip_diff:NN
+                  \l_@@_poetry_aboveskip_tl \parskip
+              }
+          }
         \@@_setup_list_noindent:n { \l_@@_poetry_indent_tl }
       }
-    \int_compare:nNnT \g_@@_chap_par_prevgraf_int = 1
+    \int_compare:nNnT { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
       { \addvspace { \baselineskip } }
     \int_gzero:N \g_@@_chap_par_prevgraf_int
     \raggedright
-    \dim_set_eq:NN \parindent \l_@@_poetry_indent_tl
+    \dim_set:Nn \parindent { \l_@@_poetry_indent_tl }
     \item
     \relax
   }
@@ -7282,9 +7655,16 @@
 \cs_new_protected:Nn \@@_poetry_end:
   {
     \@@_calc_final_line_length:
-    \dim_compare:nNnTF \@outerparskip > { \l_@@_poetry_belowskip_tl }
+    \dim_compare:nNnTF
+      { \@outerparskip } > { \l_@@_poetry_belowskip_tl }
       { \skip_zero:N \@topsepadd }
-      { \skip_set:Nn \@topsepadd { \@@_skip_diff:NN \l_@@_poetry_belowskip_tl \@outerparskip } }
+      {
+        \skip_set:Nn \@topsepadd
+          {
+            \@@_skip_diff:NN
+              \l_@@_poetry_belowskip_tl \@outerparskip
+          }
+      }
     \skip_gset_eq:NN \g_@@_prev_inner_below_skip \@topsepadd
     \legacy_if_set_false:n { @noparlist }
     \endlist
@@ -7320,7 +7700,7 @@
 %    \begin{macrocode}
 \NewDocumentCommand { \scripturesetup } { m }
   {
-    \keys_set:nn { scripture } { #1 }
+    \keys_set:nn { scripture } {#1}
   }
 %    \end{macrocode}
 % \end{macro}
@@ -7337,7 +7717,7 @@
 %    \begin{macrocode}
 \NewDocumentCommand { \scripturestyle } { s m m }
   {
-    \@@_setup_style:nnn { #1 } { #2 } { #3 }
+    \@@_setup_style:nnn {#1} {#2} {#3}
   }
 %    \end{macrocode}
 % \end{macro}
@@ -7353,7 +7733,7 @@
 %    \begin{macrocode}
 \NewDocumentCommand { \textscripture } { o o +m }
   {
-    \tl_if_novalue:nTF { #2 }
+    \tl_if_novalue:nTF {#2}
       {
         \begin { scripture } [ #1 ] [ inline ]
       }
@@ -7375,7 +7755,7 @@
 %    \begin{macrocode}
 \NewDocumentEnvironment { scripture } { o o }
   {
-    \@@_begin:nn { #1 } { #2 }
+    \@@_begin:nn {#1} {#2}
 %    \end{macrocode}
 % \begin{envmacro}{center}
 %   \begin{arguments}
@@ -7384,7 +7764,7 @@
 %    \begin{macrocode}
     \DeclareDocumentEnvironment { center } { o }
       {
-        \@@_center_begin:n { ##1 }
+        \@@_center_begin:n {##1}
         \@@_reference_start_peek:
       }
       { \@@_center_end: }
@@ -7397,7 +7777,7 @@
 %    \begin{macrocode}
     \DeclareDocumentEnvironment { flushright } { o }
       {
-        \@@_flushright_begin:n { ##1 }
+        \@@_flushright_begin:n {##1}
         \@@_reference_start_peek:
       }
       { \@@_flushright_end: }
@@ -7410,7 +7790,7 @@
 %    \begin{macrocode}
     \DeclareDocumentEnvironment { hanging } { o }
       {
-        \@@_hanging_begin:n { ##1 }
+        \@@_hanging_begin:n {##1}
         \@@_reference_start_peek:
       }
       { \@@_hanging_end: }
@@ -7421,7 +7801,7 @@
 %    \begin{macrocode}
     \DeclareDocumentEnvironment { midparachap } { o }
       {
-        \@@_mid_para_chap_begin:n { ##1 }
+        \@@_mid_para_chap_begin:n {##1}
         \@@_reference_start_peek:
       }
       { \@@_mid_para_chap_end: }
@@ -7434,7 +7814,7 @@
 %    \begin{macrocode}
     \DeclareDocumentEnvironment { narrow } { o }
       {
-        \@@_narrow_begin:n { ##1 }
+        \@@_narrow_begin:n {##1}
         \@@_reference_start_peek:
       }
       { \@@_narrow_end: }
@@ -7449,11 +7829,11 @@
 %    \begin{macrocode}
     \DeclareDocumentEnvironment { poetryaux } { o }
       {
-        \tl_if_novalue:nF { ##1 }
+        \tl_if_novalue:nF {##1}
           {
             \keys_set:nn
               { scripture / poetry }
-              { ##1 }
+              {##1}
           }
         \@@_poetry_begin:
         \@@_reference_start_peek:
@@ -7476,15 +7856,19 @@
         \tl_set:Nn \l_@@_rightmargin_tl { 0pt }
         \cs_set_eq:NN \@@_ref_format:n \@@_inline_ref_format:n
         \tl_set_eq:NN \l_@@_ref_sep_tl \l_@@_inline_ref_sep_tl
-        \cs_set_eq:NN \@@_version_format:n \@@_inline_version_format:n
-        \tl_set_eq:NN \l_@@_version_delim_tl \l_@@_inline_version_delim_tl
+        \cs_set_eq:NN
+          \@@_version_format:n \@@_inline_version_format:n
+        \tl_set_eq:NN
+          \l_@@_version_delim_tl \l_@@_inline_version_delim_tl
         \bool_set_false:N \l_@@_chap_para_bool
         \bool_set_true:N \l_@@_compact_bool
         \bool_set_false:N \l_@@_heading_show_bool
       }
     \bool_if:NT \l_@@_chap_para_bool
       {
-        \RenewDocumentEnvironment { midparachap } { o } { \ignorespaces } { \unskip }
+        \RenewDocumentEnvironment { midparachap } { o }
+          { \ignorespaces }
+          { \unskip }
       }
     \bool_if:NT \l_@@_verse_para_bool
       {
@@ -7502,7 +7886,7 @@
         \RenewDocumentEnvironment { midparachap } { o }
           {
             \str_set:Nn \l_@@_currenvir_str { midparachap }
-            \cs_set_eq:NN \noindent \tex_noindent:D
+            \cs_set_eq:NN \noindent \@@_noindent_saved:
             \cs_set_eq:cN { end ~ } \@@_mid_para_chap_end:n
             \@@_reference_start_peek:
           }
@@ -7565,7 +7949,7 @@
         \cs_set_eq:NN \par \@@_compact_par:
         \cs_set_eq:NN \extraskip \relax
         \cs_set_eq:NN \nohang \relax
-        \cs_set:Npn \selah
+        \cs_set_protected:Npn \selah
           {
             \group_begin:
             \l_@@_selah_font_tl
@@ -7584,7 +7968,8 @@
     \@@_reference_start_peek:
   }
   {
-    \bool_lazy_or:nnT \l_@@_compact_bool \l_@@_verse_para_bool
+    \bool_lazy_or:nnT
+      { \l_@@_compact_bool } { \l_@@_verse_para_bool }
       { \cs_set_eq:NN \par \para_end: }
     \@@_end:
   }
