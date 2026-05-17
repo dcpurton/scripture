@@ -5764,8 +5764,8 @@
       { \tl_set:Nn \l_@@_ref_tl {#1} }
     \str_set:Nn \l_@@_currenvir_str { scripture }
     \bool_gset_false:N \g_@@_first_verse_set_bool
-    \int_gset_eq:NN \g_@@_chapter_int \c_one_int
-    \int_gset_eq:NN \g_@@_verse_int \c_one_int
+    \int_gset:Nn \g_@@_chapter_int { 1 }
+    \int_gset:Nn \g_@@_verse_int { 1 }
     \tl_gclear:N \g_@@_book_tl
     \tl_if_novalue:nF {#2}
       {
@@ -5809,7 +5809,7 @@
         \bool_if:NTF \g_@@_first_verse_set_bool
           {
             \int_gincr:N \g_@@_chapter_int
-            \int_gset_eq:NN \g_@@_verse_int \c_one_int
+            \int_gset:Nn \g_@@_verse_int { 1 }
           }
           { \bool_gset_true:N \g_@@_first_verse_set_bool }
         \bool_if:nTF {##1}
