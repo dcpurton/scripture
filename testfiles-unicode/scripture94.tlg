@@ -272,11 +272,11 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 10000
-...\glue(\abovedisplayskip) -15.0
+...\glue(\abovedisplayshortskip) -15.0
 ...\glue(\baselineskip) 12.10938
 ...\hbox(0.0+0.0)x0.0, shifted 172.5, direction TLT
 ...\penalty 10000
-...\glue(\belowdisplayskip) 0.0
+...\glue(\belowdisplayshortskip) 0.0
 ...\glue -15.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
@@ -1245,11 +1245,11 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue(\abovedisplayskip) -15.0
+...\glue(\abovedisplayshortskip) -15.0
 ...\glue(\baselineskip) 12.13379
 ...\hbox(0.0+0.0)x0.0, shifted 207.5, direction TLT
 ...\penalty 51
-...\glue(\belowdisplayskip) 0.0
+...\glue(\belowdisplayshortskip) 0.0
 ...\glue -15.0
 ...\glue 15.0
 ...\penalty 51
@@ -1259,11 +1259,11 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\penalty 10000
-...\glue(\abovedisplayskip) -15.0
+...\glue(\abovedisplayshortskip) -15.0
 ...\glue(\baselineskip) 15.0
 ...\hbox(0.0+0.0)x0.0, shifted 172.5, direction TLT
 ...\penalty 10000
-...\glue(\belowdisplayskip) 0.0
+...\glue(\belowdisplayshortskip) 0.0
 ...\glue -15.0
 ...\glue -6.0 plus -1.0 minus -2.0
 ...\glue(\parskip) 0.0
@@ -1748,11 +1748,11 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue(\abovedisplayskip) -15.0
+...\glue(\abovedisplayshortskip) -15.0
 ...\glue(\baselineskip) 10.49995
 ...\hbox(0.0+0.0)x0.0, shifted 207.5, direction TLT
 ...\penalty 51
-...\glue(\belowdisplayskip) 0.0
+...\glue(\belowdisplayshortskip) 0.0
 ...\glue -15.0
 ...\glue 15.0
 ...\penalty 51
@@ -1762,11 +1762,11 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\penalty 10000
-...\glue(\abovedisplayskip) -15.0
+...\glue(\abovedisplayshortskip) -15.0
 ...\glue(\baselineskip) 15.0
 ...\hbox(0.0+0.0)x0.0, shifted 172.5, direction TLT
 ...\penalty 10000
-...\glue(\belowdisplayskip) 0.0
+...\glue(\belowdisplayshortskip) 0.0
 ...\glue -15.0
 ...\glue -6.0 plus -1.0 minus -2.0
 ...\glue(\parskip) 0.0

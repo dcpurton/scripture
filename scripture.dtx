@@ -3240,23 +3240,6 @@
   {Format Scripture Quotations (DCP)}
 %    \end{macrocode}
 %
-% \subsection{Hacks and workarounds}
-%
-% Work around odd interaction between \cs{textdir} and display math. See
-% \url{https://tex.stackexchange.com/q/716621/87678}.
-%
-%    \begin{macrocode}
-\bool_new:N \l_@@_textdir_change_in_group_bool
-\cs_new_protected:Nn \@@_set_textdirection:
-  {
-    \sys_if_engine_luatex:T
-      {
-        \textdirection \int_use:N \textdirection
-        \bool_set_true:N \l_@@_textdir_change_in_group_bool
-      }
-  }
-%    \end{macrocode}
-%
 % \subsection{Messages}
 %
 % \env{scripture} environments along with all internal environments can not be
@@ -4789,7 +4772,6 @@
       {
         \@ifpackageloaded { babel }
           {
-            \@@_set_textdirection:
             \selectlanguage { \l_@@_language_tl }
           }
           {
@@ -5564,17 +5546,10 @@
     \skip_zero:N \belowdisplayskip
     $$
       \hook_use:n { para / after }
-      \dim_compare:nNnTF { \predisplaysize } > { \c_zero_dim }
+      \dim_compare:nNnT { \predisplaysize } > { \c_zero_dim }
         {
           \dim_gset:Nn \g_@@_final_line_dim
             { \predisplaysize - 2em }
-        }
-        {
-          \bool_if:NT \l_@@_textdir_change_in_group_bool
-            {
-              \str_if_eq:VnT \l_@@_currenvir_str { scripture }
-                { \int_set:Nn \prevgraf { \int_use:N \prevgraf - 1 } }
-            }
         }
       \cs_gset_nopar:Nx \@@_reset_spacing:
         {
@@ -5974,12 +5949,10 @@
           }
 %    \end{macrocode}
 % If a \env{scripture} quotation ends with an inner environment, remove the
-% below skip of the inner environment. Also correct for \cs{textdir} quirk.
+% below skip of the inner environment.
 %    \begin{macrocode}
         \int_compare:nNnT { \prevgraf } = { \c_zero_int }
           {
-            \bool_if:NT \l_@@_textdir_change_in_group_bool
-              { \skip_vertical:n { - \baselineskip } }
             \skip_vertical:n { - \g_@@_prev_inner_below_skip }
           }
         \hook_gclear_next_code:n { para / before }

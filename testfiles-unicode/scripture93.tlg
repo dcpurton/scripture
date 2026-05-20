@@ -32,7 +32,6 @@ Completed box being shipped out [1]
 .....\localbrokenpenalty=0
 .....\localleftbox=null
 .....\localrightbox=null
-....\begindir TRT
 ....\kern-15.0
 ....\hbox(0.0+0.0)x15.0, direction TRT
 .....\glue 15.0
@@ -155,12 +154,10 @@ Completed box being shipped out [1]
 ....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
 ....\TU/Amiri(0)/m/n/10 ب
 ....\TU/Amiri(0)/m/n/10 ه
-....\enddir TRT
 ....\glue(\rightskip) 0.0
 ...\penalty 200
 ...\glue(\lineskip) 1.0
 ...\hbox(9.51+5.41)x323.28314, glue set 77.69322fil, shifted 21.71686, direction TRT
-....\begindir TRT
 ....\TU/Amiri(0)/m/n/10 و
 ....\TU/Amiri(0)/m/n/10 ا
 ....\TU/Amiri(0)/m/n/10 س
@@ -234,7 +231,6 @@ Completed box being shipped out [1]
 ....\TU/Amiri(0)/m/n/10 ت
 ....\TU/Amiri(0)/m/n/10 .
 ....\penalty 10000
-....\enddir TRT
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 10000
@@ -256,7 +252,6 @@ Completed box being shipped out [1]
 .....\localbrokenpenalty=0
 .....\localleftbox=null
 .....\localrightbox=null
-....\begindir TRT
 ....\hbox(0.0+0.0)x15.0, direction TRT
 ....\glue 0.0 plus 1.0fill
 ....\hbox(7.6+2.93)x85.58002, direction TRT
@@ -282,7 +277,6 @@ Completed box being shipped out [1]
 .....\TU/lmr/bx/n/10 )
 .....\enddir TLT
 ....\penalty 10000
-....\enddir TRT
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 51
@@ -637,7 +631,6 @@ Completed box being shipped out [1]
 .....\localbrokenpenalty=0
 .....\localleftbox=null
 .....\localrightbox=null
-....\begindir TRT
 ....\kern-15.0
 ....\hbox(0.0+0.0)x15.0, direction TRT
 .....\glue 15.0
@@ -680,7 +673,6 @@ Completed box being shipped out [1]
 ....\TU/Amiri(0)/m/n/10 د
 ....\TU/Amiri(0)/m/n/10 :
 ....\penalty 10000
-....\enddir TRT
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 10000
@@ -698,7 +690,6 @@ Completed box being shipped out [1]
 .....\localbrokenpenalty=0
 .....\localleftbox=null
 .....\localrightbox=null
-....\begindir TRT
 ....\kern-10.0
 ....\hbox(0.0+0.0)x10.0, direction TRT
 .....\glue 10.0
@@ -730,7 +721,6 @@ Completed box being shipped out [1]
 ....\TU/Amiri(0)/m/n/10 ه
 ....\TU/Amiri(0)/m/n/10 ،
 ....\penalty 10000
-....\enddir TRT
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue(\parskip) 0.0
@@ -742,7 +732,6 @@ Completed box being shipped out [1]
 .....\localbrokenpenalty=0
 .....\localleftbox=null
 .....\localrightbox=null
-....\begindir TRT
 ....\hbox(0.0+0.0)x10.0, direction TRT
 ....\TU/Amiri(0)/m/n/10 ع
 ....\TU/Amiri(0)/m/n/10 د
@@ -768,7 +757,6 @@ Completed box being shipped out [1]
 ....\TU/Amiri(0)/m/n/10 د
 ....\TU/Amiri(0)/m/n/10 ،
 ....\penalty 10000
-....\enddir TRT
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue(\parskip) 0.0
@@ -780,7 +768,6 @@ Completed box being shipped out [1]
 .....\localbrokenpenalty=0
 .....\localleftbox=null
 .....\localrightbox=null
-....\begindir TRT
 ....\kern0.83 (font)
 ....\TU/Amiri(0)/m/n/10 ز
 ....\TU/Amiri(0)/m/n/10 ی
@@ -806,7 +793,6 @@ Completed box being shipped out [1]
 ....\TU/Amiri(0)/m/n/10 ه
 ....\TU/Amiri(0)/m/n/10 ،
 ....\penalty 10000
-....\enddir TRT
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue(\parskip) 0.0
@@ -818,7 +804,6 @@ Completed box being shipped out [1]
 .....\localbrokenpenalty=0
 .....\localleftbox=null
 .....\localrightbox=null
-....\begindir TRT
 ....\hbox(0.0+0.0)x10.0, direction TRT
 ....\TU/Amiri(0)/m/n/10 و
 ....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
@@ -856,7 +841,6 @@ Completed box being shipped out [1]
 ....\TU/Amiri(0)/m/n/10 د
 ....\TU/Amiri(0)/m/n/10 .
 ....\penalty 10000
-....\enddir TRT
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue(\parskip) 0.0
@@ -868,7 +852,6 @@ Completed box being shipped out [1]
 .....\localbrokenpenalty=0
 .....\localleftbox=null
 .....\localrightbox=null
-....\begindir TRT
 ....\rule(8.39996+3.60004)x0.0
 ....\hbox(7.42992+0.0)x0.0, glue set - 5.09503fil, direction TRT
 .....\glue 0.0 plus 1.0fil minus 1.0fil
@@ -910,7 +893,6 @@ Completed box being shipped out [1]
 ....\TU/Amiri(0)/m/n/10 د
 ....\TU/Amiri(0)/m/n/10 ،
 ....\penalty 10000
-....\enddir TRT
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue(\parskip) 0.0
@@ -922,7 +904,6 @@ Completed box being shipped out [1]
 .....\localbrokenpenalty=0
 .....\localleftbox=null
 .....\localrightbox=null
-....\begindir TRT
 ....\hbox(0.0+0.0)x10.0, direction TRT
 ....\TU/Amiri(0)/m/n/10 و
 ....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
@@ -950,7 +931,6 @@ Completed box being shipped out [1]
 ....\TU/Amiri(0)/m/n/10 د
 ....\TU/Amiri(0)/m/n/10 ؛
 ....\penalty 10000
-....\enddir TRT
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue(\parskip) 0.0
@@ -962,7 +942,6 @@ Completed box being shipped out [1]
 .....\localbrokenpenalty=0
 .....\localleftbox=null
 .....\localrightbox=null
-....\begindir TRT
 ....\TU/Amiri(0)/m/n/10 ک
 ....\TU/Amiri(0)/m/n/10 ه
 ....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
@@ -1010,7 +989,6 @@ Completed box being shipped out [1]
 ....\TU/Amiri(0)/m/n/10 د
 ....\TU/Amiri(0)/m/n/10 ،
 ....\penalty 10000
-....\enddir TRT
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\glue(\parskip) 0.0
@@ -1022,7 +1000,6 @@ Completed box being shipped out [1]
 .....\localbrokenpenalty=0
 .....\localleftbox=null
 .....\localrightbox=null
-....\begindir TRT
 ....\hbox(0.0+0.0)x10.0, direction TRT
 ....\TU/Amiri(0)/m/n/10 و
 ....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
@@ -1060,15 +1037,14 @@ Completed box being shipped out [1]
 ....\TU/Amiri(0)/m/n/10 .
 ....\TU/Amiri(0)/m/n/10 ^^bb
 ....\penalty 10000
-....\enddir TRT
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue(\abovedisplayskip) -12.0
+...\glue(\abovedisplayshortskip) -12.0
 ...\glue(\baselineskip) 8.39
 ...\hbox(0.0+0.0)x0.0, shifted 197.5, direction TLT
 ...\penalty 51
-...\glue(\belowdisplayskip) 0.0
+...\glue(\belowdisplayshortskip) 0.0
 ...\glue -12.0
 ...\glue 12.0
 ...\penalty 51
@@ -1077,25 +1053,12 @@ Completed box being shipped out [1]
 ...\glue 6.0 plus 1.0 minus 2.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 12.0
-...\hbox(0.0+0.0)x345.0, glue set 345.0fil, direction TRT
-....\localpar
-.....\localinterlinepenalty=0
-.....\localbrokenpenalty=0
-.....\localleftbox=null
-.....\localrightbox=null
-....\begindir TRT
-....\penalty 10000
-....\enddir TRT
-....\glue(\parfillskip) 0.0 plus 1.0fil
-....\glue(\rightskip) 0.0
 ...\penalty 10000
-...\glue(\abovedisplayskip) -12.0
+...\glue(\abovedisplayshortskip) -12.0
 ...\glue(\baselineskip) 12.0
 ...\hbox(0.0+0.0)x0.0, shifted 172.5, direction TLT
 ...\penalty 10000
-...\glue(\belowdisplayskip) 0.0
-...\glue -12.0
+...\glue(\belowdisplayshortskip) 0.0
 ...\glue -12.0
 ...\glue -6.0 plus -1.0 minus -2.0
 ...\glue(\parskip) 0.0
@@ -1107,7 +1070,6 @@ Completed box being shipped out [1]
 .....\localbrokenpenalty=0
 .....\localleftbox=null
 .....\localrightbox=null
-....\begindir TRT
 ....\glue 0.0 plus 1.0fill
 ....\hbox(7.6+2.72)x91.04002, direction TRT
 .....\TU/Amiri(0)/b/n/10 ا
@@ -1136,7 +1098,6 @@ Completed box being shipped out [1]
 .....\TU/lmr/bx/n/10 )
 .....\enddir TLT
 ....\penalty 10000
-....\enddir TRT
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 51
@@ -1683,27 +1644,12 @@ Completed box being shipped out [1]
 ...\glue 6.0 plus 1.0 minus 2.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 12.0
-...\hbox(0.0+0.0)x345.0, glue set 345.0fil, direction TLT
-....\localpar
-.....\localinterlinepenalty=0
-.....\localbrokenpenalty=0
-.....\localleftbox=null
-.....\localrightbox=null
-....\begindir TRT
-....\begindir TLT
-....\penalty 10000
-....\enddir TLT
-....\enddir TRT
-....\glue(\parfillskip) 0.0 plus 1.0fil
-....\glue(\rightskip) 0.0
 ...\penalty 10000
-...\glue(\abovedisplayskip) -12.0
+...\glue(\abovedisplayshortskip) -12.0
 ...\glue(\baselineskip) 12.0
 ...\hbox(0.0+0.0)x0.0, shifted 172.5, direction TLT
 ...\penalty 10000
-...\glue(\belowdisplayskip) 0.0
-...\glue -12.0
+...\glue(\belowdisplayshortskip) 0.0
 ...\glue -12.0
 ...\glue -6.0 plus -1.0 minus -2.0
 ...\glue(\parskip) 0.0
@@ -2553,11 +2499,11 @@ Completed box being shipped out [2]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue(\abovedisplayskip) -12.0
+...\glue(\abovedisplayshortskip) -12.0
 ...\glue(\baselineskip) 8.39
 ...\hbox(0.0+0.0)x0.0, shifted 197.5, direction TLT
 ...\penalty 51
-...\glue(\belowdisplayskip) 0.0
+...\glue(\belowdisplayshortskip) 0.0
 ...\glue -12.0
 ...\glue 12.0
 ...\penalty 51
@@ -2566,27 +2512,12 @@ Completed box being shipped out [2]
 ...\glue 6.0 plus 1.0 minus 2.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 12.0
-...\hbox(0.0+0.0)x345.0, glue set 345.0fil, direction TRT
-....\localpar
-.....\localinterlinepenalty=0
-.....\localbrokenpenalty=0
-.....\localleftbox=null
-.....\localrightbox=null
-....\begindir TLT
-....\begindir TRT
-....\penalty 10000
-....\enddir TRT
-....\enddir TLT
-....\glue(\parfillskip) 0.0 plus 1.0fil
-....\glue(\rightskip) 0.0
 ...\penalty 10000
-...\glue(\abovedisplayskip) -12.0
+...\glue(\abovedisplayshortskip) -12.0
 ...\glue(\baselineskip) 12.0
 ...\hbox(0.0+0.0)x0.0, shifted 172.5, direction TLT
 ...\penalty 10000
-...\glue(\belowdisplayskip) 0.0
-...\glue -12.0
+...\glue(\belowdisplayshortskip) 0.0
 ...\glue -12.0
 ...\glue -6.0 plus -1.0 minus -2.0
 ...\glue(\parskip) 0.0
