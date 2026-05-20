@@ -3565,9 +3565,9 @@
     , reference / align .choices:nn =
         { left, right }
         {
-          \tl_if_exist:NF \l_@@_ref_align_tl
-            { \tl_new:N \l_@@_ref_align_tl }
-          \tl_set_eq:NN \l_@@_ref_align_tl \l_keys_choice_str
+          \str_if_exist:NF \l_@@_ref_align_str
+            { \str_new:N \l_@@_ref_align_str }
+          \str_set_eq:NN \l_@@_ref_align_str \l_keys_choice_str
         }
     , reference / align .value_required:n = true
     , reference / align .initial:n = right
@@ -3586,9 +3586,9 @@
     , reference / position .choices:nn =
         { start, end }
         {
-          \tl_if_exist:NF \l_@@_ref_position_tl
-            { \tl_new:N \l_@@_ref_position_tl }
-          \tl_set_eq:NN \l_@@_ref_position_tl \l_keys_choice_str
+          \str_if_exist:NF \l_@@_ref_position_str
+            { \str_new:N \l_@@_ref_position_str }
+          \str_set_eq:NN \l_@@_ref_position_str \l_keys_choice_str
         }
     , reference / position .value_required:n = true
     , reference / position .initial:n = end
@@ -3679,9 +3679,9 @@
     , version / position .choices:nn =
         { withref, end }
         {
-          \tl_if_exist:NF \l_@@_version_position_tl
-            { \tl_new:N \l_@@_version_position_tl }
-          \tl_set_eq:NN \l_@@_version_position_tl \l_keys_choice_str
+          \str_if_exist:NF \l_@@_version_position_str
+            { \str_new:N \l_@@_version_position_str }
+          \str_set_eq:NN \l_@@_version_position_str \l_keys_choice_str
         }
     , version / position .value_required:n = true
     , version / position .initial:n = withref
@@ -4223,14 +4223,14 @@
       { \linewidth }
       {
         \skip_vertical:N \baselineskip
-        \tl_if_eq:NnT \l_@@_ref_align_tl { left }
+        \str_if_eq:VnT \l_@@_ref_align_str { left }
           {
             \int_compare:nNnT
               { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
               { \skip_vertical:N \baselineskip }
           }
       }
-    \tl_if_eq:NnTF \l_@@_ref_align_tl { right }
+    \str_if_eq:VnTF \l_@@_ref_align_str { right }
       { \hfill }
       {
         \dim_compare:nNnT
@@ -4257,7 +4257,7 @@
   {
     \tl_if_empty:NF \l_@@_ref_tl
       {
-        \tl_if_eq:NnTF \l_@@_version_position_tl { withref }
+        \str_if_eq:VnTF \l_@@_version_position_str { withref }
           {
             \@@_format_full_ref:nn
               { \l_@@_ref_tl } { \l_@@_version_tl }
@@ -4283,7 +4283,7 @@
         \bool_gset_eq:NN \g_@@_suppress_next_pilcrow_bool \g_tmpa_bool
         \str_if_eq:VnF \l_@@_currenvir_str { scripture }
           { \skip_horizontal:n { - \leftmargin } }
-        \tl_if_eq:NnTF \l_@@_version_position_tl { withref }
+        \str_if_eq:VnTF \l_@@_version_position_str { withref }
           {
             \@@_format_full_ref:nn
               { \l_@@_ref_tl } { \l_@@_version_tl }
@@ -4331,7 +4331,7 @@
     \peek_remove_spaces:n
       {
         \bool_lazy_and:nnTF
-          { \str_if_eq_p:Vn \l_@@_ref_position_tl { start } }
+          { \str_if_eq_p:Vn \l_@@_ref_position_str { start } }
           { \bool_not_p:n { \tl_if_empty_p:N \l_@@_ref_tl } }
           {
             \bool_lazy_or:nnF
@@ -4468,7 +4468,7 @@
                 \exp_args:No \token_if_eq_meaning:NNF {##1} \begin
                   {
                     \tl_clear:N \l_@@_ref_tl
-                    \tl_if_eq:NnF \l_@@_version_position_tl { end }
+                    \str_if_eq:VnF \l_@@_version_position_str { end }
                       { \tl_clear:N \l_@@_version_tl }
                   }
                 \peek_analysis_map_break:n
@@ -5906,7 +5906,7 @@
                                   }
                                   {
                                     \str_if_eq_p:Vn
-                                      \l_@@_ref_position_tl { start }
+                                      \l_@@_ref_position_str { start }
                                   }
                                   { \noindent }
                               }
@@ -5929,10 +5929,10 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_end:
   {
-    \tl_if_eq:NnT \l_@@_ref_position_tl { start }
+    \str_if_eq:VnT \l_@@_ref_position_str { start }
       {
         \tl_clear:N \l_@@_ref_tl
-        \tl_if_eq:NnT \l_@@_version_position_tl { withref }
+        \str_if_eq:VnT \l_@@_version_position_str { withref }
           { \tl_clear:N \l_@@_version_tl }
       }
     \cs_set_eq:NN \noindent \@@_noindent_saved:
@@ -6021,7 +6021,7 @@
     \hook_gclear_next_code:n { para / before }
     \hook_gclear_next_code:n { para / begin }
     \bool_gset_false:N \g_@@_mode_vertical_inner_bool
-    \str_if_eq:VnT \l_@@_ref_position_tl { start }
+    \str_if_eq:VnT \l_@@_ref_position_str { start }
       {
         \tl_gclear:N \l_@@_ref_tl
       }
