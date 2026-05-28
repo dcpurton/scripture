@@ -3621,7 +3621,8 @@
     , leftmargin .tl_set:N = \l_@@_leftmargin_tl
     , leftmargin .value_required:n = true
     , leftmargin .initial:n = \c_zero_dim
-    , mark / verse / format .cs_set:Np = \@@_mark_verse_format:nnn #1#2#3
+    , mark / verse / format .cs_set:Np = \@@_mark_verse_format:nnn
+                                         #1#2#3
     , mark / verse / format .value_required:n = true
     , mark / verse / format .initial:n = #1 ~ #2:#3
     , name / font .tl_set:N = \l_@@_name_font_tl
@@ -4087,7 +4088,7 @@
 % And the definition of \cs{name}, \cs{GOD} and \cs{LORD} to the |insertmark|
 % hook.
 %    \begin{macrocode}
-\hook_gput_code:nnn { insertmark } { scripture}
+\hook_gput_code:nnn { insertmark } { scripture }
   {
     \cs_set_eq:NN \name \@@_name:n
     \cs_set_nopar:Npn \LORD { \@@_name:n { Lord } }
@@ -5887,8 +5888,10 @@
         \keys_set:nn { scripture } {#2}
       }
     \tl_gset:NV \scripturecurrentbook \g_@@_book_tl
-    \tl_gset:Ne \scripturecurrentchapter { \int_use:N \g_@@_chapter_int }
-    \tl_gset:Ne \scripturecurrentverse { \int_use:N \g_@@_verse_int }
+    \tl_gset:Ne \scripturecurrentchapter
+      { \int_use:N \g_@@_chapter_int }
+    \tl_gset:Ne \scripturecurrentverse
+      { \int_use:N \g_@@_verse_int }
     \l_@@_before_tl
     \@@_select_language:
     \int_gzero:N \g_@@_chap_par_prevgraf_int
