@@ -11,7 +11,7 @@
 % version 2005/12/01 or later.
 %
 %<*driver>
-\DocumentMetadata{lang=en}
+\RequirePackage{pdfmanagement}
 \documentclass[a4paper]{l3doc}
 \usepackage[bidi=basic, layout=lists]{babel}
 \babelprovide[import, main]{australian}
@@ -2182,9 +2182,9 @@
 %   \meta{|macro|} used to format the \markname{scripture/verse} mark. The
 %   arguments are:
 %   \begin{description}
-%     \item[|#1|] Current book name.
-%     \item[|#2|] Current chapter.
-%     \item[|#3|] Current verse.
+%     \item[\texttt{\#1}] Current book name.
+%     \item[\texttt{\#2}] Current chapter.
+%     \item[\texttt{\#3}] Current verse.
 %   \end{description}
 % \end{option}
 %
@@ -3949,7 +3949,7 @@
     , language                    =
     , language / variant          =
     , leftmargin                  = \c_zero_dim
-    , mark / reference / format   = #1 #2:#3
+    , mark / verse / format       = #1 #2:#3
     , name / font                 = \scshape
     , name / format               = #1
     , parindent                   = \parindent
@@ -7814,9 +7814,9 @@
 %   could be used in hooks, for example. They are initialised from the |book|,
 %   |chapter| and |verse| options to the main |scripture| environment.
 %    \begin{macrocode}
-\tl_new:Nn \scripturecurrentbook
-\tl_new:Nn \scripturecurrentchapter
-\tl_new:Nn \scripturecurrentverse
+\tl_new:N \scripturecurrentbook
+\tl_new:N \scripturecurrentchapter
+\tl_new:N \scripturecurrentverse
 %    \end{macrocode}
 % \end{macro}
 %
@@ -8108,6 +8108,10 @@
 %    \end{macrocode}
 % \end{implementation}
 %
+% \clearpage
+%
 % \PrintChanges
+%
+% \clearpage
 %
 % \PrintIndex
