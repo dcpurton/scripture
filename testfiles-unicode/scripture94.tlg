@@ -54,9 +54,11 @@ Completed box being shipped out [1]
 ....\glue 0.0
 ....\mathon
 ....\begindir TLT
+....\begindir TLT
 ....\hbox(0.0+0.0)x0.0, direction TLT
 ....\hbox(3.95801+0.00342)x4.0, shifted -3.62892, direction TLT
 .....\TU/SBLHebrew(0)/m/n/7 1
+....\enddir TLT
 ....\enddir TLT
 ....\mathoff
 ....\kern2.84526
@@ -134,9 +136,11 @@ Completed box being shipped out [1]
 ....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
 ....\mathon
 ....\begindir TLT
+....\begindir TLT
 ....\hbox(0.0+0.0)x0.0, direction TLT
 ....\hbox(3.95801+0.00342)x4.0, shifted -3.62892, direction TLT
 .....\TU/SBLHebrew(0)/m/n/7 2
+....\enddir TLT
 ....\enddir TLT
 ....\mathoff
 ....\kern2.84526
@@ -272,11 +276,11 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 10000
-...\glue(\abovedisplayskip) -15.0
+...\glue(\abovedisplayshortskip) -15.0
 ...\glue(\baselineskip) 12.10938
 ...\hbox(0.0+0.0)x0.0, shifted 172.5, direction TLT
 ...\penalty 10000
-...\glue(\belowdisplayskip) 0.0
+...\glue(\belowdisplayshortskip) 0.0
 ...\glue -15.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
@@ -360,9 +364,11 @@ Completed box being shipped out [1]
 .....\glue 5.0
 .....\mathon
 .....\begindir TLT
+.....\begindir TLT
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\hbox(3.95801+0.00342)x4.0, shifted -3.62892, direction TLT
 ......\TU/SBLHebrew(0)/m/n/7 1
+.....\enddir TLT
 .....\enddir TLT
 .....\mathoff
 .....\kern2.84526
@@ -435,9 +441,11 @@ Completed box being shipped out [1]
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 .....\mathon
 .....\begindir TLT
+.....\begindir TLT
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\hbox(3.95801+0.00342)x4.0, shifted -3.62892, direction TLT
 ......\TU/SBLHebrew(0)/m/n/7 2
+.....\enddir TLT
 .....\enddir TLT
 .....\mathoff
 .....\kern2.84526
@@ -682,9 +690,11 @@ Completed box being shipped out [1]
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 .....\mathon
 .....\begindir TLT
+.....\begindir TLT
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\hbox(3.95459+0.94336)x4.0, shifted -3.62892, direction TLT
 ......\TU/SBLHebrew(0)/m/n/7 3
+.....\enddir TLT
 .....\enddir TLT
 .....\mathoff
 .....\kern2.84526
@@ -825,9 +835,11 @@ Completed box being shipped out [1]
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 .....\mathon
 .....\begindir TLT
+.....\begindir TLT
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\hbox(3.90674+0.86133)x4.0, shifted -3.62892, direction TLT
 ......\TU/SBLHebrew(0)/m/n/7 4
+.....\enddir TLT
 .....\enddir TLT
 .....\mathoff
 .....\kern2.84526
@@ -985,9 +997,11 @@ Completed box being shipped out [1]
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 .....\mathon
 .....\begindir TLT
+.....\begindir TLT
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\hbox(3.88281+0.94678)x4.0, shifted -3.62892, direction TLT
 ......\TU/SBLHebrew(0)/m/n/7 5
+.....\enddir TLT
 .....\enddir TLT
 .....\mathoff
 .....\kern2.84526
@@ -1123,9 +1137,11 @@ Completed box being shipped out [1]
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 .....\mathon
 .....\begindir TLT
+.....\begindir TLT
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\hbox(4.76465+0.07178)x4.0, shifted -3.62892, direction TLT
 ......\TU/SBLHebrew(0)/m/n/7 6
+.....\enddir TLT
 .....\enddir TLT
 .....\mathoff
 .....\kern2.84526
@@ -1245,11 +1261,11 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue(\abovedisplayskip) -15.0
+...\glue(\abovedisplayshortskip) -15.0
 ...\glue(\baselineskip) 12.13379
 ...\hbox(0.0+0.0)x0.0, shifted 207.5, direction TLT
 ...\penalty 51
-...\glue(\belowdisplayskip) 0.0
+...\glue(\belowdisplayshortskip) 0.0
 ...\glue -15.0
 ...\glue 15.0
 ...\penalty 51
@@ -1259,11 +1275,11 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\penalty 10000
-...\glue(\abovedisplayskip) -15.0
+...\glue(\abovedisplayshortskip) -15.0
 ...\glue(\baselineskip) 15.0
 ...\hbox(0.0+0.0)x0.0, shifted 172.5, direction TLT
 ...\penalty 10000
-...\glue(\belowdisplayskip) 0.0
+...\glue(\belowdisplayshortskip) 0.0
 ...\glue -15.0
 ...\glue -6.0 plus -1.0 minus -2.0
 ...\glue(\parskip) 0.0
@@ -1344,12 +1360,14 @@ Completed box being shipped out [1]
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 .....\mathon
 .....\begindir TLT
+.....\begindir TLT
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\hbox(3.95801+0.94678)x7.5, shifted -3.62892, direction TLT
 ......\begindir TLT
 ......\TU/SBLHebrew(0)/m/n/7 1
 ......\TU/SBLHebrew(0)/m/n/7 5
 ......\enddir TLT
+.....\enddir TLT
 .....\enddir TLT
 .....\mathoff
 .....\kern2.84526
@@ -1467,12 +1485,14 @@ Completed box being shipped out [1]
 ....\glue 10.0
 ....\mathon
 ....\begindir TLT
+....\begindir TLT
 ....\hbox(0.0+0.0)x0.0, direction TLT
 ....\hbox(4.76465+0.07178)x7.5, shifted -3.62892, direction TLT
 .....\begindir TLT
 .....\TU/SBLHebrew(0)/m/n/7 1
 .....\TU/SBLHebrew(0)/m/n/7 6
 .....\enddir TLT
+....\enddir TLT
 ....\enddir TLT
 ....\mathoff
 ....\kern2.84526
@@ -1571,12 +1591,14 @@ Completed box being shipped out [1]
 ....\rule(10.49995+4.50005)x0.0
 ....\mathon
 ....\begindir TLT
+....\begindir TLT
 ....\hbox(0.0+0.0)x0.0, direction TLT
 ....\hbox(3.95801+0.86816)x7.5, shifted -3.62892, direction TLT
 .....\begindir TLT
 .....\TU/SBLHebrew(0)/m/n/7 1
 .....\TU/SBLHebrew(0)/m/n/7 7
 .....\enddir TLT
+....\enddir TLT
 ....\enddir TLT
 ....\mathoff
 ....\kern2.84526
@@ -1669,12 +1691,14 @@ Completed box being shipped out [1]
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 .....\mathon
 .....\begindir TLT
+.....\begindir TLT
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\hbox(4.8125+0.0752)x7.5, shifted -3.62892, direction TLT
 ......\begindir TLT
 ......\TU/SBLHebrew(0)/m/n/7 1
 ......\TU/SBLHebrew(0)/m/n/7 8
 ......\enddir TLT
+.....\enddir TLT
 .....\enddir TLT
 .....\mathoff
 .....\kern2.84526
@@ -1748,11 +1772,11 @@ Completed box being shipped out [1]
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0 plus 1.0fil
 ...\penalty 10000
-...\glue(\abovedisplayskip) -15.0
+...\glue(\abovedisplayshortskip) -15.0
 ...\glue(\baselineskip) 10.49995
 ...\hbox(0.0+0.0)x0.0, shifted 207.5, direction TLT
 ...\penalty 51
-...\glue(\belowdisplayskip) 0.0
+...\glue(\belowdisplayshortskip) 0.0
 ...\glue -15.0
 ...\glue 15.0
 ...\penalty 51
@@ -1762,11 +1786,11 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\penalty 10000
-...\glue(\abovedisplayskip) -15.0
+...\glue(\abovedisplayshortskip) -15.0
 ...\glue(\baselineskip) 15.0
 ...\hbox(0.0+0.0)x0.0, shifted 172.5, direction TLT
 ...\penalty 10000
-...\glue(\belowdisplayskip) 0.0
+...\glue(\belowdisplayshortskip) 0.0
 ...\glue -15.0
 ...\glue -6.0 plus -1.0 minus -2.0
 ...\glue(\parskip) 0.0

@@ -11,7 +11,7 @@
 % version 2005/12/01 or later.
 %
 %<*driver>
-\DocumentMetadata{lang=en}
+\RequirePackage{pdfmanagement}
 \documentclass[a4paper]{l3doc}
 \usepackage[bidi=basic, layout=lists]{babel}
 \babelprovide[import, main]{australian}
@@ -149,6 +149,54 @@
           \tl_set:Nn \saved@indexname { \l__codedoc_index_key_tl }
       }
   }
+\cs_new_protected:Npn \__dcp_codedoc_mark_index:n #1
+  {
+    \@bsphack
+    \begingroup
+      \__codedoc_target:
+      \index
+        {
+          #1\actualchar{\protect\ttfamily#1}~(mark)
+          \encapchar hdclindex{\the\c@HD@hypercount}{usage}
+        }
+      \index
+        {
+          marks:\levelchar#1\actualchar{\protect\ttfamily#1}
+          \encapchar hdclindex{\the\c@HD@hypercount}{usage}
+        }
+    \endgroup
+    \@esphack
+  }
+\cs_new_protected:Npn \__dcp_codedoc_markmacro_index:nN #1#2
+  {
+    \DoNotIndex {#1}
+    \bool_if:NT #2
+      {
+        \__codedoc_if_macro_internal:nF {#1}
+          { \seq_gput_right:Nn \g_doc_macros_seq {#1} }
+        \hbox_set:Nw \l__codedoc_macro_index_box
+          \hbox_unpack_drop:N \l__codedoc_macro_index_box
+          \int_gincr:N \c@CodelineNo
+          \@bsphack
+          \begingroup
+            \__codedoc_target:
+            \index
+              {
+                #1\actualchar{\protect\ttfamily#1}~(mark)
+                \encapchar hdclindex{\the\c@HD@hypercount}{main}
+              }
+            \index
+              {
+                marks:\levelchar#1\actualchar{\protect\ttfamily#1}
+                \encapchar hdclindex{\the\c@HD@hypercount}{main}
+              }
+          \endgroup
+          \@esphack
+          \int_gdecr:N \c@CodelineNo
+        \exp_args:NNNo \hbox_set_end:
+          \tl_set:Nn \saved@indexname { \l__codedoc_index_key_tl }
+      }
+  }
 \DeclareDocumentEnvironment { environment } { O{} +v }
   {
     \clist_map_inline:nn {#2}
@@ -172,6 +220,27 @@
       }
       {
         \cs_set_eq:NN \__codedoc_function_index:n \__dcp_codedoc_hook_index:n
+        \__codedoc_function:nnw {#1} {#2}
+      }
+  }
+  {
+    \bool_if:NTF \l__codedoc_in_implementation_bool
+      { \__codedoc_macro_end: }
+      { \__codedoc_function_end: }
+  }
+\DeclareDocumentEnvironment { marks } { O{} +v }
+  {
+    \clist_map_inline:nn {#2}
+      {
+        \MakeLinkTarget*{mark##1}
+      }
+    \bool_if:NTF \l__codedoc_in_implementation_bool
+      {
+        \cs_set_eq:NN \__codedoc_macro_index:nN \__dcp_codedoc_markmacro_index:nN
+        \__codedoc_macro:nnw { var , #1 } {#2}
+      }
+      {
+        \cs_set_eq:NN \__codedoc_function_index:n \__dcp_codedoc_mark_index:n
         \__codedoc_function:nnw {#1} {#2}
       }
   }
@@ -214,6 +283,10 @@
     \hyperlink{option#1}{\texttt{#1}}
   }
 \DeclareDocumentCommand \hook { m }
+  {
+    \hyperlink{hook#1}{\texttt{#1}}
+  }
+\DeclareDocumentCommand \markname { m }
   {
     \hyperlink{hook#1}{\texttt{#1}}
   }
@@ -1231,33 +1304,38 @@
 % \end{description}
 % \end{hooks}
 %
-% The following example illustrates how these hooks could be used to place the
+% \subsection{Marks}
+%
+% \changes{v2.3}{2026/05/20}{Add marks for headings and verses}
+% \begin{marks}[added=2026-05-20]{scripture/heading, scripture/verse}
+% The following marks are available and can be inserted using the new
+% \cs{FirstMark}, \cs{TopMark} and \cs{LastMark} commands.
+%
+% \begin{description}
+%   \item[\markname{scripture/heading}] This mark is inserted in the
+%   \cs{heading} command.
+%   \item[\markname{scripture/verse}] This mark is inserted at the beginning
+%   of every verse. The format of the mark can be customised using the
+%   \opt{mark/verse/format} option. \textbf{Note:} This mark is only inserted
+%   if the Bible book has been set with the \opt{book} option.
+% \end{description}
+% \end{marks}
+%
+% The following example illustrates how these marks could be used to place the
 % first and last verse on the page into the header.
 %
 % \begin{scriptureexample}
 % \begin{verbatim}
 % \documentclass{article}
 % \usepackage{scripture}
-% \AddToHook{scripture/chap/after}{%
-%   \markboth
-%     {Mark \scripturecurrentchapter
-%        :\scripturecurrentverse}
-%     {Mark \scripturecurrentchapter
-%        :\scripturecurrentverse}}
-% \AddToHook{scripture/verse/after}{%
-%   \markboth
-%     {Mark \scripturecurrentchapter
-%        :\scripturecurrentverse}
-%     {Mark \scripturecurrentchapter
-%        :\scripturecurrentverse}}
-% \renewcommand*{\scripturecurrentchapter}{1}
 % \usepackage{fancyhdr}
 % \pagestyle{fancy}
 % \fancyhf{}
-% \lhead{\textbf{\rightmark}}
-% \rhead{\textbf{\leftmark} \textbar\ \thepage}
+% \lhead{\textbf{\FirstMark{scripture/verse}}}
+% \rhead{\textbf{\LastMark{scripture/verse}}
+%        \textbar\ \thepage}
 % \begin{document}
-% \begin{scripture}[][noindent]
+% \begin{scripture}[][noindent,book=Mark,chapter=1]
 %   \vs{45}Instead he went out and began to talk
 %   freely, spreading the news. As a result, Jesus
 %   could no longer enter a town openly but stayed
@@ -1293,7 +1371,6 @@
 %   come home.
 % \end{scripture}
 % \end{scriptureexample}
-%
 % \subsection{Options}
 % \label{options}
 %
@@ -2083,6 +2160,20 @@
 %   \end{syntax}
 %   \meta{|dimen|} used for the left margin of the \env{scripture}
 %   environment.
+% \end{option}
+%
+% \changes{v2.3}{2026/05/20}{Add \opt{mark/verse/format} option}
+% \begin{option}[added=2026-05-20]{mark/verse/format}
+%   \begin{syntax}
+%     mark/verse/format = \meta{macro} \hfill Default: \#1 \#2:\#3
+%   \end{syntax}
+%   \meta{|macro|} used to format the \markname{scripture/verse} mark. The
+%   arguments are:
+%   \begin{description}
+%     \item[\texttt{\#1}] Current book name.
+%     \item[\texttt{\#2}] Current chapter.
+%     \item[\texttt{\#3}] Current verse.
+%   \end{description}
 % \end{option}
 %
 % \changes{v1.2}{2022/09/01}{Add \opt{name/font} option}
@@ -3240,23 +3331,6 @@
   {Format Scripture Quotations (DCP)}
 %    \end{macrocode}
 %
-% \subsection{Hacks and workarounds}
-%
-% Work around odd interaction between \cs{textdir} and display math. See
-% \url{https://tex.stackexchange.com/q/716621/87678}.
-%
-%    \begin{macrocode}
-\bool_new:N \l_@@_textdir_change_in_group_bool
-\cs_new_protected:Nn \@@_set_textdirection:
-  {
-    \sys_if_engine_luatex:T
-      {
-        \textdirection \int_use:N \textdirection
-        \bool_set_true:N \l_@@_textdir_change_in_group_bool
-      }
-  }
-%    \end{macrocode}
-%
 % \subsection{Messages}
 %
 % \env{scripture} environments along with all internal environments can not be
@@ -3535,6 +3609,10 @@
     , leftmargin .tl_set:N = \l_@@_leftmargin_tl
     , leftmargin .value_required:n = true
     , leftmargin .initial:n = \c_zero_dim
+    , mark / verse / format .cs_set:Np = \@@_mark_verse_format:nnn
+                                         #1#2#3
+    , mark / verse / format .value_required:n = true
+    , mark / verse / format .initial:n = #1 ~ #2:#3
     , name / font .tl_set:N = \l_@@_name_font_tl
     , name / font .value_required:n = true
     , name / font .initial:n = \scshape
@@ -3565,9 +3643,9 @@
     , reference / align .choices:nn =
         { left, right }
         {
-          \tl_if_exist:NF \l_@@_ref_align_tl
-            { \tl_new:N \l_@@_ref_align_tl }
-          \tl_set_eq:NN \l_@@_ref_align_tl \l_keys_choice_str
+          \str_if_exist:NF \l_@@_ref_align_str
+            { \str_new:N \l_@@_ref_align_str }
+          \str_set_eq:NN \l_@@_ref_align_str \l_keys_choice_str
         }
     , reference / align .value_required:n = true
     , reference / align .initial:n = right
@@ -3586,9 +3664,9 @@
     , reference / position .choices:nn =
         { start, end }
         {
-          \tl_if_exist:NF \l_@@_ref_position_tl
-            { \tl_new:N \l_@@_ref_position_tl }
-          \tl_set_eq:NN \l_@@_ref_position_tl \l_keys_choice_str
+          \str_if_exist:NF \l_@@_ref_position_str
+            { \str_new:N \l_@@_ref_position_str }
+          \str_set_eq:NN \l_@@_ref_position_str \l_keys_choice_str
         }
     , reference / position .value_required:n = true
     , reference / position .initial:n = end
@@ -3679,9 +3757,9 @@
     , version / position .choices:nn =
         { withref, end }
         {
-          \tl_if_exist:NF \l_@@_version_position_tl
-            { \tl_new:N \l_@@_version_position_tl }
-          \tl_set_eq:NN \l_@@_version_position_tl \l_keys_choice_str
+          \str_if_exist:NF \l_@@_version_position_str
+            { \str_new:N \l_@@_version_position_str }
+          \str_set_eq:NN \l_@@_version_position_str \l_keys_choice_str
         }
     , version / position .value_required:n = true
     , version / position .initial:n = withref
@@ -3860,6 +3938,7 @@
     , language                    =
     , language / variant          =
     , leftmargin                  = \c_zero_dim
+    , mark / verse / format       = #1 #2:#3
     , name / font                 = \scshape
     , name / format               = #1
     , parindent                   = \parindent
@@ -3982,6 +4061,48 @@
 \hook_new:n { scripture / poetry / pilcrow }
 %    \end{macrocode}
 % \end{hooks}
+%
+% \subsection{Marks}
+%
+% \begin{marks}{scripture/heading, scripture/verse}
+%   Independent marks are set up for headings and the current reference. These
+%   are called for each \fn{heading} and \fn{vs} respectively. The
+%   \markname{scripture/verse} mark is only set when a Bible book name has
+%   been set with the \opt{book} option.
+%    \begin{macrocode}
+\mark_new_class:n { scripture / heading }
+\mark_new_class:n { scripture / verse }
+%    \end{macrocode}
+% \end{marks}
+%
+% \begin{macro}{\@@_insert_verse_mark: }
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_insert_verse_mark:
+  {
+    \tl_if_empty:NF \scripturecurrentbook
+      {
+        \mark_insert:nn { scripture / verse }
+          {
+            \@@_mark_verse_format:nnn
+              { \scripturecurrentbook }
+              { \scripturecurrentchapter }
+              { \scripturecurrentverse }
+          }
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+% And the definition of \cs{name}, \cs{GOD} and \cs{LORD} to the |insertmark|
+% hook.
+%    \begin{macrocode}
+\hook_gput_code:nnn { insertmark } { scripture }
+  {
+    \cs_set_eq:NN \name \@@_name:n
+    \cs_set_nopar:Npn \LORD { \@@_name:n { Lord } }
+    \cs_set_nopar:Npn \GOD { \@@_name:n { God } }
+  }
+%    \end{macrocode}
 %
 % \subsection{The main \env{scripture} environment}
 %
@@ -4223,14 +4344,14 @@
       { \linewidth }
       {
         \skip_vertical:N \baselineskip
-        \tl_if_eq:NnT \l_@@_ref_align_tl { left }
+        \str_if_eq:VnT \l_@@_ref_align_str { left }
           {
             \int_compare:nNnT
               { \g_@@_chap_par_prevgraf_int } = { \c_one_int }
               { \skip_vertical:N \baselineskip }
           }
       }
-    \tl_if_eq:NnTF \l_@@_ref_align_tl { right }
+    \str_if_eq:VnTF \l_@@_ref_align_str { right }
       { \hfill }
       {
         \dim_compare:nNnT
@@ -4257,7 +4378,7 @@
   {
     \tl_if_empty:NF \l_@@_ref_tl
       {
-        \tl_if_eq:NnTF \l_@@_version_position_tl { withref }
+        \str_if_eq:VnTF \l_@@_version_position_str { withref }
           {
             \@@_format_full_ref:nn
               { \l_@@_ref_tl } { \l_@@_version_tl }
@@ -4283,7 +4404,7 @@
         \bool_gset_eq:NN \g_@@_suppress_next_pilcrow_bool \g_tmpa_bool
         \str_if_eq:VnF \l_@@_currenvir_str { scripture }
           { \skip_horizontal:n { - \leftmargin } }
-        \tl_if_eq:NnTF \l_@@_version_position_tl { withref }
+        \str_if_eq:VnTF \l_@@_version_position_str { withref }
           {
             \@@_format_full_ref:nn
               { \l_@@_ref_tl } { \l_@@_version_tl }
@@ -4331,7 +4452,7 @@
     \peek_remove_spaces:n
       {
         \bool_lazy_and:nnTF
-          { \str_if_eq_p:Vn \l_@@_ref_position_tl { start } }
+          { \str_if_eq_p:Vn \l_@@_ref_position_str { start } }
           { \bool_not_p:n { \tl_if_empty_p:N \l_@@_ref_tl } }
           {
             \bool_lazy_or:nnF
@@ -4468,7 +4589,7 @@
                 \exp_args:No \token_if_eq_meaning:NNF {##1} \begin
                   {
                     \tl_clear:N \l_@@_ref_tl
-                    \tl_if_eq:NnF \l_@@_version_position_tl { end }
+                    \str_if_eq:VnF \l_@@_version_position_str { end }
                       { \tl_clear:N \l_@@_version_tl }
                   }
                 \peek_analysis_map_break:n
@@ -4789,7 +4910,6 @@
       {
         \@ifpackageloaded { babel }
           {
-            \@@_set_textdirection:
             \selectlanguage { \l_@@_language_tl }
           }
           {
@@ -4911,8 +5031,8 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_drop_chap_set_up:n
   {
-    \cs_gset_nopar:Npn \scripturecurrentchapter {#1}
-    \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
+    \tl_gset:Nn \scripturecurrentchapter {#1}
+    \tl_gset:Nn \scripturecurrentverse { 1 }
     \@@_get_X_height:
     \dim_set:Nn \l_@@_chap_height_dim
       { \baselineskip + \l_@@_chap_X_height_dim }
@@ -5006,8 +5126,11 @@
     \box_use:N \l_@@_chap_box
     \hook_use:n { scripture / chap / after }
     \group_end:
-    \bool_if:NT \l_@@_chap_show_verse_bool
-      { \@@_verse_output:n { 1 } }
+    \bool_if:NTF \l_@@_chap_show_verse_bool
+      {
+        \@@_verse_output:n { 1 }
+      }
+      { \@@_insert_verse_mark: }
     \bool_if:NT \l_@@_verse_para_bool
     {
       \int_gset_eq:NN \g_@@_current_group_level_b_int \currentgrouplevel
@@ -5023,8 +5146,8 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_nodrop_chap:n
   {
-    \cs_gset_nopar:Npn \scripturecurrentchapter {#1}
-    \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
+    \tl_gset:Nn \scripturecurrentchapter {#1}
+    \tl_gset:Nn \scripturecurrentverse { 1 }
     \group_begin:
     \bool_if:NT \l_@@_verse_para_bool
       {
@@ -5081,10 +5204,11 @@
         \nobreak
         \skip_horizontal:N \c_zero_skip
         \hook_use:n { scripture / chap / after }
-        \bool_if:NT \l_@@_chap_show_verse_bool
+        \bool_if:NTF \l_@@_chap_show_verse_bool
           {
             \@@_verse_output:n { 1 }
           }
+          { \@@_insert_verse_mark: }
         \str_if_eq:VnF \l_@@_currenvir_str { midparachap }
           { \@@_pilcrow_output: }
       }
@@ -5105,8 +5229,8 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_para_chap:n
   {
-    \cs_gset_nopar:Npn \scripturecurrentchapter {#1}
-    \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
+    \tl_gset:Nn \scripturecurrentchapter {#1}
+    \tl_gset:Nn \scripturecurrentverse { 1 }
     \group_begin:
     \skip_zero:N \parskip
     \bool_if:NTF \l_@@_chap_show_bool
@@ -5368,7 +5492,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_verse_output:n
   {
-    \cs_gset_nopar:Npn \scripturecurrentverse {#1}
+    \tl_gset:Nn \scripturecurrentverse {#1}
     \legacy_if:nTF { @endpe }
       { \bool_set_false:N \l_@@_verse_par_start_bool }
       { \bool_set_true:N \l_@@_verse_par_start_bool }
@@ -5417,6 +5541,7 @@
         \nobreak
         \skip_horizontal:N \c_zero_skip
       }
+    \@@_insert_verse_mark:
     \hook_use:n { scripture / verse / after }
     \hook_use:n { scripture / pilcrow }
     \group_end:
@@ -5564,17 +5689,10 @@
     \skip_zero:N \belowdisplayskip
     $$
       \hook_use:n { para / after }
-      \dim_compare:nNnTF { \predisplaysize } > { \c_zero_dim }
+      \dim_compare:nNnT { \predisplaysize } > { \c_zero_dim }
         {
           \dim_gset:Nn \g_@@_final_line_dim
             { \predisplaysize - 2em }
-        }
-        {
-          \bool_if:NT \l_@@_textdir_change_in_group_bool
-            {
-              \str_if_eq:VnT \l_@@_currenvir_str { scripture }
-                { \int_set:Nn \prevgraf { \int_use:N \prevgraf - 1 } }
-            }
         }
       \cs_gset_nopar:Nx \@@_reset_spacing:
         {
@@ -5651,6 +5769,7 @@
             \l_@@_heading_align_tl
             \l_@@_heading_font_tl
             \@@_heading_format:n {#1}
+            \mark_insert:nn { scripture / heading } {#1}
             \@@_list_para_end:
             \group_end:
             \bool_if:NTF \l_@@_verse_para_bool
@@ -5671,7 +5790,10 @@
             \@afterheading
             \addvspace { \l_@@_heading_belowskip_tl }
           }
-          { \ignorespaces }
+          {
+            \mark_insert:nn { scripture / heading } {#1}
+            \ignorespaces
+          }
       }
       {
         \msg_error:nnx
@@ -5771,6 +5893,11 @@
       {
         \keys_set:nn { scripture } {#2}
       }
+    \tl_gset:NV \scripturecurrentbook \g_@@_book_tl
+    \tl_gset:Ne \scripturecurrentchapter
+      { \int_use:N \g_@@_chapter_int }
+    \tl_gset:Ne \scripturecurrentverse
+      { \int_use:N \g_@@_verse_int }
     \l_@@_before_tl
     \@@_select_language:
     \int_gzero:N \g_@@_chap_par_prevgraf_int
@@ -5906,7 +6033,7 @@
                                   }
                                   {
                                     \str_if_eq_p:Vn
-                                      \l_@@_ref_position_tl { start }
+                                      \l_@@_ref_position_str { start }
                                   }
                                   { \noindent }
                               }
@@ -5929,10 +6056,10 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_end:
   {
-    \tl_if_eq:NnT \l_@@_ref_position_tl { start }
+    \str_if_eq:VnT \l_@@_ref_position_str { start }
       {
         \tl_clear:N \l_@@_ref_tl
-        \tl_if_eq:NnT \l_@@_version_position_tl { withref }
+        \str_if_eq:VnT \l_@@_version_position_str { withref }
           { \tl_clear:N \l_@@_version_tl }
       }
     \cs_set_eq:NN \noindent \@@_noindent_saved:
@@ -5974,12 +6101,10 @@
           }
 %    \end{macrocode}
 % If a \env{scripture} quotation ends with an inner environment, remove the
-% below skip of the inner environment. Also correct for \cs{textdir} quirk.
+% below skip of the inner environment.
 %    \begin{macrocode}
         \int_compare:nNnT { \prevgraf } = { \c_zero_int }
           {
-            \bool_if:NT \l_@@_textdir_change_in_group_bool
-              { \skip_vertical:n { - \baselineskip } }
             \skip_vertical:n { - \g_@@_prev_inner_below_skip }
           }
         \hook_gclear_next_code:n { para / before }
@@ -6021,7 +6146,7 @@
     \hook_gclear_next_code:n { para / before }
     \hook_gclear_next_code:n { para / begin }
     \bool_gset_false:N \g_@@_mode_vertical_inner_bool
-    \str_if_eq:VnT \l_@@_ref_position_tl { start }
+    \str_if_eq:VnT \l_@@_ref_position_str { start }
       {
         \tl_gclear:N \l_@@_ref_tl
       }
@@ -6428,10 +6553,11 @@
     \box_use:N \l_@@_chap_box
     \hook_use:n { scripture / chap / after }
     \group_end:
-    \bool_if:NT \l_@@_chap_show_verse_bool
+    \bool_if:NTF \l_@@_chap_show_verse_bool
       {
         \@@_verse_output:n { 1 }
       }
+      { \@@_insert_verse_mark: }
     \@@_pilcrow_output:
     \bool_if:NT \l_@@_verse_para_bool
     {
@@ -6829,10 +6955,11 @@
         \par
         \group_end:
         \@@_drop_chap_output:
-        \bool_if:NT \l_@@_midparachap_show_verse_bool
+        \bool_if:NTF \l_@@_midparachap_show_verse_bool
           {
             \@@_verse_output:n { 1 }
           }
+          { \@@_insert_verse_mark: }
       }
   }
 %    \end{macrocode}
@@ -6925,10 +7052,20 @@
               { \pagegoal - \pagetotal - \baselineskip }
             \vbox_set_top:Nn \l_@@_mid_para_chap_split_top_box
               { \vbox_unpack_drop:N \l_@@_mid_para_chap_split_box }
+            \mark_get_marks_for_reinsertion:nNN
+              { \box_use:N \l_@@_mid_para_chap_split_top_box }
+              \l_tmpa_tl \l_tmpb_tl
             \noindent
             \box_use_drop:N \l_@@_mid_para_chap_split_top_box
+            \tl_use:N \l_tmpa_tl
+            \tl_use:N \l_tmpb_tl
             \goodbreak
+            \mark_get_marks_for_reinsertion:nNN
+              { \box_use:N \l_@@_mid_para_chap_box }
+              \l_tmpa_tl \l_tmpb_tl
             \box_use_drop:N \l_@@_mid_para_chap_box
+            \tl_use:N \l_tmpa_tl
+            \tl_use:N \l_tmpb_tl
           }
           {
             \noindent
@@ -7357,8 +7494,8 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_poetry_nodrop_chap:n
   {
-    \cs_gset_nopar:Npn \scripturecurrentchapter {#1}
-    \cs_gset_nopar:Npn \scripturecurrentverse { 1 }
+    \tl_gset:Nn \scripturecurrentchapter {#1}
+    \tl_gset:Nn \scripturecurrentverse { 1 }
     \group_begin:
     \cs_if_eq:NNT \vs \@@_poetry_mode_vertical_verse:n
       { \noindent }
@@ -7683,12 +7820,14 @@
 %
 % \subsection{Public \LaTeX{} Interface}
 %
-% \begin{macro}{\scripturecurrentchapter, \scripturecurrentverse}
+% \begin{macro}{\scripturecurrentbook, \scripturecurrentchapter, \scripturecurrentverse}
 %   Globally stores the most recent argument of \fn{ch} and \fn{vs}. These
-%   could be used in hooks, for example.
+%   could be used in hooks, for example. They are initialised from the |book|,
+%   |chapter| and |verse| options to the main |scripture| environment.
 %    \begin{macrocode}
-\cs_set_nopar:Npn \scripturecurrentchapter { }
-\cs_set_nopar:Npn \scripturecurrentverse { }
+\tl_new:N \scripturecurrentbook
+\tl_new:N \scripturecurrentchapter
+\tl_new:N \scripturecurrentverse
 %    \end{macrocode}
 % \end{macro}
 %
@@ -7980,6 +8119,10 @@
 %    \end{macrocode}
 % \end{implementation}
 %
+% \clearpage
+%
 % \PrintChanges
+%
+% \clearpage
 %
 % \PrintIndex
