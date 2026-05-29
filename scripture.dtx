@@ -1304,33 +1304,38 @@
 % \end{description}
 % \end{hooks}
 %
-% The following example illustrates how these hooks could be used to place the
+% \subsection{Marks}
+%
+% \changes{v2.3}{2026/05/20}{Add marks for headings and verses}
+% \begin{marks}[added=2026-05-20]{scripture/heading, scripture/verse}
+% The following marks are available and can be inserted using the new
+% \cs{FirstMark}, \cs{TopMark} and \cs{LastMark} commands.
+%
+% \begin{description}
+%   \item[\markname{scripture/heading}] This mark is inserted in the
+%   \cs{heading} command.
+%   \item[\markname{scripture/verse}] This mark is inserted at the beginning
+%   of every verse. The format of the mark can be customised using the
+%   \opt{mark/verse/format} option. \textbf{Note:} This mark is only inserted
+%   if the Bible book has been set with the \opt{book} option.
+% \end{description}
+% \end{marks}
+%
+% The following example illustrates how these marks could be used to place the
 % first and last verse on the page into the header.
 %
 % \begin{scriptureexample}
 % \begin{verbatim}
 % \documentclass{article}
 % \usepackage{scripture}
-% \AddToHook{scripture/chap/after}{%
-%   \markboth
-%     {Mark \scripturecurrentchapter
-%        :\scripturecurrentverse}
-%     {Mark \scripturecurrentchapter
-%        :\scripturecurrentverse}}
-% \AddToHook{scripture/verse/after}{%
-%   \markboth
-%     {Mark \scripturecurrentchapter
-%        :\scripturecurrentverse}
-%     {Mark \scripturecurrentchapter
-%        :\scripturecurrentverse}}
-% \renewcommand*{\scripturecurrentchapter}{1}
 % \usepackage{fancyhdr}
 % \pagestyle{fancy}
 % \fancyhf{}
-% \lhead{\textbf{\rightmark}}
-% \rhead{\textbf{\leftmark} \textbar\ \thepage}
+% \lhead{\textbf{\FirstMark{scripture/verse}}}
+% \rhead{\textbf{\LastMark{scripture/verse}}
+%        \textbar\ \thepage}
 % \begin{document}
-% \begin{scripture}[][noindent]
+% \begin{scripture}[][noindent,book=Mark,chapter=1]
 %   \vs{45}Instead he went out and began to talk
 %   freely, spreading the news. As a result, Jesus
 %   could no longer enter a town openly but stayed
@@ -1366,24 +1371,6 @@
 %   come home.
 % \end{scripture}
 % \end{scriptureexample}
-%
-% \subsection{Marks}
-%
-% \changes{v2.3}{2026/05/20}{Add marks for headings and verses}
-% \begin{marks}[added=2026-05-20]{scripture/heading, scripture/verse}
-% The following marks are available and can be inserted using the new
-% \cs{FirstMark}, \cs{TopMark} and \cs{LastMark} commands.
-%
-% \begin{description}
-%   \item[\markname{scripture/heading}] This mark is inserted in the
-%   \cs{heading} command.
-%   \item[\markname{scripture/verse}] This mark is inserted at the beginning
-%   of every verse. The format of the mark can be customised using the
-%   \opt{mark/verse/format} option. \textbf{Note:} This mark is only inserted
-%   if the Bible book has been set with the \option{book} option.
-% \end{description}
-% \end{marks}
-%
 % \subsection{Options}
 % \label{options}
 %
@@ -4077,9 +4064,11 @@
 %
 % \subsection{Marks}
 %
-% \begin{marks}{scripture/heading, scripture/reference}
+% \begin{marks}{scripture/heading, scripture/verse}
 %   Independent marks are set up for headings and the current reference. These
-%   are called for each \fn{heading} and \fn{vs} respectively.
+%   are called for each \fn{heading} and \fn{vs} respectively. The
+%   \markname{scripture/verse} mark is only set when a Bible book name has
+%   been set with the \opt{book} option.
 %    \begin{macrocode}
 \mark_new_class:n { scripture / heading }
 \mark_new_class:n { scripture / verse }
