@@ -4075,6 +4075,24 @@
 %    \end{macrocode}
 % \end{marks}
 %
+% \begin{macro}{\@@_insert_verse_mark: }
+%    \begin{macrocode}
+\cs_new_protected:Nn \@@_insert_verse_mark:
+  {
+    \tl_if_empty:NF \scripturecurrentbook
+      {
+        \mark_insert:nn { scripture / verse }
+          {
+            \@@_mark_verse_format:nnn
+              { \scripturecurrentbook }
+              { \scripturecurrentchapter }
+              { \scripturecurrentverse }
+          }
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
 % And the definition of \cs{name}, \cs{GOD} and \cs{LORD} to the |insertmark|
 % hook.
 %    \begin{macrocode}
@@ -5108,8 +5126,11 @@
     \box_use:N \l_@@_chap_box
     \hook_use:n { scripture / chap / after }
     \group_end:
-    \bool_if:NT \l_@@_chap_show_verse_bool
-      { \@@_verse_output:n { 1 } }
+    \bool_if:NTF \l_@@_chap_show_verse_bool
+      {
+        \@@_verse_output:n { 1 }
+      }
+      { \@@_insert_verse_mark: }
     \bool_if:NT \l_@@_verse_para_bool
     {
       \int_gset_eq:NN \g_@@_current_group_level_b_int \currentgrouplevel
@@ -5183,10 +5204,11 @@
         \nobreak
         \skip_horizontal:N \c_zero_skip
         \hook_use:n { scripture / chap / after }
-        \bool_if:NT \l_@@_chap_show_verse_bool
+        \bool_if:NTF \l_@@_chap_show_verse_bool
           {
             \@@_verse_output:n { 1 }
           }
+          { \@@_insert_verse_mark: }
         \str_if_eq:VnF \l_@@_currenvir_str { midparachap }
           { \@@_pilcrow_output: }
       }
@@ -5519,16 +5541,7 @@
         \nobreak
         \skip_horizontal:N \c_zero_skip
       }
-    \tl_if_empty:NF \scripturecurrentbook
-      {
-        \mark_insert:nn { scripture / verse }
-          {
-            \@@_mark_verse_format:nnn
-              { \scripturecurrentbook }
-              { \scripturecurrentchapter }
-              { \scripturecurrentverse }
-          }
-      }
+    \@@_insert_verse_mark:
     \hook_use:n { scripture / verse / after }
     \hook_use:n { scripture / pilcrow }
     \group_end:
@@ -6540,10 +6553,11 @@
     \box_use:N \l_@@_chap_box
     \hook_use:n { scripture / chap / after }
     \group_end:
-    \bool_if:NT \l_@@_chap_show_verse_bool
+    \bool_if:NTF \l_@@_chap_show_verse_bool
       {
         \@@_verse_output:n { 1 }
       }
+      { \@@_insert_verse_mark: }
     \@@_pilcrow_output:
     \bool_if:NT \l_@@_verse_para_bool
     {
@@ -6941,10 +6955,11 @@
         \par
         \group_end:
         \@@_drop_chap_output:
-        \bool_if:NT \l_@@_midparachap_show_verse_bool
+        \bool_if:NTF \l_@@_midparachap_show_verse_bool
           {
             \@@_verse_output:n { 1 }
           }
+          { \@@_insert_verse_mark: }
       }
   }
 %    \end{macrocode}
