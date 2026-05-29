@@ -101,9 +101,11 @@ Completed box being shipped out [1]
 ....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
 ....\mathon
 ....\begindir TLT
+....\begindir TLT
 ....\hbox(0.0+0.0)x0.0, direction TLT
 ....\hbox(3.801+0.658)x4.595, shifted -3.62892, direction TLT
 .....\TU/Amiri(0)/m/n/7 ۲
+....\enddir TLT
 ....\enddir TLT
 ....\mathoff
 ....\kern0.50003
@@ -136,9 +138,11 @@ Completed box being shipped out [1]
 ....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
 ....\mathon
 ....\begindir TLT
+....\begindir TLT
 ....\hbox(0.0+0.0)x0.0, direction TLT
 ....\hbox(3.899+0.651)x4.595, shifted -3.62892, direction TLT
 .....\TU/Amiri(0)/m/n/7 ۳
+....\enddir TLT
 ....\enddir TLT
 ....\mathoff
 ....\kern0.50003
@@ -413,9 +417,11 @@ Completed box being shipped out [1]
 ....\TU/lmr/m/n/10 .
 ....\glue(\spaceskip) 4.44 plus 4.99498 minus 0.37
 ....\mathon
+....\begindir TLT
 ....\hbox(0.0+0.0)x0.0, direction TLT
 ....\hbox(4.648+0.0)x4.483, shifted -3.62892, direction TLT
 .....\TU/lmr/m/n/7 2
+....\enddir TLT
 ....\mathoff
 ....\kern0.50003
 ....\penalty 10000
@@ -462,9 +468,11 @@ Completed box being shipped out [1]
 ....\TU/lmr/m/n/10 .
 ....\glue(\spaceskip) 4.44 plus 4.99498 minus 0.37
 ....\mathon
+....\begindir TLT
 ....\hbox(0.0+0.0)x0.0, direction TLT
 ....\hbox(4.648+0.14)x4.483, shifted -3.62892, direction TLT
 .....\TU/lmr/m/n/7 3
+....\enddir TLT
 ....\mathoff
 ....\kern0.50003
 ....\penalty 10000
@@ -857,9 +865,11 @@ Completed box being shipped out [1]
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 .....\mathon
 .....\begindir TLT
+.....\begindir TLT
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\hbox(3.801+0.658)x4.595, shifted -3.62892, direction TLT
 ......\TU/Amiri(0)/m/n/7 ۲
+.....\enddir TLT
 .....\enddir TLT
 .....\mathoff
 .....\kern0.50003
@@ -1398,9 +1408,11 @@ Completed box being shipped out [1]
 ....\hbox(8.27692+0.0)x0.0, glue set - 4.98303fil, direction TLT
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 .....\mathon
+.....\begindir TLT
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\hbox(4.648+0.0)x4.483, shifted -3.62892, direction TLT
 ......\TU/lmr/m/n/7 2
+.....\enddir TLT
 .....\mathoff
 .....\kern0.50003
 .....\penalty 10000
@@ -1836,9 +1848,11 @@ Completed box being shipped out [1]
 ....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
 ....\mathon
 ....\begindir TLT
+....\begindir TLT
 ....\hbox(0.0+0.0)x0.0, direction TLT
 ....\hbox(3.801+0.658)x4.595, shifted -3.62892, direction TLT
 .....\TU/Amiri(0)/m/n/7 ۲
+....\enddir TLT
 ....\enddir TLT
 ....\mathoff
 ....\kern0.50003
@@ -1871,9 +1885,11 @@ Completed box being shipped out [1]
 ....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
 ....\mathon
 ....\begindir TLT
+....\begindir TLT
 ....\hbox(0.0+0.0)x0.0, direction TLT
 ....\hbox(3.899+0.651)x4.595, shifted -3.62892, direction TLT
 .....\TU/Amiri(0)/m/n/7 ۳
+....\enddir TLT
 ....\enddir TLT
 ....\mathoff
 ....\kern0.50003
@@ -2288,9 +2304,11 @@ Completed box being shipped out [1]
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 .....\mathon
 .....\begindir TLT
+.....\begindir TLT
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\hbox(3.801+0.658)x4.595, shifted -3.62892, direction TLT
 ......\TU/Amiri(0)/m/n/7 ۲
+.....\enddir TLT
 .....\enddir TLT
 .....\mathoff
 .....\kern0.50003
@@ -2650,9 +2668,11 @@ Completed box being shipped out [2]
 ....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
 ....\mathon
 ....\begindir TLT
+....\begindir TLT
 ....\hbox(0.0+0.0)x0.0, direction TLT
 ....\hbox(3.801+0.658)x4.595, shifted -3.62892, direction TLT
 .....\TU/Amiri(0)/m/n/7 ۲
+....\enddir TLT
 ....\enddir TLT
 ....\mathoff
 ....\kern0.50003
@@ -2685,9 +2705,11 @@ Completed box being shipped out [2]
 ....\glue(\spaceskip) 2.92 plus 1.46 minus 0.97333
 ....\mathon
 ....\begindir TLT
+....\begindir TLT
 ....\hbox(0.0+0.0)x0.0, direction TLT
 ....\hbox(3.899+0.651)x4.595, shifted -3.62892, direction TLT
 .....\TU/Amiri(0)/m/n/7 ۳
+....\enddir TLT
 ....\enddir TLT
 ....\mathoff
 ....\kern0.50003
