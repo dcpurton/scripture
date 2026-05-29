@@ -2428,24 +2428,6 @@ Completed box being shipped out [1]
 ..........\glue(\parfillskip) 0.0
 ..........\glue(\rightskip) 0.0
 ....\glue 0.0 plus 1.0fil minus 1.0fil
-! Undefined control sequence.
-<argument> ..._box \tl_use:N \l_tmpa_tl \tl_ise:N 
-                                                  \l_tmpb_tl \goodbreak \mar...
-l. ...  \end{midparachap}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-! Undefined control sequence.
-<argument> ..._box \tl_use:N \l_tmpa_tl \tl_ise:N 
-                                                  \l_tmpb_tl 
-l. ...  \end{midparachap}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
 Completed box being shipped out [2]
 \vbox(682.0+3.60004)x398.0
 .\glue 17.0
