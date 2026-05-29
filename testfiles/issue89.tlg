@@ -51,6 +51,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0 plus 1.0fil
+...\marks4{\__mark_value:nn {1}{The Widow's Offering}}
 ...\penalty 10000
 ...\glue 6.0 plus 2.0 minus 2.0
 ...\glue(\parskip) 0.0 plus 1.0
@@ -499,6 +500,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0 plus 1.0fil
+...\marks4{\__mark_value:nn {2}{Signs of the End of the Age}}
 ...\penalty 10000
 ...\glue 6.0 plus 2.0 minus 2.0
 ...\glue(\parskip) 0.0 plus 1.0
@@ -1031,6 +1033,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0 plus 1.0fil
+...\marks4{\__mark_value:nn {3}{The Widow's Offering}}
 ...\penalty 10000
 ...\glue 6.0 plus 2.0 minus 2.0
 ...\glue(\parskip) 0.0 plus 1.0
@@ -1483,6 +1486,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0 plus 1.0fil
+...\marks4{\__mark_value:nn {4}{Signs of the End of the Age}}
 ...\penalty 10000
 ...\glue 6.0 plus 2.0 minus 2.0
 ...\glue(\parskip) 0.0 plus 1.0
@@ -2025,6 +2029,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0 plus 1.0fil
+...\marks4{\__mark_value:nn {5}{Woe to the Obstinate Nation}}
 ...\penalty 10000
 ...\glue 6.0 plus 2.0 minus 2.0
 ...\glue(\parskip) 0.0
@@ -2350,6 +2355,7 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0 plus 1.0fil
+...\marks4{\__mark_value:nn {6}{Woe to the Obstinate Nation}}
 ...\penalty 10000
 ...\glue 6.0 plus 2.0 minus 2.0
 ...\glue(\parskip) 0.0
@@ -2722,6 +2728,7 @@ Completed box being shipped out [2]
 ....\OT1/cmr/m/n/10 e
 ....\OT1/cmr/m/n/10 d
 ....\glue(\rightskip) 0.0
+...\marks4{\__mark_value:nn {7}{Signs of the End of the Age}}
 ...\penalty 150
 ...\glue(\baselineskip) 1.91553
 ...\hbox(8.14003+1.94444)x345.0, glue set 0.57776
@@ -2981,6 +2988,7 @@ Completed box being shipped out [2]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0 plus 1.0fil
+...\marks4{\__mark_value:nn {8}{The Beginning}}
 ...\penalty 10000
 ...\glue 6.0 plus 2.0 minus 2.0
 ...\glue(\parskip) 0.0 plus 1.0
