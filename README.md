@@ -61,7 +61,7 @@ https://makkuk.com/kawkab-mono/.
 ## Licence
 
 ```
-Copyright (c) 2022-2025 David Purton <dcpurton@marshwiggle.net>
+Copyright (c) 2022-2026 David Purton <dcpurton@marshwiggle.net>
 
 This work may be distributed and/or modified under the conditions of
 the LaTeX Project Public License, either version 1.3c of this license
