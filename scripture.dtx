@@ -5529,12 +5529,15 @@
         \nobreak
         \skip_horizontal:N \c_zero_skip
       }
-    \mark_insert:nn { scripture / verse }
+    \tl_if_empty:NF \scripturecurrentbook
       {
-        \@@_mark_verse_format:nnn
-          { \scripturecurrentbook }
-          { \scripturecurrentchapter }
-          { \scripturecurrentverse }
+        \mark_insert:nn { scripture / verse }
+          {
+            \@@_mark_verse_format:nnn
+              { \scripturecurrentbook }
+              { \scripturecurrentchapter }
+              { \scripturecurrentverse }
+          }
       }
     \hook_use:n { scripture / verse / after }
     \hook_use:n { scripture / pilcrow }
