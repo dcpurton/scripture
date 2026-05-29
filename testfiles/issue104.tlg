@@ -1924,6 +1924,7 @@ Completed box being shipped out [1]
 .......\discretionary
 .......\OT1/cmr/m/n/10 -
 .......\glue(\rightskip) 0.0
+......\marks5{\__mark_value:nn {9}{Genesis 2:1}}
 ......\penalty 10250
 ......\glue(\baselineskip) 5.05556
 ......\hbox(6.94444+1.94444)x190.99995, glue set 65.86084fil, shifted 30.00005
@@ -1982,7 +1983,7 @@ Completed box being shipped out [1]
 ........\kern 0.50003
 ........\penalty 10000
 ........\glue 0.0
-........\marks5{\__mark_value:nn {9}{Genesis 2:2}}
+........\marks5{\__mark_value:nn {10}{Genesis 2:2}}
 .......\OT1/cmr/m/n/10 B
 .......\OT1/cmr/m/n/10 y
 .......\glue 3.33333 plus 1.66666 minus 1.11111
@@ -2137,7 +2138,7 @@ Completed box being shipped out [1]
 .......\OT1/cmr/m/n/10 e
 .......\OT1/cmr/m/n/10 d
 .......\glue(\rightskip) 0.0
-......\marks5{\__mark_value:nn {10}{Genesis 2:3}}
+......\marks5{\__mark_value:nn {11}{Genesis 2:3}}
 ......\glue(\baselineskip) 5.05556
 ......\hbox(6.94444+1.94444)x190.99995, glue set 0.44135, shifted 30.00005
 .......\OT1/cmr/m/n/10 t
@@ -2335,7 +2336,7 @@ Completed box being shipped out [1]
 .......\OT1/cmr/m/n/10 t
 .......\OT1/cmr/m/n/10 h
 .......\glue(\rightskip) 0.0
-......\marks5{\__mark_value:nn {11}{Genesis 2:4}}
+......\marks5{\__mark_value:nn {12}{Genesis 2:4}}
 ......\penalty 150
 ......\glue(\baselineskip) 5.05556
 ......\hbox(6.94444+1.94444)x221.0, glue set - 0.14267
@@ -2485,7 +2486,7 @@ Completed box being shipped out [1]
 .......\OT1/cmr/m/n/10 t
 .......\OT1/cmr/m/n/10 h
 .......\glue(\rightskip) 0.0
-......\marks5{\__mark_value:nn {12}{Genesis 2:5}}
+......\marks5{\__mark_value:nn {13}{Genesis 2:5}}
 ......\penalty 150
 ......\glue(\baselineskip) 3.11111
 ......\hbox(6.94444+1.94444)x221.0, glue set 0.02193
@@ -2656,7 +2657,7 @@ Completed box being shipped out [1]
 .......\OT1/cmr/m/n/10 h
 .......\OT1/cmr/m/n/10 e
 .......\glue(\rightskip) 0.0
-......\marks5{\__mark_value:nn {13}{Genesis 2:6}}
+......\marks5{\__mark_value:nn {14}{Genesis 2:6}}
 ......\glue(\baselineskip) 3.11111
 ......\hbox(6.94444+1.94444)x221.0, glue set - 0.37505
 .......\OT1/cmr/m/n/10 e
@@ -2765,7 +2766,7 @@ Completed box being shipped out [1]
 .......\OT1/cmr/m/n/10 s
 .......\OT1/cmr/m/n/10 t
 .......\glue(\rightskip) 0.0
-......\marks5{\__mark_value:nn {14}{Genesis 2:7}}
+......\marks5{\__mark_value:nn {15}{Genesis 2:7}}
 ......\glue(\baselineskip) 5.05556
 ......\hbox(6.94444+1.94444)x221.0, glue set 0.93123
 .......\OT1/cmr/m/n/10 o
@@ -2984,6 +2985,7 @@ Completed box being shipped out [1]
 .......\OT1/cmr/m/n/10 r
 .......\OT1/cmr/m/n/10 d
 .......\glue(\rightskip) 0.0
+......\marks5{\__mark_value:nn {16}{John 1:1}}
 ......\penalty 150
 ......\glue(\baselineskip) 1.91553
 ......\hbox(8.14003+1.94444)x202.005, glue set 0.54092, shifted 18.995
@@ -3038,7 +3040,7 @@ Completed box being shipped out [1]
 .......\OT1/cmr/m/n/10 H
 .......\OT1/cmr/m/n/10 e
 .......\glue(\rightskip) 0.0
-......\marks5{\__mark_value:nn {15}{John 1:2}}
+......\marks5{\__mark_value:nn {17}{John 1:2}}
 ......\glue(\baselineskip) 1.91553
 ......\hbox(8.14003+1.94444)x221.0, glue set 0.10164
 .......\OT1/cmr/m/n/10 w
@@ -3098,7 +3100,7 @@ Completed box being shipped out [1]
 .......\OT1/cmr/m/n/10 l
 .......\OT1/cmr/m/n/10 l
 .......\glue(\rightskip) 0.0
-......\marks5{\__mark_value:nn {16}{John 1:3}}
+......\marks5{\__mark_value:nn {18}{John 1:3}}
 ......\glue(\baselineskip) 3.11111
 ......\hbox(6.94444+1.94444)x221.0, glue set 0.15775
 .......\OT1/cmr/m/n/10 t
@@ -3212,7 +3214,7 @@ Completed box being shipped out [1]
 .......\OT1/cmr/m/n/10 f
 .......\OT1/cmr/m/n/10 e
 .......\glue(\rightskip) 0.0
-......\marks5{\__mark_value:nn {17}{John 1:4}}
+......\marks5{\__mark_value:nn {19}{John 1:4}}
 ......\glue(\baselineskip) 1.91553
 ......\hbox(8.14003+1.94444)x221.0, glue set 0.24316
 .......\OT1/cmr/m/n/10 w
@@ -3275,7 +3277,7 @@ Completed box being shipped out [1]
 .......\OT1/cmr/m/n/10 i
 .......\OT1/cmr/m/n/10 n
 .......\glue(\rightskip) 0.0
-......\marks5{\__mark_value:nn {18}{John 1:5}}
+......\marks5{\__mark_value:nn {20}{John 1:5}}
 ......\glue(\baselineskip) 3.11111
 ......\hbox(6.94444+1.94444)x221.0, glue set 0.5356
 .......\OT1/cmr/m/n/10 t
@@ -3393,7 +3395,7 @@ Completed box being shipped out [1]
 .......\OT1/cmr/m/n/10 m
 .......\OT1/cmr/m/n/10 e
 .......\glue(\rightskip) 0.0
-......\marks5{\__mark_value:nn {19}{John 1:6}}
+......\marks5{\__mark_value:nn {21}{John 1:6}}
 ......\penalty 150
 ......\glue(\baselineskip) 3.85997
 ......\hbox(8.14003+1.94444)x221.0, glue set 0.57802
@@ -3457,7 +3459,7 @@ Completed box being shipped out [1]
 .......\discretionary
 .......\OT1/cmr/m/n/10 -
 .......\glue(\rightskip) 0.0
-......\marks5{\__mark_value:nn {20}{John 1:7}}
+......\marks5{\__mark_value:nn {22}{John 1:7}}
 ......\penalty 100
 ......\glue(\baselineskip) 3.11111
 ......\hbox(6.94444+1.94444)x221.0, glue set 0.54947
@@ -3579,7 +3581,7 @@ Completed box being shipped out [1]
 .......\OT1/cmr/m/n/10 m
 .......\OT1/cmr/m/n/10 e
 .......\glue(\rightskip) 0.0
-......\marks5{\__mark_value:nn {21}{John 1:8}}
+......\marks5{\__mark_value:nn {23}{John 1:8}}
 ......\penalty 150
 ......\glue(\baselineskip) 3.11111
 ......\hbox(6.94444+1.94444)x221.0, glue set 91.38867fil
@@ -3686,7 +3688,7 @@ Completed box being shipped out [1]
 .......\OT1/cmr/m/n/10 a
 .......\OT1/cmr/m/n/10 s
 .......\glue(\rightskip) 0.0
-......\marks5{\__mark_value:nn {22}{John 1:9}}
+......\marks5{\__mark_value:nn {24}{John 1:9}}
 ......\penalty 150
 ......\glue(\baselineskip) 1.91553
 ......\hbox(8.14003+1.94444)x221.0, glue set - 0.12607
@@ -3750,7 +3752,7 @@ Completed box being shipped out [1]
 .......\OT1/cmr/m/n/10 n
 .......\OT1/cmr/m/n/10 d
 .......\glue(\rightskip) 0.0
-......\marks5{\__mark_value:nn {23}{John 1:10}}
+......\marks5{\__mark_value:nn {25}{John 1:10}}
 ......\glue(\baselineskip) 3.11111
 ......\hbox(6.94444+1.94444)x221.0, glue set - 0.63786
 .......\OT1/cmr/m/n/10 t
@@ -3866,7 +3868,7 @@ Completed box being shipped out [1]
 .......\OT1/cmr/m/n/10 a
 .......\OT1/cmr/m/n/10 s
 .......\glue(\rightskip) 0.0
-......\marks5{\__mark_value:nn {24}{John 1:11}}
+......\marks5{\__mark_value:nn {26}{John 1:11}}
 ......\glue(\baselineskip) 1.91553
 ......\hbox(8.14003+1.94444)x221.0, glue set - 0.08763
 .......\OT1/cmr/m/n/10 h
@@ -3930,7 +3932,7 @@ Completed box being shipped out [1]
 .......\OT1/cmr/m/n/10 t
 .......\OT1/cmr/m/n/10 o
 .......\glue(\rightskip) 0.0
-......\marks5{\__mark_value:nn {25}{John 1:12}}
+......\marks5{\__mark_value:nn {27}{John 1:12}}
 ......\glue(\baselineskip) 3.11111
 ......\hbox(6.94444+1.94444)x221.0, glue set 0.43782
 .......\OT1/cmr/m/n/10 a
@@ -4105,7 +4107,7 @@ Completed box being shipped out [1]
 .......\OT1/cmr/m/n/10 o
 .......\OT1/cmr/m/n/10 r
 .......\glue(\rightskip) 0.0
-......\marks5{\__mark_value:nn {26}{John 1:13}}
+......\marks5{\__mark_value:nn {28}{John 1:13}}
 ......\glue(\baselineskip) 3.11111
 ......\hbox(6.94444+1.94444)x221.0, glue set - 0.00572
 .......\OT1/cmr/m/n/10 o
