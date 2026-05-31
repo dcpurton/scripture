@@ -1776,12 +1776,9 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
-..\glue(\baselineskip) 23.55556
-..\hbox(6.44444+0.0)x345.0
-...\hbox(6.44444+0.0)x345.0, glue set 170.0fil
-....\glue 0.0 plus 1.0fil
-....\OT1/cmr/m/n/10 1
-....\glue 0.0 plus 1.0fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\hbox(0.0+0.0)x345.0
 (issue106.aux)
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 2.68103pt have occurred.

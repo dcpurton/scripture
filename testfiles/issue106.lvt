@@ -14,6 +14,7 @@
   poetry/leftmargin=2em,
   chapter/showverse
 }
+\pagestyle{empty}
 \begin{document}
 \START
 \showoutput
