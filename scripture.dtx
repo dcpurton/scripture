@@ -1973,6 +1973,15 @@
 %   (if specified).
 % \end{option}
 %
+% \changes{v2.4}{2026/05/31}{Add \opt{inline/font} option}
+% \begin{option}[added=2026-05-31]{inline/font}
+%   \begin{syntax}
+%     inline/font = \meta{font} \hfill Default: \emph{Empty}
+%   \end{syntax}
+%   \meta{|font|} used for \fn{textscripture} or a \env{scripture} environment
+%   with the \opt{inline} option set.
+% \end{option}
+%
 % \changes{v2.0}{2023/12/27}{Add \opt{inline/reference/format} option}
 % \begin{option}[added=2023-12-27]{inline/reference/format}
 %   \begin{syntax}
@@ -3586,6 +3595,9 @@
     , inline / end .tl_set:N = \l_@@_inline_end_tl
     , inline / end .value_required:n = true
     , inline / end .initial:n = ''
+    , inline / font .tl_set:N = \l_@@_inline_font_tl
+    , inline / font .value_required:n = true
+    , inline / font .initial:n =
     , inline / reference / format .cs_set:Np =
         \@@_inline_ref_format:n #1
     , inline / reference / format .value_required:n = true
@@ -3931,6 +3943,7 @@
     , inline                      = false
     , inline / begin              = ``
     , inline / end                = ''
+    , inline / font               =
     , inline / reference / format = (#1)
     , inline / reference / sep    = 0.5em
     , inline / version / delim    = \c_space_tl
@@ -5967,7 +5980,9 @@
     \hook_gclear_next_code:n { scripture / poetry / pilcow }
     \hook_gput_code:nnn { cmd / @makefntext / before } { scripture }
       { \cs_set_eq:NN \noindent \@@_noindent_saved: }
-    \l_@@_font_tl
+    \bool_if:NTF \l_@@_inline_bool
+      { \l_@@_inline_font_tl }
+      { \l_@@_font_tl }
     \tl_set:Ne \l_@@_parindent_tl
       { \dim_eval:n { \l_@@_parindent_tl } }
     \exp_args:NnV
