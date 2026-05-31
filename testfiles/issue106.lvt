@@ -1,0 +1,64 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount,
+  verse/format=#1,
+  verse/sep=1em,
+  verse/presep=1.5em minus 1em,
+  hanging/verse/sep=1em,
+  hanging/leftmargin=2em,
+  hanging/hang=1em,
+  poetry/verse/sep=1em,
+  poetry/leftmargin=2em,
+  chapter/showverse
+}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}
+  \ch{1}In the beginning was the Word, and the Word was with God, and the Word
+  was God. \vs{2}He was with God in the beginning. \vs{3}Through him all
+  things were made; without him nothing was made that has been made. \vs{4}In
+  him was life, and that life was the light of all mankind. \vs{5}The light
+  shines in the darkness, and the darkness has not overcome it.
+
+  \vs{6}There was a man sent from God whose name was John. \vs{7}He came as a
+  witness to testify concerning that light, so that through him all might
+  believe. \vs{8}He himself was not the light; he came only as a witness to
+  the light.
+\end{scripture}
+
+\begin{scripture}
+  \begin{hanging}
+    \ch{1}In the beginning God created the heavens and the earth. \vs{2}Now the
+    earth was formless and empty, darkness was over the surface of the deep,
+    and the Spirit of God was hovering over the waters.
+
+    \vs{3}And God said, “Let there be light,” and there was light. \vs{4}God
+    saw that the light was good, and he separated the light from the darkness.
+    \vs{5}God called the light ‘day’, and the darkness he called ‘night’. And
+    there was evening, and there was morning – the first day.
+  \end{hanging}
+\end{scripture}
+
+\begin{scripture}
+  \begin{poetry}
+    \ch{5}I will sing for the one I love
+    a song about his vineyard:
+
+    my loved one had a vineyard
+    on a fertile hillside.
+
+    \vs{2}He dug it up and cleared it of stones
+    and planted it with the choicest vines.
+
+    He built a watchtower in it
+    and cut out a winepress as well.
+
+    Then he looked for a crop of good grapes,
+    but it yielded only bad fruit.
+  \end{poetry}
+\end{scripture}
+\end{document}

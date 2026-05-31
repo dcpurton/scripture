@@ -2782,6 +2782,16 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
+% \changes{v2.4}{2026/05/31}{Add \opt{verse/presep} option}
+% \begin{option}[added=2026-05-31]{verse/presep}
+%   \begin{syntax}
+%     verse/presep = \meta{skip} \hfill Default: 0em
+%   \end{syntax}
+%   \meta{|skip|} inserted before \fn{vs} when not at the beginning of a
+%   paragraph. Note that this can not be used with a custom
+%   \opt{verse/firstformat} at the moment.
+% \end{option}
+%
 % \changes{v1.1}{2022/07/28}{Add \opt{verse/sep} option with small default}
 % \begin{option}[added=2022-07-28]{verse/sep}
 %   \begin{syntax}
@@ -3751,6 +3761,9 @@
     , verse / para / indent .tl_set:N = \l_@@_para_indent_tl
     , verse / para / indent .value_required:n = true
     , verse / para / indent .initial:n = \l_@@_parindent_tl
+    , verse / presep .tl_set:N = \l_@@_verse_presep_tl
+    , verse / presep .value_required:n = true
+    , verse / presep .initial:n = 0em
     , verse / sep .tl_set:N = \l_@@_verse_sep_tl
     , verse / sep .value_required:n = true
     , verse / sep .initial:n = 0.05em
@@ -3984,6 +3997,7 @@
     , verse / format              = \textsuperscript{#1}
     , verse / para                = false
     , verse / para / indent       = \l_@@_parindent_tl
+    , verse / presep              = 0em
     , verse / sep                 = 0.05em
     , verse / show                = true
     , version                     =
@@ -5511,7 +5525,16 @@
       { \bool_set_true:N \l_@@_verse_par_start_bool }
     \mode_if_vertical:TF
       { \mode_leave_vertical: }
-      { \bool_set_false:N \l_@@_verse_par_start_bool }
+      {
+        \bool_set_false:N \l_@@_verse_par_start_bool
+        \skip_if_eq:nnF { \l_@@_verse_presep_tl } { \c_zero_skip }
+          {
+            \tl_if_eq:nnF {#1} { 1 }
+              {
+                \skip_horizontal:n { \l_@@_verse_presep_tl }
+              }
+          }
+      }
     \bool_if:NT \l_@@_no_verse_first_bool
       {
         \bool_set_false:N \l_@@_verse_par_start_bool
@@ -5983,6 +6006,11 @@
     \bool_if:NTF \l_@@_inline_bool
       { \l_@@_inline_font_tl }
       { \l_@@_font_tl }
+    \skip_if_eq:nnF { \l_@@_verse_presep_tl } { \c_zero_skip }
+      {
+        \bool_set_true:N \l_@@_verse_first_bool
+        \cs_set_eq:NN \@@_verse_first_format:n \@@_verse_format:n
+      }
     \tl_set:Ne \l_@@_parindent_tl
       { \dim_eval:n { \l_@@_parindent_tl } }
     \exp_args:NnV
