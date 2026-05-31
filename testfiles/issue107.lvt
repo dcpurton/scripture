@@ -1,0 +1,41 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount,
+  chapter/aboveskip=\medskipamount,
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[][noindent]
+  \vs{50}Jesus said, “You believe because I told you I saw you under the fig
+  tree. You will see greater things than that.” \vs{51}He then added, “Very
+  truly I tell you, you will see ‘heaven open, and the angels of God ascending
+  and descending on’ the Son of Man.”
+
+  \ch{2}On the third day a wedding took place at Cana in Galilee. Jesus’
+  mother was there, \vs{2}and Jesus and his disciples had also been invited to
+  the wedding. \vs{3}When the wine was gone, Jesus’ mother said to him, “They
+  have no more wine.”
+\end{scripture}
+
+\begin{scripture}
+  \begin{poetry}
+    \vs{11}“Also for you, Judah,
+    a harvest is appointed.
+
+    “Whenever I would restore the fortunes of my people,
+
+    \ch{7}whenever I would heal Israel,
+    the sins of Ephraim are exposed
+
+    and the crimes of Samaria revealed.
+    They practice deceit,
+    thieves break into houses,
+    bandits rob in the streets;
+  \end{poetry}
+\end{scripture}
+\end{document}

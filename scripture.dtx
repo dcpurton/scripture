@@ -1451,6 +1451,17 @@
 %   See also \opt{book} and \opt{verse}.
 % \end{option}
 %
+% \changes{v2.4}{2026/06/01}{Add \opt{chapter/aboveskip} option}
+% \begin{option}[added=2026-06-01]{chapter/aboveskip}
+%   \begin{syntax}
+%     chapter/aboveskip = \meta{skip} Default: 0pt
+%   \end{syntax}
+%   \meta{|skip|} inserted above a \fn{ch} when the \opt{chapter/para} option
+%   is not set.
+%
+%   See also \opt{chapter/para/aboveskip}.
+% \end{option}
+%
 % \changes{v2.1}{2024/12/30}{Add \opt{chapter/align} option}
 % \begin{option}[added=2024-12-30]{chapter/align}
 %   \begin{syntax}
@@ -3441,6 +3452,9 @@
     , chapter .int_gset:N = \g_@@_chapter_int
     , chapter .value_required:n = true
     , chapter .initial:n = \c_one_int
+    , chapter / aboveskip .tl_set:N = \l_@@_chapter_aboveskip_tl
+    , chapter / aboveskip .value_required:n = true
+    , chapter / aboveskip .initial:n = \c_zero_skip
     , chapter / align .choices:nn =
         { left, right }
         {
@@ -3928,6 +3942,7 @@
     , colour                      = .
     , compact                     = false
     , chapter                     = \c_one_int
+    , chapter / aboveskip         = \c_zero_skip
     , chapter / align             = left
     , chapter / font              = \bfseries
     , chapter / colour            = .
@@ -5111,6 +5126,13 @@
 \cs_new_protected:Nn \@@_drop_chap_output:
   {
     \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool
+    \skip_if_eq:nnF { \l_@@_chapter_aboveskip_tl } { \c_zero_skip }
+      {
+        \addvspace
+          {
+            \skip_eval:n { \l_@@_chapter_aboveskip_tl }
+          }
+      }
     \cs_if_eq:NNTF \noindent \@@_para_noindent:
       {
         \legacy_if:nTF { @newlist }
@@ -5205,6 +5227,13 @@
           {
             \dim_set:Nn \l_@@_nodrop_chap_voffset_dim
               { 0.5 \l_@@_chap_X_height_dim }
+          }
+        \skip_if_eq:nnF { \l_@@_chapter_aboveskip_tl } { \c_zero_skip }
+          {
+            \addvspace
+              {
+                \skip_eval:n { \l_@@_chapter_aboveskip_tl }
+              }
           }
         \hook_use:n { scripture / chap / before }
         \bool_if:NTF \l_@@_chap_smash_bool
@@ -6534,6 +6563,16 @@
           \@totalleftmargin ~ \linewidth
       }
     \par
+    \bool_if:NT \l_@@_chap_show_bool
+      {
+        \skip_if_eq:nnF { \l_@@_chapter_aboveskip_tl } { \c_zero_skip }
+          {
+            \addvspace
+              {
+                \skip_eval:n { \l_@@_chapter_aboveskip_tl }
+              }
+          }
+      }
     \bool_if:NTF \l_@@_hanging_chapter_indent_bool
       {
         \dim_set:Nn \l_@@_hanging_chap_sep_dim
@@ -7346,6 +7385,16 @@
     \@@_drop_chap_set_up:n {#1}
     \int_gset_eq:NN \g_@@_current_group_level_c_int \currentgrouplevel
     \@@_zero_chap_par_prevgraf_at_group_level:
+    \bool_if:NT \l_@@_chap_show_bool
+      {
+        \skip_if_eq:nnF { \l_@@_chapter_aboveskip_tl } { \c_zero_skip }
+          {
+            \addvspace
+              {
+                \skip_eval:n { \l_@@_chapter_aboveskip_tl }
+              }
+          }
+      }
     \cs_if_eq:NNTF \vs \@@_poetry_mode_vertical_verse:n
       {
         \dim_zero:N \l_@@_poetry_chap_indent_dim
@@ -7542,6 +7591,16 @@
     \tl_gset:Nn \scripturecurrentchapter {#1}
     \tl_gset:Nn \scripturecurrentverse { 1 }
     \group_begin:
+    \bool_if:NT \l_@@_chap_show_bool
+      {
+        \skip_if_eq:nnF { \l_@@_chapter_aboveskip_tl } { \c_zero_skip }
+          {
+            \addvspace
+              {
+                \skip_eval:n { \l_@@_chapter_aboveskip_tl }
+              }
+          }
+      }
     \cs_if_eq:NNT \vs \@@_poetry_mode_vertical_verse:n
       { \noindent }
     \bool_if:NTF \l_@@_chap_show_bool
