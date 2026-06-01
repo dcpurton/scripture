@@ -36,11 +36,12 @@ Completed box being shipped out [1]
 ....\pdfcolorstack 0 push {0.0 0.0 1.0 rg 0.0 0.0 1.0 RG}
 ....\T1/cmr/m/n/10 ^^P (ligature ``)
 ....\kern0.83313
-....\mathon
-....\hbox(4.53223+0.0)x8.47028, shifted -3.62892
+....\hbox(4.53223+0.0)x7.97028, shifted -3.62892
 .....\T1/cmr/m/n/7 1
 .....\T1/cmr/m/n/7 6
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern 0.0
 ....\kern 0.4999
 ....\penalty 10000
 ....\glue 0.0
@@ -253,10 +254,11 @@ Completed box being shipped out [1]
 ....\pdfcolorstack 0 push {0.0 0.0 1.0 rg 0.0 0.0 1.0 RG}
 ....\T1/cmr/m/n/10 ^^P (ligature ``)
 ....\kern0.83313
-....\mathon
-....\hbox(4.53223+0.0)x4.48514, shifted -3.62892
+....\hbox(4.53223+0.0)x3.98514, shifted -3.62892
 .....\T1/cmr/m/n/7 3
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern 0.0
 ....\kern 0.4999
 ....\penalty 10000
 ....\glue 0.0
@@ -430,10 +432,11 @@ Completed box being shipped out [1]
 ....\pdfcolorstack 0 push {0.0 0.0 1.0 rg 0.0 0.0 1.0 RG}
 ....\T1/cmr/m/n/10 ^^S
 ....\kern 1.6663
-....\mathon
-....\hbox(4.53223+0.0)x4.48514, shifted -3.62892
+....\hbox(4.53223+0.0)x3.98514, shifted -3.62892
 .....\T1/cmr/m/n/7 2
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern 0.0
 ....\kern 0.4999
 ....\penalty 10000
 ....\glue 0.0
@@ -650,11 +653,12 @@ Completed box being shipped out [1]
 ....\pdfcolorstack 0 push {0.0 0.0 1.0 rg 0.0 0.0 1.0 RG}
 ....\T1/cmr/m/n/10 ^^P (ligature ``)
 ....\kern0.83313
-....\mathon
-....\hbox(4.53223+0.0)x8.47028, shifted -3.62892
+....\hbox(4.53223+0.0)x7.97028, shifted -3.62892
 .....\T1/cmr/m/n/7 1
 .....\T1/cmr/m/n/7 8
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern 0.0
 ....\kern 0.4999
 ....\penalty 10000
 ....\glue 0.0
@@ -820,11 +824,12 @@ Completed box being shipped out [1]
 ....\T1/cmr/m/n/10 m
 ....\T1/cmr/m/n/10 .
 ....\glue 4.44336 plus 4.99878 minus 0.37027
-....\mathon
-....\hbox(4.53223+0.0)x8.47028, shifted -3.62892
+....\hbox(4.53223+0.0)x7.97028, shifted -3.62892
 .....\T1/cmr/m/n/7 1
 .....\T1/cmr/m/n/7 9
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern 0.0
 ....\kern 0.4999
 ....\penalty 10000
 ....\glue 0.0
@@ -1135,9 +1140,11 @@ Completed box being shipped out [1]
 ...\penalty 150
 ...\glue(\baselineskip) 1.89488
 ...\hbox(8.16115+1.94397)x345.0, glue set 0.28242
-....\hbox(4.53223+0.0)x4.48514, shifted -3.62892
+....\hbox(4.53223+0.0)x3.98514, shifted -3.62892
 .....\T1/cmr/m/n/7 2
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern 0.0
 ....\kern 0.4999
 ....\penalty 10000
 ....\glue 0.0
@@ -1357,11 +1364,12 @@ Completed box being shipped out [1]
 ....\pdfcolorstack 0 push {0.0 0.0 1.0 rg 0.0 0.0 1.0 RG}
 ....\T1/cmr/m/n/10 ^^P (ligature ``)
 ....\kern0.83313
-....\mathon
-....\hbox(4.53223+0.0)x8.47028, shifted -3.62892
+....\hbox(4.53223+0.0)x7.97028, shifted -3.62892
 .....\T1/cmr/m/n/7 2
 .....\T1/cmr/m/n/7 5
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern 0.0
 ....\kern 0.4999
 ....\penalty 10000
 ....\glue 0.0
@@ -1501,10 +1509,11 @@ Completed box being shipped out [1]
 ....\pdfcolorstack 0 push {0.0 0.0 1.0 rg 0.0 0.0 1.0 RG}
 ....\T1/cmr/m/n/10 ^^P (ligature ``)
 ....\kern0.83313
-....\mathon
-....\hbox(4.53223+0.0)x4.48514, shifted -3.62892
+....\hbox(4.53223+0.0)x3.98514, shifted -3.62892
 .....\T1/cmr/m/n/7 5
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern 0.0
 ....\kern 0.4999
 ....\penalty 10000
 ....\glue 0.0
@@ -1700,11 +1709,12 @@ Completed box being shipped out [1]
 ....\pdfcolorstack 0 push {0.0 0.0 1.0 rg 0.0 0.0 1.0 RG}
 ....\T1/cmr/m/n/10 ^^P (ligature ``)
 ....\kern0.83313
-....\mathon
-....\hbox(4.53223+0.0)x8.47028, shifted -3.62892
+....\hbox(4.53223+0.0)x7.97028, shifted -3.62892
 .....\T1/cmr/m/n/7 3
 .....\T1/cmr/m/n/7 1
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern 0.0
 ....\kern 0.4999
 ....\penalty 10000
 ....\glue 0.0
@@ -1795,11 +1805,12 @@ Completed box being shipped out [1]
 ....\T1/cmr/m/n/10 d
 ....\T1/cmr/m/n/10 .
 ....\glue 4.44336 plus 4.99878 minus 0.37027
-....\mathon
-....\hbox(4.53223+0.0)x8.47028, shifted -3.62892
+....\hbox(4.53223+0.0)x7.97028, shifted -3.62892
 .....\T1/cmr/m/n/7 3
 .....\T1/cmr/m/n/7 2
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern 0.0
 ....\kern 0.4999
 ....\penalty 10000
 ....\glue 0.0
@@ -1887,11 +1898,12 @@ Completed box being shipped out [1]
 ....\T1/cmr/m/n/10 d
 ....\T1/cmr/m/n/10 ^^V (ligature ---)
 ....\discretionary
-....\mathon
-....\hbox(4.53223+0.0)x8.47028, shifted -3.62892
+....\hbox(4.53223+0.0)x7.97028, shifted -3.62892
 .....\T1/cmr/m/n/7 3
 .....\T1/cmr/m/n/7 3
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern 0.0
 ....\kern 0.4999
 ....\penalty 10000
 ....\glue 0.0
@@ -2197,10 +2209,11 @@ Completed box being shipped out [1]
 ....\pdfcolorstack 0 push {0.0 0.0 1.0 rg 0.0 0.0 1.0 RG}
 ....\T1/cmr/m/n/10 ^^P (ligature ``)
 ....\kern0.83313
-....\mathon
-....\hbox(4.53223+0.0)x4.48514, shifted -3.62892
+....\hbox(4.53223+0.0)x3.98514, shifted -3.62892
 .....\T1/cmr/m/n/7 5
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern 0.0
 ....\kern 0.4999
 ....\penalty 10000
 ....\glue 0.0
@@ -2368,10 +2381,11 @@ Completed box being shipped out [1]
 ....\pdfcolorstack 0 push {0.0 0.0 1.0 rg 0.0 0.0 1.0 RG}
 ....\T1/cmr/m/n/10 ^^P (ligature ``)
 ....\kern0.83313
-....\mathon
-....\hbox(4.53223+0.0)x4.48514, shifted -3.62892
+....\hbox(4.53223+0.0)x3.98514, shifted -3.62892
 .....\T1/cmr/m/n/7 2
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern 0.0
 ....\kern 0.4999
 ....\penalty 10000
 ....\glue 0.0

@@ -139,10 +139,11 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/n/10 .
 ....\glue 4.44444 plus 4.99997 minus 0.37036
 ....\pdfcolorstack 0 push {0.0 0.0 1.0 rg 0.0 0.0 1.0 RG}
-....\mathon
-....\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+....\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 .....\OT1/cmr/m/n/7 2
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern 0.0
 ....\pdfcolorstack 0 pop
 ....\kern 0.50003
 ....\penalty 10000
@@ -504,10 +505,11 @@ Completed box being shipped out [1]
 ....\hbox(8.14003+0.0)x0.0, glue set - 4.98616fil
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 .....\pdfcolorstack 0 push {0.0 0.0 1.0 rg 0.0 0.0 1.0 RG}
-.....\mathon
-.....\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+.....\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 ......\OT1/cmr/m/n/7 2
-.....\mathoff
+.....\penalty 10000
+.....\glue 0.5
+.....\kern 0.0
 .....\pdfcolorstack 0 pop
 .....\kern 0.50003
 .....\penalty 10000
@@ -915,10 +917,11 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/n/10 .
 ....\glue 4.44444 plus 4.99997 minus 0.37036
 ....\pdfcolorstack 0 push {0.0 0.0 1.0 rg 0.0 0.0 1.0 RG}
-....\mathon
-....\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+....\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 .....\OT1/cmr/m/n/7 2
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern 0.0
 ....\pdfcolorstack 0 pop
 ....\kern 0.50003
 ....\penalty 10000
@@ -1146,11 +1149,12 @@ Completed box being shipped out [1]
 .....\glue 5.0
 ....\penalty 0
 ....\pdfcolorstack 0 push {0.0 0.0 1.0 rg 0.0 0.0 1.0 RG}
-....\mathon
-....\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+....\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 .....\OT1/cmr/m/n/7 1
 .....\OT1/cmr/m/n/7 9
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern 0.0
 ....\pdfcolorstack 0 pop
 ....\kern 0.50003
 ....\penalty 10000
@@ -1360,11 +1364,12 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/n/10 .
 ....\glue 4.44444 plus 4.99997 minus 0.37036
 ....\pdfcolorstack 0 push {0.0 0.0 1.0 rg 0.0 0.0 1.0 RG}
-....\mathon
-....\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+....\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 .....\OT1/cmr/m/n/7 2
 .....\OT1/cmr/m/n/7 0
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern 0.0
 ....\pdfcolorstack 0 pop
 ....\kern 0.50003
 ....\penalty 10000
@@ -1694,10 +1699,11 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/n/10 .
 ....\glue 4.44444 plus 4.99997 minus 0.37036
 ....\pdfcolorstack 0 push {0.0 0.0 1.0 rg 0.0 0.0 1.0 RG}
-....\mathon
-....\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+....\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 .....\OT1/cmr/m/n/7 2
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern 0.0
 ....\pdfcolorstack 0 pop
 ....\kern 0.50003
 ....\penalty 10000
@@ -2056,10 +2062,11 @@ Completed box being shipped out [1]
 ....\hbox(8.14003+0.0)x0.0, glue set - 4.98616fil
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 .....\pdfcolorstack 0 push {0.0 0.0 1.0 rg 0.0 0.0 1.0 RG}
-.....\mathon
-.....\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+.....\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 ......\OT1/cmr/m/n/7 2
-.....\mathoff
+.....\penalty 10000
+.....\glue 0.5
+.....\kern 0.0
 .....\pdfcolorstack 0 pop
 .....\kern 0.50003
 .....\penalty 10000
@@ -2470,10 +2477,11 @@ Completed box being shipped out [1]
 ....\OT1/cmr/m/n/10 .
 ....\glue 4.44444 plus 4.99997 minus 0.37036
 ....\pdfcolorstack 0 push {0.0 0.0 1.0 rg 0.0 0.0 1.0 RG}
-....\mathon
-....\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+....\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 .....\OT1/cmr/m/n/7 2
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern 0.0
 ....\pdfcolorstack 0 pop
 ....\kern 0.50003
 ....\penalty 10000

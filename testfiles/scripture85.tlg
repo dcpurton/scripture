@@ -39,11 +39,12 @@ Completed box being shipped out [1]
 ....\hbox(8.14003+0.0)x0.0, glue set - 20.00003fil
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 .....\hbox(8.14003+0.0)x0.0, glue set - 8.97229fil
-......\mathon
-......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 .......\OT1/cmr/m/n/7 1
 .......\OT1/cmr/m/n/7 7
-......\mathoff
+......\penalty 10000
+......\glue 0.5
+......\kern 0.0
 ......\kern 0.50003
 ......\penalty 10000
 ......\glue 0.0
@@ -193,11 +194,12 @@ Completed box being shipped out [1]
 ....\hbox(8.14003+0.0)x0.0, glue set - 20.00003fil
 .....\glue 0.0 plus 1.0fil minus 1.0fil
 .....\hbox(8.14003+0.0)x0.0, glue set - 8.97229fil
-......\mathon
-......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 .......\OT1/cmr/m/n/7 1
 .......\OT1/cmr/m/n/7 8
-......\mathoff
+......\penalty 10000
+......\glue 0.5
+......\kern 0.0
 ......\kern 0.50003
 ......\penalty 10000
 ......\glue 0.0

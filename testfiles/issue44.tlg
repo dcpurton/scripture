@@ -19,7 +19,6 @@ Completed box being shipped out [1]
 ...\glue(\topskip) 0.0
 ...\hbox(21.97002+16.97)x345.0, glue set 17.0197fil
 ....\hbox(0.0+0.0)x15.0
-....\mathon
 ....\vbox(21.97002+16.97)x312.9803
 .....\penalty 9999
 .....\penalty -30
@@ -60,11 +59,12 @@ Completed box being shipped out [1]
 ................\glue 0.0 plus 1.0fil
 ...............\glue 5.0
 ..............\penalty 0
-..............\mathon
-..............\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+..............\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ...............\OT1/cmr/m/n/7 1
 ...............\OT1/cmr/m/n/7 6
-..............\mathoff
+..............\penalty 10000
+..............\glue 0.5
+..............\kern 0.0
 ..............\kern 0.50003
 ..............\penalty 10000
 ..............\glue 0.0
@@ -245,7 +245,6 @@ Completed box being shipped out [1]
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 .....\hbox(0.0+0.0)x0.0
 .....\penalty -30
-....\mathoff
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0

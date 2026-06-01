@@ -52,15 +52,11 @@ Completed box being shipped out [1]
 ......\pdfcolorstack 0 pop
 ....\penalty 10000
 ....\glue 0.0
-....\mathon
-....\begindir TLT
-....\begindir TLT
-....\hbox(0.0+0.0)x0.0, direction TLT
-....\hbox(3.95801+0.00342)x4.0, shifted -3.62892, direction TLT
+....\hbox(3.95801+0.00342)x3.5, shifted -3.62892, direction TRT
 .....\TU/SBLHebrew(0)/m/n/7 1
-....\enddir TLT
-....\enddir TLT
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern0.0
 ....\kern2.84526
 ....\penalty 10000
 ....\glue 0.0
@@ -134,15 +130,11 @@ Completed box being shipped out [1]
 ....\TU/SBLHebrew(0)/b/n/10 ץ
 ....\TU/SBLHebrew(0)/b/n/10 ׃
 ....\glue(\spaceskip) 2.70508 plus 1.35254 minus 0.90169
-....\mathon
-....\begindir TLT
-....\begindir TLT
-....\hbox(0.0+0.0)x0.0, direction TLT
-....\hbox(3.95801+0.00342)x4.0, shifted -3.62892, direction TLT
+....\hbox(3.95801+0.00342)x3.5, shifted -3.62892, direction TRT
 .....\TU/SBLHebrew(0)/m/n/7 2
-....\enddir TLT
-....\enddir TLT
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern0.0
 ....\kern2.84526
 ....\penalty 10000
 ....\glue 0.0
@@ -362,15 +354,11 @@ Completed box being shipped out [1]
 .....\TU/lmr/bx/n/10 0
 .....\enddir TLT
 .....\glue 5.0
-.....\mathon
-.....\begindir TLT
-.....\begindir TLT
-.....\hbox(0.0+0.0)x0.0, direction TLT
-.....\hbox(3.95801+0.00342)x4.0, shifted -3.62892, direction TLT
+.....\hbox(3.95801+0.00342)x3.5, shifted -3.62892, direction TRT
 ......\TU/SBLHebrew(0)/m/n/7 1
-.....\enddir TLT
-.....\enddir TLT
-.....\mathoff
+.....\penalty 10000
+.....\glue 0.5
+.....\kern0.0
 .....\kern2.84526
 .....\penalty 10000
 .....\glue 0.0
@@ -439,15 +427,11 @@ Completed box being shipped out [1]
 ....\rule(10.49995+4.50005)x0.0
 ....\hbox(7.58693+0.0)x0.0, glue set - 6.84526fil, direction TRT
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-.....\mathon
-.....\begindir TLT
-.....\begindir TLT
-.....\hbox(0.0+0.0)x0.0, direction TLT
-.....\hbox(3.95801+0.00342)x4.0, shifted -3.62892, direction TLT
+.....\hbox(3.95801+0.00342)x3.5, shifted -3.62892, direction TRT
 ......\TU/SBLHebrew(0)/m/n/7 2
-.....\enddir TLT
-.....\enddir TLT
-.....\mathoff
+.....\penalty 10000
+.....\glue 0.5
+.....\kern0.0
 .....\kern2.84526
 .....\penalty 10000
 .....\glue 0.0
@@ -688,15 +672,11 @@ Completed box being shipped out [1]
 ....\rule(10.49995+4.50005)x0.0
 ....\hbox(7.58351+0.0)x0.0, glue set - 6.84526fil, direction TRT
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-.....\mathon
-.....\begindir TLT
-.....\begindir TLT
-.....\hbox(0.0+0.0)x0.0, direction TLT
-.....\hbox(3.95459+0.94336)x4.0, shifted -3.62892, direction TLT
+.....\hbox(3.95459+0.94336)x3.5, shifted -3.62892, direction TRT
 ......\TU/SBLHebrew(0)/m/n/7 3
-.....\enddir TLT
-.....\enddir TLT
-.....\mathoff
+.....\penalty 10000
+.....\glue 0.5
+.....\kern0.0
 .....\kern2.84526
 .....\penalty 10000
 .....\glue 0.0
@@ -833,15 +813,11 @@ Completed box being shipped out [1]
 ....\rule(10.49995+4.50005)x0.0
 ....\hbox(7.53566+0.0)x0.0, glue set - 6.84526fil, direction TRT
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-.....\mathon
-.....\begindir TLT
-.....\begindir TLT
-.....\hbox(0.0+0.0)x0.0, direction TLT
-.....\hbox(3.90674+0.86133)x4.0, shifted -3.62892, direction TLT
+.....\hbox(3.90674+0.86133)x3.5, shifted -3.62892, direction TRT
 ......\TU/SBLHebrew(0)/m/n/7 4
-.....\enddir TLT
-.....\enddir TLT
-.....\mathoff
+.....\penalty 10000
+.....\glue 0.5
+.....\kern0.0
 .....\kern2.84526
 .....\penalty 10000
 .....\glue 0.0
@@ -995,15 +971,11 @@ Completed box being shipped out [1]
 ....\rule(10.49995+4.50005)x0.0
 ....\hbox(7.51173+0.0)x0.0, glue set - 6.84526fil, direction TRT
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-.....\mathon
-.....\begindir TLT
-.....\begindir TLT
-.....\hbox(0.0+0.0)x0.0, direction TLT
-.....\hbox(3.88281+0.94678)x4.0, shifted -3.62892, direction TLT
+.....\hbox(3.88281+0.94678)x3.5, shifted -3.62892, direction TRT
 ......\TU/SBLHebrew(0)/m/n/7 5
-.....\enddir TLT
-.....\enddir TLT
-.....\mathoff
+.....\penalty 10000
+.....\glue 0.5
+.....\kern0.0
 .....\kern2.84526
 .....\penalty 10000
 .....\glue 0.0
@@ -1135,15 +1107,11 @@ Completed box being shipped out [1]
 ....\rule(10.49995+4.50005)x0.0
 ....\hbox(8.39357+0.0)x0.0, glue set - 6.84526fil, direction TRT
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-.....\mathon
-.....\begindir TLT
-.....\begindir TLT
-.....\hbox(0.0+0.0)x0.0, direction TLT
-.....\hbox(4.76465+0.07178)x4.0, shifted -3.62892, direction TLT
+.....\hbox(4.76465+0.07178)x3.5, shifted -3.62892, direction TRT
 ......\TU/SBLHebrew(0)/m/n/7 6
-.....\enddir TLT
-.....\enddir TLT
-.....\mathoff
+.....\penalty 10000
+.....\glue 0.5
+.....\kern0.0
 .....\kern2.84526
 .....\penalty 10000
 .....\glue 0.0
@@ -1358,18 +1326,14 @@ Completed box being shipped out [1]
 ....\rule(10.49995+4.50005)x0.0
 ....\hbox(7.58693+0.0)x0.0, glue set - 10.34526fil, direction TRT
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-.....\mathon
-.....\begindir TLT
-.....\begindir TLT
-.....\hbox(0.0+0.0)x0.0, direction TLT
-.....\hbox(3.95801+0.94678)x7.5, shifted -3.62892, direction TLT
+.....\hbox(3.95801+0.94678)x7.0, shifted -3.62892, direction TRT
 ......\begindir TLT
 ......\TU/SBLHebrew(0)/m/n/7 1
 ......\TU/SBLHebrew(0)/m/n/7 5
 ......\enddir TLT
-.....\enddir TLT
-.....\enddir TLT
-.....\mathoff
+.....\penalty 10000
+.....\glue 0.5
+.....\kern0.0
 .....\kern2.84526
 .....\penalty 10000
 .....\glue 0.0
@@ -1483,18 +1447,14 @@ Completed box being shipped out [1]
 ....\TU/SBLHebrew(0)/b/n/10 ל
 ....\TU/SBLHebrew(0)/b/n/10 ׃
 ....\glue 10.0
-....\mathon
-....\begindir TLT
-....\begindir TLT
-....\hbox(0.0+0.0)x0.0, direction TLT
-....\hbox(4.76465+0.07178)x7.5, shifted -3.62892, direction TLT
+....\hbox(4.76465+0.07178)x7.0, shifted -3.62892, direction TRT
 .....\begindir TLT
 .....\TU/SBLHebrew(0)/m/n/7 1
 .....\TU/SBLHebrew(0)/m/n/7 6
 .....\enddir TLT
-....\enddir TLT
-....\enddir TLT
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern0.0
 ....\kern2.84526
 ....\penalty 10000
 ....\glue 0.0
@@ -1589,18 +1549,14 @@ Completed box being shipped out [1]
 .....\localrightbox=null
 ....\hbox(0.0+0.0)x0.0, direction TRT
 ....\rule(10.49995+4.50005)x0.0
-....\mathon
-....\begindir TLT
-....\begindir TLT
-....\hbox(0.0+0.0)x0.0, direction TLT
-....\hbox(3.95801+0.86816)x7.5, shifted -3.62892, direction TLT
+....\hbox(3.95801+0.86816)x7.0, shifted -3.62892, direction TRT
 .....\begindir TLT
 .....\TU/SBLHebrew(0)/m/n/7 1
 .....\TU/SBLHebrew(0)/m/n/7 7
 .....\enddir TLT
-....\enddir TLT
-....\enddir TLT
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern0.0
 ....\kern2.84526
 ....\penalty 10000
 ....\glue 0.0
@@ -1689,18 +1645,14 @@ Completed box being shipped out [1]
 ....\rule(10.49995+4.50005)x0.0
 ....\hbox(8.44142+0.0)x0.0, glue set - 10.34526fil, direction TRT
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-.....\mathon
-.....\begindir TLT
-.....\begindir TLT
-.....\hbox(0.0+0.0)x0.0, direction TLT
-.....\hbox(4.8125+0.0752)x7.5, shifted -3.62892, direction TLT
+.....\hbox(4.8125+0.0752)x7.0, shifted -3.62892, direction TRT
 ......\begindir TLT
 ......\TU/SBLHebrew(0)/m/n/7 1
 ......\TU/SBLHebrew(0)/m/n/7 8
 ......\enddir TLT
-.....\enddir TLT
-.....\enddir TLT
-.....\mathoff
+.....\penalty 10000
+.....\glue 0.5
+.....\kern0.0
 .....\kern2.84526
 .....\penalty 10000
 .....\glue 0.0

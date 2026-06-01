@@ -33,11 +33,11 @@ Completed box being shipped out [1]
 ......\glue 0.0 plus 1.0fil
 .....\glue 5.0
 ....\penalty 0
-....\mathon
-....\hbox(0.0+0.0)x0.0, direction TLT
-....\hbox(4.648+0.14)x4.483, shifted -3.62892, direction TLT
+....\hbox(4.648+0.14)x3.983, shifted -3.62892, direction TLT
 .....\TU/lmr/m/n/7 8
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern0.0
 ....\kern0.50003
 ....\penalty 10000
 ....\glue 0.0

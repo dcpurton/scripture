@@ -19,7 +19,6 @@ Completed box being shipped out [1]
 ...\glue(\topskip) 0.0
 ...\hbox(82.94998+77.94998)x345.0, glue set 159.28348fil
 ....\hbox(0.0+0.0)x15.0
-....\mathon
 ....\vbox(82.94998+77.94998)x170.71652
 .....\hbox(8.39996+3.60004)x160.7165, glue set 8.56099fil, shifted 10.00002
 ......\hbox(0.0+0.0)x10.00002
@@ -42,10 +41,11 @@ Completed box being shipped out [1]
 ......\rule(8.39996+3.60004)x0.0
 ......\hbox(8.14003+0.0)x0.0, glue set - 4.98616fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.......\mathon
-.......\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+.......\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 ........\OT1/cmr/m/n/7 1
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -130,10 +130,11 @@ Completed box being shipped out [1]
 ......\rule(8.39996+3.60004)x0.0
 ......\hbox(8.14003+0.0)x0.0, glue set - 4.98616fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.......\mathon
-.......\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+.......\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -221,10 +222,11 @@ Completed box being shipped out [1]
 ......\rule(8.39996+3.60004)x0.0
 ......\hbox(8.14003+0.0)x0.0, glue set - 4.98616fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.......\mathon
-.......\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+.......\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 ........\OT1/cmr/m/n/7 3
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -339,10 +341,11 @@ Completed box being shipped out [1]
 ......\rule(8.39996+3.60004)x0.0
 ......\hbox(8.14003+0.0)x0.0, glue set - 4.98616fil
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.......\mathon
-.......\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+.......\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 ........\OT1/cmr/m/n/7 4
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -489,7 +492,6 @@ Completed box being shipped out [1]
 ......\glue(\parfillskip) 0.0 plus 1.0fil
 ......\glue(\rightskip) 0.0
 .....\penalty 51
-....\mathoff
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0

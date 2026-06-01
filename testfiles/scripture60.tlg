@@ -26,11 +26,12 @@ Completed box being shipped out [1]
 ......\glue 0.0 plus 1.0fil
 .....\glue 5.0
 ....\penalty 0
-....\mathon
-....\hbox(4.59375+0.0)x7.93759, shifted -3.62892
+....\hbox(4.59375+0.0)x7.43759, shifted -3.62892
 .....\OT1/cmss/m/n/7 1
 .....\OT1/cmss/m/n/7 6
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern 0.0
 ....\kern 0.50003
 ....\penalty 10000
 ....\glue 0.0

@@ -35,11 +35,12 @@ Completed box being shipped out [1]
 ....\glue 4.44336 plus 3.33252 minus 0.55542
 ....\T1/cmr/m/n/10 ^^P (ligature ``)
 ....\kern0.83313
-....\mathon
-....\hbox(4.53223+0.0)x8.47028, shifted -3.62892
+....\hbox(4.53223+0.0)x7.97028, shifted -3.62892
 .....\T1/cmr/m/n/7 1
 .....\T1/cmr/m/n/7 6
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern 0.0
 ....\kern 0.4999
 ....\penalty 10000
 ....\glue 0.0

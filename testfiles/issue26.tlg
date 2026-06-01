@@ -56,11 +56,12 @@ Completed box being shipped out [1]
 ...........\glue 0.0 plus 1.0fil
 ..........\glue 5.0
 .........\penalty 0
-.........\mathon
-.........\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.........\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ..........\OT1/cmr/m/n/7 2
 ..........\OT1/cmr/m/n/7 5
-.........\mathoff
+.........\penalty 10000
+.........\glue 0.5
+.........\kern 0.0
 .........\kern 0.50003
 .........\penalty 10000
 .........\glue 0.0
@@ -211,10 +212,11 @@ Completed box being shipped out [1]
 .........\OT1/cmr/m/n/10 .
 .........\rule(8.39996+3.60004)x0.0
 .........\glue 4.44444 plus 4.99997 minus 0.37036
-.........\mathon
-.........\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+.........\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 ..........\OT1/cmr/m/n/7 1
-.........\mathoff
+.........\penalty 10000
+.........\glue 0.5
+.........\kern 0.0
 .........\kern 0.50003
 .........\penalty 10000
 .........\glue 0.0
@@ -419,10 +421,11 @@ Completed box being shipped out [1]
 .........\OT1/cmr/m/n/10 l
 .........\OT1/cmr/m/n/10 .
 .........\glue 4.44444 plus 4.99997 minus 0.37036
-.........\mathon
-.........\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+.........\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 ..........\OT1/cmr/m/n/7 2
-.........\mathoff
+.........\penalty 10000
+.........\glue 0.5
+.........\kern 0.0
 .........\kern 0.50003
 .........\penalty 10000
 .........\glue 0.0
@@ -589,10 +592,11 @@ Completed box being shipped out [1]
 .........\OT1/cmr/m/n/10 .
 .........\OT1/cmr/m/n/10 '
 .........\glue 4.44444 plus 4.99997 minus 0.37036
-.........\mathon
-.........\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+.........\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 ..........\OT1/cmr/m/n/7 3
-.........\mathoff
+.........\penalty 10000
+.........\glue 0.5
+.........\kern 0.0
 .........\kern 0.50003
 .........\penalty 10000
 .........\glue 0.0
@@ -710,10 +714,11 @@ Completed box being shipped out [1]
 ......\glue(\baselineskip) 3.85997
 ......\hbox(8.14003+1.94444)x221.0, glue set - 0.34825
 .......\hbox(0.0+0.0)x10.00002
-.......\mathon
-.......\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+.......\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 ........\OT1/cmr/m/n/7 4
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -845,10 +850,11 @@ Completed box being shipped out [1]
 .......\OT1/cmr/m/n/10 s
 .......\OT1/cmr/m/n/10 .
 .......\glue 4.44444 plus 4.99997 minus 0.37036
-.......\mathon
-.......\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+.......\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 ........\OT1/cmr/m/n/7 5
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -1067,11 +1073,12 @@ Completed box being shipped out [1]
 .......\rule(8.39996+3.60004)x0.0
 .......\hbox(8.14003+0.0)x0.0, glue set - 8.97229fil
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\mathon
-........\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+........\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 .........\OT1/cmr/m/n/7 4
 .........\OT1/cmr/m/n/7 1
-........\mathoff
+........\penalty 10000
+........\glue 0.5
+........\kern 0.0
 ........\kern 0.50003
 ........\penalty 10000
 ........\glue 0.0
@@ -1276,11 +1283,12 @@ Completed box being shipped out [1]
 ......\glue(\baselineskip) 3.85997
 ......\hbox(8.14003+1.94444)x221.0, glue set 0.67854
 .......\hbox(0.0+0.0)x10.00002
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 4
 ........\OT1/cmr/m/n/7 2
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -1511,11 +1519,12 @@ Completed box being shipped out [1]
 .......\rule(8.39996+3.60004)x0.0
 .......\hbox(8.14003+0.0)x0.0, glue set - 8.97229fil
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\mathon
-........\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+........\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 .........\OT1/cmr/m/n/7 2
 .........\OT1/cmr/m/n/7 6
-........\mathoff
+........\penalty 10000
+........\glue 0.5
+........\kern 0.0
 ........\kern 0.50003
 ........\penalty 10000
 ........\glue 0.0
@@ -1666,11 +1675,12 @@ Completed box being shipped out [1]
 ......\glue(\parskip) 0.0
 ......\glue(\baselineskip) 3.85997
 ......\hbox(8.14003+1.94444)x221.0, glue set 0.85829
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 7
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -1919,11 +1929,12 @@ Completed box being shipped out [1]
 .......\rule(8.39996+3.60004)x0.0
 .......\hbox(8.14003+0.0)x0.0, glue set - 8.97229fil
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\mathon
-........\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+........\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 .........\OT1/cmr/m/n/7 2
 .........\OT1/cmr/m/n/7 6
-........\mathoff
+........\penalty 10000
+........\glue 0.5
+........\kern 0.0
 ........\kern 0.50003
 ........\penalty 10000
 ........\glue 0.0
@@ -2161,11 +2172,12 @@ Completed box being shipped out [1]
 .........\glue 0.0 plus 1.0fil
 ........\glue 5.0
 .......\penalty 0
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 5
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -2408,11 +2420,12 @@ Completed box being shipped out [1]
 .........\glue 0.0 plus 1.0fil
 ........\glue 5.0
 .......\penalty 0
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 5
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -2665,11 +2678,12 @@ Completed box being shipped out [1]
 .........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\penalty 0
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 2
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -2932,11 +2946,12 @@ Completed box being shipped out [1]
 ......\glue(\baselineskip) 1.91553
 ......\hbox(8.14003+1.94444)x200.99997, glue set 1.49864, shifted 10.00002
 .......\hbox(0.0+0.0)x10.00002
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 3
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -3174,11 +3189,12 @@ Completed box being shipped out [1]
 .........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\penalty 0
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 2
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -3441,11 +3457,12 @@ Completed box being shipped out [1]
 ......\glue(\baselineskip) 1.91553
 ......\hbox(8.14003+1.94444)x200.99997, glue set 1.49864, shifted 10.00002
 .......\hbox(0.0+0.0)x10.00002
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 3
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -3606,11 +3623,12 @@ Completed box being shipped out [1]
 .......\OT1/cmr/m/n/10 m
 .......\OT1/cmr/m/n/10 !
 .......\glue 4.44444 plus 4.99997 minus 0.37036
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 4
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -3786,11 +3804,12 @@ Completed box being shipped out [1]
 .......\OT1/cmr/m/n/10 n
 .......\OT1/cmr/m/n/10 ?
 .......\glue 4.44444 plus 4.99997 minus 0.37036
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 5
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -4007,11 +4026,12 @@ Completed box being shipped out [1]
 ......\glue(\baselineskip) 3.85997
 ......\hbox(8.14003+1.94444)x221.0, glue set 0.1057
 .......\hbox(0.0+0.0)x10.00002
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 6
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -4311,7 +4331,7 @@ Completed box being shipped out [1]
 ..\hbox(0.0+0.0)x452.0
 ...\hbox(0.0+0.0)x452.0
 Underfull \hbox (badness 1472) in paragraph at lines ...
-[]$[]$\OT1/cmr/m/n/10 The field com-man-der said to them, `Tell
+[][] \OT1/cmr/m/n/10 The field com-man-der said to them, `Tell
 \hbox(8.14003+1.94444)x221.0, glue set 2.45331
 .\hbox(0.0+0.0)x10.00002
 ..\glue 10.00002
@@ -4321,11 +4341,12 @@ Underfull \hbox (badness 1472) in paragraph at lines ...
 ...\glue 0.0 plus 1.0fil
 ..\glue 5.0
 .\penalty 0
-.\mathon
-.\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ..\OT1/cmr/m/n/7 1
 ..\OT1/cmr/m/n/7 9
-.\mathoff
+.\penalty 10000
+.\glue 0.5
+.\kern 0.0
 .\kern 0.50003
 .\penalty 10000
 .\glue 0.0
@@ -4420,11 +4441,12 @@ Completed box being shipped out [2]
 .........\glue 0.0 plus 1.0fil
 ........\glue 5.0
 .......\penalty 0
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 1
 ........\OT1/cmr/m/n/7 9
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -4691,11 +4713,12 @@ Completed box being shipped out [2]
 .........\glue 0.0 plus 1.0fil
 ........\glue 5.0
 .......\penalty 0
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 3
 ........\OT1/cmr/m/n/7 0
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -4821,11 +4844,12 @@ Completed box being shipped out [2]
 .......\vbox(8.14003+85.94444)x221.0
 ........\hbox(8.14003+1.94444)x221.0, glue set 0.3708
 .........\hbox(0.0+0.0)x10.00002
-.........\mathon
-.........\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.........\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ..........\OT1/cmr/m/n/7 3
 ..........\OT1/cmr/m/n/7 1
-.........\mathoff
+.........\penalty 10000
+.........\glue 0.5
+.........\kern 0.0
 .........\kern 0.50003
 .........\penalty 10000
 .........\glue 0.0
@@ -4916,11 +4940,12 @@ Completed box being shipped out [2]
 .........\OT1/cmr/m/n/10 d
 .........\OT1/cmr/m/n/10 .
 .........\glue 4.44444 plus 4.99997 minus 0.37036
-.........\mathon
-.........\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.........\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ..........\OT1/cmr/m/n/7 3
 ..........\OT1/cmr/m/n/7 2
-.........\mathoff
+.........\penalty 10000
+.........\glue 0.5
+.........\kern 0.0
 .........\kern 0.50003
 .........\penalty 10000
 .........\glue 0.0
@@ -5010,11 +5035,12 @@ Completed box being shipped out [2]
 .........\OT1/cmr/m/n/10 d
 .........\OT1/cmr/m/n/10 | (ligature ---)
 .........\discretionary
-.........\mathon
-.........\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.........\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ..........\OT1/cmr/m/n/7 3
 ..........\OT1/cmr/m/n/7 3
-.........\mathoff
+.........\penalty 10000
+.........\glue 0.5
+.........\kern 0.0
 .........\kern 0.50003
 .........\penalty 10000
 .........\glue 0.0
@@ -5189,10 +5215,11 @@ Completed box being shipped out [2]
 ............\OT1/cmr/bx/n/24.88 1
 ............\OT1/cmr/bx/n/24.88 1
 ...........\glue 5.0
-.........\mathon
-.........\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+.........\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 ..........\OT1/cmr/m/n/7 1
-.........\mathoff
+.........\penalty 10000
+.........\glue 0.5
+.........\kern 0.0
 .........\kern 0.50003
 .........\penalty 10000
 .........\glue 0.0
@@ -5366,11 +5393,12 @@ Completed box being shipped out [2]
 .......\rule(8.39996+3.60004)x0.0
 .......\hbox(8.14003+0.0)x0.0, glue set - 8.97229fil
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\mathon
-........\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+........\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 .........\OT1/cmr/m/n/7 1
 .........\OT1/cmr/m/n/7 6
-........\mathoff
+........\penalty 10000
+........\glue 0.5
+........\kern 0.0
 ........\kern 0.50003
 ........\penalty 10000
 ........\glue 0.0
@@ -5453,11 +5481,12 @@ Completed box being shipped out [2]
 .......\rule(8.39996+3.60004)x0.0
 .......\hbox(8.14003+0.0)x0.0, glue set - 8.97229fil
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\mathon
-........\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+........\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 .........\OT1/cmr/m/n/7 1
 .........\OT1/cmr/m/n/7 7
-........\mathoff
+........\penalty 10000
+........\glue 0.5
+........\kern 0.0
 ........\kern 0.50003
 ........\penalty 10000
 ........\glue 0.0
@@ -5756,11 +5785,12 @@ Completed box being shipped out [2]
 .......\rule(8.39996+3.60004)x0.0
 .......\hbox(8.14003+0.0)x0.0, glue set - 8.97229fil
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\mathon
-........\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+........\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 .........\OT1/cmr/m/n/7 1
 .........\OT1/cmr/m/n/7 6
-........\mathoff
+........\penalty 10000
+........\glue 0.5
+........\kern 0.0
 ........\kern 0.50003
 ........\penalty 10000
 ........\glue 0.0
@@ -5843,11 +5873,12 @@ Completed box being shipped out [2]
 .......\rule(8.39996+3.60004)x0.0
 .......\hbox(8.14003+0.0)x0.0, glue set - 8.97229fil
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\mathon
-........\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+........\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 .........\OT1/cmr/m/n/7 1
 .........\OT1/cmr/m/n/7 7
-........\mathoff
+........\penalty 10000
+........\glue 0.5
+........\kern 0.0
 ........\kern 0.50003
 ........\penalty 10000
 ........\glue 0.0
@@ -6082,11 +6113,12 @@ Completed box being shipped out [2]
 ......\glue(\baselineskip) 3.85997
 ......\hbox(8.14003+1.94444)x221.0, glue set 0.66664
 .......\hbox(0.0+0.0)x10.00002
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 1
 ........\OT1/cmr/m/n/7 8
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -6275,11 +6307,12 @@ Completed box being shipped out [2]
 .......\OT1/cmr/m/n/10 c
 .......\OT1/cmr/m/n/10 e
 .......\glue 3.33333 plus 1.66666 minus 1.11111
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 1
 ........\OT1/cmr/m/n/7 9
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -6570,10 +6603,11 @@ Completed box being shipped out [2]
 .......\penalty 0
 .......\glue 20.00003
 .......\hbox(0.0+0.0)x10.00002
-.......\mathon
-.......\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+.......\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -6680,10 +6714,11 @@ Completed box being shipped out [2]
 .......\rule(8.39996+3.60004)x0.0
 .......\hbox(8.14003+0.0)x0.0, glue set - 4.98616fil
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\mathon
-........\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+........\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 .........\OT1/cmr/m/n/7 3
-........\mathoff
+........\penalty 10000
+........\glue 0.5
+........\kern 0.0
 ........\kern 0.50003
 ........\penalty 10000
 ........\glue 0.0
@@ -6801,11 +6836,12 @@ Completed box being shipped out [2]
 .........\glue 0.0 plus 1.0fil
 ........\glue 5.0
 .......\penalty 0
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 0
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -6970,11 +7006,12 @@ Completed box being shipped out [2]
 ......\glue(\baselineskip) 1.91553
 ......\hbox(8.14003+1.94444)x221.0, glue set 2.07997
 .......\hbox(0.0+0.0)x10.00002
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 1
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -7202,11 +7239,12 @@ Completed box being shipped out [3]
 ...........\glue 0.0 plus 1.0fil
 ..........\glue 5.0
 .........\penalty 0
-.........\mathon
-.........\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.........\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ..........\OT1/cmr/m/n/7 2
 ..........\OT1/cmr/m/n/7 5
-.........\mathoff
+.........\penalty 10000
+.........\glue 0.5
+.........\kern 0.0
 .........\kern 0.50003
 .........\penalty 10000
 .........\glue 0.0
@@ -7357,10 +7395,11 @@ Completed box being shipped out [3]
 .........\OT1/cmr/m/n/10 .
 .........\rule(8.39996+3.60004)x0.0
 .........\glue 4.44444 plus 4.99997 minus 0.37036
-.........\mathon
-.........\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+.........\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 ..........\OT1/cmr/m/n/7 1
-.........\mathoff
+.........\penalty 10000
+.........\glue 0.5
+.........\kern 0.0
 .........\kern 0.50003
 .........\penalty 10000
 .........\glue 0.0
@@ -7565,10 +7604,11 @@ Completed box being shipped out [3]
 .........\OT1/cmr/m/n/10 l
 .........\OT1/cmr/m/n/10 .
 .........\glue 4.44444 plus 4.99997 minus 0.37036
-.........\mathon
-.........\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+.........\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 ..........\OT1/cmr/m/n/7 2
-.........\mathoff
+.........\penalty 10000
+.........\glue 0.5
+.........\kern 0.0
 .........\kern 0.50003
 .........\penalty 10000
 .........\glue 0.0
@@ -7735,10 +7775,11 @@ Completed box being shipped out [3]
 .........\OT1/cmr/m/n/10 .
 .........\OT1/cmr/m/n/10 '
 .........\glue 4.44444 plus 4.99997 minus 0.37036
-.........\mathon
-.........\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+.........\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 ..........\OT1/cmr/m/n/7 3
-.........\mathoff
+.........\penalty 10000
+.........\glue 0.5
+.........\kern 0.0
 .........\kern 0.50003
 .........\penalty 10000
 .........\glue 0.0
@@ -7856,10 +7897,11 @@ Completed box being shipped out [3]
 ......\glue(\baselineskip) 3.85997
 ......\hbox(8.14003+1.94444)x221.0, glue set - 0.34825
 .......\hbox(0.0+0.0)x10.00002
-.......\mathon
-.......\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+.......\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 ........\OT1/cmr/m/n/7 4
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -7991,10 +8033,11 @@ Completed box being shipped out [3]
 .......\OT1/cmr/m/n/10 s
 .......\OT1/cmr/m/n/10 .
 .......\glue 4.44444 plus 4.99997 minus 0.37036
-.......\mathon
-.......\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+.......\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 ........\OT1/cmr/m/n/7 5
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -8212,11 +8255,12 @@ Completed box being shipped out [3]
 .......\rule(8.39996+3.60004)x0.0
 .......\hbox(8.14003+0.0)x0.0, glue set - 8.97229fil
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\mathon
-........\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+........\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 .........\OT1/cmr/m/n/7 4
 .........\OT1/cmr/m/n/7 1
-........\mathoff
+........\penalty 10000
+........\glue 0.5
+........\kern 0.0
 ........\kern 0.50003
 ........\penalty 10000
 ........\glue 0.0
@@ -8421,11 +8465,12 @@ Completed box being shipped out [3]
 ......\glue(\baselineskip) 3.85997
 ......\hbox(8.14003+1.94444)x221.0, glue set 0.67854
 .......\hbox(0.0+0.0)x10.00002
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 4
 ........\OT1/cmr/m/n/7 2
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -8655,11 +8700,12 @@ Completed box being shipped out [3]
 .......\rule(8.39996+3.60004)x0.0
 .......\hbox(8.14003+0.0)x0.0, glue set - 8.97229fil
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\mathon
-........\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+........\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 .........\OT1/cmr/m/n/7 2
 .........\OT1/cmr/m/n/7 6
-........\mathoff
+........\penalty 10000
+........\glue 0.5
+........\kern 0.0
 ........\kern 0.50003
 ........\penalty 10000
 ........\glue 0.0
@@ -8810,11 +8856,12 @@ Completed box being shipped out [3]
 ......\glue(\parskip) 0.0
 ......\glue(\baselineskip) 3.85997
 ......\hbox(8.14003+1.94444)x221.0, glue set 0.85829
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 7
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -9062,11 +9109,12 @@ Completed box being shipped out [3]
 .......\rule(8.39996+3.60004)x0.0
 .......\hbox(8.14003+0.0)x0.0, glue set - 8.97229fil
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\mathon
-........\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+........\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 .........\OT1/cmr/m/n/7 2
 .........\OT1/cmr/m/n/7 6
-........\mathoff
+........\penalty 10000
+........\glue 0.5
+........\kern 0.0
 ........\kern 0.50003
 ........\penalty 10000
 ........\glue 0.0
@@ -9303,11 +9351,12 @@ Completed box being shipped out [3]
 .........\glue 0.0 plus 1.0fil
 ........\glue 5.0
 .......\penalty 0
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 5
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -9549,11 +9598,12 @@ Completed box being shipped out [3]
 .........\glue 0.0 plus 1.0fil
 ........\glue 5.0
 .......\penalty 0
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 5
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -9805,11 +9855,12 @@ Completed box being shipped out [3]
 .........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\penalty 0
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 2
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -10072,11 +10123,12 @@ Completed box being shipped out [3]
 ......\glue(\baselineskip) 1.91553
 ......\hbox(8.14003+1.94444)x200.99997, glue set 1.49864, shifted 10.00002
 .......\hbox(0.0+0.0)x10.00002
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 3
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -10313,11 +10365,12 @@ Completed box being shipped out [3]
 .........\glue 0.0 plus 1.0fil
 ........\glue 0.0
 .......\penalty 0
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 2
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -10580,11 +10633,12 @@ Completed box being shipped out [3]
 ......\glue(\baselineskip) 1.91553
 ......\hbox(8.14003+1.94444)x200.99997, glue set 1.49864, shifted 10.00002
 .......\hbox(0.0+0.0)x10.00002
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 3
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -10745,11 +10799,12 @@ Completed box being shipped out [3]
 .......\OT1/cmr/m/n/10 m
 .......\OT1/cmr/m/n/10 !
 .......\glue 4.44444 plus 4.99997 minus 0.37036
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 4
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -10925,11 +10980,12 @@ Completed box being shipped out [3]
 .......\OT1/cmr/m/n/10 n
 .......\OT1/cmr/m/n/10 ?
 .......\glue 4.44444 plus 4.99997 minus 0.37036
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 5
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -11146,11 +11202,12 @@ Completed box being shipped out [3]
 ......\glue(\baselineskip) 3.85997
 ......\hbox(8.14003+1.94444)x221.0, glue set 0.1057
 .......\hbox(0.0+0.0)x10.00002
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 6
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -11450,7 +11507,7 @@ Completed box being shipped out [3]
 ..\hbox(0.0+0.0)x452.0
 ...\hbox(0.0+0.0)x452.0
 Underfull \hbox (badness 1472) in paragraph at lines ...
-[]$[]$\OT1/cmr/m/n/10 The field com-man-der said to them, `Tell
+[][] \OT1/cmr/m/n/10 The field com-man-der said to them, `Tell
 \hbox(8.14003+1.94444)x221.0, glue set 2.45331
 .\hbox(0.0+0.0)x10.00002
 ..\glue 10.00002
@@ -11460,11 +11517,12 @@ Underfull \hbox (badness 1472) in paragraph at lines ...
 ...\glue 0.0 plus 1.0fil
 ..\glue 5.0
 .\penalty 0
-.\mathon
-.\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ..\OT1/cmr/m/n/7 1
 ..\OT1/cmr/m/n/7 9
-.\mathoff
+.\penalty 10000
+.\glue 0.5
+.\kern 0.0
 .\kern 0.50003
 .\penalty 10000
 .\glue 0.0
@@ -11558,11 +11616,12 @@ Completed box being shipped out [4]
 .........\glue 0.0 plus 1.0fil
 ........\glue 5.0
 .......\penalty 0
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 1
 ........\OT1/cmr/m/n/7 9
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -11826,11 +11885,12 @@ Completed box being shipped out [4]
 .........\glue 0.0 plus 1.0fil
 ........\glue 5.0
 .......\penalty 0
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 3
 ........\OT1/cmr/m/n/7 0
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -11956,11 +12016,12 @@ Completed box being shipped out [4]
 .......\vbox(8.14003+85.94444)x221.0
 ........\hbox(8.14003+1.94444)x221.0, glue set 0.3708
 .........\hbox(0.0+0.0)x10.00002
-.........\mathon
-.........\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.........\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ..........\OT1/cmr/m/n/7 3
 ..........\OT1/cmr/m/n/7 1
-.........\mathoff
+.........\penalty 10000
+.........\glue 0.5
+.........\kern 0.0
 .........\kern 0.50003
 .........\penalty 10000
 .........\glue 0.0
@@ -12051,11 +12112,12 @@ Completed box being shipped out [4]
 .........\OT1/cmr/m/n/10 d
 .........\OT1/cmr/m/n/10 .
 .........\glue 4.44444 plus 4.99997 minus 0.37036
-.........\mathon
-.........\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.........\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ..........\OT1/cmr/m/n/7 3
 ..........\OT1/cmr/m/n/7 2
-.........\mathoff
+.........\penalty 10000
+.........\glue 0.5
+.........\kern 0.0
 .........\kern 0.50003
 .........\penalty 10000
 .........\glue 0.0
@@ -12145,11 +12207,12 @@ Completed box being shipped out [4]
 .........\OT1/cmr/m/n/10 d
 .........\OT1/cmr/m/n/10 | (ligature ---)
 .........\discretionary
-.........\mathon
-.........\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.........\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ..........\OT1/cmr/m/n/7 3
 ..........\OT1/cmr/m/n/7 3
-.........\mathoff
+.........\penalty 10000
+.........\glue 0.5
+.........\kern 0.0
 .........\kern 0.50003
 .........\penalty 10000
 .........\glue 0.0
@@ -12324,10 +12387,11 @@ Completed box being shipped out [4]
 ............\OT1/cmr/bx/n/24.88 1
 ............\OT1/cmr/bx/n/24.88 1
 ...........\glue 5.0
-.........\mathon
-.........\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+.........\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 ..........\OT1/cmr/m/n/7 1
-.........\mathoff
+.........\penalty 10000
+.........\glue 0.5
+.........\kern 0.0
 .........\kern 0.50003
 .........\penalty 10000
 .........\glue 0.0
@@ -12500,11 +12564,12 @@ Completed box being shipped out [4]
 .......\rule(8.39996+3.60004)x0.0
 .......\hbox(8.14003+0.0)x0.0, glue set - 8.97229fil
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\mathon
-........\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+........\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 .........\OT1/cmr/m/n/7 1
 .........\OT1/cmr/m/n/7 6
-........\mathoff
+........\penalty 10000
+........\glue 0.5
+........\kern 0.0
 ........\kern 0.50003
 ........\penalty 10000
 ........\glue 0.0
@@ -12587,11 +12652,12 @@ Completed box being shipped out [4]
 .......\rule(8.39996+3.60004)x0.0
 .......\hbox(8.14003+0.0)x0.0, glue set - 8.97229fil
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\mathon
-........\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+........\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 .........\OT1/cmr/m/n/7 1
 .........\OT1/cmr/m/n/7 7
-........\mathoff
+........\penalty 10000
+........\glue 0.5
+........\kern 0.0
 ........\kern 0.50003
 ........\penalty 10000
 ........\glue 0.0
@@ -12889,11 +12955,12 @@ Completed box being shipped out [4]
 .......\rule(8.39996+3.60004)x0.0
 .......\hbox(8.14003+0.0)x0.0, glue set - 8.97229fil
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\mathon
-........\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+........\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 .........\OT1/cmr/m/n/7 1
 .........\OT1/cmr/m/n/7 6
-........\mathoff
+........\penalty 10000
+........\glue 0.5
+........\kern 0.0
 ........\kern 0.50003
 ........\penalty 10000
 ........\glue 0.0
@@ -12976,11 +13043,12 @@ Completed box being shipped out [4]
 .......\rule(8.39996+3.60004)x0.0
 .......\hbox(8.14003+0.0)x0.0, glue set - 8.97229fil
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\mathon
-........\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+........\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 .........\OT1/cmr/m/n/7 1
 .........\OT1/cmr/m/n/7 7
-........\mathoff
+........\penalty 10000
+........\glue 0.5
+........\kern 0.0
 ........\kern 0.50003
 ........\penalty 10000
 ........\glue 0.0
@@ -13215,11 +13283,12 @@ Completed box being shipped out [4]
 ......\glue(\baselineskip) 3.85997
 ......\hbox(8.14003+1.94444)x221.0, glue set 0.66664
 .......\hbox(0.0+0.0)x10.00002
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 1
 ........\OT1/cmr/m/n/7 8
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -13408,11 +13477,12 @@ Completed box being shipped out [4]
 .......\OT1/cmr/m/n/10 c
 .......\OT1/cmr/m/n/10 e
 .......\glue 3.33333 plus 1.66666 minus 1.11111
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 1
 ........\OT1/cmr/m/n/7 9
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -13700,10 +13770,11 @@ Completed box being shipped out [4]
 .......\penalty 0
 .......\glue 20.00003
 .......\hbox(0.0+0.0)x10.00002
-.......\mathon
-.......\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+.......\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -13810,10 +13881,11 @@ Completed box being shipped out [4]
 .......\rule(8.39996+3.60004)x0.0
 .......\hbox(8.14003+0.0)x0.0, glue set - 4.98616fil
 ........\glue 0.0 plus 1.0fil minus 1.0fil
-........\mathon
-........\hbox(4.51111+0.0)x4.48613, shifted -3.62892
+........\hbox(4.51111+0.0)x3.98613, shifted -3.62892
 .........\OT1/cmr/m/n/7 3
-........\mathoff
+........\penalty 10000
+........\glue 0.5
+........\kern 0.0
 ........\kern 0.50003
 ........\penalty 10000
 ........\glue 0.0
@@ -13930,11 +14002,12 @@ Completed box being shipped out [4]
 .........\glue 0.0 plus 1.0fil
 ........\glue 5.0
 .......\penalty 0
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 0
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
@@ -14099,11 +14172,12 @@ Completed box being shipped out [4]
 ......\glue(\baselineskip) 1.91553
 ......\hbox(8.14003+1.94444)x221.0, glue set 2.07997
 .......\hbox(0.0+0.0)x10.00002
-.......\mathon
-.......\hbox(4.51111+0.0)x8.47226, shifted -3.62892
+.......\hbox(4.51111+0.0)x7.97226, shifted -3.62892
 ........\OT1/cmr/m/n/7 2
 ........\OT1/cmr/m/n/7 1
-.......\mathoff
+.......\penalty 10000
+.......\glue 0.5
+.......\kern 0.0
 .......\kern 0.50003
 .......\penalty 10000
 .......\glue 0.0
