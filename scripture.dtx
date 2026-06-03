@@ -5065,8 +5065,10 @@
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_select_language:n
   {
-    \tl_set_eq:Nc \l_@@_language_tl { l_@@_#1_language_tl }
-    \tl_set_eq:Nc \l_@@_language_variant_tl { l_@@_#1_language_variant_tl }
+    \tl_set_eq:Nc \l_@@_language_tl
+      { l_@@_#1_language_tl }
+    \tl_set_eq:Nc \l_@@_language_variant_tl
+      { l_@@_#1_language_variant_tl }
     \tl_if_empty:NF \l_@@_language_tl
       {
         \@ifpackageloaded { babel }
@@ -6159,7 +6161,8 @@
     \skip_if_eq:nnF { \l_@@_verse_presep_tl } { \c_zero_skip }
       {
         \bool_set_true:N \l_@@_verse_first_bool
-        \cs_set_eq:NN \@@_verse_first_format:n \@@_verse_format:n
+        \cs_set_eq:NN
+          \@@_verse_first_format:n \@@_verse_format:n
       }
     \tl_set:Ne \l_@@_parindent_tl
       { \dim_eval:n { \l_@@_parindent_tl } }
@@ -6262,7 +6265,9 @@
         \@@_red_letter_off:
         \l_@@_inline_end_tl
         \bool_lazy_or:nnTF
-          { \tl_if_novalue_p:n \l_@@_ref_tl }
+          {
+            \tl_if_novalue_p:n { \l_@@_ref_tl }
+          }
           { \tl_if_empty_p:N \l_@@_ref_tl }
           {
             \tl_if_empty:NF \l_@@_version_tl
@@ -6304,7 +6309,9 @@
         \hook_gclear_next_code:n { para / after }
         \noindent
         \bool_lazy_or:nnTF
-          { \tl_if_novalue_p:n \l_@@_ref_tl }
+          {
+            \tl_if_novalue_p:n { \l_@@_ref_tl }
+          }
           { \tl_if_empty_p:N \l_@@_ref_tl }
           { 
             \tl_if_empty:NTF \l_@@_version_tl
