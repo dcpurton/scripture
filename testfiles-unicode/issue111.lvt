@@ -1,0 +1,25 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{babel}
+\babelprovide[import, main]{british}
+\babelprovide[import]{chinese-simplified}
+\babelfont[chinese-simplified]{rm}{AR PL UMing CN}
+\usepackage{scripture}
+\scripturesetup{
+  language=chinese-simplified,
+  version=CCB,
+  chapter/language=british,
+  verse/language=british,
+  version/language=british
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[约翰福音 1:1–4]
+  \ch{1}太初，道已经存在，道与上帝同在，道就是上帝。
+  \vs{2}太初，道就与上帝同在。
+  \vs{3}万物都是借着祂造的，受造之物没有一样不是借着祂造的。
+  \vs{4}祂里面有生命，这生命是人类的光。 \vs{5}光照进黑暗里，黑暗不能胜过光。
+\end{scripture}
+\end{document}

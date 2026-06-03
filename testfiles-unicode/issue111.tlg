@@ -1,0 +1,332 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+luaotfload | cache : Lookup cache loaded from ../luaotfload-lookup-cache.luc.
+Package fontspec Info: 
+(fontspec)             Language 'Chinese Simplified' not explicitly supported within font 'AR PL UMing CN' with script 'CJK'. Check the typeset output, and if it is okay then ignore this warning. Otherwise a different font should be chosen.
+Package fontspec Info: 
+(fontspec)             Could not resolve font "AR PL UMing CN/BI" (it probably doesn't exist).
+Package fontspec Info: 
+(fontspec)             Could not resolve font "AR PL UMing CN/B" (it probably doesn't exist).
+Package fontspec Info: 
+(fontspec)             Could not resolve font "AR PL UMing CN/I" (it probably doesn't exist).
+Package fontspec Info: 
+(fontspec)             Font family 'ARPLUMingCN(0)' created for font 'AR PL UMing CN' with options [Renderer=Harfbuzz,Ligatures=TeX,Script=CJK,Language=Chinese Simplified,RawFeature={family=rm}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"name:AR PL UMing CN:mode=harf;script=hani;language=ZHS;+tlig;family=rm;"
+LaTeX Font Warning: Font shape `TU/ARPLUMingCN(0)/bx/n' undefined
+(Font)              using `TU/ARPLUMingCN(0)/m/n' instead on input line ....
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line ....
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line ....
+Completed box being shipped out [1]
+\vbox(682.0+0.0)x398.0, direction TLT
+.\glue 17.0
+.\vbox(665.0+0.0)x345.0, shifted 53.0, direction TLT
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil, direction TLT
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0, direction TLT
+....\hbox(0.0+0.0)x345.0, direction TLT
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(598.0+0.0)x345.0, glue set 549.4513fil, direction TLT
+...\write-{}
+...\write1{\babel@aux{british}{}}
+...\write1{\babel@aux{chinese-simplified}{}}
+...\glue(\topskip) 1.49414
+...\hbox(8.50586+1.06445)x326.14697, glue set 0.2326, shifted 18.85303, direction TLT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\kern-15.0
+....\hbox(0.0+0.0)x15.0, direction TLT
+.....\glue 15.0
+.....\glue -20.0
+.....\glue -5.0
+.....\hbox(0.0+0.0)x20.0, glue set 20.0fil, direction TLT
+......\glue 0.0 plus 1.0fil
+.....\glue 5.0
+....\penalty 0
+....\hbox(0.0+0.0)x0.0, direction TLT
+.....\hbox(18.77734+0.0)x0.0, glue set - 18.85303fil, shifted 12.0, direction TLT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(18.77734+0.0)x13.85303, direction TLT
+.......\TU/ARPLUMingCN(0)/bx/n/27.70605 1
+......\glue 5.0
+....\TU/ARPLUMingCN(0)/bx/n/10 太
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 初
+....\TU/ARPLUMingCN(0)/bx/n/10 ，
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 道
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 已
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 经
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 存
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 在
+....\TU/ARPLUMingCN(0)/bx/n/10 ，
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 道
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 与
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 上
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 帝
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 同
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 在
+....\TU/ARPLUMingCN(0)/bx/n/10 ，
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 道
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 就
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 是
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 上
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 帝
+....\TU/ARPLUMingCN(0)/bx/n/10 。
+....\glue(\spaceskip) 5.0 plus 2.5 minus 1.66667
+....\write1{\babel@aux{british}{}}
+....\hbox(4.648+0.0)x3.983, shifted -3.62892, direction TLT
+.....\TU/lmr/m/n/7 2
+....\penalty 10000
+....\glue 0.5
+....\kern0.0
+....\write1{\babel@aux{chinese-simplified}{}}
+....\kern0.50003
+....\penalty 10000
+....\glue 0.0
+....\TU/ARPLUMingCN(0)/bx/n/10 太
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 初
+....\TU/ARPLUMingCN(0)/bx/n/10 ，
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 道
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 就
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 与
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 上
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 帝
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 同
+....\glue(\rightskip) 0.0
+...\penalty 150
+...\glue(\baselineskip) 2.41016
+...\hbox(8.52539+1.06445)x326.14697, glue set 0.21313, shifted 18.85303, direction TLT
+....\TU/ARPLUMingCN(0)/bx/n/10 在
+....\TU/ARPLUMingCN(0)/bx/n/10 。
+....\glue(\spaceskip) 5.0 plus 2.5 minus 1.66667
+....\write1{\babel@aux{british}{}}
+....\hbox(4.648+0.14)x3.983, shifted -3.62892, direction TLT
+.....\TU/lmr/m/n/7 3
+....\penalty 10000
+....\glue 0.5
+....\kern0.0
+....\write1{\babel@aux{chinese-simplified}{}}
+....\kern0.50003
+....\penalty 10000
+....\glue 0.0
+....\TU/ARPLUMingCN(0)/bx/n/10 万
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 物
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 都
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 是
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 借
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 着
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 祂
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 造
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 的
+....\TU/ARPLUMingCN(0)/bx/n/10 ，
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 受
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 造
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 之
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 物
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 没
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 有
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 一
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 样
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 不
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 是
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 借
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 着
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 祂
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 造
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 的
+....\TU/ARPLUMingCN(0)/bx/n/10 。
+....\glue(\spaceskip) 5.0 plus 2.5 minus 1.66667
+....\write1{\babel@aux{british}{}}
+....\hbox(4.718+0.0)x3.983, shifted -3.62892, direction TLT
+.....\TU/lmr/m/n/7 4
+....\penalty 10000
+....\glue 0.5
+....\kern0.0
+....\write1{\babel@aux{chinese-simplified}{}}
+....\kern0.50003
+....\penalty 10000
+....\glue 0.0
+....\TU/ARPLUMingCN(0)/bx/n/10 祂
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 里
+....\glue(\rightskip) 0.0
+...\penalty 50
+...\glue(\baselineskip) 2.42969
+...\hbox(8.50586+1.06445)x345.0, glue set 45.01697fil, direction TLT
+....\TU/ARPLUMingCN(0)/bx/n/10 面
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 有
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 生
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 命
+....\TU/ARPLUMingCN(0)/bx/n/10 ，
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 这
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 生
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 命
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 是
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 人
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 类
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 的
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 光
+....\TU/ARPLUMingCN(0)/bx/n/10 。
+....\glue(\spaceskip) 5.0 plus 2.5 minus 1.66667
+....\write1{\babel@aux{british}{}}
+....\hbox(4.648+0.14)x3.983, shifted -3.62892, direction TLT
+.....\TU/lmr/m/n/7 5
+....\penalty 10000
+....\glue 0.5
+....\kern0.0
+....\write1{\babel@aux{chinese-simplified}{}}
+....\kern0.50003
+....\penalty 10000
+....\glue 0.0
+....\TU/ARPLUMingCN(0)/bx/n/10 光
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 照
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 进
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 黑
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 暗
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 里
+....\TU/ARPLUMingCN(0)/bx/n/10 ，
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 黑
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 暗
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 不
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 能
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 胜
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 过
+....\glue(\spaceskip) 0.0 plus 1.0
+....\TU/ARPLUMingCN(0)/bx/n/10 光
+....\TU/ARPLUMingCN(0)/bx/n/10 。
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\glue(\abovedisplayskip) -12.0
+...\glue(\baselineskip) 10.93555
+...\hbox(0.0+0.0)x0.0, shifted 172.5, direction TLT
+...\penalty 10000
+...\glue(\belowdisplayskip) 0.0
+...\glue -12.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue 12.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 3.49414
+...\hbox(8.50586+2.49)x345.0, glue set 216.26001fill, direction TLT
+....\localpar
+.....\localinterlinepenalty=0
+.....\localbrokenpenalty=0
+.....\localleftbox=null
+.....\localrightbox=null
+....\hbox(0.0+0.0)x15.0, direction TLT
+....\glue 0.0 plus 1.0fill
+....\hbox(8.50586+2.49)x113.73999, direction TLT
+.....\TU/ARPLUMingCN(0)/bx/n/10 约
+.....\glue(\spaceskip) 0.0 plus 1.0
+.....\TU/ARPLUMingCN(0)/bx/n/10 翰
+.....\glue(\spaceskip) 0.0 plus 1.0
+.....\TU/ARPLUMingCN(0)/bx/n/10 福
+.....\glue(\spaceskip) 0.0 plus 1.0
+.....\TU/ARPLUMingCN(0)/bx/n/10 音
+.....\glue(\spaceskip) 5.0 plus 2.5 minus 1.66667
+.....\TU/ARPLUMingCN(0)/bx/n/10 1
+.....\TU/ARPLUMingCN(0)/bx/n/10 :
+.....\TU/ARPLUMingCN(0)/bx/n/10 1
+.....\TU/ARPLUMingCN(0)/bx/n/10 –
+.....\TU/ARPLUMingCN(0)/bx/n/10 4
+.....\glue(\spaceskip) 5.0 plus 2.5 minus 1.66667
+.....\write1{\babel@aux{british}{}}
+.....\TU/lmr/bx/n/10 (
+.....\TU/lmr/bx/n/10 C
+.....\TU/lmr/bx/n/10 C
+.....\TU/lmr/bx/n/10 B
+.....\TU/lmr/bx/n/10 )
+.....\write1{\babel@aux{chinese-simplified}{}}
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 51
+...\glue 0.0
+...\write1{\babel@aux{british}{}}
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0, direction TLT
+...\hbox(0.0+0.0)x345.0, direction TLT
+(issue111.aux)
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
