@@ -5215,6 +5215,7 @@
           \selectfont
         \str_if_eq:VnF \l_@@_chapter_colour_tl { . }
           { \exp_args:NV \color_select:n \l_@@_chapter_colour_tl }
+        \@@_select_language:n { chapter }
         \@@_chap_format:n {#1}
       }
     \dim_gset:Nn \g_@@_chap_width_dim
