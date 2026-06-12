@@ -36,7 +36,7 @@ Completed box being shipped out [1]
 ...\write1{\babel@aux{british}{}}
 ...\write1{\babel@aux{chinese-simplified}{}}
 ...\glue(\topskip) 1.49414
-...\hbox(8.50586+1.06445)x326.14697, glue set 0.2326, shifted 18.85303, direction TLT
+...\hbox(8.50586+1.06445)x324.40149, glue set 0.16673, shifted 20.59851, direction TLT
 ....\localpar
 .....\localinterlinepenalty=0
 .....\localbrokenpenalty=0
@@ -52,10 +52,12 @@ Completed box being shipped out [1]
 .....\glue 5.0
 ....\penalty 0
 ....\hbox(0.0+0.0)x0.0, direction TLT
-.....\hbox(18.77734+0.0)x0.0, glue set - 18.85303fil, shifted 12.0, direction TLT
+.....\hbox(18.17517+0.0)x0.0, glue set - 20.59851fil, shifted 12.0, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-......\hbox(18.77734+0.0)x13.85303, direction TLT
-.......\TU/ARPLUMingCN(0)/bx/n/27.70605 1
+......\hbox(18.17517+0.0)x15.59851, direction TLT
+.......\write1{\babel@aux{british}{}}
+.......\TU/lmr/bx/n/27.70605 1
+.......\write1{\babel@aux{chinese-simplified}{}}
 ......\glue 5.0
 ....\TU/ARPLUMingCN(0)/bx/n/10 太
 ....\glue(\spaceskip) 0.0 plus 1.0
@@ -126,7 +128,7 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\penalty 150
 ...\glue(\baselineskip) 2.41016
-...\hbox(8.52539+1.06445)x326.14697, glue set 0.21313, shifted 18.85303, direction TLT
+...\hbox(8.52539+1.06445)x324.40149, glue set 0.15294, shifted 20.59851, direction TLT
 ....\TU/ARPLUMingCN(0)/bx/n/10 在
 ....\TU/ARPLUMingCN(0)/bx/n/10 。
 ....\glue(\spaceskip) 5.0 plus 2.5 minus 1.66667
