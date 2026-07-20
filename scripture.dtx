@@ -4232,6 +4232,14 @@
 % \end{marks}
 %
 % \begin{macro}{\@@_insert_verse_mark: }
+% When the mark is inserted in vertical mode (at a chapter start), the mark
+% node is non-discardable, so the glue after it becomes a legal page or
+% column breakpoint even when a \cs{nobreak} precedes the mark. A break
+% there separates the mark from the material it labels (mislabelling the
+% running heads, since the mark ships on the previous page) and can orphan
+% a preceding user heading at a column foot. Bind the mark to the following
+% material with an infinite penalty; horizontal-mode insertions (\cs{vs}
+% mid-paragraph) are unaffected.
 %    \begin{macrocode}
 \cs_new_protected:Nn \@@_insert_verse_mark:
   {
@@ -4244,6 +4252,7 @@
               { \scripturecurrentchapter }
               { \scripturecurrentverse }
           }
+        \mode_if_vertical:T { \penalty 10000 }
       }
   }
 %    \end{macrocode}
