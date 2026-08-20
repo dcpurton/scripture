@@ -6040,22 +6040,24 @@
           {
             \@@_chap:n {#2}
             \bool_lazy_and:nnTF
-            {#1}
-            { \bool_not_p:n { \l_@@_compact_bool } }
-            {
-              \hook_gput_next_code:nn { para / after }
-                {
-                  \int_gzero:N \g_@@_chap_par_prevgraf_int
-                  \int_gzero:N \g_@@_mid_para_chap_prevgraf_int
-                }
-            }
-            {
-              \hook_gput_next_code:nn { para / after }
-                {
-                  \int_gset_eq:NN
-                    \g_@@_mid_para_chap_prevgraf_int \prevgraf
-                }
-            }
+              {#1}
+              {
+                \bool_not_p:n { \l_@@_compact_bool }
+              }
+              {
+                \hook_gput_next_code:nn { para / after }
+                  {
+                    \int_gzero:N \g_@@_chap_par_prevgraf_int
+                    \int_gzero:N \g_@@_mid_para_chap_prevgraf_int
+                  }
+              }
+              {
+                \hook_gput_next_code:nn { para / after }
+                  {
+                    \int_gset_eq:NN
+                      \g_@@_mid_para_chap_prevgraf_int \prevgraf
+                  }
+              }
           }
           {
             \bool_if:NTF \l_@@_chap_para_bool
