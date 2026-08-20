@@ -1660,6 +1660,15 @@
 %   present.
 % \end{option}
 %
+% \changes{v2.5}{2026/08/20}{Add \opt{chapter/presep} option}
+% \begin{option}[added=2026-08-20]{chapter/presep}
+%   \begin{syntax}
+%     chapter/presep = \meta{skip} \hfill Default: 0em
+%   \end{syntax}
+%   \meta{|skip|} inserted before \fn{ch} when the \opt{compact} option is in
+%   use.
+% \end{option}
+%
 % \begin{option}{chapter/sep}
 %   \begin{syntax}
 %     chapter/sep = \meta{dimen} \hfill Default: 0.5em
@@ -3607,6 +3616,9 @@
         }
     , chapter / para / indent .default:n = true
     , chapter / para / indent .initial:n = true
+    , chapter / presep .tl_set:N = \l_@@_chap_presep_tl
+    , chapter / presep .value_required:n = true
+    , chapter / presep .initial:n = 0em
     , chapter / sep .tl_set:N = \l_@@_chap_sep_tl
     , chapter / sep .value_required:n = true
     , chapter / sep .initial:n = 0.5em
@@ -4071,6 +4083,7 @@
     , chapter / para / aboveskip     = \bigskipamount
     , chapter / para / belowskip     = \medskipamount
     , chapter / para / indent        = true
+    , chapter / presep               = 0em
     , chapter / sep                  = 0.5em
     , chapter / show                 = true
     , chapter / showverse            = false
@@ -5367,6 +5380,13 @@
             \addvspace
               {
                 \skip_eval:n { \l_@@_chapter_aboveskip_tl }
+              }
+          }
+        \mode_if_vertical:F
+          {
+            \dim_compare:nNnT { \l_@@_chap_presep_tl } > { \c_zero_dim }
+              {
+                \skip_horizontal:n { \l_@@_chap_presep_tl }
               }
           }
         \hook_use:n { scripture / chap / before }

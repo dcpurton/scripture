@@ -1,0 +1,22 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  compact,
+  chapter/presep=1em
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}
+  \vs{30}It is because of him that you are in Christ Jesus, who has become for
+  us wisdom from God – that is, our righteousness, holiness and redemption.
+  \vs{31}Therefore, as it is written: ‘Let the one who boasts boast in the
+  Lord.’
+
+  \ch{2}And so it was with me, brothers and sisters. When I came to you, I did
+  not come with eloquence or human wisdom as I proclaimed to you the testimony
+  about God.
+\end{scripture}
+\end{document}
