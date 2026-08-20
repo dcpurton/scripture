@@ -3350,6 +3350,14 @@
 %   \meta{|dimen|} used for the right margin of the \env{poetry} environment.
 % \end{option}
 %
+% \changes{v2.5}{2026/08/20}{Add \opt{poetry/secondhalf} option}
+% \begin{option}[added=2026-08-20]{poetry/secondhalf}
+%   \begin{syntax}
+%     poetry/secondhalf = \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   set the verse line of the \env{poetry} environment as a second half line.
+% \end{option}
+%
 % \changes{v1.1}{2022/07/31}{Add \opt{poetry/verse/left} option}
 % \begin{option}[added=2022-07-31]{poetry/verse/left}
 %   \begin{syntax}
@@ -4019,6 +4027,9 @@
     , poetry / rightmargin .tl_set:N = \l_@@_poetry_rightmargin_tl
     , poetry / rightmargin .value_required:n = true
     , poetry / rightmargin .initial:n = \c_zero_dim
+    , poetry / secondhalf .bool_set:N = \l_@@_poetry_secondhalf_bool
+    , poetry / secondhalf .default:n = true
+    , poetry / secondhalf .initial:n = false
     , poetry / verse / left .bool_set_inverse:N =
         \l_@@_poetry_verse_right_bool
     , poetry / verse / left .default:n = true
@@ -4160,6 +4171,7 @@
     , poetry / indent                = 1em
     , poetry / leftmargin            = 1em
     , poetry / rightmargin           = \c_zero_dim
+    , poetry / secondhalf            = false
     , poetry / verse / right         = true
     , poetry / verse / sep           = 0.05em
   }
@@ -7860,13 +7872,18 @@
 \group_end:
 \cs_new_protected:Nn \@@_obeylines_eol:
   {
-    \mode_if_vertical:TF
+    \bool_lazy_and:nnTF
+      { \mode_if_vertical_p: }
+      {
+        \bool_not_p:n { \l_@@_poetry_secondhalf_bool }
+      }
       {
         \cs_set_eq:NN \vs \@@_poetry_mode_vertical_verse:n
         \hook_gput_next_code:nn { scripture / poetry / para / after }
           { \bool_set_false:N \l_@@_poetry_midparachap_show_verse_bool }
       }
       { \cs_set_eq:NN \vs \@@_poetry_mode_horizontal_verse:n }
+    \bool_set_false:N \l_@@_poetry_secondhalf_bool
     \peek_analysis_map_inline:n
       {
         \bool_case:nF

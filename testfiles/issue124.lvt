@@ -1,0 +1,25 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Psalm 66:2]
+  \begin{poetry}[secondhalf]
+    \vs{2}Sing the glory of his name;
+    make his praise glorious.
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Psalm 69:20b]
+  \begin{poetry}[secondhalf]
+    I looked for sympathy, but there was none,
+    for comforters, but I found none.
+  \end{poetry}
+\end{scripture}
+\end{document}
