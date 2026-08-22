@@ -477,6 +477,56 @@
 % \end{scripture}
 % \end{scriptureexample}
 %
+% \changes{v2.5}{2026/08/23}{Add feature to insert canonical headings}
+% \changes{v2.5}{2026/08/23}{Add \fn{canonicalheading} function}
+% \begin{function}[added=2026-08-23]{\canonicalheading}
+%   \begin{syntax}
+%     |\canonicalheading|\marg{canonical heading}
+%   \end{syntax}
+%   The \fn{canonicalheading} function inserts a canonical heading used at the
+%   beginning of many psalms.
+%
+%   The settings of canonical headings can be controlled using the following
+%   options:
+%   \begin{itemize}
+%     \item \opt{canonicalheading/aboveskip}
+%     \item \opt{canonicalheading/afterindent}
+%     \item \opt{canonicalheading/align}
+%     \item \opt{canonicalheading/belowskip}
+%     \item \opt{canonicalheading/font}
+%     \item \opt{canonicalheading/format}
+%   \end{itemize}
+% \end{function}
+%
+% \begin{scriptureexample}
+% \begin{verbatim}
+% \begin{scripture}[][chapter/para,
+%     chapter/format=PSALM~#1]
+%   \ch{3}
+%   \canonicalheading{A psalm of David. When he fled
+%     from his son Absalom.}
+%   \begin{poetry}
+%     \vs{1}\name{Lord}, how many are my foes!
+%     How many rise up against me!
+%   \end{poetry}
+% \end{scripture}
+% \end{verbatim}
+%
+% \tcblower
+%
+% \begin{scripture}[][chapter/para,
+%     chapter/format=PSALM~#1,
+%     canonicalheading/font=\scriptsize]
+%   \ch{3}
+%   \canonicalheading{A psalm of David. When he fled
+%     from his son Absalom.}
+%   \begin{poetry}
+%     \vs{1}\name{Lord}, how many are my foes!
+%     How many rise up against me!
+%   \end{poetry}
+% \end{scripture}
+% \end{scriptureexample}
+%
 % \changes{v2.2}{2025/03/02}{Add auto chapter numbering}
 % \begin{function}{\ch, \ch*, \newch, \newch*}
 %   \begin{syntax}
@@ -1438,6 +1488,57 @@
 %   Initialise the book name for the current quotation.
 %
 %   See also \opt{chapter} and \opt{verse}.
+% \end{option}
+%
+% \changes{v2.5}{2026/08/23}{Add \opt{caonicalheading/aboveskip} option}
+% \begin{option}[added=2026-08-23]{canonicalheading/aboveskip}
+%   \begin{syntax}
+%     canonicalheading/aboveskip = \meta{skip} \hfill Default: \cs{medskipamount}
+%   \end{syntax}
+%   \meta{|skip|} inserted above a \fn{canonicalheading}.
+% \end{option}
+%
+% \changes{v2.5}{2026/08/23}{Add \opt{canonicalheading/afterindent} option}
+% \begin{option}[added=2026-08-23]{canonicalheading/afterindent}
+%   \begin{syntax}
+%     canonicalheading/afterindent = \meta{boolean} \hfill Default: false
+%   \end{syntax}
+%   Whether to indent the first paragraph following a \fn{canonicalheading}.
+%   The value of \meta{|boolean|} is optional and assumed to be \val{true} if
+%   not present.
+% \end{option}
+%
+% \changes{v2.5}{2026/08/23}{Add \opt{canonicalheading/align} option}
+% \begin{option}[added=2026-08-23]{canonicalheading/align}
+%   \begin{syntax}
+%     canonicalheading/align = left \textbar\ right \textbar\ center \hfill Default: center
+%   \end{syntax}
+%   Set the alignment of a \fn{canonicalheading}.
+% \end{option}
+%
+% \changes{v2.5}{2026/08/23}{Add \opt{canonicalheading/belowskip} option}
+% \begin{option}[added=2026-08-23]{canonicalheading/belowskip}
+%   \begin{syntax}
+%     canonicalheading/belowskip = \meta{skip} \hfill Default: \cs{medskipamount}
+%   \end{syntax}
+%   \meta{|skip|} inserted below a \fn{canonicalheading}.
+% \end{option}
+%
+% \changes{v2.5}{2026/08/23}{Add \opt{canonicalheading/font} option}
+% \begin{option}[added=2026-08-23]{canonicalheading/font}
+%   \begin{syntax}
+%     canonicalheading/font = \meta{font} \hfill Default: \cs{footnotesize}
+%   \end{syntax}
+%   \meta{|font|} used for a \fn{canonicalheading}.
+% \end{option}
+%
+% \changes{v2.5}{2026/08/23}{Add \opt{canonicalheading/format} option}
+% \begin{option}[added=2026-08-23]{canonicalheading/format}
+%   \begin{syntax}
+%     canonicalheading/format = \meta{macro} \hfill Default: \#1
+%   \end{syntax}
+%   \meta{|macro|} used to format a \fn{canonicalheading}. |#1| contains the
+%   text of the heading.
 % \end{option}
 %
 % \changes{v2.2}{2025/03/02}{Add \opt{chapter} option}
@@ -3539,6 +3640,51 @@
     , book .tl_gset:N = \g_@@_book_tl
     , book .value_required:n = true
     , book .initial:n =
+    , canonicalheading / aboveskip .tl_set:N =
+        \l_@@_canonicalheading_aboveskip_tl
+    , canonicalheading / aboveskip .value_required:n = true
+    , canonicalheading / aboveskip .initial:n = \medskipamount
+    , canonicalheading / afterindent .bool_set:N =
+        \l_@@_canonicalheading_afterindent_bool
+    , canonicalheading / afterindent .default:n = true
+    , canonicalheading / afterindent .initial:n = false
+    , canonicalheading / align .choices:nn =
+        { left, right, center }
+        {
+          \tl_if_exist:NF \l_@@_canonicalheading_align_tl
+            { \tl_new:N \l_@@_canonicalheading_align_tl }
+          \str_case:Vn \l_keys_choice_str
+            {
+              { left }
+                {
+                  \tl_set:Nn \l_@@_canonicalheading_align_tl
+                    { \raggedright }
+                }
+              { right }
+                {
+                  \tl_set:Nn \l_@@_canonicalheading_align_tl
+                    { \raggedleft }
+                }
+              { center }
+                {
+                  \tl_set:Nn \l_@@_canonicalheading_align_tl
+                    { \centering }
+                }
+            }
+        }
+    , canonicalheading / align .value_required:n = true
+    , canonicalheading / align .initial:n = center
+    , canonicalheading / belowskip .tl_set:N =
+        \l_@@_canonicalheading_belowskip_tl
+    , canonicalheading / belowskip .value_required:n = true
+    , canonicalheading / belowskip .initial:n = \medskipamount
+    , canonicalheading / font .tl_set:N = \l_@@_canonicalheading_font_tl
+    , canonicalheading / font .value_required:n = true
+    , canonicalheading / font .initial:n = \footnotesize
+    , canonicalheading / format .cs_set:Np =
+        \@@_canonicalheading_format:n #1
+    , canonicalheading / format .value_required:n = true
+    , canonicalheading / format .initial:n = #1
     , colour .tl_set:N = \l_@@_colour_tl
     , colour .value_required:n = true
     , colour .initial:n = .
@@ -4070,6 +4216,11 @@
     , before                         =
     , belowskip                      = \c_zero_skip
     , book                           =
+    , canonicalheading / aboveskip   = \medskipamount
+    , canonicalheading / afterindent = false
+    , canonicalheading / align       = center
+    , canonicalheading / belowskip   = \medskipamount
+    , canonicalheading / font        = \footnotesize
     , colour                         = .
     , compact                        = false
     , chapter                        = \c_one_int
@@ -4819,6 +4970,11 @@
                               }
                           }
                       }
+                    {
+                      \exp_args:No \token_if_eq_meaning_p:NN
+                        {##1} \canonicalheading
+                    }
+                      { }
                     { \exp_args:No \token_if_eq_meaning_p:NN {##1} \ch }
                       { }
                     { \exp_args:No \token_if_eq_meaning_p:NN {##1} \newch }
@@ -5430,6 +5586,17 @@
     \group_end:
     \parshape 1 ~ \@totalleftmargin ~ \linewidth
     \hook_gclear_next_code:n { scripture / pilcrow }
+    \peek_remove_spaces:n
+      {
+        \peek_analysis_map_inline:n
+          {
+            \exp_args:No \token_if_eq_meaning:NNT
+              {##1}
+              \canonicalheading
+              { \bool_gset_true:N \g_@@_suppress_next_pilcrow_bool }
+            \peek_analysis_map_break:n {##1}
+          }
+      }
   }
 %    \end{macrocode}
 % \end{macro}
@@ -5966,6 +6133,57 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\@@_canonicalheading:n}
+%   Output a canonical heading.
+%    \begin{macrocode}
+\cs_new_protected_nopar:Nn \@@_canonicalheading:n
+  {
+    \str_if_eq:VnTF \l_@@_currenvir_str { scripture }
+      {
+        \parshape 1 ~ \@totalleftmargin ~ \linewidth
+        \group_begin:
+        \legacy_if:nTF { @newlist }
+          {
+            \skip_horizontal:n { - \parindent }
+          }
+          {
+            \@@_list_para_end:
+            \addvspace { \l_@@_canonicalheading_aboveskip_tl }
+            \@@_noindent_saved:
+          }
+        \l_@@_canonicalheading_align_tl
+        \l_@@_canonicalheading_font_tl
+        \@@_canonicalheading_format:n {#1}
+        \@@_list_para_end:
+        \group_end:
+        \bool_if:NTF \l_@@_verse_para_bool
+          {
+            \cs_set_eq:NN \noindent \_@@_para_noindent:
+          }
+          {
+            \cs_set_eq:NN \noindent \@@_noindent_saved:
+          }
+        \legacy_if_set:nn
+          { @afterindent } { \l_@@_canonicalheading_afterindent_bool }
+        \bool_if:NF \l_@@_canonicalheading_afterindent_bool
+          {
+            \hook_gput_next_code:nn { para / before }
+              { \para_omit_indent: }
+          }
+        \nobreak
+        \@afterheading
+        \addvspace { \l_@@_canonicalheading_belowskip_tl }
+      }
+      {
+        \msg_error:nnx
+          { scripture }
+          { heading-error }
+          { \l_@@_currenvir_str }
+      }
+  }
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\@@_heading:n}
 %   Output a non-canonical heading.
 %    \begin{macrocode}
@@ -6179,6 +6397,16 @@
       }
     \cs_set_eq:NN \added \@@_added:n
     \cs_set_eq:NN \heading \@@_heading:n
+    \bool_if:NTF \l_@@_compact_bool
+      {
+        \cs_set_protected:Npn \canonicalheading ##1
+          {
+            \@@_set_pilcrow_hook:
+            \hook_use:n { scripture / pilcrow }
+            ##1
+          }
+      }
+      { \cs_set_eq:NN \canonicalheading \@@_canonicalheading:n }
     \cs_set_eq:NN \name \@@_name:n
     \cs_set_protected_nopar:Npn \LORD { \name { Lord } }
     \cs_set_protected_nopar:Npn \GOD { \name { God } }

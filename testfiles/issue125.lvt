@@ -1,0 +1,56 @@
+\documentclass[a4paper]{article}
+\input{regression-test}
+\usepackage{scripture}
+\scripturesetup{
+  aboveskip=\bigskipamount,
+  belowskip=\bigskipamount,
+}
+\pagestyle{empty}
+\begin{document}
+\START
+\showoutput
+\begin{scripture}[Psalm 3:1][chapter/para,chapter/format=PSALM~#1]
+  \ch{3}
+  \canonicalheading{A psalm of David. When he fled from his son Absalom.}
+  \begin{poetry}
+    \vs{1}\name{Lord}, how many are my foes!
+    How many rise up against me!
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Psalm 3:1][compact]
+  \ch{3}
+  \canonicalheading{A psalm of David. When he fled from his son Absalom.}
+  \begin{poetry}
+    \vs{1}\name{Lord}, how many are my foes!
+    How many rise up against me!
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Psalm 3:1][compact,pilcrow]
+  \ch{3}
+  \canonicalheading{A psalm of David. When he fled from his son Absalom.}
+  \begin{poetry}
+    \vs{1}\name{Lord}, how many are my foes!
+    How many rise up against me!
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Psalm 3:1][chapter/para,chapter/format=PSALM~#1,compact,verse/para,pilcrow]
+  \ch{3}
+  \canonicalheading{A psalm of David. When he fled from his son Absalom.}
+  \begin{poetry}
+    \vs{1}\name{Lord}, how many are my foes!
+    How many rise up against me!
+  \end{poetry}
+\end{scripture}
+
+\begin{scripture}[Psalm 3:1][chapter/para,chapter/format=PSALM~#1,verse/para,pilcrow]
+  \ch{3}
+  \canonicalheading{A psalm of David. When he fled from his son Absalom.}
+  \begin{poetry}
+    \vs{1}\name{Lord}, how many are my foes!
+    How many rise up against me!
+  \end{poetry}
+\end{scripture}
+\end{document}
