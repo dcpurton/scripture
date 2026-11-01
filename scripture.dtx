@@ -6165,11 +6165,6 @@
           }
         \legacy_if_set:nn
           { @afterindent } { \l_@@_canonicalheading_afterindent_bool }
-        \bool_if:NF \l_@@_canonicalheading_afterindent_bool
-          {
-            \hook_gput_next_code:nn { para / before }
-              { \para_omit_indent: }
-          }
         \nobreak
         \@afterheading
         \addvspace { \l_@@_canonicalheading_belowskip_tl }
@@ -6220,11 +6215,6 @@
               }
             \legacy_if_set:nn
               { @afterindent } { \l_@@_heading_afterindent_bool }
-            \bool_if:NF \l_@@_heading_afterindent_bool
-              {
-                \hook_gput_next_code:nn { para / before }
-                  { \para_omit_indent: }
-              }
             \nobreak
             \@afterheading
             \addvspace { \l_@@_heading_belowskip_tl }
